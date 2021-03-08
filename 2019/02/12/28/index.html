@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/syc.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/syc.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"qeuroal.top","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="……">
+<meta property="og:type" content="article">
+<meta property="og:title" content="28. cmd命令大全">
+<meta property="og:url" content="https://qeuroal.top/2019/02/12/28/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Bolg">
+<meta property="og:description" content="……">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-02-11T22:00:00.000Z">
+<meta property="article:modified_time" content="2021-01-07T06:39:55.388Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="cmd">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://qeuroal.top/2019/02/12/28/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>28. cmd命令大全 | Qeuroal's Bolg</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Qeuroal's Bolg" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Qeuroal's Bolg</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">积跬步至千里</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qeuroal.top/2019/02/12/28/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Qeuroal">
+      <meta itemprop="description" content="Talk is cheap, show me the code.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Bolg">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          28. cmd命令大全
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-02-12 06:00:00" itemprop="dateCreated datePublished" datetime="2019-02-12T06:00:00+08:00">2019-02-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-07 14:39:55" itemprop="dateModified" datetime="2021-01-07T14:39:55+08:00">2021-01-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Computer/" itemprop="url" rel="index"><span itemprop="name">Computer</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>……</p>
+<span id="more"></span>
+
+
+<ol>
+<li>AT          计划在计算机上运行的命令和程序。</li>
+<li>ATTRIB      显示或更改文件属性。</li>
+<li>BREAK       设置或清除扩展式 CTRL+C 检查。</li>
+<li>CACLS       显示或修改文件的访问控制列表(ACLs)。</li>
+<li>CALL        从另一个批处理程序调用这一个。</li>
+<li>CD          显示当前目录的名称或将其更改。</li>
+<li>CHCP        显示或设置活动代码页数。</li>
+<li>CHDIR       显示当前目录的名称或将其更改。</li>
+<li>CHKDSK      检查磁盘并显示状态报告。</li>
+<li>CHKNTFS     显示或修改启动时间磁盘检查。</li>
+<li>CLS         清除屏幕。</li>
+<li>CMD         打开另一个 Windows 命令解释程序窗口。</li>
+<li>COLOR       设置默认控制台前景和背景颜色。</li>
+<li>COMP        比较两个或两套文件的内容。</li>
+<li>COMPACT     显示或更改 NTFS 分区上文件的压缩。</li>
+<li>CONVERT     将 FAT 卷转换成 NTFS。您不能转换当前驱动器。</li>
+<li>COPY        将至少一个文件复制到另一个位置。</li>
+<li>DATE        显示或设置日期。</li>
+<li>DEL         删除至少一个文件。</li>
+<li>DIR         显示一个目录中的文件和子目录。</li>
+<li>DISKCOMP    比较两个软盘的内容。</li>
+<li>DISKCOPY    将一个软盘的内容复制到另一个软盘。</li>
+<li>DOSKEY      编辑命令行、调用 Windows 命令并创建宏。</li>
+<li>ECHO        显示消息，或将命令回显打开或关上。</li>
+<li>ENDLOCAL    结束批文件中环境更改的本地化。</li>
+<li>ERASE       删除至少一个文件。</li>
+<li>EXIT        退出 CMD.EXE 程序(命令解释程序)。</li>
+<li>FC          比较两个或两套文件，并显示不同处。</li>
+<li>FIND        在文件中搜索文字字符串。</li>
+<li>FINDSTR     在文件中搜索字符串。</li>
+<li>FOR         为一套文件中的每个文件运行一个指定的命令。</li>
+<li>FORMAT      格式化磁盘，以便跟 Windows 使用。</li>
+<li>FTYPE       显示或修改用于文件扩展名关联的文件类型。</li>
+<li>GOTO        将 Windows 命令解释程序指向批处理程序中某个标明的行1. 。</li>
+<li>GRAFTABL    启用 Windows 来以图像模式显示扩展字符集。</li>
+<li>HELP        提供 Windows 命令的帮助信息。</li>
+<li>IF          执行批处理程序中的条件性处理。</li>
+<li>LABEL       创建、更改或删除磁盘的卷标。</li>
+<li>MD          创建目录。</li>
+<li>MKDIR       创建目录。</li>
+<li>MODE        配置系统设备。</li>
+<li>MORE        一次显示一个结果屏幕。</li>
+<li>MOVE        将文件从一个目录移到另一个目录。</li>
+<li>PATH        显示或设置可执行文件的搜索路径。</li>
+<li>PAUSE       暂停批文件的处理并显示消息。</li>
+<li>POPD        还原PUSHD保存的当前目录的上一个值。</li>
+<li>PRINT       打印文本文件。</li>
+<li>PROMPT      更改Windows命令提示符。</li>
+<li>PUSHD       保存当前目录，然后对其进行更改。</li>
+<li>RD          删除目录。</li>
+<li>RECOVER     从有问题的磁盘恢复可读信息。</li>
+<li>REM         记录批文件或CONFIG.SYS中的注释。</li>
+<li>REN         重命名文件。</li>
+<li>RENAME      重命名文件。</li>
+<li>REPLACE     替换文件。</li>
+<li>RMDIR       删除目录</li>
+<li>SET         显示、设置或删除Windows环境变量。</li>
+<li>SETLOCAL    开始批文件中环境更改的本地化。</li>
+<li>SHIFT       更换批文件中可替换参数的位置。</li>
+<li>SORT        对输入进行分类。</li>
+<li>START       启动另一个窗口来运行指定的程序或命令。</li>
+<li>SUBST       将路径跟一个驱动器号关联。</li>
+<li>TIME        显示或设置系统时间。</li>
+<li>TITLE       设置CMD.EXE会话的窗口标题。</li>
+<li>TREE        以图形模式显示驱动器或路径的目录结构。</li>
+<li>TYPE        显示文本文件的内容。</li>
+<li>VER         显示Windows版本。</li>
+<li>VERIFY      告诉Windows   是否验证文件是否已正确写入磁盘。</li>
+<li>VOL         显示磁盘卷标和序列号。</li>
+<li>XCOPY       复制文件和目录树。</li>
+<li>appwiz.cpl  添加删除程序</li>
+<li>control userpasswords2  用户帐户设置</li>
+<li>cleanmgr    垃圾整理</li>
+<li>CMD         命令提示符可以当作是Windows的一个附件</li>
+<li>Ping，Convert这些不能在图形环境下使用的功能要借助它来完成。</li>
+<li>cmd         jview察看Java虚拟机版本。</li>
+<li>command.com 调用的则是系统内置的NTVDM，一个DOS虚拟机。它完全是一个类似VirtualPC的虚拟环境，和系统本身联系不大。当我们在命令提示符下运行  DOS程序时，实际上也是自动转移到NTVDM虚拟机下，和CMD本身没什么关系。</li>
+<li>calc        启动计算器</li>
+<li>chkdsk.exe  Chkdsk磁盘检查</li>
+<li>compmgmt.msc    计算机管理</li>
+<li>conf        启动netmeeting</li>
+<li>control userpasswords2 User Account 权限设置</li>
+<li>devmgmt.msc     设备管理器</li>
+<li>diskmgmt.msc    磁盘管理实用程序</li>
+<li>dfrg.msc        磁盘碎片整理程序</li>
+<li>drwtsn32        系统医生</li>
+<li>dvdplay         启动Media Player</li>
+<li>dxdiag DirectX Diagnostic Tool</li>
+<li>gpedit.msc      组策略编辑器</li>
+<li>gpupdate /target:computer /force    强制刷新组策略</li>
+<li>eventvwr.exe    事件查看器</li>
+<li>explorer    打开资源管理器</li>
+<li>logoff      注销命令</li>
+<li>lusrmgr.msc 本机用户和组</li>
+<li>msinfo32    系统信息</li>
+<li>msconfig    系统配置实用程序</li>
+<li>net start (servicename) 启动该服务</li>
+<li>net stop (servicename)  停止该服务</li>
+<li>notepad     打开记事本</li>
+<li>nusrmgr.cpl 同control userpasswords，打开用户帐户控制面板</li>
+<li>Nslookup    IP地址侦测器</li>
+<li>oobe/msoobe /a  检查系统是否激活</li>
+<li>perfmon.msc 计算机性能监测程序</li>
+<li>progman     程序管理器</li>
+<li>regedit     注册表编辑器</li>
+<li>regedt32    注册表编辑器</li>
+<li>regsvr32 /u *.dll   停止dll文件运行</li>
+<li>route print     查看路由表           </li>
+<li>rononce -p      15秒关机</li>
+<li>rsop.msc        组策略结果集</li>
+<li>rundll32.exe rundll32.exe %Systemroot%System32shimgvw.dll,ImageView_Fullscreen  启动一个空白的Windows图片和传真查看器</li>
+<li>secpol.msc      本地安全策略</li>
+<li>services.msc    本地服务设置</li>
+<li>sfc /scannow    启动系统文件检查器</li>
+<li>sndrec32        录音机</li>
+<li>taskmgr         任务管理器（适用于2000／xp／2003）</li>
+<li>tsshutdn        60秒倒计时关机命令</li>
+<li>winchat         XP自带局域网聊天</li>
+<li>winmsd          系统信息</li>
+<li>winver          显示About Windows窗口</li>
+<li>wupdmgr         Windows Update</li>
+<li>mspaint:打开画图</li>
+<li>calc:打开计算器</li>
+<li>winver:检查window版本</li>
+<li>mstsc:远程桌面连接</li>
+<li>write:写字板</li>
+<li>mem.exe:显示内存的使用情况</li>
+<li>notepad:打开记事本</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作！(づ￣3￣)づ╭❤～</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Qeuroal 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Qeuroal 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://qeuroal.top/2019/02/12/28/" title="28. cmd命令大全">https://qeuroal.top/2019/02/12/28/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/cmd/" rel="tag"><i class="fa fa-tag"></i> cmd</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/02/12/27/" rel="prev" title="27. BFS和DFS基础知识">
+      <i class="fa fa-chevron-left"></i> 27. BFS和DFS基础知识
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/02/14/29/" rel="next" title="29. 完全平方数">
+      29. 完全平方数 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1808492017&auto=0&height=66"></iframe>
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">Talk is cheap, show me the code.</div>
+</div>
+
+
+
+   <div class="feed-link motion-element">
+     <a href="/atom.xml" rel="alternate">
+       <i class="fa fa-rss"></i>
+       RSS
+     </a>
+   </div>
+
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">131</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qeuroal@163.com" title="E-Mail → mailto:qeuroal@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://zeroto521.github.io/" title="https:&#x2F;&#x2F;zeroto521.github.io" rel="noopener" target="_blank">待续</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://muyuuuu.github.io/" title="https:&#x2F;&#x2F;muyuuuu.github.io" rel="noopener" target="_blank">兰铃</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://androiddevelop.github.io/" title="https:&#x2F;&#x2F;androiddevelop.github.io" rel="noopener" target="_blank">codeboy</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.liuchuo.net/" title="https:&#x2F;&#x2F;www.liuchuo.net&#x2F;" rel="noopener" target="_blank">柳婼</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">468k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">7:05</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.2
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'a843929e5f99a5064bcf',
+      clientSecret: '7d99e17f45330eb785308b0a8c8f133d4058b0eb',
+      repo        : 'Qeuroal.github.io',
+      owner       : 'Qeuroal',
+      admin       : ['Qeuroal'],
+      id          : '6a289c56e24cdb80f334187165bf29bf',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

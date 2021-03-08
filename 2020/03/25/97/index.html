@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/syc.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/syc.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"qeuroal.top","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="双系统时间不一致 首先我们把硬件时间（BIOS时间）将默认的UTC改为CST，然后重启，使得两个系统的时间保持一致  sudo timedatectl set-local-rtc 1kv上述代码中的1改为0即可将硬件时间修改为默认的UTC时间sudo reboot重启系统使改动生效">
+<meta property="og:type" content="article">
+<meta property="og:title" content="97. 双系统安装之后必做的事">
+<meta property="og:url" content="https://qeuroal.top/2020/03/25/97/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Bolg">
+<meta property="og:description" content="双系统时间不一致 首先我们把硬件时间（BIOS时间）将默认的UTC改为CST，然后重启，使得两个系统的时间保持一致  sudo timedatectl set-local-rtc 1kv上述代码中的1改为0即可将硬件时间修改为默认的UTC时间sudo reboot重启系统使改动生效">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-24T20:00:00.000Z">
+<meta property="article:modified_time" content="2021-01-07T06:39:55.391Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="双系统">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://qeuroal.top/2020/03/25/97/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>97. 双系统安装之后必做的事 | Qeuroal's Bolg</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Qeuroal's Bolg" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Qeuroal's Bolg</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">积跬步至千里</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qeuroal.top/2020/03/25/97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Qeuroal">
+      <meta itemprop="description" content="Talk is cheap, show me the code.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Bolg">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          97. 双系统安装之后必做的事
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-25 04:00:00" itemprop="dateCreated datePublished" datetime="2020-03-25T04:00:00+08:00">2020-03-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-07 14:39:55" itemprop="dateModified" datetime="2021-01-07T14:39:55+08:00">2021-01-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="双系统时间不一致"><a href="#双系统时间不一致" class="headerlink" title="双系统时间不一致"></a>双系统时间不一致</h1><ol>
+<li><p>首先我们把硬件时间（BIOS时间）将默认的UTC改为CST，然后重启，使得两个系统的时间保持一致</p>
+<blockquote>
+<p><code>sudo timedatectl set-local-rtc 1kv</code><br>上述代码中的1改为0即可将硬件时间修改为默认的UTC时间<br><code>sudo reboot</code><br>重启系统使改动生效 </p>
+</blockquote>
+<span id="more"></span></li>
+<li><p>接着我们更新一下系统时间</p>
+<blockquote>
+<p><code>sudo apt-get install ntpdate</code><br>这里的操作是安装ntpdate工具<br><code>sudo ntpdate time.windows.com</code><br>使用ntpdate工具从time.windows.com上面同步时间 </p>
+</blockquote>
+</li>
+<li><p>最后我们将时间更新到硬件上，以保证重启后改动不会被还原</p>
+<blockquote>
+<p><code>sudo hwclock --localtime --systohc</code><br>这里的代码意思是使用hwclock命令将本地时间localtime从sysclock同步到hwclock </p>
+</blockquote>
+</li>
+</ol>
+<h1 id="Ubuntu-科学上网"><a href="#Ubuntu-科学上网" class="headerlink" title="Ubuntu 科学上网"></a>Ubuntu 科学上网</h1><ol>
+<li><a href="/files/ssr-linux.AppImage">点击这里下载AppImage</a> </li>
+<li><a href="/files/electron-ssr-0.2.6.deb">点击这里下载deb</a> </li>
+</ol>
+<blockquote>
+<p>注意：必须要安装 Python2、Python3，才可以使用<br>deb安装： <code>sudo dpkg -i &lt;deb文件&gt;</code></p>
+</blockquote>
+<h1 id="Windows-Defender关闭"><a href="#Windows-Defender关闭" class="headerlink" title="Windows Defender关闭"></a>Windows Defender关闭</h1><ol>
+<li><code>cmd</code> 运行 <code>regedit</code></li>
+<li>定位到： <code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SecurityHealthService</code></li>
+<li>在右侧找到 <code>DWORD（32位）</code> 值，名为 <code>Start</code></li>
+<li>修改数值数据为4(十六进制)</li>
+<li>重启文件资源管理器，或注销再登录/重启系统<blockquote>
+<p>注意:</p>
+<ol>
+<li>如果你安装第三方杀软或安全软件，Windows Defender会自动被关闭。</li>
+<li>start的默认值为 <code>3</code></li>
+</ol>
+</blockquote>
+</li>
+</ol>
+<h1 id="Ubuntu-安装字体"><a href="#Ubuntu-安装字体" class="headerlink" title="Ubuntu 安装字体"></a>Ubuntu 安装字体</h1><blockquote>
+<p>详见<a href="2020-1-7-85.md">Ubuntu配置Win10字体</a></p>
+</blockquote>
+<h1 id="Ubuntu-安装zsh"><a href="#Ubuntu-安装zsh" class="headerlink" title="Ubuntu 安装zsh"></a>Ubuntu 安装zsh</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/Jinxiaoyu886/article/details/88974811">git、vim、oh-my-zsh 的安装和配置</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/1df9df37ef34">Linux 安装 oh-my-zsh</a></li>
+</ol>
+<h1 id="Ubuntu不能访问Windows下的磁盘"><a href="#Ubuntu不能访问Windows下的磁盘" class="headerlink" title="Ubuntu不能访问Windows下的磁盘"></a>Ubuntu不能访问Windows下的磁盘</h1><ol>
+<li>控制面板—系统和安全—电源选项—选择电源按钮的功能</li>
+<li>首先点击上部分的 <code>更改当前不可用的设置</code></li>
+<li>然后去掉 <code>启用快速启动（推荐）</code> 前面的勾即可</li>
+<li>这个时候再选择Windows关机后，就是完全关机了</li>
+</ol>
+<h1 id="不能读取exfat格式的u盘问题"><a href="#不能读取exfat格式的u盘问题" class="headerlink" title="不能读取exfat格式的u盘问题"></a>不能读取exfat格式的u盘问题</h1><ol>
+<li>Ubuntu默认不支持exfat格式的U盘，只需要运行如下的命令：<code>sudo apt-get install exfat-utils</code></li>
+<li>安装完成后重启即可</li>
+</ol>
+<h1 id="不能挂载移动硬盘问题"><a href="#不能挂载移动硬盘问题" class="headerlink" title="不能挂载移动硬盘问题"></a>不能挂载移动硬盘问题</h1><ol>
+<li>在终端输入如下命令，查看分区挂载情况： <code>sudo fdisk -l</code></li>
+<li>输入下面的命令： <code>sudo ntfsfix /dev/sdb1</code><blockquote>
+<p>注意：/dev/sdb1 为移动硬盘的设备名，找到硬盘size对应的设备名</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="Ubuntu-查找文件"><a href="#Ubuntu-查找文件" class="headerlink" title="Ubuntu 查找文件"></a>Ubuntu 查找文件</h1><ol>
+<li>命令：<code>locate &lt;文件名&gt;</code></li>
+<li>网址：<a target="_blank" rel="noopener" href="https://blog.csdn.net/dcrmg/article/details/78000961">在ubuntu中搜索文件或文件夹的方法</a></li>
+</ol>
+<h1 id="Ubuntu-更新慢"><a href="#Ubuntu-更新慢" class="headerlink" title="Ubuntu 更新慢"></a>Ubuntu 更新慢</h1><ol>
+<li><p>步骤:</p>
+<ol>
+<li>选择 <code>软件和更新</code></li>
+<li>打开 <code>软件和更新窗口</code></li>
+<li>我们点击 <code>Ubuntu软件</code> 选项卡下的 <code>其他站点</code></li>
+<li>这里有好多国外的源及我们国内的源，我也试了不少，我目前使用的是aliyun的源，感觉速度还不错，其他国内的速度也都不可以，大家也可以试试。不要怕麻烦，就是要折腾</li>
+<li>我们选择 <code>mirrors.aliyun.com</code>，然后点击 选择服务器</li>
+<li>同样需要我们密码认证</li>
+<li>修改成功</li>
+<li>等待系统更新完毕,源更新成功后，会自动关闭窗口。此时，我们安装软件或更新软件（系统）就是用的我们选择的源啦。</li>
+</ol>
+</li>
+<li><p>网址：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_22122811/article/details/52741428">Ubuntu加快软件安装更新速度方法</a></p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作！(づ￣3￣)づ╭❤～</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Qeuroal 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Qeuroal 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://qeuroal.top/2020/03/25/97/" title="97. 双系统安装之后必做的事">https://qeuroal.top/2020/03/25/97/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%8F%8C%E7%B3%BB%E7%BB%9F/" rel="tag"><i class="fa fa-tag"></i> 双系统</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/16/96/" rel="prev" title="96. Sublime 配置">
+      <i class="fa fa-chevron-left"></i> 96. Sublime 配置
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/29/98/" rel="next" title="98. JetBrains家族之Clion配置、汉化及快捷键">
+      98. JetBrains家族之Clion配置、汉化及快捷键 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1808492017&auto=0&height=66"></iframe>
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%8C%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%E4%B8%8D%E4%B8%80%E8%87%B4"><span class="nav-number">1.</span> <span class="nav-text">双系统时间不一致</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu-%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91"><span class="nav-number">2.</span> <span class="nav-text">Ubuntu 科学上网</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Windows-Defender%E5%85%B3%E9%97%AD"><span class="nav-number">3.</span> <span class="nav-text">Windows Defender关闭</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu-%E5%AE%89%E8%A3%85%E5%AD%97%E4%BD%93"><span class="nav-number">4.</span> <span class="nav-text">Ubuntu 安装字体</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu-%E5%AE%89%E8%A3%85zsh"><span class="nav-number">5.</span> <span class="nav-text">Ubuntu 安装zsh</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AEWindows%E4%B8%8B%E7%9A%84%E7%A3%81%E7%9B%98"><span class="nav-number">6.</span> <span class="nav-text">Ubuntu不能访问Windows下的磁盘</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8D%E8%83%BD%E8%AF%BB%E5%8F%96exfat%E6%A0%BC%E5%BC%8F%E7%9A%84u%E7%9B%98%E9%97%AE%E9%A2%98"><span class="nav-number">7.</span> <span class="nav-text">不能读取exfat格式的u盘问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8D%E8%83%BD%E6%8C%82%E8%BD%BD%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E9%97%AE%E9%A2%98"><span class="nav-number">8.</span> <span class="nav-text">不能挂载移动硬盘问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu-%E6%9F%A5%E6%89%BE%E6%96%87%E4%BB%B6"><span class="nav-number">9.</span> <span class="nav-text">Ubuntu 查找文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu-%E6%9B%B4%E6%96%B0%E6%85%A2"><span class="nav-number">10.</span> <span class="nav-text">Ubuntu 更新慢</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">Talk is cheap, show me the code.</div>
+</div>
+
+
+
+   <div class="feed-link motion-element">
+     <a href="/atom.xml" rel="alternate">
+       <i class="fa fa-rss"></i>
+       RSS
+     </a>
+   </div>
+
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">131</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qeuroal@163.com" title="E-Mail → mailto:qeuroal@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://zeroto521.github.io/" title="https:&#x2F;&#x2F;zeroto521.github.io" rel="noopener" target="_blank">待续</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://muyuuuu.github.io/" title="https:&#x2F;&#x2F;muyuuuu.github.io" rel="noopener" target="_blank">兰铃</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://androiddevelop.github.io/" title="https:&#x2F;&#x2F;androiddevelop.github.io" rel="noopener" target="_blank">codeboy</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.liuchuo.net/" title="https:&#x2F;&#x2F;www.liuchuo.net&#x2F;" rel="noopener" target="_blank">柳婼</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">468k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">7:05</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.2
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'a843929e5f99a5064bcf',
+      clientSecret: '7d99e17f45330eb785308b0a8c8f133d4058b0eb',
+      repo        : 'Qeuroal.github.io',
+      owner       : 'Qeuroal',
+      admin       : ['Qeuroal'],
+      id          : '3e1b05205f17d659004951db19af7ea4',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

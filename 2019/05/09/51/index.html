@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/syc.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/syc.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"qeuroal.top","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="数据结构与算法关系 数据结构与算法之间的关系类似于：梁山伯与祝英台或者说是罗密欧与朱丽叶">
+<meta property="og:type" content="article">
+<meta property="og:title" content="51. 算法">
+<meta property="og:url" content="https://qeuroal.top/2019/05/09/51/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Bolg">
+<meta property="og:description" content="数据结构与算法关系 数据结构与算法之间的关系类似于：梁山伯与祝英台或者说是罗密欧与朱丽叶">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-05-08T21:00:00.000Z">
+<meta property="article:modified_time" content="2021-01-07T06:39:55.389Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://qeuroal.top/2019/05/09/51/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>51. 算法 | Qeuroal's Bolg</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Qeuroal's Bolg" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Qeuroal's Bolg</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">积跬步至千里</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qeuroal.top/2019/05/09/51/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Qeuroal">
+      <meta itemprop="description" content="Talk is cheap, show me the code.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Bolg">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          51. 算法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-09 05:00:00" itemprop="dateCreated datePublished" datetime="2019-05-09T05:00:00+08:00">2019-05-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-07 14:39:55" itemprop="dateModified" datetime="2021-01-07T14:39:55+08:00">2021-01-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <ul>
+<li><h1 id="数据结构与算法关系"><a href="#数据结构与算法关系" class="headerlink" title="数据结构与算法关系"></a>数据结构与算法关系</h1><blockquote>
+<p>数据结构与算法之间的关系类似于：梁山伯与祝英台或者说是罗密欧与朱丽叶</p>
+</blockquote>
+<span id="more"></span></li>
+</ul>
+<ul>
+<li><h1 id="算法定义"><a href="#算法定义" class="headerlink" title="算法定义"></a>算法定义</h1>算法：解决特定问题求解步骤的描述，在计算机中变现为指令的有限序列，并且每条指令表示一个或多个操作。</li>
+<li><h1 id="算法的特性"><a href="#算法的特性" class="headerlink" title="算法的特性"></a>算法的特性</h1><ol>
+<li>输入</li>
+<li>输出</li>
+<li>有穷性</li>
+<li>确定性</li>
+<li>可行性</li>
+</ol>
+</li>
+<li><h1 id="算法设计的要求"><a href="#算法设计的要求" class="headerlink" title="算法设计的要求"></a>算法设计的要求</h1><ol>
+<li>正确性：<ol>
+<li>层次：<ol>
+<li>算法程序没有语法错误</li>
+<li>算法程序对于合法的输入数据能够产生满足要求的输出结果</li>
+<li>算法程序对于非法的输入数据能够得出满足规格说明的结果</li>
+<li>算法程序对于精心选择的，甚至刁难的测试数据都有满足要求的输出结果</li>
+</ol>
+</li>
+<li>算法的正确性在大部分情况下都不可能用程序来证明，而是用数学方法证明的</li>
+<li>一般情况下，我们把<code>层次3</code>作为一个算法是否正确的标准</li>
+</ol>
+</li>
+<li>可读性<ol>
+<li>算法设计的另一个目的是为了便于阅读、理解和交流</li>
+</ol>
+</li>
+<li>健壮性<ol>
+<li>当输入数据不合法时，算法也能做出相关处理，而不是产生异常或莫名其妙的结果</li>
+</ol>
+</li>
+<li>时间效率高和存储量低<ol>
+<li>时间效率：算法的执行时间</li>
+<li>存储量需求：算法在执行过程中需要的最大存储空间，主要指算法程序运行时所占用的内存或外部硬盘存储空间</li>
+<li>设计算法应该尽量满足时间效率高和存储量低的需求</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><h1 id="算法效率的度量方法"><a href="#算法效率的度量方法" class="headerlink" title="算法效率的度量方法"></a>算法效率的度量方法</h1><ol>
+<li>事后统计方法<ol>
+<li>存在各种各样的缺陷，一般不予考虑</li>
+</ol>
+</li>
+<li>事前分析估算方法<ol>
+<li>时间取决因素：<ol>
+<li>算法采用的策略、方法</li>
+<li>编译产生的代码质量</li>
+<li>问题的输入规模</li>
+<li>机器执行指令的速度<h3 id="其中：第1条是算法好坏的根本；第2条由软件来支持；第3条看硬件性能。"><a href="#其中：第1条是算法好坏的根本；第2条由软件来支持；第3条看硬件性能。" class="headerlink" title="其中：第1条是算法好坏的根本；第2条由软件来支持；第3条看硬件性能。"></a>其中：第1条是算法好坏的根本；第2条由软件来支持；第3条看硬件性能。</h3><h3 id="抛开这些与计算机硬件软件有关的因素，一个程序的运行时间，依赖于算法的好坏和问题的输入规模。所谓-问题输入规模是指输入量的多少"><a href="#抛开这些与计算机硬件软件有关的因素，一个程序的运行时间，依赖于算法的好坏和问题的输入规模。所谓-问题输入规模是指输入量的多少" class="headerlink" title="抛开这些与计算机硬件软件有关的因素，一个程序的运行时间，依赖于算法的好坏和问题的输入规模。所谓 问题输入规模是指输入量的多少"></a>抛开这些与计算机硬件软件有关的因素，一个程序的运行时间，依赖于<code>算法的好坏和问题的输入规模</code>。所谓 <code>问题输入规模是指输入量的多少</code></h3></li>
+</ol>
+</li>
+<li>最终，再分析程序的运行时间时，最重要的是把程序看成是独立于程序设计语言的算法或一系列步骤</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><h1 id="函数的渐近增长"><a href="#函数的渐近增长" class="headerlink" title="函数的渐近增长"></a>函数的渐近增长</h1><ol>
+<li>给定两个函数$f(n)$ 和 $g(n)$，如果存在一个整数N，使得对于所有的 <code>n &gt; N</code>，$f(n)$ 总是比 $g(n)$大，那么我们说 $f(n)$的增长渐近快于 $g(n)$</li>
+<li>与最高次相乘的常数并不重要</li>
+<li>判断一个算法的效率时，函数中的常数和其他次要项常常可以忽略，<code>而应该关注主项（最高阶项）的阶数</code></li>
+</ol>
+</li>
+<li><h1 id="算法时间复杂度"><a href="#算法时间复杂度" class="headerlink" title="算法时间复杂度"></a>算法时间复杂度</h1><ol>
+<li>算法时间复杂度定义：<br><br>在进行算法分析时，语句总的执行次数 $T(n)$是关于问题规模n的函数，进而分析 $T(n)$随n的变化情况并确定 $T(n)$的数量级。算法的时间复杂度，也就是算法的时间量度，记作：$T(n)$=$O(f(n))$。它表示岁问题规模n的增大，算法执行时间的增长率和$f(n)$的增长率相同，称作算法的渐近时间复杂度，简称为时间复杂度。其中$f(n)$是问题规模n的某个函数。</li>
+<li>一般情况下，随着n的增大，$T(n)$增长最慢的算法为最优算法。 </li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><h1 id="常见的时间复杂度"><a href="#常见的时间复杂度" class="headerlink" title="常见的时间复杂度"></a>常见的时间复杂度</h1>$O(1) &lt; O(logn) &lt; O(n) &lt; O(nlogn) &lt; O(n ^ 2) &lt; O(n ^ 3) &lt; O(2 ^ n) &lt; O(n!) &lt; O(n ^ n)$</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作！(づ￣3￣)づ╭❤～</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Qeuroal 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Qeuroal 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://qeuroal.top/2019/05/09/51/" title="51. 算法">https://qeuroal.top/2019/05/09/51/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/05/09/50/" rel="prev" title="50. 免费馅饼">
+      <i class="fa fa-chevron-left"></i> 50. 免费馅饼
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/05/09/52/" rel="next" title="52. 串">
+      52. 串 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1808492017&auto=0&height=66"></iframe>
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%85%B3%E7%B3%BB"><span class="nav-number">1.</span> <span class="nav-text">数据结构与算法关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E5%AE%9A%E4%B9%89"><span class="nav-number">2.</span> <span class="nav-text">算法定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E7%89%B9%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">算法的特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E7%9A%84%E8%A6%81%E6%B1%82"><span class="nav-number">4.</span> <span class="nav-text">算法设计的要求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%95%88%E7%8E%87%E7%9A%84%E5%BA%A6%E9%87%8F%E6%96%B9%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">算法效率的度量方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%B8%AD%EF%BC%9A%E7%AC%AC1%E6%9D%A1%E6%98%AF%E7%AE%97%E6%B3%95%E5%A5%BD%E5%9D%8F%E7%9A%84%E6%A0%B9%E6%9C%AC%EF%BC%9B%E7%AC%AC2%E6%9D%A1%E7%94%B1%E8%BD%AF%E4%BB%B6%E6%9D%A5%E6%94%AF%E6%8C%81%EF%BC%9B%E7%AC%AC3%E6%9D%A1%E7%9C%8B%E7%A1%AC%E4%BB%B6%E6%80%A7%E8%83%BD%E3%80%82"><span class="nav-number">5.0.1.</span> <span class="nav-text">其中：第1条是算法好坏的根本；第2条由软件来支持；第3条看硬件性能。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%9B%E5%BC%80%E8%BF%99%E4%BA%9B%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6%E8%BD%AF%E4%BB%B6%E6%9C%89%E5%85%B3%E7%9A%84%E5%9B%A0%E7%B4%A0%EF%BC%8C%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4%EF%BC%8C%E4%BE%9D%E8%B5%96%E4%BA%8E%E7%AE%97%E6%B3%95%E7%9A%84%E5%A5%BD%E5%9D%8F%E5%92%8C%E9%97%AE%E9%A2%98%E7%9A%84%E8%BE%93%E5%85%A5%E8%A7%84%E6%A8%A1%E3%80%82%E6%89%80%E8%B0%93-%E9%97%AE%E9%A2%98%E8%BE%93%E5%85%A5%E8%A7%84%E6%A8%A1%E6%98%AF%E6%8C%87%E8%BE%93%E5%85%A5%E9%87%8F%E7%9A%84%E5%A4%9A%E5%B0%91"><span class="nav-number">5.0.2.</span> <span class="nav-text">抛开这些与计算机硬件软件有关的因素，一个程序的运行时间，依赖于算法的好坏和问题的输入规模。所谓 问题输入规模是指输入量的多少</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E6%B8%90%E8%BF%91%E5%A2%9E%E9%95%BF"><span class="nav-number">6.</span> <span class="nav-text">函数的渐近增长</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">7.</span> <span class="nav-text">算法时间复杂度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">8.</span> <span class="nav-text">常见的时间复杂度</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">Talk is cheap, show me the code.</div>
+</div>
+
+
+
+   <div class="feed-link motion-element">
+     <a href="/atom.xml" rel="alternate">
+       <i class="fa fa-rss"></i>
+       RSS
+     </a>
+   </div>
+
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">131</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qeuroal@163.com" title="E-Mail → mailto:qeuroal@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://zeroto521.github.io/" title="https:&#x2F;&#x2F;zeroto521.github.io" rel="noopener" target="_blank">待续</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://muyuuuu.github.io/" title="https:&#x2F;&#x2F;muyuuuu.github.io" rel="noopener" target="_blank">兰铃</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://androiddevelop.github.io/" title="https:&#x2F;&#x2F;androiddevelop.github.io" rel="noopener" target="_blank">codeboy</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.liuchuo.net/" title="https:&#x2F;&#x2F;www.liuchuo.net&#x2F;" rel="noopener" target="_blank">柳婼</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">468k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">7:05</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.2
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'a843929e5f99a5064bcf',
+      clientSecret: '7d99e17f45330eb785308b0a8c8f133d4058b0eb',
+      repo        : 'Qeuroal.github.io',
+      owner       : 'Qeuroal',
+      admin       : ['Qeuroal'],
+      id          : '11fcf2175c53a327922c5132aa7c27ee',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

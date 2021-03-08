@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/syc.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/syc.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"qeuroal.top","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="位运算：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2. 位运算的知识点以及常用技巧">
+<meta property="og:url" content="https://qeuroal.top/2019/01/19/2/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Bolg">
+<meta property="og:description" content="位运算：">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-01-18T21:00:00.000Z">
+<meta property="article:modified_time" content="2021-01-07T06:39:55.388Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="位运算">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://qeuroal.top/2019/01/19/2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>2. 位运算的知识点以及常用技巧 | Qeuroal's Bolg</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Qeuroal's Bolg" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Qeuroal's Bolg</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">积跬步至千里</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qeuroal.top/2019/01/19/2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Qeuroal">
+      <meta itemprop="description" content="Talk is cheap, show me the code.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Bolg">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2. 位运算的知识点以及常用技巧
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-01-19 05:00:00" itemprop="dateCreated datePublished" datetime="2019-01-19T05:00:00+08:00">2019-01-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-07 14:39:55" itemprop="dateModified" datetime="2021-01-07T14:39:55+08:00">2021-01-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" itemprop="url" rel="index"><span itemprop="name">程序设计</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="位运算："><a href="#位运算：" class="headerlink" title="位运算："></a>位运算：</h1><span id="more"></span>
+
+<h2 id="amp-（与）"><a href="#amp-（与）" class="headerlink" title="&amp; （与）"></a><code>&amp;</code> （与）</h2><p> eg: </p>
+<blockquote>
+<p>1 0 1<br>0 0 1<br>0 0 1</p>
+</blockquote>
+<ul>
+<li><h2 id="（或）"><a href="#（或）" class="headerlink" title="| （或）"></a><code>|</code> （或）</h2><h4 id="eg"><a href="#eg" class="headerlink" title="eg:"></a>eg:</h4><blockquote>
+<p>1 0 1<br>0 0 1<br>1 0 1</p>
+</blockquote>
+</li>
+<li><h2 id="（异或）"><a href="#（异或）" class="headerlink" title="^ （异或）"></a><code>^</code> （异或）</h2></li>
+</ul>
+<h3 id="1-运算规则：（不进位加法）"><a href="#1-运算规则：（不进位加法）" class="headerlink" title="1. 运算规则：（不进位加法）"></a>1. 运算规则：（不进位加法）</h3><blockquote>
+<p>   0 &nbsp; &nbsp; &nbsp;  &nbsp; 0 ——&gt; 0<br>    1 &nbsp; &nbsp; &nbsp;  &nbsp; 0 ——&gt; 1<br>    0 &nbsp; &nbsp; &nbsp;  &nbsp; 1 ——&gt; 1<br>    1 &nbsp; &nbsp; &nbsp;  &nbsp; 1 ——&gt; 0  </p>
+</blockquote>
+<h3 id="2-不进位的加法："><a href="#2-不进位的加法：" class="headerlink" title="2. 不进位的加法："></a>2. 不进位的加法：</h3><blockquote>
+<p>1 ^ 1 ==&gt; 0  正常的话：1 + 1 = 20,但是只看个位，因此，取0</p>
+</blockquote>
+<h3 id="3-运算法则："><a href="#3-运算法则：" class="headerlink" title="3. 运算法则："></a>3. 运算法则：</h3><ol>
+<li>交换律</li>
+<li>结合律  <blockquote>
+<p>即$(a^b)^c == a^{b^c}$</p>
+</blockquote>
+</li>
+<li>对于任何数x，都有  <blockquote>
+<p>$x^x=0，x^0=x$</p>
+</blockquote>
+</li>
+<li>自反性：  <blockquote>
+<p>A XOR B XOR B = A xor  0 = A</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><h2 id="（取反）"><a href="#（取反）" class="headerlink" title="~ （取反）"></a><code>~</code> （取反）</h2><blockquote>
+<p>把 0 变成 1<br>把 1 变成 0</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="lt-lt-（左移）"><a href="#lt-lt-（左移）" class="headerlink" title="&lt;&lt; （左移）"></a><code>&lt;&lt;</code> （左移）</h2><h4 id="eg-1"><a href="#eg-1" class="headerlink" title="eg:"></a>eg:</h4><blockquote>
+<ol>
+<li>1101 &lt;&lt; 1 ===&gt; 11010</li>
+<li>1 &lt;&lt; n  ==    $2^n$ （向上取整）</li>
+</ol>
+</blockquote>
+<h2 id="gt-gt-（右移）"><a href="#gt-gt-（右移）" class="headerlink" title="&gt;&gt; （右移）"></a><code>&gt;&gt;</code> （右移）</h2><h4 id="eg-2"><a href="#eg-2" class="headerlink" title="eg:"></a>eg:</h4><blockquote>
+<ol>
+<li>1101 &gt;&gt; 1 ===&gt; 110</li>
+<li>n &gt;&gt; x  ==    $n \over 2^x$(向下取整)</li>
+</ol>
+</blockquote>
+<h1 id="技巧："><a href="#技巧：" class="headerlink" title="技巧："></a>技巧：</h1><blockquote>
+<ol>
+<li>x + (-x)</li>
+</ol>
+</blockquote>
+<h1 id="经验："><a href="#经验：" class="headerlink" title="经验："></a>经验：</h1><ul>
+<li>将数组无穷大：memset(nums, 0x3f, sizeof(nums))</li>
+<li>竞赛中少使用#include &lt;bits/stdc++.h&gt;  // 原因：编译的时间过长,时间会超时</li>
+<li>转化成 long long的形式：乘以 <code>1ll</code>,例子见——&gt;快速幂算法模板—求$ a^b%p$</li>
+<li>将大数组放到全局变量中</li>
+</ul>
+<hr>
+<h1 id="快速幂算法模板"><a href="#快速幂算法模板" class="headerlink" title="快速幂算法模板"></a>快速幂算法模板</h1><h3 id="1：求-a-b"><a href="#1：求-a-b" class="headerlink" title="1：求 $ a^b $"></a>1：求 $ a^b $</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">quickPower</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b) &#123;</span><br><span class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>)</span><br><span class="line">            res *= <span class="number">1ll</span> * a;</span><br><span class="line">        a *= a;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2：求-a-b-p"><a href="#2：求-a-b-p" class="headerlink" title="2：求 $a^b%p$"></a>2：求 $a^b%p$</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">quickPowerMod</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">1</span> % p;</span><br><span class="line">    <span class="keyword">while</span>(b) &#123;</span><br><span class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>)</span><br><span class="line">            res = res * <span class="number">1ll</span> * a % p;</span><br><span class="line">        a = a * <span class="number">1ll</span> * a % p;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="模运算法则"><a href="#模运算法则" class="headerlink" title="模运算法则"></a>模运算法则</h1><ul>
+<li>(a + b) % p = (a % p + b % p) % p </li>
+<li>(a - b) % p = (a % p - b % p) % p </li>
+<li>(a * b) % p = (a % p * b % p) % p </li>
+<li>(a^b) % p = ((a % p)^b) % p </li>
+</ul>
+<hr>
+<h1 id="位运算常用技巧"><a href="#位运算常用技巧" class="headerlink" title="位运算常用技巧"></a>位运算常用技巧</h1><h2 id="用异或来实现配偶"><a href="#用异或来实现配偶" class="headerlink" title="用异或来实现配偶"></a>用异或来实现配偶</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0，1</span><br><span class="line">2，3</span><br><span class="line">4, 5</span><br><span class="line">6, 7</span><br><span class="line">……</span><br></pre></td></tr></table></figure>
+<h4 id="即-把每个整数异或一个1，就可以得到他的配偶"><a href="#即-把每个整数异或一个1，就可以得到他的配偶" class="headerlink" title="即(把每个整数异或一个1，就可以得到他的配偶)"></a>即(把每个整数异或一个1，就可以得到他的配偶)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0 ^ 1 &#x3D; 1,            1 ^ 1 &#x3D; 0</span><br><span class="line">2 ^ 1 &#x3D; 3,            3 ^ 1 &#x3D; 2</span><br><span class="line">……</span><br><span class="line">2k ^ 1 &#x3D; 2k + 1,    (2k + 1) ^ 1 &#x3D; 2k</span><br></pre></td></tr></table></figure>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一般在图论里面，写最小费用流时，我们会存一个编的正向编和反向编，会需要快速求出来一个数的反向编是什么</span><br></pre></td></tr></table></figure>
+<h2 id="lowbit运算-树状数组的基础"><a href="#lowbit运算-树状数组的基础" class="headerlink" title="lowbit运算(树状数组的基础)"></a>lowbit运算(树状数组的基础)</h2><blockquote>
+<h4 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h4><p>快速的求出来整数n，在二进制表示里面，最低的一位1是哪个(或者说：n的二进制表示中最右边一个1)</p>
+</blockquote>
+<h4 id="效果："><a href="#效果：" class="headerlink" title="效果："></a>效果：</h4><p>lowbit(1110011000) ——&gt; 1000</p>
+<h4 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">首先，假设n的二进制是1110011000</span><br><span class="line">然后，对n取反，得到：~n &#x3D; 0001100111</span><br><span class="line">接着，~n+1  &#x3D;&#x3D;&#x3D;&gt;  0001101000</span><br><span class="line">紧接着，(~n + 1) &amp; n &#x3D;&#x3D;&#x3D;&gt; 0000001000 &#x3D;&#x3D;&#x3D;&gt; 1000</span><br><span class="line">最后，由于-n &#x3D; ~n + 1,所以lowbit就是：(-n) &amp; n</span><br></pre></td></tr></table></figure>
+<h4 id="代码实现："><a href="#代码实现：" class="headerlink" title="代码实现："></a>代码实现：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int lowbit(int n)</span><br><span class="line">&#123;</span><br><span class="line">    return (-n) &amp; n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h4 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h4><ol>
+<li>复杂度和1的个数有关和 </li>
+<li>可以快速求出来一个整数里面有多少个1</li>
+<li>求n是2的整次方幂<br>【释】：<br>$2^n$  &emsp; &ensp; &nbsp;<code>&lt;==&gt;</code> 1 &lt;&lt; n &ensp;<br>&emsp; &emsp; &emsp; **<code>⬇</code>**<br>n &amp; -n &nbsp; <code>&lt;==&gt;</code> &nbsp; n；  </li>
+</ol>
+<p>  <em><strong>反之</strong></em>， <strong>n &amp; -n <code>&lt;</code> n</strong></p>
+</blockquote>
+<h1 id="原码、反码、补码"><a href="#原码、反码、补码" class="headerlink" title="原码、反码、补码"></a>原码、反码、补码</h1><h4 id="正数"><a href="#正数" class="headerlink" title="正数"></a>正数</h4><blockquote>
+<p>原码，反码，补码均相等。</p>
+</blockquote>
+<h4 id="负数"><a href="#负数" class="headerlink" title="负数"></a>负数</h4><blockquote>
+<ul>
+<li>反码求法：</li>
+</ul>
+<ol>
+<li>符号位不变。</li>
+<li>其他位取反。</li>
+</ol>
+<ul>
+<li>补码求法：</li>
+</ul>
+<p>1.符号位不变。<br>2.其他位取反。<br>3.最后一位加1。</p>
+</blockquote>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><blockquote>
+<p>以123和-123为例：</p>
+</blockquote>
+<ul>
+<li>[123] 原码：01111011。  反码：01111011。  补码：01111011。</li>
+<li>[-123]原码：11111011。 反码：10000100。  补码：10000101。</li>
+</ul>
+<h1 id="二进制转换成10进制"><a href="#二进制转换成10进制" class="headerlink" title="二进制转换成10进制"></a>二进制转换成10进制</h1><blockquote>
+<ol>
+<li>如果为正数，则直接求即可</li>
+<li>如果为负数，取反+1，然后求出数值前面加个负号。</li>
+</ol>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作！(づ￣3￣)づ╭❤～</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Qeuroal 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Qeuroal 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://qeuroal.top/2019/01/19/2/" title="2. 位运算的知识点以及常用技巧">https://qeuroal.top/2019/01/19/2/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" rel="tag"><i class="fa fa-tag"></i> 位运算</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/01/19/1/" rel="prev" title="1. 比特位计数 + n&(n-1)的妙用">
+      <i class="fa fa-chevron-left"></i> 1. 比特位计数 + n&(n-1)的妙用
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/01/19/3/" rel="next" title="3. 由数据范围反推算法复杂度以及算法内容">
+      3. 由数据范围反推算法复杂度以及算法内容 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1808492017&auto=0&height=66"></iframe>
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">位运算：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#amp-%EF%BC%88%E4%B8%8E%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">&amp; （与）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EF%BC%88%E6%88%96%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">| （或）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#eg"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">eg:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EF%BC%88%E5%BC%82%E6%88%96%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">^ （异或）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%BF%90%E7%AE%97%E8%A7%84%E5%88%99%EF%BC%9A%EF%BC%88%E4%B8%8D%E8%BF%9B%E4%BD%8D%E5%8A%A0%E6%B3%95%EF%BC%89"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. 运算规则：（不进位加法）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%B8%8D%E8%BF%9B%E4%BD%8D%E7%9A%84%E5%8A%A0%E6%B3%95%EF%BC%9A"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. 不进位的加法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%BF%90%E7%AE%97%E6%B3%95%E5%88%99%EF%BC%9A"><span class="nav-number">1.3.3.</span> <span class="nav-text">3. 运算法则：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EF%BC%88%E5%8F%96%E5%8F%8D%EF%BC%89"><span class="nav-number">1.4.</span> <span class="nav-text">~ （取反）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-lt-%EF%BC%88%E5%B7%A6%E7%A7%BB%EF%BC%89"><span class="nav-number">1.5.</span> <span class="nav-text">&lt;&lt; （左移）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#eg-1"><span class="nav-number">1.5.0.1.</span> <span class="nav-text">eg:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gt-gt-%EF%BC%88%E5%8F%B3%E7%A7%BB%EF%BC%89"><span class="nav-number">1.6.</span> <span class="nav-text">&gt;&gt; （右移）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#eg-2"><span class="nav-number">1.6.0.1.</span> <span class="nav-text">eg:</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8A%80%E5%B7%A7%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">技巧：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%8F%E9%AA%8C%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">经验：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E5%B9%82%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF"><span class="nav-number">4.</span> <span class="nav-text">快速幂算法模板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%9A%E6%B1%82-a-b"><span class="nav-number">4.0.1.</span> <span class="nav-text">1：求 $ a^b $</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%9A%E6%B1%82-a-b-p"><span class="nav-number">4.0.2.</span> <span class="nav-text">2：求 $a^b%p$</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E8%BF%90%E7%AE%97%E6%B3%95%E5%88%99"><span class="nav-number">5.</span> <span class="nav-text">模运算法则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="nav-number">6.</span> <span class="nav-text">位运算常用技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E5%BC%82%E6%88%96%E6%9D%A5%E5%AE%9E%E7%8E%B0%E9%85%8D%E5%81%B6"><span class="nav-number">6.1.</span> <span class="nav-text">用异或来实现配偶</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%B3-%E6%8A%8A%E6%AF%8F%E4%B8%AA%E6%95%B4%E6%95%B0%E5%BC%82%E6%88%96%E4%B8%80%E4%B8%AA1%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E5%BE%97%E5%88%B0%E4%BB%96%E7%9A%84%E9%85%8D%E5%81%B6"><span class="nav-number">6.1.0.1.</span> <span class="nav-text">即(把每个整数异或一个1，就可以得到他的配偶)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">6.1.0.2.</span> <span class="nav-text">使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lowbit%E8%BF%90%E7%AE%97-%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E7%9A%84%E5%9F%BA%E7%A1%80"><span class="nav-number">6.2.</span> <span class="nav-text">lowbit运算(树状数组的基础)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="nav-number">6.2.0.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%88%E6%9E%9C%EF%BC%9A"><span class="nav-number">6.2.0.2.</span> <span class="nav-text">效果：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%EF%BC%9A"><span class="nav-number">6.2.0.3.</span> <span class="nav-text">实现：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%EF%BC%9A"><span class="nav-number">6.2.0.4.</span> <span class="nav-text">代码实现：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8B%93%E5%B1%95"><span class="nav-number">6.2.0.5.</span> <span class="nav-text">拓展</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81%E3%80%81%E8%A1%A5%E7%A0%81"><span class="nav-number">7.</span> <span class="nav-text">原码、反码、补码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E6%95%B0"><span class="nav-number">7.0.0.1.</span> <span class="nav-text">正数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B4%9F%E6%95%B0"><span class="nav-number">7.0.0.2.</span> <span class="nav-text">负数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-number">7.0.0.3.</span> <span class="nav-text">例子</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E6%88%9010%E8%BF%9B%E5%88%B6"><span class="nav-number">8.</span> <span class="nav-text">二进制转换成10进制</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">Talk is cheap, show me the code.</div>
+</div>
+
+
+
+   <div class="feed-link motion-element">
+     <a href="/atom.xml" rel="alternate">
+       <i class="fa fa-rss"></i>
+       RSS
+     </a>
+   </div>
+
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">131</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qeuroal@163.com" title="E-Mail → mailto:qeuroal@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://zeroto521.github.io/" title="https:&#x2F;&#x2F;zeroto521.github.io" rel="noopener" target="_blank">待续</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://muyuuuu.github.io/" title="https:&#x2F;&#x2F;muyuuuu.github.io" rel="noopener" target="_blank">兰铃</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://androiddevelop.github.io/" title="https:&#x2F;&#x2F;androiddevelop.github.io" rel="noopener" target="_blank">codeboy</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.liuchuo.net/" title="https:&#x2F;&#x2F;www.liuchuo.net&#x2F;" rel="noopener" target="_blank">柳婼</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">468k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">7:05</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.2
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'a843929e5f99a5064bcf',
+      clientSecret: '7d99e17f45330eb785308b0a8c8f133d4058b0eb',
+      repo        : 'Qeuroal.github.io',
+      owner       : 'Qeuroal',
+      admin       : ['Qeuroal'],
+      id          : 'ebb6b4dda2e7f8c59fc8537ea72aa427',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/syc.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/syc.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"qeuroal.top","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="说明：以 Dell 游匣为例">
+<meta property="og:type" content="article">
+<meta property="og:title" content="62. 双系统安装：win10 + ubuntu 18.04">
+<meta property="og:url" content="https://qeuroal.top/2019/07/29/62/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Bolg">
+<meta property="og:description" content="说明：以 Dell 游匣为例">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/1.jpg">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/2.jpg">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/3.jpg">
+<meta property="og:image" content="https://qeuroal.top/images/posts/computer/8.png">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/7.jpg">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/4.jpg">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/5.jpg">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/6.jpg">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/8.jpg">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/9.jpg">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/10.jpg">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/11.jpg">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/12.jpg">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/13.jpg">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/16.jpg">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/15.jpg">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/17.jpg">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/14.jpg">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/18.jpg">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/19.jpg">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/20.jpg">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/21.jpg">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/22.jpg">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/23.png">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/24.jpg">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/27.jpg">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/25.jpg">
+<meta property="og:image" content="https://qeuroal.top/images/posts/ubuntu/install/26.jpg">
+<meta property="og:image" content="https://qeuroal.top/images/posts/computer/9.png">
+<meta property="article:published_time" content="2019-07-28T20:00:00.000Z">
+<meta property="article:modified_time" content="2021-01-07T06:39:55.389Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="双系统">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://qeuroal.top/images/posts/ubuntu/install/1.jpg">
+
+<link rel="canonical" href="https://qeuroal.top/2019/07/29/62/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>62. 双系统安装：win10 + ubuntu 18.04 | Qeuroal's Bolg</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Qeuroal's Bolg" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Qeuroal's Bolg</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">积跬步至千里</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qeuroal.top/2019/07/29/62/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Qeuroal">
+      <meta itemprop="description" content="Talk is cheap, show me the code.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Bolg">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          62. 双系统安装：win10 + ubuntu 18.04
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-07-29 04:00:00" itemprop="dateCreated datePublished" datetime="2019-07-29T04:00:00+08:00">2019-07-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-07 14:39:55" itemprop="dateModified" datetime="2021-01-07T14:39:55+08:00">2021-01-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Computer/" itemprop="url" rel="index"><span itemprop="name">Computer</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>说明：以 <code>Dell 游匣</code>为例</p>
+</blockquote>
+<span id="more"></span>
+
+
+<h1 id="设置BIOS"><a href="#设置BIOS" class="headerlink" title="设置BIOS"></a>设置BIOS</h1><ol>
+<li>进入BIOS，每台机型都不同，这里以戴尔为例，按住 <code>F2</code><br><img src="/images/posts/ubuntu/install/1.jpg"></li>
+<li>将 <code>Setting-System Configuration-SATA Operation</code>设置为 <code>AHCI</code><br><img src="/images/posts/ubuntu/install/2.jpg"></li>
+<li><code>Secure Boot-Secure Boot Enable</code> 设置为<code>Disabled</code><br><img src="/images/posts/ubuntu/install/3.jpg"></li>
+<li><code>Apply - Exit</code></li>
+</ol>
+<h1 id="安装-win10"><a href="#安装-win10" class="headerlink" title="安装 win10"></a>安装 <code>win10</code></h1><ol>
+<li>下载 <code>微PE</code> （由于微PE比较干净，不会强制安装软件，且版本为win10PE，由于低版本的会出现很多问题，如：硬盘识别不出来；U盘识别不出来……）,<a target="_blank" rel="noopener" href="http://down-ww3.newasp.net/pcdown/soft/soft1/wepe_64.exe">点击这里下载微PE</a></li>
+<li>使用键盘快捷键，进入PE</li>
+<li>将系统盘（或者全部的盘（想删除干净的话）） 删除分区，提交</li>
+<li>快速建立分区（一定要用这个，否则没有引导）<br><blockquote>
+<p>【注意】：如果要是安装双系统，并且在固态上安装ubuntu系统，那么，要分成两个区，删除其中的一个，不要弄成一个区，然后，<code>压缩卷</code>，这样的话，系统就会出现bug：安装完ubuntu之后，win10就坏了</p>
+</blockquote>
+</li>
+<li>还原win10镜像系统</li>
+</ol>
+<h1 id="安装-Ubuntu-18-04"><a href="#安装-Ubuntu-18-04" class="headerlink" title="安装 Ubuntu 18.04"></a>安装 <code>Ubuntu 18.04</code></h1><ol>
+<li><p>首先，在官网下载镜像，<a target="_blank" rel="noopener" href="http://cn.ubuntu.com/">点击这里下载</a>;</p>
+</li>
+<li><p>使用 <code>UltraISO</code> 制作系统盘（或者使用 <code>rufus</code> 制作，具体百度吧）：<br><img src="/images/posts/computer/8.png"></p>
+</li>
+<li><p>开始装系统：</p>
+<ol>
+<li><p>按住 <code>F12</code>，选择 <code>UEFI</code><br><img src="/images/posts/ubuntu/install/7.jpg"></p>
+</li>
+<li><p>选择： <code>Install Ubuntu</code><br><img src="/images/posts/ubuntu/install/4.jpg"></p>
+</li>
+<li><p>选择中文简体-继续<br><img src="/images/posts/ubuntu/install/5.jpg"></p>
+</li>
+<li><p>键盘布局默认选择-继续<br><img src="/images/posts/ubuntu/install/6.jpg"></p>
+</li>
+<li><p>不联网-继续<br><img src="/images/posts/ubuntu/install/8.jpg"></p>
+</li>
+<li><p>更新和其他软件-默认-继续<br><img src="/images/posts/ubuntu/install/9.jpg"></p>
+</li>
+<li><p>安装类型-其它选项-继续<br><img src="/images/posts/ubuntu/install/10.jpg"></p>
+</li>
+<li><p> 分区：</p>
+</li>
+<li><p>以系统安装在固态为例</p>
+<ol>
+<li>单击 <code>固态的空闲内存</code>（此处为51636），点 <code>+</code>， 挂载点选 <code>/</code>，ok<br><img src="/images/posts/ubuntu/install/11.jpg"></li>
+<li>单击 <code>机械硬盘的空闲内存</code>（此处为216372），点 <code>+</code>，输入200000（大约以这个比例输入），挂载点选 <code>/home</code>，ok<br><img src="/images/posts/ubuntu/install/12.jpg"></li>
+<li>单击<code>剩余的空闲内存</code>（此处为16372），点 <code>+</code>，设置为用于<code>交换空间</code>，点<code>现在安装</code>，继续；<br><img src="/images/posts/ubuntu/install/13.jpg"></li>
+</ol>
+</li>
+<li><p>都安装在机械硬盘：</p>
+<ol>
+<li>类似于上面，更加简单而已，<code>大小</code>类比于<code>安装Ubuntu 18.04 - 3.8.1</code>。</li>
+</ol>
+</li>
+<li><p>继续安装<br><img src="/images/posts/ubuntu/install/16.jpg"></p>
+</li>
+<li><p>位置-默认<br><img src="/images/posts/ubuntu/install/15.jpg"></p>
+</li>
+<li><p>设置用户名和密码，密码一定要记住<br><img src="/images/posts/ubuntu/install/17.jpg"></p>
+</li>
+<li><p>重启<br><img src="/images/posts/ubuntu/install/14.jpg"></p>
+</li>
+<li><p>重启，如果卡住了，就直接用电源强心关机，然后再开机，这个没关系的，放心弄就行<br><img src="/images/posts/ubuntu/install/18.jpg"></p>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="配置-Ubuntu-（非常重要）"><a href="#配置-Ubuntu-（非常重要）" class="headerlink" title="配置 Ubuntu （非常重要）"></a>配置 <code>Ubuntu</code> （非常重要）</h1><ol>
+<li><p>进入 <code>Ubuntu高级设置</code><br><img src="/images/posts/ubuntu/install/19.jpg"></p>
+</li>
+<li><p>进入 <code>Ubuntu,with Linux 4.10.0-15-generis (recovery mode)</code> （第二个）<br><img src="/images/posts/ubuntu/install/20.jpg"></p>
+</li>
+<li><p>进入 <code>resume resume normal boot</code><br><img src="/images/posts/ubuntu/install/21.jpg"></p>
+</li>
+<li><p>回车，继续进入此时，已经进入了Ubuntu了<br><img src="/images/posts/ubuntu/install/22.jpg"></p>
+</li>
+<li><p>运行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -f</span><br></pre></td></tr></table></figure>
+<p> <img src="/images/posts/ubuntu/install/23.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br><span class="line">sudo gedit &#x2F;etc&#x2F;defaul&#x2F;grub</span><br></pre></td></tr></table></figure>
+<p> <img src="/images/posts/ubuntu/install/24.jpg"><br>得到下图：<br> <img src="/images/posts/ubuntu/install/27.jpg"><br>【补】：全部命令<br> <img src="/images/posts/ubuntu/install/25.jpg"><br> <img src="/images/posts/ubuntu/install/26.jpg"></p>
+</li>
+<li><p>找到 <code>GRUB_CMDLINE_LINUX_DEFAULT</code>这一行，在 <code>quiet splash </code>后面添加 <code>nouveau.modeset=0</code></p>
+</li>
+<li><p>下面是我的电脑的grub配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"># If you change this file, run &#39;update-grub&#39; afterwards to update</span><br><span class="line"># &#x2F;boot&#x2F;grub&#x2F;grub.cfg.</span><br><span class="line"># For full documentation of the options in this file, see:</span><br><span class="line">#   info -f grub -n &#39;Simple configuration&#39;</span><br><span class="line"></span><br><span class="line">GRUB_DEFAULT&#x3D;0</span><br><span class="line">GRUB_TIMEOUT_STYLE&#x3D;hidden</span><br><span class="line">GRUB_TIMEOUT&#x3D;10</span><br><span class="line">GRUB_DISTRIBUTOR&#x3D;&#96;lsb_release -i -s 2&gt; &#x2F;dev&#x2F;null || echo Debian&#96;</span><br><span class="line">GRUB_CMDLINE_LINUX_DEFAULT&#x3D;&quot;quiet splash nouveau.modeset&#x3D;0&quot;</span><br><span class="line">GRUB_CMDLINE_LINUX&#x3D;&quot;&quot;</span><br><span class="line"></span><br><span class="line"># Uncomment to enable BadRAM filtering, modify to suit your needs</span><br><span class="line"># This works with Linux (no patch required) and with any kernel that obtains</span><br><span class="line"># the memory map information from GRUB (GNU Mach, kernel of FreeBSD ...)</span><br><span class="line">#GRUB_BADRAM&#x3D;&quot;0x01234567,0xfefefefe,0x89abcdef,0xefefefef&quot;</span><br><span class="line"></span><br><span class="line"># Uncomment to disable graphical terminal (grub-pc only)</span><br><span class="line">#GRUB_TERMINAL&#x3D;console</span><br><span class="line"></span><br><span class="line"># The resolution used on graphical terminal</span><br><span class="line"># note that you can use only modes which your graphic card supports via VBE</span><br><span class="line"># you can see them in real GRUB with the command &#96;vbeinfo&#39;</span><br><span class="line">#GRUB_GFXMODE&#x3D;640x480</span><br><span class="line"></span><br><span class="line"># Uncomment if you don&#39;t want GRUB to pass &quot;root&#x3D;UUID&#x3D;xxx&quot; parameter to Linux</span><br><span class="line">#GRUB_DISABLE_LINUX_UUID&#x3D;true</span><br><span class="line"></span><br><span class="line"># Uncomment to disable generation of recovery mode menu entries</span><br><span class="line">#GRUB_DISABLE_RECOVERY&#x3D;&quot;true&quot;</span><br><span class="line"></span><br><span class="line"># Uncomment to get a beep at grub start</span><br><span class="line">#GRUB_INIT_TUNE&#x3D;&quot;480 440 1&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>更新grub</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-grub</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="美化"><a href="#美化" class="headerlink" title="美化"></a>美化</h1><ol>
+<li><img src="/images/posts/computer/9.png"><br><br><a href="/files/62-1.pdf">点击这里下载教程</a></li>
+<li>包在<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1U_F1R65JpLinOQ8u-LALcA">这里下载</a> 提取码: 3knb</li>
+<li>附：其他美化视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av26156974?from=search&seid=9708955829816132659">点击这里</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作！(づ￣3￣)づ╭❤～</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Qeuroal 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Qeuroal 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://qeuroal.top/2019/07/29/62/" title="62. 双系统安装：win10 + ubuntu 18.04">https://qeuroal.top/2019/07/29/62/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%8F%8C%E7%B3%BB%E7%BB%9F/" rel="tag"><i class="fa fa-tag"></i> 双系统</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/07/27/61/" rel="prev" title="61. 明朝那些事儿">
+      <i class="fa fa-chevron-left"></i> 61. 明朝那些事儿
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/08/05/63/" rel="next" title="63. Excel常用函数">
+      63. Excel常用函数 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1808492017&auto=0&height=66"></iframe>
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEBIOS"><span class="nav-number">1.</span> <span class="nav-text">设置BIOS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-win10"><span class="nav-number">2.</span> <span class="nav-text">安装 win10</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Ubuntu-18-04"><span class="nav-number">3.</span> <span class="nav-text">安装 Ubuntu 18.04</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-Ubuntu-%EF%BC%88%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%81%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">配置 Ubuntu （非常重要）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BE%8E%E5%8C%96"><span class="nav-number">5.</span> <span class="nav-text">美化</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">Talk is cheap, show me the code.</div>
+</div>
+
+
+
+   <div class="feed-link motion-element">
+     <a href="/atom.xml" rel="alternate">
+       <i class="fa fa-rss"></i>
+       RSS
+     </a>
+   </div>
+
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">131</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qeuroal@163.com" title="E-Mail → mailto:qeuroal@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://zeroto521.github.io/" title="https:&#x2F;&#x2F;zeroto521.github.io" rel="noopener" target="_blank">待续</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://muyuuuu.github.io/" title="https:&#x2F;&#x2F;muyuuuu.github.io" rel="noopener" target="_blank">兰铃</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://androiddevelop.github.io/" title="https:&#x2F;&#x2F;androiddevelop.github.io" rel="noopener" target="_blank">codeboy</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.liuchuo.net/" title="https:&#x2F;&#x2F;www.liuchuo.net&#x2F;" rel="noopener" target="_blank">柳婼</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">468k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">7:05</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.2
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'a843929e5f99a5064bcf',
+      clientSecret: '7d99e17f45330eb785308b0a8c8f133d4058b0eb',
+      repo        : 'Qeuroal.github.io',
+      owner       : 'Qeuroal',
+      admin       : ['Qeuroal'],
+      id          : '25bfde03ea9ca50cd8e214909f3f6a07',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
