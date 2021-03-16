@@ -6,7 +6,7 @@
   <link href="https://qeuroal.top/atom.xml" rel="self"/>
   
   <link href="https://qeuroal.top/"/>
-  <updated>2021-03-09T06:38:07.715Z</updated>
+  <updated>2021-03-16T04:20:12.868Z</updated>
   <id>https://qeuroal.top/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>134. BIOS设置界面之DELL系列</title>
+    <link href="https://qeuroal.top/2021/03/16/134/"/>
+    <id>https://qeuroal.top/2021/03/16/134/</id>
+    <published>2021-03-16T04:06:32.000Z</published>
+    <updated>2021-03-16T04:20:12.868Z</updated>
+    
+    
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;BIOS界面的全部主要功能选项，重要的就那几条选项，其他不重要的无需过多了解。&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="计算机" scheme="https://qeuroal.top/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    
+    <category term="计算机" scheme="https://qeuroal.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>133. Next安装的插件</title>
@@ -95,7 +115,7 @@
     <link href="https://qeuroal.top/2021/03/03/130/"/>
     <id>https://qeuroal.top/2021/03/03/130/</id>
     <published>2021-03-03T08:21:50.000Z</published>
-    <updated>2021-03-09T05:09:26.784Z</updated>
+    <updated>2021-03-15T15:28:30.953Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;GUI简介&quot;&gt;&lt;a href=&quot;#GUI简介&quot; class=&quot;headerlink&quot; title=&quot;GUI简介&quot;&gt;&lt;/a&gt;GUI简介&lt;/h1&gt;&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;GUI核心开发技术：Swing、AWT&lt;br&gt;不流行原因：&lt;/p&gt;
@@ -150,7 +170,7 @@
     <link href="https://qeuroal.top/2021/02/03/128/"/>
     <id>https://qeuroal.top/2021/02/03/128/</id>
     <published>2021-02-03T09:08:19.000Z</published>
-    <updated>2021-02-03T09:16:35.504Z</updated>
+    <updated>2021-03-09T13:21:06.591Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;length-length-size&quot;&gt;&lt;a href=&quot;#length-length-size&quot; class=&quot;headerlink&quot; title=&quot;length(), length, size()&quot;&gt;&lt;/a&gt;length(), length, size()&lt;/h1&gt;&lt;ul&gt;
@@ -441,25 +461,6 @@
     
     
     <category term="面向对象" scheme="https://qeuroal.top/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>114. C/C++ 常用注释命令</title>
-    <link href="https://qeuroal.top/2020/12/03/114/"/>
-    <id>https://qeuroal.top/2020/12/03/114/</id>
-    <published>2020-12-02T20:00:00.000Z</published>
-    <updated>2021-01-07T06:39:55.386Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;常用命令&quot;&gt;&lt;a href=&quot;#常用命令&quot; class=&quot;headerlink&quot; title=&quot;常用命令&quot;&gt;&lt;/a&gt;常用命令&lt;/h1&gt;   &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;@attention           注意&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;@author              作者&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;@bug                 缺陷，链接到所有缺陷汇总的缺陷列表&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;@brief               简要注释&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;@code                代码块开始，与 “endcode” 成对使用&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;@endcode             代码块结束，与 “code” 成对使用&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;@details             详细注释&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;@date                日期&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;@file                &amp;lt;文件名&amp;gt; 文件参考，用在文件注释中&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;@param               参数，用在函数注释中&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;@return              返回，用在函数注释中&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;@todo                TODO，链接到所有 TODO 汇总的 TODO 列表&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;@version             版本&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;@warning             警告&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="C/C++" scheme="https://qeuroal.top/categories/C-C/"/>
-    
-    
-    <category term="C/C++" scheme="https://qeuroal.top/tags/C-C/"/>
     
   </entry>
   
