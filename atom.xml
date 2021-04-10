@@ -6,7 +6,7 @@
   <link href="https://qeuroal.top/atom.xml" rel="self"/>
   
   <link href="https://qeuroal.top/"/>
-  <updated>2021-04-10T01:46:15.590Z</updated>
+  <updated>2021-04-10T01:50:30.654Z</updated>
   <id>https://qeuroal.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://qeuroal.top/2021/04/10/138/"/>
     <id>https://qeuroal.top/2021/04/10/138/</id>
     <published>2021-04-10T01:35:05.000Z</published>
-    <updated>2021-04-10T01:46:15.590Z</updated>
+    <updated>2021-04-10T01:50:30.654Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;进入锁屏壁纸的文件夹&quot;&gt;&lt;a href=&quot;#进入锁屏壁纸的文件夹&quot; class=&quot;headerlink&quot; title=&quot;进入锁屏壁纸的文件夹&quot;&gt;&lt;/a&gt;进入锁屏壁纸的文件夹&lt;/h1&gt;&lt;ol&gt;
@@ -43,17 +43,17 @@
     <link href="https://qeuroal.top/2021/04/05/137/"/>
     <id>https://qeuroal.top/2021/04/05/137/</id>
     <published>2021-04-05T08:01:17.000Z</published>
-    <updated>2021-04-05T08:40:39.747Z</updated>
+    <updated>2021-04-10T01:48:25.365Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;h1 id=&quot;设置debug模式&quot;&gt;&lt;a href=&quot;#设置debug模式&quot; class=&quot;headerlink&quot; title=&quot;设置debug模式&quot;&gt;&lt;/a&gt;设置debug模式&lt;/h1&gt;&lt;ol&gt;
-&lt;li&gt;在 &lt;code&gt;app.run()&lt;/code&gt;</summary>
-        
-      
+&lt;li&gt;在 &lt;code&gt;app.run()&lt;/code&gt; 中传入一个关键字参数&lt;code&gt;debug&lt;/code&gt;，&lt;code&gt;app.run(debug=True)&lt;/code&gt;， 就设置当前项目为 &lt;code&gt;debug&lt;/code&gt; 模式&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;debug&lt;/code&gt; 模式的两大功能&lt;ul&gt;
+&lt;li&gt;当程序出现问题时，可以在也米那种看到错误信息和出错的位置&lt;/li&gt;
+&lt;li&gt;只要修改了项目中的 &lt;code&gt;Python&lt;/code&gt; 文件，程序会自动加载，不需要手动重新启动服务器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</summary>
     
     
     
