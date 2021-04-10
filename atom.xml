@@ -6,7 +6,7 @@
   <link href="https://qeuroal.top/atom.xml" rel="self"/>
   
   <link href="https://qeuroal.top/"/>
-  <updated>2021-03-16T04:20:12.868Z</updated>
+  <updated>2021-04-10T01:41:44.491Z</updated>
   <id>https://qeuroal.top/</id>
   
   <author>
@@ -15,6 +15,106 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>138. 如何保存win10锁屏壁纸</title>
+    <link href="https://qeuroal.top/2021/04/10/138/"/>
+    <id>https://qeuroal.top/2021/04/10/138/</id>
+    <published>2021-04-10T01:35:05.000Z</published>
+    <updated>2021-04-10T01:41:44.491Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;进入锁屏壁纸的文件夹&quot;&gt;&lt;a href=&quot;#进入锁屏壁纸的文件夹&quot; class=&quot;headerlink&quot; title=&quot;进入锁屏壁纸的文件夹&quot;&gt;&lt;/a&gt;进入锁屏壁纸的文件夹&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;打开 &lt;code&gt;文件资源管理器&lt;/code&gt; （按</summary>
+        
+      
+    
+    
+    
+    <category term="OS" scheme="https://qeuroal.top/categories/OS/"/>
+    
+    
+    <category term="OS" scheme="https://qeuroal.top/tags/OS/"/>
+    
+    <category term="win10" scheme="https://qeuroal.top/tags/win10/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>137. Flask</title>
+    <link href="https://qeuroal.top/2021/04/05/137/"/>
+    <id>https://qeuroal.top/2021/04/05/137/</id>
+    <published>2021-04-05T08:01:17.000Z</published>
+    <updated>2021-04-05T08:40:39.747Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;设置debug模式&quot;&gt;&lt;a href=&quot;#设置debug模式&quot; class=&quot;headerlink&quot; title=&quot;设置debug模式&quot;&gt;&lt;/a&gt;设置debug模式&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;在 &lt;code&gt;app.run()&lt;/code&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="Flask" scheme="https://qeuroal.top/categories/Flask/"/>
+    
+    <category term="Python" scheme="https://qeuroal.top/categories/Python/"/>
+    
+    
+    <category term="Python" scheme="https://qeuroal.top/tags/Python/"/>
+    
+    <category term="Flask" scheme="https://qeuroal.top/tags/Flask/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>136. 网络编程</title>
+    <link href="https://qeuroal.top/2021/03/22/136/"/>
+    <id>https://qeuroal.top/2021/03/22/136/</id>
+    <published>2021-03-22T08:51:00.000Z</published>
+    <updated>2021-03-30T09:52:00.407Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;getResource&quot;&gt;&lt;a href=&quot;#getResource&quot; class=&quot;headerlink&quot; title=&quot;getResource&quot;&gt;&lt;/a&gt;&lt;code&gt;getResource&lt;/code&gt;&lt;/h1&gt;&lt;p&gt;&lt;code&gt;getResource&lt;/code&gt;读取的是 &lt;code&gt;out&lt;/code&gt; 下的文件,即 &lt;code&gt;classpath&lt;/code&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://qeuroal.top/categories/Java/"/>
+    
+    
+    <category term="Java" scheme="https://qeuroal.top/tags/Java/"/>
+    
+    <category term="路径" scheme="https://qeuroal.top/tags/%E8%B7%AF%E5%BE%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>135. 网络编程</title>
+    <link href="https://qeuroal.top/2021/03/20/135/"/>
+    <id>https://qeuroal.top/2021/03/20/135/</id>
+    <published>2021-03-20T10:24:04.000Z</published>
+    <updated>2021-03-22T13:09:48.771Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;地球村&lt;/strong&gt;：现代科技缩小世界的时空距离&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Java" scheme="https://qeuroal.top/categories/Java/"/>
+    
+    
+    <category term="Java" scheme="https://qeuroal.top/tags/Java/"/>
+    
+    <category term="网络编程" scheme="https://qeuroal.top/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>134. BIOS设置界面之DELL系列</title>
@@ -115,7 +215,7 @@
     <link href="https://qeuroal.top/2021/03/03/130/"/>
     <id>https://qeuroal.top/2021/03/03/130/</id>
     <published>2021-03-03T08:21:50.000Z</published>
-    <updated>2021-03-15T15:28:30.953Z</updated>
+    <updated>2021-03-20T10:22:55.927Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;GUI简介&quot;&gt;&lt;a href=&quot;#GUI简介&quot; class=&quot;headerlink&quot; title=&quot;GUI简介&quot;&gt;&lt;/a&gt;GUI简介&lt;/h1&gt;&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;GUI核心开发技术：Swing、AWT&lt;br&gt;不流行原因：&lt;/p&gt;
@@ -378,89 +478,6 @@
     
     
     <category term="Java" scheme="https://qeuroal.top/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>118. 多线程</title>
-    <link href="https://qeuroal.top/2021/01/07/118/"/>
-    <id>https://qeuroal.top/2021/01/07/118/</id>
-    <published>2021-01-07T07:00:28.000Z</published>
-    <updated>2021-01-12T07:04:45.737Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;多线程基础&quot;&gt;&lt;a href=&quot;#多线程基础&quot; class=&quot;headerlink&quot; title=&quot;多线程基础&quot;&gt;&lt;/a&gt;多线程基础&lt;/h1&gt;&lt;p&gt;   现代操作系统（Windows，macOS，Linux）都可以执行多任务。多任务就是同时运行多个任务，例如： &lt;code&gt;IE&lt;/code&gt;、 &lt;code&gt;QQ&lt;/code&gt;、&lt;code&gt;网易云音乐&lt;/code&gt;&lt;br&gt;   CPU执行代码都是一条一条顺序执行的，但是，即使是单核cpu，也可以同时运行多个任务。因为操作系统执行多任务实际上就是让CPU对多个任务轮流交替执行。&lt;br&gt;   例如，假设我们有语文、数学、英语3门作业要做，每个作业需要30分钟。我们把这3门作业看成是3个任务，可以做1分钟语文作业，再做1分钟数学作业，再做1分钟英语作业。&lt;br&gt;   这样轮流做下去，在某些人眼里看来，做作业的速度就非常快，看上去就像同时在做3门作业一样。&lt;br&gt;   类似的，操作系统轮流让多个任务交替执行，例如，让浏览器执行0.001秒，让QQ执行0.001秒，再让音乐播放器执行0.001秒，在人看来，CPU就是在同时执行多个任务。&lt;br&gt;   即使是多核CPU，因为通常任务的数量远远多于CPU的核数，所以任务也是交替执行的。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Java" scheme="https://qeuroal.top/categories/Java/"/>
-    
-    
-    <category term="Java" scheme="https://qeuroal.top/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>117. Java 核心类</title>
-    <link href="https://qeuroal.top/2021/01/05/117/"/>
-    <id>https://qeuroal.top/2021/01/05/117/</id>
-    <published>2021-01-05T07:03:02.000Z</published>
-    <updated>2021-01-07T14:14:41.936Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;字符串和编码&quot;&gt;&lt;a href=&quot;#字符串和编码&quot; class=&quot;headerlink&quot; title=&quot;字符串和编码&quot;&gt;&lt;/a&gt;字符串和编码&lt;/h1&gt;&lt;h2 id=&quot;String&quot;&gt;&lt;a href=&quot;#String&quot; class=&quot;headerlink&quot; title=&quot;String&quot;&gt;&lt;/a&gt;String&lt;/h2&gt;&lt;p&gt;   在 &lt;code&gt;Java&lt;/code&gt; 中，&lt;code&gt;String&lt;/code&gt; 是一个引用类型，它本身也是一个 &lt;code&gt;class&lt;/code&gt;。但是，&lt;code&gt;Java&lt;/code&gt; 编译器对 &lt;code&gt;String&lt;/code&gt; 有特殊处理，即可以直接用 “…” 来表示一个字符串：&lt;br&gt;   &lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;String s1 = &lt;span class=&quot;string&quot;&gt;&amp;quot;Hello!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br&gt;   实际上字符串在 &lt;code&gt;String&lt;/code&gt; 内部是通过一个 &lt;code&gt;char[]&lt;/code&gt; 数组表示的，因此，按下面的写法也是可以的：&lt;br&gt;   &lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;String s2 = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; String(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt;[] &amp;#123;&lt;span class=&quot;string&quot;&gt;&amp;#x27;H&amp;#x27;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;#x27;e&amp;#x27;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;#x27;l&amp;#x27;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;#x27;l&amp;#x27;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;#x27;o&amp;#x27;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;#x27;!&amp;#x27;&lt;/span&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br&gt;   因为 &lt;code&gt;String&lt;/code&gt; 太常用了，所以 &lt;code&gt;Java&lt;/code&gt; 提供了 &lt;code&gt;&amp;quot;...&amp;quot;&lt;/code&gt; 这种字符串字面量表示方法。&lt;/p&gt;
-&lt;p&gt;   &lt;code&gt;Java&lt;/code&gt; 字符串的一个重要特点就是字符串不可变。这种不可变性是通过内部的 &lt;code&gt;private final char[]&lt;/code&gt; 字段，以及没有任何修改 &lt;code&gt;char[]&lt;/code&gt; 的方法实现的。看下例：&lt;br&gt;   &lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Main&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String[] args)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      String s = &lt;span class=&quot;string&quot;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      System.out.println(s);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      s = s.toUpperCase();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      System.out.println(s);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;输出&lt;br&gt;   &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Hello&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;HELLO&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br&gt;&lt;/p&gt;&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="Java" scheme="https://qeuroal.top/categories/Java/"/>
-    
-    
-    <category term="Java" scheme="https://qeuroal.top/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>116. idea 激活</title>
-    <link href="https://qeuroal.top/2021/01/04/116/"/>
-    <id>https://qeuroal.top/2021/01/04/116/</id>
-    <published>2021-01-04T02:15:28.000Z</published>
-    <updated>2021-03-02T07:34:20.135Z</updated>
-    
-    
-    <summary type="html">有东西被加密了, 请输入密码查看.</summary>
-    
-    
-    
-    <category term="软件" scheme="https://qeuroal.top/categories/%E8%BD%AF%E4%BB%B6/"/>
-    
-    
-    <category term="JetBrain" scheme="https://qeuroal.top/tags/JetBrain/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>115. Java 面向对象</title>
-    <link href="https://qeuroal.top/2020/12/26/115/"/>
-    <id>https://qeuroal.top/2020/12/26/115/</id>
-    <published>2020-12-25T20:00:00.000Z</published>
-    <updated>2021-03-05T10:02:12.155Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;面向对象基础&quot;&gt;&lt;a href=&quot;#面向对象基础&quot; class=&quot;headerlink&quot; title=&quot;面向对象基础&quot;&gt;&lt;/a&gt;面向对象基础&lt;/h1&gt;&lt;h2 id=&quot;例子&quot;&gt;&lt;a href=&quot;#例子&quot; class=&quot;headerlink&quot; title=&quot;例子&quot;&gt;&lt;/a&gt;例子&lt;/h2&gt;   &lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Person&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; String name;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; age;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;   一个 class 可以包含多个字段（field），字段用来描述一个类的特征。上面的 Person 类，我们定义了两个字段，一个是 String 类型的字段，命名为 name，一个是 int 类型的字段，命名为 age。因此，通过 class，把一组数据汇集到一个对象上，实现了数据封装。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;字段就是 C++ 中的成员属性&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="Java" scheme="https://qeuroal.top/categories/Java/"/>
-    
-    
-    <category term="面向对象" scheme="https://qeuroal.top/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
     
   </entry>
   
