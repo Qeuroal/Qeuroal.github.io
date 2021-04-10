@@ -99,6 +99,26 @@
       </tags>
   </entry>
   <entry>
+    <title>102. VsCode-Terminal 设置</title>
+    <url>/2020/04/14/102/</url>
+    <content><![CDATA[<ol>
+<li>部分设置</li>
+</ol>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;workbench.colorCustomizations&quot; : &#123;</span><br><span class="line">  &quot;terminal.foreground&quot; : &quot;#00FD61&quot;,</span><br><span class="line">  &quot;terminal.background&quot; : &quot;#383737&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<ol start="2">
+<li>完整设置</li>
+</ol>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;workbench.colorCustomizations&quot;: &#123;</span><br><span class="line">    &quot;terminal.background&quot;: &quot;#181818&quot;,</span><br><span class="line">    &quot;terminal.foreground&quot;: &quot;#D8D8D8&quot;,</span><br><span class="line">    &quot;terminalCursor.background&quot;: &quot;#D8D8D8&quot;,</span><br><span class="line">    &quot;terminalCursor.foreground&quot;: &quot;#D8D8D8&quot;,</span><br><span class="line">    &quot;terminal.ansiBlack&quot;: &quot;#181818&quot;,</span><br><span class="line">    &quot;terminal.ansiBlue&quot;: &quot;#7CAFC2&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightBlack&quot;: &quot;#585858&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightBlue&quot;: &quot;#7CAFC2&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightCyan&quot;: &quot;#86C1B9&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightGreen&quot;: &quot;#A1B56C&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightMagenta&quot;: &quot;#BA8BAF&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightRed&quot;: &quot;#AB4642&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightWhite&quot;: &quot;#F8F8F8&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightYellow&quot;: &quot;#F7CA88&quot;,</span><br><span class="line">    &quot;terminal.ansiCyan&quot;: &quot;#86C1B9&quot;,</span><br><span class="line">    &quot;terminal.ansiGreen&quot;: &quot;#A1B56C&quot;,</span><br><span class="line">    &quot;terminal.ansiMagenta&quot;: &quot;#BA8BAF&quot;,</span><br><span class="line">    &quot;terminal.ansiRed&quot;: &quot;#AB4642&quot;,</span><br><span class="line">    &quot;terminal.ansiWhite&quot;: &quot;#D8D8D8&quot;,</span><br><span class="line">    &quot;terminal.ansiYellow&quot;: &quot;#F7CA88&quot;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>软件</category>
+      </categories>
+      <tags>
+        <tag>Vscode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>101. Win10 Git配置</title>
     <url>/2020/04/14/101/</url>
     <content><![CDATA[<ol>
@@ -192,26 +212,6 @@
       </tags>
   </entry>
   <entry>
-    <title>102. VsCode-Terminal 设置</title>
-    <url>/2020/04/14/102/</url>
-    <content><![CDATA[<ol>
-<li>部分设置</li>
-</ol>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;workbench.colorCustomizations&quot; : &#123;</span><br><span class="line">  &quot;terminal.foreground&quot; : &quot;#00FD61&quot;,</span><br><span class="line">  &quot;terminal.background&quot; : &quot;#383737&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-
-<ol start="2">
-<li>完整设置</li>
-</ol>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;workbench.colorCustomizations&quot;: &#123;</span><br><span class="line">    &quot;terminal.background&quot;: &quot;#181818&quot;,</span><br><span class="line">    &quot;terminal.foreground&quot;: &quot;#D8D8D8&quot;,</span><br><span class="line">    &quot;terminalCursor.background&quot;: &quot;#D8D8D8&quot;,</span><br><span class="line">    &quot;terminalCursor.foreground&quot;: &quot;#D8D8D8&quot;,</span><br><span class="line">    &quot;terminal.ansiBlack&quot;: &quot;#181818&quot;,</span><br><span class="line">    &quot;terminal.ansiBlue&quot;: &quot;#7CAFC2&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightBlack&quot;: &quot;#585858&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightBlue&quot;: &quot;#7CAFC2&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightCyan&quot;: &quot;#86C1B9&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightGreen&quot;: &quot;#A1B56C&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightMagenta&quot;: &quot;#BA8BAF&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightRed&quot;: &quot;#AB4642&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightWhite&quot;: &quot;#F8F8F8&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightYellow&quot;: &quot;#F7CA88&quot;,</span><br><span class="line">    &quot;terminal.ansiCyan&quot;: &quot;#86C1B9&quot;,</span><br><span class="line">    &quot;terminal.ansiGreen&quot;: &quot;#A1B56C&quot;,</span><br><span class="line">    &quot;terminal.ansiMagenta&quot;: &quot;#BA8BAF&quot;,</span><br><span class="line">    &quot;terminal.ansiRed&quot;: &quot;#AB4642&quot;,</span><br><span class="line">    &quot;terminal.ansiWhite&quot;: &quot;#D8D8D8&quot;,</span><br><span class="line">    &quot;terminal.ansiYellow&quot;: &quot;#F7CA88&quot;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>软件</category>
-      </categories>
-      <tags>
-        <tag>Vscode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>103. tmux操作</title>
     <url>/2020/05/26/103/</url>
     <content><![CDATA[<h1 id="进入tmux翻屏模式"><a href="#进入tmux翻屏模式" class="headerlink" title="进入tmux翻屏模式"></a>进入tmux翻屏模式</h1><ul>
@@ -266,30 +266,6 @@
       <tags>
         <tag>Ubuntu</tag>
         <tag>tmux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>105. UEFI引导修复</title>
-    <url>/2020/06/06/105/</url>
-    <content><![CDATA[<ul>
-<li><h1 id="PE：微PE工具箱"><a href="#PE：微PE工具箱" class="headerlink" title="PE：微PE工具箱"></a>PE：<a href="http://www.wepe.com.cn/">微PE工具箱</a></h1><span id="more"></span></li>
-<li><h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1></li>
-</ul>
-<ol>
-<li>使用U盘启动快捷项，启动PE</li>
-<li>在分区大师工具看下自己ESP在哪个盘符，就在UEFI引导修复里面选择哪个盘符。<br><img src="/images/posts/computer/10.png"></li>
-<li>开UEFI引导修复，在ESP里面选择H盘符（若没有则点击 <code>挂载</code>）<br><img src="/images/posts/computer/11.png"></li>
-<li>选择根目录：windows目录（例：<code>C:\Windows</code>）</li>
-<li>点击开始修复，点击确定</li>
-<li>最后重新开机，就可以进入系统了</li>
-</ol>
-]]></content>
-      <categories>
-        <category>OS</category>
-        <category>Computer</category>
-      </categories>
-      <tags>
-        <tag>UEFI</tag>
       </tags>
   </entry>
   <entry>
@@ -443,6 +419,30 @@
       </tags>
   </entry>
   <entry>
+    <title>105. UEFI引导修复</title>
+    <url>/2020/06/06/105/</url>
+    <content><![CDATA[<ul>
+<li><h1 id="PE：微PE工具箱"><a href="#PE：微PE工具箱" class="headerlink" title="PE：微PE工具箱"></a>PE：<a href="http://www.wepe.com.cn/">微PE工具箱</a></h1><span id="more"></span></li>
+<li><h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1></li>
+</ul>
+<ol>
+<li>使用U盘启动快捷项，启动PE</li>
+<li>在分区大师工具看下自己ESP在哪个盘符，就在UEFI引导修复里面选择哪个盘符。<br><img src="/images/posts/computer/10.png"></li>
+<li>开UEFI引导修复，在ESP里面选择H盘符（若没有则点击 <code>挂载</code>）<br><img src="/images/posts/computer/11.png"></li>
+<li>选择根目录：windows目录（例：<code>C:\Windows</code>）</li>
+<li>点击开始修复，点击确定</li>
+<li>最后重新开机，就可以进入系统了</li>
+</ol>
+]]></content>
+      <categories>
+        <category>OS</category>
+        <category>Computer</category>
+      </categories>
+      <tags>
+        <tag>UEFI</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>108. Ubuntu给ss.AppImage创建快捷方式</title>
     <url>/2020/09/08/108/</url>
     <content><![CDATA[<ol>
@@ -467,22 +467,6 @@
       <tags>
         <tag>Ubuntu</tag>
         <tag>AppImage</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>109. Chrome不小心删除IDM扩展</title>
-    <url>/2020/10/21/109/</url>
-    <content><![CDATA[<ol>
-<li>首先关闭 <code>IDM</code> 程序，<code>IDM</code> 安装目录，将 <code>IDMGCExt.crx</code> 文件拖入扩展管理面板进行安装，再启动IDM正程序</li>
-<li><code>下载</code> - <code>选项</code>，勾选上 <code>使用高级浏览器集成</code>，如果已经勾选，取消掉，再勾选，最后，手动添加浏览器，定位到Chrome的主程序，确定保存，重启浏览器。<span id="more"></span></li>
-</ol>
-]]></content>
-      <categories>
-        <category>软件</category>
-      </categories>
-      <tags>
-        <tag>Chrome</tag>
-        <tag>IDM</tag>
       </tags>
   </entry>
   <entry>
@@ -549,6 +533,22 @@
       </tags>
   </entry>
   <entry>
+    <title>109. Chrome不小心删除IDM扩展</title>
+    <url>/2020/10/21/109/</url>
+    <content><![CDATA[<ol>
+<li>首先关闭 <code>IDM</code> 程序，<code>IDM</code> 安装目录，将 <code>IDMGCExt.crx</code> 文件拖入扩展管理面板进行安装，再启动IDM正程序</li>
+<li><code>下载</code> - <code>选项</code>，勾选上 <code>使用高级浏览器集成</code>，如果已经勾选，取消掉，再勾选，最后，手动添加浏览器，定位到Chrome的主程序，确定保存，重启浏览器。<span id="more"></span></li>
+</ol>
+]]></content>
+      <categories>
+        <category>软件</category>
+      </categories>
+      <tags>
+        <tag>Chrome</tag>
+        <tag>IDM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>110. 双系统下 .Trash-1000 的说明</title>
     <url>/2020/10/22/110/</url>
     <content><![CDATA[<ol>
@@ -575,6 +575,65 @@
       </categories>
       <tags>
         <tag>双系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>111. Vscode 设置代码模板：自动生成文件名、作者、创建日期等信息</title>
+    <url>/2020/10/29/111/</url>
+    <content><![CDATA[<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">      <span class="attr">&quot;pyheader&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;prefix&quot;</span>: <span class="string">&quot;test&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;body&quot;</span>: [</span><br><span class="line">          <span class="string">&quot;/**&quot;</span>,</span><br><span class="line">          <span class="string">&quot;* @author: test&quot;</span>,</span><br><span class="line">          <span class="string">&quot;* @desc：$1&quot;</span>,</span><br><span class="line">          <span class="string">&quot;* @date: $&#123;CURRENT_YEAR&#125;-$&#123;CURRENT_MONTH&#125;-$&#123;CURRENT_DATE&#125; $&#123;CURRENT_HOUR&#125;:$&#123;CURRENT_MINUTE&#125;:$&#123;CURRENT_SECOND&#125;&quot;</span>,</span><br><span class="line">          <span class="string">&quot;* @Email：test@qq.com&quot;</span>,</span><br><span class="line">          <span class="string">&quot;* @url：test.com&quot;</span>,</span><br><span class="line">          <span class="string">&quot;*/&quot;</span>,</span><br><span class="line">          <span class="string">&quot;&quot;</span>,</span><br><span class="line">          <span class="string">&quot;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;test&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+
+<ol>
+<li>打开 <code>vs­code</code> 在左下角设置图标 -&gt; <code>用户代码片段</code></li>
+<li><code>For_Loop</code>: 当前 <code>snip­pet</code> 名字。</li>
+<li><code>pre­fix</code>: 前缀，代码块使用快捷方式；键入前缀，按 tab 键，代码块就会被使用。</li>
+<li><code>body</code>: 代码块内容；换行使用 rn。</li>
+<li><code>de­scrip­tion</code>: 键入前缀，vs­code 感知到前缀，显示的说明内容。</li>
+<li><code>$1,$2,$0</code>: 指定代码模块生成后，编辑光标出现位置；使用 Tab 键进行切换 (编辑光标按 <code>$1,$2,$3...$0</code> 的顺序跳转)，<code>$0</code> 是光标最后可切换位置。</li>
+</ol>
+<h1 id="Snippet-语法"><a href="#Snippet-语法" class="headerlink" title="Snippet 语法"></a>Snippet 语法</h1><h2 id="Tabstops"><a href="#Tabstops" class="headerlink" title="Tabstops"></a>Tabstops</h2><p>   <code>$1，$2</code> 指定代码块生成后，光标出现的位置；不同位置的相同 <code>$1</code> 位置同时出现光标。</p>
+<h2 id="Placeholders"><a href="#Placeholders" class="headerlink" title="Placeholders"></a>Placeholders</h2><p>   给光标出现位置加上默认值；例如，<code>$&#123;1:an­other\$&#123;2:place­holder&#125;&#125;</code>；<code>$1</code> 处位置默认值是 <code>an­other</code>。</p>
+<h2 id="Choice"><a href="#Choice" class="headerlink" title="Choice"></a>Choice</h2><p>   光标位置设置多个值可供选择；例如，<code>$&#123;1|one,two,three|&#125;</code>；<code>$1</code> 位置处可以选择 <code>one,two,three</code> 中一个词填充在此处。</p>
+<h2 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a>Variables</h2><ol>
+<li><p>常用变量</p>
+<ul>
+<li><code>TM_SELECTED_TEXT</code> 当前选中内容或空字符串</li>
+<li><code>TM_CURRENT_LINE</code> 当前行内容</li>
+<li><code>TM_CURRENT_WORD</code> 光标处字符或空字符串</li>
+<li><code>TM_LINE_INDEX</code> 从 0 开始的行号</li>
+<li><code>TM_LINE_NUMBER</code> 从 1 开始的行号</li>
+<li><code>TM_FILENAME</code> 当前被编辑文档名</li>
+<li><code>TM_FILENAME_BASE</code> 当前被编辑文档名，没有后缀</li>
+<li><code>TM_DIRECTORY</code> 当前被编辑文档目录</li>
+<li><code>TM_FILEPATH</code> 当前被编辑文档全路径</li>
+<li><code>CLIPBOARD</code> 当前剪切板内容</li>
+<li><code>WORKSPACE_NAME</code> 打开的工作空间或文件夹的名称</li>
+</ul>
+</li>
+<li><p>日期和时间相关变量</p>
+<ul>
+<li><code>CURRENT_YEAR</code> 当前年</li>
+<li><code>CURRENT_YEAR_SHORT</code> 当前年后两位</li>
+<li><code>CURRENT_MONTH</code> 月份，两位数字表示，例如 02</li>
+<li><code>CURRENT_MONTH_NAME</code> 月份全称，例如’July’</li>
+<li><code>CURRENT_MONTH_NAME_SHORT</code> 月份简写 ，例如’Jul</li>
+<li><code>CURRENT_DATE</code> 某天</li>
+<li><code>CURRENT_DAY_NAME</code> 星期几， 例如’Monday’</li>
+<li><code>CURRENT_DAY_NAME_SHORT</code> 星期几的简写， ‘Mon’</li>
+<li><code>CURRENT_HOUR</code> 小时，24 小时制</li>
+<li><code>CURRENT_MINUTE</code> 分钟</li>
+<li><code>CURRENT_SECOND</code> 秒数</li>
+<li><code>CURRENT_SECONDS_UNIX</code> 自 <code>Unix</code> 时代以来的秒数</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>软件</category>
+      </categories>
+      <tags>
+        <tag>Vscode</tag>
       </tags>
   </entry>
   <entry>
@@ -699,65 +758,6 @@
       </tags>
   </entry>
   <entry>
-    <title>111. Vscode 设置代码模板：自动生成文件名、作者、创建日期等信息</title>
-    <url>/2020/10/29/111/</url>
-    <content><![CDATA[<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">      <span class="attr">&quot;pyheader&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;prefix&quot;</span>: <span class="string">&quot;test&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;body&quot;</span>: [</span><br><span class="line">          <span class="string">&quot;/**&quot;</span>,</span><br><span class="line">          <span class="string">&quot;* @author: test&quot;</span>,</span><br><span class="line">          <span class="string">&quot;* @desc：$1&quot;</span>,</span><br><span class="line">          <span class="string">&quot;* @date: $&#123;CURRENT_YEAR&#125;-$&#123;CURRENT_MONTH&#125;-$&#123;CURRENT_DATE&#125; $&#123;CURRENT_HOUR&#125;:$&#123;CURRENT_MINUTE&#125;:$&#123;CURRENT_SECOND&#125;&quot;</span>,</span><br><span class="line">          <span class="string">&quot;* @Email：test@qq.com&quot;</span>,</span><br><span class="line">          <span class="string">&quot;* @url：test.com&quot;</span>,</span><br><span class="line">          <span class="string">&quot;*/&quot;</span>,</span><br><span class="line">          <span class="string">&quot;&quot;</span>,</span><br><span class="line">          <span class="string">&quot;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;test&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-
-
-<ol>
-<li>打开 <code>vs­code</code> 在左下角设置图标 -&gt; <code>用户代码片段</code></li>
-<li><code>For_Loop</code>: 当前 <code>snip­pet</code> 名字。</li>
-<li><code>pre­fix</code>: 前缀，代码块使用快捷方式；键入前缀，按 tab 键，代码块就会被使用。</li>
-<li><code>body</code>: 代码块内容；换行使用 rn。</li>
-<li><code>de­scrip­tion</code>: 键入前缀，vs­code 感知到前缀，显示的说明内容。</li>
-<li><code>$1,$2,$0</code>: 指定代码模块生成后，编辑光标出现位置；使用 Tab 键进行切换 (编辑光标按 <code>$1,$2,$3...$0</code> 的顺序跳转)，<code>$0</code> 是光标最后可切换位置。</li>
-</ol>
-<h1 id="Snippet-语法"><a href="#Snippet-语法" class="headerlink" title="Snippet 语法"></a>Snippet 语法</h1><h2 id="Tabstops"><a href="#Tabstops" class="headerlink" title="Tabstops"></a>Tabstops</h2><p>   <code>$1，$2</code> 指定代码块生成后，光标出现的位置；不同位置的相同 <code>$1</code> 位置同时出现光标。</p>
-<h2 id="Placeholders"><a href="#Placeholders" class="headerlink" title="Placeholders"></a>Placeholders</h2><p>   给光标出现位置加上默认值；例如，<code>$&#123;1:an­other\$&#123;2:place­holder&#125;&#125;</code>；<code>$1</code> 处位置默认值是 <code>an­other</code>。</p>
-<h2 id="Choice"><a href="#Choice" class="headerlink" title="Choice"></a>Choice</h2><p>   光标位置设置多个值可供选择；例如，<code>$&#123;1|one,two,three|&#125;</code>；<code>$1</code> 位置处可以选择 <code>one,two,three</code> 中一个词填充在此处。</p>
-<h2 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a>Variables</h2><ol>
-<li><p>常用变量</p>
-<ul>
-<li><code>TM_SELECTED_TEXT</code> 当前选中内容或空字符串</li>
-<li><code>TM_CURRENT_LINE</code> 当前行内容</li>
-<li><code>TM_CURRENT_WORD</code> 光标处字符或空字符串</li>
-<li><code>TM_LINE_INDEX</code> 从 0 开始的行号</li>
-<li><code>TM_LINE_NUMBER</code> 从 1 开始的行号</li>
-<li><code>TM_FILENAME</code> 当前被编辑文档名</li>
-<li><code>TM_FILENAME_BASE</code> 当前被编辑文档名，没有后缀</li>
-<li><code>TM_DIRECTORY</code> 当前被编辑文档目录</li>
-<li><code>TM_FILEPATH</code> 当前被编辑文档全路径</li>
-<li><code>CLIPBOARD</code> 当前剪切板内容</li>
-<li><code>WORKSPACE_NAME</code> 打开的工作空间或文件夹的名称</li>
-</ul>
-</li>
-<li><p>日期和时间相关变量</p>
-<ul>
-<li><code>CURRENT_YEAR</code> 当前年</li>
-<li><code>CURRENT_YEAR_SHORT</code> 当前年后两位</li>
-<li><code>CURRENT_MONTH</code> 月份，两位数字表示，例如 02</li>
-<li><code>CURRENT_MONTH_NAME</code> 月份全称，例如’July’</li>
-<li><code>CURRENT_MONTH_NAME_SHORT</code> 月份简写 ，例如’Jul</li>
-<li><code>CURRENT_DATE</code> 某天</li>
-<li><code>CURRENT_DAY_NAME</code> 星期几， 例如’Monday’</li>
-<li><code>CURRENT_DAY_NAME_SHORT</code> 星期几的简写， ‘Mon’</li>
-<li><code>CURRENT_HOUR</code> 小时，24 小时制</li>
-<li><code>CURRENT_MINUTE</code> 分钟</li>
-<li><code>CURRENT_SECOND</code> 秒数</li>
-<li><code>CURRENT_SECONDS_UNIX</code> 自 <code>Unix</code> 时代以来的秒数</li>
-</ul>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>软件</category>
-      </categories>
-      <tags>
-        <tag>Vscode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>113. 程序设计中的术语</title>
     <url>/2020/11/07/113/</url>
     <content><![CDATA[<ol>
@@ -838,6 +838,44 @@
       </tags>
   </entry>
   <entry>
+    <title>121. 补充多线程</title>
+    <url>/2021/01/11/121/</url>
+    <content><![CDATA[<h1 id="同步方法及同步块"><a href="#同步方法及同步块" class="headerlink" title="同步方法及同步块"></a>同步方法及同步块</h1><h2 id="同步方法"><a href="#同步方法" class="headerlink" title="同步方法"></a>同步方法</h2>   <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">(<span class="keyword">int</span> args)</span> </span>&#123;</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>   <code>synchronized</code>方法控制对“对象”的访问，每个对象对应一把锁，每个synchronized方法都必须获得该方法的对象的多才能执行，否则线程会阻塞，方法一旦执行，就独占该锁，知道该方法返回才释放锁，后面被阻塞的线程才能获得这个锁，继续执行</p>
+<span id="more"></span>
+
+<h2 id="同步块"><a href="#同步块" class="headerlink" title="同步块"></a>同步块</h2>   <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">synchronized</span> (Obj) &#123;</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>   <code>Obj</code> 称之为 同步监视器：</p>
+<ul>
+<li>Obj可以是任何对象，但是推荐使用共享资源作为同步监视器</li>
+<li>同步方法中无需置顶同步监视器，因为同步方法的同步监视器就是 <code>this</code>，就是这个对象本身，或者是 <code>class</code></li>
+</ul>
+<p>   同步监视器的执行过程:</p>
+<ol>
+<li>第一个线程访问，锁定同步监视器，执行其中代码</li>
+<li>第二个线程访问，发现同步监视器被锁定，无法访问</li>
+<li>第一个线程访问完毕，解锁同步监视器</li>
+<li>第二个线程访问，发现同步监视器没有锁，然后锁定并访问</li>
+</ol>
+<p>   总结：锁的对象就是变化的量：需要增删改的对象</p>
+<h1 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h1><p>   简单定义：多个线程互相抱着对方需要的资源才能运行，然后形成僵持</p>
+<p>   多个线程各自占有一些共享资源，并且互相等待其他线程占有的资源才能运行，而导致两个或多个线程都在等待对方释放资源，都停止执行的情形。某一个同步块同时拥有<strong>“两个以上对象的锁”</strong>时，就可能会发生“死锁”问题。</p>
+<h2 id="产生死锁的四个必要条件"><a href="#产生死锁的四个必要条件" class="headerlink" title="产生死锁的四个必要条件"></a>产生死锁的四个必要条件</h2><ol>
+<li>互斥条件：一个资源每次只能被一个进程使用</li>
+<li>请求与保持条件：一个进程因请求资源而阻塞时，对已获得的资源保持不放</li>
+<li>不剥夺条件：进程已获得的资源，在未使用完之前，不能强行剥夺</li>
+<li>循环等待条件：若干进程之间形成一种头尾相接的循环等待资源关系。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>多线程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>120. 多线程有问题的点</title>
     <url>/2021/01/11/120/</url>
     <content><![CDATA[<h1 id="Runnable-线程创建"><a href="#Runnable-线程创建" class="headerlink" title="Runnable 线程创建"></a>Runnable 线程创建</h1><h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2>   <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">       MyRunnable myRunnable = <span class="keyword">new</span> MyRunnable()</span><br><span class="line">       Thread thread = <span class="keyword">new</span> Thread(myRunnable);</span><br><span class="line">       thread.start(); <span class="comment">// 启动新线程</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyRunnable</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       System.out.println(<span class="string">&quot;start new thread!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -874,44 +912,6 @@
       </categories>
       <tags>
         <tag>idea</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>121. 补充多线程</title>
-    <url>/2021/01/11/121/</url>
-    <content><![CDATA[<h1 id="同步方法及同步块"><a href="#同步方法及同步块" class="headerlink" title="同步方法及同步块"></a>同步方法及同步块</h1><h2 id="同步方法"><a href="#同步方法" class="headerlink" title="同步方法"></a>同步方法</h2>   <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">(<span class="keyword">int</span> args)</span> </span>&#123;</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>   <code>synchronized</code>方法控制对“对象”的访问，每个对象对应一把锁，每个synchronized方法都必须获得该方法的对象的多才能执行，否则线程会阻塞，方法一旦执行，就独占该锁，知道该方法返回才释放锁，后面被阻塞的线程才能获得这个锁，继续执行</p>
-<span id="more"></span>
-
-<h2 id="同步块"><a href="#同步块" class="headerlink" title="同步块"></a>同步块</h2>   <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">synchronized</span> (Obj) &#123;</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>   <code>Obj</code> 称之为 同步监视器：</p>
-<ul>
-<li>Obj可以是任何对象，但是推荐使用共享资源作为同步监视器</li>
-<li>同步方法中无需置顶同步监视器，因为同步方法的同步监视器就是 <code>this</code>，就是这个对象本身，或者是 <code>class</code></li>
-</ul>
-<p>   同步监视器的执行过程:</p>
-<ol>
-<li>第一个线程访问，锁定同步监视器，执行其中代码</li>
-<li>第二个线程访问，发现同步监视器被锁定，无法访问</li>
-<li>第一个线程访问完毕，解锁同步监视器</li>
-<li>第二个线程访问，发现同步监视器没有锁，然后锁定并访问</li>
-</ol>
-<p>   总结：锁的对象就是变化的量：需要增删改的对象</p>
-<h1 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h1><p>   简单定义：多个线程互相抱着对方需要的资源才能运行，然后形成僵持</p>
-<p>   多个线程各自占有一些共享资源，并且互相等待其他线程占有的资源才能运行，而导致两个或多个线程都在等待对方释放资源，都停止执行的情形。某一个同步块同时拥有<strong>“两个以上对象的锁”</strong>时，就可能会发生“死锁”问题。</p>
-<h2 id="产生死锁的四个必要条件"><a href="#产生死锁的四个必要条件" class="headerlink" title="产生死锁的四个必要条件"></a>产生死锁的四个必要条件</h2><ol>
-<li>互斥条件：一个资源每次只能被一个进程使用</li>
-<li>请求与保持条件：一个进程因请求资源而阻塞时，对已获得的资源保持不放</li>
-<li>不剥夺条件：进程已获得的资源，在未使用完之前，不能强行剥夺</li>
-<li>循环等待条件：若干进程之间形成一种头尾相接的循环等待资源关系。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>多线程</tag>
       </tags>
   </entry>
   <entry>
@@ -1183,6 +1183,39 @@
       </tags>
   </entry>
   <entry>
+    <title>133. Next安装的插件</title>
+    <url>/2021/03/08/133/</url>
+    <content><![CDATA[<blockquote>
+<p>以下配置仅供参考，基于 <code>hexo5.4.0</code> ,<code>next7.7.2</code></p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="安装的插件"><a href="#安装的插件" class="headerlink" title="安装的插件"></a>安装的插件</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">npm install hexo-generator-feed --save</span><br><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image</span><br><span class="line">npm install --save hexo-blog-encrypt</span><br><span class="line">npm install hexo-generator-searchdb --save</span><br><span class="line">npm install hexo-symbols-count-time --save</span><br></pre></td></tr></table></figure>
+
+<h1 id="sidebar-swig"><a href="#sidebar-swig" class="headerlink" title="sidebar.swig"></a><code>sidebar.swig</code></h1><blockquote>
+<p>网易云音乐</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% macro render(display_toc) %&#125;</span><br><span class="line">  &lt;div class&#x3D;&quot;toggle sidebar-toggle&quot;&gt;</span><br><span class="line">    &lt;span class&#x3D;&quot;toggle-line toggle-line-first&quot;&gt;&lt;&#x2F;span&gt;</span><br><span class="line">    &lt;span class&#x3D;&quot;toggle-line toggle-line-middle&quot;&gt;&lt;&#x2F;span&gt;</span><br><span class="line">    &lt;span class&#x3D;&quot;toggle-line toggle-line-last&quot;&gt;&lt;&#x2F;span&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">  &lt;aside class&#x3D;&quot;sidebar&quot;&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;sidebar-inner&quot;&gt;</span><br><span class="line">      &#123;# 网易云音乐 #&#125;</span><br><span class="line">      &lt;iframe frameborder&#x3D;&quot;no&quot; border&#x3D;&quot;0&quot; marginwidth&#x3D;&quot;0&quot; marginheight&#x3D;&quot;0&quot; width&#x3D;330 height&#x3D;86 src&#x3D;&quot;&#x2F;&#x2F;music.163.com&#x2F;outchain&#x2F;player?type&#x3D;2&amp;id&#x3D;1808492017&amp;auto&#x3D;0&amp;height&#x3D;66&quot;&gt;&lt;&#x2F;iframe&gt;</span><br><span class="line"></span><br><span class="line">      &#123;%- set display_toc &#x3D; page.toc.enable and display_toc %&#125;</span><br><span class="line">      &#123;%- if display_toc %&#125;</span><br><span class="line">        &#123;%- set toc &#x3D; toc(page.content, &#123; class: &quot;nav&quot;, list_number: page.toc.number, max_depth: page.toc.max_depth &#125;) %&#125;</span><br><span class="line">        &#123;%- set display_toc &#x3D; toc.length &gt; 1 and display_toc %&#125;</span><br><span class="line">      &#123;%- endif %&#125;</span><br><span class="line"></span><br><span class="line">      &lt;ul class&#x3D;&quot;sidebar-nav motion-element&quot;&gt;</span><br><span class="line">        &lt;li class&#x3D;&quot;sidebar-nav-toc&quot;&gt;</span><br><span class="line">          &#123;&#123; __(&#39;sidebar.toc&#39;) &#125;&#125;</span><br><span class="line">        &lt;&#x2F;li&gt;</span><br><span class="line">        &lt;li class&#x3D;&quot;sidebar-nav-overview&quot;&gt;</span><br><span class="line">          &#123;&#123; __(&#39;sidebar.overview&#39;) &#125;&#125;</span><br><span class="line">        &lt;&#x2F;li&gt;</span><br><span class="line">      &lt;&#x2F;ul&gt;</span><br><span class="line"></span><br><span class="line">      &lt;!--noindex--&gt;</span><br><span class="line">      &lt;div class&#x3D;&quot;post-toc-wrap sidebar-panel&quot;&gt;</span><br><span class="line">        &#123;%- if display_toc %&#125;</span><br><span class="line">          &lt;div class&#x3D;&quot;post-toc motion-element&quot;&gt;&#123;&#123; toc &#125;&#125;&lt;&#x2F;div&gt;</span><br><span class="line">        &#123;%- endif %&#125;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">      &lt;!--&#x2F;noindex--&gt;</span><br><span class="line"></span><br><span class="line">      &lt;div class&#x3D;&quot;site-overview-wrap sidebar-panel&quot;&gt;</span><br><span class="line">        &#123;&#123; partial(&#39;_partials&#x2F;sidebar&#x2F;site-overview.swig&#39;, &#123;&#125;, &#123;cache: theme.cache.enable&#125;) &#125;&#125;</span><br><span class="line"></span><br><span class="line">        &#123;&#123;- next_inject(&#39;sidebar&#39;) &#125;&#125;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">      &#123;%- if theme.back2top.enable and theme.back2top.sidebar %&#125;</span><br><span class="line">        &lt;div class&#x3D;&quot;back-to-top motion-element&quot;&gt;</span><br><span class="line">          &lt;i class&#x3D;&quot;fa fa-arrow-up&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">          &lt;span&gt;0%&lt;&#x2F;span&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">      &#123;%- endif %&#125;</span><br><span class="line"></span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">  &lt;&#x2F;aside&gt;</span><br><span class="line">  &lt;div id&#x3D;&quot;sidebar-dimmer&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&#123;% endmacro %&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="site-overview-swig"><a href="#site-overview-swig" class="headerlink" title="site-overview.swig"></a><code>site-overview.swig</code></h1><blockquote>
+<p><code>rss</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;site-author motion-element&quot; itemprop&#x3D;&quot;author&quot; itemscope itemtype&#x3D;&quot;http:&#x2F;&#x2F;schema.org&#x2F;Person&quot;&gt;</span><br><span class="line">  &#123;%- if theme.avatar.url %&#125;</span><br><span class="line">    &lt;img class&#x3D;&quot;site-author-image&quot; itemprop&#x3D;&quot;image&quot; alt&#x3D;&quot;&#123;&#123; author &#125;&#125;&quot;</span><br><span class="line">      src&#x3D;&quot;&#123;&#123; url_for(theme.avatar.url) &#125;&#125;&quot;&gt;</span><br><span class="line">  &#123;%- endif %&#125;</span><br><span class="line">  &lt;p class&#x3D;&quot;site-author-name&quot; itemprop&#x3D;&quot;name&quot;&gt;&#123;&#123; author &#125;&#125;&lt;&#x2F;p&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;site-description&quot; itemprop&#x3D;&quot;description&quot;&gt;&#123;&#123; description &#125;&#125;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">&#123;# rss #&#125;</span><br><span class="line">&#123;% if theme.rss %&#125;</span><br><span class="line">   &lt;div class&#x3D;&quot;feed-link motion-element&quot;&gt;</span><br><span class="line">     &lt;a href&#x3D;&quot;&#123;&#123; url_for(theme.rss) &#125;&#125;&quot; rel&#x3D;&quot;alternate&quot;&gt;</span><br><span class="line">       &lt;i class&#x3D;&quot;fa fa-rss&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">       RSS</span><br><span class="line">     &lt;&#x2F;a&gt;</span><br><span class="line">   &lt;&#x2F;div&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">&#123;%- if theme.site_state %&#125;</span><br><span class="line">&lt;div class&#x3D;&quot;site-state-wrap motion-element&quot;&gt;</span><br><span class="line">  &lt;nav class&#x3D;&quot;site-state&quot;&gt;</span><br><span class="line">    &#123;%- if config.archive_dir !&#x3D; &#39;&#x2F;&#39; and site.posts.length &gt; 0 %&#125;</span><br><span class="line">      &lt;div class&#x3D;&quot;site-state-item site-state-posts&quot;&gt;</span><br><span class="line">        &#123;%- if theme.menu.archives %&#125;</span><br><span class="line">          &lt;a href&#x3D;&quot;&#123;&#123; url_for(theme.menu.archives.split(&#39;||&#39;)[0] | trim) &#125;&#125;&quot;&gt;</span><br><span class="line">        &#123;% else %&#125;</span><br><span class="line">          &lt;a href&#x3D;&quot;&#123;&#123; url_for(config.archive_dir) &#125;&#125;&quot;&gt;</span><br><span class="line">        &#123;%- endif %&#125;</span><br><span class="line">          &lt;span class&#x3D;&quot;site-state-item-count&quot;&gt;&#123;&#123; site.posts.length &#125;&#125;&lt;&#x2F;span&gt;</span><br><span class="line">          &lt;span class&#x3D;&quot;site-state-item-name&quot;&gt;&#123;&#123; __(&#39;state.posts&#39;) &#125;&#125;&lt;&#x2F;span&gt;</span><br><span class="line">        &lt;&#x2F;a&gt;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">    &#123;%- endif %&#125;</span><br><span class="line"></span><br><span class="line">    &#123;%- if site.categories.length &gt; 0 %&#125;</span><br><span class="line">      &#123;%- set categoriesPageQuery &#x3D; site.pages.find(&#123;type: &#39;categories&#39;&#125;, &#123;lean: true&#125;) %&#125;</span><br><span class="line">      &#123;%- set hasCategoriesPage &#x3D; categoriesPageQuery.length &gt; 0 %&#125;</span><br><span class="line">      &lt;div class&#x3D;&quot;site-state-item site-state-categories&quot;&gt;</span><br><span class="line">        &#123;%- if hasCategoriesPage %&#125;</span><br><span class="line">          &#123;%- if theme.menu.categories %&#125;</span><br><span class="line">            &lt;a href&#x3D;&quot;&#123;&#123; url_for(theme.menu.categories.split(&#39;||&#39;)[0] | trim) &#125;&#125;&quot;&gt;</span><br><span class="line">          &#123;% else %&#125;</span><br><span class="line">            &lt;a href&#x3D;&quot;&#123;&#123; url_for(config.category_dir) + &#39;&#x2F;&#39; &#125;&#125;&quot;&gt;</span><br><span class="line">          &#123;%- endif %&#125;</span><br><span class="line">        &#123;%- endif %&#125;</span><br><span class="line">        &lt;span class&#x3D;&quot;site-state-item-count&quot;&gt;&#123;&#123; site.categories.length &#125;&#125;&lt;&#x2F;span&gt;</span><br><span class="line">        &lt;span class&#x3D;&quot;site-state-item-name&quot;&gt;&#123;&#123; __(&#39;state.categories&#39;) &#125;&#125;&lt;&#x2F;span&gt;</span><br><span class="line">        &#123;%- if hasCategoriesPage %&#125;&lt;&#x2F;a&gt;&#123;%- endif %&#125;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">    &#123;%- endif %&#125;</span><br><span class="line"></span><br><span class="line">    &#123;%- if site.tags.length &gt; 0 %&#125;</span><br><span class="line">      &#123;%- set tagsPageQuery &#x3D; site.pages.find(&#123;type: &#39;tags&#39;&#125;, &#123;lean: true&#125;) %&#125;</span><br><span class="line">      &#123;%- set hasTagsPage &#x3D; tagsPageQuery.length &gt; 0 %&#125;</span><br><span class="line">      &lt;div class&#x3D;&quot;site-state-item site-state-tags&quot;&gt;</span><br><span class="line">        &#123;%- if hasTagsPage %&#125;</span><br><span class="line">          &#123;%- if theme.menu.tags %&#125;</span><br><span class="line">            &lt;a href&#x3D;&quot;&#123;&#123; url_for(theme.menu.tags.split(&#39;||&#39;)[0] | trim) &#125;&#125;&quot;&gt;</span><br><span class="line">          &#123;% else %&#125;</span><br><span class="line">            &lt;a href&#x3D;&quot;&#123;&#123; url_for(config.tag_dir) + &#39;&#x2F;&#39; &#125;&#125;&quot;&gt;</span><br><span class="line">          &#123;%- endif %&#125;</span><br><span class="line">        &#123;%- endif %&#125;</span><br><span class="line">        &lt;span class&#x3D;&quot;site-state-item-count&quot;&gt;&#123;&#123; site.tags.length &#125;&#125;&lt;&#x2F;span&gt;</span><br><span class="line">        &lt;span class&#x3D;&quot;site-state-item-name&quot;&gt;&#123;&#123; __(&#39;state.tags&#39;) &#125;&#125;&lt;&#x2F;span&gt;</span><br><span class="line">        &#123;%- if hasTagsPage %&#125;&lt;&#x2F;a&gt;&#123;%- endif %&#125;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">    &#123;%- endif %&#125;</span><br><span class="line">  &lt;&#x2F;nav&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br><span class="line"></span><br><span class="line">&#123;%- if theme.chat.enable and theme.chat.service !&#x3D;&#x3D; &#39;&#39; %&#125;</span><br><span class="line">  &lt;div class&#x3D;&quot;sidebar-button motion-element&quot;&gt;</span><br><span class="line">  &#123;%- if theme.chat.service &#x3D;&#x3D; &#39;chatra&#39; and theme.chatra.enable %&#125;</span><br><span class="line">    &lt;a onclick&#x3D;&quot;Chatra(&#39;openChat&#39;, true)&quot;&gt;</span><br><span class="line">  &#123;%- endif %&#125;</span><br><span class="line">  &#123;%- if theme.chat.service &#x3D;&#x3D; &#39;tidio&#39; and theme.tidio.enable %&#125;</span><br><span class="line">    &lt;a onclick&#x3D;&quot;tidioChatApi.open();&quot;&gt;</span><br><span class="line">  &#123;%- endif %&#125;</span><br><span class="line">  &#123;%- if theme.chat.icon %&#125;&lt;i class&#x3D;&quot;fa fa-&#123;&#123; theme.chat.icon &#125;&#125;&quot;&gt;&lt;&#x2F;i&gt;&#123;%- endif %&#125;</span><br><span class="line">    &#123;&#123; theme.chat.text &#125;&#125;</span><br><span class="line">  &lt;&#x2F;a&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br><span class="line"></span><br><span class="line">&#123;%- if theme.social %&#125;</span><br><span class="line">  &lt;div class&#x3D;&quot;links-of-author motion-element&quot;&gt;</span><br><span class="line">    &#123;%- for name, link in theme.social %&#125;</span><br><span class="line">      &lt;span class&#x3D;&quot;links-of-author-item&quot;&gt;</span><br><span class="line">      &#123;%- set sidebarURL &#x3D; link.split(&#39;||&#39;)[0] | trim %&#125;</span><br><span class="line">      &#123;%- if theme.social_icons.enable %&#125;</span><br><span class="line">        &#123;%- set sidebarIcon &#x3D; &#39;&lt;i class&#x3D;&quot;fa fa-fw fa-&#39; + link.split(&#39;||&#39;)[1] | trim + &#39;&quot;&gt;&lt;&#x2F;i&gt;&#39; %&#125;</span><br><span class="line">      &#123;%- else %&#125;</span><br><span class="line">        &#123;%- set sidebarIcon &#x3D; &#39;&#39; %&#125;</span><br><span class="line">      &#123;%- endif %&#125;</span><br><span class="line">      &#123;%- if theme.social_icons.enable and theme.social_icons.icons_only %&#125;</span><br><span class="line">        &#123;%- set sidebarText &#x3D; &#39;&#39; %&#125;</span><br><span class="line">      &#123;%- else %&#125;</span><br><span class="line">        &#123;%- set sidebarText &#x3D; name %&#125;</span><br><span class="line">      &#123;%- endif %&#125;</span><br><span class="line">        &#123;&#123; next_url(sidebarURL, sidebarIcon + sidebarText, &#123;title: name + &#39; → &#39; + sidebarURL&#125;) &#125;&#125;</span><br><span class="line">      &lt;&#x2F;span&gt;</span><br><span class="line">    &#123;%- endfor %&#125;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br><span class="line"></span><br><span class="line">&#123;%- if theme.creative_commons.license and theme.creative_commons.sidebar %&#125;</span><br><span class="line">  &lt;div class&#x3D;&quot;cc-license motion-element&quot; itemprop&#x3D;&quot;license&quot;&gt;</span><br><span class="line">  &#123;%- set ccImage &#x3D; &#39;&lt;img src&#x3D;&quot;&#39; + url_for(theme.images + &#39;&#x2F;cc-&#39; + theme.creative_commons.license + &#39;.svg&#39;) + &#39;&quot; alt&#x3D;&quot;Creative Commons&quot;&gt;&#39; %&#125;</span><br><span class="line">    &#123;&#123; next_url(ccURL, ccImage, &#123;class: &#39;cc-opacity&#39;&#125;) &#125;&#125;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br><span class="line"></span><br><span class="line">&#123;# Blogroll #&#125;</span><br><span class="line">&#123;%- if theme.links %&#125;</span><br><span class="line">  &lt;div class&#x3D;&quot;links-of-blogroll motion-element&quot;&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;links-of-blogroll-title&quot;&gt;</span><br><span class="line">      &lt;i class&#x3D;&quot;fa fa-fw fa-&#123;&#123; (theme.links_settings.icon or &#39;link&#39;) | lower &#125;&#125;&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">      &#123;&#123; theme.links_settings.title &#125;&#125;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;ul class&#x3D;&quot;links-of-blogroll-list&quot;&gt;</span><br><span class="line">      &#123;%- for blogrollText, blogrollURL in theme.links %&#125;</span><br><span class="line">        &lt;li class&#x3D;&quot;links-of-blogroll-item&quot;&gt;</span><br><span class="line">          &#123;&#123; next_url(blogrollURL, blogrollText, &#123;title: blogrollURL&#125;) &#125;&#125;</span><br><span class="line">        &lt;&#x2F;li&gt;</span><br><span class="line">      &#123;%- endfor %&#125;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ul>
+<li>如果加密，不要使用 <code>pjax</code> 加速，会导致输入密码没有反应</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Github</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>132. Git设置代理</title>
     <url>/2021/03/08/132/</url>
     <content><![CDATA[<h1 id="分辨需要设置的代理"><a href="#分辨需要设置的代理" class="headerlink" title="分辨需要设置的代理"></a>分辨需要设置的代理</h1><ul>
@@ -1262,39 +1295,6 @@
       </categories>
       <tags>
         <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>133. Next安装的插件</title>
-    <url>/2021/03/08/133/</url>
-    <content><![CDATA[<blockquote>
-<p>以下配置仅供参考，基于 <code>hexo5.4.0</code> ,<code>next7.7.2</code></p>
-</blockquote>
-<span id="more"></span>
-
-<h1 id="安装的插件"><a href="#安装的插件" class="headerlink" title="安装的插件"></a>安装的插件</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">npm install hexo-generator-feed --save</span><br><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image</span><br><span class="line">npm install --save hexo-blog-encrypt</span><br><span class="line">npm install hexo-generator-searchdb --save</span><br><span class="line">npm install hexo-symbols-count-time --save</span><br></pre></td></tr></table></figure>
-
-<h1 id="sidebar-swig"><a href="#sidebar-swig" class="headerlink" title="sidebar.swig"></a><code>sidebar.swig</code></h1><blockquote>
-<p>网易云音乐</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% macro render(display_toc) %&#125;</span><br><span class="line">  &lt;div class&#x3D;&quot;toggle sidebar-toggle&quot;&gt;</span><br><span class="line">    &lt;span class&#x3D;&quot;toggle-line toggle-line-first&quot;&gt;&lt;&#x2F;span&gt;</span><br><span class="line">    &lt;span class&#x3D;&quot;toggle-line toggle-line-middle&quot;&gt;&lt;&#x2F;span&gt;</span><br><span class="line">    &lt;span class&#x3D;&quot;toggle-line toggle-line-last&quot;&gt;&lt;&#x2F;span&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">  &lt;aside class&#x3D;&quot;sidebar&quot;&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;sidebar-inner&quot;&gt;</span><br><span class="line">      &#123;# 网易云音乐 #&#125;</span><br><span class="line">      &lt;iframe frameborder&#x3D;&quot;no&quot; border&#x3D;&quot;0&quot; marginwidth&#x3D;&quot;0&quot; marginheight&#x3D;&quot;0&quot; width&#x3D;330 height&#x3D;86 src&#x3D;&quot;&#x2F;&#x2F;music.163.com&#x2F;outchain&#x2F;player?type&#x3D;2&amp;id&#x3D;1808492017&amp;auto&#x3D;0&amp;height&#x3D;66&quot;&gt;&lt;&#x2F;iframe&gt;</span><br><span class="line"></span><br><span class="line">      &#123;%- set display_toc &#x3D; page.toc.enable and display_toc %&#125;</span><br><span class="line">      &#123;%- if display_toc %&#125;</span><br><span class="line">        &#123;%- set toc &#x3D; toc(page.content, &#123; class: &quot;nav&quot;, list_number: page.toc.number, max_depth: page.toc.max_depth &#125;) %&#125;</span><br><span class="line">        &#123;%- set display_toc &#x3D; toc.length &gt; 1 and display_toc %&#125;</span><br><span class="line">      &#123;%- endif %&#125;</span><br><span class="line"></span><br><span class="line">      &lt;ul class&#x3D;&quot;sidebar-nav motion-element&quot;&gt;</span><br><span class="line">        &lt;li class&#x3D;&quot;sidebar-nav-toc&quot;&gt;</span><br><span class="line">          &#123;&#123; __(&#39;sidebar.toc&#39;) &#125;&#125;</span><br><span class="line">        &lt;&#x2F;li&gt;</span><br><span class="line">        &lt;li class&#x3D;&quot;sidebar-nav-overview&quot;&gt;</span><br><span class="line">          &#123;&#123; __(&#39;sidebar.overview&#39;) &#125;&#125;</span><br><span class="line">        &lt;&#x2F;li&gt;</span><br><span class="line">      &lt;&#x2F;ul&gt;</span><br><span class="line"></span><br><span class="line">      &lt;!--noindex--&gt;</span><br><span class="line">      &lt;div class&#x3D;&quot;post-toc-wrap sidebar-panel&quot;&gt;</span><br><span class="line">        &#123;%- if display_toc %&#125;</span><br><span class="line">          &lt;div class&#x3D;&quot;post-toc motion-element&quot;&gt;&#123;&#123; toc &#125;&#125;&lt;&#x2F;div&gt;</span><br><span class="line">        &#123;%- endif %&#125;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">      &lt;!--&#x2F;noindex--&gt;</span><br><span class="line"></span><br><span class="line">      &lt;div class&#x3D;&quot;site-overview-wrap sidebar-panel&quot;&gt;</span><br><span class="line">        &#123;&#123; partial(&#39;_partials&#x2F;sidebar&#x2F;site-overview.swig&#39;, &#123;&#125;, &#123;cache: theme.cache.enable&#125;) &#125;&#125;</span><br><span class="line"></span><br><span class="line">        &#123;&#123;- next_inject(&#39;sidebar&#39;) &#125;&#125;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">      &#123;%- if theme.back2top.enable and theme.back2top.sidebar %&#125;</span><br><span class="line">        &lt;div class&#x3D;&quot;back-to-top motion-element&quot;&gt;</span><br><span class="line">          &lt;i class&#x3D;&quot;fa fa-arrow-up&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">          &lt;span&gt;0%&lt;&#x2F;span&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">      &#123;%- endif %&#125;</span><br><span class="line"></span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">  &lt;&#x2F;aside&gt;</span><br><span class="line">  &lt;div id&#x3D;&quot;sidebar-dimmer&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&#123;% endmacro %&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="site-overview-swig"><a href="#site-overview-swig" class="headerlink" title="site-overview.swig"></a><code>site-overview.swig</code></h1><blockquote>
-<p><code>rss</code></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;site-author motion-element&quot; itemprop&#x3D;&quot;author&quot; itemscope itemtype&#x3D;&quot;http:&#x2F;&#x2F;schema.org&#x2F;Person&quot;&gt;</span><br><span class="line">  &#123;%- if theme.avatar.url %&#125;</span><br><span class="line">    &lt;img class&#x3D;&quot;site-author-image&quot; itemprop&#x3D;&quot;image&quot; alt&#x3D;&quot;&#123;&#123; author &#125;&#125;&quot;</span><br><span class="line">      src&#x3D;&quot;&#123;&#123; url_for(theme.avatar.url) &#125;&#125;&quot;&gt;</span><br><span class="line">  &#123;%- endif %&#125;</span><br><span class="line">  &lt;p class&#x3D;&quot;site-author-name&quot; itemprop&#x3D;&quot;name&quot;&gt;&#123;&#123; author &#125;&#125;&lt;&#x2F;p&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;site-description&quot; itemprop&#x3D;&quot;description&quot;&gt;&#123;&#123; description &#125;&#125;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">&#123;# rss #&#125;</span><br><span class="line">&#123;% if theme.rss %&#125;</span><br><span class="line">   &lt;div class&#x3D;&quot;feed-link motion-element&quot;&gt;</span><br><span class="line">     &lt;a href&#x3D;&quot;&#123;&#123; url_for(theme.rss) &#125;&#125;&quot; rel&#x3D;&quot;alternate&quot;&gt;</span><br><span class="line">       &lt;i class&#x3D;&quot;fa fa-rss&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">       RSS</span><br><span class="line">     &lt;&#x2F;a&gt;</span><br><span class="line">   &lt;&#x2F;div&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">&#123;%- if theme.site_state %&#125;</span><br><span class="line">&lt;div class&#x3D;&quot;site-state-wrap motion-element&quot;&gt;</span><br><span class="line">  &lt;nav class&#x3D;&quot;site-state&quot;&gt;</span><br><span class="line">    &#123;%- if config.archive_dir !&#x3D; &#39;&#x2F;&#39; and site.posts.length &gt; 0 %&#125;</span><br><span class="line">      &lt;div class&#x3D;&quot;site-state-item site-state-posts&quot;&gt;</span><br><span class="line">        &#123;%- if theme.menu.archives %&#125;</span><br><span class="line">          &lt;a href&#x3D;&quot;&#123;&#123; url_for(theme.menu.archives.split(&#39;||&#39;)[0] | trim) &#125;&#125;&quot;&gt;</span><br><span class="line">        &#123;% else %&#125;</span><br><span class="line">          &lt;a href&#x3D;&quot;&#123;&#123; url_for(config.archive_dir) &#125;&#125;&quot;&gt;</span><br><span class="line">        &#123;%- endif %&#125;</span><br><span class="line">          &lt;span class&#x3D;&quot;site-state-item-count&quot;&gt;&#123;&#123; site.posts.length &#125;&#125;&lt;&#x2F;span&gt;</span><br><span class="line">          &lt;span class&#x3D;&quot;site-state-item-name&quot;&gt;&#123;&#123; __(&#39;state.posts&#39;) &#125;&#125;&lt;&#x2F;span&gt;</span><br><span class="line">        &lt;&#x2F;a&gt;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">    &#123;%- endif %&#125;</span><br><span class="line"></span><br><span class="line">    &#123;%- if site.categories.length &gt; 0 %&#125;</span><br><span class="line">      &#123;%- set categoriesPageQuery &#x3D; site.pages.find(&#123;type: &#39;categories&#39;&#125;, &#123;lean: true&#125;) %&#125;</span><br><span class="line">      &#123;%- set hasCategoriesPage &#x3D; categoriesPageQuery.length &gt; 0 %&#125;</span><br><span class="line">      &lt;div class&#x3D;&quot;site-state-item site-state-categories&quot;&gt;</span><br><span class="line">        &#123;%- if hasCategoriesPage %&#125;</span><br><span class="line">          &#123;%- if theme.menu.categories %&#125;</span><br><span class="line">            &lt;a href&#x3D;&quot;&#123;&#123; url_for(theme.menu.categories.split(&#39;||&#39;)[0] | trim) &#125;&#125;&quot;&gt;</span><br><span class="line">          &#123;% else %&#125;</span><br><span class="line">            &lt;a href&#x3D;&quot;&#123;&#123; url_for(config.category_dir) + &#39;&#x2F;&#39; &#125;&#125;&quot;&gt;</span><br><span class="line">          &#123;%- endif %&#125;</span><br><span class="line">        &#123;%- endif %&#125;</span><br><span class="line">        &lt;span class&#x3D;&quot;site-state-item-count&quot;&gt;&#123;&#123; site.categories.length &#125;&#125;&lt;&#x2F;span&gt;</span><br><span class="line">        &lt;span class&#x3D;&quot;site-state-item-name&quot;&gt;&#123;&#123; __(&#39;state.categories&#39;) &#125;&#125;&lt;&#x2F;span&gt;</span><br><span class="line">        &#123;%- if hasCategoriesPage %&#125;&lt;&#x2F;a&gt;&#123;%- endif %&#125;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">    &#123;%- endif %&#125;</span><br><span class="line"></span><br><span class="line">    &#123;%- if site.tags.length &gt; 0 %&#125;</span><br><span class="line">      &#123;%- set tagsPageQuery &#x3D; site.pages.find(&#123;type: &#39;tags&#39;&#125;, &#123;lean: true&#125;) %&#125;</span><br><span class="line">      &#123;%- set hasTagsPage &#x3D; tagsPageQuery.length &gt; 0 %&#125;</span><br><span class="line">      &lt;div class&#x3D;&quot;site-state-item site-state-tags&quot;&gt;</span><br><span class="line">        &#123;%- if hasTagsPage %&#125;</span><br><span class="line">          &#123;%- if theme.menu.tags %&#125;</span><br><span class="line">            &lt;a href&#x3D;&quot;&#123;&#123; url_for(theme.menu.tags.split(&#39;||&#39;)[0] | trim) &#125;&#125;&quot;&gt;</span><br><span class="line">          &#123;% else %&#125;</span><br><span class="line">            &lt;a href&#x3D;&quot;&#123;&#123; url_for(config.tag_dir) + &#39;&#x2F;&#39; &#125;&#125;&quot;&gt;</span><br><span class="line">          &#123;%- endif %&#125;</span><br><span class="line">        &#123;%- endif %&#125;</span><br><span class="line">        &lt;span class&#x3D;&quot;site-state-item-count&quot;&gt;&#123;&#123; site.tags.length &#125;&#125;&lt;&#x2F;span&gt;</span><br><span class="line">        &lt;span class&#x3D;&quot;site-state-item-name&quot;&gt;&#123;&#123; __(&#39;state.tags&#39;) &#125;&#125;&lt;&#x2F;span&gt;</span><br><span class="line">        &#123;%- if hasTagsPage %&#125;&lt;&#x2F;a&gt;&#123;%- endif %&#125;</span><br><span class="line">      &lt;&#x2F;div&gt;</span><br><span class="line">    &#123;%- endif %&#125;</span><br><span class="line">  &lt;&#x2F;nav&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br><span class="line"></span><br><span class="line">&#123;%- if theme.chat.enable and theme.chat.service !&#x3D;&#x3D; &#39;&#39; %&#125;</span><br><span class="line">  &lt;div class&#x3D;&quot;sidebar-button motion-element&quot;&gt;</span><br><span class="line">  &#123;%- if theme.chat.service &#x3D;&#x3D; &#39;chatra&#39; and theme.chatra.enable %&#125;</span><br><span class="line">    &lt;a onclick&#x3D;&quot;Chatra(&#39;openChat&#39;, true)&quot;&gt;</span><br><span class="line">  &#123;%- endif %&#125;</span><br><span class="line">  &#123;%- if theme.chat.service &#x3D;&#x3D; &#39;tidio&#39; and theme.tidio.enable %&#125;</span><br><span class="line">    &lt;a onclick&#x3D;&quot;tidioChatApi.open();&quot;&gt;</span><br><span class="line">  &#123;%- endif %&#125;</span><br><span class="line">  &#123;%- if theme.chat.icon %&#125;&lt;i class&#x3D;&quot;fa fa-&#123;&#123; theme.chat.icon &#125;&#125;&quot;&gt;&lt;&#x2F;i&gt;&#123;%- endif %&#125;</span><br><span class="line">    &#123;&#123; theme.chat.text &#125;&#125;</span><br><span class="line">  &lt;&#x2F;a&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br><span class="line"></span><br><span class="line">&#123;%- if theme.social %&#125;</span><br><span class="line">  &lt;div class&#x3D;&quot;links-of-author motion-element&quot;&gt;</span><br><span class="line">    &#123;%- for name, link in theme.social %&#125;</span><br><span class="line">      &lt;span class&#x3D;&quot;links-of-author-item&quot;&gt;</span><br><span class="line">      &#123;%- set sidebarURL &#x3D; link.split(&#39;||&#39;)[0] | trim %&#125;</span><br><span class="line">      &#123;%- if theme.social_icons.enable %&#125;</span><br><span class="line">        &#123;%- set sidebarIcon &#x3D; &#39;&lt;i class&#x3D;&quot;fa fa-fw fa-&#39; + link.split(&#39;||&#39;)[1] | trim + &#39;&quot;&gt;&lt;&#x2F;i&gt;&#39; %&#125;</span><br><span class="line">      &#123;%- else %&#125;</span><br><span class="line">        &#123;%- set sidebarIcon &#x3D; &#39;&#39; %&#125;</span><br><span class="line">      &#123;%- endif %&#125;</span><br><span class="line">      &#123;%- if theme.social_icons.enable and theme.social_icons.icons_only %&#125;</span><br><span class="line">        &#123;%- set sidebarText &#x3D; &#39;&#39; %&#125;</span><br><span class="line">      &#123;%- else %&#125;</span><br><span class="line">        &#123;%- set sidebarText &#x3D; name %&#125;</span><br><span class="line">      &#123;%- endif %&#125;</span><br><span class="line">        &#123;&#123; next_url(sidebarURL, sidebarIcon + sidebarText, &#123;title: name + &#39; → &#39; + sidebarURL&#125;) &#125;&#125;</span><br><span class="line">      &lt;&#x2F;span&gt;</span><br><span class="line">    &#123;%- endfor %&#125;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br><span class="line"></span><br><span class="line">&#123;%- if theme.creative_commons.license and theme.creative_commons.sidebar %&#125;</span><br><span class="line">  &lt;div class&#x3D;&quot;cc-license motion-element&quot; itemprop&#x3D;&quot;license&quot;&gt;</span><br><span class="line">  &#123;%- set ccImage &#x3D; &#39;&lt;img src&#x3D;&quot;&#39; + url_for(theme.images + &#39;&#x2F;cc-&#39; + theme.creative_commons.license + &#39;.svg&#39;) + &#39;&quot; alt&#x3D;&quot;Creative Commons&quot;&gt;&#39; %&#125;</span><br><span class="line">    &#123;&#123; next_url(ccURL, ccImage, &#123;class: &#39;cc-opacity&#39;&#125;) &#125;&#125;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br><span class="line"></span><br><span class="line">&#123;# Blogroll #&#125;</span><br><span class="line">&#123;%- if theme.links %&#125;</span><br><span class="line">  &lt;div class&#x3D;&quot;links-of-blogroll motion-element&quot;&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;links-of-blogroll-title&quot;&gt;</span><br><span class="line">      &lt;i class&#x3D;&quot;fa fa-fw fa-&#123;&#123; (theme.links_settings.icon or &#39;link&#39;) | lower &#125;&#125;&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">      &#123;&#123; theme.links_settings.title &#125;&#125;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;ul class&#x3D;&quot;links-of-blogroll-list&quot;&gt;</span><br><span class="line">      &#123;%- for blogrollText, blogrollURL in theme.links %&#125;</span><br><span class="line">        &lt;li class&#x3D;&quot;links-of-blogroll-item&quot;&gt;</span><br><span class="line">          &#123;&#123; next_url(blogrollURL, blogrollText, &#123;title: blogrollURL&#125;) &#125;&#125;</span><br><span class="line">        &lt;&#x2F;li&gt;</span><br><span class="line">      &#123;%- endfor %&#125;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><ul>
-<li>如果加密，不要使用 <code>pjax</code> 加速，会导致输入密码没有反应</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Github</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Next</tag>
-        <tag>Github</tag>
       </tags>
   </entry>
   <entry>
@@ -1417,7 +1417,7 @@
     <url>/2021/04/10/138/</url>
     <content><![CDATA[<h1 id="进入锁屏壁纸的文件夹"><a href="#进入锁屏壁纸的文件夹" class="headerlink" title="进入锁屏壁纸的文件夹"></a>进入锁屏壁纸的文件夹</h1><ol>
 <li><p>打开 <code>文件资源管理器</code> （按 <code>win+e</code>）</p>
-</li>
+<span id="more"></span></li>
 <li><p>在地址栏输入下面的路径</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:\Users\%username%\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets\ </span><br></pre></td></tr></table></figure></li>
 <li><p>将里面的文件复制到自己创建的文件夹内</p>
@@ -1450,75 +1450,6 @@
       </categories>
       <tags>
         <tag>质数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>15. 只出现一次的数字 II</title>
-    <url>/2019/01/23/15/</url>
-    <content><![CDATA[<h1 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h1><blockquote>
-<p>给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现了三次。找出那个只出现了一次的元素。</p>
-</blockquote>
-<span id="more"></span>
-
-
-<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><blockquote>
-<p>你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</p>
-</blockquote>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: [2,2,3,2]</span><br><span class="line">输出: 3</span><br></pre></td></tr></table></figure>
-
-<h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">singleNum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; nums.size(); j++) &#123;</span><br><span class="line">            count += (nums[j] &gt;&gt; i) &amp; <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        res += (count % <span class="number">3</span>) &lt;&lt; i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><ol>
-<li>首先：为什么<code>i &lt; 32</code>?<br>int型占4个字节，即32位，所以int的大小为 int$\in$ [$-2^{31}$, $2 ^ {31} -1$]</li>
-<li>时间复杂度为：O(32n) <code>&lt;===&gt;</code> O(n)；</li>
-<li>虽然是二进制，但是运算法则和十进制并无差异，变的只是进制而已；</li>
-<li>因为要确定一个数字，所以$<code>\%3</code>$会让那个数字显示出来在<strong>二进制</strong>形式下，那个位置有1。</li>
-</ol>
-<h1 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h1><h2 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">singleNum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ones = <span class="number">0</span>, twos = <span class="number">0</span>;</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">auto</span> x : nums) &#123;</span><br><span class="line">         ones = (ones ^ x) &amp; ~twos;</span><br><span class="line">         twos = (twos ^ x) &amp; ~ones;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> ones;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="解析-1"><a href="#解析-1" class="headerlink" title="解析"></a>解析</h2><ol>
-<li>从 <code>自动机</code> 的角度出发；</li>
-<li>状态机：（举例：）</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th align="center">状态量</th>
-<th align="center">ones</th>
-<th align="center">twos</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">初始状态</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">一个1</td>
-<td align="center">1</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">两个1</td>
-<td align="center">0</td>
-<td align="center">1</td>
-</tr>
-<tr>
-<td align="center">三个1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">3. 三个状态一循环，比如有6个1， 则进行两轮循环，状态量为0 &emsp; 0</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>程序设计</category>
-      </categories>
-      <tags>
-        <tag>OJ题目</tag>
       </tags>
   </entry>
   <entry>
@@ -1697,21 +1628,72 @@
       </tags>
   </entry>
   <entry>
-    <title>18. ACWing基础课程例题(Week)</title>
-    <url>/2019/01/24/18/</url>
-    <content><![CDATA[<p>……</p>
+    <title>15. 只出现一次的数字 II</title>
+    <url>/2019/01/23/15/</url>
+    <content><![CDATA[<h1 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h1><blockquote>
+<p>给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现了三次。找出那个只出现了一次的元素。</p>
+</blockquote>
 <span id="more"></span>
 
 
-<h1 id="Week1"><a href="#Week1" class="headerlink" title="Week1"></a><strong>Week1</strong></h1><p><img src="/images/posts/acwing/7.png"></p>
-<hr>
-<h1 id="Week2"><a href="#Week2" class="headerlink" title="Week2"></a><strong>Week2</strong></h1><p><img src="/images/posts/acwing/1.png"></p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><blockquote>
+<p>你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</p>
+</blockquote>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: [2,2,3,2]</span><br><span class="line">输出: 3</span><br></pre></td></tr></table></figure>
+
+<h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">singleNum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; nums.size(); j++) &#123;</span><br><span class="line">            count += (nums[j] &gt;&gt; i) &amp; <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        res += (count % <span class="number">3</span>) &lt;&lt; i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><ol>
+<li>首先：为什么<code>i &lt; 32</code>?<br>int型占4个字节，即32位，所以int的大小为 int$\in$ [$-2^{31}$, $2 ^ {31} -1$]</li>
+<li>时间复杂度为：O(32n) <code>&lt;===&gt;</code> O(n)；</li>
+<li>虽然是二进制，但是运算法则和十进制并无差异，变的只是进制而已；</li>
+<li>因为要确定一个数字，所以$<code>\%3</code>$会让那个数字显示出来在<strong>二进制</strong>形式下，那个位置有1。</li>
+</ol>
+<h1 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h1><h2 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">singleNum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ones = <span class="number">0</span>, twos = <span class="number">0</span>;</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">auto</span> x : nums) &#123;</span><br><span class="line">         ones = (ones ^ x) &amp; ~twos;</span><br><span class="line">         twos = (twos ^ x) &amp; ~ones;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> ones;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="解析-1"><a href="#解析-1" class="headerlink" title="解析"></a>解析</h2><ol>
+<li>从 <code>自动机</code> 的角度出发；</li>
+<li>状态机：（举例：）</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">状态量</th>
+<th align="center">ones</th>
+<th align="center">twos</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">初始状态</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">一个1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">两个1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">三个1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">3. 三个状态一循环，比如有6个1， 则进行两轮循环，状态量为0 &emsp; 0</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
 ]]></content>
       <categories>
         <category>程序设计</category>
       </categories>
       <tags>
-        <tag>ACWing</tag>
+        <tag>OJ题目</tag>
       </tags>
   </entry>
   <entry>
@@ -1761,40 +1743,21 @@
       </tags>
   </entry>
   <entry>
-    <title>19. 用cmd运行Cpp文件</title>
-    <url>/2019/01/24/19/</url>
-    <content><![CDATA[<h1 id="1-生成-exe可执行文件："><a href="#1-生成-exe可执行文件：" class="headerlink" title="1. 生成 .exe可执行文件："></a>1. 生成 <code>.exe</code>可执行文件：</h1><blockquote>
-<p>输入代码</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">g++ -o &lt;demo1&gt; &lt;demo2&gt;.cpp</span><br></pre></td></tr></table></figure>
-
+    <title>18. ACWing基础课程例题(Week)</title>
+    <url>/2019/01/24/18/</url>
+    <content><![CDATA[<p>……</p>
 <span id="more"></span>
 
 
-<blockquote>
-<p>其中：</p>
-<ol>
-<li>demo1、demo2是可变的  </li>
-<li>demo1为：生成<code>.exe</code>的文件名</li>
-<li>demo2为：<code>.cpp</code>的C++源代码文件名</li>
-</ol>
-</blockquote>
-<h1 id="2-运行："><a href="#2-运行：" class="headerlink" title="2. 运行："></a>2. 运行：</h1><blockquote>
-<p>输入代码</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.\&lt;file1&gt;\&lt;file2&gt;\……\&lt;demo1&gt;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>其中：</p>
-<ol>
-<li>file1、file2、……  为： 该目录下的子文件夹，而demo1.exe位于这些子文件中</li>
-</ol>
-</blockquote>
+<h1 id="Week1"><a href="#Week1" class="headerlink" title="Week1"></a><strong>Week1</strong></h1><p><img src="/images/posts/acwing/7.png"></p>
+<hr>
+<h1 id="Week2"><a href="#Week2" class="headerlink" title="Week2"></a><strong>Week2</strong></h1><p><img src="/images/posts/acwing/1.png"></p>
 ]]></content>
       <categories>
-        <category>C/C++</category>
+        <category>程序设计</category>
       </categories>
       <tags>
-        <tag>C/C++</tag>
+        <tag>ACWing</tag>
       </tags>
   </entry>
   <entry>
@@ -1930,30 +1893,40 @@
       </tags>
   </entry>
   <entry>
-    <title>21. 只出现一次的数字</title>
-    <url>/2019/02/05/21/</url>
-    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p><img src="/images/posts/acwing/2.png"></p>
+    <title>19. 用cmd运行Cpp文件</title>
+    <url>/2019/01/24/19/</url>
+    <content><![CDATA[<h1 id="1-生成-exe可执行文件："><a href="#1-生成-exe可执行文件：" class="headerlink" title="1. 生成 .exe可执行文件："></a>1. 生成 <code>.exe</code>可执行文件：</h1><blockquote>
+<p>输入代码</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">g++ -o &lt;demo1&gt; &lt;demo2&gt;.cpp</span><br></pre></td></tr></table></figure>
+
 <span id="more"></span>
 
 
-<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><ol>
-<li>利用异或运算的性质<ol>
-<li>x ^ x = 0</li>
-<li>x ^ 0 = x</li>
+<blockquote>
+<p>其中：</p>
+<ol>
+<li>demo1、demo2是可变的  </li>
+<li>demo1为：生成<code>.exe</code>的文件名</li>
+<li>demo2为：<code>.cpp</code>的C++源代码文件名</li>
 </ol>
-</li>
-<li>对所有数字异或运算<ol>
-<li>$x_1$  ^ $x_2$ ^ …… ^ $x_n$ = 只出现过一次的数 </li>
+</blockquote>
+<h1 id="2-运行："><a href="#2-运行：" class="headerlink" title="2. 运行："></a>2. 运行：</h1><blockquote>
+<p>输入代码</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.\&lt;file1&gt;\&lt;file2&gt;\……\&lt;demo1&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>其中：</p>
+<ol>
+<li>file1、file2、……  为： 该目录下的子文件夹，而demo1.exe位于这些子文件中</li>
 </ol>
-</li>
-<li>程序<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">auto</span> x : nums)</span><br><span class="line">         res ^= x;</span><br><span class="line">     <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
+</blockquote>
 ]]></content>
       <categories>
-        <category>程序设计</category>
+        <category>C/C++</category>
       </categories>
       <tags>
-        <tag>OJ题目</tag>
+        <tag>C/C++</tag>
       </tags>
   </entry>
   <entry>
@@ -2137,6 +2110,33 @@
       </tags>
   </entry>
   <entry>
+    <title>21. 只出现一次的数字</title>
+    <url>/2019/02/05/21/</url>
+    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p><img src="/images/posts/acwing/2.png"></p>
+<span id="more"></span>
+
+
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><ol>
+<li>利用异或运算的性质<ol>
+<li>x ^ x = 0</li>
+<li>x ^ 0 = x</li>
+</ol>
+</li>
+<li>对所有数字异或运算<ol>
+<li>$x_1$  ^ $x_2$ ^ …… ^ $x_n$ = 只出现过一次的数 </li>
+</ol>
+</li>
+<li>程序<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">auto</span> x : nums)</span><br><span class="line">         res ^= x;</span><br><span class="line">     <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>程序设计</category>
+      </categories>
+      <tags>
+        <tag>OJ题目</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>22. 只出现一次的数字 III</title>
     <url>/2019/02/05/22/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="/images/posts/acwing/3.png"></p>
@@ -2219,28 +2219,6 @@
       </tags>
   </entry>
   <entry>
-    <title>26. 二叉树的最小深度</title>
-    <url>/2019/02/12/26/</url>
-    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a><strong>题目</strong></h1><p><img src="/images/posts/acwing/9.png"> <br><br></p>
-<span id="more"></span>
-
-
-<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><strong>解析</strong></h1><ol>
-<li>解析图：<br><br><img src="/images/posts/acwing/8.png"></li>
-<li>首先，如果是Null，那么，便返回0</li>
-<li>然后，看左子树深度和右子树的深度</li>
-<li>接着，如果有左子树或者右子树的深度为0，那么返回另一个深度+1</li>
-<li>最后，如果左右子树的深度都不为0，那么返回最小值+1</li>
-</ol>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">minDepth</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!root)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> leftNum = minDepth(root -&gt; left);</span><br><span class="line">    <span class="keyword">int</span> rightNum = minDepth(root -&gt; right);</span><br><span class="line">    <span class="keyword">if</span>(!leftNum || !rightNum)</span><br><span class="line">        <span class="keyword">return</span> (leftNum + rightNum + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> min(leftNum, rightNum) + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>程序设计</category>
-      </categories>
-      <tags>
-        <tag>OJ题目</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>27. BFS和DFS基础知识</title>
     <url>/2019/02/12/27/</url>
     <content><![CDATA[<h1 id="一、DFS和BFS的区别和优势"><a href="#一、DFS和BFS的区别和优势" class="headerlink" title="一、DFS和BFS的区别和优势"></a>一、DFS和BFS的区别和优势</h1><h2 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h2><pre><code>1. BFS（宽度有限搜索）
@@ -2277,6 +2255,28 @@
       </categories>
       <tags>
         <tag>搜索算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>26. 二叉树的最小深度</title>
+    <url>/2019/02/12/26/</url>
+    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a><strong>题目</strong></h1><p><img src="/images/posts/acwing/9.png"> <br><br></p>
+<span id="more"></span>
+
+
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><strong>解析</strong></h1><ol>
+<li>解析图：<br><br><img src="/images/posts/acwing/8.png"></li>
+<li>首先，如果是Null，那么，便返回0</li>
+<li>然后，看左子树深度和右子树的深度</li>
+<li>接着，如果有左子树或者右子树的深度为0，那么返回另一个深度+1</li>
+<li>最后，如果左右子树的深度都不为0，那么返回最小值+1</li>
+</ol>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">minDepth</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!root)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> leftNum = minDepth(root -&gt; left);</span><br><span class="line">    <span class="keyword">int</span> rightNum = minDepth(root -&gt; right);</span><br><span class="line">    <span class="keyword">if</span>(!leftNum || !rightNum)</span><br><span class="line">        <span class="keyword">return</span> (leftNum + rightNum + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> min(leftNum, rightNum) + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>程序设计</category>
+      </categories>
+      <tags>
+        <tag>OJ题目</tag>
       </tags>
   </entry>
   <entry>
@@ -2425,6 +2425,33 @@
       </tags>
   </entry>
   <entry>
+    <title>3. 由数据范围反推算法复杂度以及算法内容</title>
+    <url>/2019/01/19/3/</url>
+    <content><![CDATA[<h1 id="友情提示"><a href="#友情提示" class="headerlink" title="友情提示"></a>友情提示</h1><blockquote>
+<p>一般ACM或者笔试题的时间限制是1秒或2秒。<br>在这种情况下，C++代码中的操作次数控制在$ 10^7 $为最佳。</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择："><a href="#下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择：" class="headerlink" title="下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择："></a>下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择：</h1><ol>
+<li>n ≤ 30 =&gt; 指数级别, dfs+剪枝，状态压缩dp</li>
+<li>n ≤ 100 =&gt; O(n3)O(n3)，floyd，dp</li>
+<li>n ≤ 1000 =&gt; O(n2)O(n2)，O(n2logn)O(n2logn)，dp，二分</li>
+<li>n ≤ 10000 =&gt; O(n∗n√)O(n∗n)，块状链表</li>
+<li>n ≤ 100000 =&gt; O(nlogn)O(nlogn) =&gt; 各种sort，线段树、树状数组、set/map、heap、dijkstra+heap、spfa、求凸包、求半平面交、二分</li>
+<li>n ≤ 1000000 =&gt; O(n)O(n), 以及常数较小的 O(nlogn)O(nlogn) 算法 =&gt; hash、双指针扫描、kmp、AC自动机，常数比较小的 O(nlogn)O(nlogn) 的做法：sort、树状数组、heap、dijkstra、spfa</li>
+<li>n ≤ 10000000 =&gt; O(n)O(n)，双指针扫描、kmp、AC自动机、线性筛素数</li>
+<li>n ≤ $10^9$ =&gt; O(n√)O(n)，判断质数</li>
+<li>n ≤ $ 10^{18} $ =&gt; O(logn)O(logn)，最大公约数</li>
+</ol>
+]]></content>
+      <categories>
+        <category>程序设计</category>
+      </categories>
+      <tags>
+        <tag>时空复杂度</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>29. 完全平方数</title>
     <url>/2019/02/14/29/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a><strong>题目</strong></h1><p><img src="/images/posts/acwing/10.png"></p>
@@ -2460,30 +2487,16 @@
       </tags>
   </entry>
   <entry>
-    <title>3. 由数据范围反推算法复杂度以及算法内容</title>
-    <url>/2019/01/19/3/</url>
-    <content><![CDATA[<h1 id="友情提示"><a href="#友情提示" class="headerlink" title="友情提示"></a>友情提示</h1><blockquote>
-<p>一般ACM或者笔试题的时间限制是1秒或2秒。<br>在这种情况下，C++代码中的操作次数控制在$ 10^7 $为最佳。</p>
-</blockquote>
+    <title>31. 被围绕的区域</title>
+    <url>/2019/02/15/31/</url>
+    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="/images/posts/acwing/13.png"></p>
 <span id="more"></span>
-
-<h1 id="下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择："><a href="#下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择：" class="headerlink" title="下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择："></a>下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择：</h1><ol>
-<li>n ≤ 30 =&gt; 指数级别, dfs+剪枝，状态压缩dp</li>
-<li>n ≤ 100 =&gt; O(n3)O(n3)，floyd，dp</li>
-<li>n ≤ 1000 =&gt; O(n2)O(n2)，O(n2logn)O(n2logn)，dp，二分</li>
-<li>n ≤ 10000 =&gt; O(n∗n√)O(n∗n)，块状链表</li>
-<li>n ≤ 100000 =&gt; O(nlogn)O(nlogn) =&gt; 各种sort，线段树、树状数组、set/map、heap、dijkstra+heap、spfa、求凸包、求半平面交、二分</li>
-<li>n ≤ 1000000 =&gt; O(n)O(n), 以及常数较小的 O(nlogn)O(nlogn) 算法 =&gt; hash、双指针扫描、kmp、AC自动机，常数比较小的 O(nlogn)O(nlogn) 的做法：sort、树状数组、heap、dijkstra、spfa</li>
-<li>n ≤ 10000000 =&gt; O(n)O(n)，双指针扫描、kmp、AC自动机、线性筛素数</li>
-<li>n ≤ $10^9$ =&gt; O(n√)O(n)，判断质数</li>
-<li>n ≤ $ 10^{18} $ =&gt; O(logn)O(logn)，最大公约数</li>
-</ol>
 ]]></content>
       <categories>
         <category>程序设计</category>
       </categories>
       <tags>
-        <tag>时空复杂度</tag>
+        <tag>OJ题目</tag>
       </tags>
   </entry>
   <entry>
@@ -2527,19 +2540,6 @@
 <li>原因：因为 <code>f[j]</code> 改变，对 <code>f[j + 1]</code> 并没有影响，所以就不需要 <code>g</code> 了。</li>
 </ol>
 </blockquote>
-]]></content>
-      <categories>
-        <category>程序设计</category>
-      </categories>
-      <tags>
-        <tag>OJ题目</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>31. 被围绕的区域</title>
-    <url>/2019/02/15/31/</url>
-    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="/images/posts/acwing/13.png"></p>
-<span id="more"></span>
 ]]></content>
       <categories>
         <category>程序设计</category>
@@ -2716,47 +2716,6 @@
       </tags>
   </entry>
   <entry>
-    <title>38. Vscode配置C&amp;C++</title>
-    <url>/2019/02/20/38/</url>
-    <content><![CDATA[<p>……</p>
-<span id="more"></span>
-
-
-<h1 id="Windows配置文件"><a href="#Windows配置文件" class="headerlink" title="Windows配置文件"></a>Windows配置文件</h1><h2 id="1-c-cpp-properties-json"><a href="#1-c-cpp-properties-json" class="headerlink" title="1. c_cpp_properties.json"></a>1. c_cpp_properties.json</h2><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;Win32&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;includePath&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;$&#123;workspaceFolder&#125;/**&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;defines&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;_DEBUG&quot;</span>,</span><br><span class="line">                <span class="string">&quot;UNICODE&quot;</span>,</span><br><span class="line">                <span class="string">&quot;_UNICODE&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;browse&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;path&quot;</span>: [</span><br><span class="line">                    <span class="string">&quot;$&#123;workspaceRoot&#125;&quot;</span>,</span><br><span class="line">                    <span class="string">&quot;E:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++&quot;</span><span class="comment">// 自己更改自己对应的地址</span></span><br><span class="line">                ],</span><br><span class="line">                <span class="attr">&quot;limitSymbolsToIncludedHeaders&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">                <span class="attr">&quot;databaseFilename&quot;</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">&quot;compilerPath&quot;</span>: <span class="string">&quot;E:\\MinGW\\bin\\g++.exe&quot;</span>,<span class="comment">// 自己更改自己对应的地址</span></span><br><span class="line">            <span class="attr">&quot;cStandard&quot;</span>: <span class="string">&quot;c11&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;cppStandard&quot;</span>: <span class="string">&quot;c++17&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;intelliSenseMode&quot;</span>: <span class="string">&quot;msvc-x64&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-launch-json"><a href="#2-launch-json" class="headerlink" title="2. launch.json"></a>2. launch.json</h2><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Use IntelliSense to learn about possible attributes.</span></span><br><span class="line">    <span class="comment">// Hover to view descriptions of existing attributes.</span></span><br><span class="line">    <span class="comment">// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;0.2.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;(gdb) Launch&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;cppdbg&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;request&quot;</span>: <span class="string">&quot;launch&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;program&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;/build/$&#123;fileBasenameNoExtension&#125;.exe&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;stopAtEntry&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;environment&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;externalConsole&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="attr">&quot;MIMode&quot;</span>: <span class="string">&quot;gdb&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;miDebuggerPath&quot;</span>: <span class="string">&quot;E:\\MinGW\\bin\\gdb.exe&quot;</span>, <span class="comment">// 自己更改自己对应的地址</span></span><br><span class="line">            <span class="attr">&quot;preLaunchTask&quot;</span>: <span class="string">&quot;build&quot;</span>, <span class="comment">// 和&quot;tasks.json&quot;的&quot;tasks&quot;-&quot;label&quot;对应</span></span><br><span class="line">            <span class="attr">&quot;setupCommands&quot;</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;Enable pretty-printing for gdb&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;text&quot;</span>: <span class="string">&quot;-enable-pretty-printing&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;ignoreFailures&quot;</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-tasks-json"><a href="#3-tasks-json" class="headerlink" title="3. tasks.json"></a>3. tasks.json</h2><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// See https://go.microsoft.com/fwlink/?LinkId=733558</span></span><br><span class="line">    <span class="comment">// for the documentation about the tasks.json format</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;2.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;tasks&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;label&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;shell&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;g++&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;-g&quot;</span>, </span><br><span class="line">                <span class="string">&quot;$&#123;file&#125;&quot;</span>,</span><br><span class="line">                <span class="string">&quot;-o&quot;</span>,</span><br><span class="line">                <span class="string">&quot;$&#123;fileDirname&#125;\\build\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span>, <span class="comment">// 指定输出文件名，不加该参数则默认输出a.exe</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;group&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;kind&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">                <span class="attr">&quot;isDefault&quot;</span>: <span class="literal">true</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>Ps：</strong></p>
-<ol>
-<li>在文件夹中创建 <code>build</code> 文件</li>
-<li>自己更改<code>MinGW</code>地址，以及配置<code>MinGW</code>，<a href="https://www.youtube.com/watch?v=DIw02CaEusY">点击这里</a>学会如何安装<code>MinGW</code>，以及如何配置</li>
-</ol>
-</blockquote>
-<h1 id="Windows配置文件-升级"><a href="#Windows配置文件-升级" class="headerlink" title="Windows配置文件(升级)"></a>Windows配置文件(升级)</h1><h2 id="1-c-cpp-properties-json-1"><a href="#1-c-cpp-properties-json-1" class="headerlink" title="1. c_cpp_properties.json"></a>1. c_cpp_properties.json</h2><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;Win32&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;includePath&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;$&#123;workspaceFolder&#125;/**&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;defines&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;_DEBUG&quot;</span>,</span><br><span class="line">                <span class="string">&quot;UNICODE&quot;</span>,</span><br><span class="line">                <span class="string">&quot;_UNICODE&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;browse&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;path&quot;</span>: [</span><br><span class="line">                    <span class="string">&quot;$&#123;workspaceRoot&#125;&quot;</span>,</span><br><span class="line">                    <span class="string">&quot;E:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++&quot;</span></span><br><span class="line">                ],</span><br><span class="line">                <span class="attr">&quot;limitSymbolsToIncludedHeaders&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">                <span class="attr">&quot;databaseFilename&quot;</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">&quot;compilerPath&quot;</span>: <span class="string">&quot;E:\\MinGW\\bin\\g++.exe&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;cStandard&quot;</span>: <span class="string">&quot;c11&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;cppStandard&quot;</span>: <span class="string">&quot;c++17&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;intelliSenseMode&quot;</span>: <span class="string">&quot;msvc-x64&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-launch-json-1"><a href="#2-launch-json-1" class="headerlink" title="2. launch.json"></a>2. launch.json</h2><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Use IntelliSense to learn about possible attributes.</span></span><br><span class="line">    <span class="comment">// Hover to view descriptions of existing attributes.</span></span><br><span class="line">    <span class="comment">// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;0.2.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;(gdb) Launch&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;cppdbg&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;request&quot;</span>: <span class="string">&quot;launch&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;program&quot;</span>: <span class="string">&quot;$&#123;fileDirname&#125;/build/$&#123;fileBasenameNoExtension&#125;.exe&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;stopAtEntry&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;environment&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;externalConsole&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="attr">&quot;MIMode&quot;</span>: <span class="string">&quot;gdb&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;miDebuggerPath&quot;</span>: <span class="string">&quot;E:\\MinGW\\bin\\gdb.exe&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;preLaunchTask&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;setupCommands&quot;</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;Enable pretty-printing for gdb&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;text&quot;</span>: <span class="string">&quot;-enable-pretty-printing&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;ignoreFailures&quot;</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-tasks-json-1"><a href="#3-tasks-json-1" class="headerlink" title="3. tasks.json"></a>3. tasks.json</h2><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// See https://go.microsoft.com/fwlink/?LinkId=733558</span></span><br><span class="line">    <span class="comment">// for the documentation about the tasks.json format</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;2.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;tasks&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;label&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;shell&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;g++&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;-g&quot;</span>, </span><br><span class="line">                <span class="string">&quot;$&#123;file&#125;&quot;</span>,</span><br><span class="line">                <span class="string">&quot;-o&quot;</span>,</span><br><span class="line">                <span class="string">&quot;$&#123;fileDirname&#125;\\build\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span>, <span class="comment">// 指定输出文件名，不加该参数则默认输出a.exe      </span></span><br><span class="line">                <span class="comment">// &quot;&amp;&amp;&quot;,</span></span><br><span class="line">                <span class="string">&quot;-O0&quot;</span>,</span><br><span class="line">                <span class="string">&quot;-ggdb3&quot;</span>,</span><br><span class="line">                <span class="string">&quot;-Wall&quot;</span>,</span><br><span class="line">                <span class="string">&quot;-lm&quot;</span>, </span><br><span class="line">                <span class="string">&quot;-std=c++11&quot;</span>,  <span class="comment">// Tag to compile as c++11</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;group&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;kind&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">                <span class="attr">&quot;isDefault&quot;</span>: <span class="literal">true</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">&quot;problemMatcher&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;owner&quot;</span>: <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">                <span class="attr">&quot;fileLocation&quot;</span>: [<span class="string">&quot;relative&quot;</span>, <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span>],</span><br><span class="line">                <span class="attr">&quot;pattern&quot;</span>: &#123;</span><br><span class="line">                    <span class="attr">&quot;regexp&quot;</span>: <span class="string">&quot;^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;file&quot;</span>: <span class="number">1</span>,</span><br><span class="line">                    <span class="attr">&quot;line&quot;</span>: <span class="number">2</span>,</span><br><span class="line">                    <span class="attr">&quot;column&quot;</span>: <span class="number">3</span>,</span><br><span class="line">                    <span class="attr">&quot;severity&quot;</span>: <span class="number">4</span>,</span><br><span class="line">                    <span class="attr">&quot;message&quot;</span>: <span class="number">5</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>Ps：</strong></p>
-<ol>
-<li>在文件夹中创建 <code>build</code> 文件</li>
-<li>自己更改<code>MinGW</code>地址，以及配置<code>MinGW</code>，<a href="https://www.youtube.com/watch?v=DIw02CaEusY">点击这里</a>学会如何安装<code>MinGW</code>，以及如何配置</li>
-</ol>
-</blockquote>
-<h1 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h1><h2 id="C-C"><a href="#C-C" class="headerlink" title="C/C++"></a>C/C++</h2><h2 id="C-C-Complile-Run"><a href="#C-C-Complile-Run" class="headerlink" title="C/C++ Complile Run"></a>C/C++ Complile Run</h2><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; Set your c compiler if it is not working</span><br><span class="line">&quot;c-cpp-compile-run.c-compiler&quot;: &quot;gcc&quot;,</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Flags: e.g. -Wall. default: -Wall -Wextra</span><br><span class="line">&quot;c-cpp-compile-run.c-flags&quot;: &quot;-Wall -Wextra&quot;,</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Set your cpp compiler if it is not working</span><br><span class="line">&quot;c-cpp-compile-run.cpp-compiler&quot;: &quot;g++&quot;,</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Flags: e.g. -Wall. default: -Wall -Wextra</span><br><span class="line">&quot;c-cpp-compile-run.cpp-flags&quot;: &quot;-Wall -Wextra&quot;,</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Run arguments</span><br><span class="line">&quot;c-cpp-compile-run.run-args&quot;: &quot;&quot;,</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Run in a new external terminal</span><br><span class="line">&quot;c-cpp-compile-run.run-in-external-terminal&quot;: false,</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Saves the file before compilation</span><br><span class="line">&quot;c-cpp-compile-run.save-before-compile&quot;: true,</span><br></pre></td></tr></table></figure>
-<h2 id="Code-Run"><a href="#Code-Run" class="headerlink" title="Code Run"></a>Code Run</h2><h2 id="clang"><a href="#clang" class="headerlink" title="clang"></a>clang</h2>]]></content>
-      <categories>
-        <category>C/C++</category>
-        <category>软件</category>
-      </categories>
-      <tags>
-        <tag>Vscode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>39. windows本地安装Jekyll</title>
     <url>/2019/02/21/39/</url>
     <content><![CDATA[<h1 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1. 安装Git"></a>1. 安装Git</h1><ol>
@@ -2808,6 +2767,80 @@
       </tags>
   </entry>
   <entry>
+    <title>38. Vscode配置C&amp;C++</title>
+    <url>/2019/02/20/38/</url>
+    <content><![CDATA[<p>……</p>
+<span id="more"></span>
+
+
+<h1 id="Windows配置文件"><a href="#Windows配置文件" class="headerlink" title="Windows配置文件"></a>Windows配置文件</h1><h2 id="1-c-cpp-properties-json"><a href="#1-c-cpp-properties-json" class="headerlink" title="1. c_cpp_properties.json"></a>1. c_cpp_properties.json</h2><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;Win32&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;includePath&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;$&#123;workspaceFolder&#125;/**&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;defines&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;_DEBUG&quot;</span>,</span><br><span class="line">                <span class="string">&quot;UNICODE&quot;</span>,</span><br><span class="line">                <span class="string">&quot;_UNICODE&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;browse&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;path&quot;</span>: [</span><br><span class="line">                    <span class="string">&quot;$&#123;workspaceRoot&#125;&quot;</span>,</span><br><span class="line">                    <span class="string">&quot;E:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++&quot;</span><span class="comment">// 自己更改自己对应的地址</span></span><br><span class="line">                ],</span><br><span class="line">                <span class="attr">&quot;limitSymbolsToIncludedHeaders&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">                <span class="attr">&quot;databaseFilename&quot;</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">&quot;compilerPath&quot;</span>: <span class="string">&quot;E:\\MinGW\\bin\\g++.exe&quot;</span>,<span class="comment">// 自己更改自己对应的地址</span></span><br><span class="line">            <span class="attr">&quot;cStandard&quot;</span>: <span class="string">&quot;c11&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;cppStandard&quot;</span>: <span class="string">&quot;c++17&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;intelliSenseMode&quot;</span>: <span class="string">&quot;msvc-x64&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-launch-json"><a href="#2-launch-json" class="headerlink" title="2. launch.json"></a>2. launch.json</h2><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Use IntelliSense to learn about possible attributes.</span></span><br><span class="line">    <span class="comment">// Hover to view descriptions of existing attributes.</span></span><br><span class="line">    <span class="comment">// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;0.2.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;(gdb) Launch&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;cppdbg&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;request&quot;</span>: <span class="string">&quot;launch&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;program&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;/build/$&#123;fileBasenameNoExtension&#125;.exe&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;stopAtEntry&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;environment&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;externalConsole&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="attr">&quot;MIMode&quot;</span>: <span class="string">&quot;gdb&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;miDebuggerPath&quot;</span>: <span class="string">&quot;E:\\MinGW\\bin\\gdb.exe&quot;</span>, <span class="comment">// 自己更改自己对应的地址</span></span><br><span class="line">            <span class="attr">&quot;preLaunchTask&quot;</span>: <span class="string">&quot;build&quot;</span>, <span class="comment">// 和&quot;tasks.json&quot;的&quot;tasks&quot;-&quot;label&quot;对应</span></span><br><span class="line">            <span class="attr">&quot;setupCommands&quot;</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;Enable pretty-printing for gdb&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;text&quot;</span>: <span class="string">&quot;-enable-pretty-printing&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;ignoreFailures&quot;</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-tasks-json"><a href="#3-tasks-json" class="headerlink" title="3. tasks.json"></a>3. tasks.json</h2><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// See https://go.microsoft.com/fwlink/?LinkId=733558</span></span><br><span class="line">    <span class="comment">// for the documentation about the tasks.json format</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;2.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;tasks&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;label&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;shell&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;g++&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;-g&quot;</span>, </span><br><span class="line">                <span class="string">&quot;$&#123;file&#125;&quot;</span>,</span><br><span class="line">                <span class="string">&quot;-o&quot;</span>,</span><br><span class="line">                <span class="string">&quot;$&#123;fileDirname&#125;\\build\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span>, <span class="comment">// 指定输出文件名，不加该参数则默认输出a.exe</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;group&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;kind&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">                <span class="attr">&quot;isDefault&quot;</span>: <span class="literal">true</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>Ps：</strong></p>
+<ol>
+<li>在文件夹中创建 <code>build</code> 文件</li>
+<li>自己更改<code>MinGW</code>地址，以及配置<code>MinGW</code>，<a href="https://www.youtube.com/watch?v=DIw02CaEusY">点击这里</a>学会如何安装<code>MinGW</code>，以及如何配置</li>
+</ol>
+</blockquote>
+<h1 id="Windows配置文件-升级"><a href="#Windows配置文件-升级" class="headerlink" title="Windows配置文件(升级)"></a>Windows配置文件(升级)</h1><h2 id="1-c-cpp-properties-json-1"><a href="#1-c-cpp-properties-json-1" class="headerlink" title="1. c_cpp_properties.json"></a>1. c_cpp_properties.json</h2><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;Win32&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;includePath&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;$&#123;workspaceFolder&#125;/**&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;defines&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;_DEBUG&quot;</span>,</span><br><span class="line">                <span class="string">&quot;UNICODE&quot;</span>,</span><br><span class="line">                <span class="string">&quot;_UNICODE&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;browse&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;path&quot;</span>: [</span><br><span class="line">                    <span class="string">&quot;$&#123;workspaceRoot&#125;&quot;</span>,</span><br><span class="line">                    <span class="string">&quot;E:\\MinGW\\lib\\gcc\\mingw32\\8.2.0\\include\\c++&quot;</span></span><br><span class="line">                ],</span><br><span class="line">                <span class="attr">&quot;limitSymbolsToIncludedHeaders&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">                <span class="attr">&quot;databaseFilename&quot;</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">&quot;compilerPath&quot;</span>: <span class="string">&quot;E:\\MinGW\\bin\\g++.exe&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;cStandard&quot;</span>: <span class="string">&quot;c11&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;cppStandard&quot;</span>: <span class="string">&quot;c++17&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;intelliSenseMode&quot;</span>: <span class="string">&quot;msvc-x64&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-launch-json-1"><a href="#2-launch-json-1" class="headerlink" title="2. launch.json"></a>2. launch.json</h2><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Use IntelliSense to learn about possible attributes.</span></span><br><span class="line">    <span class="comment">// Hover to view descriptions of existing attributes.</span></span><br><span class="line">    <span class="comment">// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;0.2.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;(gdb) Launch&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;cppdbg&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;request&quot;</span>: <span class="string">&quot;launch&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;program&quot;</span>: <span class="string">&quot;$&#123;fileDirname&#125;/build/$&#123;fileBasenameNoExtension&#125;.exe&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;stopAtEntry&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;environment&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;externalConsole&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="attr">&quot;MIMode&quot;</span>: <span class="string">&quot;gdb&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;miDebuggerPath&quot;</span>: <span class="string">&quot;E:\\MinGW\\bin\\gdb.exe&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;preLaunchTask&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;setupCommands&quot;</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;Enable pretty-printing for gdb&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;text&quot;</span>: <span class="string">&quot;-enable-pretty-printing&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;ignoreFailures&quot;</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-tasks-json-1"><a href="#3-tasks-json-1" class="headerlink" title="3. tasks.json"></a>3. tasks.json</h2><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// See https://go.microsoft.com/fwlink/?LinkId=733558</span></span><br><span class="line">    <span class="comment">// for the documentation about the tasks.json format</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;2.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;tasks&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;label&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;shell&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;g++&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;-g&quot;</span>, </span><br><span class="line">                <span class="string">&quot;$&#123;file&#125;&quot;</span>,</span><br><span class="line">                <span class="string">&quot;-o&quot;</span>,</span><br><span class="line">                <span class="string">&quot;$&#123;fileDirname&#125;\\build\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span>, <span class="comment">// 指定输出文件名，不加该参数则默认输出a.exe      </span></span><br><span class="line">                <span class="comment">// &quot;&amp;&amp;&quot;,</span></span><br><span class="line">                <span class="string">&quot;-O0&quot;</span>,</span><br><span class="line">                <span class="string">&quot;-ggdb3&quot;</span>,</span><br><span class="line">                <span class="string">&quot;-Wall&quot;</span>,</span><br><span class="line">                <span class="string">&quot;-lm&quot;</span>, </span><br><span class="line">                <span class="string">&quot;-std=c++11&quot;</span>,  <span class="comment">// Tag to compile as c++11</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;group&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;kind&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">                <span class="attr">&quot;isDefault&quot;</span>: <span class="literal">true</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">&quot;problemMatcher&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;owner&quot;</span>: <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">                <span class="attr">&quot;fileLocation&quot;</span>: [<span class="string">&quot;relative&quot;</span>, <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span>],</span><br><span class="line">                <span class="attr">&quot;pattern&quot;</span>: &#123;</span><br><span class="line">                    <span class="attr">&quot;regexp&quot;</span>: <span class="string">&quot;^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;file&quot;</span>: <span class="number">1</span>,</span><br><span class="line">                    <span class="attr">&quot;line&quot;</span>: <span class="number">2</span>,</span><br><span class="line">                    <span class="attr">&quot;column&quot;</span>: <span class="number">3</span>,</span><br><span class="line">                    <span class="attr">&quot;severity&quot;</span>: <span class="number">4</span>,</span><br><span class="line">                    <span class="attr">&quot;message&quot;</span>: <span class="number">5</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>Ps：</strong></p>
+<ol>
+<li>在文件夹中创建 <code>build</code> 文件</li>
+<li>自己更改<code>MinGW</code>地址，以及配置<code>MinGW</code>，<a href="https://www.youtube.com/watch?v=DIw02CaEusY">点击这里</a>学会如何安装<code>MinGW</code>，以及如何配置</li>
+</ol>
+</blockquote>
+<h1 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h1><h2 id="C-C"><a href="#C-C" class="headerlink" title="C/C++"></a>C/C++</h2><h2 id="C-C-Complile-Run"><a href="#C-C-Complile-Run" class="headerlink" title="C/C++ Complile Run"></a>C/C++ Complile Run</h2><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; Set your c compiler if it is not working</span><br><span class="line">&quot;c-cpp-compile-run.c-compiler&quot;: &quot;gcc&quot;,</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Flags: e.g. -Wall. default: -Wall -Wextra</span><br><span class="line">&quot;c-cpp-compile-run.c-flags&quot;: &quot;-Wall -Wextra&quot;,</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Set your cpp compiler if it is not working</span><br><span class="line">&quot;c-cpp-compile-run.cpp-compiler&quot;: &quot;g++&quot;,</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Flags: e.g. -Wall. default: -Wall -Wextra</span><br><span class="line">&quot;c-cpp-compile-run.cpp-flags&quot;: &quot;-Wall -Wextra&quot;,</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Run arguments</span><br><span class="line">&quot;c-cpp-compile-run.run-args&quot;: &quot;&quot;,</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Run in a new external terminal</span><br><span class="line">&quot;c-cpp-compile-run.run-in-external-terminal&quot;: false,</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Saves the file before compilation</span><br><span class="line">&quot;c-cpp-compile-run.save-before-compile&quot;: true,</span><br></pre></td></tr></table></figure>
+<h2 id="Code-Run"><a href="#Code-Run" class="headerlink" title="Code Run"></a>Code Run</h2><h2 id="clang"><a href="#clang" class="headerlink" title="clang"></a>clang</h2>]]></content>
+      <categories>
+        <category>软件</category>
+        <category>C/C++</category>
+      </categories>
+      <tags>
+        <tag>Vscode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>40. 使用Xshell远程连接CentOS</title>
+    <url>/2019/02/21/40/</url>
+    <content><![CDATA[<h1 id="下载Xshell"><a href="#下载Xshell" class="headerlink" title="下载Xshell"></a>下载Xshell</h1><blockquote>
+<p><a href="https://www.netsarang.com/zh/downloading/?token=U1gwWmJJeUpUaWl4NnZFZnlPYVhyQUB3MkM5WkcxcTJnYURBNmZidHFOY2p3">点击这里</a></p>
+</blockquote>
+<span id="more"></span>
+
+
+<h1 id="安装CentOS"><a href="#安装CentOS" class="headerlink" title="安装CentOS"></a>安装CentOS</h1><blockquote>
+<p><a href="https://www.youtube.com/watch?v=WFTwNBcyE4g">点击这里</a>，查看如何安装</p>
+</blockquote>
+<h1 id="打开CentOS终端"><a href="#打开CentOS终端" class="headerlink" title="打开CentOS终端"></a>打开CentOS终端</h1><blockquote>
+<p>输入 <code>ifconfig</code>，记录 <em><strong>ip地址</strong></em>，例如：<code>192.168.205.162</code>，如下图<br>   <img src="/images/posts/centos/1.png"></p>
+</blockquote>
+<h1 id="打开-Xshell，步骤如下："><a href="#打开-Xshell，步骤如下：" class="headerlink" title="打开 Xshell，步骤如下："></a>打开 <code>Xshell</code>，步骤如下：</h1><blockquote>
+<ol>
+<li>文件</li>
+<li>新建</li>
+<li>在 <code>主机</code> 输入记录的 <code>ip地址</code>，并更改 <code>名称</code></li>
+<li>点击左侧 <code>终端</code>， 更改编码，以及设置 <code>将含糊的大小字符视为宽字符</code></li>
+<li>输入用户名和密码，就可以使用</li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>软件</category>
+        <category>SSH</category>
+      </categories>
+      <tags>
+        <tag>Xshell</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>4. 程序设计比赛-常用技巧</title>
     <url>/2019/01/19/4/</url>
     <content><![CDATA[<h1 id="无穷大"><a href="#无穷大" class="headerlink" title="无穷大"></a>无穷大</h1><blockquote>
@@ -2850,39 +2883,6 @@
       </categories>
       <tags>
         <tag>程序设计</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>40. 使用Xshell远程连接CentOS</title>
-    <url>/2019/02/21/40/</url>
-    <content><![CDATA[<h1 id="下载Xshell"><a href="#下载Xshell" class="headerlink" title="下载Xshell"></a>下载Xshell</h1><blockquote>
-<p><a href="https://www.netsarang.com/zh/downloading/?token=U1gwWmJJeUpUaWl4NnZFZnlPYVhyQUB3MkM5WkcxcTJnYURBNmZidHFOY2p3">点击这里</a></p>
-</blockquote>
-<span id="more"></span>
-
-
-<h1 id="安装CentOS"><a href="#安装CentOS" class="headerlink" title="安装CentOS"></a>安装CentOS</h1><blockquote>
-<p><a href="https://www.youtube.com/watch?v=WFTwNBcyE4g">点击这里</a>，查看如何安装</p>
-</blockquote>
-<h1 id="打开CentOS终端"><a href="#打开CentOS终端" class="headerlink" title="打开CentOS终端"></a>打开CentOS终端</h1><blockquote>
-<p>输入 <code>ifconfig</code>，记录 <em><strong>ip地址</strong></em>，例如：<code>192.168.205.162</code>，如下图<br>   <img src="/images/posts/centos/1.png"></p>
-</blockquote>
-<h1 id="打开-Xshell，步骤如下："><a href="#打开-Xshell，步骤如下：" class="headerlink" title="打开 Xshell，步骤如下："></a>打开 <code>Xshell</code>，步骤如下：</h1><blockquote>
-<ol>
-<li>文件</li>
-<li>新建</li>
-<li>在 <code>主机</code> 输入记录的 <code>ip地址</code>，并更改 <code>名称</code></li>
-<li>点击左侧 <code>终端</code>， 更改编码，以及设置 <code>将含糊的大小字符视为宽字符</code></li>
-<li>输入用户名和密码，就可以使用</li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>软件</category>
-        <category>SSH</category>
-      </categories>
-      <tags>
-        <tag>Xshell</tag>
       </tags>
   </entry>
   <entry>
@@ -3837,6 +3837,115 @@
       </tags>
   </entry>
   <entry>
+    <title>62. 双系统安装：win10 + ubuntu 18.04</title>
+    <url>/2019/07/29/62/</url>
+    <content><![CDATA[<blockquote>
+<p>说明：以 <code>Dell 游匣</code>为例</p>
+</blockquote>
+<span id="more"></span>
+
+
+<h1 id="设置BIOS"><a href="#设置BIOS" class="headerlink" title="设置BIOS"></a>设置BIOS</h1><ol>
+<li>进入BIOS，每台机型都不同，这里以戴尔为例，按住 <code>F2</code><br><img src="/images/posts/ubuntu/install/1.jpg"></li>
+<li>将 <code>Setting-System Configuration-SATA Operation</code>设置为 <code>AHCI</code><br><img src="/images/posts/ubuntu/install/2.jpg"></li>
+<li><code>Secure Boot-Secure Boot Enable</code> 设置为<code>Disabled</code><br><img src="/images/posts/ubuntu/install/3.jpg"></li>
+<li><code>Apply - Exit</code></li>
+</ol>
+<h1 id="安装-win10"><a href="#安装-win10" class="headerlink" title="安装 win10"></a>安装 <code>win10</code></h1><ol>
+<li>下载 <code>微PE</code> （由于微PE比较干净，不会强制安装软件，且版本为win10PE，由于低版本的会出现很多问题，如：硬盘识别不出来；U盘识别不出来……）,<a href="http://down-ww3.newasp.net/pcdown/soft/soft1/wepe_64.exe">点击这里下载微PE</a></li>
+<li>使用键盘快捷键，进入PE</li>
+<li>将系统盘（或者全部的盘（想删除干净的话）） 删除分区，提交</li>
+<li>快速建立分区（一定要用这个，否则没有引导）<br><blockquote>
+<p>【注意】：如果要是安装双系统，并且在固态上安装ubuntu系统，那么，要分成两个区，删除其中的一个，不要弄成一个区，然后，<code>压缩卷</code>，这样的话，系统就会出现bug：安装完ubuntu之后，win10就坏了</p>
+</blockquote>
+</li>
+<li>还原win10镜像系统</li>
+</ol>
+<h1 id="安装-Ubuntu-18-04"><a href="#安装-Ubuntu-18-04" class="headerlink" title="安装 Ubuntu 18.04"></a>安装 <code>Ubuntu 18.04</code></h1><ol>
+<li><p>首先，在官网下载镜像，<a href="http://cn.ubuntu.com/">点击这里下载</a>;</p>
+</li>
+<li><p>使用 <code>UltraISO</code> 制作系统盘（或者使用 <code>rufus</code> 制作，具体百度吧）：<br><img src="/images/posts/computer/8.png"></p>
+</li>
+<li><p>开始装系统：</p>
+<ol>
+<li><p>按住 <code>F12</code>，选择 <code>UEFI</code><br><img src="/images/posts/ubuntu/install/7.jpg"></p>
+</li>
+<li><p>选择： <code>Install Ubuntu</code><br><img src="/images/posts/ubuntu/install/4.jpg"></p>
+</li>
+<li><p>选择中文简体-继续<br><img src="/images/posts/ubuntu/install/5.jpg"></p>
+</li>
+<li><p>键盘布局默认选择-继续<br><img src="/images/posts/ubuntu/install/6.jpg"></p>
+</li>
+<li><p>不联网-继续<br><img src="/images/posts/ubuntu/install/8.jpg"></p>
+</li>
+<li><p>更新和其他软件-默认-继续<br><img src="/images/posts/ubuntu/install/9.jpg"></p>
+</li>
+<li><p>安装类型-其它选项-继续<br><img src="/images/posts/ubuntu/install/10.jpg"></p>
+</li>
+<li><p> 分区：</p>
+</li>
+<li><p>以系统安装在固态为例</p>
+<ol>
+<li>单击 <code>固态的空闲内存</code>（此处为51636），点 <code>+</code>， 挂载点选 <code>/</code>，ok<br><img src="/images/posts/ubuntu/install/11.jpg"></li>
+<li>单击 <code>机械硬盘的空闲内存</code>（此处为216372），点 <code>+</code>，输入200000（大约以这个比例输入），挂载点选 <code>/home</code>，ok<br><img src="/images/posts/ubuntu/install/12.jpg"></li>
+<li>单击<code>剩余的空闲内存</code>（此处为16372），点 <code>+</code>，设置为用于<code>交换空间</code>，点<code>现在安装</code>，继续；<br><img src="/images/posts/ubuntu/install/13.jpg"></li>
+</ol>
+</li>
+<li><p>都安装在机械硬盘：</p>
+<ol>
+<li>类似于上面，更加简单而已，<code>大小</code>类比于<code>安装Ubuntu 18.04 - 3.8.1</code>。</li>
+</ol>
+</li>
+<li><p>继续安装<br><img src="/images/posts/ubuntu/install/16.jpg"></p>
+</li>
+<li><p>位置-默认<br><img src="/images/posts/ubuntu/install/15.jpg"></p>
+</li>
+<li><p>设置用户名和密码，密码一定要记住<br><img src="/images/posts/ubuntu/install/17.jpg"></p>
+</li>
+<li><p>重启<br><img src="/images/posts/ubuntu/install/14.jpg"></p>
+</li>
+<li><p>重启，如果卡住了，就直接用电源强心关机，然后再开机，这个没关系的，放心弄就行<br><img src="/images/posts/ubuntu/install/18.jpg"></p>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="配置-Ubuntu-（非常重要）"><a href="#配置-Ubuntu-（非常重要）" class="headerlink" title="配置 Ubuntu （非常重要）"></a>配置 <code>Ubuntu</code> （非常重要）</h1><ol>
+<li><p>进入 <code>Ubuntu高级设置</code><br><img src="/images/posts/ubuntu/install/19.jpg"></p>
+</li>
+<li><p>进入 <code>Ubuntu,with Linux 4.10.0-15-generis (recovery mode)</code> （第二个）<br><img src="/images/posts/ubuntu/install/20.jpg"></p>
+</li>
+<li><p>进入 <code>resume resume normal boot</code><br><img src="/images/posts/ubuntu/install/21.jpg"></p>
+</li>
+<li><p>回车，继续进入此时，已经进入了Ubuntu了<br><img src="/images/posts/ubuntu/install/22.jpg"></p>
+</li>
+<li><p>运行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -f</span><br></pre></td></tr></table></figure>
+<p> <img src="/images/posts/ubuntu/install/23.png"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo su</span><br><span class="line">sudo gedit &#x2F;etc&#x2F;defaul&#x2F;grub</span><br></pre></td></tr></table></figure>
+<p> <img src="/images/posts/ubuntu/install/24.jpg"><br>得到下图：<br> <img src="/images/posts/ubuntu/install/27.jpg"><br>【补】：全部命令<br> <img src="/images/posts/ubuntu/install/25.jpg"><br> <img src="/images/posts/ubuntu/install/26.jpg"></p>
+</li>
+<li><p>找到 <code>GRUB_CMDLINE_LINUX_DEFAULT</code>这一行，在 <code>quiet splash </code>后面添加 <code>nouveau.modeset=0</code></p>
+</li>
+<li><p>下面是我的电脑的grub配置：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># If you change this file, run &#39;update-grub&#39; afterwards to update</span><br><span class="line"># &#x2F;boot&#x2F;grub&#x2F;grub.cfg.</span><br><span class="line"># For full documentation of the options in this file, see:</span><br><span class="line">#   info -f grub -n &#39;Simple configuration&#39;</span><br><span class="line"></span><br><span class="line">GRUB_DEFAULT&#x3D;0</span><br><span class="line">GRUB_TIMEOUT_STYLE&#x3D;hidden</span><br><span class="line">GRUB_TIMEOUT&#x3D;10</span><br><span class="line">GRUB_DISTRIBUTOR&#x3D;&#96;lsb_release -i -s 2&gt; &#x2F;dev&#x2F;null || echo Debian&#96;</span><br><span class="line">GRUB_CMDLINE_LINUX_DEFAULT&#x3D;&quot;quiet splash nouveau.modeset&#x3D;0&quot;</span><br><span class="line">GRUB_CMDLINE_LINUX&#x3D;&quot;&quot;</span><br><span class="line"></span><br><span class="line"># Uncomment to enable BadRAM filtering, modify to suit your needs</span><br><span class="line"># This works with Linux (no patch required) and with any kernel that obtains</span><br><span class="line"># the memory map information from GRUB (GNU Mach, kernel of FreeBSD ...)</span><br><span class="line">#GRUB_BADRAM&#x3D;&quot;0x01234567,0xfefefefe,0x89abcdef,0xefefefef&quot;</span><br><span class="line"></span><br><span class="line"># Uncomment to disable graphical terminal (grub-pc only)</span><br><span class="line">#GRUB_TERMINAL&#x3D;console</span><br><span class="line"></span><br><span class="line"># The resolution used on graphical terminal</span><br><span class="line"># note that you can use only modes which your graphic card supports via VBE</span><br><span class="line"># you can see them in real GRUB with the command &#96;vbeinfo&#39;</span><br><span class="line">#GRUB_GFXMODE&#x3D;640x480</span><br><span class="line"></span><br><span class="line"># Uncomment if you don&#39;t want GRUB to pass &quot;root&#x3D;UUID&#x3D;xxx&quot; parameter to Linux</span><br><span class="line">#GRUB_DISABLE_LINUX_UUID&#x3D;true</span><br><span class="line"></span><br><span class="line"># Uncomment to disable generation of recovery mode menu entries</span><br><span class="line">#GRUB_DISABLE_RECOVERY&#x3D;&quot;true&quot;</span><br><span class="line"></span><br><span class="line"># Uncomment to get a beep at grub start</span><br><span class="line">#GRUB_INIT_TUNE&#x3D;&quot;480 440 1&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>更新grub</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo update-grub</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="美化"><a href="#美化" class="headerlink" title="美化"></a>美化</h1><ol>
+<li><img src="/images/posts/computer/9.png"><br><br><a href="/files/62-1.pdf">点击这里下载教程</a></li>
+<li>包在<a href="https://pan.baidu.com/s/1U_F1R65JpLinOQ8u-LALcA">这里下载</a> 提取码: 3knb</li>
+<li>附：其他美化视频：<a href="https://www.bilibili.com/video/av26156974?from=search&seid=9708955829816132659">点击这里</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>OS</category>
+        <category>Computer</category>
+      </categories>
+      <tags>
+        <tag>双系统</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>64. Ubuntu18.04 安装 wine</title>
     <url>/2019/08/15/64/</url>
     <content><![CDATA[<ol>
@@ -3881,6 +3990,147 @@
       </categories>
       <tags>
         <tag>高数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>67. 计算机网络</title>
+    <url>/2019/08/20/67/</url>
+    <content><![CDATA[<h1 id="第一章-计算机网络概述"><a href="#第一章-计算机网络概述" class="headerlink" title="第一章 计算机网络概述"></a>第一章 计算机网络概述</h1><ol>
+<li><p>概念：</p>
+<ol>
+<li><p>局域网</p>
+<ol>
+<li>覆盖范围小，自己花钱买设备，带宽固定，自己维护<span id="more"></span></li>
+<li><img src="/images/posts/computer_network/1.png"></li>
+<li>注意<blockquote>
+<ol>
+<li>电脑到交换机长度不超过100米</li>
+<li>交换机之间的长度也不超过100米</li>
+<li>交换机会加强信号</li>
+<li>带宽：如：100兆：则每个口都是百兆带宽</li>
+<li>交换机端口带宽要高，口不一定多</li>
+<li>不要串联，防止流量太大，规范的计算机：应该是分层。</li>
+<li>带宽：10M、 100M、 1000M</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p>广域网</p>
+<ol>
+<li>距离比较远，超过100米</li>
+<li>带宽不固定</li>
+<li>花钱买带宽</li>
+<li>链路不需要自己维护</li>
+</ol>
+</li>
+<li><p>Internet</p>
+<ol>
+<li>全球最大的互联网络</li>
+<li>由众多的ISP组成</li>
+<li>ISP：Internet服务提供商</li>
+<li>运营商内部四通八达</li>
+<li>运营商有自己的机房</li>
+<li>跨运营商访问比较慢</li>
+<li>互联网的运营商很多</li>
+<li>对网民提供访问Internet连接</li>
+</ol>
+</li>
+<li><p>规划IP地址介绍和MAC地址</p>
+<ol>
+<li>全球的计算机都得有IP地址。类似于写信得有地址</li>
+<li>地址不能重复</li>
+<li>讲解ip：例如：IP：13.0.0.0； 子网掩码：255.0.0.0<ol>
+<li>13：是网络部分</li>
+<li>0.0.0：是主机部分</li>
+</ol>
+</li>
+<li>网络掩码：告诉计算机哪是网络部分，哪是主机部分</li>
+<li>一个255，对应位置上则是网络部分</li>
+<li>一个局域网中，交换机上连接的计算机，他们的网络部分相同</li>
+<li>网关：到其他网段的应该给谁</li>
+<li>路由器作用：在不同网段转发数据</li>
+<li>MAC地址（物理地址）：<ol>
+<li>出厂的时候就已经固定到芯片里面了，48位的二进制。</li>
+<li>全球唯一</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>数据包和数据帧</p>
+<ol>
+<li>计算机都配有DNS，其中：<ol>
+<li>DNS：用来解析地址</li>
+</ol>
+</li>
+<li>发送数据包，需要做的事：<ol>
+<li>写上原地址（即自己的地址）</li>
+<li>写上目标地址</li>
+<li>目标MAC地址（疑问：通过IP地址来确定MAC地址？）</li>
+<li>原MAC地址</li>
+</ol>
+</li>
+<li>发送时，先将数据包扔给路由器，让路由器往外转。扔的时候为了给路由器，此时则需要MAC地址</li>
+<li>数据包：没加MAC地址<br>数据帧：加上MAC地址</li>
+<li>路由器转发数据时，需要用到了IP地址</li>
+<li>每次转发时，MAC地址需要重新写：原MAC地址和目标MAC地址</li>
+<li>包不变</li>
+<li>IP地址决定了数据包最终到哪去</li>
+<li>MAC地址决定了要想到目的地下一跳给谁</li>
+<li>为什么交换机就能直接得到mac地址，而路由器不可以</li>
+<li>交换机转发时看mac地址，IP地址看不懂</li>
+<li>路由器看IP地址，决定下一跳给哪个路由器</li>
+</ol>
+</li>
+<li><p>访问网站数据传输过程</p>
+<ol>
+<li>将网页切割，如下图所示：<br><br><img src="/images/posts/computer_network/2.png"></li>
+<li>切割完毕，将数据放到缓存中</li>
+<li>网卡都有缓存：接收缓存、发送缓存</li>
+<li> 只有接收到数据包之后才会删除缓存</li>
+</ol>
+</li>
+<li><p>OSI参考模型</p>
+<ol>
+<li>这是计算机通讯规范</li>
+<li>应用层：所有能产生网络流量的程序</li>
+<li>表示层：在传输之前是否进行加密、压缩处理，二进制、ASCII码（编码方式应一一对应）</li>
+<li>会话层： <code>netstat -n</code><ol>
+<li>TIME_WAIT：快要释放了</li>
+<li>可以查看木马（木马需要和外界联系，只要有联系，就会有会话）</li>
+</ol>
+</li>
+<li>传输层：可靠传输、流量控制、不可靠传输</li>
+<li>网络层：负责选择最佳路径，规划IP地址</li>
+<li>数据链路层：帧的开始和结束；透明传输、差错校验</li>
+<li>物理层：接口标准 电器标准；如何在物理链路上传输更快的速度</li>
+</ol>
+</li>
+<li><p>理解OSI参考模型分层思想</p>
+<ol>
+<li>较为独立，某一层发生改变时，不会引起其它层的改变</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><ol>
+<li>查看帮助：/? 如：<code>ping /?</code></li>
+</ol>
+<!-- 1. 计算机网络是计算机技术和通讯技术相结合的产物
+1. 计算机网络：是一个将 *分散的* 、具有 *独立功能* 的 *计算机系统*，通过*通信设备*与 *线路* 连接起来，由功能完善的 *软件*实现 *资源共享* 和 *信息传输*。
+   1. 分散的：是指地理位置不同
+   2. 独立功能：是说这些计算机系统他们这些功能是不一样的，是相互独立起来的
+   3. 计算机系统：既包括手机端，比如：安卓系统手机端、ios系统手机端；也有电脑端，如：macos、windows、linux等。
+   4. 通信设备：通常是交换机和路由器
+   5. 线路：就是指这些端系统和通信设备所连接的一个介质
+   6. 软件：如果只包含计算机系统、通信设备、线路，就好像只盖了一个房子，却没有装修，只有在系统安装软件才能实现这些功能：资源共享、信息传输，如：QQ、微信等
+   7.  -->]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>计算机网络</tag>
       </tags>
   </entry>
   <entry>
@@ -4043,167 +4293,6 @@
       </tags>
   </entry>
   <entry>
-    <title>67. 计算机网络</title>
-    <url>/2019/08/20/67/</url>
-    <content><![CDATA[<h1 id="第一章-计算机网络概述"><a href="#第一章-计算机网络概述" class="headerlink" title="第一章 计算机网络概述"></a>第一章 计算机网络概述</h1><ol>
-<li><p>概念：</p>
-<ol>
-<li><p>局域网</p>
-<ol>
-<li>覆盖范围小，自己花钱买设备，带宽固定，自己维护<span id="more"></span></li>
-<li><img src="/images/posts/computer_network/1.png"></li>
-<li>注意<blockquote>
-<ol>
-<li>电脑到交换机长度不超过100米</li>
-<li>交换机之间的长度也不超过100米</li>
-<li>交换机会加强信号</li>
-<li>带宽：如：100兆：则每个口都是百兆带宽</li>
-<li>交换机端口带宽要高，口不一定多</li>
-<li>不要串联，防止流量太大，规范的计算机：应该是分层。</li>
-<li>带宽：10M、 100M、 1000M</li>
-</ol>
-</blockquote>
-</li>
-</ol>
-</li>
-<li><p>广域网</p>
-<ol>
-<li>距离比较远，超过100米</li>
-<li>带宽不固定</li>
-<li>花钱买带宽</li>
-<li>链路不需要自己维护</li>
-</ol>
-</li>
-<li><p>Internet</p>
-<ol>
-<li>全球最大的互联网络</li>
-<li>由众多的ISP组成</li>
-<li>ISP：Internet服务提供商</li>
-<li>运营商内部四通八达</li>
-<li>运营商有自己的机房</li>
-<li>跨运营商访问比较慢</li>
-<li>互联网的运营商很多</li>
-<li>对网民提供访问Internet连接</li>
-</ol>
-</li>
-<li><p>规划IP地址介绍和MAC地址</p>
-<ol>
-<li>全球的计算机都得有IP地址。类似于写信得有地址</li>
-<li>地址不能重复</li>
-<li>讲解ip：例如：IP：13.0.0.0； 子网掩码：255.0.0.0<ol>
-<li>13：是网络部分</li>
-<li>0.0.0：是主机部分</li>
-</ol>
-</li>
-<li>网络掩码：告诉计算机哪是网络部分，哪是主机部分</li>
-<li>一个255，对应位置上则是网络部分</li>
-<li>一个局域网中，交换机上连接的计算机，他们的网络部分相同</li>
-<li>网关：到其他网段的应该给谁</li>
-<li>路由器作用：在不同网段转发数据</li>
-<li>MAC地址（物理地址）：<ol>
-<li>出厂的时候就已经固定到芯片里面了，48位的二进制。</li>
-<li>全球唯一</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>数据包和数据帧</p>
-<ol>
-<li>计算机都配有DNS，其中：<ol>
-<li>DNS：用来解析地址</li>
-</ol>
-</li>
-<li>发送数据包，需要做的事：<ol>
-<li>写上原地址（即自己的地址）</li>
-<li>写上目标地址</li>
-<li>目标MAC地址（疑问：通过IP地址来确定MAC地址？）</li>
-<li>原MAC地址</li>
-</ol>
-</li>
-<li>发送时，先将数据包扔给路由器，让路由器往外转。扔的时候为了给路由器，此时则需要MAC地址</li>
-<li>数据包：没加MAC地址<br>数据帧：加上MAC地址</li>
-<li>路由器转发数据时，需要用到了IP地址</li>
-<li>每次转发时，MAC地址需要重新写：原MAC地址和目标MAC地址</li>
-<li>包不变</li>
-<li>IP地址决定了数据包最终到哪去</li>
-<li>MAC地址决定了要想到目的地下一跳给谁</li>
-<li>为什么交换机就能直接得到mac地址，而路由器不可以</li>
-<li>交换机转发时看mac地址，IP地址看不懂</li>
-<li>路由器看IP地址，决定下一跳给哪个路由器</li>
-</ol>
-</li>
-<li><p>访问网站数据传输过程</p>
-<ol>
-<li>将网页切割，如下图所示：<br><br><img src="/images/posts/computer_network/2.png"></li>
-<li>切割完毕，将数据放到缓存中</li>
-<li>网卡都有缓存：接收缓存、发送缓存</li>
-<li> 只有接收到数据包之后才会删除缓存</li>
-</ol>
-</li>
-<li><p>OSI参考模型</p>
-<ol>
-<li>这是计算机通讯规范</li>
-<li>应用层：所有能产生网络流量的程序</li>
-<li>表示层：在传输之前是否进行加密、压缩处理，二进制、ASCII码（编码方式应一一对应）</li>
-<li>会话层： <code>netstat -n</code><ol>
-<li>TIME_WAIT：快要释放了</li>
-<li>可以查看木马（木马需要和外界联系，只要有联系，就会有会话）</li>
-</ol>
-</li>
-<li>传输层：可靠传输、流量控制、不可靠传输</li>
-<li>网络层：负责选择最佳路径，规划IP地址</li>
-<li>数据链路层：帧的开始和结束；透明传输、差错校验</li>
-<li>物理层：接口标准 电器标准；如何在物理链路上传输更快的速度</li>
-</ol>
-</li>
-<li><p>理解OSI参考模型分层思想</p>
-<ol>
-<li>较为独立，某一层发生改变时，不会引起其它层的改变</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><ol>
-<li>查看帮助：/? 如：<code>ping /?</code></li>
-</ol>
-<!-- 1. 计算机网络是计算机技术和通讯技术相结合的产物
-1. 计算机网络：是一个将 *分散的* 、具有 *独立功能* 的 *计算机系统*，通过*通信设备*与 *线路* 连接起来，由功能完善的 *软件*实现 *资源共享* 和 *信息传输*。
-   1. 分散的：是指地理位置不同
-   2. 独立功能：是说这些计算机系统他们这些功能是不一样的，是相互独立起来的
-   3. 计算机系统：既包括手机端，比如：安卓系统手机端、ios系统手机端；也有电脑端，如：macos、windows、linux等。
-   4. 通信设备：通常是交换机和路由器
-   5. 线路：就是指这些端系统和通信设备所连接的一个介质
-   6. 软件：如果只包含计算机系统、通信设备、线路，就好像只盖了一个房子，却没有装修，只有在系统安装软件才能实现这些功能：资源共享、信息传输，如：QQ、微信等
-   7.  -->]]></content>
-      <categories>
-        <category>计算机网络</category>
-      </categories>
-      <tags>
-        <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>68. 编程软件快捷键</title>
-    <url>/2019/08/21/68/</url>
-    <content><![CDATA[<h1 id="通用"><a href="#通用" class="headerlink" title="通用"></a>通用</h1><h2 id="Notepad"><a href="#Notepad" class="headerlink" title="Notepad"></a>Notepad</h2><span id="more"></span>
-
-
-
-<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h2><ol>
-<li>自动补全： <code>Tab</code></li>
-<li><h2 id="Vscode"><a href="#Vscode" class="headerlink" title="Vscode"></a>Vscode</h2></li>
-<li>自动补全: <code>ctrl+space</code></li>
-</ol>
-<h2 id="3-Pycharm"><a href="#3-Pycharm" class="headerlink" title="3. Pycharm"></a>3. Pycharm</h2><h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1>]]></content>
-      <categories>
-        <category>软件</category>
-      </categories>
-      <tags>
-        <tag>快捷键</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>69. Python易混的点</title>
     <url>/2019/08/21/69/</url>
     <content><![CDATA[<ul>
@@ -4261,6 +4350,26 @@
       </tags>
   </entry>
   <entry>
+    <title>68. 编程软件快捷键</title>
+    <url>/2019/08/21/68/</url>
+    <content><![CDATA[<h1 id="通用"><a href="#通用" class="headerlink" title="通用"></a>通用</h1><h2 id="Notepad"><a href="#Notepad" class="headerlink" title="Notepad"></a>Notepad</h2><span id="more"></span>
+
+
+
+<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h2><ol>
+<li>自动补全： <code>Tab</code></li>
+<li><h2 id="Vscode"><a href="#Vscode" class="headerlink" title="Vscode"></a>Vscode</h2></li>
+<li>自动补全: <code>ctrl+space</code></li>
+</ol>
+<h2 id="3-Pycharm"><a href="#3-Pycharm" class="headerlink" title="3. Pycharm"></a>3. Pycharm</h2><h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1>]]></content>
+      <categories>
+        <category>软件</category>
+      </categories>
+      <tags>
+        <tag>快捷键</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>7. Jekyll添加网易云音乐</title>
     <url>/2019/01/21/7/</url>
     <content><![CDATA[<blockquote>
@@ -4277,115 +4386,6 @@
       </categories>
       <tags>
         <tag>Jekyll</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>62. 双系统安装：win10 + ubuntu 18.04</title>
-    <url>/2019/07/29/62/</url>
-    <content><![CDATA[<blockquote>
-<p>说明：以 <code>Dell 游匣</code>为例</p>
-</blockquote>
-<span id="more"></span>
-
-
-<h1 id="设置BIOS"><a href="#设置BIOS" class="headerlink" title="设置BIOS"></a>设置BIOS</h1><ol>
-<li>进入BIOS，每台机型都不同，这里以戴尔为例，按住 <code>F2</code><br><img src="/images/posts/ubuntu/install/1.jpg"></li>
-<li>将 <code>Setting-System Configuration-SATA Operation</code>设置为 <code>AHCI</code><br><img src="/images/posts/ubuntu/install/2.jpg"></li>
-<li><code>Secure Boot-Secure Boot Enable</code> 设置为<code>Disabled</code><br><img src="/images/posts/ubuntu/install/3.jpg"></li>
-<li><code>Apply - Exit</code></li>
-</ol>
-<h1 id="安装-win10"><a href="#安装-win10" class="headerlink" title="安装 win10"></a>安装 <code>win10</code></h1><ol>
-<li>下载 <code>微PE</code> （由于微PE比较干净，不会强制安装软件，且版本为win10PE，由于低版本的会出现很多问题，如：硬盘识别不出来；U盘识别不出来……）,<a href="http://down-ww3.newasp.net/pcdown/soft/soft1/wepe_64.exe">点击这里下载微PE</a></li>
-<li>使用键盘快捷键，进入PE</li>
-<li>将系统盘（或者全部的盘（想删除干净的话）） 删除分区，提交</li>
-<li>快速建立分区（一定要用这个，否则没有引导）<br><blockquote>
-<p>【注意】：如果要是安装双系统，并且在固态上安装ubuntu系统，那么，要分成两个区，删除其中的一个，不要弄成一个区，然后，<code>压缩卷</code>，这样的话，系统就会出现bug：安装完ubuntu之后，win10就坏了</p>
-</blockquote>
-</li>
-<li>还原win10镜像系统</li>
-</ol>
-<h1 id="安装-Ubuntu-18-04"><a href="#安装-Ubuntu-18-04" class="headerlink" title="安装 Ubuntu 18.04"></a>安装 <code>Ubuntu 18.04</code></h1><ol>
-<li><p>首先，在官网下载镜像，<a href="http://cn.ubuntu.com/">点击这里下载</a>;</p>
-</li>
-<li><p>使用 <code>UltraISO</code> 制作系统盘（或者使用 <code>rufus</code> 制作，具体百度吧）：<br><img src="/images/posts/computer/8.png"></p>
-</li>
-<li><p>开始装系统：</p>
-<ol>
-<li><p>按住 <code>F12</code>，选择 <code>UEFI</code><br><img src="/images/posts/ubuntu/install/7.jpg"></p>
-</li>
-<li><p>选择： <code>Install Ubuntu</code><br><img src="/images/posts/ubuntu/install/4.jpg"></p>
-</li>
-<li><p>选择中文简体-继续<br><img src="/images/posts/ubuntu/install/5.jpg"></p>
-</li>
-<li><p>键盘布局默认选择-继续<br><img src="/images/posts/ubuntu/install/6.jpg"></p>
-</li>
-<li><p>不联网-继续<br><img src="/images/posts/ubuntu/install/8.jpg"></p>
-</li>
-<li><p>更新和其他软件-默认-继续<br><img src="/images/posts/ubuntu/install/9.jpg"></p>
-</li>
-<li><p>安装类型-其它选项-继续<br><img src="/images/posts/ubuntu/install/10.jpg"></p>
-</li>
-<li><p> 分区：</p>
-</li>
-<li><p>以系统安装在固态为例</p>
-<ol>
-<li>单击 <code>固态的空闲内存</code>（此处为51636），点 <code>+</code>， 挂载点选 <code>/</code>，ok<br><img src="/images/posts/ubuntu/install/11.jpg"></li>
-<li>单击 <code>机械硬盘的空闲内存</code>（此处为216372），点 <code>+</code>，输入200000（大约以这个比例输入），挂载点选 <code>/home</code>，ok<br><img src="/images/posts/ubuntu/install/12.jpg"></li>
-<li>单击<code>剩余的空闲内存</code>（此处为16372），点 <code>+</code>，设置为用于<code>交换空间</code>，点<code>现在安装</code>，继续；<br><img src="/images/posts/ubuntu/install/13.jpg"></li>
-</ol>
-</li>
-<li><p>都安装在机械硬盘：</p>
-<ol>
-<li>类似于上面，更加简单而已，<code>大小</code>类比于<code>安装Ubuntu 18.04 - 3.8.1</code>。</li>
-</ol>
-</li>
-<li><p>继续安装<br><img src="/images/posts/ubuntu/install/16.jpg"></p>
-</li>
-<li><p>位置-默认<br><img src="/images/posts/ubuntu/install/15.jpg"></p>
-</li>
-<li><p>设置用户名和密码，密码一定要记住<br><img src="/images/posts/ubuntu/install/17.jpg"></p>
-</li>
-<li><p>重启<br><img src="/images/posts/ubuntu/install/14.jpg"></p>
-</li>
-<li><p>重启，如果卡住了，就直接用电源强心关机，然后再开机，这个没关系的，放心弄就行<br><img src="/images/posts/ubuntu/install/18.jpg"></p>
-</li>
-</ol>
-</li>
-</ol>
-<h1 id="配置-Ubuntu-（非常重要）"><a href="#配置-Ubuntu-（非常重要）" class="headerlink" title="配置 Ubuntu （非常重要）"></a>配置 <code>Ubuntu</code> （非常重要）</h1><ol>
-<li><p>进入 <code>Ubuntu高级设置</code><br><img src="/images/posts/ubuntu/install/19.jpg"></p>
-</li>
-<li><p>进入 <code>Ubuntu,with Linux 4.10.0-15-generis (recovery mode)</code> （第二个）<br><img src="/images/posts/ubuntu/install/20.jpg"></p>
-</li>
-<li><p>进入 <code>resume resume normal boot</code><br><img src="/images/posts/ubuntu/install/21.jpg"></p>
-</li>
-<li><p>回车，继续进入此时，已经进入了Ubuntu了<br><img src="/images/posts/ubuntu/install/22.jpg"></p>
-</li>
-<li><p>运行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -f</span><br></pre></td></tr></table></figure>
-<p> <img src="/images/posts/ubuntu/install/23.png"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo su</span><br><span class="line">sudo gedit &#x2F;etc&#x2F;defaul&#x2F;grub</span><br></pre></td></tr></table></figure>
-<p> <img src="/images/posts/ubuntu/install/24.jpg"><br>得到下图：<br> <img src="/images/posts/ubuntu/install/27.jpg"><br>【补】：全部命令<br> <img src="/images/posts/ubuntu/install/25.jpg"><br> <img src="/images/posts/ubuntu/install/26.jpg"></p>
-</li>
-<li><p>找到 <code>GRUB_CMDLINE_LINUX_DEFAULT</code>这一行，在 <code>quiet splash </code>后面添加 <code>nouveau.modeset=0</code></p>
-</li>
-<li><p>下面是我的电脑的grub配置：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># If you change this file, run &#39;update-grub&#39; afterwards to update</span><br><span class="line"># &#x2F;boot&#x2F;grub&#x2F;grub.cfg.</span><br><span class="line"># For full documentation of the options in this file, see:</span><br><span class="line">#   info -f grub -n &#39;Simple configuration&#39;</span><br><span class="line"></span><br><span class="line">GRUB_DEFAULT&#x3D;0</span><br><span class="line">GRUB_TIMEOUT_STYLE&#x3D;hidden</span><br><span class="line">GRUB_TIMEOUT&#x3D;10</span><br><span class="line">GRUB_DISTRIBUTOR&#x3D;&#96;lsb_release -i -s 2&gt; &#x2F;dev&#x2F;null || echo Debian&#96;</span><br><span class="line">GRUB_CMDLINE_LINUX_DEFAULT&#x3D;&quot;quiet splash nouveau.modeset&#x3D;0&quot;</span><br><span class="line">GRUB_CMDLINE_LINUX&#x3D;&quot;&quot;</span><br><span class="line"></span><br><span class="line"># Uncomment to enable BadRAM filtering, modify to suit your needs</span><br><span class="line"># This works with Linux (no patch required) and with any kernel that obtains</span><br><span class="line"># the memory map information from GRUB (GNU Mach, kernel of FreeBSD ...)</span><br><span class="line">#GRUB_BADRAM&#x3D;&quot;0x01234567,0xfefefefe,0x89abcdef,0xefefefef&quot;</span><br><span class="line"></span><br><span class="line"># Uncomment to disable graphical terminal (grub-pc only)</span><br><span class="line">#GRUB_TERMINAL&#x3D;console</span><br><span class="line"></span><br><span class="line"># The resolution used on graphical terminal</span><br><span class="line"># note that you can use only modes which your graphic card supports via VBE</span><br><span class="line"># you can see them in real GRUB with the command &#96;vbeinfo&#39;</span><br><span class="line">#GRUB_GFXMODE&#x3D;640x480</span><br><span class="line"></span><br><span class="line"># Uncomment if you don&#39;t want GRUB to pass &quot;root&#x3D;UUID&#x3D;xxx&quot; parameter to Linux</span><br><span class="line">#GRUB_DISABLE_LINUX_UUID&#x3D;true</span><br><span class="line"></span><br><span class="line"># Uncomment to disable generation of recovery mode menu entries</span><br><span class="line">#GRUB_DISABLE_RECOVERY&#x3D;&quot;true&quot;</span><br><span class="line"></span><br><span class="line"># Uncomment to get a beep at grub start</span><br><span class="line">#GRUB_INIT_TUNE&#x3D;&quot;480 440 1&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p>更新grub</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo update-grub</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="美化"><a href="#美化" class="headerlink" title="美化"></a>美化</h1><ol>
-<li><img src="/images/posts/computer/9.png"><br><br><a href="/files/62-1.pdf">点击这里下载教程</a></li>
-<li>包在<a href="https://pan.baidu.com/s/1U_F1R65JpLinOQ8u-LALcA">这里下载</a> 提取码: 3knb</li>
-<li>附：其他美化视频：<a href="https://www.bilibili.com/video/av26156974?from=search&seid=9708955829816132659">点击这里</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>OS</category>
-        <category>Computer</category>
-      </categories>
-      <tags>
-        <tag>双系统</tag>
       </tags>
   </entry>
   <entry>
@@ -4784,24 +4784,6 @@
       </tags>
   </entry>
   <entry>
-    <title>8. Jekyll添加站点访问量</title>
-    <url>/2019/01/21/8/</url>
-    <content><![CDATA[<p>……</p>
-<span id="more"></span>
-
-
-<h1 id="不蒜子"><a href="#不蒜子" class="headerlink" title="不蒜子"></a><a href="https://busuanzi.ibruce.info/">不蒜子</a></h1><h2 id="1-在-includes-head-html添加以下代码："><a href="#1-在-includes-head-html添加以下代码：" class="headerlink" title="1. 在_includes/head.html添加以下代码："></a>1. 在<code>_includes/head.html</code>添加以下代码：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;script async src&#x3D;&quot;&#x2F;&#x2F;busuanzi.ibruce.info&#x2F;busuanzi&#x2F;2.3&#x2F;busuanzi.pure.mini.js&quot;&gt;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="2-在-layouts-post-html添加以下代码："><a href="#2-在-layouts-post-html添加以下代码：" class="headerlink" title="2. 在_layouts/post.html添加以下代码："></a>2. 在<code>_layouts/post.html</code>添加以下代码：</h2><h3 id="功能："><a href="#功能：" class="headerlink" title="功能："></a>功能：</h3><h4 id="1-本文总阅读量"><a href="#1-本文总阅读量" class="headerlink" title="1). 本文总阅读量"></a>1). 本文总阅读量</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;span id&#x3D;&quot;busuanzi_container_page_pv&quot;&gt;</span><br><span class="line">    本文总阅读量&lt;span id&#x3D;&quot;busuanzi_value_page_pv&quot;&gt;&lt;&#x2F;span&gt;次&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp</span><br><span class="line">&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="2-本站总访问量"><a href="#2-本站总访问量" class="headerlink" title="2). 本站总访问量"></a>2). 本站总访问量</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;span id&#x3D;&quot;busuanzi_container_site_pv&quot;&gt;</span><br><span class="line">    本站总访问量&lt;span id&#x3D;&quot;busuanzi_value_site_pv&quot;&gt;&lt;&#x2F;span&gt;次&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp</span><br><span class="line">&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="3-本站访客数"><a href="#3-本站访客数" class="headerlink" title="3). 本站访客数"></a>3). 本站访客数</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;span id&#x3D;&quot;busuanzi_container_site_uv&quot;&gt;</span><br><span class="line">    本站访客数&lt;span id&#x3D;&quot;busuanzi_value_site_uv&quot;&gt;&lt;&#x2F;span&gt;人次</span><br><span class="line">&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Github</category>
-      </categories>
-      <tags>
-        <tag>Jekyll</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>79. Ubuntu Vim 使用与配置</title>
     <url>/2019/12/02/79/</url>
     <content><![CDATA[<p>……</p>
@@ -4858,6 +4840,24 @@
       </categories>
       <tags>
         <tag>vim</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>8. Jekyll添加站点访问量</title>
+    <url>/2019/01/21/8/</url>
+    <content><![CDATA[<p>……</p>
+<span id="more"></span>
+
+
+<h1 id="不蒜子"><a href="#不蒜子" class="headerlink" title="不蒜子"></a><a href="https://busuanzi.ibruce.info/">不蒜子</a></h1><h2 id="1-在-includes-head-html添加以下代码："><a href="#1-在-includes-head-html添加以下代码：" class="headerlink" title="1. 在_includes/head.html添加以下代码："></a>1. 在<code>_includes/head.html</code>添加以下代码：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;script async src&#x3D;&quot;&#x2F;&#x2F;busuanzi.ibruce.info&#x2F;busuanzi&#x2F;2.3&#x2F;busuanzi.pure.mini.js&quot;&gt;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2-在-layouts-post-html添加以下代码："><a href="#2-在-layouts-post-html添加以下代码：" class="headerlink" title="2. 在_layouts/post.html添加以下代码："></a>2. 在<code>_layouts/post.html</code>添加以下代码：</h2><h3 id="功能："><a href="#功能：" class="headerlink" title="功能："></a>功能：</h3><h4 id="1-本文总阅读量"><a href="#1-本文总阅读量" class="headerlink" title="1). 本文总阅读量"></a>1). 本文总阅读量</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;span id&#x3D;&quot;busuanzi_container_page_pv&quot;&gt;</span><br><span class="line">    本文总阅读量&lt;span id&#x3D;&quot;busuanzi_value_page_pv&quot;&gt;&lt;&#x2F;span&gt;次&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp</span><br><span class="line">&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="2-本站总访问量"><a href="#2-本站总访问量" class="headerlink" title="2). 本站总访问量"></a>2). 本站总访问量</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;span id&#x3D;&quot;busuanzi_container_site_pv&quot;&gt;</span><br><span class="line">    本站总访问量&lt;span id&#x3D;&quot;busuanzi_value_site_pv&quot;&gt;&lt;&#x2F;span&gt;次&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp</span><br><span class="line">&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="3-本站访客数"><a href="#3-本站访客数" class="headerlink" title="3). 本站访客数"></a>3). 本站访客数</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;span id&#x3D;&quot;busuanzi_container_site_uv&quot;&gt;</span><br><span class="line">    本站访客数&lt;span id&#x3D;&quot;busuanzi_value_site_uv&quot;&gt;&lt;&#x2F;span&gt;人次</span><br><span class="line">&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Github</category>
+      </categories>
+      <tags>
+        <tag>Jekyll</tag>
       </tags>
   </entry>
   <entry>
@@ -5396,127 +5396,6 @@
       </tags>
   </entry>
   <entry>
-    <title>95. Python __init__.py 使用</title>
-    <url>/2020/03/13/95/</url>
-    <content><![CDATA[<h1 id="Python工程的组织结构"><a href="#Python工程的组织结构" class="headerlink" title="Python工程的组织结构"></a>Python工程的组织结构</h1><blockquote>
-<p>包、模块、类、函数、变量</p>
-</blockquote>
-<ul>
-<li>最顶级的组织结构：包(文件夹)</li>
-<li>第二个层级：模块(文件)</li>
-<li>第三个层级：类</li>
-<li>第四个层级：函数、变量(不属于组织结构，是类本身的特性)<span id="more"></span></li>
-</ul>
-<blockquote>
-<p><strong>其中：</strong></p>
-<ol>
-<li>包：整个文件夹</li>
-<li>模块：一个 <code>py</code> 文件</li>
-</ol>
-</blockquote>
-<h1 id="Python包与模块的名字"><a href="#Python包与模块的名字" class="headerlink" title="Python包与模块的名字"></a>Python包与模块的名字</h1><blockquote>
-<p> 区分不同包的同名模块：包名.模块名<br> 形成的模块的路径叫做命名空间<br> 一个包下面可以有子包，模块可以和包平级<br> 普通文件夹想要变成包必须要有init.py文件<br> <code>__init__.py</code> 本身也是一个模块，可以不写内容只是标注包<br> 特殊地，<code>__init__.py</code> 模块的名字就是包名</p>
-</blockquote>
-<h1 id="init-py用途"><a href="#init-py用途" class="headerlink" title="__init__.py用途"></a><code>__init__.py</code>用途</h1><blockquote>
-<p><code>__init__.py</code> 该文件的作用就是相当于把自身整个文件夹当作一个包来管理，每当有外部import的时候，就会自动执行里面的函数。</p>
-</blockquote>
-<h1 id="import导入模块"><a href="#import导入模块" class="headerlink" title="import导入模块"></a>import导入模块</h1><blockquote>
-<p>对于重复的定义需要从其他模块里引用。<br>利用 <code>import 模块名</code> 导入</p>
-</blockquote>
-   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PackageTest1.Test1</span></span><br><span class="line">a = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># PackageTest1.Test2</span></span><br><span class="line"><span class="keyword">import</span> Test1</span><br><span class="line">print(Test1.a)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>import导入的总是模块，需要用模块名.变量名的方法引用<br>可以用as简化书写</p>
-</blockquote>
-   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PackageTest1.Test1</span></span><br><span class="line">a = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># PackageTest1.Test2</span></span><br><span class="line"><span class="keyword">import</span> Test1 <span class="keyword">as</span> t1</span><br><span class="line">print(t1.a)</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>同级目录可以直接导入模块<br>优点是可以一眼看出属于哪个模块</p>
-</blockquote>
-<h1 id="from-import-导入变量"><a href="#from-import-导入变量" class="headerlink" title="from import 导入变量"></a>from import 导入变量</h1>   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PackageTest1.Test2</span></span><br><span class="line"><span class="keyword">from</span> c1 <span class="keyword">import</span> a</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>可以使用 <code>from 包 import 模块</code> 导入模块<br>导入时使用 <code>模块.变量</code><br>导入大量变量时用 <code>*</code>：</p>
-</blockquote>
-   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PackageTest1.Test1</span></span><br><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">1</span></span><br><span class="line">c = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># PackageTest1.Test2</span></span><br><span class="line"><span class="keyword">from</span> Test1 <span class="keyword">import</span> *</span><br><span class="line">print(a)</span><br><span class="line">print(b)</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
-
-<h2 id="控制"><a href="#控制" class="headerlink" title="控制 *"></a>控制 <code>*</code></h2>   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PackageTest1.Test1</span></span><br><span class="line">__all__ = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>]</span><br><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">1</span></span><br><span class="line">c = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># PackageTest1.Test2</span></span><br><span class="line"><span class="keyword">from</span> Test1 <span class="keyword">import</span> *</span><br><span class="line">print(a)</span><br><span class="line">print(b)</span><br><span class="line">print(c) <span class="comment"># 这里会报错，因为没有导入c</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ol>
-<li><p>使用 <code>*</code> 导入时，导入的是在所在包中 <code>__init__.py</code> 存在的变量</p>
-</li>
-<li><p>文件目录：</p>
-<blockquote>
-<p>initTest</p>
-<blockquote>
-<p>PackageTest1</p>
-<blockquote>
-<p><code>__init__.py</code><br><code>Test1.py</code> <br><br><code>Test2.py</code> <br></p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p><code>Test.py</code></p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>其中：</p>
-</blockquote>
-<blockquote>
-<p><code>PackageTest1.__init__.py</code></p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;You have imported mypackage&quot;</span>)</span><br><span class="line"><span class="comment"># __all__ = [&#x27;pd&#x27;, &#x27;np&#x27;] # 这里不需要 __all__ 控制</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<pre><code>  &gt; `PackageTest1.Test1.py`
-
-  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> __init__ <span class="keyword">import</span> * <span class="comment"># 可以使用所在包中的 __init__ 导入大量的包</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test1</span>():</span></span><br><span class="line">   </span><br><span class="line">   <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">         a = np.array([i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)])</span><br><span class="line">   print(a)</span><br></pre></td></tr></table></figure>
-
-
-  &gt; `Test.py`
-
-  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> PackageTest1 <span class="keyword">import</span> * <span class="comment"># 因为 PackageTest1.__init__ 中只有 pd, np 这两个变量，因此使用 * 只导入进来了 pd, np</span></span><br><span class="line"><span class="keyword">from</span> PackageTest1.Test1 <span class="keyword">import</span> Test1 <span class="comment"># 因为在 PackageTest1.__init__ 中没有 Test1 这个模块，更没有 Test1 这个类，因此想要使用必须自行导入</span></span><br><span class="line"></span><br><span class="line">Test1()</span><br></pre></td></tr></table></figure>
-</code></pre>
-<h1 id="在-PackageTest1-init-中导入-Test1-模块、类"><a href="#在-PackageTest1-init-中导入-Test1-模块、类" class="headerlink" title="在 PackageTest1.__init__ 中导入 Test1 模块、类"></a>在 <code>PackageTest1.__init__</code> 中导入 <code>Test1</code> 模块、类</h1><ol>
-<li>导入 <code>Test1</code> 模块<br>在 <code>PackageTest1.__init__.py</code>中添加 <code>import PackageTest1.Test1</code> 就可以在 <code>Test.py</code>中使用 <code>Test1.Test1()</code> 创建 <code>Test1</code> 类了。</li>
-<li>导入 <code>Test1</code> 类<ol>
-<li>在 <code>PackageTest1.__init__.py</code>中添加 <code>from PackageTest1.Test1 import Test1</code> 就可以在 <code>Test.py</code>中使用 <code>Test1()</code> 创建 <code>Test1</code> 类了。</li>
-<li>在 <code>PackageTest1.__init__.py</code>中添加 <code>import PackageTest1.Test1</code> <em><strong>是错误的，会报错:</strong></em> <code>ModuleNotFoundError: No module named &#39;PackageTest1.Test1.Test1&#39;; &#39;PackageTest1.Test1&#39; is not a package</code></li>
-</ol>
-</li>
-</ol>
-<h1 id="init-py-用法"><a href="#init-py-用法" class="headerlink" title="__init__.py 用法"></a><code>__init__.py</code> 用法</h1><ol>
-<li>当包被导入时，<code>__init__.py</code> 会首先被自动执行，类似于构造函数</li>
-<li><code>__init__.py</code> 的应用场景<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PackageTest1.__init__.py</span></span><br><span class="line">__all__ = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>]    <span class="comment">#初始化*</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys        <span class="comment">#批量导入库</span></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> io</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#Test.py</span></span><br><span class="line"><span class="keyword">import</span> Test1</span><br><span class="line">print(Test1.sys.path)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>此时引用因为不是用的 <code>*</code> , 所以必须使用 <code>包.类.成员函数</code> 进行调用。</p>
-</blockquote>
-</li>
-</ol>
-<h1 id="多层目录各层互相调用"><a href="#多层目录各层互相调用" class="headerlink" title="多层目录各层互相调用"></a>多层目录各层互相调用</h1><blockquote>
-<blockquote>
-<p><code>pacgage1</code></p>
-<blockquote>
-<p><code>__init__.py</code><br><code>test1.py</code><br><code>test2.py</code></p>
-</blockquote>
-</blockquote>
-<p><code>test3.py</code></p>
-</blockquote>
-<p>   <code>test3</code> 调用 <code>package1</code>，而 <code>test1</code> 调用 <code>test2</code>，此时，在 <code>package1.__init__.py</code> 中添加路径，如下：</p>
-   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">&quot;./package&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h1 id="包与模块的几个常见错误"><a href="#包与模块的几个常见错误" class="headerlink" title="包与模块的几个常见错误"></a>包与模块的几个常见错误</h1><ol>
-<li>包和模块是不会被重复导入的，只会执行一次(入口文件的概念)</li>
-<li>避免循环导入，不要形成闭环</li>
-<li>导入模块的时候会执行模块里所有的代码</li>
-<li>如果使用 <code>if __name__ == &#39;__main__&#39;</code> 则不会执行该代码块中的代码</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>__init__</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>94. Tensorflow-2 安装</title>
     <url>/2020/03/07/94/</url>
     <content><![CDATA[<h1 id="Windows环境"><a href="#Windows环境" class="headerlink" title="Windows环境"></a><strong>Windows环境</strong></h1><h2 id="1-安装-CUDA-和-cudnn"><a href="#1-安装-CUDA-和-cudnn" class="headerlink" title="1. 安装 CUDA 和 cudnn"></a>1. 安装 <code>CUDA</code> 和 <code>cudnn</code></h2><ol>
@@ -5659,6 +5538,146 @@
       </tags>
   </entry>
   <entry>
+    <title>95. Python __init__.py 使用</title>
+    <url>/2020/03/13/95/</url>
+    <content><![CDATA[<h1 id="Python工程的组织结构"><a href="#Python工程的组织结构" class="headerlink" title="Python工程的组织结构"></a>Python工程的组织结构</h1><blockquote>
+<p>包、模块、类、函数、变量</p>
+</blockquote>
+<ul>
+<li>最顶级的组织结构：包(文件夹)</li>
+<li>第二个层级：模块(文件)</li>
+<li>第三个层级：类</li>
+<li>第四个层级：函数、变量(不属于组织结构，是类本身的特性)<span id="more"></span></li>
+</ul>
+<blockquote>
+<p><strong>其中：</strong></p>
+<ol>
+<li>包：整个文件夹</li>
+<li>模块：一个 <code>py</code> 文件</li>
+</ol>
+</blockquote>
+<h1 id="Python包与模块的名字"><a href="#Python包与模块的名字" class="headerlink" title="Python包与模块的名字"></a>Python包与模块的名字</h1><blockquote>
+<p> 区分不同包的同名模块：包名.模块名<br> 形成的模块的路径叫做命名空间<br> 一个包下面可以有子包，模块可以和包平级<br> 普通文件夹想要变成包必须要有init.py文件<br> <code>__init__.py</code> 本身也是一个模块，可以不写内容只是标注包<br> 特殊地，<code>__init__.py</code> 模块的名字就是包名</p>
+</blockquote>
+<h1 id="init-py用途"><a href="#init-py用途" class="headerlink" title="__init__.py用途"></a><code>__init__.py</code>用途</h1><blockquote>
+<p><code>__init__.py</code> 该文件的作用就是相当于把自身整个文件夹当作一个包来管理，每当有外部import的时候，就会自动执行里面的函数。</p>
+</blockquote>
+<h1 id="import导入模块"><a href="#import导入模块" class="headerlink" title="import导入模块"></a>import导入模块</h1><blockquote>
+<p>对于重复的定义需要从其他模块里引用。<br>利用 <code>import 模块名</code> 导入</p>
+</blockquote>
+   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PackageTest1.Test1</span></span><br><span class="line">a = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># PackageTest1.Test2</span></span><br><span class="line"><span class="keyword">import</span> Test1</span><br><span class="line">print(Test1.a)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>import导入的总是模块，需要用模块名.变量名的方法引用<br>可以用as简化书写</p>
+</blockquote>
+   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PackageTest1.Test1</span></span><br><span class="line">a = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># PackageTest1.Test2</span></span><br><span class="line"><span class="keyword">import</span> Test1 <span class="keyword">as</span> t1</span><br><span class="line">print(t1.a)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>同级目录可以直接导入模块<br>优点是可以一眼看出属于哪个模块</p>
+</blockquote>
+<h1 id="from-import-导入变量"><a href="#from-import-导入变量" class="headerlink" title="from import 导入变量"></a>from import 导入变量</h1>   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PackageTest1.Test2</span></span><br><span class="line"><span class="keyword">from</span> c1 <span class="keyword">import</span> a</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>可以使用 <code>from 包 import 模块</code> 导入模块<br>导入时使用 <code>模块.变量</code><br>导入大量变量时用 <code>*</code>：</p>
+</blockquote>
+   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PackageTest1.Test1</span></span><br><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">1</span></span><br><span class="line">c = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># PackageTest1.Test2</span></span><br><span class="line"><span class="keyword">from</span> Test1 <span class="keyword">import</span> *</span><br><span class="line">print(a)</span><br><span class="line">print(b)</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
+
+<h2 id="控制"><a href="#控制" class="headerlink" title="控制 *"></a>控制 <code>*</code></h2>   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PackageTest1.Test1</span></span><br><span class="line">__all__ = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>]</span><br><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">1</span></span><br><span class="line">c = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># PackageTest1.Test2</span></span><br><span class="line"><span class="keyword">from</span> Test1 <span class="keyword">import</span> *</span><br><span class="line">print(a)</span><br><span class="line">print(b)</span><br><span class="line">print(c) <span class="comment"># 这里会报错，因为没有导入c</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ol>
+<li><p>使用 <code>*</code> 导入时，导入的是在所在包中 <code>__init__.py</code> 存在的变量</p>
+</li>
+<li><p>文件目录：</p>
+<blockquote>
+<p>initTest</p>
+<blockquote>
+<p>PackageTest1</p>
+<blockquote>
+<p><code>__init__.py</code><br><code>Test1.py</code> <br><br><code>Test2.py</code> <br></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><code>Test.py</code></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>其中：</p>
+</blockquote>
+<blockquote>
+<p><code>PackageTest1.__init__.py</code></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;You have imported mypackage&quot;</span>)</span><br><span class="line"><span class="comment"># __all__ = [&#x27;pd&#x27;, &#x27;np&#x27;] # 这里不需要 __all__ 控制</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<pre><code>  &gt; `PackageTest1.Test1.py`
+
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> __init__ <span class="keyword">import</span> * <span class="comment"># 可以使用所在包中的 __init__ 导入大量的包</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test1</span>():</span></span><br><span class="line">   </span><br><span class="line">   <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">         a = np.array([i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)])</span><br><span class="line">   print(a)</span><br></pre></td></tr></table></figure>
+
+
+  &gt; `Test.py`
+
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> PackageTest1 <span class="keyword">import</span> * <span class="comment"># 因为 PackageTest1.__init__ 中只有 pd, np 这两个变量，因此使用 * 只导入进来了 pd, np</span></span><br><span class="line"><span class="keyword">from</span> PackageTest1.Test1 <span class="keyword">import</span> Test1 <span class="comment"># 因为在 PackageTest1.__init__ 中没有 Test1 这个模块，更没有 Test1 这个类，因此想要使用必须自行导入</span></span><br><span class="line"></span><br><span class="line">Test1()</span><br></pre></td></tr></table></figure>
+</code></pre>
+<h1 id="在-PackageTest1-init-中导入-Test1-模块、类"><a href="#在-PackageTest1-init-中导入-Test1-模块、类" class="headerlink" title="在 PackageTest1.__init__ 中导入 Test1 模块、类"></a>在 <code>PackageTest1.__init__</code> 中导入 <code>Test1</code> 模块、类</h1><ol>
+<li>导入 <code>Test1</code> 模块<br>在 <code>PackageTest1.__init__.py</code>中添加 <code>import PackageTest1.Test1</code> 就可以在 <code>Test.py</code>中使用 <code>Test1.Test1()</code> 创建 <code>Test1</code> 类了。</li>
+<li>导入 <code>Test1</code> 类<ol>
+<li>在 <code>PackageTest1.__init__.py</code>中添加 <code>from PackageTest1.Test1 import Test1</code> 就可以在 <code>Test.py</code>中使用 <code>Test1()</code> 创建 <code>Test1</code> 类了。</li>
+<li>在 <code>PackageTest1.__init__.py</code>中添加 <code>import PackageTest1.Test1</code> <em><strong>是错误的，会报错:</strong></em> <code>ModuleNotFoundError: No module named &#39;PackageTest1.Test1.Test1&#39;; &#39;PackageTest1.Test1&#39; is not a package</code></li>
+</ol>
+</li>
+</ol>
+<h1 id="init-py-用法"><a href="#init-py-用法" class="headerlink" title="__init__.py 用法"></a><code>__init__.py</code> 用法</h1><ol>
+<li>当包被导入时，<code>__init__.py</code> 会首先被自动执行，类似于构造函数</li>
+<li><code>__init__.py</code> 的应用场景<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PackageTest1.__init__.py</span></span><br><span class="line">__all__ = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>]    <span class="comment">#初始化*</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys        <span class="comment">#批量导入库</span></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> io</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#Test.py</span></span><br><span class="line"><span class="keyword">import</span> Test1</span><br><span class="line">print(Test1.sys.path)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>此时引用因为不是用的 <code>*</code> , 所以必须使用 <code>包.类.成员函数</code> 进行调用。</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="多层目录各层互相调用"><a href="#多层目录各层互相调用" class="headerlink" title="多层目录各层互相调用"></a>多层目录各层互相调用</h1><blockquote>
+<blockquote>
+<p><code>pacgage1</code></p>
+<blockquote>
+<p><code>__init__.py</code><br><code>test1.py</code><br><code>test2.py</code></p>
+</blockquote>
+</blockquote>
+<p><code>test3.py</code></p>
+</blockquote>
+<p>   <code>test3</code> 调用 <code>package1</code>，而 <code>test1</code> 调用 <code>test2</code>，此时，在 <code>package1.__init__.py</code> 中添加路径，如下：</p>
+   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">&quot;./package&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="包与模块的几个常见错误"><a href="#包与模块的几个常见错误" class="headerlink" title="包与模块的几个常见错误"></a>包与模块的几个常见错误</h1><ol>
+<li>包和模块是不会被重复导入的，只会执行一次(入口文件的概念)</li>
+<li>避免循环导入，不要形成闭环</li>
+<li>导入模块的时候会执行模块里所有的代码</li>
+<li>如果使用 <code>if __name__ == &#39;__main__&#39;</code> 则不会执行该代码块中的代码</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>__init__</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>96. Sublime 配置</title>
+    <url>/2020/03/16/96/</url>
+    <content><![CDATA[<h1 id="Sublime快捷键"><a href="#Sublime快捷键" class="headerlink" title="Sublime快捷键"></a>Sublime快捷键</h1>   <figure class="highlight json"><table><tr><td class="code"><pre><span class="line">[</span><br><span class="line">   &#123; <span class="attr">&quot;keys&quot;</span>: [<span class="string">&quot;ctrl+enter&quot;</span>], <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;move_to&quot;</span>, <span class="attr">&quot;args&quot;</span>: &#123;<span class="attr">&quot;to&quot;</span>: <span class="string">&quot;eol&quot;</span>, <span class="attr">&quot;extend&quot;</span>: <span class="literal">false</span>&#125; &#125;,</span><br><span class="line">   &#123; <span class="attr">&quot;keys&quot;</span>: [<span class="string">&quot;shift+enter&quot;</span>], <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;run_macro_file&quot;</span>, <span class="attr">&quot;args&quot;</span>: &#123;<span class="attr">&quot;file&quot;</span>: <span class="string">&quot;res://Packages/Default/Add Line.sublime-macro&quot;</span>&#125; &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+   <span id="more"></span>
+
+<h1 id="主题、配色"><a href="#主题、配色" class="headerlink" title="主题、配色"></a>主题、配色</h1><ol>
+<li>主题： <code>Ayu</code></li>
+<li>配色： <code>Ayu-light</code></li>
+<li>配置文件（首选项-设置）：<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">&quot;color_scheme&quot;</span>: <span class="string">&quot;Packages/ayu/ayu-light.sublime-color-scheme&quot;</span>,</span><br><span class="line"><span class="attr">&quot;ignored_packages&quot;</span>:</span><br><span class="line">[</span><br><span class="line">   <span class="string">&quot;Vintage&quot;</span></span><br><span class="line">],</span><br><span class="line"><span class="attr">&quot;theme&quot;</span>: <span class="string">&quot;ayu-light.sublime-theme&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>软件</category>
+      </categories>
+      <tags>
+        <tag>Sublime</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>97. 双系统安装之后必做的事</title>
     <url>/2020/03/25/97/</url>
     <content><![CDATA[<h1 id="双系统时间不一致"><a href="#双系统时间不一致" class="headerlink" title="双系统时间不一致"></a>双系统时间不一致</h1><ol>
@@ -5749,25 +5768,6 @@
       </categories>
       <tags>
         <tag>双系统</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>96. Sublime 配置</title>
-    <url>/2020/03/16/96/</url>
-    <content><![CDATA[<h1 id="Sublime快捷键"><a href="#Sublime快捷键" class="headerlink" title="Sublime快捷键"></a>Sublime快捷键</h1>   <figure class="highlight json"><table><tr><td class="code"><pre><span class="line">[</span><br><span class="line">   &#123; <span class="attr">&quot;keys&quot;</span>: [<span class="string">&quot;ctrl+enter&quot;</span>], <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;move_to&quot;</span>, <span class="attr">&quot;args&quot;</span>: &#123;<span class="attr">&quot;to&quot;</span>: <span class="string">&quot;eol&quot;</span>, <span class="attr">&quot;extend&quot;</span>: <span class="literal">false</span>&#125; &#125;,</span><br><span class="line">   &#123; <span class="attr">&quot;keys&quot;</span>: [<span class="string">&quot;shift+enter&quot;</span>], <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;run_macro_file&quot;</span>, <span class="attr">&quot;args&quot;</span>: &#123;<span class="attr">&quot;file&quot;</span>: <span class="string">&quot;res://Packages/Default/Add Line.sublime-macro&quot;</span>&#125; &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-   <span id="more"></span>
-
-<h1 id="主题、配色"><a href="#主题、配色" class="headerlink" title="主题、配色"></a>主题、配色</h1><ol>
-<li>主题： <code>Ayu</code></li>
-<li>配色： <code>Ayu-light</code></li>
-<li>配置文件（首选项-设置）：<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">&quot;color_scheme&quot;</span>: <span class="string">&quot;Packages/ayu/ayu-light.sublime-color-scheme&quot;</span>,</span><br><span class="line"><span class="attr">&quot;ignored_packages&quot;</span>:</span><br><span class="line">[</span><br><span class="line">   <span class="string">&quot;Vintage&quot;</span></span><br><span class="line">],</span><br><span class="line"><span class="attr">&quot;theme&quot;</span>: <span class="string">&quot;ayu-light.sublime-theme&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>软件</category>
-      </categories>
-      <tags>
-        <tag>Sublime</tag>
       </tags>
   </entry>
   <entry>
