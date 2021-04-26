@@ -6,7 +6,7 @@
   <link href="https://qeuroal.top/atom.xml" rel="self"/>
   
   <link href="https://qeuroal.top/"/>
-  <updated>2021-04-10T01:50:30.654Z</updated>
+  <updated>2021-04-10T02:15:09.630Z</updated>
   <id>https://qeuroal.top/</id>
   
   <author>
@@ -21,10 +21,10 @@
     <link href="https://qeuroal.top/2021/04/10/138/"/>
     <id>https://qeuroal.top/2021/04/10/138/</id>
     <published>2021-04-10T01:35:05.000Z</published>
-    <updated>2021-04-10T01:50:30.654Z</updated>
+    <updated>2021-04-10T02:15:09.630Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;进入锁屏壁纸的文件夹&quot;&gt;&lt;a href=&quot;#进入锁屏壁纸的文件夹&quot; class=&quot;headerlink&quot; title=&quot;进入锁屏壁纸的文件夹&quot;&gt;&lt;/a&gt;进入锁屏壁纸的文件夹&lt;/h1&gt;&lt;ol&gt;
+    <summary type="html">&lt;ol&gt;
 &lt;li&gt;&lt;p&gt;打开 &lt;code&gt;文件资源管理器&lt;/code&gt; （按 &lt;code&gt;win+e&lt;/code&gt;）&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</summary>
     
     
@@ -43,10 +43,20 @@
     <link href="https://qeuroal.top/2021/04/05/137/"/>
     <id>https://qeuroal.top/2021/04/05/137/</id>
     <published>2021-04-05T08:01:17.000Z</published>
-    <updated>2021-04-10T01:48:25.365Z</updated>
+    <updated>2021-04-25T05:49:01.807Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;设置debug模式&quot;&gt;&lt;a href=&quot;#设置debug模式&quot; class=&quot;headerlink&quot; title=&quot;设置debug模式&quot;&gt;&lt;/a&gt;设置debug模式&lt;/h1&gt;&lt;ol&gt;
+    <summary type="html">&lt;h1 id=&quot;第一个flask程序&quot;&gt;&lt;a href=&quot;#第一个flask程序&quot; class=&quot;headerlink&quot; title=&quot;第一个flask程序&quot;&gt;&lt;/a&gt;第一个flask程序&lt;/h1&gt;&lt;h2 id=&quot;Flask-name&quot;&gt;&lt;a href=&quot;#Flask-name&quot; class=&quot;headerlink&quot; title=&quot;Flask(__name__)&quot;&gt;&lt;/a&gt;&lt;code&gt;Flask(__name__)&lt;/code&gt;&lt;/h2&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 初始化一个Flask对象&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Flask()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 需要传递一个参数 __name__&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#   1. 方便flask框架去寻找资源&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#   2. 方便flask插件比如Flask-Sqlalchemy出现错误的时候，好去寻找问题所在的位置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 id=&quot;app-route&quot;&gt;&lt;a href=&quot;#app-route&quot; class=&quot;headerlink&quot; title=&quot;@app.route()&quot;&gt;&lt;/a&gt;&lt;code&gt;@app.route()&lt;/code&gt;&lt;/h2&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# @app.route是一个装饰器（可以看成url的后缀：127.0.0.1:5000/login 的 /login）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# @开头，并且在函数的上面，说明是装饰器&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 这个装饰器的作用是做一个url和视图函数(习惯性的命名，就是这里的hello_world函数)的映射&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 127.0.0.1:5000 -&amp;gt; 去请求hello_world这个函数然后将结果返回给浏览器&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;@app.route(&lt;span class=&quot;params&quot;&gt;&lt;span class=&quot;string&quot;&gt;&amp;#x27;/&amp;#x27;&lt;/span&gt;&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;hello_world&lt;/span&gt;():&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; “我是第一个flask程序”&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;app-run&quot;&gt;&lt;a href=&quot;#app-run&quot; class=&quot;headerlink&quot; title=&quot;app.run():&quot;&gt;&lt;/a&gt;&lt;code&gt;app.run()&lt;/code&gt;:&lt;/h2&gt;&lt;p&gt;启动一个应用服务器，来接收用户的请求。&lt;/p&gt;
+&lt;p&gt;类似于:&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; (&lt;span class=&quot;literal&quot;&gt;True&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	listen()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h1 id=&quot;设置debug模式&quot;&gt;&lt;a href=&quot;#设置debug模式&quot; class=&quot;headerlink&quot; title=&quot;设置debug模式&quot;&gt;&lt;/a&gt;设置debug模式&lt;/h1&gt;&lt;ol&gt;
 &lt;li&gt;在 &lt;code&gt;app.run()&lt;/code&gt; 中传入一个关键字参数&lt;code&gt;debug&lt;/code&gt;，&lt;code&gt;app.run(debug=True)&lt;/code&gt;， 就设置当前项目为 &lt;code&gt;debug&lt;/code&gt; 模式&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;debug&lt;/code&gt; 模式的两大功能&lt;ul&gt;
 &lt;li&gt;当程序出现问题时，可以在也米那种看到错误信息和出错的位置&lt;/li&gt;
@@ -57,14 +67,14 @@
     
     
     
-    <category term="Flask" scheme="https://qeuroal.top/categories/Flask/"/>
-    
     <category term="Python" scheme="https://qeuroal.top/categories/Python/"/>
     
+    <category term="Flask" scheme="https://qeuroal.top/categories/Flask/"/>
     
-    <category term="Python" scheme="https://qeuroal.top/tags/Python/"/>
     
     <category term="Flask" scheme="https://qeuroal.top/tags/Flask/"/>
+    
+    <category term="Python" scheme="https://qeuroal.top/tags/Python/"/>
     
   </entry>
   
