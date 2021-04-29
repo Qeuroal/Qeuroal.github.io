@@ -6,7 +6,7 @@
   <link href="https://qeuroal.top/atom.xml" rel="self"/>
   
   <link href="https://qeuroal.top/"/>
-  <updated>2021-04-10T02:15:09.630Z</updated>
+  <updated>2021-04-29T09:09:26.499Z</updated>
   <id>https://qeuroal.top/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>139. HTML5</title>
+    <link href="https://qeuroal.top/2021/04/29/139/"/>
+    <id>https://qeuroal.top/2021/04/29/139/</id>
+    <published>2021-04-29T02:08:36.000Z</published>
+    <updated>2021-04-29T09:09:26.499Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;前端&quot;&gt;&lt;a href=&quot;#前端&quot; class=&quot;headerlink&quot; title=&quot;前端&quot;&gt;&lt;/a&gt;前端&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;HTML&lt;/code&gt;：网页基本结构&lt;/p&gt;
+&lt;p&gt; &lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="HTML" scheme="https://qeuroal.top/categories/HTML/"/>
+    
+    
+    <category term="HTML" scheme="https://qeuroal.top/tags/HTML/"/>
+    
+  </entry>
   
   <entry>
     <title>138. 如何保存win10锁屏壁纸</title>
@@ -43,7 +70,7 @@
     <link href="https://qeuroal.top/2021/04/05/137/"/>
     <id>https://qeuroal.top/2021/04/05/137/</id>
     <published>2021-04-05T08:01:17.000Z</published>
-    <updated>2021-04-25T05:49:01.807Z</updated>
+    <updated>2021-04-27T08:23:40.154Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;第一个flask程序&quot;&gt;&lt;a href=&quot;#第一个flask程序&quot; class=&quot;headerlink&quot; title=&quot;第一个flask程序&quot;&gt;&lt;/a&gt;第一个flask程序&lt;/h1&gt;&lt;h2 id=&quot;Flask-name&quot;&gt;&lt;a href=&quot;#Flask-name&quot; class=&quot;headerlink&quot; title=&quot;Flask(__name__)&quot;&gt;&lt;/a&gt;&lt;code&gt;Flask(__name__)&lt;/code&gt;&lt;/h2&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 初始化一个Flask对象&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Flask()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 需要传递一个参数 __name__&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#   1. 方便flask框架去寻找资源&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#   2. 方便flask插件比如Flask-Sqlalchemy出现错误的时候，好去寻找问题所在的位置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -451,30 +478,6 @@
     
     
     <summary type="html">&lt;h1 id=&quot;Runnable-线程创建&quot;&gt;&lt;a href=&quot;#Runnable-线程创建&quot; class=&quot;headerlink&quot; title=&quot;Runnable 线程创建&quot;&gt;&lt;/a&gt;Runnable 线程创建&lt;/h1&gt;&lt;h2 id=&quot;1&quot;&gt;&lt;a href=&quot;#1&quot; class=&quot;headerlink&quot; title=&quot;1&quot;&gt;&lt;/a&gt;1&lt;/h2&gt;   &lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Main&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String[] args)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       MyRunnable myRunnable = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; MyRunnable()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       Thread thread = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Thread(myRunnable);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       thread.start(); &lt;span class=&quot;comment&quot;&gt;// 启动新线程&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;MyRunnable&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Runnable&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;meta&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       System.out.println(&lt;span class=&quot;string&quot;&gt;&amp;quot;start new thread!&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="Java" scheme="https://qeuroal.top/categories/Java/"/>
-    
-    
-    <category term="Java" scheme="https://qeuroal.top/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>119. maven</title>
-    <link href="https://qeuroal.top/2021/01/09/119/"/>
-    <id>https://qeuroal.top/2021/01/09/119/</id>
-    <published>2021-01-09T13:41:57.000Z</published>
-    <updated>2021-01-29T03:10:44.733Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;Maven-介绍&quot;&gt;&lt;a href=&quot;#Maven-介绍&quot; class=&quot;headerlink&quot; title=&quot;Maven 介绍&quot;&gt;&lt;/a&gt;Maven 介绍&lt;/h1&gt;&lt;p&gt;   在了解 Maven 之前，我们先来看看一个 Java 项目需要的东西。首先，我们需要确定引入哪些依赖包。例如，如果我们需要用到 commons logging，我们就必须把 commons logging 的 jar 包放入 classpath。如果我们还需要 log4j，就需要把 log4j 相关的 jar 包都放到 classpath 中。这些就是依赖包的管理。&lt;br&gt;   其次，我们要确定项目的目录结构。例如，&lt;code&gt;src&lt;/code&gt; 目录存放 &lt;code&gt;Java源码&lt;/code&gt;，&lt;code&gt;resources&lt;/code&gt; 目录存放 &lt;code&gt;配置文件&lt;/code&gt;，&lt;code&gt;bin&lt;/code&gt; 目录存放编译生成的 &lt;code&gt;.class&lt;/code&gt; 文件。&lt;br&gt;   此外，我们还需要配置环境，例如 JDK 的版本，编译打包的流程，当前代码的版本号。&lt;br&gt;   最后，除了使用 Eclipse 这样的 IDE 进行编译外，我们还必须能通过命令行工具进行编译，才能够让项目在一个独立的服务器上编译、测试、部署。&lt;br&gt;   这些工作难度不大，但是非常琐碎且耗时。如果每一个项目都自己搞一套配置，肯定会一团糟。我们需要的是一个标准化的 Java 项目管理和构建工具。&lt;/p&gt;
-&lt;p&gt;   Maven 就是是专门为 Java 项目打造的管理和构建工具，它的主要功能有：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;提供了一套标准化的项目结构；&lt;/li&gt;
-&lt;li&gt;提供了一套标准化的构建流程（编译，测试，打包，发布……）；&lt;/li&gt;
-&lt;li&gt;提供了一套依赖管理机制。&lt;/li&gt;&lt;/ul&gt;</summary>
     
     
     
