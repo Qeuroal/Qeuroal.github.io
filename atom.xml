@@ -6,7 +6,7 @@
   <link href="https://qeuroal.top/atom.xml" rel="self"/>
   
   <link href="https://qeuroal.top/"/>
-  <updated>2021-04-29T09:09:26.499Z</updated>
+  <updated>2021-05-01T13:14:11.564Z</updated>
   <id>https://qeuroal.top/</id>
   
   <author>
@@ -17,22 +17,45 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>140. CSS3</title>
+    <link href="https://qeuroal.top/2021/04/29/140/"/>
+    <id>https://qeuroal.top/2021/04/29/140/</id>
+    <published>2021-04-29T09:45:12.000Z</published>
+    <updated>2021-05-01T13:14:11.564Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;简单介绍&quot;&gt;&lt;a href=&quot;#简单介绍&quot; class=&quot;headerlink&quot; title=&quot;简单介绍&quot;&gt;&lt;/a&gt;简单介绍&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;HTML&lt;/code&gt; + &lt;code&gt;CSS&lt;/code&gt; + &lt;code&gt;JavaScript&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;结构 + 表现 + 交互&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="CSS" scheme="https://qeuroal.top/categories/CSS/"/>
+    
+    
+    <category term="CSS" scheme="https://qeuroal.top/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>139. HTML5</title>
     <link href="https://qeuroal.top/2021/04/29/139/"/>
     <id>https://qeuroal.top/2021/04/29/139/</id>
     <published>2021-04-29T02:08:36.000Z</published>
-    <updated>2021-04-29T09:09:26.499Z</updated>
+    <updated>2021-04-29T09:44:57.181Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;h1 id=&quot;前端&quot;&gt;&lt;a href=&quot;#前端&quot; class=&quot;headerlink&quot; title=&quot;前端&quot;&gt;&lt;/a&gt;前端&lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;code&gt;HTML&lt;/code&gt;：网页基本结构&lt;/p&gt;
-&lt;p&gt; &lt;img</summary>
-        
-      
+&lt;p&gt; &lt;img src=&quot;/2021/04/29/139/image-20210429101432734.png&quot; alt=&quot;image-20210429101432734&quot;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;CSS&lt;/code&gt;：美化网页&lt;/p&gt;
+&lt;p&gt; &lt;img src=&quot;/2021/04/29/139/image-20210429101443830.png&quot; alt=&quot;image-20210429101443830&quot;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt; &lt;code&gt;JS&lt;/code&gt;：使得网页动起来产生交互性行为&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary>
     
     
     
@@ -466,25 +489,6 @@
     <category term="Java" scheme="https://qeuroal.top/tags/Java/"/>
     
     <category term="多线程" scheme="https://qeuroal.top/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>120. 多线程有问题的点</title>
-    <link href="https://qeuroal.top/2021/01/11/120/"/>
-    <id>https://qeuroal.top/2021/01/11/120/</id>
-    <published>2021-01-11T07:21:45.000Z</published>
-    <updated>2021-01-13T07:58:45.164Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;Runnable-线程创建&quot;&gt;&lt;a href=&quot;#Runnable-线程创建&quot; class=&quot;headerlink&quot; title=&quot;Runnable 线程创建&quot;&gt;&lt;/a&gt;Runnable 线程创建&lt;/h1&gt;&lt;h2 id=&quot;1&quot;&gt;&lt;a href=&quot;#1&quot; class=&quot;headerlink&quot; title=&quot;1&quot;&gt;&lt;/a&gt;1&lt;/h2&gt;   &lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Main&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String[] args)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       MyRunnable myRunnable = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; MyRunnable()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       Thread thread = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Thread(myRunnable);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       thread.start(); &lt;span class=&quot;comment&quot;&gt;// 启动新线程&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;MyRunnable&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Runnable&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;meta&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       System.out.println(&lt;span class=&quot;string&quot;&gt;&amp;quot;start new thread!&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="Java" scheme="https://qeuroal.top/categories/Java/"/>
-    
-    
-    <category term="Java" scheme="https://qeuroal.top/tags/Java/"/>
     
   </entry>
   
