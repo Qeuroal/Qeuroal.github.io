@@ -6,7 +6,7 @@
   <link href="https://qeuroal.top/atom.xml" rel="self"/>
   
   <link href="https://qeuroal.top/"/>
-  <updated>2021-05-20T10:48:32.616Z</updated>
+  <updated>2021-05-28T13:29:36.677Z</updated>
   <id>https://qeuroal.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>142. Linux</title>
+    <link href="https://qeuroal.top/2021/05/28/142/"/>
+    <id>https://qeuroal.top/2021/05/28/142/</id>
+    <published>2021-05-28T10:44:21.000Z</published>
+    <updated>2021-05-28T13:29:36.677Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;开关机和基本目录介绍&quot;&gt;&lt;a href=&quot;#开关机和基本目录介绍&quot; class=&quot;headerlink&quot; title=&quot;开关机和基本目录介绍&quot;&gt;&lt;/a&gt;开关机和基本目录介绍&lt;/h1&gt;&lt;h3 id=&quot;系统目录&quot;&gt;&lt;a href=&quot;#系统目录&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="https://qeuroal.top/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://qeuroal.top/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>141. C++</title>
@@ -464,31 +489,6 @@
     
     
     <category term="Java" scheme="https://qeuroal.top/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>122. idea插件</title>
-    <link href="https://qeuroal.top/2021/01/13/122/"/>
-    <id>https://qeuroal.top/2021/01/13/122/</id>
-    <published>2021-01-13T06:07:22.000Z</published>
-    <updated>2021-01-13T07:57:59.662Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;插件列表&quot;&gt;&lt;a href=&quot;#插件列表&quot; class=&quot;headerlink&quot; title=&quot;插件列表&quot;&gt;&lt;/a&gt;插件列表&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;- 来源: 插件名&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;alibaba: Alibaba Java Coding Guidelines &lt;/li&gt;
-&lt;li&gt;Kite: Kite AI Code AutoComplete Python, Java Javascript, HTML/CSS, Go, C/C#/C++&lt;/li&gt;
-&lt;li&gt;izhangzhihao: Rainbow Brackets&lt;/li&gt;&lt;/ul&gt;</summary>
-    
-    
-    
-    <category term="软件" scheme="https://qeuroal.top/categories/%E8%BD%AF%E4%BB%B6/"/>
-    
-    
-    <category term="idea" scheme="https://qeuroal.top/tags/idea/"/>
     
   </entry>
   

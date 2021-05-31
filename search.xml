@@ -187,6 +187,26 @@
       </tags>
   </entry>
   <entry>
+    <title>102. VsCode-Terminal 设置</title>
+    <url>/2020/04/14/102/</url>
+    <content><![CDATA[<ol>
+<li>部分设置</li>
+</ol>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;workbench.colorCustomizations&quot; : &#123;</span><br><span class="line">  &quot;terminal.foreground&quot; : &quot;#00FD61&quot;,</span><br><span class="line">  &quot;terminal.background&quot; : &quot;#383737&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<ol start="2">
+<li>完整设置</li>
+</ol>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;workbench.colorCustomizations&quot;: &#123;</span><br><span class="line">    &quot;terminal.background&quot;: &quot;#181818&quot;,</span><br><span class="line">    &quot;terminal.foreground&quot;: &quot;#D8D8D8&quot;,</span><br><span class="line">    &quot;terminalCursor.background&quot;: &quot;#D8D8D8&quot;,</span><br><span class="line">    &quot;terminalCursor.foreground&quot;: &quot;#D8D8D8&quot;,</span><br><span class="line">    &quot;terminal.ansiBlack&quot;: &quot;#181818&quot;,</span><br><span class="line">    &quot;terminal.ansiBlue&quot;: &quot;#7CAFC2&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightBlack&quot;: &quot;#585858&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightBlue&quot;: &quot;#7CAFC2&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightCyan&quot;: &quot;#86C1B9&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightGreen&quot;: &quot;#A1B56C&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightMagenta&quot;: &quot;#BA8BAF&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightRed&quot;: &quot;#AB4642&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightWhite&quot;: &quot;#F8F8F8&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightYellow&quot;: &quot;#F7CA88&quot;,</span><br><span class="line">    &quot;terminal.ansiCyan&quot;: &quot;#86C1B9&quot;,</span><br><span class="line">    &quot;terminal.ansiGreen&quot;: &quot;#A1B56C&quot;,</span><br><span class="line">    &quot;terminal.ansiMagenta&quot;: &quot;#BA8BAF&quot;,</span><br><span class="line">    &quot;terminal.ansiRed&quot;: &quot;#AB4642&quot;,</span><br><span class="line">    &quot;terminal.ansiWhite&quot;: &quot;#D8D8D8&quot;,</span><br><span class="line">    &quot;terminal.ansiYellow&quot;: &quot;#F7CA88&quot;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>软件</category>
+      </categories>
+      <tags>
+        <tag>Vscode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>103. tmux操作</title>
     <url>/2020/05/26/103/</url>
     <content><![CDATA[<h1 id="进入tmux翻屏模式"><a href="#进入tmux翻屏模式" class="headerlink" title="进入tmux翻屏模式"></a>进入tmux翻屏模式</h1><ul>
@@ -241,26 +261,6 @@
       <tags>
         <tag>Ubuntu</tag>
         <tag>tmux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>102. VsCode-Terminal 设置</title>
-    <url>/2020/04/14/102/</url>
-    <content><![CDATA[<ol>
-<li>部分设置</li>
-</ol>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;workbench.colorCustomizations&quot; : &#123;</span><br><span class="line">  &quot;terminal.foreground&quot; : &quot;#00FD61&quot;,</span><br><span class="line">  &quot;terminal.background&quot; : &quot;#383737&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-
-<ol start="2">
-<li>完整设置</li>
-</ol>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;workbench.colorCustomizations&quot;: &#123;</span><br><span class="line">    &quot;terminal.background&quot;: &quot;#181818&quot;,</span><br><span class="line">    &quot;terminal.foreground&quot;: &quot;#D8D8D8&quot;,</span><br><span class="line">    &quot;terminalCursor.background&quot;: &quot;#D8D8D8&quot;,</span><br><span class="line">    &quot;terminalCursor.foreground&quot;: &quot;#D8D8D8&quot;,</span><br><span class="line">    &quot;terminal.ansiBlack&quot;: &quot;#181818&quot;,</span><br><span class="line">    &quot;terminal.ansiBlue&quot;: &quot;#7CAFC2&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightBlack&quot;: &quot;#585858&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightBlue&quot;: &quot;#7CAFC2&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightCyan&quot;: &quot;#86C1B9&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightGreen&quot;: &quot;#A1B56C&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightMagenta&quot;: &quot;#BA8BAF&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightRed&quot;: &quot;#AB4642&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightWhite&quot;: &quot;#F8F8F8&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightYellow&quot;: &quot;#F7CA88&quot;,</span><br><span class="line">    &quot;terminal.ansiCyan&quot;: &quot;#86C1B9&quot;,</span><br><span class="line">    &quot;terminal.ansiGreen&quot;: &quot;#A1B56C&quot;,</span><br><span class="line">    &quot;terminal.ansiMagenta&quot;: &quot;#BA8BAF&quot;,</span><br><span class="line">    &quot;terminal.ansiRed&quot;: &quot;#AB4642&quot;,</span><br><span class="line">    &quot;terminal.ansiWhite&quot;: &quot;#D8D8D8&quot;,</span><br><span class="line">    &quot;terminal.ansiYellow&quot;: &quot;#F7CA88&quot;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>软件</category>
-      </categories>
-      <tags>
-        <tag>Vscode</tag>
       </tags>
   </entry>
   <entry>
@@ -333,6 +333,52 @@
       </tags>
   </entry>
   <entry>
+    <title>106. 搬瓦工配置及各个系统配置</title>
+    <url>/2020/09/01/106/</url>
+    <content><![CDATA[<ul>
+<li><h1 id="搬瓦工"><a href="#搬瓦工" class="headerlink" title="搬瓦工"></a>搬瓦工</h1></li>
+</ul>
+<ol>
+<li>（安装魔改BBR）输入：<code>wget -N --no-check-certificate https://raw.githubusercontent.com/FunctionClub/YankeeBBR/master/bbr.sh &amp;&amp; bash bbr.sh install</code> </li>
+<li>安装到蓝底窗口按TAB键选【NO】，选择重启【Y】，这里会断开连接，大家可以关掉窗口再重新打开，重新连接。</li>
+<li>（启动BBR）输入：<code>bash bbr.sh start</code></li>
+<li>（下载SSR服务器端）输入：<code>wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh &amp;&amp; chmod +x shadowsocksR.sh</code></li>
+<li>（设置SSR服务）输入：<code>./shadowsocksR.sh</code>，然后一直：<code>回车</code><span id="more"></span></li>
+</ol>
+<blockquote>
+<p>视频教程：<a href="https://www.youtube.com/watch?v=QdF4YUG2fbk">点击这里</a> <br><br>网页教程：<a href="https://www.textarea.com/Bandwagonhost/ban-wagong-dajian-ss-wanzheng-bantu-wen-zhidao-jiaocheng-zhendui-xiaobai-shangwang-pian-1010/">点击这里</a></p>
+</blockquote>
+<ul>
+<li><h1 id="win10"><a href="#win10" class="headerlink" title="win10"></a>win10</h1></li>
+</ul>
+<ol>
+<li>shadowsocks客户端下载：<a href="https://github.com/shadowsocks/shadowsocks-windows/releases">点击这里</a></li>
+</ol>
+<blockquote>
+<p>视频教程：<a href="https://www.youtube.com/watch?v=QdF4YUG2fbk">点击这里</a>（同上）</p>
+</blockquote>
+<ul>
+<li><h1 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h1></li>
+</ul>
+<ol>
+<li>shadowsocks客户端下载：<a href="https://github.com/shadowsocks/shadowsocks-qt5/releases">点击这里</a></li>
+<li>将Shadowsocks.AppImage 移到 <code>主目录或者Documents里面</code></li>
+<li>用 <code>chmod a+x Shadowsocks.AppImage</code> 赋予权限</li>
+<li>安装python:<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt install python</span><br><span class="line">sudo apt install python3</span><br></pre></td></tr></table></figure></li>
+<li>设置-网络-网络代理：socks主机：127.0.0.1    1080</li>
+</ol>
+<blockquote>
+<p>视频教程：<a href="https://www.youtube.com/watch?v=mBhHtA7tHQM">点击这里</a></p>
+</blockquote>
+<ul>
+<li><h1 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h1></li>
+</ul>
+<ol>
+<li>shadowsocks客户端下载：<a href="http://shadowsocks.org/en/index.html">点击这里</a></li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
     <title>107. zsh、Vscode字体及主题配置</title>
     <url>/2020/09/03/107/</url>
     <content><![CDATA[<p>……</p>
@@ -382,60 +428,14 @@
 </ol>
 ]]></content>
       <categories>
-        <category>OS</category>
         <category>软件</category>
+        <category>OS</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
         <tag>Vscode</tag>
+        <tag>Ubuntu</tag>
         <tag>zsh</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>106. 搬瓦工配置及各个系统配置</title>
-    <url>/2020/09/01/106/</url>
-    <content><![CDATA[<ul>
-<li><h1 id="搬瓦工"><a href="#搬瓦工" class="headerlink" title="搬瓦工"></a>搬瓦工</h1></li>
-</ul>
-<ol>
-<li>（安装魔改BBR）输入：<code>wget -N --no-check-certificate https://raw.githubusercontent.com/FunctionClub/YankeeBBR/master/bbr.sh &amp;&amp; bash bbr.sh install</code> </li>
-<li>安装到蓝底窗口按TAB键选【NO】，选择重启【Y】，这里会断开连接，大家可以关掉窗口再重新打开，重新连接。</li>
-<li>（启动BBR）输入：<code>bash bbr.sh start</code></li>
-<li>（下载SSR服务器端）输入：<code>wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh &amp;&amp; chmod +x shadowsocksR.sh</code></li>
-<li>（设置SSR服务）输入：<code>./shadowsocksR.sh</code>，然后一直：<code>回车</code><span id="more"></span></li>
-</ol>
-<blockquote>
-<p>视频教程：<a href="https://www.youtube.com/watch?v=QdF4YUG2fbk">点击这里</a> <br><br>网页教程：<a href="https://www.textarea.com/Bandwagonhost/ban-wagong-dajian-ss-wanzheng-bantu-wen-zhidao-jiaocheng-zhendui-xiaobai-shangwang-pian-1010/">点击这里</a></p>
-</blockquote>
-<ul>
-<li><h1 id="win10"><a href="#win10" class="headerlink" title="win10"></a>win10</h1></li>
-</ul>
-<ol>
-<li>shadowsocks客户端下载：<a href="https://github.com/shadowsocks/shadowsocks-windows/releases">点击这里</a></li>
-</ol>
-<blockquote>
-<p>视频教程：<a href="https://www.youtube.com/watch?v=QdF4YUG2fbk">点击这里</a>（同上）</p>
-</blockquote>
-<ul>
-<li><h1 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h1></li>
-</ul>
-<ol>
-<li>shadowsocks客户端下载：<a href="https://github.com/shadowsocks/shadowsocks-qt5/releases">点击这里</a></li>
-<li>将Shadowsocks.AppImage 移到 <code>主目录或者Documents里面</code></li>
-<li>用 <code>chmod a+x Shadowsocks.AppImage</code> 赋予权限</li>
-<li>安装python:<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt install python</span><br><span class="line">sudo apt install python3</span><br></pre></td></tr></table></figure></li>
-<li>设置-网络-网络代理：socks主机：127.0.0.1    1080</li>
-</ol>
-<blockquote>
-<p>视频教程：<a href="https://www.youtube.com/watch?v=mBhHtA7tHQM">点击这里</a></p>
-</blockquote>
-<ul>
-<li><h1 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h1></li>
-</ul>
-<ol>
-<li>shadowsocks客户端下载：<a href="http://shadowsocks.org/en/index.html">点击这里</a></li>
-</ol>
-]]></content>
   </entry>
   <entry>
     <title>108. Ubuntu给ss.AppImage创建快捷方式</title>
@@ -455,8 +455,8 @@
 </blockquote>
 ]]></content>
       <categories>
-        <category>OS</category>
         <category>软件</category>
+        <category>OS</category>
         <category>翻墙</category>
       </categories>
       <tags>
@@ -544,6 +544,35 @@
       </tags>
   </entry>
   <entry>
+    <title>110. 双系统下 .Trash-1000 的说明</title>
+    <url>/2020/10/22/110/</url>
+    <content><![CDATA[<ol>
+<li><p>理解</p>
+<blockquote>
+<p>网上的解释是 由ubuntu系统自动创建的回收站文件夹，每个盘都有一个 。s<br>也就是说，系统在删除某个盘里的垃圾文件的时候，是创建一个 .Trash-1000文件夹，然后将它放进去。</p>
+</blockquote>
+<span id="more"></span></li>
+<li><p>例子</p>
+<blockquote>
+<p>比如 我在u盘上执行了删除操作，ubuntu系统会在u盘里也创建一个.Trash-1000文件夹，info文件夹应该是保存的是垃圾文件的对应关系，files文件夹里应该是删除的垃圾文件。</p>
+</blockquote>
+</li>
+<li><p>管理</p>
+<blockquote>
+<p>如果在 ubuntu系统里–清除回收站，各个盘里对应的垃圾文件就会自动删除了。</p>
+</blockquote>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>OS</category>
+        <category>Computer</category>
+      </categories>
+      <tags>
+        <tag>双系统</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>111. Vscode 设置代码模板：自动生成文件名、作者、创建日期等信息</title>
     <url>/2020/10/29/111/</url>
     <content><![CDATA[<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">      <span class="attr">&quot;pyheader&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;prefix&quot;</span>: <span class="string">&quot;test&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;body&quot;</span>: [</span><br><span class="line">          <span class="string">&quot;/**&quot;</span>,</span><br><span class="line">          <span class="string">&quot;* @author: test&quot;</span>,</span><br><span class="line">          <span class="string">&quot;* @desc：$1&quot;</span>,</span><br><span class="line">          <span class="string">&quot;* @date: $&#123;CURRENT_YEAR&#125;-$&#123;CURRENT_MONTH&#125;-$&#123;CURRENT_DATE&#125; $&#123;CURRENT_HOUR&#125;:$&#123;CURRENT_MINUTE&#125;:$&#123;CURRENT_SECOND&#125;&quot;</span>,</span><br><span class="line">          <span class="string">&quot;* @Email：test@qq.com&quot;</span>,</span><br><span class="line">          <span class="string">&quot;* @url：test.com&quot;</span>,</span><br><span class="line">          <span class="string">&quot;*/&quot;</span>,</span><br><span class="line">          <span class="string">&quot;&quot;</span>,</span><br><span class="line">          <span class="string">&quot;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;test&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -600,35 +629,6 @@
       </categories>
       <tags>
         <tag>Vscode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>110. 双系统下 .Trash-1000 的说明</title>
-    <url>/2020/10/22/110/</url>
-    <content><![CDATA[<ol>
-<li><p>理解</p>
-<blockquote>
-<p>网上的解释是 由ubuntu系统自动创建的回收站文件夹，每个盘都有一个 。s<br>也就是说，系统在删除某个盘里的垃圾文件的时候，是创建一个 .Trash-1000文件夹，然后将它放进去。</p>
-</blockquote>
-<span id="more"></span></li>
-<li><p>例子</p>
-<blockquote>
-<p>比如 我在u盘上执行了删除操作，ubuntu系统会在u盘里也创建一个.Trash-1000文件夹，info文件夹应该是保存的是垃圾文件的对应关系，files文件夹里应该是删除的垃圾文件。</p>
-</blockquote>
-</li>
-<li><p>管理</p>
-<blockquote>
-<p>如果在 ubuntu系统里–清除回收站，各个盘里对应的垃圾文件就会自动删除了。</p>
-</blockquote>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>OS</category>
-        <category>Computer</category>
-      </categories>
-      <tags>
-        <tag>双系统</tag>
       </tags>
   </entry>
   <entry>
@@ -1293,6 +1293,43 @@
       </tags>
   </entry>
   <entry>
+    <title>134. BIOS设置界面之DELL系列</title>
+    <url>/2021/03/16/134/</url>
+    <content><![CDATA[<ul>
+<li><p>BIOS界面的全部主要功能选项，重要的就那几条选项，其他不重要的无需过多了解。</p>
+ <span id="more"></span>
+
+<p> <img src="/2021/03/16/134/15278302027115ffed65996.jpg" alt="15278302027115ffed65996"></p>
+</li>
+<li><p>下图是一般设置里面的重要设置选项，如需换系统的话就必须操作。</p>
+<p> <img src="/2021/03/16/134/1527830233575ea2fd3ef7c.jpg" alt="1527830233575ea2fd3ef7c"></p>
+</li>
+<li><p>安全启动选项里面我们选择关闭</p>
+<p> <img src="/2021/03/16/134/1527830265595ad2f782e12.jpg" alt="1527830265595ad2f782e12"></p>
+</li>
+<li><p><code>SATA</code>操作里面选择<code>AHCI</code></p>
+<p> <img src="/2021/03/16/134/1527830294648a1fdf61bf3.jpg" alt="1527830294648a1fdf61bf3"></p>
+</li>
+<li><p>这时需要的界面已经全部出来了，到这里大家都应该非常熟悉了吧。选择你的启动盘，开始安装系统吧。</p>
+<p> <img src="/2021/03/16/134/15278303186310b56e9dda1.jpg" alt="15278303186310b56e9dda1"></p>
+</li>
+</ul>
+<blockquote>
+<p><strong>注意</strong>：在系统可用的情况下，不要乱动 <code>BIOS</code> ，很可能就会出事了，如果不慎动了，可以试一下：<a href="/2020/06/06/105/" title="105. UEFI引导修复">105. UEFI引导修复</a></p>
+</blockquote>
+<p>参考链接：</p>
+<ul>
+<li><a href="https://www.toutiao.com/i6561981598693065223/">https://www.toutiao.com/i6561981598693065223/</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>计算机</category>
+      </categories>
+      <tags>
+        <tag>计算机</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>136. 网络编程</title>
     <url>/2021/03/22/136/</url>
     <content><![CDATA[<h1 id="getResource"><a href="#getResource" class="headerlink" title="getResource"></a><code>getResource</code></h1><p><code>getResource</code>读取的是 <code>out</code> 下的文件,即 <code>classpath</code></p>
@@ -1311,6 +1348,37 @@
       <tags>
         <tag>Java</tag>
         <tag>路径</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>138. 如何保存win10锁屏壁纸</title>
+    <url>/2021/04/10/138/</url>
+    <content><![CDATA[<ol>
+<li><p>打开 <code>文件资源管理器</code> （按 <code>win+e</code>）</p>
+<span id="more"></span></li>
+<li><p>在地址栏输入下面的路径</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:\Users\%username%\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets\ </span><br></pre></td></tr></table></figure></li>
+<li><p>将里面的文件复制到自己创建的文件夹内</p>
+</li>
+<li><p>修改扩展名为 <code>png</code> 或 <code>jpg</code></p>
+</li>
+<li><p>批量修改：</p>
+<p>在所在文件夹的地址栏输入 <code>cmd</code> ，然后输入下面的命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Ren *.* *.png</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/04/10/138/image-20210410095030127.png" alt="image-20210410095030127"></p>
+</li>
+</ol>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>批量修改文件名的<code>py</code>文件</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">path = os.getcwd()</span><br><span class="line"><span class="keyword">for</span> root, ds, fs <span class="keyword">in</span> os.walk(path):</span><br><span class="line">    files = fs</span><br><span class="line"></span><br><span class="line">print(files)</span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> f <span class="keyword">in</span> files:</span><br><span class="line">    <span class="keyword">if</span> (f.split(<span class="string">&quot;.&quot;</span>)[-<span class="number">1</span>] <span class="keyword">not</span> <span class="keyword">in</span>[<span class="string">&#x27;py&#x27;</span>]):</span><br><span class="line">        os.system(<span class="string">&quot;ren %s %d.%s&quot;</span> %(f, i, f.split(<span class="string">&quot;.&quot;</span>)[-<span class="number">1</span>]))</span><br><span class="line">        i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>OS</tag>
+        <tag>win10</tag>
       </tags>
   </entry>
   <entry>
@@ -1533,43 +1601,6 @@
       </tags>
   </entry>
   <entry>
-    <title>134. BIOS设置界面之DELL系列</title>
-    <url>/2021/03/16/134/</url>
-    <content><![CDATA[<ul>
-<li><p>BIOS界面的全部主要功能选项，重要的就那几条选项，其他不重要的无需过多了解。</p>
- <span id="more"></span>
-
-<p> <img src="/2021/03/16/134/15278302027115ffed65996.jpg" alt="15278302027115ffed65996"></p>
-</li>
-<li><p>下图是一般设置里面的重要设置选项，如需换系统的话就必须操作。</p>
-<p> <img src="/2021/03/16/134/1527830233575ea2fd3ef7c.jpg" alt="1527830233575ea2fd3ef7c"></p>
-</li>
-<li><p>安全启动选项里面我们选择关闭</p>
-<p> <img src="/2021/03/16/134/1527830265595ad2f782e12.jpg" alt="1527830265595ad2f782e12"></p>
-</li>
-<li><p><code>SATA</code>操作里面选择<code>AHCI</code></p>
-<p> <img src="/2021/03/16/134/1527830294648a1fdf61bf3.jpg" alt="1527830294648a1fdf61bf3"></p>
-</li>
-<li><p>这时需要的界面已经全部出来了，到这里大家都应该非常熟悉了吧。选择你的启动盘，开始安装系统吧。</p>
-<p> <img src="/2021/03/16/134/15278303186310b56e9dda1.jpg" alt="15278303186310b56e9dda1"></p>
-</li>
-</ul>
-<blockquote>
-<p><strong>注意</strong>：在系统可用的情况下，不要乱动 <code>BIOS</code> ，很可能就会出事了，如果不慎动了，可以试一下：<a href="/2020/06/06/105/" title="105. UEFI引导修复">105. UEFI引导修复</a></p>
-</blockquote>
-<p>参考链接：</p>
-<ul>
-<li><a href="https://www.toutiao.com/i6561981598693065223/">https://www.toutiao.com/i6561981598693065223/</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>计算机</category>
-      </categories>
-      <tags>
-        <tag>计算机</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>141. C++</title>
     <url>/2021/05/17/141/</url>
     <content><![CDATA[<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h2><ul>
@@ -1655,6 +1686,30 @@
       </categories>
       <tags>
         <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>142. Linux</title>
+    <url>/2021/05/28/142/</url>
+    <content><![CDATA[<h1 id="开关机和基本目录介绍"><a href="#开关机和基本目录介绍" class="headerlink" title="开关机和基本目录介绍"></a>开关机和基本目录介绍</h1><h3 id="系统目录"><a href="#系统目录" class="headerlink" title="系统目录"></a>系统目录</h3><h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><ol>
+<li>一切接文件</li>
+<li>根目录 <code>/</code>，所有的文件都挂载在这个节点下</li>
+</ol>
+<h3 id="目录解释"><a href="#目录解释" class="headerlink" title="目录解释"></a>目录解释</h3><ul>
+<li><code>/mnt</code>： 后面会把一些本地文件挂载在这个目录下</li>
+<li><code>/etc</code>：配置文件：</li>
+<li><code>/home</code>：</li>
+<li><code>lost+found</code>：存放 突然关机的一些文件</li>
+<li><code>/opt</code>：安装额外的软件</li>
+<li><code>/root</code>：</li>
+<li><code>/tmp</code>：用完即丢</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1902,37 +1957,6 @@
       </tags>
   </entry>
   <entry>
-    <title>138. 如何保存win10锁屏壁纸</title>
-    <url>/2021/04/10/138/</url>
-    <content><![CDATA[<ol>
-<li><p>打开 <code>文件资源管理器</code> （按 <code>win+e</code>）</p>
-<span id="more"></span></li>
-<li><p>在地址栏输入下面的路径</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:\Users\%username%\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets\ </span><br></pre></td></tr></table></figure></li>
-<li><p>将里面的文件复制到自己创建的文件夹内</p>
-</li>
-<li><p>修改扩展名为 <code>png</code> 或 <code>jpg</code></p>
-</li>
-<li><p>批量修改：</p>
-<p>在所在文件夹的地址栏输入 <code>cmd</code> ，然后输入下面的命令</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Ren *.* *.png</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2021/04/10/138/image-20210410095030127.png" alt="image-20210410095030127"></p>
-</li>
-</ol>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>批量修改文件名的<code>py</code>文件</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">path = os.getcwd()</span><br><span class="line"><span class="keyword">for</span> root, ds, fs <span class="keyword">in</span> os.walk(path):</span><br><span class="line">    files = fs</span><br><span class="line"></span><br><span class="line">print(files)</span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> f <span class="keyword">in</span> files:</span><br><span class="line">    <span class="keyword">if</span> (f.split(<span class="string">&quot;.&quot;</span>)[-<span class="number">1</span>] <span class="keyword">not</span> <span class="keyword">in</span>[<span class="string">&#x27;py&#x27;</span>]):</span><br><span class="line">        os.system(<span class="string">&quot;ren %s %d.%s&quot;</span> %(f, i, f.split(<span class="string">&quot;.&quot;</span>)[-<span class="number">1</span>]))</span><br><span class="line">        i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>OS</category>
-      </categories>
-      <tags>
-        <tag>OS</tag>
-        <tag>win10</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>17. 个人电脑必装软件</title>
     <url>/2019/01/23/17/</url>
     <content><![CDATA[<p>……</p>
@@ -1979,6 +2003,24 @@
       </tags>
   </entry>
   <entry>
+    <title>18. ACWing基础课程例题(Week)</title>
+    <url>/2019/01/24/18/</url>
+    <content><![CDATA[<p>……</p>
+<span id="more"></span>
+
+
+<h1 id="Week1"><a href="#Week1" class="headerlink" title="Week1"></a><strong>Week1</strong></h1><p><img src="/images/posts/acwing/7.png"></p>
+<hr>
+<h1 id="Week2"><a href="#Week2" class="headerlink" title="Week2"></a><strong>Week2</strong></h1><p><img src="/images/posts/acwing/1.png"></p>
+]]></content>
+      <categories>
+        <category>程序设计</category>
+      </categories>
+      <tags>
+        <tag>ACWing</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>19. 用cmd运行Cpp文件</title>
     <url>/2019/01/24/19/</url>
     <content><![CDATA[<h1 id="1-生成-exe可执行文件："><a href="#1-生成-exe可执行文件：" class="headerlink" title="1. 生成 .exe可执行文件："></a>1. 生成 <code>.exe</code>可执行文件：</h1><blockquote>
@@ -2013,24 +2055,6 @@
       </categories>
       <tags>
         <tag>C/C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>18. ACWing基础课程例题(Week)</title>
-    <url>/2019/01/24/18/</url>
-    <content><![CDATA[<p>……</p>
-<span id="more"></span>
-
-
-<h1 id="Week1"><a href="#Week1" class="headerlink" title="Week1"></a><strong>Week1</strong></h1><p><img src="/images/posts/acwing/7.png"></p>
-<hr>
-<h1 id="Week2"><a href="#Week2" class="headerlink" title="Week2"></a><strong>Week2</strong></h1><p><img src="/images/posts/acwing/1.png"></p>
-]]></content>
-      <categories>
-        <category>程序设计</category>
-      </categories>
-      <tags>
-        <tag>ACWing</tag>
       </tags>
   </entry>
   <entry>
@@ -2373,6 +2397,27 @@
       </tags>
   </entry>
   <entry>
+    <title>23.数字范围按位与</title>
+    <url>/2019/02/06/23/</url>
+    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="/images/posts/acwing/5.png"></p>
+<span id="more"></span>
+
+
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><ol>
+<li><code>与&amp;</code>只要有一个为0，则与的所有数为0</li>
+<li>对每个 <code>位</code> 分别判断是否有0</li>
+<li>首先判断m的第i位是否为0</li>
+<li>然后判断第i位为0，且$&gt;$m的最小的数是否大于n，如果大于，则这些都为1</li>
+</ol>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">rangeBitwiseAnd</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; (<span class="number">1ll</span> &lt;&lt; i) &lt;= m; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(m &gt;&gt; i &amp; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(((m &amp; ~((<span class="number">1ll</span> &lt;&lt; i) - <span class="number">1</span>)) + (<span class="number">1ll</span> &lt;&lt; i)) &gt; n)</span><br><span class="line">                res += (<span class="number">1</span> &lt;&lt; i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>程序设计</category>
+      </categories>
+      <tags>
+        <tag>OJ题目</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>22. 只出现一次的数字 III</title>
     <url>/2019/02/05/22/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="/images/posts/acwing/3.png"></p>
@@ -2389,27 +2434,6 @@
 
 <h1 id="代码2"><a href="#代码2" class="headerlink" title="代码2"></a>代码2</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">singleNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> s = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> x : nums)</span><br><span class="line">        s ^= x;</span><br><span class="line">    <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>( !(s &gt;&gt; k &amp; <span class="number">1</span>) )</span><br><span class="line">        k++;</span><br><span class="line">    <span class="keyword">int</span> s1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> x : nums)</span><br><span class="line">        <span class="keyword">if</span>(x &gt;&gt; k &amp; <span class="number">1</span>)</span><br><span class="line">            s1 ^= x;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(&#123;s1, s ^ s2&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="【释】：因为-s-1-s-2-s，那么-s-s-1-s-2-，具体性质详见-位运算的知识点以及常用技巧"><a href="#【释】：因为-s-1-s-2-s，那么-s-s-1-s-2-，具体性质详见-位运算的知识点以及常用技巧" class="headerlink" title="【释】：因为 $s_1$ ^ $s_2$  = s，那么 s ^ $s_1$ = $s_2$，具体性质详见 位运算的知识点以及常用技巧"></a>【释】：因为 $s_1$ ^ $s_2$  = s，那么 s ^ $s_1$ = $s_2$，具体性质详见 <code>位运算的知识点以及常用技巧</code></h3>]]></content>
-      <categories>
-        <category>程序设计</category>
-      </categories>
-      <tags>
-        <tag>OJ题目</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>23.数字范围按位与</title>
-    <url>/2019/02/06/23/</url>
-    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="/images/posts/acwing/5.png"></p>
-<span id="more"></span>
-
-
-<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><ol>
-<li><code>与&amp;</code>只要有一个为0，则与的所有数为0</li>
-<li>对每个 <code>位</code> 分别判断是否有0</li>
-<li>首先判断m的第i位是否为0</li>
-<li>然后判断第i位为0，且$&gt;$m的最小的数是否大于n，如果大于，则这些都为1</li>
-</ol>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">rangeBitwiseAnd</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; (<span class="number">1ll</span> &lt;&lt; i) &lt;= m; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(m &gt;&gt; i &amp; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(((m &amp; ~((<span class="number">1ll</span> &lt;&lt; i) - <span class="number">1</span>)) + (<span class="number">1ll</span> &lt;&lt; i)) &gt; n)</span><br><span class="line">                res += (<span class="number">1</span> &lt;&lt; i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>程序设计</category>
       </categories>
@@ -2447,6 +2471,28 @@
 <li>第k位汉明距离总和为 $num_0 * num_1$<h3 id="【其中】：-1-num-0-：数字0的个数-2-num-1-：数字1的个数"><a href="#【其中】：-1-num-0-：数字0的个数-2-num-1-：数字1的个数" class="headerlink" title="【其中】： 1. $num_0$：数字0的个数  2. $num_1$：数字1的个数"></a>【其中】：<br> 1. $num_0$：数字0的个数 <br> 2. $num_1$：数字1的个数</h3></li>
 </ol>
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">totalHammingDistance</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">31</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> ones = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> x : nums) &#123;</span><br><span class="line">            <span class="keyword">if</span>(x &gt;&gt; i &amp; <span class="number">1</span>)</span><br><span class="line">                ones++;</span><br><span class="line">        &#125;</span><br><span class="line">        res += ones * (nums.size() - ones);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>程序设计</category>
+      </categories>
+      <tags>
+        <tag>OJ题目</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>26. 二叉树的最小深度</title>
+    <url>/2019/02/12/26/</url>
+    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a><strong>题目</strong></h1><p><img src="/images/posts/acwing/9.png"> <br><br></p>
+<span id="more"></span>
+
+
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><strong>解析</strong></h1><ol>
+<li>解析图：<br><br><img src="/images/posts/acwing/8.png"></li>
+<li>首先，如果是Null，那么，便返回0</li>
+<li>然后，看左子树深度和右子树的深度</li>
+<li>接着，如果有左子树或者右子树的深度为0，那么返回另一个深度+1</li>
+<li>最后，如果左右子树的深度都不为0，那么返回最小值+1</li>
+</ol>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">minDepth</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!root)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> leftNum = minDepth(root -&gt; left);</span><br><span class="line">    <span class="keyword">int</span> rightNum = minDepth(root -&gt; right);</span><br><span class="line">    <span class="keyword">if</span>(!leftNum || !rightNum)</span><br><span class="line">        <span class="keyword">return</span> (leftNum + rightNum + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> min(leftNum, rightNum) + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>程序设计</category>
       </categories>
@@ -2639,25 +2685,30 @@
       </tags>
   </entry>
   <entry>
-    <title>26. 二叉树的最小深度</title>
-    <url>/2019/02/12/26/</url>
-    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a><strong>题目</strong></h1><p><img src="/images/posts/acwing/9.png"> <br><br></p>
+    <title>3. 由数据范围反推算法复杂度以及算法内容</title>
+    <url>/2019/01/19/3/</url>
+    <content><![CDATA[<h1 id="友情提示"><a href="#友情提示" class="headerlink" title="友情提示"></a>友情提示</h1><blockquote>
+<p>一般ACM或者笔试题的时间限制是1秒或2秒。<br>在这种情况下，C++代码中的操作次数控制在$ 10^7 $为最佳。</p>
+</blockquote>
 <span id="more"></span>
 
-
-<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><strong>解析</strong></h1><ol>
-<li>解析图：<br><br><img src="/images/posts/acwing/8.png"></li>
-<li>首先，如果是Null，那么，便返回0</li>
-<li>然后，看左子树深度和右子树的深度</li>
-<li>接着，如果有左子树或者右子树的深度为0，那么返回另一个深度+1</li>
-<li>最后，如果左右子树的深度都不为0，那么返回最小值+1</li>
+<h1 id="下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择："><a href="#下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择：" class="headerlink" title="下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择："></a>下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择：</h1><ol>
+<li>n ≤ 30 =&gt; 指数级别, dfs+剪枝，状态压缩dp</li>
+<li>n ≤ 100 =&gt; O(n3)O(n3)，floyd，dp</li>
+<li>n ≤ 1000 =&gt; O(n2)O(n2)，O(n2logn)O(n2logn)，dp，二分</li>
+<li>n ≤ 10000 =&gt; O(n∗n√)O(n∗n)，块状链表</li>
+<li>n ≤ 100000 =&gt; O(nlogn)O(nlogn) =&gt; 各种sort，线段树、树状数组、set/map、heap、dijkstra+heap、spfa、求凸包、求半平面交、二分</li>
+<li>n ≤ 1000000 =&gt; O(n)O(n), 以及常数较小的 O(nlogn)O(nlogn) 算法 =&gt; hash、双指针扫描、kmp、AC自动机，常数比较小的 O(nlogn)O(nlogn) 的做法：sort、树状数组、heap、dijkstra、spfa</li>
+<li>n ≤ 10000000 =&gt; O(n)O(n)，双指针扫描、kmp、AC自动机、线性筛素数</li>
+<li>n ≤ $10^9$ =&gt; O(n√)O(n)，判断质数</li>
+<li>n ≤ $ 10^{18} $ =&gt; O(logn)O(logn)，最大公约数</li>
 </ol>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">minDepth</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!root)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> leftNum = minDepth(root -&gt; left);</span><br><span class="line">    <span class="keyword">int</span> rightNum = minDepth(root -&gt; right);</span><br><span class="line">    <span class="keyword">if</span>(!leftNum || !rightNum)</span><br><span class="line">        <span class="keyword">return</span> (leftNum + rightNum + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> min(leftNum, rightNum) + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+]]></content>
       <categories>
         <category>程序设计</category>
       </categories>
       <tags>
-        <tag>OJ题目</tag>
+        <tag>时空复杂度</tag>
       </tags>
   </entry>
   <entry>
@@ -2693,33 +2744,6 @@
       </categories>
       <tags>
         <tag>OJ题目</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>3. 由数据范围反推算法复杂度以及算法内容</title>
-    <url>/2019/01/19/3/</url>
-    <content><![CDATA[<h1 id="友情提示"><a href="#友情提示" class="headerlink" title="友情提示"></a>友情提示</h1><blockquote>
-<p>一般ACM或者笔试题的时间限制是1秒或2秒。<br>在这种情况下，C++代码中的操作次数控制在$ 10^7 $为最佳。</p>
-</blockquote>
-<span id="more"></span>
-
-<h1 id="下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择："><a href="#下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择：" class="headerlink" title="下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择："></a>下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择：</h1><ol>
-<li>n ≤ 30 =&gt; 指数级别, dfs+剪枝，状态压缩dp</li>
-<li>n ≤ 100 =&gt; O(n3)O(n3)，floyd，dp</li>
-<li>n ≤ 1000 =&gt; O(n2)O(n2)，O(n2logn)O(n2logn)，dp，二分</li>
-<li>n ≤ 10000 =&gt; O(n∗n√)O(n∗n)，块状链表</li>
-<li>n ≤ 100000 =&gt; O(nlogn)O(nlogn) =&gt; 各种sort，线段树、树状数组、set/map、heap、dijkstra+heap、spfa、求凸包、求半平面交、二分</li>
-<li>n ≤ 1000000 =&gt; O(n)O(n), 以及常数较小的 O(nlogn)O(nlogn) 算法 =&gt; hash、双指针扫描、kmp、AC自动机，常数比较小的 O(nlogn)O(nlogn) 的做法：sort、树状数组、heap、dijkstra、spfa</li>
-<li>n ≤ 10000000 =&gt; O(n)O(n)，双指针扫描、kmp、AC自动机、线性筛素数</li>
-<li>n ≤ $10^9$ =&gt; O(n√)O(n)，判断质数</li>
-<li>n ≤ $ 10^{18} $ =&gt; O(logn)O(logn)，最大公约数</li>
-</ol>
-]]></content>
-      <categories>
-        <category>程序设计</category>
-      </categories>
-      <tags>
-        <tag>时空复杂度</tag>
       </tags>
   </entry>
   <entry>
@@ -2808,20 +2832,29 @@
       </tags>
   </entry>
   <entry>
-    <title>35. 运算符优先级</title>
-    <url>/2019/02/19/35/</url>
-    <content><![CDATA[<p>……</p>
+    <title>34. 不同路径 II</title>
+    <url>/2019/02/18/34/</url>
+    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a><strong>题目</strong></h1><p><img src="/images/posts/acwing/15.png"></p>
 <span id="more"></span>
 
 
-<p><img src="/images/posts/C++/1.png"></p>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a><strong>示例</strong></h1><p><img src="/images/posts/acwing/16.png"></p>
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><strong>解析</strong></h1><ol>
+<li>令f[i][j]存储：从 <code>(0, 0)</code> 到 <code>(i, j)</code> 的路径个数</li>
+<li>而一步到 <code>(i, j)</code> 最多只有两个路径：从左面或者从上面</li>
+<li>那么，接下来判断，是否能从左面或者上面到 <code>(i, j)</code>，如果可以，那么 <code>f(i, j)</code> 加上左面或者上面的路径个数即可</li>
+</ol>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">uniquePathsWithObstacles</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; obstacleGrid)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m = obstacleGrid.size(), n = obstacleGrid[<span class="number">0</span>].size();</span><br><span class="line">    <span class="keyword">if</span>(obstacleGrid[<span class="number">0</span>][<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">long</span> <span class="keyword">long</span>&gt; &gt; f(m, <span class="built_in">vector</span>&lt;<span class="keyword">long</span> <span class="keyword">long</span>&gt;(n));</span><br><span class="line">    f[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            <span class="comment">// if(i || j) f[i][j] = 0; （可有，可无，因为 ：f默认都是0）</span></span><br><span class="line">            <span class="keyword">if</span>(!obstacleGrid[i][j]) &#123;</span><br><span class="line">                <span class="keyword">if</span>(i) f[i][j] += f[i - <span class="number">1</span>][j];</span><br><span class="line">                <span class="keyword">if</span>(j) f[i][j] += f[i][j - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> f[m - <span class="number">1</span>][n - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a><strong>疑问</strong></h1><blockquote>
+<p>f为int型， 为什么会报错 ？？？ <br><br><code>Line 27: Char 65: runtime error: signed integer overflow: 1053165744 + 1579748616 cannot be represented in type &#39;int&#39; (solution.cpp)</code></p>
+</blockquote>
 ]]></content>
       <categories>
         <category>程序设计</category>
-        <category>C/C++</category>
       </categories>
       <tags>
-        <tag>运算符</tag>
+        <tag>OJ题目</tag>
       </tags>
   </entry>
   <entry>
@@ -2854,29 +2887,20 @@
       </tags>
   </entry>
   <entry>
-    <title>34. 不同路径 II</title>
-    <url>/2019/02/18/34/</url>
-    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a><strong>题目</strong></h1><p><img src="/images/posts/acwing/15.png"></p>
+    <title>35. 运算符优先级</title>
+    <url>/2019/02/19/35/</url>
+    <content><![CDATA[<p>……</p>
 <span id="more"></span>
 
 
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a><strong>示例</strong></h1><p><img src="/images/posts/acwing/16.png"></p>
-<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><strong>解析</strong></h1><ol>
-<li>令f[i][j]存储：从 <code>(0, 0)</code> 到 <code>(i, j)</code> 的路径个数</li>
-<li>而一步到 <code>(i, j)</code> 最多只有两个路径：从左面或者从上面</li>
-<li>那么，接下来判断，是否能从左面或者上面到 <code>(i, j)</code>，如果可以，那么 <code>f(i, j)</code> 加上左面或者上面的路径个数即可</li>
-</ol>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">uniquePathsWithObstacles</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; obstacleGrid)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m = obstacleGrid.size(), n = obstacleGrid[<span class="number">0</span>].size();</span><br><span class="line">    <span class="keyword">if</span>(obstacleGrid[<span class="number">0</span>][<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">long</span> <span class="keyword">long</span>&gt; &gt; f(m, <span class="built_in">vector</span>&lt;<span class="keyword">long</span> <span class="keyword">long</span>&gt;(n));</span><br><span class="line">    f[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            <span class="comment">// if(i || j) f[i][j] = 0; （可有，可无，因为 ：f默认都是0）</span></span><br><span class="line">            <span class="keyword">if</span>(!obstacleGrid[i][j]) &#123;</span><br><span class="line">                <span class="keyword">if</span>(i) f[i][j] += f[i - <span class="number">1</span>][j];</span><br><span class="line">                <span class="keyword">if</span>(j) f[i][j] += f[i][j - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> f[m - <span class="number">1</span>][n - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a><strong>疑问</strong></h1><blockquote>
-<p>f为int型， 为什么会报错 ？？？ <br><br><code>Line 27: Char 65: runtime error: signed integer overflow: 1053165744 + 1579748616 cannot be represented in type &#39;int&#39; (solution.cpp)</code></p>
-</blockquote>
+<p><img src="/images/posts/C++/1.png"></p>
 ]]></content>
       <categories>
         <category>程序设计</category>
+        <category>C/C++</category>
       </categories>
       <tags>
-        <tag>OJ题目</tag>
+        <tag>运算符</tag>
       </tags>
   </entry>
   <entry>
@@ -2889,57 +2913,6 @@
       <categories>
         <category>程序设计</category>
       </categories>
-  </entry>
-  <entry>
-    <title>39. windows本地安装Jekyll</title>
-    <url>/2019/02/21/39/</url>
-    <content><![CDATA[<h1 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1. 安装Git"></a>1. 安装Git</h1><ol>
-<li>安装包下载地址，<a href="https://gitforwindows.org/">点击这里</a><span id="more"></span></li>
-</ol>
-<ol start="2">
-<li>安装步骤<ol>
-<li><img src="/images/posts/github/6.png"></li>
-<li><img src="/images/posts/github/7.png"></li>
-<li><img src="/images/posts/github/8.png"></li>
-<li><img src="/images/posts/github/8.png"></li>
-<li><img src="/images/posts/github/9.png"></li>
-<li><img src="/images/posts/github/10.png"></li>
-<li><img src="/images/posts/github/11.png"></li>
-<li><img src="/images/posts/github/12.png"></li>
-<li><img src="/images/posts/github/13.png"></li>
-<li>完成安装之后，就可以使用命令行的 git 工具（已经自带了 ssh 客户端）了，另外还有一个图形界面的 Git 项目管理工具。在开始菜单里找到”Git”-&gt;”Git Bash”，会弹出 Git 命令窗口，你可以在该窗口进行 Git 操作。<blockquote>
-<p>PS: 除了安装路径其余的都默认安装即可</p>
-</blockquote>
-</li>
-</ol>
-</li>
-</ol>
-<h1 id="2-安装Ruby"><a href="#2-安装Ruby" class="headerlink" title="2. 安装Ruby"></a>2. 安装Ruby</h1><ol>
-<li>安装包下载，<a href="https://rubyinstaller.org/downloads/">点击这里</a>，选择 <code>Ruby &lt;2.6.1-1&gt; &lt;(x64)&gt;</code></li>
-<li>安装注意事项<ol>
-<li>勾选添加到PATH选项，以便在命令行中使用。</li>
-<li>安装完成界面：<img src="https://upload-images.jianshu.io/upload_images/2255514-98eaec82dfc3c5cb.png"><h2 id="Ps-记得勾选msys2"><a href="#Ps-记得勾选msys2" class="headerlink" title="Ps:记得勾选msys2"></a>Ps:记得勾选msys2</h2></li>
-<li><img src="https://upload-images.jianshu.io/upload_images/2255514-7e92a90e54ebc783.png"><h2 id="Ps：选择3（MSYS2-and-MinGW）"><a href="#Ps：选择3（MSYS2-and-MinGW）" class="headerlink" title="Ps：选择3（MSYS2 and MinGW）"></a>Ps：选择3（MSYS2 and MinGW）</h2></li>
-<li>其余默认安装</li>
-</ol>
-</li>
-</ol>
-<h1 id="3-安装Jekyll"><a href="#3-安装Jekyll" class="headerlink" title="3. 安装Jekyll"></a>3. 安装Jekyll</h1><ol>
-<li>打开git</li>
-<li>在命令行输入 <code>gem install Jekyll</code></li>
-</ol>
-<h1 id="4-使用Jekyll"><a href="#4-使用Jekyll" class="headerlink" title="4. 使用Jekyll"></a>4. 使用Jekyll</h1><ol>
-<li>在Github文件夹中，右键打开 <code>git bash here</code></li>
-<li>在命令行输入 <code>Jekyll server</code></li>
-</ol>
-<h2 id="PS-如看详细教程，请点击这里"><a href="#PS-如看详细教程，请点击这里" class="headerlink" title="PS: 如看详细教程，请点击这里"></a><strong>PS:</strong> 如看详细教程，请<a href="https://www.jianshu.com/p/58e2c5ea3103">点击这里</a></h2>]]></content>
-      <categories>
-        <category>Github</category>
-        <category>win10</category>
-      </categories>
-      <tags>
-        <tag>Jekyll</tag>
-      </tags>
   </entry>
   <entry>
     <title>37. Sort</title>
@@ -3089,39 +3062,54 @@
       </tags>
   </entry>
   <entry>
-    <title>41. 俄罗斯套娃信封问题</title>
-    <url>/2019/02/23/41/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>程序设计</category>
-      </categories>
-      <tags>
-        <tag>OJ题目</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>42. Pytorch 60分钟入门</title>
-    <url>/2019/02/23/42/</url>
-    <content><![CDATA[<h1 id="张量"><a href="#张量" class="headerlink" title="张量"></a><strong>张量</strong></h1><span id="more"></span>
-
-
-<h2 id="1-什么是张量（Tensors）"><a href="#1-什么是张量（Tensors）" class="headerlink" title="1. 什么是张量（Tensors）"></a>1. 什么是张量（Tensors）</h2><blockquote>
-<p>张量与Numpy的ndarray相同都表示的是一个多维的矩阵。 与ndarray的最大区别就是，PyTorch的Tensor可以在 GPU 上运行，而 numpy 的 ndarray 只能在 CPU 上运行，在GPU上运行大大加快了运算速度。</p>
-</blockquote>
-<h2 id="2-成员方法"><a href="#2-成员方法" class="headerlink" title="2. 成员方法"></a>2. 成员方法</h2><p><img src="/images/posts/pytorch/1.png"></p>
-<h2 id="3-难点解析"><a href="#3-难点解析" class="headerlink" title="3. 难点解析"></a>3. 难点解析</h2><ol>
-<li>x.view()：类似于numpy中的 <code>reshape</code>，但更高级一点，如果只知道列，那么第一个参数写 <code>-1</code><br> 比如：如果x为<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tensor([[0.1483, 0.6744, 0.9375],</span><br><span class="line">     [0.4576, 0.2121, 0.5305],</span><br><span class="line">     [0.8123, 0.9203, 0.2041],</span><br><span class="line">     [0.4643, 0.2020, 0.3629],</span><br><span class="line">     [0.3258, 0.1127, 0.2111]])</span><br></pre></td></tr></table></figure>
-已知列为10，那么就可以这么分割： <code>z = x.view(-1, 10)</code></li>
+    <title>39. windows本地安装Jekyll</title>
+    <url>/2019/02/21/39/</url>
+    <content><![CDATA[<h1 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1. 安装Git"></a>1. 安装Git</h1><ol>
+<li>安装包下载地址，<a href="https://gitforwindows.org/">点击这里</a><span id="more"></span></li>
 </ol>
-<hr>
-
-
-<!-- - #  -->]]></content>
+<ol start="2">
+<li>安装步骤<ol>
+<li><img src="/images/posts/github/6.png"></li>
+<li><img src="/images/posts/github/7.png"></li>
+<li><img src="/images/posts/github/8.png"></li>
+<li><img src="/images/posts/github/8.png"></li>
+<li><img src="/images/posts/github/9.png"></li>
+<li><img src="/images/posts/github/10.png"></li>
+<li><img src="/images/posts/github/11.png"></li>
+<li><img src="/images/posts/github/12.png"></li>
+<li><img src="/images/posts/github/13.png"></li>
+<li>完成安装之后，就可以使用命令行的 git 工具（已经自带了 ssh 客户端）了，另外还有一个图形界面的 Git 项目管理工具。在开始菜单里找到”Git”-&gt;”Git Bash”，会弹出 Git 命令窗口，你可以在该窗口进行 Git 操作。<blockquote>
+<p>PS: 除了安装路径其余的都默认安装即可</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="2-安装Ruby"><a href="#2-安装Ruby" class="headerlink" title="2. 安装Ruby"></a>2. 安装Ruby</h1><ol>
+<li>安装包下载，<a href="https://rubyinstaller.org/downloads/">点击这里</a>，选择 <code>Ruby &lt;2.6.1-1&gt; &lt;(x64)&gt;</code></li>
+<li>安装注意事项<ol>
+<li>勾选添加到PATH选项，以便在命令行中使用。</li>
+<li>安装完成界面：<img src="https://upload-images.jianshu.io/upload_images/2255514-98eaec82dfc3c5cb.png"><h2 id="Ps-记得勾选msys2"><a href="#Ps-记得勾选msys2" class="headerlink" title="Ps:记得勾选msys2"></a>Ps:记得勾选msys2</h2></li>
+<li><img src="https://upload-images.jianshu.io/upload_images/2255514-7e92a90e54ebc783.png"><h2 id="Ps：选择3（MSYS2-and-MinGW）"><a href="#Ps：选择3（MSYS2-and-MinGW）" class="headerlink" title="Ps：选择3（MSYS2 and MinGW）"></a>Ps：选择3（MSYS2 and MinGW）</h2></li>
+<li>其余默认安装</li>
+</ol>
+</li>
+</ol>
+<h1 id="3-安装Jekyll"><a href="#3-安装Jekyll" class="headerlink" title="3. 安装Jekyll"></a>3. 安装Jekyll</h1><ol>
+<li>打开git</li>
+<li>在命令行输入 <code>gem install Jekyll</code></li>
+</ol>
+<h1 id="4-使用Jekyll"><a href="#4-使用Jekyll" class="headerlink" title="4. 使用Jekyll"></a>4. 使用Jekyll</h1><ol>
+<li>在Github文件夹中，右键打开 <code>git bash here</code></li>
+<li>在命令行输入 <code>Jekyll server</code></li>
+</ol>
+<h2 id="PS-如看详细教程，请点击这里"><a href="#PS-如看详细教程，请点击这里" class="headerlink" title="PS: 如看详细教程，请点击这里"></a><strong>PS:</strong> 如看详细教程，请<a href="https://www.jianshu.com/p/58e2c5ea3103">点击这里</a></h2>]]></content>
       <categories>
-        <category>Pytorch</category>
+        <category>Github</category>
+        <category>win10</category>
       </categories>
       <tags>
-        <tag>Pytorch</tag>
+        <tag>Jekyll</tag>
       </tags>
   </entry>
   <entry>
@@ -3158,6 +3146,42 @@
       </tags>
   </entry>
   <entry>
+    <title>41. 俄罗斯套娃信封问题</title>
+    <url>/2019/02/23/41/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>程序设计</category>
+      </categories>
+      <tags>
+        <tag>OJ题目</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>42. Pytorch 60分钟入门</title>
+    <url>/2019/02/23/42/</url>
+    <content><![CDATA[<h1 id="张量"><a href="#张量" class="headerlink" title="张量"></a><strong>张量</strong></h1><span id="more"></span>
+
+
+<h2 id="1-什么是张量（Tensors）"><a href="#1-什么是张量（Tensors）" class="headerlink" title="1. 什么是张量（Tensors）"></a>1. 什么是张量（Tensors）</h2><blockquote>
+<p>张量与Numpy的ndarray相同都表示的是一个多维的矩阵。 与ndarray的最大区别就是，PyTorch的Tensor可以在 GPU 上运行，而 numpy 的 ndarray 只能在 CPU 上运行，在GPU上运行大大加快了运算速度。</p>
+</blockquote>
+<h2 id="2-成员方法"><a href="#2-成员方法" class="headerlink" title="2. 成员方法"></a>2. 成员方法</h2><p><img src="/images/posts/pytorch/1.png"></p>
+<h2 id="3-难点解析"><a href="#3-难点解析" class="headerlink" title="3. 难点解析"></a>3. 难点解析</h2><ol>
+<li>x.view()：类似于numpy中的 <code>reshape</code>，但更高级一点，如果只知道列，那么第一个参数写 <code>-1</code><br> 比如：如果x为<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tensor([[0.1483, 0.6744, 0.9375],</span><br><span class="line">     [0.4576, 0.2121, 0.5305],</span><br><span class="line">     [0.8123, 0.9203, 0.2041],</span><br><span class="line">     [0.4643, 0.2020, 0.3629],</span><br><span class="line">     [0.3258, 0.1127, 0.2111]])</span><br></pre></td></tr></table></figure>
+已知列为10，那么就可以这么分割： <code>z = x.view(-1, 10)</code></li>
+</ol>
+<hr>
+
+
+<!-- - #  -->]]></content>
+      <categories>
+        <category>Pytorch</category>
+      </categories>
+      <tags>
+        <tag>Pytorch</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>43. Jekyll添加搜索模块</title>
     <url>/2019/02/24/43/</url>
     <content><![CDATA[<ol>
@@ -3189,6 +3213,28 @@
       </categories>
       <tags>
         <tag>Jekyll</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>46. 决策树</title>
+    <url>/2019/05/02/46/</url>
+    <content><![CDATA[<h2 id="1-节点"><a href="#1-节点" class="headerlink" title="1. 节点"></a>1. 节点</h2><ol>
+<li>增加节点相当于在数据中切一刀</li>
+<li>特征就相当于节点，越多的特征相当于越多的节点</li>
+<li>根节点：可以把数据的分类分的更好（多）</li>
+<li>次节点：类似于在其余的节点当中选择根节点，以此类推<span id="more"></span></li>
+</ol>
+<h2 id="2-衡量标准-熵值"><a href="#2-衡量标准-熵值" class="headerlink" title="2. 衡量标准-熵值"></a>2. 衡量标准-熵值</h2><ol>
+<li>熵：表示随机变量不确定性的量度（说白了就是物体内部的混乱程度，比如：杂货市场里面什么都有那肯定混乱呀，专卖店里面只卖一个牌子的那就稳定多了）</li>
+<li>公式: $H(x)=-\sum{p_i * \log{p_i}},i = 1, 2, 3, ……, n$</li>
+<li></li>
+</ol>
+]]></content>
+      <categories>
+        <category>人工智能</category>
+      </categories>
+      <tags>
+        <tag>决策树</tag>
       </tags>
   </entry>
   <entry>
@@ -3238,25 +3284,17 @@
       </tags>
   </entry>
   <entry>
-    <title>46. 决策树</title>
-    <url>/2019/05/02/46/</url>
-    <content><![CDATA[<h2 id="1-节点"><a href="#1-节点" class="headerlink" title="1. 节点"></a>1. 节点</h2><ol>
-<li>增加节点相当于在数据中切一刀</li>
-<li>特征就相当于节点，越多的特征相当于越多的节点</li>
-<li>根节点：可以把数据的分类分的更好（多）</li>
-<li>次节点：类似于在其余的节点当中选择根节点，以此类推<span id="more"></span></li>
-</ol>
-<h2 id="2-衡量标准-熵值"><a href="#2-衡量标准-熵值" class="headerlink" title="2. 衡量标准-熵值"></a>2. 衡量标准-熵值</h2><ol>
-<li>熵：表示随机变量不确定性的量度（说白了就是物体内部的混乱程度，比如：杂货市场里面什么都有那肯定混乱呀，专卖店里面只卖一个牌子的那就稳定多了）</li>
-<li>公式: $H(x)=-\sum{p_i * \log{p_i}},i = 1, 2, 3, ……, n$</li>
-<li></li>
-</ol>
+    <title>48. Jekyll不显示图片的问题</title>
+    <url>/2019/05/08/48/</url>
+    <content><![CDATA[<blockquote>
+<p>github网站的文件夹名是区分大小写的</p>
+</blockquote>
 ]]></content>
       <categories>
-        <category>人工智能</category>
+        <category>Github</category>
       </categories>
       <tags>
-        <tag>决策树</tag>
+        <tag>Jekyll</tag>
       </tags>
   </entry>
   <entry>
@@ -3278,20 +3316,6 @@
       </categories>
       <tags>
         <tag>OJ题目</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>48. Jekyll不显示图片的问题</title>
-    <url>/2019/05/08/48/</url>
-    <content><![CDATA[<blockquote>
-<p>github网站的文件夹名是区分大小写的</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Github</category>
-      </categories>
-      <tags>
-        <tag>Jekyll</tag>
       </tags>
   </entry>
   <entry>
@@ -3334,39 +3358,6 @@
       </categories>
       <tags>
         <tag>OJ题目</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>52. 串</title>
-    <url>/2019/05/09/52/</url>
-    <content><![CDATA[<h1 id="串的定义"><a href="#串的定义" class="headerlink" title="串的定义"></a>串的定义</h1><ol>
-<li>定义：由零个或多个字符组成的有限序列，又名叫字符串</li>
-<li>所谓的序列，说明串的相邻字符之间具有前驱和后继的关系</li>
-<li>子串在主串中的位置就是子串的第一个字符在主串种的序号<span id="more"></span></li>
-</ol>
-<h1 id="串的比较"><a href="#串的比较" class="headerlink" title="串的比较"></a>串的比较</h1><ol>
-<li>串的比较是通过组成串的字符之间的编码来进行的</li>
-<li>字符的编码指的是字符再对应字符集中的序号</li>
-<li>类似于：查字典就是在比较字符串大小的过程</li>
-</ol>
-<h1 id="串的抽象数据类型"><a href="#串的抽象数据类型" class="headerlink" title="串的抽象数据类型"></a>串的抽象数据类型</h1><ol>
-<li>字符串与线性表的差别：<ol>
-<li>线性表更关注的是单个元素的操作，比如查找一个元素，插入或删除一个元素</li>
-<li>串中更多的是查找子串的位置、得到指定位置子串、替换子串等操作<h1 id="朴素的模式匹配算法"><a href="#朴素的模式匹配算法" class="headerlink" title="朴素的模式匹配算法"></a>朴素的模式匹配算法</h1></li>
-</ol>
-</li>
-<li>子串的定位操作通常称作串的模式匹配</li>
-<li>简单的说，就是对主串的每一个字符作为子串开头，与要匹配的字符串进行匹配。对主串做大循环，每个字符开头做T长度的小循环，指导匹配成功或全部遍历完成为止。</li>
-<li>S的长度放在S[0]中，T的长度放在T[0]中</li>
-<li>代码<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Index</span><span class="params">(<span class="built_in">string</span> S, <span class="built_in">string</span> T, <span class="keyword">int</span> pos)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">      <span class="keyword">int</span> i = pos;</span><br><span class="line">      <span class="keyword">int</span> j = <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">while</span> (i &lt;= S[<span class="number">0</span>] &amp;&amp; j &lt;= T[<span class="number">0</span>]) &#123;</span><br><span class="line">         <span class="keyword">if</span> (S[i] == T[j]) &#123;</span><br><span class="line">               i++;</span><br><span class="line">               j++;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">else</span> &#123;</span><br><span class="line">               i = i - j + <span class="number">2</span>;</span><br><span class="line">               j = <span class="number">1</span>;</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (j &gt; T[<span class="number">0</span>]) <span class="keyword">return</span> i - T[<span class="number">0</span>];</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="KMP模式匹配算法"><a href="#KMP模式匹配算法" class="headerlink" title="KMP模式匹配算法"></a>KMP模式匹配算法</h1></li>
-</ol>
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>串</tag>
       </tags>
   </entry>
   <entry>
@@ -3456,6 +3447,39 @@
       </categories>
       <tags>
         <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>52. 串</title>
+    <url>/2019/05/09/52/</url>
+    <content><![CDATA[<h1 id="串的定义"><a href="#串的定义" class="headerlink" title="串的定义"></a>串的定义</h1><ol>
+<li>定义：由零个或多个字符组成的有限序列，又名叫字符串</li>
+<li>所谓的序列，说明串的相邻字符之间具有前驱和后继的关系</li>
+<li>子串在主串中的位置就是子串的第一个字符在主串种的序号<span id="more"></span></li>
+</ol>
+<h1 id="串的比较"><a href="#串的比较" class="headerlink" title="串的比较"></a>串的比较</h1><ol>
+<li>串的比较是通过组成串的字符之间的编码来进行的</li>
+<li>字符的编码指的是字符再对应字符集中的序号</li>
+<li>类似于：查字典就是在比较字符串大小的过程</li>
+</ol>
+<h1 id="串的抽象数据类型"><a href="#串的抽象数据类型" class="headerlink" title="串的抽象数据类型"></a>串的抽象数据类型</h1><ol>
+<li>字符串与线性表的差别：<ol>
+<li>线性表更关注的是单个元素的操作，比如查找一个元素，插入或删除一个元素</li>
+<li>串中更多的是查找子串的位置、得到指定位置子串、替换子串等操作<h1 id="朴素的模式匹配算法"><a href="#朴素的模式匹配算法" class="headerlink" title="朴素的模式匹配算法"></a>朴素的模式匹配算法</h1></li>
+</ol>
+</li>
+<li>子串的定位操作通常称作串的模式匹配</li>
+<li>简单的说，就是对主串的每一个字符作为子串开头，与要匹配的字符串进行匹配。对主串做大循环，每个字符开头做T长度的小循环，指导匹配成功或全部遍历完成为止。</li>
+<li>S的长度放在S[0]中，T的长度放在T[0]中</li>
+<li>代码<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Index</span><span class="params">(<span class="built_in">string</span> S, <span class="built_in">string</span> T, <span class="keyword">int</span> pos)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">      <span class="keyword">int</span> i = pos;</span><br><span class="line">      <span class="keyword">int</span> j = <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">while</span> (i &lt;= S[<span class="number">0</span>] &amp;&amp; j &lt;= T[<span class="number">0</span>]) &#123;</span><br><span class="line">         <span class="keyword">if</span> (S[i] == T[j]) &#123;</span><br><span class="line">               i++;</span><br><span class="line">               j++;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">else</span> &#123;</span><br><span class="line">               i = i - j + <span class="number">2</span>;</span><br><span class="line">               j = <span class="number">1</span>;</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (j &gt; T[<span class="number">0</span>]) <span class="keyword">return</span> i - T[<span class="number">0</span>];</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="KMP模式匹配算法"><a href="#KMP模式匹配算法" class="headerlink" title="KMP模式匹配算法"></a>KMP模式匹配算法</h1></li>
+</ol>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>串</tag>
       </tags>
   </entry>
   <entry>
@@ -3706,74 +3730,6 @@
       </categories>
       <tags>
         <tag>快捷键</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>6. 联想-小新潮7000-13</title>
-    <url>/2019/01/21/6/</url>
-    <content><![CDATA[<h1 id="标配"><a href="#标配" class="headerlink" title="标配"></a>标配</h1><ul>
-<li>固态硬盘：256G</li>
-<li>内存（RAM）：8G</li>
-<li>CPU（中央处理器）：i5</li>
-<li>标压：8250</li>
-<li>基本频率：1.6 GHz</li>
-<li>最大频率：3.4 GHz</li>
-<li>系统类型：win10家庭版64位</li>
-<li>显卡：N卡-MX150</li>
-<li>显存：2G独显</li>
-<li>处理器：8核</li>
-<li>显示屏：13.3英寸</li>
-<li>屏幕：IPS屏</li>
-</ul>
-<span id="more"></span>
-
-
-<h1 id="如何看配置（以小新为例）"><a href="#如何看配置（以小新为例）" class="headerlink" title="如何看配置（以小新为例）"></a>如何看配置（以小新为例）</h1><h2 id="固态硬盘"><a href="#固态硬盘" class="headerlink" title="固态硬盘"></a>固态硬盘</h2><blockquote>
-<p>（这里是以<code>游匣7567为例</code>，下面是小新潮700-13）</p>
-</blockquote>
-<blockquote>
-<p> <strong>步骤</strong>：<br>1). 右键<code>此电脑</code><br>2). 选择<code>管理</code><br>3). 选择计算机管理，左边栏<code>存储</code> ===&gt; <code>磁盘管理</code>，即可得到下图<br><img src="/images/posts/computer/1.png"><br>最简单的方法：下载鲁大师即可。<br><strong>Note</strong>：<br>上面的1和2号，分别是两个磁盘（这里：1是固态硬盘，2是机械硬盘）</p>
-</blockquote>
-<h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><p><img src="/images/posts/computer/%E6%88%91%E7%9A%84%E7%94%B5%E8%84%91.png"></p>
-<blockquote>
-<p> <strong>步骤</strong>：<br>1). 右键<code>此电脑</code><br>2). 选择<code>属性</code><br>3). 即可打开上图<br>4). 查看-系统-<code>可安装内存(RAM)</code>，即可，这里是<code>8G</code></p>
-</blockquote>
-<h2 id="CPU（中央处理器）"><a href="#CPU（中央处理器）" class="headerlink" title="CPU（中央处理器）"></a>CPU（中央处理器）</h2><p><img src="/images/posts/computer/%E6%88%91%E7%9A%84%E7%94%B5%E8%84%91.png"></p>
-<blockquote>
-<p> <strong>步骤</strong>：<br>1). 右键<code>此电脑</code><br>2). 选择<code>属性</code><br>3). 查看-系统-<code>处理器</code>-得到下图<br><img src="/images/posts/computer/3.png"><br>图中的方框即为CPU：i5</p>
-</blockquote>
-<h2 id="标压"><a href="#标压" class="headerlink" title="标压"></a>标压</h2><p><img src="/images/posts/computer/%E6%88%91%E7%9A%84%E7%94%B5%E8%84%91.png"></p>
-<blockquote>
-<p> <strong>步骤</strong>：<br>1). 右键<code>此电脑</code><br>2). 选择<code>属性</code><br>3). 查看-系统-<code>处理器</code>-得到下图<br><img src="/images/posts/computer/2.png"><br>图中的方框即为电压：8250U</p>
-</blockquote>
-<h2 id="基本频率"><a href="#基本频率" class="headerlink" title="基本频率"></a>基本频率</h2><p><img src="/images/posts/computer/%E6%88%91%E7%9A%84%E7%94%B5%E8%84%91.png"></p>
-<blockquote>
-<p> <strong>步骤</strong>：<br>1). 右键<code>此电脑</code><br>2). 选择<code>属性</code><br>3). 查看-系统-<code>处理器</code>-得到下图<br><img src="/images/posts/computer/4.png"><br>图中的方框即为基本频率：1.6Hz</p>
-</blockquote>
-<h2 id="最大频率：3-4-GHz"><a href="#最大频率：3-4-GHz" class="headerlink" title="最大频率：3.4 GHz"></a>最大频率：3.4 GHz</h2><blockquote>
-<p><strong>步骤</strong>：<br>1). 这个最大频率，下载个鲁大师吧（手动捂嘴）……</p>
-</blockquote>
-<h2 id="系统类型：win10家庭版64位"><a href="#系统类型：win10家庭版64位" class="headerlink" title="系统类型：win10家庭版64位"></a>系统类型：win10家庭版64位</h2><blockquote>
-<p><strong>步骤</strong>：<br>1). 右键<code>此电脑</code><br>2). 选择<code>属性</code><br>3). 查看-系统-<code>系统类型</code>-得到下图<br><img src="/images/posts/computer/5.png"> 图中的方框即为系统类型：win10家庭版64位<br> 【注】：64位很重要哦，具体后面慢慢说</p>
-</blockquote>
-<h2 id="显卡：N卡-MX150"><a href="#显卡：N卡-MX150" class="headerlink" title="显卡：N卡-MX150"></a>显卡：N卡-MX150</h2><blockquote>
-<p><strong>步骤</strong>：<br>1). 右键<code>此电脑</code><br>2). 选择<code>属性</code><br>3). 左边侧边栏，选择<code>设备管理器</code>，接着双击<code>显示适配器</code>，得到下图<br><img src="/images/posts/computer/6.png">，该显卡为：N卡-MX150（还可以）<br>【个人看法】：N卡更好哦~~~</p>
-</blockquote>
-<h2 id="显存：2G独显"><a href="#显存：2G独显" class="headerlink" title="显存：2G独显"></a>显存：2G独显</h2><blockquote>
-<p><strong>步骤</strong>：<br>这个还是下载个鲁大师吧，买的时候会告诉你哦~~~（手动捂嘴）</p>
-</blockquote>
-<h2 id="处理器：8核"><a href="#处理器：8核" class="headerlink" title="处理器：8核"></a>处理器：8核</h2><blockquote>
-<p><strong>步骤</strong>：<br>1). 右键<code>此电脑</code><br>2). 选择<code>属性</code><br>3). 左边侧边栏，选择<code>设备管理器</code>，双击<code>处理器</code>，得到下图<br><img src="/images/posts/computer/7.png"><br>数一数有几个，该图有8个，即：<code>8核</code></p>
-</blockquote>
-<blockquote>
-<p>所有的配置，都可以由鲁大师看到哦~~~<br>买完了电脑，记得用鲁大师试一下哦（别被骗了）~~~</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Computer</category>
-      </categories>
-      <tags>
-        <tag>PC配置</tag>
       </tags>
   </entry>
   <entry>
@@ -4053,6 +4009,74 @@
       </tags>
   </entry>
   <entry>
+    <title>6. 联想-小新潮7000-13</title>
+    <url>/2019/01/21/6/</url>
+    <content><![CDATA[<h1 id="标配"><a href="#标配" class="headerlink" title="标配"></a>标配</h1><ul>
+<li>固态硬盘：256G</li>
+<li>内存（RAM）：8G</li>
+<li>CPU（中央处理器）：i5</li>
+<li>标压：8250</li>
+<li>基本频率：1.6 GHz</li>
+<li>最大频率：3.4 GHz</li>
+<li>系统类型：win10家庭版64位</li>
+<li>显卡：N卡-MX150</li>
+<li>显存：2G独显</li>
+<li>处理器：8核</li>
+<li>显示屏：13.3英寸</li>
+<li>屏幕：IPS屏</li>
+</ul>
+<span id="more"></span>
+
+
+<h1 id="如何看配置（以小新为例）"><a href="#如何看配置（以小新为例）" class="headerlink" title="如何看配置（以小新为例）"></a>如何看配置（以小新为例）</h1><h2 id="固态硬盘"><a href="#固态硬盘" class="headerlink" title="固态硬盘"></a>固态硬盘</h2><blockquote>
+<p>（这里是以<code>游匣7567为例</code>，下面是小新潮700-13）</p>
+</blockquote>
+<blockquote>
+<p> <strong>步骤</strong>：<br>1). 右键<code>此电脑</code><br>2). 选择<code>管理</code><br>3). 选择计算机管理，左边栏<code>存储</code> ===&gt; <code>磁盘管理</code>，即可得到下图<br><img src="/images/posts/computer/1.png"><br>最简单的方法：下载鲁大师即可。<br><strong>Note</strong>：<br>上面的1和2号，分别是两个磁盘（这里：1是固态硬盘，2是机械硬盘）</p>
+</blockquote>
+<h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><p><img src="/images/posts/computer/%E6%88%91%E7%9A%84%E7%94%B5%E8%84%91.png"></p>
+<blockquote>
+<p> <strong>步骤</strong>：<br>1). 右键<code>此电脑</code><br>2). 选择<code>属性</code><br>3). 即可打开上图<br>4). 查看-系统-<code>可安装内存(RAM)</code>，即可，这里是<code>8G</code></p>
+</blockquote>
+<h2 id="CPU（中央处理器）"><a href="#CPU（中央处理器）" class="headerlink" title="CPU（中央处理器）"></a>CPU（中央处理器）</h2><p><img src="/images/posts/computer/%E6%88%91%E7%9A%84%E7%94%B5%E8%84%91.png"></p>
+<blockquote>
+<p> <strong>步骤</strong>：<br>1). 右键<code>此电脑</code><br>2). 选择<code>属性</code><br>3). 查看-系统-<code>处理器</code>-得到下图<br><img src="/images/posts/computer/3.png"><br>图中的方框即为CPU：i5</p>
+</blockquote>
+<h2 id="标压"><a href="#标压" class="headerlink" title="标压"></a>标压</h2><p><img src="/images/posts/computer/%E6%88%91%E7%9A%84%E7%94%B5%E8%84%91.png"></p>
+<blockquote>
+<p> <strong>步骤</strong>：<br>1). 右键<code>此电脑</code><br>2). 选择<code>属性</code><br>3). 查看-系统-<code>处理器</code>-得到下图<br><img src="/images/posts/computer/2.png"><br>图中的方框即为电压：8250U</p>
+</blockquote>
+<h2 id="基本频率"><a href="#基本频率" class="headerlink" title="基本频率"></a>基本频率</h2><p><img src="/images/posts/computer/%E6%88%91%E7%9A%84%E7%94%B5%E8%84%91.png"></p>
+<blockquote>
+<p> <strong>步骤</strong>：<br>1). 右键<code>此电脑</code><br>2). 选择<code>属性</code><br>3). 查看-系统-<code>处理器</code>-得到下图<br><img src="/images/posts/computer/4.png"><br>图中的方框即为基本频率：1.6Hz</p>
+</blockquote>
+<h2 id="最大频率：3-4-GHz"><a href="#最大频率：3-4-GHz" class="headerlink" title="最大频率：3.4 GHz"></a>最大频率：3.4 GHz</h2><blockquote>
+<p><strong>步骤</strong>：<br>1). 这个最大频率，下载个鲁大师吧（手动捂嘴）……</p>
+</blockquote>
+<h2 id="系统类型：win10家庭版64位"><a href="#系统类型：win10家庭版64位" class="headerlink" title="系统类型：win10家庭版64位"></a>系统类型：win10家庭版64位</h2><blockquote>
+<p><strong>步骤</strong>：<br>1). 右键<code>此电脑</code><br>2). 选择<code>属性</code><br>3). 查看-系统-<code>系统类型</code>-得到下图<br><img src="/images/posts/computer/5.png"> 图中的方框即为系统类型：win10家庭版64位<br> 【注】：64位很重要哦，具体后面慢慢说</p>
+</blockquote>
+<h2 id="显卡：N卡-MX150"><a href="#显卡：N卡-MX150" class="headerlink" title="显卡：N卡-MX150"></a>显卡：N卡-MX150</h2><blockquote>
+<p><strong>步骤</strong>：<br>1). 右键<code>此电脑</code><br>2). 选择<code>属性</code><br>3). 左边侧边栏，选择<code>设备管理器</code>，接着双击<code>显示适配器</code>，得到下图<br><img src="/images/posts/computer/6.png">，该显卡为：N卡-MX150（还可以）<br>【个人看法】：N卡更好哦~~~</p>
+</blockquote>
+<h2 id="显存：2G独显"><a href="#显存：2G独显" class="headerlink" title="显存：2G独显"></a>显存：2G独显</h2><blockquote>
+<p><strong>步骤</strong>：<br>这个还是下载个鲁大师吧，买的时候会告诉你哦~~~（手动捂嘴）</p>
+</blockquote>
+<h2 id="处理器：8核"><a href="#处理器：8核" class="headerlink" title="处理器：8核"></a>处理器：8核</h2><blockquote>
+<p><strong>步骤</strong>：<br>1). 右键<code>此电脑</code><br>2). 选择<code>属性</code><br>3). 左边侧边栏，选择<code>设备管理器</code>，双击<code>处理器</code>，得到下图<br><img src="/images/posts/computer/7.png"><br>数一数有几个，该图有8个，即：<code>8核</code></p>
+</blockquote>
+<blockquote>
+<p>所有的配置，都可以由鲁大师看到哦~~~<br>买完了电脑，记得用鲁大师试一下哦（别被骗了）~~~</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Computer</category>
+      </categories>
+      <tags>
+        <tag>PC配置</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>61. 明朝那些事儿</title>
     <url>/2019/07/27/61/</url>
     <content><![CDATA[<p>……</p>
@@ -4070,36 +4094,6 @@
       </categories>
       <tags>
         <tag>美句</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>64. Ubuntu18.04 安装 wine</title>
-    <url>/2019/08/15/64/</url>
-    <content><![CDATA[<ol>
-<li><p>q</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo dpkg --add-architecture i386</span><br><span class="line">$ wget -qO - https:&#x2F;&#x2F;dl.winehq.org&#x2F;wine-builds&#x2F;winehq.key | sudo apt-key add -</span><br></pre></td></tr></table></figure>
-<span id="more"></span></li>
-<li><p>w</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">###  Ubuntu 19.04 </span><br><span class="line">$ sudo apt-add-repository &#39;deb https:&#x2F;&#x2F;dl.winehq.org&#x2F;wine-builds&#x2F;ubuntu&#x2F; disco main</span><br><span class="line"></span><br><span class="line">###  Ubuntu 18.04 </span><br><span class="line">$ sudo apt-add-repository &#39;deb https:&#x2F;&#x2F;dl.winehq.org&#x2F;wine-builds&#x2F;ubuntu&#x2F; bionic main&#39;</span><br><span class="line"></span><br><span class="line">###  Ubuntu 16.04 </span><br><span class="line">$ sudo apt-add-repository &#39;deb https:&#x2F;&#x2F;dl.winehq.org&#x2F;wine-builds&#x2F;ubuntu&#x2F; xenial main&#39;</span><br></pre></td></tr></table></figure></li>
-<li><p>a</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install --install-recommends winehq-stable</span><br></pre></td></tr></table></figure>
-
-<p>如果出错</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install aptitude</span><br><span class="line">$ sudo aptitude install winehq-stable</span><br></pre></td></tr></table></figure></li>
-<li><p>a</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wine --version</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>wine-4.0.1</p>
-</blockquote>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>OS</category>
-        <category>Computer</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -4209,6 +4203,36 @@
       </categories>
       <tags>
         <tag>双系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>64. Ubuntu18.04 安装 wine</title>
+    <url>/2019/08/15/64/</url>
+    <content><![CDATA[<ol>
+<li><p>q</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo dpkg --add-architecture i386</span><br><span class="line">$ wget -qO - https:&#x2F;&#x2F;dl.winehq.org&#x2F;wine-builds&#x2F;winehq.key | sudo apt-key add -</span><br></pre></td></tr></table></figure>
+<span id="more"></span></li>
+<li><p>w</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">###  Ubuntu 19.04 </span><br><span class="line">$ sudo apt-add-repository &#39;deb https:&#x2F;&#x2F;dl.winehq.org&#x2F;wine-builds&#x2F;ubuntu&#x2F; disco main</span><br><span class="line"></span><br><span class="line">###  Ubuntu 18.04 </span><br><span class="line">$ sudo apt-add-repository &#39;deb https:&#x2F;&#x2F;dl.winehq.org&#x2F;wine-builds&#x2F;ubuntu&#x2F; bionic main&#39;</span><br><span class="line"></span><br><span class="line">###  Ubuntu 16.04 </span><br><span class="line">$ sudo apt-add-repository &#39;deb https:&#x2F;&#x2F;dl.winehq.org&#x2F;wine-builds&#x2F;ubuntu&#x2F; xenial main&#39;</span><br></pre></td></tr></table></figure></li>
+<li><p>a</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install --install-recommends winehq-stable</span><br></pre></td></tr></table></figure>
+
+<p>如果出错</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install aptitude</span><br><span class="line">$ sudo aptitude install winehq-stable</span><br></pre></td></tr></table></figure></li>
+<li><p>a</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wine --version</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>wine-4.0.1</p>
+</blockquote>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>OS</category>
+        <category>Computer</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -4388,83 +4412,6 @@
       </tags>
   </entry>
   <entry>
-    <title>68. 编程软件快捷键</title>
-    <url>/2019/08/21/68/</url>
-    <content><![CDATA[<h1 id="通用"><a href="#通用" class="headerlink" title="通用"></a>通用</h1><h2 id="Notepad"><a href="#Notepad" class="headerlink" title="Notepad"></a>Notepad</h2><span id="more"></span>
-
-
-
-<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h2><ol>
-<li>自动补全： <code>Tab</code></li>
-<li><h2 id="Vscode"><a href="#Vscode" class="headerlink" title="Vscode"></a>Vscode</h2></li>
-<li>自动补全: <code>ctrl+space</code></li>
-</ol>
-<h2 id="3-Pycharm"><a href="#3-Pycharm" class="headerlink" title="3. Pycharm"></a>3. Pycharm</h2><h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1>]]></content>
-      <categories>
-        <category>软件</category>
-      </categories>
-      <tags>
-        <tag>快捷键</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>69. Python易混的点</title>
-    <url>/2019/08/21/69/</url>
-    <content><![CDATA[<ul>
-<li><h1 id="axis"><a href="#axis" class="headerlink" title="axis"></a>axis</h1><ul>
-<li>轴用来为超过一维的数组定义的属性，二维数据拥有两个轴：第0轴沿着行的垂直往下，第1轴沿着列的方向水平延伸。   </li>
-<li>官方对于0和1的解释是轴，也就是坐标轴。而坐标轴是有方向的，所以千万不要用行和列的思维去想axis，因为行和列是没有方向的，这样想会在遇到不同的例子时感到困惑。</li>
-<li>axis的重点在于方向，而不是行和列。具体到各种用法而言也是如此。当axis=1时，如果是求平均，那么是从左到右横向求平均；如果是拼接，那么也是左右横向拼接；如果是drop，那么也是横向发生变化，体现为列的减少。</li>
-<li>当考虑了方向，即axis=1为横向，axis=0为纵向，而不是行和列，那么所有的例子就都统一了。<span id="more"></span></li>
-</ul>
-</li>
-<li><h1 id="eval"><a href="#eval" class="headerlink" title="eval"></a>eval</h1><ul>
-<li>eval() 函数用来执行一个字符串表达式，并返回表达式的值。<h3 id="例："><a href="#例：" class="headerlink" title="例："></a>例：</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;x &#x3D; 7</span><br><span class="line">&gt;&gt;&gt; eval( &#39;3 * x&#39; )</span><br><span class="line">21</span><br><span class="line">&gt;&gt;&gt; eval(&#39;pow(2,2)&#39;)</span><br><span class="line">4</span><br><span class="line">&gt;&gt;&gt; eval(&#39;2 + 2&#39;)</span><br><span class="line">4</span><br><span class="line">&gt;&gt;&gt; n&#x3D;81</span><br><span class="line">&gt;&gt;&gt; eval(&quot;n + 4&quot;)</span><br><span class="line">85</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><h1 id="lambda"><a href="#lambda" class="headerlink" title="lambda"></a>lambda</h1><ol>
-<li><p>将lambda函数赋值给一个变量，通过这个变量间接调用该lambda函数。</p>
-<blockquote>
-<p>例如，执行语句add=lambda x, y: x+y，定义了加法函数lambda x, y: x+y，并将其赋值给变量add，这样变量add便成为具有加法功能的函数。例如，执行add(1,2)，输出为3。</p>
-</blockquote>
-</li>
-<li><p>将lambda函数赋值给其他函数，从而将其他函数用该lambda函数替换。</p>
-<blockquote>
-<p>例如，为了把标准库time中的函数sleep的功能屏蔽(Mock)，我们可以在程序初始化时调用：time.sleep=lambda x:None。这样，在后续代码中调用time库的sleep函数将不会执行原有的功能。例如，执行time.sleep(3)时，程序不会休眠3秒钟，而是什么都不做。</p>
-</blockquote>
-</li>
-<li><p>将lambda函数作为其他函数的返回值，返回给调用者。</p>
-<blockquote>
-<p>函数的返回值也可以是函数。例如return lambda x, y: x+y返回一个加法函数。这时，lambda函数实际上是定义在某个函数内部的函数，称之为嵌套函数，或者内部函数。对应的，将包含嵌套函数的函数称之为外部函数。内部函数能够访问外部函数的局部变量，这个特性是闭包(Closure)编程的基础，在这里我们不展开。</p>
-</blockquote>
-</li>
-<li><p>将lambda函数作为参数传递给其他函数。</p>
-<blockquote>
-<p>部分Python内置函数接收函数作为参数。典型的此类内置函数有这些。</p>
-</blockquote>
-<ul>
-<li><p>filter函数。此时lambda函数用于指定过滤列表元素的条件。例如filter(lambda x: x % 3 == 0, [1, 2, 3])指定将列表[1,2,3]中能够被3整除的元素过滤出来，其结果是[3]。</p>
-</li>
-<li><p>sorted函数。此时lambda函数用于指定对列表中所有元素进行排序的准则。例如sorted([1, 2, 3, 4, 5, 6, 7, 8, 9], key=lambda x: abs(5-x))将列表[1, 2, 3, 4, 5, 6, 7, 8, 9]按照元素与5距离从小到大进行排序，其结果是[5, 4, 6, 3, 7, 2, 8, 1, 9]。</p>
-</li>
-<li><p>map函数。此时lambda函数用于指定对列表中每一个元素的共同操作。例如map(lambda x: x+1, [1, 2,3])将列表[1, 2, 3]中的元素分别加1，其结果[2, 3, 4]。</p>
-</li>
-<li><p>reduce函数。此时lambda函数用于指定列表中两两相邻元素的结合条件。例如reduce(lambda a, b: ‘{}, {}’.format(a, b), [1, 2, 3, 4, 5, 6, 7, 8, 9])将列表 [1, 2, 3, 4, 5, 6, 7, 8, 9]中的元素从左往右两两以逗号分隔的字符的形式依次结合起来，其结果是’1, 2, 3, 4, 5, 6, 7, 8, 9’。</p>
-</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>67. 计算机网络</title>
     <url>/2019/08/20/67/</url>
     <content><![CDATA[<h1 id="第一章-计算机网络概述"><a href="#第一章-计算机网络概述" class="headerlink" title="第一章 计算机网络概述"></a>第一章 计算机网络概述</h1><ol>
@@ -4606,6 +4553,83 @@
       </tags>
   </entry>
   <entry>
+    <title>68. 编程软件快捷键</title>
+    <url>/2019/08/21/68/</url>
+    <content><![CDATA[<h1 id="通用"><a href="#通用" class="headerlink" title="通用"></a>通用</h1><h2 id="Notepad"><a href="#Notepad" class="headerlink" title="Notepad"></a>Notepad</h2><span id="more"></span>
+
+
+
+<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h2><ol>
+<li>自动补全： <code>Tab</code></li>
+<li><h2 id="Vscode"><a href="#Vscode" class="headerlink" title="Vscode"></a>Vscode</h2></li>
+<li>自动补全: <code>ctrl+space</code></li>
+</ol>
+<h2 id="3-Pycharm"><a href="#3-Pycharm" class="headerlink" title="3. Pycharm"></a>3. Pycharm</h2><h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1>]]></content>
+      <categories>
+        <category>软件</category>
+      </categories>
+      <tags>
+        <tag>快捷键</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>69. Python易混的点</title>
+    <url>/2019/08/21/69/</url>
+    <content><![CDATA[<ul>
+<li><h1 id="axis"><a href="#axis" class="headerlink" title="axis"></a>axis</h1><ul>
+<li>轴用来为超过一维的数组定义的属性，二维数据拥有两个轴：第0轴沿着行的垂直往下，第1轴沿着列的方向水平延伸。   </li>
+<li>官方对于0和1的解释是轴，也就是坐标轴。而坐标轴是有方向的，所以千万不要用行和列的思维去想axis，因为行和列是没有方向的，这样想会在遇到不同的例子时感到困惑。</li>
+<li>axis的重点在于方向，而不是行和列。具体到各种用法而言也是如此。当axis=1时，如果是求平均，那么是从左到右横向求平均；如果是拼接，那么也是左右横向拼接；如果是drop，那么也是横向发生变化，体现为列的减少。</li>
+<li>当考虑了方向，即axis=1为横向，axis=0为纵向，而不是行和列，那么所有的例子就都统一了。<span id="more"></span></li>
+</ul>
+</li>
+<li><h1 id="eval"><a href="#eval" class="headerlink" title="eval"></a>eval</h1><ul>
+<li>eval() 函数用来执行一个字符串表达式，并返回表达式的值。<h3 id="例："><a href="#例：" class="headerlink" title="例："></a>例：</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;x &#x3D; 7</span><br><span class="line">&gt;&gt;&gt; eval( &#39;3 * x&#39; )</span><br><span class="line">21</span><br><span class="line">&gt;&gt;&gt; eval(&#39;pow(2,2)&#39;)</span><br><span class="line">4</span><br><span class="line">&gt;&gt;&gt; eval(&#39;2 + 2&#39;)</span><br><span class="line">4</span><br><span class="line">&gt;&gt;&gt; n&#x3D;81</span><br><span class="line">&gt;&gt;&gt; eval(&quot;n + 4&quot;)</span><br><span class="line">85</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><h1 id="lambda"><a href="#lambda" class="headerlink" title="lambda"></a>lambda</h1><ol>
+<li><p>将lambda函数赋值给一个变量，通过这个变量间接调用该lambda函数。</p>
+<blockquote>
+<p>例如，执行语句add=lambda x, y: x+y，定义了加法函数lambda x, y: x+y，并将其赋值给变量add，这样变量add便成为具有加法功能的函数。例如，执行add(1,2)，输出为3。</p>
+</blockquote>
+</li>
+<li><p>将lambda函数赋值给其他函数，从而将其他函数用该lambda函数替换。</p>
+<blockquote>
+<p>例如，为了把标准库time中的函数sleep的功能屏蔽(Mock)，我们可以在程序初始化时调用：time.sleep=lambda x:None。这样，在后续代码中调用time库的sleep函数将不会执行原有的功能。例如，执行time.sleep(3)时，程序不会休眠3秒钟，而是什么都不做。</p>
+</blockquote>
+</li>
+<li><p>将lambda函数作为其他函数的返回值，返回给调用者。</p>
+<blockquote>
+<p>函数的返回值也可以是函数。例如return lambda x, y: x+y返回一个加法函数。这时，lambda函数实际上是定义在某个函数内部的函数，称之为嵌套函数，或者内部函数。对应的，将包含嵌套函数的函数称之为外部函数。内部函数能够访问外部函数的局部变量，这个特性是闭包(Closure)编程的基础，在这里我们不展开。</p>
+</blockquote>
+</li>
+<li><p>将lambda函数作为参数传递给其他函数。</p>
+<blockquote>
+<p>部分Python内置函数接收函数作为参数。典型的此类内置函数有这些。</p>
+</blockquote>
+<ul>
+<li><p>filter函数。此时lambda函数用于指定过滤列表元素的条件。例如filter(lambda x: x % 3 == 0, [1, 2, 3])指定将列表[1,2,3]中能够被3整除的元素过滤出来，其结果是[3]。</p>
+</li>
+<li><p>sorted函数。此时lambda函数用于指定对列表中所有元素进行排序的准则。例如sorted([1, 2, 3, 4, 5, 6, 7, 8, 9], key=lambda x: abs(5-x))将列表[1, 2, 3, 4, 5, 6, 7, 8, 9]按照元素与5距离从小到大进行排序，其结果是[5, 4, 6, 3, 7, 2, 8, 1, 9]。</p>
+</li>
+<li><p>map函数。此时lambda函数用于指定对列表中每一个元素的共同操作。例如map(lambda x: x+1, [1, 2,3])将列表[1, 2, 3]中的元素分别加1，其结果[2, 3, 4]。</p>
+</li>
+<li><p>reduce函数。此时lambda函数用于指定列表中两两相邻元素的结合条件。例如reduce(lambda a, b: ‘{}, {}’.format(a, b), [1, 2, 3, 4, 5, 6, 7, 8, 9])将列表 [1, 2, 3, 4, 5, 6, 7, 8, 9]中的元素从左往右两两以逗号分隔的字符的形式依次结合起来，其结果是’1, 2, 3, 4, 5, 6, 7, 8, 9’。</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>7. Jekyll添加网易云音乐</title>
     <url>/2019/01/21/7/</url>
     <content><![CDATA[<blockquote>
@@ -4690,6 +4714,43 @@
       </tags>
   </entry>
   <entry>
+    <title>72. CTF</title>
+    <url>/2019/09/20/72/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="b590d6caec388237c55f3d3947ab0acb1b3ff458b44f0e39d7e505b4d43f5249">224e6e458bfb907617190d6d422f2f5e9d7ac4302695b37fc3fd6b70b85e826dc0df62835bc946cbdd6ba380b9abbfd1d26bc0f40c93f9694f24cefd8bb9fd494628964efcbd01503c63b7e750f1fecfdfd54ffce5f9673adf0c476b76e1059e9b2c281bc1d22214afca2b5ca2e34e14dc77c375fdfd4ca759c5934ceebd376195a0e3cec0b2c0f832d2909637a3407b93d26a34f811ced0053ab328157d364c4cd3df239c3225c14dc325c366e4646c9084c978794b2ea85afb50be9fade9f47e6c5f48d8777d49c65d33a8a45b028f3f2c798d0b58655dcdb3feab842df0daed04d5d9fdf59cfb6e65a46d29584aedc307ae61e22ae7028f9484d5022a5da30753546c04ba522ba9e3ba67cd75382311903b2d70ab54825cf2f7af8e44c633a5aa03a6d177a88b4a321d9ec02e2365d9c87993118512bd0aa08ba3a60d95cefd1c3d67d360e26f32945742e75e8b5bfd030af83070f145a3eecbf8c9d94d0bf08ad29d63d414c7816ec6e72babf6b66d7a13e1ac60402eadd200eae31eb9513558f0ab2e91bc7927215e3e5ccf810f9cca061e025ecc579655599b872cdf67f0a8a872e7bde9ba46ff5f364f20c8cd874ea540c6bdec7a8f96d0c758414d14624c705ce9120cb2ac311ddac15d101d896e24b787b6033bb594ad626a305fdab5d9f854fc1bf00dc75dd4aca671376151aeb73c9dbf3c6ed8f36d2357599e674e2f075a67ce3047e2d57ac357fafec9d9d714ff6af18c7c8c21551593138e0b9e3183685409f867e8f1f638eabaebbfe7b5f0bd2c3c6635f9c896c054f85a7e7600e9e1d471249f4bd7927b2ebb930baf972c2d59fed7a05247974b26d9561b585d2af4bf729c27b759baf18dccb14b340157ce0dda8d116e9dcb81c1eeefdb23d227a0e189f348c77a1e82786a869549950a1dd2be0f440951255972206f2a07482ea57ae1dd2d34922e2cca6a0d1b83bf35aa7234cbc3987e6fa697ca8dcf28f0f361809d6c830c2a3ee635582ecd52df902046c86371f49d1fa00873bc806b0c425c7708fbec45382ab96b70a92ffa7217ae0dd1b10f04b356e37241dec4c99cd0f4a413dcf2a2ef5e5c0b5f73e08edcf9ba8ea04f3bc5f55bdfd48728b8a6206d46416daf8df83246176b79ad003e295eaf0e1945c22235586491b9efac824443161ce19273c4dff0475665a17d3268386dd377d60bfe787fe6812f05b414bd6135fdd9e9fc86627bb46f205cd9bff5e5d932439a6cab19a6e8664598d360b31e1fd1bf28b0ad9eb1a7781b6209e8bab6f3927738a16422d6637ce1f0b7ae19f5b6fafba7123ae555f369347f36e7c9e16dea637287358313c3aca1e36d2368584cbab9468b342f0279a6f4a37087b05083ba3547674b8dbadbd12b6222d4249a85b2f5b53c19949d77539ef65d39d45bd7425424e038543032c88306b91db17c0eccd993d798277160f76f1eaf3a88c3cef17daac4683d206ce72ec7029281b82db71cbdfa81395b53e6e79ac7044bb3d175cd78f5341d651f86430fe435abfecfc62fd5ffa5036046ba211d81bca15760ac40c4ce9a19b59305aedccc4318ff958d120e6e3d73b327a3e99b9b659bea740a726718966cf0678a290962c537a6092f4cc921e92f49732b6c4bf58800ef0e2e64d27fa191eb1ed41256b3f63c698684b87f7cac46e75fcf20c678c854f8323b15a6b35147a1b5f41554bb7ab6393914ece4040adcf5fe302da6e77c2b401b3e4cc588809ecb2f4947e9905616babae8df7f12530b82aeb8be834cc16f59de693bcc39efc574544563f0c0860595993b8475bf72816c0687660b1c6ead70f78648e50f1d1a97545940b1931c79285e93953efbba994bf717beea60bf03f90061b8e627c2deda368e0b07a72c5013ae39a795c9ee9e1b062b44ecf95f6f13470ef27f83eb765b14d857df7a7dc427b55c7577b84fcb3f20e209cdcb404b01a1e60687ed21ef1ada47e0ec3003817f035d693d017fdd4ca715147aa0555991b2771395ca2b78b7a2c4621efe01ba47f192503673a0a4f11dcd922b8c895143468a1b6e3ebbb3b158a09387e5e8e223cc7614133e906d6f18b7e5561a4802003f35183e079a6a45cc097717ebf0c88d56e74f33d07a1b28aabaa888368fc5e006e7bfa6f56cf0c259f932671fe47f6c3fa6f6c7bc4a4fb83375fd0ebb9db867ece8cc3543c45fb0300e2661ebb03e68c8265af30cf888553f778a70d7d502e57ff5618d8bec72a166bb4fab075b15bd74b7ce6635aa7ac1a84f9721e75d4a95576f055203bdeee0ff0b4f814c09d8ff9dcba810efb0b968aeed2fef3df85de55310f745adf945f253fd77a860fb5282c658a85b805c2817148e5f47142c403c8d65192e025fd67431835cbcecf6f6ece5e383f3624a74e36657f8832df8a749613d657906cae1a349f85e898b3d80ccf724d88902e3f8746493274865720427793811b3d552d442210eac1a7194bfdf19352452020baedc0a4de652a70a856139ef27c7300f58a4284736495affb585740a3f03d3ff9a74a3e6a8d1ec842e27511b050b1556f60d357099ae180c41c6a0ea9a0607c20fb09a625c3859c428854456913e232aec9fbaccfd5bf5c912f5b6cca7d8daf03ad47f9dfab6be313a179967e6694cc9c5a5a5dae31266876ef827c9b338a1ab7723097ca673a29913876d17cd8212b38da2ac79cda738d0c80998c1c39e9bc1e371508ca04d40fcb89b65b1771bdb04bdea2be63db478f5e2b616265c2ca6df8811b51cfeaf3fec3f577249810e92d9e77fc7254a1db254717cd2846a559d341d1b5253a3585dd2391db9a1652a2a6ad8bcbf2d8d25ce89efa47a597c0b0d4095f17756655d259f215841072815791f958b188d2899caceef75fc6578853c5bf398467a0f16364000c19c39d81d26f36d5739dc456fdfba88df5a0f34d39cf47d608431dea14e6afb910c3a93037c23cf96c20e04fc20e4cb4689c4c59fa54f5148a36d0ffbd13380d579db8c25d32efd3c7757c8ce9d17060ba164c2f205d1e0b2b7f9289c041923c95aeffc4a32dce80042e4e57cf815a1aa45af785fed2ad92af82415f5d84af901445b336e745db31da76eb869ff4f4bfeab3dcb8d9502e7917f24ec30f3a9ef13910385d2fd259384ba81dd16a84d0976e89534540027ca30251e967caf6b55d34ad004798fa8959b1c22e5c6f2f3a119dae684b88e1e8315e1b26dab2ebf5928f24e096c595371f9eb697b9854dbb999a655a71348bae6158a7c3f995fd9c684f5a532d8c6f44f0123427f155f208d2cf28787058ebcb1bd704b6db75fdd2ddabba9f1a20cd52bd5bafb3f980aeb5ccfb2ccf1bac4a396bf7410c1b0bc59a06bf719f797302ef7fd04e9c90c307d3300fffcbaab73cfa0621057f4fb2fc9f33bb8017d82307d21fdd3ed02a3e4a0a5ef4ada489f2ebd69f71cdf008a6ba483ec3e7c4571e729b6376cbe7afb9da8929c204699e8c99fd75852e7f0a08a7dc7456b30c0c6270b0a6b3fd0ef704b336591dac20cb7e6c7fc2265caf7d7552b9ac5d92d698a7cce472c98fe3b6859a20e6818e67a889a2dea806d7ee85988e5cb3f322f2fec973b2650e5d20732e47dc4d17cffba5870c349f6dc00637b3745c13688e21146ff68a3379c77177c32c0b9a60deeac587f91b991f7b803c9c6ec77930ecc8db061b080ff2bb31bf9633aa8ec1eb98e0e5eefea55e80bdb47375b93d02041077d02bfbc6dd09dcbfa19f0a44f31b6ab44652c6bc56254e83526fa73db6fb53b55f412515088f27f56735f0aca3e6f37300a6776025d39d11e2a11d5d3157c76654db10fc4c37bab78e28e45dcb930063074c64f8e8e456e83ca36b77e73de41c07ffdd102a44505c22c3d33cb48651192cbfe767aadfd7ba9311694e4490e77b95cf1f310476d66bfe0f55f686be528c9cec477dd25c5dc4db8895410b868abf24abdd6225cc5e865fcf5ef29c34da80d5bf9360cd717e3da16ca683260c4a61c110f3346b562e3d39febaf4b847dc5141ce5c13a4b9834955de97c6bf89cea224fa69c4f1cb1006f2574660806e01eefed6a3846833997025189f7cf8328b06fe27d796de8b516207ec856a2afbf5f4f735ed9ffb566867ef39bc2887708e804fb439c4f66e1a061a3b454b21d136a458d22121d911a029f2e8d2098e9f537d4daf68a9ddf21c941dbacd8582257f17c01c92c9d376fef32a213970ed1ea633e6375dee8e3c874af1ec6922fc1947b2e527f0db0b3d0bd3e01a977b914c5b42b9f02b86b30140a65f58a749418a391311bc0d9766d9f806aac7d1f63869e82795d82d6235464b2e3fbbec1d296fdf01426d8523cbe4483a050ed3386d98d36dc332eb95ade35be78036177ce45d7ba37f52edf936e0667a35eab2009bfe68740d4b1a519176ca863f6c15d82e7ac257486a834c2dfffadbb470391004f740a4e6bd6494b310222058c4707e680f0491c563acbb138c2d7d7bc9a31453250bdf2bf1348a2af8031211f5689b97e682fdb99ec2a5f676684fdd074c8260a7935b8cb9a5fcdf32df6676bc91aa432ce7128961c9a1ef28926fde8877752f8d9061d18b94e6a65423f0308f9d8a1b7562d13830e7ecc3e07dc759c4f950142695b808f89014e373dcc8edae4b20bb47fa259bd465db1d19e15cb37f21ec6b8483554ce77e557983a55f71f29a64bbeafce983575d8675c7f2b3e5204d31362b0ad57a092db53390701e956ba9146b664c1cf7ef16334192fbf4e78f006f2756aaa24daeb3295fe547afd34f9146408762ec043c6a2794b41d348b5acf7f0d8f04c771883d300543615fadb90005fb0e4f9f79a373299bde6aab7231db251b66c416e1be2ca7c7d6c57efa7bf7506a2df92a7d7593bed5ba155c8389a4d9f159763cfd199c4e1b813eef0ada31cdd14d5bc744af9977d759692f67668f96c84914c505a88d34fdeb2cc06c1e0bd000f73224a1e86047afccdcb5b69565ff4ee44ca9fccc4e34c7ff4d07ebdcc0b7b1548e323d12191dff631ea7a98a3b6a615f2de1a1b104ef2b1cc6a0774bf7b3eb736eff6ce2132e3d4852241bca21559d6f60c857d8ebdb43ad88b6531901962eca60a1bdd31d3a7dc6a007c94250dbbbcc48689115964c16e62f0963e7e2c58bf6cd386e25bff530c1d7ca0a182ed4956831a453fd650d77e3d66bc8f39ddad7ab10bc19fad673d6bc04a3d09281f6a98173b5f13fd3f7d0a40a1ea8079113d6229e29d5d7d562a1e082068eaa80e875a6af75e695c1090204752d6a1c07a28d85ae0044ef21c2e9047cf91f0259c429ddcdc3937cc1412ca1f63c445debc518d97d430ac0849e92c3b41f30740ca90c5d01f579ecfa11a445688d6d37ada59dfff12d328aeac76e6d3bddc2ff0edae2c08121c5fc70a693e29df5309fe54c0dd5c1073aaf2acc77939693b9d85eb67f26123ebe70243587c73d9315c5057bc8b9b76eb87a847cc392bdd5a5cb3c98f555a79596b3d6292a09b2ab1aad2d78a6d6966d00df6cc0a9d96c214ee2f454300ea4d2651d9fc9ebf44db2bf1e98e582399664addc26994881d7bbd03441273a1418c4e066d4e36ac70a5430a5280599b13b067fcdb8b468bc07d941ece02cf24ae83bf5a4e85ec8d2c06af843c660d26d417e4da572222e5f9445366607393976be205f664dd55d984ffd1222c71220b531849b776717c755002a73fcbfc81238beb23decccd2a8c91c69bd0fc26ae0d0654a98b28ee87c747855420ab42f37f5d5ae5f3203366f3401074a3a3b1906808f75bf81ac22c3524f068a3d6fd437cabfd64ad901cdbf5748c1c011934e4ae4a1a7eeefe1bf194f7e8463bea3321d0295d8357671bf575bcc2b659ac29abffee1e30730798edbbb3847e23848c2d10054d004c0f1b7c90797efb089ee52b324bfc0c745f5500cdd0ad82cf4991af0cc6f0dec29024c75f1afef58726310fedacdf563acc6290aae1830777548a53c1c785ad372f7173a0001bcb780bbd1899556f17523002eb30da32a0c30d3678893a9d2be965ce52fc1fca1822ce03b39c44ad2af1ee31b4b738558824dfb41b740833184f85f96201565684b6cc3983b2e10d71a3fb98d3c2ea2489bbc56e24d31cd9f2d80b87fb30f0c6c3968697f005508db6162825013d036f803199ada14038a2a2053e5e0c958fba8eaf0c543ab32bf3ca66e14064a824e20c362bede8a6682c131bcb837c85e514c84749028965489fcbd841fe58445d9e1e3b6ce9c55f09dd712f5e021c77bc8fb3786bfe07ecc042f4852b9ec8a1cfaf444564e07352bbccd9585e2c72e730657a073cac07314dd2fde67b7b0592e041c0a4151508df11d316498a58ffd5656a19b962d06a8422bb65e13887ab9f5a95e9041875f67db8a24dc7a5952bc1abc169b0f0d138b92c3a80465518ed38ed0923bd2b3a0fbeed085e09e1d64c871ec6fbd9d65201a05926ae1d83e12a7ae69efb1c282382901db104cd8cd9e622f18eea0a2fc53ece73559e38658063e2acc1c4cd1dbfc00768c0d2e6ffac76ef99bbcf59b36dddda6e2031312411a0ce4d396e75a4f5c94731065a5d0b617b300879a4ea4cd09586c0b06075436b7f634315380179f2acc66ec7f8826514fd97ce96d28121acc8113bb1b5db2345bde16d3f30e7939838904e351e06f2157505060ce6dc1a70cebb53529be955f0d85e046d366ce9d4bd87f1d9a839c5ebf25075796630ffdf4c21f89133f80376ed9ab911a5556e916211ba4465fd03b2452654f215f71b75929c822e96473b8aba2ae9b0c9088504ea2ef46544caf06765b6201de2af54924e9e7298d7eefed0f1c22cd8bdac68bf8f6f9e6d21cfedd6a6c2ec20252a9906c442fa6328878c18e881c6a16c0359df41b5462f68549b07e9d0d30edc15a342e8ef5c6dcba6f14806eabac61743ef609cd2e1024b9f07d4f08dfc0220bf3bcbb36f9f766341de3a5182017eb72eee9b6254efb7ca205d3013bcd33481548e52abe458c34746066d48360a29777c54dc7a41ead3b1a1037ecf97afe5339d37c00358db91e626661b008e471f46b5bf0bdb6baead421cc37f06ee8ecb9e3c0e5e7449c9680c0cc142a945d2a4cff62cf8d5b3b074ba1079c95af070a8c48198ef178d9def2d39681126442d916adf3a19b7b91b28a75e4119e63fbb710a788a73548dc9c8c9a05b229ddda9b5924e9f816f79a77f47a5a8a274a2227b6264b60f41d536e201c0febe299f4881683204eaefae04f7f339e09ee84a4c91586d0f7ce1b561d7e6b9db5e36e9cffcb288342e9b458161c31150ab8289bf30a13153405a5e16e0a169df94c84b34c8f76542e9707c20b985c128f3c5ca3dfe816ebfbc6709aa5610b06bebb809465d8f56e9e4a37b456c3971d0c690bd36ca36c62dec902166469dfa6f1e38ff6fea10ba3e752b00ac2ebae1a0b8c2b80e1bcc2abf9432a241eabbd9fe3fc922aec6c888f3729ec9960093fb94deff9c689b517d49a4a91b75b82ae2983884408f295a4fa42ef6f9f7b3ccf421739af6d3065d0938a08682f585a9379fcf18ad7bcd29cec9f37a86c06ae3bf46490be9b5c15ba08868fae2a32697dd4985cfcd8b83c9889247cb0d451ad6c4ea0c5621a0a913b42167d52b79eb32d27b6db0436df840e1b8210e28a8c2450fa9bf950c7e6d47ede99f2092816bb6c520fb486b120da4cf6beef84ab816502df15464e407f7379a0a80d632abe354d2bdcbf1bf5c8100188634be2cb504fcd433eb4b737959eebad5523978da475614b952095f61d3025971f9f1b2d8d765f633630c875f59680e44fa9b7fe0c8f86e7d63b5ee21331a0f5a3e3fbd755505307ef3b2cfabd4bcc07dd9f1fce4247f7c03ad4b1da082089f41ab4093f9a50ec7c6e1e8bdf34a830fd922a14eecf6c194406aee4b71731aba92425dd403091223305c41c08b6eba8f11408a494d9aefc502fb419b21314936dacb3f6f4e0a6789899e0ed8de5157460f2994b05cdba33ab981e40e857a40dbd2f302fe2043f740a400b38c56821a66ab15ffe3620c383e8531624760dd87c20d05afa27c12e33690531236ab62adfe6c4db38ed6291fa22f9479f9cd8446c5bba875f4ac1968382e38d1ed0e545b69f30a44c5acd4a7f384a072787492bc24c9834fb5fee983e744dfbcd8448f995fc78704a53c27515f5e6ccdecdcba05a56ba77f981cf0c66fa23a24ec1f530848cedb05dd6df581d3812b3292d991f945ee4b1bdae7b80a1502d2ddce6dd7c459fc4374f27348159ddfcfc252cbe17381a448fdb6de024aa2313fe87af78e63e092659189e34f3b8c3bf0c28a308501bdfaebf85803ad643a96398abf1aebabdb6820dce98e041160700b26ec6fe282fa65396719b58972e0110e783565457e98b82b12b6a0407b4fa212623bdb945649125efb2050469e3fb51e90c0df1c396139649e459f431ed6f71d0467b8816e4c7d23b1712f8c8f0973ffa4399f614c4f4176b87c737102e682e36205123ff0390ea190fc3b18cea4f34c383436ace882476f3b5c9a5fb43d36cdaa18ee7b0421050e01fb9d3cb5e059fdd8db4b953edb87fe3a52cf170c610241c7b48cbf981f360da5a6ea53f95b3e7e44fbcef2d18e1261efa5fe1bda6748a9ec5311a697607999b67181a04dd36c658597c1bb114a4d078735948c84afb0cbe4a99c868b5e8a78441265cee518f1fcb14db5c6c19027669e7bb1cded43341110c03d3e346faaf6d9eb598d6a463072e09d0982f40a1f9b0ae9e89c3e5371525906ca6feeda56c48b5abc8ef7382a032498c05265375ba6b174a40a70edb1a39d5f537e6b5c936e8d31b1a6876e630a55cc5363bef9881f7845165eda36625fe6d86c1adf32ffb609703ab254f92371e7fad95e2be554fb957d8f3beb1ef88b8a0701163ba8ddb423f3bedb4b1710d9eecf7b70456dfbb9df52609c5501afd5aa3037963fd467156a30d880719dc4e3d340b0c315a31b7a459b88cdc05f3541266b41156063b37af3a09ac425846dc29dcb7518136485cc543951a99be37eb3582735c4b2b9453a84f475fac5f1289c480dc8fad7e76740afcc149d67cca184b8e1f9e443547d8a0feaf6b386a154be6848f4332f92d2c50dd6d9891dbfef78596092ab58fadea0204319377e7d7d06b4f23a2bdeb7fe785e92a731cac6e414865efab1b6f7efda02f766661fb6aabbc865f6b4bdb242d624545907292286ae7844f029a6d09c1736868e576ae24a2708dc9d649ac24e776fbdba4c9f593d7d134d7de121ad7dfc2b90ad19482ef3cf8a8341f0ccf409406dc801aba524c57681e029183dc59111eb28faa453385c92a7e9cb7cc020eda6ed5f213b7baae1002ccdaca8b0a0932279b9bbc89d96e02a729224039997de411672ae317272790944accce33c20a484eb7b3881b9df6606e0bacf90442442004c73898dd51384d18a4d1407618b1ebfb2a2c4d6a8cc6facb8fbb6ba8ebe6a05b1e34e12f60835b8e4a64fb14f8178cbc57299d7093ea4b9d259a5b21d52fe742c1f8088b95ef956cff1813f48e3ac0cb2a464fb563ff86790d3dde506b03eed30bc9f36d65e55c1de9a6f0134e833dc0488a4835ebe4757a1351ec3e7220abf7b61f9ec1bd713ec8560630c06974231165b65049fb574a5998f54958691c08eaea88093dda578a9caa544ef718c9b7e38a726ba05abba4cf638b4364708fa5b4fd6c5eb17df5a496a693a01ad3cfcfcab82fd33622ef21b4b27ecc1f8b49da40922206c2b94a61cce67179122e591bdac66588b88cef46aabaf0d2671607776c8afd78cd34010255f42fa2fe4c0291a3b329ee24d5f51e85b97248cdfc79dba67030f558c26abe2fc0948de2768a44ba935414a275ff44cccfc9d30f1a144e835b5c70de46b2198f7f8267e7333c1138e3ccc3cfc8fa3d1f84f4d2134ff6863b44e3905c7469a1964fbd7febb5f1b13f301f46c654e15dd9b59f42a3e67c5be82d0c0ca004dffc54d29c611896a9ca02acda7f1188f2002055667d424b68da2b0534aa9a541743c24c6373ed3db4105f8662b800af23bb5f788a4cb8ee84e329bd9af8bb126f8ad4ed1af172696a2a9040e4479f67fdf90350a5c1b482605b03e2b2f90023da8e965d7d6ea3678a3d59a83217743cf34cf19b5e388b669b1645aaaee6de3cd9f3b563237498fa10438a2643dedbcb682153d30ab26b139f7eb91369fafbc93e40ad966a6aa98497b8e77fa8ac3118e544dbfddc40a3c3e4357a2c774b1dd73fa84e424e1424f27fee4e67377c8f540fdcd38b4b5f7efd7740e0449ee68121d444acc7daa52b0c41b405db7a01bd8d3c3798b183daf8f70f2513e22e4efdb9e75b6a4e8d9fe7855d982f96b9ac54b3314dd7aed64d199723bc0d999103b52994cdf3ae81a2b08ba7cbbbff8a53bd7f3c2a9f0cf78a9d6d63912418411fc8a323f2a1aa1956efe5688cbd413a466b95a9edd02263a58dc138e5f77969a5b8746544faa9f80f2acb24932722ca7e498069b2f9672deb5d71c96ef68e1769e2f1a513f20b448072af0f0be656a7623a5328a040c5d6cae6dfc10219d06463258ffe1aa2f49667020e774cdf1d6c5b7fc6d8dadbbd292c7c1b1be1424d5865bac3feaa2c353f2fcb9611c2f62510d9aef2d59c10ee983b126b22bca7070a0962481b9d5292931bdf89441eb228af78183b26835ed8445402f24807361156f2d0465095ff58292f087abec608abc04340d21148b38f5c84f5c4952063a84c3dd78414a8087674a0ddfc6b33b4c84e3aaf2b08663af7139a69c07c7af453fc2112725cb3eb2e82c0c67bca2fc72c7357749e292165fa9e8f1c38ae8c826b5497481ab3be62457f27dab3db676fdf2291034f513c3b4dbe44fd26d471ba680249d984d62a3878235efef473df530ea4ad2c9600e82fa5d130a60e1267b907d44078017732d8e03a634655faf01c0b05baf266c7b1777992aa7b4dbfc0fc69a77953b146f6f8f07452886523cd351025f157a2f7139435cbf0719cf1e7f7ec5060294e0b12f518d79163f5cc3261c967ae571aafd69e127bb57f4b61eb3dd870743ca5dfa5d376eabdc4826bd70824650060f2f7527fb396914b8b82e8c0f900761a51c5491141e1467d606a0a2d2f933b43a6e690484122061061c709bcc6da13d5e7078f07d8fd7d2c5291edf86773ace8f4daac90d972eb6f5ce3897a491976ea721217ed94329039e469c0ca24fa9d7d28f116dbb42e48d85b32e04e3289fb04b2a128e80d1b764fd8a672f8124a3b24bda2bd35ca4e731a5474189a77493d79c5a39b23854e97c1bb97b9050e73f0770a8165caa230fa3557d07c2d2ed19bf0e8cbac54b3b3a37622c5b75c74a10c7da6cea7b832c678138dd04aa101a195c55873b620cfd670b14a921dfcf2bd7574f8153d1f9c2cfa3f23cd8d8d8be3a5cc00ed464c484252a723c5ad94b23ab446531c2133d7ca2fc675ace61b8153dc90cc0e98a7c4665103e43f36273c85a5a6991ebee909e740f695fb29e2b7a7a76036581abeee7f3b3aac63337767cc8c3796b064beb14835426a4f36b3a9679e7894db535c2fc5e331884976c95381bed17849362509a67aa3a020c32eb5ac7bea48401436c411e6da0869d7b45b9b9d18935bc2a85b2c113b2ff510a8fb14d5439965bc642911becfe184784a16002810b8e8f846c9a0c41d066334d42298701b6eb25805660c052ac648b89375b22d50a31ad9d7a0c72997db47f8042ad795f362df5c72db83f4145cc0fc66ddc7543227ef6506dbe706e37a6899747994e750950f378510e45a5424af140626f3fac481383e09db55de8861063b1f8e6c769675abd9f2493626e47249696c2a70ccc8b05eae60540c2e4e663c81b5fd4be3633969649aaadbe70d43591d043abe4bafe0b896f961ff5e7569cd4ed5e7269bb0c073f9bd6030ab92440157268431500eb550b41a803e772a6666cf786a2294a4a8c68790f1714b91967e9a98d2b591294f579934395135e4ba570be6ee6537d83499e6b4c186279b33a5beed98f6046b5353292683c407fe7f4f4287319165d3b62c686390e66c840646a7b9cdd25efae60232f2f681c92034d0b7d805bd48b625fd1eb9c1fcf206c0c09dce7c49843e9c2bf7405a06b1557e583f7d9b478750c1d91f3f06bdc1917618b918acaaf00be987f9f43ea40446b771f27ffdfa2a4ba59a570c298f55e8d9d6aaf8104a1ef4689eb1d575728a42af995ca9e415e194f76884148747940b4b878842126ca733e8cebecdbe19b47bfdfecd157ada9071aed722e483b7aa1fc8d440ec44c9032d479a658157aae8f9e0fa716b6675086e8fab8bfd0080553a225479a803a0bce06ee6e901d3e2ec61f97c89141e1371127a7581ef4105fe7361e1ac52234831cc3f2c5029e6cad7b08f7edb5290e87c59dac1b97bee4ddbfc0f34fac19416dc6ce83943e29968d15f3aa6ab48fcac095a560f31a3868570759f2e162480ee3cb3fc142a88dd89d3c434839191560581e1333ece9f1aa196d3deaae80edba82d68874f5c8751543927c8416e9994c620a4ffb56e2b269e8ae73f5fe8acd70a79519f4a2ad1e9b5b94ddfb02b8f28f14397877a005d8dea27b0ae378774df4668af94a6079b72e7519cd95119a34793a46f55ce858815dfbc6fb1e39786158150e39b8cab2f92ca3d4f424ddbd4454b7aa24293fbd2a9cf1342cfa347ecf0e68a945e3837dd983c03f316811def5b06d738883dd25a6a2da3a975b71a10bf63b5b4e90fb5aca38fbe2fcbcc47656f4e0148d373ad6cca377063a7cfd7f963c0a1e60cfa8ef5bc443d0ad639f8ceeb194a8f2725f3437773d739c412fd74d498ff3f830fdd7233828b0d6dd79d1fa213a4e7eb1e22ac44d38dc84ee2f288defbf150e6311cbb53b46fb898dcb97e33840dfa1fb7e2cb6817e8712efb207ad7dc07dea5dffd67a7f87e91c7d74c897e4220f1f32011072d9408335ddeaf1b9d0dcd59e1e8e7fe57c6ae9d0a261123d1572c0c236030d2ffdb4cebe0f9f940a5a9f8a4ad8e35c31d7f25ebbae3ac7ea85a52d6a79c2e3669e93707d8d045cb1112e332d8a9ac3371e1833b5ede58f39cb611d02fca249934f06ad24e839d5ee3766b297475da7ae76879de28b5ed62b62a0c9dc0358c4038ad9f26d35517accc90b207455044561084b5f13a21c0a484c896184b6373695ac01fb42adcf8e745d5618d842737e293997a3409753467ccd16e2c8a134bea42dca7be042eb4627d82dc02e90a2e7afa5756be99f6c0369f2909f3a3af32425b5d8722560f9e339925a305a8100a72f894d4753fd5984c8abdf77c3392f0d68db916deac058e94a6a4cade4171d90307d368bf408acca98d482c595abbb13965185c368681d72d47be54f5e10d93aa8fc2b4af5f827fc20e3f4f4523da989fe209ef48bc6d2982784c6825e660eec0e5027ae40804713f659d08f615950b967ca3023a4297ad37e1bbcc631f5b0ed43f706b57378aeeb30c0653b8282b337d6931912e071f9a5b6c1fbb9004208ecacbe87cbf55d71c68748bd8d5118a294e96abde50283ec91019cd1666e2772ecdbd920279e8029e17e43a07041c91e1aca8029df43e9d6c6e0af9eaa0b492caf527242e57c337bce3961ee9e39f05e5e2440a3bcdf7cbb1bfdfe6784b581d44921a018c40f69b9b6623a54a1874f7ae33a62badd04f3285c1f703724c1185e619e1f0ff1880c86d8440b628dcee714d70f64c6840de69dc4b78973f2aa59862b2e467f390d828898ac0822ec31a052583456226ac2f7039a3a1086f52abf33aeaf5c8dcce1ec32c5ff2c1830704aaef713bfcf50fca0550be38a414865c95ef557918a881d9c54240b9477772c4b0b30dbe41a18afe473e6ced6d2e29cf3e3b992c2a27f8122095dd0b4ed3e94c708699637a53e0392c164a175637a0ff2a2ed71a1a1e4581e08ec6d23185e78a76b0ba3d35d80a8c12e36e01fd066b6730ee9a7deae78ca40d48305db6c4ad09eb28d415d7c57e5ae2b2ab6d468a6f2f27120ce276a3f2e37e9137e8bcdbccd5705322e634e5d958745805bb8adafe23eb8aa7d36541a31a0482e1ee478d830b9193ddb34773491a2c91b72b9efb8fa08fcf30b367f45afe5dd284639e76eaccc868c94262581ea1c71783393e2e7f63701f6ae8e22e47ecca4a450a25d2af6268b3a7ba330058c907a434fdecf71698ee36b47b9becce55bae28a63849cf4528e4f9348f39ca62ad3988cd4063d1dbca187eac99ce0ffd54f08ab04628e96d2820d94e9839dbfe38971cd99db51e85ba479daf31e4cb40e0a81d2c4521a95f834bbee3fdc900ded4c61d6954ceb0a0a16ee28b5233bbbd380ebdf5655676c371ab13bf64148c582f72c98f86020f86dce50f7f531d9cb6964477d1a2be69c9f8388fbf2f8e82938e474640f9900592be29f2f0eec1c509f3798479d39e5190f39b0ad80b3a5a759072d5f72f5efb4080336362a82678fcbe82c44d70c70707b3566070c604cbcf77dca9bd705c205eaa7de9969215db1f1a7712cc79a1be2cccba2b6ace3e454f2af28356a9d8b6bc7ca62194acf79ca0aba9fef8e5a59b15eb00e57f6e33b525e16721071f8462e3d12c6480cff5b413e249d15da694151ff5c06fa5e37c077226bc5af71543f03856040ce1b1e6221f701aaebc051e687a3918be64ea278ef10e22845a8c96ffb7f422a3e84ab816c2053666317c190f82909b4a5739adb68232fdb418782b8c8151af3b6a10c160c6ed9ebacc6f44892cb12921b4953dcde8c45855b91c6b188c7c1835a4d9e011c6ca9c6b89abdf7eba85b7cc1e1b45ae256cafaccd45cbe792043a0d77fe04133e7654e3b729aa7a0335e8f3eb847db89d1bcd844852f443d45c8c61559c97dae661e8351eb16a5f3434fc43586f9109aed9d8ef0ce5264788d1978af26b8747bae7c82a84e63852f383cdd83aecf1621ec72b336f20d443482f7fee72a484ad09fcca3a3fe72ae578801919559e12e8be6f5a576a550b459ab763fd48791358192fd8d0577e01bf84040e2598069b87cfceeb1a501526a33eb1f8e6850b99f00cd78f546a27f173dfa96d53bab96034c5e64860c9ce511ef58372c724b3271327f193198161a07f2de1735ea1ec29f0104aaa3f6273df35eb22b836e026bb97f75cfc32aaf8dec2624cddb52e05494505175dc3e78912963ac337b9dad1db414beacf22e4e46badee460c88576bc2ab4ecd11dd422c283129b1eaf32caf5e1ab7b2c3a14ded13e26810d0007855832342c0218a4f6d7e30acebe73ce4228be268e88d1e819de3cf4d72be8e2acb6aa8547cf0bc7cfb432270f47dd2d679a7ef7047363442b26cdbc275231429c897e3bbe0f30607a2a84df70e7b9a20030e776c08988606a834b9a2129d2ab4a1cc87a631ef72af8c15c9218bb17ec8b45598833e3f312663a2c24312133859df56fb3942c9f0ab19629ad777951a21d2769a5299536b8b42e63c04509b43540881661670981735b631e294637829c63c8e29f7dcb40b18cfa96ca5954d26b3d5a54a8d1b8a801649a60fe64f5d83a8282b0a5c566d22ae1fd7d2c20bd19afb9ff1eb63dcba3d80a8cc42bad0ab3f49c63808014fa6aac41ad0cb56803974f4fecb2bd03ab857f5bd0493662253c8026a65d0fa2c498dc081227d6f20eecd1f340be7f1dc885d049c2bc39e3c4f256c2fe5426235507461dc048c975f79128e5a574b772271bb622f58af11602d7ad80bbc88a108cffe4b387f4ddf489eb73bfe28e40a64fb67717d77a93de703b9dcaa41ff1470f2cf55bceb2327e320aca7b7f75b29369453b344502f5529ceb6876f3a15f46a7464a0c142b6575d84792b7c75e1f7acd7542366b116a92d53a8bdfdfd9853ec1638c20d03419926ac549de383be5c2b152c93569d30be9a641e2356ab80342a758e23d85664ac4736c499e84a78be5f40ef08db516fe97ed615eed467aafe10a104fd7a1676dd838ac37b5a2f28888700d15399cf385e61c5e00a351e903aec48cfb15e71df2f7b6a331bb96b6b55dacc022e38f68749ab69ee942b74c6b4ec2607b254a89e8011679f7c82c25568e0a1ccc58f3f1c5206aaef3595f09f1ad044eba990d087dae2d62484621cf714e0e31080d1229ea99b8898ca27043c7f49835f2f4c63f483f2357c6abd81cad2c78d1630cad803a6f9c5cc430bca890ccb6dcec367ef960580b8a65abf225fcf442a15aeb57caa7197a2639dce4d85a672cee5120891e3d5690037db5868082c2e104f7a70823c4d21ade5464b279f09cfc4d823547fc891005220e6582391e1a9ac23a9cc0c23f733b4e39b9b9951f7379990c0e900c0d02a923cde441c7f60cf563f0d17b246e53bae485855bc88ac3edf336c344dcf6b6b559319ef3f295712f8da7b303e2e373795b51ffd8efdfc7da2788f81d39aedb91cf5884a3c2cdc7feaaf6c9d7ff1bc7e7bf151510cf4c44fbb31b82a7e09895c2d5206a1a661183e481507cf3c609476a09e2c0343ede94efabe47d5b77b4d132d40f7e50e469ba006f52024a5a9f68774a9b9c6e10ea3dcf302cea4d72720193ded63251b78046a2d388f0634ac1ea0a1d01bbcfc388b65f58b6b61325804d571ce9afa90c86514525c4703cd7848b00e24770cbd36f5b96cbee1a018e2e80df70599022ed97969c626185edf115b2e21b81506edfb8184cfc5c869da8f78e378cb97a5f3c80f46c93b60368ba5635c399ac77ac373683b7515331eb75e698972eb0e769a4ee7562128a9601116ed3c210b6cd8bff3e8ed5a59f1ed0ade56b9bd4921a0bcccf1f89f9c7c33d177f46f959823b3e811d715a3aa5d7e95557b32bc110af8889d361c74899b7b6110555b95240623802f66040295a98030b6beda3d66d1ff22e895b2f42d78e7370bf216a50dda1451d97af014d32fc8b418e7faecc1ef63db8ee120</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+  </entry>
+  <entry>
+    <title>74. 计算机组成原理</title>
+    <url>/2019/10/19/74/</url>
+    <content><![CDATA[<ul>
+<li><h1 id="计算机系统概论"><a href="#计算机系统概论" class="headerlink" title="计算机系统概论"></a>计算机系统概论</h1><ol>
+<li>计算机系统简介<ol>
+<li>计算机：有好多种，这里主要讲授：数字计算机</li>
+<li>组成：计算机硬件系统的逻辑实现<span id="more"></span></li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>计算机组成原理</category>
+      </categories>
+      <tags>
+        <tag>机组</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>73. C++ STL</title>
     <url>/2019/10/12/73/</url>
     <content><![CDATA[<ul>
@@ -4761,116 +4822,6 @@
       </categories>
       <tags>
         <tag>STL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>72. CTF</title>
-    <url>/2019/09/20/72/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="b590d6caec388237c55f3d3947ab0acb1b3ff458b44f0e39d7e505b4d43f5249">224e6e458bfb907617190d6d422f2f5e9d7ac4302695b37fc3fd6b70b85e826dc0df62835bc946cbdd6ba380b9abbfd1d26bc0f40c93f9694f24cefd8bb9fd494628964efcbd01503c63b7e750f1fecfdfd54ffce5f9673adf0c476b76e1059e9b2c281bc1d22214afca2b5ca2e34e14dc77c375fdfd4ca759c5934ceebd376195a0e3cec0b2c0f832d2909637a3407b93d26a34f811ced0053ab328157d364c4cd3df239c3225c14dc325c366e4646c9084c978794b2ea85afb50be9fade9f47e6c5f48d8777d49c65d33a8a45b028f3f2c798d0b58655dcdb3feab842df0daed04d5d9fdf59cfb6e65a46d29584aedc307ae61e22ae7028f9484d5022a5da30753546c04ba522ba9e3ba67cd75382311903b2d70ab54825cf2f7af8e44c633a5aa03a6d177a88b4a321d9ec02e2365d9c87993118512bd0aa08ba3a60d95cefd1c3d67d360e26f32945742e75e8b5bfd030af83070f145a3eecbf8c9d94d0bf08ad29d63d414c7816ec6e72babf6b66d7a13e1ac60402eadd200eae31eb9513558f0ab2e91bc7927215e3e5ccf810f9cca061e025ecc579655599b872cdf67f0a8a872e7bde9ba46ff5f364f20c8cd874ea540c6bdec7a8f96d0c758414d14624c705ce9120cb2ac311ddac15d101d896e24b787b6033bb594ad626a305fdab5d9f854fc1bf00dc75dd4aca671376151aeb73c9dbf3c6ed8f36d2357599e674e2f075a67ce3047e2d57ac357fafec9d9d714ff6af18c7c8c21551593138e0b9e3183685409f867e8f1f638eabaebbfe7b5f0bd2c3c6635f9c896c054f85a7e7600e9e1d471249f4bd7927b2ebb930baf972c2d59fed7a05247974b26d9561b585d2af4bf729c27b759baf18dccb14b340157ce0dda8d116e9dcb81c1eeefdb23d227a0e189f348c77a1e82786a869549950a1dd2be0f440951255972206f2a07482ea57ae1dd2d34922e2cca6a0d1b83bf35aa7234cbc3987e6fa697ca8dcf28f0f361809d6c830c2a3ee635582ecd52df902046c86371f49d1fa00873bc806b0c425c7708fbec45382ab96b70a92ffa7217ae0dd1b10f04b356e37241dec4c99cd0f4a413dcf2a2ef5e5c0b5f73e08edcf9ba8ea04f3bc5f55bdfd48728b8a6206d46416daf8df83246176b79ad003e295eaf0e1945c22235586491b9efac824443161ce19273c4dff0475665a17d3268386dd377d60bfe787fe6812f05b414bd6135fdd9e9fc86627bb46f205cd9bff5e5d932439a6cab19a6e8664598d360b31e1fd1bf28b0ad9eb1a7781b6209e8bab6f3927738a16422d6637ce1f0b7ae19f5b6fafba7123ae555f369347f36e7c9e16dea637287358313c3aca1e36d2368584cbab9468b342f0279a6f4a37087b05083ba3547674b8dbadbd12b6222d4249a85b2f5b53c19949d77539ef65d39d45bd7425424e038543032c88306b91db17c0eccd993d798277160f76f1eaf3a88c3cef17daac4683d206ce72ec7029281b82db71cbdfa81395b53e6e79ac7044bb3d175cd78f5341d651f86430fe435abfecfc62fd5ffa5036046ba211d81bca15760ac40c4ce9a19b59305aedccc4318ff958d120e6e3d73b327a3e99b9b659bea740a726718966cf0678a290962c537a6092f4cc921e92f49732b6c4bf58800ef0e2e64d27fa191eb1ed41256b3f63c698684b87f7cac46e75fcf20c678c854f8323b15a6b35147a1b5f41554bb7ab6393914ece4040adcf5fe302da6e77c2b401b3e4cc588809ecb2f4947e9905616babae8df7f12530b82aeb8be834cc16f59de693bcc39efc574544563f0c0860595993b8475bf72816c0687660b1c6ead70f78648e50f1d1a97545940b1931c79285e93953efbba994bf717beea60bf03f90061b8e627c2deda368e0b07a72c5013ae39a795c9ee9e1b062b44ecf95f6f13470ef27f83eb765b14d857df7a7dc427b55c7577b84fcb3f20e209cdcb404b01a1e60687ed21ef1ada47e0ec3003817f035d693d017fdd4ca715147aa0555991b2771395ca2b78b7a2c4621efe01ba47f192503673a0a4f11dcd922b8c895143468a1b6e3ebbb3b158a09387e5e8e223cc7614133e906d6f18b7e5561a4802003f35183e079a6a45cc097717ebf0c88d56e74f33d07a1b28aabaa888368fc5e006e7bfa6f56cf0c259f932671fe47f6c3fa6f6c7bc4a4fb83375fd0ebb9db867ece8cc3543c45fb0300e2661ebb03e68c8265af30cf888553f778a70d7d502e57ff5618d8bec72a166bb4fab075b15bd74b7ce6635aa7ac1a84f9721e75d4a95576f055203bdeee0ff0b4f814c09d8ff9dcba810efb0b968aeed2fef3df85de55310f745adf945f253fd77a860fb5282c658a85b805c2817148e5f47142c403c8d65192e025fd67431835cbcecf6f6ece5e383f3624a74e36657f8832df8a749613d657906cae1a349f85e898b3d80ccf724d88902e3f8746493274865720427793811b3d552d442210eac1a7194bfdf19352452020baedc0a4de652a70a856139ef27c7300f58a4284736495affb585740a3f03d3ff9a74a3e6a8d1ec842e27511b050b1556f60d357099ae180c41c6a0ea9a0607c20fb09a625c3859c428854456913e232aec9fbaccfd5bf5c912f5b6cca7d8daf03ad47f9dfab6be313a179967e6694cc9c5a5a5dae31266876ef827c9b338a1ab7723097ca673a29913876d17cd8212b38da2ac79cda738d0c80998c1c39e9bc1e371508ca04d40fcb89b65b1771bdb04bdea2be63db478f5e2b616265c2ca6df8811b51cfeaf3fec3f577249810e92d9e77fc7254a1db254717cd2846a559d341d1b5253a3585dd2391db9a1652a2a6ad8bcbf2d8d25ce89efa47a597c0b0d4095f17756655d259f215841072815791f958b188d2899caceef75fc6578853c5bf398467a0f16364000c19c39d81d26f36d5739dc456fdfba88df5a0f34d39cf47d608431dea14e6afb910c3a93037c23cf96c20e04fc20e4cb4689c4c59fa54f5148a36d0ffbd13380d579db8c25d32efd3c7757c8ce9d17060ba164c2f205d1e0b2b7f9289c041923c95aeffc4a32dce80042e4e57cf815a1aa45af785fed2ad92af82415f5d84af901445b336e745db31da76eb869ff4f4bfeab3dcb8d9502e7917f24ec30f3a9ef13910385d2fd259384ba81dd16a84d0976e89534540027ca30251e967caf6b55d34ad004798fa8959b1c22e5c6f2f3a119dae684b88e1e8315e1b26dab2ebf5928f24e096c595371f9eb697b9854dbb999a655a71348bae6158a7c3f995fd9c684f5a532d8c6f44f0123427f155f208d2cf28787058ebcb1bd704b6db75fdd2ddabba9f1a20cd52bd5bafb3f980aeb5ccfb2ccf1bac4a396bf7410c1b0bc59a06bf719f797302ef7fd04e9c90c307d3300fffcbaab73cfa0621057f4fb2fc9f33bb8017d82307d21fdd3ed02a3e4a0a5ef4ada489f2ebd69f71cdf008a6ba483ec3e7c4571e729b6376cbe7afb9da8929c204699e8c99fd75852e7f0a08a7dc7456b30c0c6270b0a6b3fd0ef704b336591dac20cb7e6c7fc2265caf7d7552b9ac5d92d698a7cce472c98fe3b6859a20e6818e67a889a2dea806d7ee85988e5cb3f322f2fec973b2650e5d20732e47dc4d17cffba5870c349f6dc00637b3745c13688e21146ff68a3379c77177c32c0b9a60deeac587f91b991f7b803c9c6ec77930ecc8db061b080ff2bb31bf9633aa8ec1eb98e0e5eefea55e80bdb47375b93d02041077d02bfbc6dd09dcbfa19f0a44f31b6ab44652c6bc56254e83526fa73db6fb53b55f412515088f27f56735f0aca3e6f37300a6776025d39d11e2a11d5d3157c76654db10fc4c37bab78e28e45dcb930063074c64f8e8e456e83ca36b77e73de41c07ffdd102a44505c22c3d33cb48651192cbfe767aadfd7ba9311694e4490e77b95cf1f310476d66bfe0f55f686be528c9cec477dd25c5dc4db8895410b868abf24abdd6225cc5e865fcf5ef29c34da80d5bf9360cd717e3da16ca683260c4a61c110f3346b562e3d39febaf4b847dc5141ce5c13a4b9834955de97c6bf89cea224fa69c4f1cb1006f2574660806e01eefed6a3846833997025189f7cf8328b06fe27d796de8b516207ec856a2afbf5f4f735ed9ffb566867ef39bc2887708e804fb439c4f66e1a061a3b454b21d136a458d22121d911a029f2e8d2098e9f537d4daf68a9ddf21c941dbacd8582257f17c01c92c9d376fef32a213970ed1ea633e6375dee8e3c874af1ec6922fc1947b2e527f0db0b3d0bd3e01a977b914c5b42b9f02b86b30140a65f58a749418a391311bc0d9766d9f806aac7d1f63869e82795d82d6235464b2e3fbbec1d296fdf01426d8523cbe4483a050ed3386d98d36dc332eb95ade35be78036177ce45d7ba37f52edf936e0667a35eab2009bfe68740d4b1a519176ca863f6c15d82e7ac257486a834c2dfffadbb470391004f740a4e6bd6494b310222058c4707e680f0491c563acbb138c2d7d7bc9a31453250bdf2bf1348a2af8031211f5689b97e682fdb99ec2a5f676684fdd074c8260a7935b8cb9a5fcdf32df6676bc91aa432ce7128961c9a1ef28926fde8877752f8d9061d18b94e6a65423f0308f9d8a1b7562d13830e7ecc3e07dc759c4f950142695b808f89014e373dcc8edae4b20bb47fa259bd465db1d19e15cb37f21ec6b8483554ce77e557983a55f71f29a64bbeafce983575d8675c7f2b3e5204d31362b0ad57a092db53390701e956ba9146b664c1cf7ef16334192fbf4e78f006f2756aaa24daeb3295fe547afd34f9146408762ec043c6a2794b41d348b5acf7f0d8f04c771883d300543615fadb90005fb0e4f9f79a373299bde6aab7231db251b66c416e1be2ca7c7d6c57efa7bf7506a2df92a7d7593bed5ba155c8389a4d9f159763cfd199c4e1b813eef0ada31cdd14d5bc744af9977d759692f67668f96c84914c505a88d34fdeb2cc06c1e0bd000f73224a1e86047afccdcb5b69565ff4ee44ca9fccc4e34c7ff4d07ebdcc0b7b1548e323d12191dff631ea7a98a3b6a615f2de1a1b104ef2b1cc6a0774bf7b3eb736eff6ce2132e3d4852241bca21559d6f60c857d8ebdb43ad88b6531901962eca60a1bdd31d3a7dc6a007c94250dbbbcc48689115964c16e62f0963e7e2c58bf6cd386e25bff530c1d7ca0a182ed4956831a453fd650d77e3d66bc8f39ddad7ab10bc19fad673d6bc04a3d09281f6a98173b5f13fd3f7d0a40a1ea8079113d6229e29d5d7d562a1e082068eaa80e875a6af75e695c1090204752d6a1c07a28d85ae0044ef21c2e9047cf91f0259c429ddcdc3937cc1412ca1f63c445debc518d97d430ac0849e92c3b41f30740ca90c5d01f579ecfa11a445688d6d37ada59dfff12d328aeac76e6d3bddc2ff0edae2c08121c5fc70a693e29df5309fe54c0dd5c1073aaf2acc77939693b9d85eb67f26123ebe70243587c73d9315c5057bc8b9b76eb87a847cc392bdd5a5cb3c98f555a79596b3d6292a09b2ab1aad2d78a6d6966d00df6cc0a9d96c214ee2f454300ea4d2651d9fc9ebf44db2bf1e98e582399664addc26994881d7bbd03441273a1418c4e066d4e36ac70a5430a5280599b13b067fcdb8b468bc07d941ece02cf24ae83bf5a4e85ec8d2c06af843c660d26d417e4da572222e5f9445366607393976be205f664dd55d984ffd1222c71220b531849b776717c755002a73fcbfc81238beb23decccd2a8c91c69bd0fc26ae0d0654a98b28ee87c747855420ab42f37f5d5ae5f3203366f3401074a3a3b1906808f75bf81ac22c3524f068a3d6fd437cabfd64ad901cdbf5748c1c011934e4ae4a1a7eeefe1bf194f7e8463bea3321d0295d8357671bf575bcc2b659ac29abffee1e30730798edbbb3847e23848c2d10054d004c0f1b7c90797efb089ee52b324bfc0c745f5500cdd0ad82cf4991af0cc6f0dec29024c75f1afef58726310fedacdf563acc6290aae1830777548a53c1c785ad372f7173a0001bcb780bbd1899556f17523002eb30da32a0c30d3678893a9d2be965ce52fc1fca1822ce03b39c44ad2af1ee31b4b738558824dfb41b740833184f85f96201565684b6cc3983b2e10d71a3fb98d3c2ea2489bbc56e24d31cd9f2d80b87fb30f0c6c3968697f005508db6162825013d036f803199ada14038a2a2053e5e0c958fba8eaf0c543ab32bf3ca66e14064a824e20c362bede8a6682c131bcb837c85e514c84749028965489fcbd841fe58445d9e1e3b6ce9c55f09dd712f5e021c77bc8fb3786bfe07ecc042f4852b9ec8a1cfaf444564e07352bbccd9585e2c72e730657a073cac07314dd2fde67b7b0592e041c0a4151508df11d316498a58ffd5656a19b962d06a8422bb65e13887ab9f5a95e9041875f67db8a24dc7a5952bc1abc169b0f0d138b92c3a80465518ed38ed0923bd2b3a0fbeed085e09e1d64c871ec6fbd9d65201a05926ae1d83e12a7ae69efb1c282382901db104cd8cd9e622f18eea0a2fc53ece73559e38658063e2acc1c4cd1dbfc00768c0d2e6ffac76ef99bbcf59b36dddda6e2031312411a0ce4d396e75a4f5c94731065a5d0b617b300879a4ea4cd09586c0b06075436b7f634315380179f2acc66ec7f8826514fd97ce96d28121acc8113bb1b5db2345bde16d3f30e7939838904e351e06f2157505060ce6dc1a70cebb53529be955f0d85e046d366ce9d4bd87f1d9a839c5ebf25075796630ffdf4c21f89133f80376ed9ab911a5556e916211ba4465fd03b2452654f215f71b75929c822e96473b8aba2ae9b0c9088504ea2ef46544caf06765b6201de2af54924e9e7298d7eefed0f1c22cd8bdac68bf8f6f9e6d21cfedd6a6c2ec20252a9906c442fa6328878c18e881c6a16c0359df41b5462f68549b07e9d0d30edc15a342e8ef5c6dcba6f14806eabac61743ef609cd2e1024b9f07d4f08dfc0220bf3bcbb36f9f766341de3a5182017eb72eee9b6254efb7ca205d3013bcd33481548e52abe458c34746066d48360a29777c54dc7a41ead3b1a1037ecf97afe5339d37c00358db91e626661b008e471f46b5bf0bdb6baead421cc37f06ee8ecb9e3c0e5e7449c9680c0cc142a945d2a4cff62cf8d5b3b074ba1079c95af070a8c48198ef178d9def2d39681126442d916adf3a19b7b91b28a75e4119e63fbb710a788a73548dc9c8c9a05b229ddda9b5924e9f816f79a77f47a5a8a274a2227b6264b60f41d536e201c0febe299f4881683204eaefae04f7f339e09ee84a4c91586d0f7ce1b561d7e6b9db5e36e9cffcb288342e9b458161c31150ab8289bf30a13153405a5e16e0a169df94c84b34c8f76542e9707c20b985c128f3c5ca3dfe816ebfbc6709aa5610b06bebb809465d8f56e9e4a37b456c3971d0c690bd36ca36c62dec902166469dfa6f1e38ff6fea10ba3e752b00ac2ebae1a0b8c2b80e1bcc2abf9432a241eabbd9fe3fc922aec6c888f3729ec9960093fb94deff9c689b517d49a4a91b75b82ae2983884408f295a4fa42ef6f9f7b3ccf421739af6d3065d0938a08682f585a9379fcf18ad7bcd29cec9f37a86c06ae3bf46490be9b5c15ba08868fae2a32697dd4985cfcd8b83c9889247cb0d451ad6c4ea0c5621a0a913b42167d52b79eb32d27b6db0436df840e1b8210e28a8c2450fa9bf950c7e6d47ede99f2092816bb6c520fb486b120da4cf6beef84ab816502df15464e407f7379a0a80d632abe354d2bdcbf1bf5c8100188634be2cb504fcd433eb4b737959eebad5523978da475614b952095f61d3025971f9f1b2d8d765f633630c875f59680e44fa9b7fe0c8f86e7d63b5ee21331a0f5a3e3fbd755505307ef3b2cfabd4bcc07dd9f1fce4247f7c03ad4b1da082089f41ab4093f9a50ec7c6e1e8bdf34a830fd922a14eecf6c194406aee4b71731aba92425dd403091223305c41c08b6eba8f11408a494d9aefc502fb419b21314936dacb3f6f4e0a6789899e0ed8de5157460f2994b05cdba33ab981e40e857a40dbd2f302fe2043f740a400b38c56821a66ab15ffe3620c383e8531624760dd87c20d05afa27c12e33690531236ab62adfe6c4db38ed6291fa22f9479f9cd8446c5bba875f4ac1968382e38d1ed0e545b69f30a44c5acd4a7f384a072787492bc24c9834fb5fee983e744dfbcd8448f995fc78704a53c27515f5e6ccdecdcba05a56ba77f981cf0c66fa23a24ec1f530848cedb05dd6df581d3812b3292d991f945ee4b1bdae7b80a1502d2ddce6dd7c459fc4374f27348159ddfcfc252cbe17381a448fdb6de024aa2313fe87af78e63e092659189e34f3b8c3bf0c28a308501bdfaebf85803ad643a96398abf1aebabdb6820dce98e041160700b26ec6fe282fa65396719b58972e0110e783565457e98b82b12b6a0407b4fa212623bdb945649125efb2050469e3fb51e90c0df1c396139649e459f431ed6f71d0467b8816e4c7d23b1712f8c8f0973ffa4399f614c4f4176b87c737102e682e36205123ff0390ea190fc3b18cea4f34c383436ace882476f3b5c9a5fb43d36cdaa18ee7b0421050e01fb9d3cb5e059fdd8db4b953edb87fe3a52cf170c610241c7b48cbf981f360da5a6ea53f95b3e7e44fbcef2d18e1261efa5fe1bda6748a9ec5311a697607999b67181a04dd36c658597c1bb114a4d078735948c84afb0cbe4a99c868b5e8a78441265cee518f1fcb14db5c6c19027669e7bb1cded43341110c03d3e346faaf6d9eb598d6a463072e09d0982f40a1f9b0ae9e89c3e5371525906ca6feeda56c48b5abc8ef7382a032498c05265375ba6b174a40a70edb1a39d5f537e6b5c936e8d31b1a6876e630a55cc5363bef9881f7845165eda36625fe6d86c1adf32ffb609703ab254f92371e7fad95e2be554fb957d8f3beb1ef88b8a0701163ba8ddb423f3bedb4b1710d9eecf7b70456dfbb9df52609c5501afd5aa3037963fd467156a30d880719dc4e3d340b0c315a31b7a459b88cdc05f3541266b41156063b37af3a09ac425846dc29dcb7518136485cc543951a99be37eb3582735c4b2b9453a84f475fac5f1289c480dc8fad7e76740afcc149d67cca184b8e1f9e443547d8a0feaf6b386a154be6848f4332f92d2c50dd6d9891dbfef78596092ab58fadea0204319377e7d7d06b4f23a2bdeb7fe785e92a731cac6e414865efab1b6f7efda02f766661fb6aabbc865f6b4bdb242d624545907292286ae7844f029a6d09c1736868e576ae24a2708dc9d649ac24e776fbdba4c9f593d7d134d7de121ad7dfc2b90ad19482ef3cf8a8341f0ccf409406dc801aba524c57681e029183dc59111eb28faa453385c92a7e9cb7cc020eda6ed5f213b7baae1002ccdaca8b0a0932279b9bbc89d96e02a729224039997de411672ae317272790944accce33c20a484eb7b3881b9df6606e0bacf90442442004c73898dd51384d18a4d1407618b1ebfb2a2c4d6a8cc6facb8fbb6ba8ebe6a05b1e34e12f60835b8e4a64fb14f8178cbc57299d7093ea4b9d259a5b21d52fe742c1f8088b95ef956cff1813f48e3ac0cb2a464fb563ff86790d3dde506b03eed30bc9f36d65e55c1de9a6f0134e833dc0488a4835ebe4757a1351ec3e7220abf7b61f9ec1bd713ec8560630c06974231165b65049fb574a5998f54958691c08eaea88093dda578a9caa544ef718c9b7e38a726ba05abba4cf638b4364708fa5b4fd6c5eb17df5a496a693a01ad3cfcfcab82fd33622ef21b4b27ecc1f8b49da40922206c2b94a61cce67179122e591bdac66588b88cef46aabaf0d2671607776c8afd78cd34010255f42fa2fe4c0291a3b329ee24d5f51e85b97248cdfc79dba67030f558c26abe2fc0948de2768a44ba935414a275ff44cccfc9d30f1a144e835b5c70de46b2198f7f8267e7333c1138e3ccc3cfc8fa3d1f84f4d2134ff6863b44e3905c7469a1964fbd7febb5f1b13f301f46c654e15dd9b59f42a3e67c5be82d0c0ca004dffc54d29c611896a9ca02acda7f1188f2002055667d424b68da2b0534aa9a541743c24c6373ed3db4105f8662b800af23bb5f788a4cb8ee84e329bd9af8bb126f8ad4ed1af172696a2a9040e4479f67fdf90350a5c1b482605b03e2b2f90023da8e965d7d6ea3678a3d59a83217743cf34cf19b5e388b669b1645aaaee6de3cd9f3b563237498fa10438a2643dedbcb682153d30ab26b139f7eb91369fafbc93e40ad966a6aa98497b8e77fa8ac3118e544dbfddc40a3c3e4357a2c774b1dd73fa84e424e1424f27fee4e67377c8f540fdcd38b4b5f7efd7740e0449ee68121d444acc7daa52b0c41b405db7a01bd8d3c3798b183daf8f70f2513e22e4efdb9e75b6a4e8d9fe7855d982f96b9ac54b3314dd7aed64d199723bc0d999103b52994cdf3ae81a2b08ba7cbbbff8a53bd7f3c2a9f0cf78a9d6d63912418411fc8a323f2a1aa1956efe5688cbd413a466b95a9edd02263a58dc138e5f77969a5b8746544faa9f80f2acb24932722ca7e498069b2f9672deb5d71c96ef68e1769e2f1a513f20b448072af0f0be656a7623a5328a040c5d6cae6dfc10219d06463258ffe1aa2f49667020e774cdf1d6c5b7fc6d8dadbbd292c7c1b1be1424d5865bac3feaa2c353f2fcb9611c2f62510d9aef2d59c10ee983b126b22bca7070a0962481b9d5292931bdf89441eb228af78183b26835ed8445402f24807361156f2d0465095ff58292f087abec608abc04340d21148b38f5c84f5c4952063a84c3dd78414a8087674a0ddfc6b33b4c84e3aaf2b08663af7139a69c07c7af453fc2112725cb3eb2e82c0c67bca2fc72c7357749e292165fa9e8f1c38ae8c826b5497481ab3be62457f27dab3db676fdf2291034f513c3b4dbe44fd26d471ba680249d984d62a3878235efef473df530ea4ad2c9600e82fa5d130a60e1267b907d44078017732d8e03a634655faf01c0b05baf266c7b1777992aa7b4dbfc0fc69a77953b146f6f8f07452886523cd351025f157a2f7139435cbf0719cf1e7f7ec5060294e0b12f518d79163f5cc3261c967ae571aafd69e127bb57f4b61eb3dd870743ca5dfa5d376eabdc4826bd70824650060f2f7527fb396914b8b82e8c0f900761a51c5491141e1467d606a0a2d2f933b43a6e690484122061061c709bcc6da13d5e7078f07d8fd7d2c5291edf86773ace8f4daac90d972eb6f5ce3897a491976ea721217ed94329039e469c0ca24fa9d7d28f116dbb42e48d85b32e04e3289fb04b2a128e80d1b764fd8a672f8124a3b24bda2bd35ca4e731a5474189a77493d79c5a39b23854e97c1bb97b9050e73f0770a8165caa230fa3557d07c2d2ed19bf0e8cbac54b3b3a37622c5b75c74a10c7da6cea7b832c678138dd04aa101a195c55873b620cfd670b14a921dfcf2bd7574f8153d1f9c2cfa3f23cd8d8d8be3a5cc00ed464c484252a723c5ad94b23ab446531c2133d7ca2fc675ace61b8153dc90cc0e98a7c4665103e43f36273c85a5a6991ebee909e740f695fb29e2b7a7a76036581abeee7f3b3aac63337767cc8c3796b064beb14835426a4f36b3a9679e7894db535c2fc5e331884976c95381bed17849362509a67aa3a020c32eb5ac7bea48401436c411e6da0869d7b45b9b9d18935bc2a85b2c113b2ff510a8fb14d5439965bc642911becfe184784a16002810b8e8f846c9a0c41d066334d42298701b6eb25805660c052ac648b89375b22d50a31ad9d7a0c72997db47f8042ad795f362df5c72db83f4145cc0fc66ddc7543227ef6506dbe706e37a6899747994e750950f378510e45a5424af140626f3fac481383e09db55de8861063b1f8e6c769675abd9f2493626e47249696c2a70ccc8b05eae60540c2e4e663c81b5fd4be3633969649aaadbe70d43591d043abe4bafe0b896f961ff5e7569cd4ed5e7269bb0c073f9bd6030ab92440157268431500eb550b41a803e772a6666cf786a2294a4a8c68790f1714b91967e9a98d2b591294f579934395135e4ba570be6ee6537d83499e6b4c186279b33a5beed98f6046b5353292683c407fe7f4f4287319165d3b62c686390e66c840646a7b9cdd25efae60232f2f681c92034d0b7d805bd48b625fd1eb9c1fcf206c0c09dce7c49843e9c2bf7405a06b1557e583f7d9b478750c1d91f3f06bdc1917618b918acaaf00be987f9f43ea40446b771f27ffdfa2a4ba59a570c298f55e8d9d6aaf8104a1ef4689eb1d575728a42af995ca9e415e194f76884148747940b4b878842126ca733e8cebecdbe19b47bfdfecd157ada9071aed722e483b7aa1fc8d440ec44c9032d479a658157aae8f9e0fa716b6675086e8fab8bfd0080553a225479a803a0bce06ee6e901d3e2ec61f97c89141e1371127a7581ef4105fe7361e1ac52234831cc3f2c5029e6cad7b08f7edb5290e87c59dac1b97bee4ddbfc0f34fac19416dc6ce83943e29968d15f3aa6ab48fcac095a560f31a3868570759f2e162480ee3cb3fc142a88dd89d3c434839191560581e1333ece9f1aa196d3deaae80edba82d68874f5c8751543927c8416e9994c620a4ffb56e2b269e8ae73f5fe8acd70a79519f4a2ad1e9b5b94ddfb02b8f28f14397877a005d8dea27b0ae378774df4668af94a6079b72e7519cd95119a34793a46f55ce858815dfbc6fb1e39786158150e39b8cab2f92ca3d4f424ddbd4454b7aa24293fbd2a9cf1342cfa347ecf0e68a945e3837dd983c03f316811def5b06d738883dd25a6a2da3a975b71a10bf63b5b4e90fb5aca38fbe2fcbcc47656f4e0148d373ad6cca377063a7cfd7f963c0a1e60cfa8ef5bc443d0ad639f8ceeb194a8f2725f3437773d739c412fd74d498ff3f830fdd7233828b0d6dd79d1fa213a4e7eb1e22ac44d38dc84ee2f288defbf150e6311cbb53b46fb898dcb97e33840dfa1fb7e2cb6817e8712efb207ad7dc07dea5dffd67a7f87e91c7d74c897e4220f1f32011072d9408335ddeaf1b9d0dcd59e1e8e7fe57c6ae9d0a261123d1572c0c236030d2ffdb4cebe0f9f940a5a9f8a4ad8e35c31d7f25ebbae3ac7ea85a52d6a79c2e3669e93707d8d045cb1112e332d8a9ac3371e1833b5ede58f39cb611d02fca249934f06ad24e839d5ee3766b297475da7ae76879de28b5ed62b62a0c9dc0358c4038ad9f26d35517accc90b207455044561084b5f13a21c0a484c896184b6373695ac01fb42adcf8e745d5618d842737e293997a3409753467ccd16e2c8a134bea42dca7be042eb4627d82dc02e90a2e7afa5756be99f6c0369f2909f3a3af32425b5d8722560f9e339925a305a8100a72f894d4753fd5984c8abdf77c3392f0d68db916deac058e94a6a4cade4171d90307d368bf408acca98d482c595abbb13965185c368681d72d47be54f5e10d93aa8fc2b4af5f827fc20e3f4f4523da989fe209ef48bc6d2982784c6825e660eec0e5027ae40804713f659d08f615950b967ca3023a4297ad37e1bbcc631f5b0ed43f706b57378aeeb30c0653b8282b337d6931912e071f9a5b6c1fbb9004208ecacbe87cbf55d71c68748bd8d5118a294e96abde50283ec91019cd1666e2772ecdbd920279e8029e17e43a07041c91e1aca8029df43e9d6c6e0af9eaa0b492caf527242e57c337bce3961ee9e39f05e5e2440a3bcdf7cbb1bfdfe6784b581d44921a018c40f69b9b6623a54a1874f7ae33a62badd04f3285c1f703724c1185e619e1f0ff1880c86d8440b628dcee714d70f64c6840de69dc4b78973f2aa59862b2e467f390d828898ac0822ec31a052583456226ac2f7039a3a1086f52abf33aeaf5c8dcce1ec32c5ff2c1830704aaef713bfcf50fca0550be38a414865c95ef557918a881d9c54240b9477772c4b0b30dbe41a18afe473e6ced6d2e29cf3e3b992c2a27f8122095dd0b4ed3e94c708699637a53e0392c164a175637a0ff2a2ed71a1a1e4581e08ec6d23185e78a76b0ba3d35d80a8c12e36e01fd066b6730ee9a7deae78ca40d48305db6c4ad09eb28d415d7c57e5ae2b2ab6d468a6f2f27120ce276a3f2e37e9137e8bcdbccd5705322e634e5d958745805bb8adafe23eb8aa7d36541a31a0482e1ee478d830b9193ddb34773491a2c91b72b9efb8fa08fcf30b367f45afe5dd284639e76eaccc868c94262581ea1c71783393e2e7f63701f6ae8e22e47ecca4a450a25d2af6268b3a7ba330058c907a434fdecf71698ee36b47b9becce55bae28a63849cf4528e4f9348f39ca62ad3988cd4063d1dbca187eac99ce0ffd54f08ab04628e96d2820d94e9839dbfe38971cd99db51e85ba479daf31e4cb40e0a81d2c4521a95f834bbee3fdc900ded4c61d6954ceb0a0a16ee28b5233bbbd380ebdf5655676c371ab13bf64148c582f72c98f86020f86dce50f7f531d9cb6964477d1a2be69c9f8388fbf2f8e82938e474640f9900592be29f2f0eec1c509f3798479d39e5190f39b0ad80b3a5a759072d5f72f5efb4080336362a82678fcbe82c44d70c70707b3566070c604cbcf77dca9bd705c205eaa7de9969215db1f1a7712cc79a1be2cccba2b6ace3e454f2af28356a9d8b6bc7ca62194acf79ca0aba9fef8e5a59b15eb00e57f6e33b525e16721071f8462e3d12c6480cff5b413e249d15da694151ff5c06fa5e37c077226bc5af71543f03856040ce1b1e6221f701aaebc051e687a3918be64ea278ef10e22845a8c96ffb7f422a3e84ab816c2053666317c190f82909b4a5739adb68232fdb418782b8c8151af3b6a10c160c6ed9ebacc6f44892cb12921b4953dcde8c45855b91c6b188c7c1835a4d9e011c6ca9c6b89abdf7eba85b7cc1e1b45ae256cafaccd45cbe792043a0d77fe04133e7654e3b729aa7a0335e8f3eb847db89d1bcd844852f443d45c8c61559c97dae661e8351eb16a5f3434fc43586f9109aed9d8ef0ce5264788d1978af26b8747bae7c82a84e63852f383cdd83aecf1621ec72b336f20d443482f7fee72a484ad09fcca3a3fe72ae578801919559e12e8be6f5a576a550b459ab763fd48791358192fd8d0577e01bf84040e2598069b87cfceeb1a501526a33eb1f8e6850b99f00cd78f546a27f173dfa96d53bab96034c5e64860c9ce511ef58372c724b3271327f193198161a07f2de1735ea1ec29f0104aaa3f6273df35eb22b836e026bb97f75cfc32aaf8dec2624cddb52e05494505175dc3e78912963ac337b9dad1db414beacf22e4e46badee460c88576bc2ab4ecd11dd422c283129b1eaf32caf5e1ab7b2c3a14ded13e26810d0007855832342c0218a4f6d7e30acebe73ce4228be268e88d1e819de3cf4d72be8e2acb6aa8547cf0bc7cfb432270f47dd2d679a7ef7047363442b26cdbc275231429c897e3bbe0f30607a2a84df70e7b9a20030e776c08988606a834b9a2129d2ab4a1cc87a631ef72af8c15c9218bb17ec8b45598833e3f312663a2c24312133859df56fb3942c9f0ab19629ad777951a21d2769a5299536b8b42e63c04509b43540881661670981735b631e294637829c63c8e29f7dcb40b18cfa96ca5954d26b3d5a54a8d1b8a801649a60fe64f5d83a8282b0a5c566d22ae1fd7d2c20bd19afb9ff1eb63dcba3d80a8cc42bad0ab3f49c63808014fa6aac41ad0cb56803974f4fecb2bd03ab857f5bd0493662253c8026a65d0fa2c498dc081227d6f20eecd1f340be7f1dc885d049c2bc39e3c4f256c2fe5426235507461dc048c975f79128e5a574b772271bb622f58af11602d7ad80bbc88a108cffe4b387f4ddf489eb73bfe28e40a64fb67717d77a93de703b9dcaa41ff1470f2cf55bceb2327e320aca7b7f75b29369453b344502f5529ceb6876f3a15f46a7464a0c142b6575d84792b7c75e1f7acd7542366b116a92d53a8bdfdfd9853ec1638c20d03419926ac549de383be5c2b152c93569d30be9a641e2356ab80342a758e23d85664ac4736c499e84a78be5f40ef08db516fe97ed615eed467aafe10a104fd7a1676dd838ac37b5a2f28888700d15399cf385e61c5e00a351e903aec48cfb15e71df2f7b6a331bb96b6b55dacc022e38f68749ab69ee942b74c6b4ec2607b254a89e8011679f7c82c25568e0a1ccc58f3f1c5206aaef3595f09f1ad044eba990d087dae2d62484621cf714e0e31080d1229ea99b8898ca27043c7f49835f2f4c63f483f2357c6abd81cad2c78d1630cad803a6f9c5cc430bca890ccb6dcec367ef960580b8a65abf225fcf442a15aeb57caa7197a2639dce4d85a672cee5120891e3d5690037db5868082c2e104f7a70823c4d21ade5464b279f09cfc4d823547fc891005220e6582391e1a9ac23a9cc0c23f733b4e39b9b9951f7379990c0e900c0d02a923cde441c7f60cf563f0d17b246e53bae485855bc88ac3edf336c344dcf6b6b559319ef3f295712f8da7b303e2e373795b51ffd8efdfc7da2788f81d39aedb91cf5884a3c2cdc7feaaf6c9d7ff1bc7e7bf151510cf4c44fbb31b82a7e09895c2d5206a1a661183e481507cf3c609476a09e2c0343ede94efabe47d5b77b4d132d40f7e50e469ba006f52024a5a9f68774a9b9c6e10ea3dcf302cea4d72720193ded63251b78046a2d388f0634ac1ea0a1d01bbcfc388b65f58b6b61325804d571ce9afa90c86514525c4703cd7848b00e24770cbd36f5b96cbee1a018e2e80df70599022ed97969c626185edf115b2e21b81506edfb8184cfc5c869da8f78e378cb97a5f3c80f46c93b60368ba5635c399ac77ac373683b7515331eb75e698972eb0e769a4ee7562128a9601116ed3c210b6cd8bff3e8ed5a59f1ed0ade56b9bd4921a0bcccf1f89f9c7c33d177f46f959823b3e811d715a3aa5d7e95557b32bc110af8889d361c74899b7b6110555b95240623802f66040295a98030b6beda3d66d1ff22e895b2f42d78e7370bf216a50dda1451d97af014d32fc8b418e7faecc1ef63db8ee120</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-  </entry>
-  <entry>
-    <title>74. 计算机组成原理</title>
-    <url>/2019/10/19/74/</url>
-    <content><![CDATA[<ul>
-<li><h1 id="计算机系统概论"><a href="#计算机系统概论" class="headerlink" title="计算机系统概论"></a>计算机系统概论</h1><ol>
-<li>计算机系统简介<ol>
-<li>计算机：有好多种，这里主要讲授：数字计算机</li>
-<li>组成：计算机硬件系统的逻辑实现<span id="more"></span></li>
-</ol>
-</li>
-</ol>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>计算机组成原理</category>
-      </categories>
-      <tags>
-        <tag>机组</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>77. Git 使用</title>
-    <url>/2019/11/10/77/</url>
-    <content><![CDATA[<ul>
-<li><h1 id="连接Github"><a href="#连接Github" class="headerlink" title="连接Github"></a>连接Github</h1></li>
-</ul>
-<ol>
-<li><p>在 <code>terminal</code> 输入 <code>ssh-keygen</code></p>
-</li>
-<li><p>进入 <code>~/.ssh</code></p>
-</li>
-<li><p><code>id_rsa</code> 是 私钥</p>
-</li>
-<li><p><code>id_rsa.pub</code> 是 公钥</p>
-<span id="more"></span></li>
-<li><p>将公钥复制到 <code>Github</code>下</p>
-<ol>
-<li>点击头像，选择 <code>Setting</code></li>
-<li>选择 <code>SSH and GPG keys</code></li>
-<li>选择 <code>New SSH key</code></li>
-<li><code>TItle</code>可以自己写<br><br> <code>Key</code> 中复制你的公钥</li>
-<li>选择 <code>Add SSH key</code></li>
-<li>下面就可以访问了</li>
-</ol>
-</li>
-</ol>
-<ul>
-<li><h1 id="git-使用"><a href="#git-使用" class="headerlink" title="git 使用"></a>git 使用</h1></li>
-</ul>
-<ol>
-<li>将git下载到本地 <code>git clone &lt;你的仓库地址&gt;</code></li>
-<li>cd 进入 对应的文件夹</li>
-<li><code>git pull</code> 更新你的仓库</li>
-<li><code>git status</code> 以查看在你上次提交之后是否有修改<ol>
-<li>该命令加了 <code>-s</code> 参数，以获得简短的结果输出。如果没加该参数会详细输出内容。</li>
-</ol>
-</li>
-<li><code>git add</code> 将该文件添加到缓存<ol>
-<li><code>git add *</code> 将所有更改的文件，添加进暂存</li>
-<li><code>git add &lt;文件名&gt;</code> 将对应的文件添加进暂存</li>
-</ol>
-</li>
-<li><code>git commit -m &quot;备注&quot;</code> 使用 git add 命令将想要快照的内容写入缓存区， 而执行 git commit 将缓存区内容添加到仓库中。</li>
-<li><code>git push</code> 将本地库中的最新信息发送给远程库。</li>
-</ol>
-<h3 id="【Notes】："><a href="#【Notes】：" class="headerlink" title="【Notes】："></a>【Notes】：</h3><ol>
-<li>若已经有文件：<ol>
-<li>创建完git连接之后，先 <code>git pull</code> 一下。</li>
-</ol>
-</li>
-<li><code>commit</code> 和 <code>push</code> 的区别<ol>
-<li>git作为支持分布式版本管理的工具，它管理的库（repository）分为本地库、远程库。</li>
-<li>git commit操作的是本地库，git push操作的是远程库。</li>
-<li>git commit是将本地修改过的文件提交到本地库中。</li>
-<li>git push是将本地库中的最新信息发送给远程库。</li>
-<li>那有人就会问，为什么要分本地commit和服务器的push呢？<blockquote>
-<p>因为如果本地不commit的话，修改的纪录可能会丢失。而有些修改当前是不需要同步至服务器的，所以什么时候同步过去由用户自己选择。什么时候需要同步再push到服务器</p>
-</blockquote>
-</li>
-</ol>
-</li>
-</ol>
-<p><a href="https://www.bilibili.com/video/av26237638">视频教程点击这里</a></p>
-<p><a href="https://www.runoob.com/git/git-basic-operations.html">更多请点击这里</a></p>
-]]></content>
-      <categories>
-        <category>Github</category>
-        <category>软件</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -4972,12 +4923,85 @@
 </ol>
 ]]></content>
       <categories>
-        <category>OS</category>
         <category>软件</category>
+        <category>OS</category>
       </categories>
       <tags>
         <tag>Ubuntu</tag>
         <tag>Spyder</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>77. Git 使用</title>
+    <url>/2019/11/10/77/</url>
+    <content><![CDATA[<ul>
+<li><h1 id="连接Github"><a href="#连接Github" class="headerlink" title="连接Github"></a>连接Github</h1></li>
+</ul>
+<ol>
+<li><p>在 <code>terminal</code> 输入 <code>ssh-keygen</code></p>
+</li>
+<li><p>进入 <code>~/.ssh</code></p>
+</li>
+<li><p><code>id_rsa</code> 是 私钥</p>
+</li>
+<li><p><code>id_rsa.pub</code> 是 公钥</p>
+<span id="more"></span></li>
+<li><p>将公钥复制到 <code>Github</code>下</p>
+<ol>
+<li>点击头像，选择 <code>Setting</code></li>
+<li>选择 <code>SSH and GPG keys</code></li>
+<li>选择 <code>New SSH key</code></li>
+<li><code>TItle</code>可以自己写<br><br> <code>Key</code> 中复制你的公钥</li>
+<li>选择 <code>Add SSH key</code></li>
+<li>下面就可以访问了</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li><h1 id="git-使用"><a href="#git-使用" class="headerlink" title="git 使用"></a>git 使用</h1></li>
+</ul>
+<ol>
+<li>将git下载到本地 <code>git clone &lt;你的仓库地址&gt;</code></li>
+<li>cd 进入 对应的文件夹</li>
+<li><code>git pull</code> 更新你的仓库</li>
+<li><code>git status</code> 以查看在你上次提交之后是否有修改<ol>
+<li>该命令加了 <code>-s</code> 参数，以获得简短的结果输出。如果没加该参数会详细输出内容。</li>
+</ol>
+</li>
+<li><code>git add</code> 将该文件添加到缓存<ol>
+<li><code>git add *</code> 将所有更改的文件，添加进暂存</li>
+<li><code>git add &lt;文件名&gt;</code> 将对应的文件添加进暂存</li>
+</ol>
+</li>
+<li><code>git commit -m &quot;备注&quot;</code> 使用 git add 命令将想要快照的内容写入缓存区， 而执行 git commit 将缓存区内容添加到仓库中。</li>
+<li><code>git push</code> 将本地库中的最新信息发送给远程库。</li>
+</ol>
+<h3 id="【Notes】："><a href="#【Notes】：" class="headerlink" title="【Notes】："></a>【Notes】：</h3><ol>
+<li>若已经有文件：<ol>
+<li>创建完git连接之后，先 <code>git pull</code> 一下。</li>
+</ol>
+</li>
+<li><code>commit</code> 和 <code>push</code> 的区别<ol>
+<li>git作为支持分布式版本管理的工具，它管理的库（repository）分为本地库、远程库。</li>
+<li>git commit操作的是本地库，git push操作的是远程库。</li>
+<li>git commit是将本地修改过的文件提交到本地库中。</li>
+<li>git push是将本地库中的最新信息发送给远程库。</li>
+<li>那有人就会问，为什么要分本地commit和服务器的push呢？<blockquote>
+<p>因为如果本地不commit的话，修改的纪录可能会丢失。而有些修改当前是不需要同步至服务器的，所以什么时候同步过去由用户自己选择。什么时候需要同步再push到服务器</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+<p><a href="https://www.bilibili.com/video/av26237638">视频教程点击这里</a></p>
+<p><a href="https://www.runoob.com/git/git-basic-operations.html">更多请点击这里</a></p>
+]]></content>
+      <categories>
+        <category>Github</category>
+        <category>软件</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -5071,8 +5095,8 @@
 </ol>
 ]]></content>
       <categories>
-        <category>OS</category>
         <category>软件</category>
+        <category>OS</category>
       </categories>
       <tags>
         <tag>vim</tag>
@@ -5094,6 +5118,40 @@
       </categories>
       <tags>
         <tag>Jekyll</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>80. Ubuntu 显卡安装</title>
+    <url>/2019/12/09/80/</url>
+    <content><![CDATA[<ul>
+<li><h1 id="全部命令"><a href="#全部命令" class="headerlink" title="全部命令"></a>全部命令</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ubuntu-drivers devices</span><br><span class="line">sudo apt install nvidia-440</span><br><span class="line">sudo apt install nvidia-driver-440</span><br><span class="line">reboot</span><br><span class="line">lshw -numeric -C display</span><br><span class="line">lspci -vnn | grep VGA</span><br></pre></td></tr></table></figure>
+<span id="more"></span></li>
+<li><h1 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h1><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a><strong>方法一</strong></h2><ol>
+<li>禁用显卡的方法这里在记一下:在/etc/modprobe.d/blacklist.conf里添加，如下内容，并执行 <code>sudo update-initramfs -u</code>,<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">blacklist nouveau</span><br><span class="line">options nouveau modeset&#x3D;0</span><br></pre></td></tr></table></figure></li>
+<li>重启后用lsmod | grep nouveau,如果没有任何输出说明禁用成功。<h3 id="但是我并没有禁用显卡"><a href="#但是我并没有禁用显卡" class="headerlink" title="但是我并没有禁用显卡"></a>但是我并没有禁用显卡</h3></li>
+<li>直接输入: <code>sudo ubuntu-drivers autoinstall</code></li>
+<li>验证是否安装成功：<code>nvidia-smi</code></li>
+</ol>
+</li>
+</ul>
+<h2 id="方法二-推荐"><a href="#方法二-推荐" class="headerlink" title="方法二 (推荐)"></a><strong>方法二 <em>(推荐)</em></strong></h2><ol>
+<li>如果需要安装新版本的驱动可以先添加源：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo add-apt-repository ppa:graphics-drivers&#x2F;ppa</span><br><span class="line">sudo apt update</span><br></pre></td></tr></table></figure></li>
+<li>执行 <code>ubuntu-drivers devices</code>,如下所示:<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x3D;&#x3D; &#x2F;sys&#x2F;devices&#x2F;pci0000:00&#x2F;0000:00:01.0&#x2F;0000:01:00.0 &#x3D;&#x3D;</span><br><span class="line">modalias : pci:v000010DEd00001C8Csv00001028sd00000798bc03sc00i00</span><br><span class="line">vendor   : NVIDIA Corporation</span><br><span class="line">model    : GP107M [GeForce GTX 1050 Ti Mobile]</span><br><span class="line">driver   : nvidia-driver-390 - third-party free</span><br><span class="line">driver   : nvidia-driver-430 - distro non-free</span><br><span class="line">driver   : nvidia-driver-415 - third-party free</span><br><span class="line">driver   : nvidia-driver-435 - distro non-free</span><br><span class="line">driver   : nvidia-driver-440 - third-party free recommended</span><br><span class="line">driver   : nvidia-driver-410 - third-party free</span><br><span class="line">driver   : xserver-xorg-video-nouveau - distro free builtin</span><br></pre></td></tr></table></figure></li>
+<li>选择 <code>recommended</code> (推荐的) 安装: <code>sudo apt install nvidia-driver-440</code></li>
+<li>可使用下面命令,查看是否安装成功<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">lshw -numeric -C display</span><br><span class="line">lspci -vnn | grep VGA</span><br></pre></td></tr></table></figure>
+显示结果:<ol>
+<li><code>lshw -numeric -C display</code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">WARNING: you should run this program as super-user.</span><br><span class="line">*-display                 </span><br><span class="line">    description: VGA compatible controller</span><br><span class="line">    product: GP107M [GeForce GTX 1050 Ti Mobile] [10DE:1C8C]</span><br><span class="line">    vendor: NVIDIA Corporation [10DE]</span><br><span class="line">    physical id: 0</span><br><span class="line">    bus info: pci@0000:01:00.0</span><br><span class="line">    version: a1</span><br><span class="line">    width: 64 bits</span><br><span class="line">    clock: 33MHz</span><br><span class="line">    capabilities: vga_controller bus_master cap_list rom</span><br><span class="line">    configuration: driver&#x3D;nvidia latency&#x3D;0</span><br><span class="line">    resources: irq:128 memory:de000000-deffffff memory:c0000000-cfffffff memory:d0000000-d1ffffff ioport:e000(size&#x3D;128) memory:df000000-df07ffff</span><br><span class="line">*-display</span><br><span class="line">    description: VGA compatible controller</span><br><span class="line">    product: Intel Corporation [8086:591B]</span><br><span class="line">    vendor: Intel Corporation [8086]</span><br><span class="line">    physical id: 2</span><br><span class="line">    bus info: pci@0000:00:02.0</span><br><span class="line">    version: 04</span><br><span class="line">    width: 64 bits</span><br><span class="line">    clock: 33MHz</span><br><span class="line">    capabilities: vga_controller bus_master cap_list rom</span><br><span class="line">    configuration: driver&#x3D;i915 latency&#x3D;0</span><br><span class="line">    resources: irq:127 memory:dd000000-ddffffff memory:b0000000-bfffffff ioport:f000(size&#x3D;64) memory:c0000-dffff</span><br><span class="line">WARNING: output may be incomplete or inaccurate, you should run this program as super-user.</span><br></pre></td></tr></table></figure></li>
+<li><code>lspci -vnn | grep VGA</code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">00:02.0 VGA compatible controller [0300]: Intel Corporation Device [8086:591b] (rev 04) (prog-if 00 [VGA controller])</span><br><span class="line">01:00.0 VGA compatible controller [0300]: NVIDIA Corporation GP107M [GeForce GTX 1050 Ti Mobile] [10de:1c8c] (rev a1) (prog-if 00 [VGA controller])</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+<p><a href="https://www.jianshu.com/p/9384af4896f3">参考网址</a></p>
+]]></content>
+      <categories>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -5137,40 +5195,6 @@
       </tags>
   </entry>
   <entry>
-    <title>80. Ubuntu 显卡安装</title>
-    <url>/2019/12/09/80/</url>
-    <content><![CDATA[<ul>
-<li><h1 id="全部命令"><a href="#全部命令" class="headerlink" title="全部命令"></a>全部命令</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ubuntu-drivers devices</span><br><span class="line">sudo apt install nvidia-440</span><br><span class="line">sudo apt install nvidia-driver-440</span><br><span class="line">reboot</span><br><span class="line">lshw -numeric -C display</span><br><span class="line">lspci -vnn | grep VGA</span><br></pre></td></tr></table></figure>
-<span id="more"></span></li>
-<li><h1 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h1><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a><strong>方法一</strong></h2><ol>
-<li>禁用显卡的方法这里在记一下:在/etc/modprobe.d/blacklist.conf里添加，如下内容，并执行 <code>sudo update-initramfs -u</code>,<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">blacklist nouveau</span><br><span class="line">options nouveau modeset&#x3D;0</span><br></pre></td></tr></table></figure></li>
-<li>重启后用lsmod | grep nouveau,如果没有任何输出说明禁用成功。<h3 id="但是我并没有禁用显卡"><a href="#但是我并没有禁用显卡" class="headerlink" title="但是我并没有禁用显卡"></a>但是我并没有禁用显卡</h3></li>
-<li>直接输入: <code>sudo ubuntu-drivers autoinstall</code></li>
-<li>验证是否安装成功：<code>nvidia-smi</code></li>
-</ol>
-</li>
-</ul>
-<h2 id="方法二-推荐"><a href="#方法二-推荐" class="headerlink" title="方法二 (推荐)"></a><strong>方法二 <em>(推荐)</em></strong></h2><ol>
-<li>如果需要安装新版本的驱动可以先添加源：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo add-apt-repository ppa:graphics-drivers&#x2F;ppa</span><br><span class="line">sudo apt update</span><br></pre></td></tr></table></figure></li>
-<li>执行 <code>ubuntu-drivers devices</code>,如下所示:<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x3D;&#x3D; &#x2F;sys&#x2F;devices&#x2F;pci0000:00&#x2F;0000:00:01.0&#x2F;0000:01:00.0 &#x3D;&#x3D;</span><br><span class="line">modalias : pci:v000010DEd00001C8Csv00001028sd00000798bc03sc00i00</span><br><span class="line">vendor   : NVIDIA Corporation</span><br><span class="line">model    : GP107M [GeForce GTX 1050 Ti Mobile]</span><br><span class="line">driver   : nvidia-driver-390 - third-party free</span><br><span class="line">driver   : nvidia-driver-430 - distro non-free</span><br><span class="line">driver   : nvidia-driver-415 - third-party free</span><br><span class="line">driver   : nvidia-driver-435 - distro non-free</span><br><span class="line">driver   : nvidia-driver-440 - third-party free recommended</span><br><span class="line">driver   : nvidia-driver-410 - third-party free</span><br><span class="line">driver   : xserver-xorg-video-nouveau - distro free builtin</span><br></pre></td></tr></table></figure></li>
-<li>选择 <code>recommended</code> (推荐的) 安装: <code>sudo apt install nvidia-driver-440</code></li>
-<li>可使用下面命令,查看是否安装成功<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">lshw -numeric -C display</span><br><span class="line">lspci -vnn | grep VGA</span><br></pre></td></tr></table></figure>
-显示结果:<ol>
-<li><code>lshw -numeric -C display</code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">WARNING: you should run this program as super-user.</span><br><span class="line">*-display                 </span><br><span class="line">    description: VGA compatible controller</span><br><span class="line">    product: GP107M [GeForce GTX 1050 Ti Mobile] [10DE:1C8C]</span><br><span class="line">    vendor: NVIDIA Corporation [10DE]</span><br><span class="line">    physical id: 0</span><br><span class="line">    bus info: pci@0000:01:00.0</span><br><span class="line">    version: a1</span><br><span class="line">    width: 64 bits</span><br><span class="line">    clock: 33MHz</span><br><span class="line">    capabilities: vga_controller bus_master cap_list rom</span><br><span class="line">    configuration: driver&#x3D;nvidia latency&#x3D;0</span><br><span class="line">    resources: irq:128 memory:de000000-deffffff memory:c0000000-cfffffff memory:d0000000-d1ffffff ioport:e000(size&#x3D;128) memory:df000000-df07ffff</span><br><span class="line">*-display</span><br><span class="line">    description: VGA compatible controller</span><br><span class="line">    product: Intel Corporation [8086:591B]</span><br><span class="line">    vendor: Intel Corporation [8086]</span><br><span class="line">    physical id: 2</span><br><span class="line">    bus info: pci@0000:00:02.0</span><br><span class="line">    version: 04</span><br><span class="line">    width: 64 bits</span><br><span class="line">    clock: 33MHz</span><br><span class="line">    capabilities: vga_controller bus_master cap_list rom</span><br><span class="line">    configuration: driver&#x3D;i915 latency&#x3D;0</span><br><span class="line">    resources: irq:127 memory:dd000000-ddffffff memory:b0000000-bfffffff ioport:f000(size&#x3D;64) memory:c0000-dffff</span><br><span class="line">WARNING: output may be incomplete or inaccurate, you should run this program as super-user.</span><br></pre></td></tr></table></figure></li>
-<li><code>lspci -vnn | grep VGA</code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">00:02.0 VGA compatible controller [0300]: Intel Corporation Device [8086:591b] (rev 04) (prog-if 00 [VGA controller])</span><br><span class="line">01:00.0 VGA compatible controller [0300]: NVIDIA Corporation GP107M [GeForce GTX 1050 Ti Mobile] [10de:1c8c] (rev a1) (prog-if 00 [VGA controller])</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-</ol>
-<p><a href="https://www.jianshu.com/p/9384af4896f3">参考网址</a></p>
-]]></content>
-      <categories>
-        <category>OS</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>82. matplotlib 动态绘图</title>
     <url>/2019/12/29/82/</url>
     <content><![CDATA[<p>……</p>
@@ -5188,6 +5212,62 @@
       </categories>
       <tags>
         <tag>matplotlib</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>83. Ubuntu填坑</title>
+    <url>/2020/01/07/83/</url>
+    <content><![CDATA[<ol>
+<li>grub启动界面：直接使用 <code>sudo ./install.sh -v</code>，而不是<code>sudo ./install.sh -v -2</code></li>
+<li>安装微软字体库时，使用Tab健选择确定</li>
+<li>搜狗输入法 如果调到第一门语言就会乱码(可能有的电脑没问题)</li>
+<li>安装好<code>anaconda</code>后是没有图标的</li>
+<li>安装<code>anaocnda</code>直接 <code>bash anaconda.sh</code></li>
+<li>安装<code>anaconda</code>之前应该先安装 <code>Vscode</code><span id="more"></span></li>
+</ol>
+]]></content>
+      <categories>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>84. Ubuntu美化说明</title>
+    <url>/2020/01/07/84/</url>
+    <content><![CDATA[<ol>
+<li><p>Cupertino:图标 —— icons</p>
+</li>
+<li><p>dash-to-dock-gnome:dash to dock</p>
+</li>
+<li><p>grub2-themes-master:grub启动界面 —— sudo ./install.sh -v</p>
+<span id="more"></span></li>
+<li><p>High_Ubunterra_CC : Ubuntu 锁屏启动界面（模糊的那个）</p>
+</li>
+<li><p>Mojave-light: 主题 —— themes</p>
+</li>
+<li><p>suadesplas: 启动动画</p>
+</li>
+<li><p>美化网址有去除启动时紫框的说明是：<a href="https://www.cnblogs.com/feipeng8848/p/8970556.html">https://www.cnblogs.com/feipeng8848/p/8970556.html</a></p>
+<blockquote>
+<p>即：找到/boot/grub/grub.cfg文件，找到这样一行： if background_color 44,0,30,0;修改成 if background_color 0,0,0,0;就会去除grub在选中Ubuntu系统之后出现的短暂的紫色。</p>
+</blockquote>
+</li>
+<li><p>美化网址：</p>
+<ol>
+<li><a href="https://www.cnblogs.com/feipeng8848/p/8970556.html">https://www.cnblogs.com/feipeng8848/p/8970556.html</a></li>
+<li><a href="https://blog.csdn.net/weixin_40389121/article/details/81703577">https://blog.csdn.net/weixin_40389121/article/details/81703577</a></li>
+<li><a href="https://www.cnblogs.com/lishanlei/p/9090404.html">https://www.cnblogs.com/lishanlei/p/9090404.html</a></li>
+</ol>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -5328,62 +5408,6 @@
       </tags>
   </entry>
   <entry>
-    <title>83. Ubuntu填坑</title>
-    <url>/2020/01/07/83/</url>
-    <content><![CDATA[<ol>
-<li>grub启动界面：直接使用 <code>sudo ./install.sh -v</code>，而不是<code>sudo ./install.sh -v -2</code></li>
-<li>安装微软字体库时，使用Tab健选择确定</li>
-<li>搜狗输入法 如果调到第一门语言就会乱码(可能有的电脑没问题)</li>
-<li>安装好<code>anaconda</code>后是没有图标的</li>
-<li>安装<code>anaocnda</code>直接 <code>bash anaconda.sh</code></li>
-<li>安装<code>anaconda</code>之前应该先安装 <code>Vscode</code><span id="more"></span></li>
-</ol>
-]]></content>
-      <categories>
-        <category>OS</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>84. Ubuntu美化说明</title>
-    <url>/2020/01/07/84/</url>
-    <content><![CDATA[<ol>
-<li><p>Cupertino:图标 —— icons</p>
-</li>
-<li><p>dash-to-dock-gnome:dash to dock</p>
-</li>
-<li><p>grub2-themes-master:grub启动界面 —— sudo ./install.sh -v</p>
-<span id="more"></span></li>
-<li><p>High_Ubunterra_CC : Ubuntu 锁屏启动界面（模糊的那个）</p>
-</li>
-<li><p>Mojave-light: 主题 —— themes</p>
-</li>
-<li><p>suadesplas: 启动动画</p>
-</li>
-<li><p>美化网址有去除启动时紫框的说明是：<a href="https://www.cnblogs.com/feipeng8848/p/8970556.html">https://www.cnblogs.com/feipeng8848/p/8970556.html</a></p>
-<blockquote>
-<p>即：找到/boot/grub/grub.cfg文件，找到这样一行： if background_color 44,0,30,0;修改成 if background_color 0,0,0,0;就会去除grub在选中Ubuntu系统之后出现的短暂的紫色。</p>
-</blockquote>
-</li>
-<li><p>美化网址：</p>
-<ol>
-<li><a href="https://www.cnblogs.com/feipeng8848/p/8970556.html">https://www.cnblogs.com/feipeng8848/p/8970556.html</a></li>
-<li><a href="https://blog.csdn.net/weixin_40389121/article/details/81703577">https://blog.csdn.net/weixin_40389121/article/details/81703577</a></li>
-<li><a href="https://www.cnblogs.com/lishanlei/p/9090404.html">https://www.cnblogs.com/lishanlei/p/9090404.html</a></li>
-</ol>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>OS</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>86. Ubuntu截图快捷键</title>
     <url>/2020/01/07/86/</url>
     <content><![CDATA[<ol>
@@ -5397,22 +5421,6 @@
       </categories>
       <tags>
         <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>88. 高数中x, t在函数、不定积分、定积分中的区别</title>
-    <url>/2020/01/30/88/</url>
-    <content><![CDATA[<ol>
-<li><p>函数 $f(x)、f(t)$注重的是 $f$ 与 $x、t$无关</p>
-<span id="more"></span></li>
-<li><p>不定积分 $\int f(x)dx$、$\int f(t)dt$注重的是积分变量，与 $x、t$有关 <br><br>【释】：<br>$$\because t = g(x)$$<br>$$\therefore t与x可能有关系$$</p>
-</li>
-<li><p>定积分 $\int_{a}^{b} f(x)dx 与 \int_{a}^{b} f(t)dt$ 注重的是 $[a,b] 和 f$ 与 $x、t$无关<br>【释】：<br>$$即便积分变量不同，但是函数关系相同和上下限相同，所以面积相同（几何意义）$$</p>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>考研 高数</tag>
       </tags>
   </entry>
   <entry>
@@ -5451,18 +5459,19 @@
       </tags>
   </entry>
   <entry>
-    <title>9. Jekyll如何支持mathjax</title>
-    <url>/2019/01/21/9/</url>
-    <content><![CDATA[<p>……</p>
-<span id="more"></span>
-
-
-<h2 id="在-include-head-html添加以下代码："><a href="#在-include-head-html添加以下代码：" class="headerlink" title="在_include/head.html添加以下代码："></a>在<code>_include/head.html</code>添加以下代码：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;script type&#x3D;&quot;text&#x2F;x-mathjax-config&quot;&gt;</span><br><span class="line">  MathJax.Hub.Config(&#123;</span><br><span class="line">    tex2jax: &#123;</span><br><span class="line">      skipTags: [&#39;script&#39;, &#39;noscript&#39;, &#39;style&#39;, &#39;textarea&#39;, &#39;pre&#39;],</span><br><span class="line">      inlineMath: [[&#39;$&#39;,&#39;$&#39;]]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.mathjax.org&#x2F;mathjax&#x2F;latest&#x2F;MathJax.js?config&#x3D;TeX-AMS-MML_HTMLorMML&quot; type&#x3D;&quot;text&#x2F;javascript&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Github</category>
-      </categories>
+    <title>88. 高数中x, t在函数、不定积分、定积分中的区别</title>
+    <url>/2020/01/30/88/</url>
+    <content><![CDATA[<ol>
+<li><p>函数 $f(x)、f(t)$注重的是 $f$ 与 $x、t$无关</p>
+<span id="more"></span></li>
+<li><p>不定积分 $\int f(x)dx$、$\int f(t)dt$注重的是积分变量，与 $x、t$有关 <br><br>【释】：<br>$$\because t = g(x)$$<br>$$\therefore t与x可能有关系$$</p>
+</li>
+<li><p>定积分 $\int_{a}^{b} f(x)dx 与 \int_{a}^{b} f(t)dt$ 注重的是 $[a,b] 和 f$ 与 $x、t$无关<br>【释】：<br>$$即便积分变量不同，但是函数关系相同和上下限相同，所以面积相同（几何意义）$$</p>
+</li>
+</ol>
+]]></content>
       <tags>
-        <tag>Jekyll</tag>
+        <tag>考研 高数</tag>
       </tags>
   </entry>
   <entry>
@@ -5492,6 +5501,21 @@
       </categories>
       <tags>
         <tag>高数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>9. Jekyll如何支持mathjax</title>
+    <url>/2019/01/21/9/</url>
+    <content><![CDATA[<p>……</p>
+<span id="more"></span>
+
+
+<h2 id="在-include-head-html添加以下代码："><a href="#在-include-head-html添加以下代码：" class="headerlink" title="在_include/head.html添加以下代码："></a>在<code>_include/head.html</code>添加以下代码：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;script type&#x3D;&quot;text&#x2F;x-mathjax-config&quot;&gt;</span><br><span class="line">  MathJax.Hub.Config(&#123;</span><br><span class="line">    tex2jax: &#123;</span><br><span class="line">      skipTags: [&#39;script&#39;, &#39;noscript&#39;, &#39;style&#39;, &#39;textarea&#39;, &#39;pre&#39;],</span><br><span class="line">      inlineMath: [[&#39;$&#39;,&#39;$&#39;]]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.mathjax.org&#x2F;mathjax&#x2F;latest&#x2F;MathJax.js?config&#x3D;TeX-AMS-MML_HTMLorMML&quot; type&#x3D;&quot;text&#x2F;javascript&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Github</category>
+      </categories>
+      <tags>
+        <tag>Jekyll</tag>
       </tags>
   </entry>
   <entry>
@@ -5553,6 +5577,31 @@
       </tags>
   </entry>
   <entry>
+    <title>92. Eclipse安装</title>
+    <url>/2020/02/25/92/</url>
+    <content><![CDATA[<h1 id="JDK安装"><a href="#JDK安装" class="headerlink" title="JDK安装"></a>JDK安装</h1><p>详情请见：<a href="/2019/12/02/78/" title="78. JDK安装">78. JDK安装</a></p>
+<h1 id="Eclipse安装"><a href="#Eclipse安装" class="headerlink" title="Eclipse安装"></a>Eclipse安装</h1><p>   见<a href="https://blog.csdn.net/PGY0000/article/details/79256720">这里</a></p>
+<h1 id="Eclipse汉化"><a href="#Eclipse汉化" class="headerlink" title="Eclipse汉化"></a>Eclipse汉化</h1><ol>
+<li>首先我们需要打开<code>Eclipse</code>，看一下我们安装的Eclipse的版本，依次点击<code>Help&gt;About Eclipse</code></li>
+<li>确定版本后，就打开下面这个网站<a href="http://www.eclipse.org/babel/downloads.php">http://www.eclipse.org/babel/downloads.php</a>找到对应的版本，并复制链接</li>
+<li>打开<code>Eclipse</code>，安装新服务，依次点击<code>Help&gt;Install New Software…</code></li>
+<li>在打开的新窗口中点击<code>【Add】</code>按钮，然后在<code>【Location】</code>文本框中输入刚刚复制的网址，点击<code>【OK】</code>按钮即可。</li>
+<li>等待片刻便会看到软件检索到的语言包列表，下拉垂直滚动条，选择<code>【Bable Language Packs in Chinese(Simplified)】</code>下的<code>【Bable Language Packs for eclipse in Chinese (Simplified)(简体中文)】</code>包，点击<code>【next】</code>按钮进入下一步</li>
+<li>过几秒中便跳到如下界面，勾选第一个<code>【I accept...】</code>单选框，点击<code>【Finish】</code>按钮完成设置。</li>
+<li>进入安装界面，等待安装</li>
+<li>等待片刻后，在弹出的<code>【Security Warning】</code>窗体中点击<code>【Install anyway】</code>按钮，之后在弹出的又一窗体<code>【Software Updates】</code>中点击<code>【Restart Now】</code>按钮完成语言包的安装并重启eclipse。</li>
+<li> 重启<code>eclipse</code>后，便会看到汉化后的<code>eclipse</code>界面啦</li>
+</ol>
+]]></content>
+      <categories>
+        <category>软件</category>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Eclipse</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>93. Ubuntu18.04 配置 conda 环境变量</title>
     <url>/2020/03/06/93/</url>
     <content><![CDATA[<blockquote>
@@ -5604,152 +5653,6 @@
       </categories>
       <tags>
         <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>92. Eclipse安装</title>
-    <url>/2020/02/25/92/</url>
-    <content><![CDATA[<h1 id="JDK安装"><a href="#JDK安装" class="headerlink" title="JDK安装"></a>JDK安装</h1><p>详情请见：<a href="/2019/12/02/78/" title="78. JDK安装">78. JDK安装</a></p>
-<h1 id="Eclipse安装"><a href="#Eclipse安装" class="headerlink" title="Eclipse安装"></a>Eclipse安装</h1><p>   见<a href="https://blog.csdn.net/PGY0000/article/details/79256720">这里</a></p>
-<h1 id="Eclipse汉化"><a href="#Eclipse汉化" class="headerlink" title="Eclipse汉化"></a>Eclipse汉化</h1><ol>
-<li>首先我们需要打开<code>Eclipse</code>，看一下我们安装的Eclipse的版本，依次点击<code>Help&gt;About Eclipse</code></li>
-<li>确定版本后，就打开下面这个网站<a href="http://www.eclipse.org/babel/downloads.php">http://www.eclipse.org/babel/downloads.php</a>找到对应的版本，并复制链接</li>
-<li>打开<code>Eclipse</code>，安装新服务，依次点击<code>Help&gt;Install New Software…</code></li>
-<li>在打开的新窗口中点击<code>【Add】</code>按钮，然后在<code>【Location】</code>文本框中输入刚刚复制的网址，点击<code>【OK】</code>按钮即可。</li>
-<li>等待片刻便会看到软件检索到的语言包列表，下拉垂直滚动条，选择<code>【Bable Language Packs in Chinese(Simplified)】</code>下的<code>【Bable Language Packs for eclipse in Chinese (Simplified)(简体中文)】</code>包，点击<code>【next】</code>按钮进入下一步</li>
-<li>过几秒中便跳到如下界面，勾选第一个<code>【I accept...】</code>单选框，点击<code>【Finish】</code>按钮完成设置。</li>
-<li>进入安装界面，等待安装</li>
-<li>等待片刻后，在弹出的<code>【Security Warning】</code>窗体中点击<code>【Install anyway】</code>按钮，之后在弹出的又一窗体<code>【Software Updates】</code>中点击<code>【Restart Now】</code>按钮完成语言包的安装并重启eclipse。</li>
-<li> 重启<code>eclipse</code>后，便会看到汉化后的<code>eclipse</code>界面啦</li>
-</ol>
-]]></content>
-      <categories>
-        <category>软件</category>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Eclipse</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>95. Python __init__.py 使用</title>
-    <url>/2020/03/13/95/</url>
-    <content><![CDATA[<h1 id="Python工程的组织结构"><a href="#Python工程的组织结构" class="headerlink" title="Python工程的组织结构"></a>Python工程的组织结构</h1><blockquote>
-<p>包、模块、类、函数、变量</p>
-</blockquote>
-<ul>
-<li>最顶级的组织结构：包(文件夹)</li>
-<li>第二个层级：模块(文件)</li>
-<li>第三个层级：类</li>
-<li>第四个层级：函数、变量(不属于组织结构，是类本身的特性)<span id="more"></span></li>
-</ul>
-<blockquote>
-<p><strong>其中：</strong></p>
-<ol>
-<li>包：整个文件夹</li>
-<li>模块：一个 <code>py</code> 文件</li>
-</ol>
-</blockquote>
-<h1 id="Python包与模块的名字"><a href="#Python包与模块的名字" class="headerlink" title="Python包与模块的名字"></a>Python包与模块的名字</h1><blockquote>
-<p> 区分不同包的同名模块：包名.模块名<br> 形成的模块的路径叫做命名空间<br> 一个包下面可以有子包，模块可以和包平级<br> 普通文件夹想要变成包必须要有init.py文件<br> <code>__init__.py</code> 本身也是一个模块，可以不写内容只是标注包<br> 特殊地，<code>__init__.py</code> 模块的名字就是包名</p>
-</blockquote>
-<h1 id="init-py用途"><a href="#init-py用途" class="headerlink" title="__init__.py用途"></a><code>__init__.py</code>用途</h1><blockquote>
-<p><code>__init__.py</code> 该文件的作用就是相当于把自身整个文件夹当作一个包来管理，每当有外部import的时候，就会自动执行里面的函数。</p>
-</blockquote>
-<h1 id="import导入模块"><a href="#import导入模块" class="headerlink" title="import导入模块"></a>import导入模块</h1><blockquote>
-<p>对于重复的定义需要从其他模块里引用。<br>利用 <code>import 模块名</code> 导入</p>
-</blockquote>
-   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PackageTest1.Test1</span></span><br><span class="line">a = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># PackageTest1.Test2</span></span><br><span class="line"><span class="keyword">import</span> Test1</span><br><span class="line">print(Test1.a)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>import导入的总是模块，需要用模块名.变量名的方法引用<br>可以用as简化书写</p>
-</blockquote>
-   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PackageTest1.Test1</span></span><br><span class="line">a = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># PackageTest1.Test2</span></span><br><span class="line"><span class="keyword">import</span> Test1 <span class="keyword">as</span> t1</span><br><span class="line">print(t1.a)</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>同级目录可以直接导入模块<br>优点是可以一眼看出属于哪个模块</p>
-</blockquote>
-<h1 id="from-import-导入变量"><a href="#from-import-导入变量" class="headerlink" title="from import 导入变量"></a>from import 导入变量</h1>   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PackageTest1.Test2</span></span><br><span class="line"><span class="keyword">from</span> c1 <span class="keyword">import</span> a</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>可以使用 <code>from 包 import 模块</code> 导入模块<br>导入时使用 <code>模块.变量</code><br>导入大量变量时用 <code>*</code>：</p>
-</blockquote>
-   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PackageTest1.Test1</span></span><br><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">1</span></span><br><span class="line">c = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># PackageTest1.Test2</span></span><br><span class="line"><span class="keyword">from</span> Test1 <span class="keyword">import</span> *</span><br><span class="line">print(a)</span><br><span class="line">print(b)</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
-
-<h2 id="控制"><a href="#控制" class="headerlink" title="控制 *"></a>控制 <code>*</code></h2>   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PackageTest1.Test1</span></span><br><span class="line">__all__ = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>]</span><br><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">1</span></span><br><span class="line">c = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># PackageTest1.Test2</span></span><br><span class="line"><span class="keyword">from</span> Test1 <span class="keyword">import</span> *</span><br><span class="line">print(a)</span><br><span class="line">print(b)</span><br><span class="line">print(c) <span class="comment"># 这里会报错，因为没有导入c</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ol>
-<li><p>使用 <code>*</code> 导入时，导入的是在所在包中 <code>__init__.py</code> 存在的变量</p>
-</li>
-<li><p>文件目录：</p>
-<blockquote>
-<p>initTest</p>
-<blockquote>
-<p>PackageTest1</p>
-<blockquote>
-<p><code>__init__.py</code><br><code>Test1.py</code> <br><br><code>Test2.py</code> <br></p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p><code>Test.py</code></p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>其中：</p>
-</blockquote>
-<blockquote>
-<p><code>PackageTest1.__init__.py</code></p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;You have imported mypackage&quot;</span>)</span><br><span class="line"><span class="comment"># __all__ = [&#x27;pd&#x27;, &#x27;np&#x27;] # 这里不需要 __all__ 控制</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<pre><code>  &gt; `PackageTest1.Test1.py`
-
-  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> __init__ <span class="keyword">import</span> * <span class="comment"># 可以使用所在包中的 __init__ 导入大量的包</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test1</span>():</span></span><br><span class="line">   </span><br><span class="line">   <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">         a = np.array([i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)])</span><br><span class="line">   print(a)</span><br></pre></td></tr></table></figure>
-
-
-  &gt; `Test.py`
-
-  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> PackageTest1 <span class="keyword">import</span> * <span class="comment"># 因为 PackageTest1.__init__ 中只有 pd, np 这两个变量，因此使用 * 只导入进来了 pd, np</span></span><br><span class="line"><span class="keyword">from</span> PackageTest1.Test1 <span class="keyword">import</span> Test1 <span class="comment"># 因为在 PackageTest1.__init__ 中没有 Test1 这个模块，更没有 Test1 这个类，因此想要使用必须自行导入</span></span><br><span class="line"></span><br><span class="line">Test1()</span><br></pre></td></tr></table></figure>
-</code></pre>
-<h1 id="在-PackageTest1-init-中导入-Test1-模块、类"><a href="#在-PackageTest1-init-中导入-Test1-模块、类" class="headerlink" title="在 PackageTest1.__init__ 中导入 Test1 模块、类"></a>在 <code>PackageTest1.__init__</code> 中导入 <code>Test1</code> 模块、类</h1><ol>
-<li>导入 <code>Test1</code> 模块<br>在 <code>PackageTest1.__init__.py</code>中添加 <code>import PackageTest1.Test1</code> 就可以在 <code>Test.py</code>中使用 <code>Test1.Test1()</code> 创建 <code>Test1</code> 类了。</li>
-<li>导入 <code>Test1</code> 类<ol>
-<li>在 <code>PackageTest1.__init__.py</code>中添加 <code>from PackageTest1.Test1 import Test1</code> 就可以在 <code>Test.py</code>中使用 <code>Test1()</code> 创建 <code>Test1</code> 类了。</li>
-<li>在 <code>PackageTest1.__init__.py</code>中添加 <code>import PackageTest1.Test1</code> <em><strong>是错误的，会报错:</strong></em> <code>ModuleNotFoundError: No module named &#39;PackageTest1.Test1.Test1&#39;; &#39;PackageTest1.Test1&#39; is not a package</code></li>
-</ol>
-</li>
-</ol>
-<h1 id="init-py-用法"><a href="#init-py-用法" class="headerlink" title="__init__.py 用法"></a><code>__init__.py</code> 用法</h1><ol>
-<li>当包被导入时，<code>__init__.py</code> 会首先被自动执行，类似于构造函数</li>
-<li><code>__init__.py</code> 的应用场景<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PackageTest1.__init__.py</span></span><br><span class="line">__all__ = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>]    <span class="comment">#初始化*</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys        <span class="comment">#批量导入库</span></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> io</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#Test.py</span></span><br><span class="line"><span class="keyword">import</span> Test1</span><br><span class="line">print(Test1.sys.path)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>此时引用因为不是用的 <code>*</code> , 所以必须使用 <code>包.类.成员函数</code> 进行调用。</p>
-</blockquote>
-</li>
-</ol>
-<h1 id="多层目录各层互相调用"><a href="#多层目录各层互相调用" class="headerlink" title="多层目录各层互相调用"></a>多层目录各层互相调用</h1><blockquote>
-<blockquote>
-<p><code>pacgage1</code></p>
-<blockquote>
-<p><code>__init__.py</code><br><code>test1.py</code><br><code>test2.py</code></p>
-</blockquote>
-</blockquote>
-<p><code>test3.py</code></p>
-</blockquote>
-<p>   <code>test3</code> 调用 <code>package1</code>，而 <code>test1</code> 调用 <code>test2</code>，此时，在 <code>package1.__init__.py</code> 中添加路径，如下：</p>
-   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">&quot;./package&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h1 id="包与模块的几个常见错误"><a href="#包与模块的几个常见错误" class="headerlink" title="包与模块的几个常见错误"></a>包与模块的几个常见错误</h1><ol>
-<li>包和模块是不会被重复导入的，只会执行一次(入口文件的概念)</li>
-<li>避免循环导入，不要形成闭环</li>
-<li>导入模块的时候会执行模块里所有的代码</li>
-<li>如果使用 <code>if __name__ == &#39;__main__&#39;</code> 则不会执行该代码块中的代码</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>__init__</tag>
       </tags>
   </entry>
   <entry>
@@ -5892,6 +5795,146 @@
       </categories>
       <tags>
         <tag>TensorFlow</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>95. Python __init__.py 使用</title>
+    <url>/2020/03/13/95/</url>
+    <content><![CDATA[<h1 id="Python工程的组织结构"><a href="#Python工程的组织结构" class="headerlink" title="Python工程的组织结构"></a>Python工程的组织结构</h1><blockquote>
+<p>包、模块、类、函数、变量</p>
+</blockquote>
+<ul>
+<li>最顶级的组织结构：包(文件夹)</li>
+<li>第二个层级：模块(文件)</li>
+<li>第三个层级：类</li>
+<li>第四个层级：函数、变量(不属于组织结构，是类本身的特性)<span id="more"></span></li>
+</ul>
+<blockquote>
+<p><strong>其中：</strong></p>
+<ol>
+<li>包：整个文件夹</li>
+<li>模块：一个 <code>py</code> 文件</li>
+</ol>
+</blockquote>
+<h1 id="Python包与模块的名字"><a href="#Python包与模块的名字" class="headerlink" title="Python包与模块的名字"></a>Python包与模块的名字</h1><blockquote>
+<p> 区分不同包的同名模块：包名.模块名<br> 形成的模块的路径叫做命名空间<br> 一个包下面可以有子包，模块可以和包平级<br> 普通文件夹想要变成包必须要有init.py文件<br> <code>__init__.py</code> 本身也是一个模块，可以不写内容只是标注包<br> 特殊地，<code>__init__.py</code> 模块的名字就是包名</p>
+</blockquote>
+<h1 id="init-py用途"><a href="#init-py用途" class="headerlink" title="__init__.py用途"></a><code>__init__.py</code>用途</h1><blockquote>
+<p><code>__init__.py</code> 该文件的作用就是相当于把自身整个文件夹当作一个包来管理，每当有外部import的时候，就会自动执行里面的函数。</p>
+</blockquote>
+<h1 id="import导入模块"><a href="#import导入模块" class="headerlink" title="import导入模块"></a>import导入模块</h1><blockquote>
+<p>对于重复的定义需要从其他模块里引用。<br>利用 <code>import 模块名</code> 导入</p>
+</blockquote>
+   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PackageTest1.Test1</span></span><br><span class="line">a = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># PackageTest1.Test2</span></span><br><span class="line"><span class="keyword">import</span> Test1</span><br><span class="line">print(Test1.a)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>import导入的总是模块，需要用模块名.变量名的方法引用<br>可以用as简化书写</p>
+</blockquote>
+   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PackageTest1.Test1</span></span><br><span class="line">a = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># PackageTest1.Test2</span></span><br><span class="line"><span class="keyword">import</span> Test1 <span class="keyword">as</span> t1</span><br><span class="line">print(t1.a)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>同级目录可以直接导入模块<br>优点是可以一眼看出属于哪个模块</p>
+</blockquote>
+<h1 id="from-import-导入变量"><a href="#from-import-导入变量" class="headerlink" title="from import 导入变量"></a>from import 导入变量</h1>   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PackageTest1.Test2</span></span><br><span class="line"><span class="keyword">from</span> c1 <span class="keyword">import</span> a</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>可以使用 <code>from 包 import 模块</code> 导入模块<br>导入时使用 <code>模块.变量</code><br>导入大量变量时用 <code>*</code>：</p>
+</blockquote>
+   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PackageTest1.Test1</span></span><br><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">1</span></span><br><span class="line">c = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># PackageTest1.Test2</span></span><br><span class="line"><span class="keyword">from</span> Test1 <span class="keyword">import</span> *</span><br><span class="line">print(a)</span><br><span class="line">print(b)</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
+
+<h2 id="控制"><a href="#控制" class="headerlink" title="控制 *"></a>控制 <code>*</code></h2>   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PackageTest1.Test1</span></span><br><span class="line">__all__ = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>]</span><br><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">1</span></span><br><span class="line">c = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># PackageTest1.Test2</span></span><br><span class="line"><span class="keyword">from</span> Test1 <span class="keyword">import</span> *</span><br><span class="line">print(a)</span><br><span class="line">print(b)</span><br><span class="line">print(c) <span class="comment"># 这里会报错，因为没有导入c</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ol>
+<li><p>使用 <code>*</code> 导入时，导入的是在所在包中 <code>__init__.py</code> 存在的变量</p>
+</li>
+<li><p>文件目录：</p>
+<blockquote>
+<p>initTest</p>
+<blockquote>
+<p>PackageTest1</p>
+<blockquote>
+<p><code>__init__.py</code><br><code>Test1.py</code> <br><br><code>Test2.py</code> <br></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><code>Test.py</code></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>其中：</p>
+</blockquote>
+<blockquote>
+<p><code>PackageTest1.__init__.py</code></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;You have imported mypackage&quot;</span>)</span><br><span class="line"><span class="comment"># __all__ = [&#x27;pd&#x27;, &#x27;np&#x27;] # 这里不需要 __all__ 控制</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<pre><code>  &gt; `PackageTest1.Test1.py`
+
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> __init__ <span class="keyword">import</span> * <span class="comment"># 可以使用所在包中的 __init__ 导入大量的包</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test1</span>():</span></span><br><span class="line">   </span><br><span class="line">   <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">         a = np.array([i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)])</span><br><span class="line">   print(a)</span><br></pre></td></tr></table></figure>
+
+
+  &gt; `Test.py`
+
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> PackageTest1 <span class="keyword">import</span> * <span class="comment"># 因为 PackageTest1.__init__ 中只有 pd, np 这两个变量，因此使用 * 只导入进来了 pd, np</span></span><br><span class="line"><span class="keyword">from</span> PackageTest1.Test1 <span class="keyword">import</span> Test1 <span class="comment"># 因为在 PackageTest1.__init__ 中没有 Test1 这个模块，更没有 Test1 这个类，因此想要使用必须自行导入</span></span><br><span class="line"></span><br><span class="line">Test1()</span><br></pre></td></tr></table></figure>
+</code></pre>
+<h1 id="在-PackageTest1-init-中导入-Test1-模块、类"><a href="#在-PackageTest1-init-中导入-Test1-模块、类" class="headerlink" title="在 PackageTest1.__init__ 中导入 Test1 模块、类"></a>在 <code>PackageTest1.__init__</code> 中导入 <code>Test1</code> 模块、类</h1><ol>
+<li>导入 <code>Test1</code> 模块<br>在 <code>PackageTest1.__init__.py</code>中添加 <code>import PackageTest1.Test1</code> 就可以在 <code>Test.py</code>中使用 <code>Test1.Test1()</code> 创建 <code>Test1</code> 类了。</li>
+<li>导入 <code>Test1</code> 类<ol>
+<li>在 <code>PackageTest1.__init__.py</code>中添加 <code>from PackageTest1.Test1 import Test1</code> 就可以在 <code>Test.py</code>中使用 <code>Test1()</code> 创建 <code>Test1</code> 类了。</li>
+<li>在 <code>PackageTest1.__init__.py</code>中添加 <code>import PackageTest1.Test1</code> <em><strong>是错误的，会报错:</strong></em> <code>ModuleNotFoundError: No module named &#39;PackageTest1.Test1.Test1&#39;; &#39;PackageTest1.Test1&#39; is not a package</code></li>
+</ol>
+</li>
+</ol>
+<h1 id="init-py-用法"><a href="#init-py-用法" class="headerlink" title="__init__.py 用法"></a><code>__init__.py</code> 用法</h1><ol>
+<li>当包被导入时，<code>__init__.py</code> 会首先被自动执行，类似于构造函数</li>
+<li><code>__init__.py</code> 的应用场景<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PackageTest1.__init__.py</span></span><br><span class="line">__all__ = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>]    <span class="comment">#初始化*</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys        <span class="comment">#批量导入库</span></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> io</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#Test.py</span></span><br><span class="line"><span class="keyword">import</span> Test1</span><br><span class="line">print(Test1.sys.path)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>此时引用因为不是用的 <code>*</code> , 所以必须使用 <code>包.类.成员函数</code> 进行调用。</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="多层目录各层互相调用"><a href="#多层目录各层互相调用" class="headerlink" title="多层目录各层互相调用"></a>多层目录各层互相调用</h1><blockquote>
+<blockquote>
+<p><code>pacgage1</code></p>
+<blockquote>
+<p><code>__init__.py</code><br><code>test1.py</code><br><code>test2.py</code></p>
+</blockquote>
+</blockquote>
+<p><code>test3.py</code></p>
+</blockquote>
+<p>   <code>test3</code> 调用 <code>package1</code>，而 <code>test1</code> 调用 <code>test2</code>，此时，在 <code>package1.__init__.py</code> 中添加路径，如下：</p>
+   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">&quot;./package&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="包与模块的几个常见错误"><a href="#包与模块的几个常见错误" class="headerlink" title="包与模块的几个常见错误"></a>包与模块的几个常见错误</h1><ol>
+<li>包和模块是不会被重复导入的，只会执行一次(入口文件的概念)</li>
+<li>避免循环导入，不要形成闭环</li>
+<li>导入模块的时候会执行模块里所有的代码</li>
+<li>如果使用 <code>if __name__ == &#39;__main__&#39;</code> 则不会执行该代码块中的代码</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>__init__</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>96. Sublime 配置</title>
+    <url>/2020/03/16/96/</url>
+    <content><![CDATA[<h1 id="Sublime快捷键"><a href="#Sublime快捷键" class="headerlink" title="Sublime快捷键"></a>Sublime快捷键</h1>   <figure class="highlight json"><table><tr><td class="code"><pre><span class="line">[</span><br><span class="line">   &#123; <span class="attr">&quot;keys&quot;</span>: [<span class="string">&quot;ctrl+enter&quot;</span>], <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;move_to&quot;</span>, <span class="attr">&quot;args&quot;</span>: &#123;<span class="attr">&quot;to&quot;</span>: <span class="string">&quot;eol&quot;</span>, <span class="attr">&quot;extend&quot;</span>: <span class="literal">false</span>&#125; &#125;,</span><br><span class="line">   &#123; <span class="attr">&quot;keys&quot;</span>: [<span class="string">&quot;shift+enter&quot;</span>], <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;run_macro_file&quot;</span>, <span class="attr">&quot;args&quot;</span>: &#123;<span class="attr">&quot;file&quot;</span>: <span class="string">&quot;res://Packages/Default/Add Line.sublime-macro&quot;</span>&#125; &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+   <span id="more"></span>
+
+<h1 id="主题、配色"><a href="#主题、配色" class="headerlink" title="主题、配色"></a>主题、配色</h1><ol>
+<li>主题： <code>Ayu</code></li>
+<li>配色： <code>Ayu-light</code></li>
+<li>配置文件（首选项-设置）：<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">&quot;color_scheme&quot;</span>: <span class="string">&quot;Packages/ayu/ayu-light.sublime-color-scheme&quot;</span>,</span><br><span class="line"><span class="attr">&quot;ignored_packages&quot;</span>:</span><br><span class="line">[</span><br><span class="line">   <span class="string">&quot;Vintage&quot;</span></span><br><span class="line">],</span><br><span class="line"><span class="attr">&quot;theme&quot;</span>: <span class="string">&quot;ayu-light.sublime-theme&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>软件</category>
+      </categories>
+      <tags>
+        <tag>Sublime</tag>
       </tags>
   </entry>
   <entry>
@@ -6189,25 +6232,6 @@
       <tags>
         <tag>Jetbrain</tag>
         <tag>Clion</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>96. Sublime 配置</title>
-    <url>/2020/03/16/96/</url>
-    <content><![CDATA[<h1 id="Sublime快捷键"><a href="#Sublime快捷键" class="headerlink" title="Sublime快捷键"></a>Sublime快捷键</h1>   <figure class="highlight json"><table><tr><td class="code"><pre><span class="line">[</span><br><span class="line">   &#123; <span class="attr">&quot;keys&quot;</span>: [<span class="string">&quot;ctrl+enter&quot;</span>], <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;move_to&quot;</span>, <span class="attr">&quot;args&quot;</span>: &#123;<span class="attr">&quot;to&quot;</span>: <span class="string">&quot;eol&quot;</span>, <span class="attr">&quot;extend&quot;</span>: <span class="literal">false</span>&#125; &#125;,</span><br><span class="line">   &#123; <span class="attr">&quot;keys&quot;</span>: [<span class="string">&quot;shift+enter&quot;</span>], <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;run_macro_file&quot;</span>, <span class="attr">&quot;args&quot;</span>: &#123;<span class="attr">&quot;file&quot;</span>: <span class="string">&quot;res://Packages/Default/Add Line.sublime-macro&quot;</span>&#125; &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-   <span id="more"></span>
-
-<h1 id="主题、配色"><a href="#主题、配色" class="headerlink" title="主题、配色"></a>主题、配色</h1><ol>
-<li>主题： <code>Ayu</code></li>
-<li>配色： <code>Ayu-light</code></li>
-<li>配置文件（首选项-设置）：<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">&quot;color_scheme&quot;</span>: <span class="string">&quot;Packages/ayu/ayu-light.sublime-color-scheme&quot;</span>,</span><br><span class="line"><span class="attr">&quot;ignored_packages&quot;</span>:</span><br><span class="line">[</span><br><span class="line">   <span class="string">&quot;Vintage&quot;</span></span><br><span class="line">],</span><br><span class="line"><span class="attr">&quot;theme&quot;</span>: <span class="string">&quot;ayu-light.sublime-theme&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>软件</category>
-      </categories>
-      <tags>
-        <tag>Sublime</tag>
       </tags>
   </entry>
   <entry>
