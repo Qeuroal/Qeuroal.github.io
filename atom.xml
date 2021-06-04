@@ -6,7 +6,7 @@
   <link href="https://qeuroal.top/atom.xml" rel="self"/>
   
   <link href="https://qeuroal.top/"/>
-  <updated>2021-05-28T13:29:36.677Z</updated>
+  <updated>2021-06-04T10:11:05.495Z</updated>
   <id>https://qeuroal.top/</id>
   
   <author>
@@ -21,16 +21,12 @@
     <link href="https://qeuroal.top/2021/05/28/142/"/>
     <id>https://qeuroal.top/2021/05/28/142/</id>
     <published>2021-05-28T10:44:21.000Z</published>
-    <updated>2021-05-28T13:29:36.677Z</updated>
+    <updated>2021-06-04T10:11:05.495Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;开关机和基本目录介绍&quot;&gt;&lt;a href=&quot;#开关机和基本目录介绍&quot; class=&quot;headerlink&quot; title=&quot;开关机和基本目录介绍&quot;&gt;&lt;/a&gt;开关机和基本目录介绍&lt;/h1&gt;&lt;h3 id=&quot;系统目录&quot;&gt;&lt;a href=&quot;#系统目录&quot;</summary>
-        
-      
+    <summary type="html">&lt;h1 id=&quot;入门概述&quot;&gt;&lt;a href=&quot;#入门概述&quot; class=&quot;headerlink&quot; title=&quot;入门概述&quot;&gt;&lt;/a&gt;入门概述&lt;/h1&gt;&lt;h2 id=&quot;我们为什么要学习Linux&quot;&gt;&lt;a href=&quot;#我们为什么要学习Linux&quot; class=&quot;headerlink&quot; title=&quot;我们为什么要学习Linux&quot;&gt;&lt;/a&gt;我们为什么要学习Linux&lt;/h2&gt;&lt;p&gt;&lt;code&gt;linux&lt;/code&gt;诞生了这么多年，以前还喊着如何能取代&lt;code&gt;windows&lt;/code&gt;系统，现在这个口号已经小多了，任何事物发展都有其局限性都有其天花板。就如同在国内再搞一个社交软件取代腾讯一样，想想而已基本不可能，因为用户已经习惯于使用微信交流，不是说技术上实现不了解而是老百姓已经习惯了，想让他们不用，即使他们自己不用亲戚朋友还是要用，没有办法的事情。&lt;/p&gt;
+&lt;p&gt;用习惯了windows操作系统，再让大家切换到别的操作系统基本上是不可能的事情，改变一个人已经养成的习惯太难。没有办法深入到普通老百姓的生活中，并不意味着&lt;code&gt;linux&lt;/code&gt;就没有用武之地了。在服务器端，在开发领域&lt;code&gt;linux&lt;/code&gt;倒是越来越受欢迎，很多程序员都觉得不懂点&lt;code&gt;linux&lt;/code&gt;都觉得不好意思，&lt;code&gt;linux&lt;/code&gt;在开源社区的地位依然岿然不动。&lt;/p&gt;
+&lt;p&gt;尤其是作为一个后端程序员，是必须要掌握Linux的，因为这都成为了你找工作的基础门槛了，所以不得不学习！&lt;/p&gt;</summary>
     
     
     
