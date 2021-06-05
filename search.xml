@@ -72,33 +72,6 @@
       </tags>
   </entry>
   <entry>
-    <title>10. 搭建本地测试Jekyll，使用 Jekyll server</title>
-    <url>/2019/01/21/10/</url>
-    <content><![CDATA[<ol>
-<li>下载ruby，<a href="https://rubyinstaller.org/downloads/">请点击这里</a>；</li>
-</ol>
-<span id="more"></span>
-
-
-<ol start="2">
-<li>下载 rubyinstaller 之后，解压到新创建的目录下；</li>
-<li>点击 Next，继续向导，记得勾选 Add Ruby executables to your PATH，直到 Ruby 安装程序完成 Ruby 安装为止。<strong>如果您的安装没有适当地配置环境变量，接下来您可能需要进行环境变量的配置</strong>。</li>
-<li>安装后，通过在命令行中输入以下命令来确保一切工作正常：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; $ ruby -v</span><br><span class="line">ruby 2.6.0</span><br></pre></td></tr></table></figure></li>
-<li>输入一下代码：(可以直接到第六步，如果出现错误，再来做第5步)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gem install pygments.rb</span><br><span class="line">gem install redcarpet</span><br></pre></td></tr></table></figure></li>
-<li>在<code>_config.yml</code>,将<code>gems:</code>的这一行注释掉。</li>
-</ol>
-<blockquote>
-<p>【释】：详情请见<a href="http://www.runoob.com/ruby/ruby-installation-windows.html">这里</a>。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Github</category>
-      </categories>
-      <tags>
-        <tag>Jekyll</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>100. Clion中使用头文件和源文件坑</title>
     <url>/2020/04/01/100/</url>
     <content><![CDATA[<h1 id="Clion-中使用头文件定义类，源文件实现"><a href="#Clion-中使用头文件定义类，源文件实现" class="headerlink" title="Clion 中使用头文件定义类，源文件实现"></a><code>Clion</code> 中使用头文件定义类，源文件实现</h1><h2 id="include什么"><a href="#include什么" class="headerlink" title="include什么"></a>include什么</h2><blockquote>
@@ -136,6 +109,33 @@
       <tags>
         <tag>Jetbrain</tag>
         <tag>Clion</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>10. 搭建本地测试Jekyll，使用 Jekyll server</title>
+    <url>/2019/01/21/10/</url>
+    <content><![CDATA[<ol>
+<li>下载ruby，<a href="https://rubyinstaller.org/downloads/">请点击这里</a>；</li>
+</ol>
+<span id="more"></span>
+
+
+<ol start="2">
+<li>下载 rubyinstaller 之后，解压到新创建的目录下；</li>
+<li>点击 Next，继续向导，记得勾选 Add Ruby executables to your PATH，直到 Ruby 安装程序完成 Ruby 安装为止。<strong>如果您的安装没有适当地配置环境变量，接下来您可能需要进行环境变量的配置</strong>。</li>
+<li>安装后，通过在命令行中输入以下命令来确保一切工作正常：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; $ ruby -v</span><br><span class="line">ruby 2.6.0</span><br></pre></td></tr></table></figure></li>
+<li>输入一下代码：(可以直接到第六步，如果出现错误，再来做第5步)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gem install pygments.rb</span><br><span class="line">gem install redcarpet</span><br></pre></td></tr></table></figure></li>
+<li>在<code>_config.yml</code>,将<code>gems:</code>的这一行注释掉。</li>
+</ol>
+<blockquote>
+<p>【释】：详情请见<a href="http://www.runoob.com/ruby/ruby-installation-windows.html">这里</a>。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Github</category>
+      </categories>
+      <tags>
+        <tag>Jekyll</tag>
       </tags>
   </entry>
   <entry>
@@ -261,6 +261,51 @@
       <tags>
         <tag>Ubuntu</tag>
         <tag>tmux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>104. 随身携带的系统U盘/硬盘</title>
+    <url>/2020/06/05/104/</url>
+    <content><![CDATA[<ul>
+<li><h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ul>
+<li><h2 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h2><ol>
+<li>一台装有windows系统的电脑（推荐win10）</li>
+<li>一个32G以上的U盘（推荐固态硬盘）</li>
+</ol>
+</li>
+<li><h2 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h2><ol>
+<li><a href="https://msdn.itellyou.cn/">win10系统镜像</a></li>
+<li><a href="https://bbs.luobotou.org/thread-761-1-1.html">WTG辅助工具</a><span id="more"></span></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1></li>
+</ul>
+<ol>
+<li><p><code>右击系统镜像</code> - <code>挂载</code> </p>
+</li>
+<li><p>将下载的WTG解压出来，然后运行</p>
+</li>
+<li><p>按照下图进行设置</p>
+<p><img src="/images/posts/computer/12.png"></p>
+<ul>
+<li>点击 <code>浏览...</code> ，选择挂载的 <code>系统镜像的目录</code> -&gt; <code>sources</code> -&gt; <code>install.wim</code></li>
+<li>选择安装的系统的U盘，即 <code>浏览...</code> 下面一栏（左面第二栏）</li>
+<li>再下面一栏（左面第三栏），选择要安装系统的版本（推荐：专业版或企业版）</li>
+<li><code>高级选项</code>（右面）- <code>常用</code>：选择： <code>UEFI+MBR</code>，其他的根据自己的需求来选择</li>
+</ul>
+</li>
+<li><p>然后，使用U盘快捷启动进入系统就可以了</p>
+</li>
+</ol>
+<h3 id="【Note】-如果原来系统的打不开了，即引导出了问题，见下一篇文章-UEFI引导修复"><a href="#【Note】-如果原来系统的打不开了，即引导出了问题，见下一篇文章-UEFI引导修复" class="headerlink" title="【Note】:如果原来系统的打不开了，即引导出了问题，见下一篇文章(UEFI引导修复)"></a>【Note】:如果原来系统的打不开了，即引导出了问题，见下一篇文章(UEFI引导修复)</h3>]]></content>
+      <categories>
+        <category>OS</category>
+        <category>Computer</category>
+      </categories>
+      <tags>
+        <tag>OS</tag>
       </tags>
   </entry>
   <entry>
@@ -393,51 +438,6 @@
       </tags>
   </entry>
   <entry>
-    <title>104. 随身携带的系统U盘/硬盘</title>
-    <url>/2020/06/05/104/</url>
-    <content><![CDATA[<ul>
-<li><h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ul>
-<li><h2 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h2><ol>
-<li>一台装有windows系统的电脑（推荐win10）</li>
-<li>一个32G以上的U盘（推荐固态硬盘）</li>
-</ol>
-</li>
-<li><h2 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h2><ol>
-<li><a href="https://msdn.itellyou.cn/">win10系统镜像</a></li>
-<li><a href="https://bbs.luobotou.org/thread-761-1-1.html">WTG辅助工具</a><span id="more"></span></li>
-</ol>
-</li>
-</ul>
-</li>
-<li><h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1></li>
-</ul>
-<ol>
-<li><p><code>右击系统镜像</code> - <code>挂载</code> </p>
-</li>
-<li><p>将下载的WTG解压出来，然后运行</p>
-</li>
-<li><p>按照下图进行设置</p>
-<p><img src="/images/posts/computer/12.png"></p>
-<ul>
-<li>点击 <code>浏览...</code> ，选择挂载的 <code>系统镜像的目录</code> -&gt; <code>sources</code> -&gt; <code>install.wim</code></li>
-<li>选择安装的系统的U盘，即 <code>浏览...</code> 下面一栏（左面第二栏）</li>
-<li>再下面一栏（左面第三栏），选择要安装系统的版本（推荐：专业版或企业版）</li>
-<li><code>高级选项</code>（右面）- <code>常用</code>：选择： <code>UEFI+MBR</code>，其他的根据自己的需求来选择</li>
-</ul>
-</li>
-<li><p>然后，使用U盘快捷启动进入系统就可以了</p>
-</li>
-</ol>
-<h3 id="【Note】-如果原来系统的打不开了，即引导出了问题，见下一篇文章-UEFI引导修复"><a href="#【Note】-如果原来系统的打不开了，即引导出了问题，见下一篇文章-UEFI引导修复" class="headerlink" title="【Note】:如果原来系统的打不开了，即引导出了问题，见下一篇文章(UEFI引导修复)"></a>【Note】:如果原来系统的打不开了，即引导出了问题，见下一篇文章(UEFI引导修复)</h3>]]></content>
-      <categories>
-        <category>OS</category>
-        <category>Computer</category>
-      </categories>
-      <tags>
-        <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>108. Ubuntu给ss.AppImage创建快捷方式</title>
     <url>/2020/09/08/108/</url>
     <content><![CDATA[<ol>
@@ -478,35 +478,6 @@
       <tags>
         <tag>Chrome</tag>
         <tag>IDM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>110. 双系统下 .Trash-1000 的说明</title>
-    <url>/2020/10/22/110/</url>
-    <content><![CDATA[<ol>
-<li><p>理解</p>
-<blockquote>
-<p>网上的解释是 由ubuntu系统自动创建的回收站文件夹，每个盘都有一个 。s<br>也就是说，系统在删除某个盘里的垃圾文件的时候，是创建一个 .Trash-1000文件夹，然后将它放进去。</p>
-</blockquote>
-<span id="more"></span></li>
-<li><p>例子</p>
-<blockquote>
-<p>比如 我在u盘上执行了删除操作，ubuntu系统会在u盘里也创建一个.Trash-1000文件夹，info文件夹应该是保存的是垃圾文件的对应关系，files文件夹里应该是删除的垃圾文件。</p>
-</blockquote>
-</li>
-<li><p>管理</p>
-<blockquote>
-<p>如果在 ubuntu系统里–清除回收站，各个盘里对应的垃圾文件就会自动删除了。</p>
-</blockquote>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>OS</category>
-        <category>Computer</category>
-      </categories>
-      <tags>
-        <tag>双系统</tag>
       </tags>
   </entry>
   <entry>
@@ -632,6 +603,35 @@
       </tags>
   </entry>
   <entry>
+    <title>110. 双系统下 .Trash-1000 的说明</title>
+    <url>/2020/10/22/110/</url>
+    <content><![CDATA[<ol>
+<li><p>理解</p>
+<blockquote>
+<p>网上的解释是 由ubuntu系统自动创建的回收站文件夹，每个盘都有一个 。s<br>也就是说，系统在删除某个盘里的垃圾文件的时候，是创建一个 .Trash-1000文件夹，然后将它放进去。</p>
+</blockquote>
+<span id="more"></span></li>
+<li><p>例子</p>
+<blockquote>
+<p>比如 我在u盘上执行了删除操作，ubuntu系统会在u盘里也创建一个.Trash-1000文件夹，info文件夹应该是保存的是垃圾文件的对应关系，files文件夹里应该是删除的垃圾文件。</p>
+</blockquote>
+</li>
+<li><p>管理</p>
+<blockquote>
+<p>如果在 ubuntu系统里–清除回收站，各个盘里对应的垃圾文件就会自动删除了。</p>
+</blockquote>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>OS</category>
+        <category>Computer</category>
+      </categories>
+      <tags>
+        <tag>双系统</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>112. 程序设计</title>
     <url>/2020/10/30/112/</url>
     <content><![CDATA[<ol>
@@ -753,22 +753,6 @@
       </tags>
   </entry>
   <entry>
-    <title>114. C/C++ 常用注释命令</title>
-    <url>/2020/12/03/114/</url>
-    <content><![CDATA[<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1>   <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@attention           注意</span><br><span class="line">@author              作者</span><br><span class="line">@bug                 缺陷，链接到所有缺陷汇总的缺陷列表</span><br><span class="line">@brief               简要注释</span><br><span class="line">@code                代码块开始，与 “endcode” 成对使用</span><br><span class="line">@endcode             代码块结束，与 “code” 成对使用</span><br><span class="line">@details             详细注释</span><br><span class="line">@date                日期</span><br><span class="line">@file                &lt;文件名&gt; 文件参考，用在文件注释中</span><br><span class="line">@param               参数，用在函数注释中</span><br><span class="line">@return              返回，用在函数注释中</span><br><span class="line">@todo                TODO，链接到所有 TODO 汇总的 TODO 列表</span><br><span class="line">@version             版本</span><br><span class="line">@warning             警告</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-
-<h1 id="Vscode-用户自定义片段"><a href="#Vscode-用户自定义片段" class="headerlink" title="Vscode 用户自定义片段"></a>Vscode 用户自定义片段</h1><h2 id="个人设置"><a href="#个人设置" class="headerlink" title="个人设置"></a>个人设置</h2>   <figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;cppDocuNote&quot;: &#123;</span><br><span class="line">   &quot;prefix&quot;: &quot;docuNote&quot;,</span><br><span class="line">   &quot;body&quot;: [</span><br><span class="line">      &quot;/**&quot;,</span><br><span class="line">      &quot;* $1&quot;,</span><br><span class="line">      &quot;* @param: $2&quot;,</span><br><span class="line">      &quot;* @return: $3&quot;,</span><br><span class="line">      &quot;*/$0&quot;,</span><br><span class="line">   ],</span><br><span class="line">   &quot;description&quot;: &quot;Documentation notes&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2>   <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *〈一句话功能简述〉</span></span><br><span class="line"><span class="comment"> *〈功能详细描述〉</span></span><br><span class="line"><span class="comment"> * @param [参数 1] [参数 1 说明]</span></span><br><span class="line"><span class="comment"> * @param [参数 2] [参数 2 说明]</span></span><br><span class="line"><span class="comment"> * @return [返回类型说明]</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>C/C++</category>
-      </categories>
-      <tags>
-        <tag>C/C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>113. 程序设计中的术语</title>
     <url>/2020/11/07/113/</url>
     <content><![CDATA[<ol>
@@ -789,6 +773,22 @@
       </categories>
       <tags>
         <tag>程序设计</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>114. C/C++ 常用注释命令</title>
+    <url>/2020/12/03/114/</url>
+    <content><![CDATA[<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1>   <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@attention           注意</span><br><span class="line">@author              作者</span><br><span class="line">@bug                 缺陷，链接到所有缺陷汇总的缺陷列表</span><br><span class="line">@brief               简要注释</span><br><span class="line">@code                代码块开始，与 “endcode” 成对使用</span><br><span class="line">@endcode             代码块结束，与 “code” 成对使用</span><br><span class="line">@details             详细注释</span><br><span class="line">@date                日期</span><br><span class="line">@file                &lt;文件名&gt; 文件参考，用在文件注释中</span><br><span class="line">@param               参数，用在函数注释中</span><br><span class="line">@return              返回，用在函数注释中</span><br><span class="line">@todo                TODO，链接到所有 TODO 汇总的 TODO 列表</span><br><span class="line">@version             版本</span><br><span class="line">@warning             警告</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<h1 id="Vscode-用户自定义片段"><a href="#Vscode-用户自定义片段" class="headerlink" title="Vscode 用户自定义片段"></a>Vscode 用户自定义片段</h1><h2 id="个人设置"><a href="#个人设置" class="headerlink" title="个人设置"></a>个人设置</h2>   <figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;cppDocuNote&quot;: &#123;</span><br><span class="line">   &quot;prefix&quot;: &quot;docuNote&quot;,</span><br><span class="line">   &quot;body&quot;: [</span><br><span class="line">      &quot;/**&quot;,</span><br><span class="line">      &quot;* $1&quot;,</span><br><span class="line">      &quot;* @param: $2&quot;,</span><br><span class="line">      &quot;* @return: $3&quot;,</span><br><span class="line">      &quot;*/$0&quot;,</span><br><span class="line">   ],</span><br><span class="line">   &quot;description&quot;: &quot;Documentation notes&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2>   <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *〈一句话功能简述〉</span></span><br><span class="line"><span class="comment"> *〈功能详细描述〉</span></span><br><span class="line"><span class="comment"> * @param [参数 1] [参数 1 说明]</span></span><br><span class="line"><span class="comment"> * @param [参数 2] [参数 2 说明]</span></span><br><span class="line"><span class="comment"> * @return [返回类型说明]</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>C/C++</category>
+      </categories>
+      <tags>
+        <tag>C/C++</tag>
       </tags>
   </entry>
   <entry>
@@ -853,6 +853,44 @@
       </tags>
   </entry>
   <entry>
+    <title>121. 补充多线程</title>
+    <url>/2021/01/11/121/</url>
+    <content><![CDATA[<h1 id="同步方法及同步块"><a href="#同步方法及同步块" class="headerlink" title="同步方法及同步块"></a>同步方法及同步块</h1><h2 id="同步方法"><a href="#同步方法" class="headerlink" title="同步方法"></a>同步方法</h2>   <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">(<span class="keyword">int</span> args)</span> </span>&#123;</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>   <code>synchronized</code>方法控制对“对象”的访问，每个对象对应一把锁，每个synchronized方法都必须获得该方法的对象的多才能执行，否则线程会阻塞，方法一旦执行，就独占该锁，知道该方法返回才释放锁，后面被阻塞的线程才能获得这个锁，继续执行</p>
+<span id="more"></span>
+
+<h2 id="同步块"><a href="#同步块" class="headerlink" title="同步块"></a>同步块</h2>   <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">synchronized</span> (Obj) &#123;</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>   <code>Obj</code> 称之为 同步监视器：</p>
+<ul>
+<li>Obj可以是任何对象，但是推荐使用共享资源作为同步监视器</li>
+<li>同步方法中无需置顶同步监视器，因为同步方法的同步监视器就是 <code>this</code>，就是这个对象本身，或者是 <code>class</code></li>
+</ul>
+<p>   同步监视器的执行过程:</p>
+<ol>
+<li>第一个线程访问，锁定同步监视器，执行其中代码</li>
+<li>第二个线程访问，发现同步监视器被锁定，无法访问</li>
+<li>第一个线程访问完毕，解锁同步监视器</li>
+<li>第二个线程访问，发现同步监视器没有锁，然后锁定并访问</li>
+</ol>
+<p>   总结：锁的对象就是变化的量：需要增删改的对象</p>
+<h1 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h1><p>   简单定义：多个线程互相抱着对方需要的资源才能运行，然后形成僵持</p>
+<p>   多个线程各自占有一些共享资源，并且互相等待其他线程占有的资源才能运行，而导致两个或多个线程都在等待对方释放资源，都停止执行的情形。某一个同步块同时拥有<strong>“两个以上对象的锁”</strong>时，就可能会发生“死锁”问题。</p>
+<h2 id="产生死锁的四个必要条件"><a href="#产生死锁的四个必要条件" class="headerlink" title="产生死锁的四个必要条件"></a>产生死锁的四个必要条件</h2><ol>
+<li>互斥条件：一个资源每次只能被一个进程使用</li>
+<li>请求与保持条件：一个进程因请求资源而阻塞时，对已获得的资源保持不放</li>
+<li>不剥夺条件：进程已获得的资源，在未使用完之前，不能强行剥夺</li>
+<li>循环等待条件：若干进程之间形成一种头尾相接的循环等待资源关系。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>多线程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>122. idea插件</title>
     <url>/2021/01/13/122/</url>
     <content><![CDATA[<h1 id="插件列表"><a href="#插件列表" class="headerlink" title="插件列表"></a>插件列表</h1><blockquote>
@@ -870,11 +908,6 @@
       <tags>
         <tag>idea</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>127. Spring</title>
-    <url>/2021/02/03/127/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>126. maven补充</title>
@@ -1045,44 +1078,6 @@
       </tags>
   </entry>
   <entry>
-    <title>121. 补充多线程</title>
-    <url>/2021/01/11/121/</url>
-    <content><![CDATA[<h1 id="同步方法及同步块"><a href="#同步方法及同步块" class="headerlink" title="同步方法及同步块"></a>同步方法及同步块</h1><h2 id="同步方法"><a href="#同步方法" class="headerlink" title="同步方法"></a>同步方法</h2>   <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">(<span class="keyword">int</span> args)</span> </span>&#123;</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>   <code>synchronized</code>方法控制对“对象”的访问，每个对象对应一把锁，每个synchronized方法都必须获得该方法的对象的多才能执行，否则线程会阻塞，方法一旦执行，就独占该锁，知道该方法返回才释放锁，后面被阻塞的线程才能获得这个锁，继续执行</p>
-<span id="more"></span>
-
-<h2 id="同步块"><a href="#同步块" class="headerlink" title="同步块"></a>同步块</h2>   <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">synchronized</span> (Obj) &#123;</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>   <code>Obj</code> 称之为 同步监视器：</p>
-<ul>
-<li>Obj可以是任何对象，但是推荐使用共享资源作为同步监视器</li>
-<li>同步方法中无需置顶同步监视器，因为同步方法的同步监视器就是 <code>this</code>，就是这个对象本身，或者是 <code>class</code></li>
-</ul>
-<p>   同步监视器的执行过程:</p>
-<ol>
-<li>第一个线程访问，锁定同步监视器，执行其中代码</li>
-<li>第二个线程访问，发现同步监视器被锁定，无法访问</li>
-<li>第一个线程访问完毕，解锁同步监视器</li>
-<li>第二个线程访问，发现同步监视器没有锁，然后锁定并访问</li>
-</ol>
-<p>   总结：锁的对象就是变化的量：需要增删改的对象</p>
-<h1 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h1><p>   简单定义：多个线程互相抱着对方需要的资源才能运行，然后形成僵持</p>
-<p>   多个线程各自占有一些共享资源，并且互相等待其他线程占有的资源才能运行，而导致两个或多个线程都在等待对方释放资源，都停止执行的情形。某一个同步块同时拥有<strong>“两个以上对象的锁”</strong>时，就可能会发生“死锁”问题。</p>
-<h2 id="产生死锁的四个必要条件"><a href="#产生死锁的四个必要条件" class="headerlink" title="产生死锁的四个必要条件"></a>产生死锁的四个必要条件</h2><ol>
-<li>互斥条件：一个资源每次只能被一个进程使用</li>
-<li>请求与保持条件：一个进程因请求资源而阻塞时，对已获得的资源保持不放</li>
-<li>不剥夺条件：进程已获得的资源，在未使用完之前，不能强行剥夺</li>
-<li>循环等待条件：若干进程之间形成一种头尾相接的循环等待资源关系。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>多线程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>128. Java易混知识点</title>
     <url>/2021/02/03/128/</url>
     <content><![CDATA[<h1 id="length-length-size"><a href="#length-length-size" class="headerlink" title="length(), length, size()"></a>length(), length, size()</h1><ul>
@@ -1117,6 +1112,11 @@
       <tags>
         <tag>Java</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>127. Spring</title>
+    <url>/2021/02/03/127/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>13. unordered_map(哈希表)</title>
@@ -1382,6 +1382,18 @@
       </tags>
   </entry>
   <entry>
+    <title>14. 质数</title>
+    <url>/2019/01/22/14/</url>
+    <content><![CDATA[<h1 id="质数"><a href="#质数" class="headerlink" title="质数"></a>质数</h1><p>1——20：<code>2、3、5、7、9、11、13、17、19</code></p>
+]]></content>
+      <categories>
+        <category>程序设计</category>
+      </categories>
+      <tags>
+        <tag>质数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>139. HTML5</title>
     <url>/2021/04/29/139/</url>
     <content><![CDATA[<h1 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h1><ul>
@@ -1589,18 +1601,6 @@
       </tags>
   </entry>
   <entry>
-    <title>14. 质数</title>
-    <url>/2019/01/22/14/</url>
-    <content><![CDATA[<h1 id="质数"><a href="#质数" class="headerlink" title="质数"></a>质数</h1><p>1——20：<code>2、3、5、7、9、11、13、17、19</code></p>
-]]></content>
-      <categories>
-        <category>程序设计</category>
-      </categories>
-      <tags>
-        <tag>质数</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>141. C++</title>
     <url>/2021/05/17/141/</url>
     <content><![CDATA[<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h2><ul>
@@ -1686,75 +1686,6 @@
       </categories>
       <tags>
         <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>15. 只出现一次的数字 II</title>
-    <url>/2019/01/23/15/</url>
-    <content><![CDATA[<h1 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h1><blockquote>
-<p>给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现了三次。找出那个只出现了一次的元素。</p>
-</blockquote>
-<span id="more"></span>
-
-
-<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><blockquote>
-<p>你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</p>
-</blockquote>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: [2,2,3,2]</span><br><span class="line">输出: 3</span><br></pre></td></tr></table></figure>
-
-<h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">singleNum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; nums.size(); j++) &#123;</span><br><span class="line">            count += (nums[j] &gt;&gt; i) &amp; <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        res += (count % <span class="number">3</span>) &lt;&lt; i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><ol>
-<li>首先：为什么<code>i &lt; 32</code>?<br>int型占4个字节，即32位，所以int的大小为 int$\in$ [$-2^{31}$, $2 ^ {31} -1$]</li>
-<li>时间复杂度为：O(32n) <code>&lt;===&gt;</code> O(n)；</li>
-<li>虽然是二进制，但是运算法则和十进制并无差异，变的只是进制而已；</li>
-<li>因为要确定一个数字，所以$<code>\%3</code>$会让那个数字显示出来在<strong>二进制</strong>形式下，那个位置有1。</li>
-</ol>
-<h1 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h1><h2 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">singleNum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ones = <span class="number">0</span>, twos = <span class="number">0</span>;</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">auto</span> x : nums) &#123;</span><br><span class="line">         ones = (ones ^ x) &amp; ~twos;</span><br><span class="line">         twos = (twos ^ x) &amp; ~ones;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> ones;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="解析-1"><a href="#解析-1" class="headerlink" title="解析"></a>解析</h2><ol>
-<li>从 <code>自动机</code> 的角度出发；</li>
-<li>状态机：（举例：）</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th align="center">状态量</th>
-<th align="center">ones</th>
-<th align="center">twos</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">初始状态</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">一个1</td>
-<td align="center">1</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">两个1</td>
-<td align="center">0</td>
-<td align="center">1</td>
-</tr>
-<tr>
-<td align="center">三个1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">3. 三个状态一循环，比如有6个1， 则进行两轮循环，状态量为0 &emsp; 0</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>程序设计</category>
-      </categories>
-      <tags>
-        <tag>OJ题目</tag>
       </tags>
   </entry>
   <entry>
@@ -1933,6 +1864,75 @@
       </tags>
   </entry>
   <entry>
+    <title>15. 只出现一次的数字 II</title>
+    <url>/2019/01/23/15/</url>
+    <content><![CDATA[<h1 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h1><blockquote>
+<p>给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现了三次。找出那个只出现了一次的元素。</p>
+</blockquote>
+<span id="more"></span>
+
+
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><blockquote>
+<p>你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</p>
+</blockquote>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: [2,2,3,2]</span><br><span class="line">输出: 3</span><br></pre></td></tr></table></figure>
+
+<h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">singleNum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; nums.size(); j++) &#123;</span><br><span class="line">            count += (nums[j] &gt;&gt; i) &amp; <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        res += (count % <span class="number">3</span>) &lt;&lt; i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><ol>
+<li>首先：为什么<code>i &lt; 32</code>?<br>int型占4个字节，即32位，所以int的大小为 int$\in$ [$-2^{31}$, $2 ^ {31} -1$]</li>
+<li>时间复杂度为：O(32n) <code>&lt;===&gt;</code> O(n)；</li>
+<li>虽然是二进制，但是运算法则和十进制并无差异，变的只是进制而已；</li>
+<li>因为要确定一个数字，所以$<code>\%3</code>$会让那个数字显示出来在<strong>二进制</strong>形式下，那个位置有1。</li>
+</ol>
+<h1 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h1><h2 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">singleNum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ones = <span class="number">0</span>, twos = <span class="number">0</span>;</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">auto</span> x : nums) &#123;</span><br><span class="line">         ones = (ones ^ x) &amp; ~twos;</span><br><span class="line">         twos = (twos ^ x) &amp; ~ones;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> ones;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="解析-1"><a href="#解析-1" class="headerlink" title="解析"></a>解析</h2><ol>
+<li>从 <code>自动机</code> 的角度出发；</li>
+<li>状态机：（举例：）</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">状态量</th>
+<th align="center">ones</th>
+<th align="center">twos</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">初始状态</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">一个1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">两个1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">三个1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">3. 三个状态一循环，比如有6个1， 则进行两轮循环，状态量为0 &emsp; 0</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>程序设计</category>
+      </categories>
+      <tags>
+        <tag>OJ题目</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>17. 个人电脑必装软件</title>
     <url>/2019/01/23/17/</url>
     <content><![CDATA[<p>……</p>
@@ -1979,6 +1979,24 @@
       </tags>
   </entry>
   <entry>
+    <title>18. ACWing基础课程例题(Week)</title>
+    <url>/2019/01/24/18/</url>
+    <content><![CDATA[<p>……</p>
+<span id="more"></span>
+
+
+<h1 id="Week1"><a href="#Week1" class="headerlink" title="Week1"></a><strong>Week1</strong></h1><p><img src="/images/posts/acwing/7.png"></p>
+<hr>
+<h1 id="Week2"><a href="#Week2" class="headerlink" title="Week2"></a><strong>Week2</strong></h1><p><img src="/images/posts/acwing/1.png"></p>
+]]></content>
+      <categories>
+        <category>程序设计</category>
+      </categories>
+      <tags>
+        <tag>ACWing</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>19. 用cmd运行Cpp文件</title>
     <url>/2019/01/24/19/</url>
     <content><![CDATA[<h1 id="1-生成-exe可执行文件："><a href="#1-生成-exe可执行文件：" class="headerlink" title="1. 生成 .exe可执行文件："></a>1. 生成 <code>.exe</code>可执行文件：</h1><blockquote>
@@ -2013,24 +2031,6 @@
       </categories>
       <tags>
         <tag>C/C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>18. ACWing基础课程例题(Week)</title>
-    <url>/2019/01/24/18/</url>
-    <content><![CDATA[<p>……</p>
-<span id="more"></span>
-
-
-<h1 id="Week1"><a href="#Week1" class="headerlink" title="Week1"></a><strong>Week1</strong></h1><p><img src="/images/posts/acwing/7.png"></p>
-<hr>
-<h1 id="Week2"><a href="#Week2" class="headerlink" title="Week2"></a><strong>Week2</strong></h1><p><img src="/images/posts/acwing/1.png"></p>
-]]></content>
-      <categories>
-        <category>程序设计</category>
-      </categories>
-      <tags>
-        <tag>ACWing</tag>
       </tags>
   </entry>
   <entry>
@@ -2163,6 +2163,33 @@
       </categories>
       <tags>
         <tag>位运算</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>21. 只出现一次的数字</title>
+    <url>/2019/02/05/21/</url>
+    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p><img src="/images/posts/acwing/2.png"></p>
+<span id="more"></span>
+
+
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><ol>
+<li>利用异或运算的性质<ol>
+<li>x ^ x = 0</li>
+<li>x ^ 0 = x</li>
+</ol>
+</li>
+<li>对所有数字异或运算<ol>
+<li>$x_1$  ^ $x_2$ ^ …… ^ $x_n$ = 只出现过一次的数 </li>
+</ol>
+</li>
+<li>程序<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">auto</span> x : nums)</span><br><span class="line">         res ^= x;</span><br><span class="line">     <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>程序设计</category>
+      </categories>
+      <tags>
+        <tag>OJ题目</tag>
       </tags>
   </entry>
   <entry>
@@ -2343,33 +2370,6 @@
       <tags>
         <tag>Hexo</tag>
         <tag>Github</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>21. 只出现一次的数字</title>
-    <url>/2019/02/05/21/</url>
-    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p><img src="/images/posts/acwing/2.png"></p>
-<span id="more"></span>
-
-
-<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><ol>
-<li>利用异或运算的性质<ol>
-<li>x ^ x = 0</li>
-<li>x ^ 0 = x</li>
-</ol>
-</li>
-<li>对所有数字异或运算<ol>
-<li>$x_1$  ^ $x_2$ ^ …… ^ $x_n$ = 只出现过一次的数 </li>
-</ol>
-</li>
-<li>程序<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">auto</span> x : nums)</span><br><span class="line">         res ^= x;</span><br><span class="line">     <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>程序设计</category>
-      </categories>
-      <tags>
-        <tag>OJ题目</tag>
       </tags>
   </entry>
   <entry>
@@ -2808,35 +2808,6 @@
       </tags>
   </entry>
   <entry>
-    <title>33. 图像渲染</title>
-    <url>/2019/02/15/33/</url>
-    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="/images/posts/acwing/11.png"></p>
-<span id="more"></span>
-
-<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><h2 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h2><ol>
-<li>首先判断是否为image是否为空，如果是，则返回image</li>
-<li>然后，保存老的颜色值，即为 <code>old</code>，并判断 <code>old</code> 是否与 <code>newColor</code> 相同，如果是，则返回image</li>
-<li>接着，对周围的这些点进行遍历，符合条件的，进入递归</li>
-<li>最后，返回image</li>
-</ol>
-<h2 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h2><ol>
-<li>首先判断是否为image是否为空，如果是，则返回image</li>
-<li>然后，保存老的颜色值，即为 <code>old</code>，并判断 <code>old</code> 是否与 <code>newColor</code> 相同，如果是，则返回image</li>
-<li>创建队列，类型为 <code>pair&lt;int, int&gt;</code> 类型，将<code>image[sr][sc]</code>入队；</li>
-<li>对队列 <code>q</code> 进行遍历，将 <code>q.front()</code> 变为 <code>newColor</code>，然后，遍历周围的点，符合条件的入队</li>
-<li>最后，返回image</li>
-</ol>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h2 id="DFS-1"><a href="#DFS-1" class="headerlink" title="DFS"></a>DFS</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; floodFill(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt;&amp; image, <span class="keyword">int</span> sr, <span class="keyword">int</span> sc, <span class="keyword">int</span> newColor) &#123;</span><br><span class="line">    <span class="keyword">if</span>(image.empty() || image[<span class="number">0</span>].empty())</span><br><span class="line">        <span class="keyword">return</span> image;</span><br><span class="line">    <span class="keyword">int</span> old = image[sr][sc];</span><br><span class="line">    <span class="keyword">if</span>(old == newColor)</span><br><span class="line">        <span class="keyword">return</span> image;</span><br><span class="line">    <span class="keyword">int</span> next[<span class="number">4</span>][<span class="number">2</span>] = &#123; &#123;<span class="number">0</span>, <span class="number">1</span>&#125;, &#123;<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">0</span>, <span class="number">-1</span>&#125;, &#123;<span class="number">-1</span>, <span class="number">0</span>&#125; &#125;;</span><br><span class="line">    image[sr][sc] = newColor;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> nSr = sr + next[i][<span class="number">0</span>], nSc = sc + next[i][<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">if</span>(nSr &gt;= <span class="number">0</span> &amp;&amp; nSr &lt; image.size() &amp;&amp; nSc &gt;= <span class="number">0</span> &amp;&amp; nSc &lt; image[<span class="number">0</span>].size() &amp;&amp; image[nSr][nSc] == old)</span><br><span class="line">            floodFill(image, nSr, nSc, newColor);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> image;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="BFS-1"><a href="#BFS-1" class="headerlink" title="BFS"></a>BFS</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; floodFill(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt;&amp; image, <span class="keyword">int</span> sr, <span class="keyword">int</span> sc, <span class="keyword">int</span> newColor) &#123;</span><br><span class="line">    <span class="keyword">if</span>(image.empty() || image[<span class="number">0</span>].empty())</span><br><span class="line">        <span class="keyword">return</span> image;</span><br><span class="line">    <span class="keyword">int</span> old = image[sr][sc];</span><br><span class="line">    <span class="keyword">if</span>(old == newColor) &#123;</span><br><span class="line">        <span class="keyword">return</span> image;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> next[<span class="number">4</span>][<span class="number">2</span>] = &#123; &#123;<span class="number">0</span>, <span class="number">1</span>&#125;, &#123;<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">0</span>, <span class="number">-1</span>&#125;, &#123;<span class="number">-1</span>, <span class="number">0</span>&#125; &#125;;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; &gt; q;</span><br><span class="line">    q.push(<span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;(sr, sc));</span><br><span class="line">    <span class="keyword">while</span>(q.size()) &#123;</span><br><span class="line">        <span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; t = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        image[t.first][t.second] = newColor;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> nx = t.first + next[i][<span class="number">0</span>], ny = t.second + next[i][<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span>(nx &gt;= <span class="number">0</span> &amp;&amp; nx &lt; image.size() &amp;&amp; ny &gt;= <span class="number">0</span> &amp;&amp; ny &lt; image[<span class="number">0</span>].size() &amp;&amp; image[nx][ny] == old) &#123;</span><br><span class="line">                q.push(<span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;(nx, ny));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> image;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>程序设计</category>
-      </categories>
-      <tags>
-        <tag>OJ题目</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>34. 不同路径 II</title>
     <url>/2019/02/18/34/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a><strong>题目</strong></h1><p><img src="/images/posts/acwing/15.png"></p>
@@ -2877,6 +2848,35 @@
       </categories>
       <tags>
         <tag>运算符</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>33. 图像渲染</title>
+    <url>/2019/02/15/33/</url>
+    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="/images/posts/acwing/11.png"></p>
+<span id="more"></span>
+
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><h2 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h2><ol>
+<li>首先判断是否为image是否为空，如果是，则返回image</li>
+<li>然后，保存老的颜色值，即为 <code>old</code>，并判断 <code>old</code> 是否与 <code>newColor</code> 相同，如果是，则返回image</li>
+<li>接着，对周围的这些点进行遍历，符合条件的，进入递归</li>
+<li>最后，返回image</li>
+</ol>
+<h2 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h2><ol>
+<li>首先判断是否为image是否为空，如果是，则返回image</li>
+<li>然后，保存老的颜色值，即为 <code>old</code>，并判断 <code>old</code> 是否与 <code>newColor</code> 相同，如果是，则返回image</li>
+<li>创建队列，类型为 <code>pair&lt;int, int&gt;</code> 类型，将<code>image[sr][sc]</code>入队；</li>
+<li>对队列 <code>q</code> 进行遍历，将 <code>q.front()</code> 变为 <code>newColor</code>，然后，遍历周围的点，符合条件的入队</li>
+<li>最后，返回image</li>
+</ol>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h2 id="DFS-1"><a href="#DFS-1" class="headerlink" title="DFS"></a>DFS</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; floodFill(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt;&amp; image, <span class="keyword">int</span> sr, <span class="keyword">int</span> sc, <span class="keyword">int</span> newColor) &#123;</span><br><span class="line">    <span class="keyword">if</span>(image.empty() || image[<span class="number">0</span>].empty())</span><br><span class="line">        <span class="keyword">return</span> image;</span><br><span class="line">    <span class="keyword">int</span> old = image[sr][sc];</span><br><span class="line">    <span class="keyword">if</span>(old == newColor)</span><br><span class="line">        <span class="keyword">return</span> image;</span><br><span class="line">    <span class="keyword">int</span> next[<span class="number">4</span>][<span class="number">2</span>] = &#123; &#123;<span class="number">0</span>, <span class="number">1</span>&#125;, &#123;<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">0</span>, <span class="number">-1</span>&#125;, &#123;<span class="number">-1</span>, <span class="number">0</span>&#125; &#125;;</span><br><span class="line">    image[sr][sc] = newColor;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> nSr = sr + next[i][<span class="number">0</span>], nSc = sc + next[i][<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">if</span>(nSr &gt;= <span class="number">0</span> &amp;&amp; nSr &lt; image.size() &amp;&amp; nSc &gt;= <span class="number">0</span> &amp;&amp; nSc &lt; image[<span class="number">0</span>].size() &amp;&amp; image[nSr][nSc] == old)</span><br><span class="line">            floodFill(image, nSr, nSc, newColor);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> image;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="BFS-1"><a href="#BFS-1" class="headerlink" title="BFS"></a>BFS</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; floodFill(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt;&amp; image, <span class="keyword">int</span> sr, <span class="keyword">int</span> sc, <span class="keyword">int</span> newColor) &#123;</span><br><span class="line">    <span class="keyword">if</span>(image.empty() || image[<span class="number">0</span>].empty())</span><br><span class="line">        <span class="keyword">return</span> image;</span><br><span class="line">    <span class="keyword">int</span> old = image[sr][sc];</span><br><span class="line">    <span class="keyword">if</span>(old == newColor) &#123;</span><br><span class="line">        <span class="keyword">return</span> image;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> next[<span class="number">4</span>][<span class="number">2</span>] = &#123; &#123;<span class="number">0</span>, <span class="number">1</span>&#125;, &#123;<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">0</span>, <span class="number">-1</span>&#125;, &#123;<span class="number">-1</span>, <span class="number">0</span>&#125; &#125;;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; &gt; q;</span><br><span class="line">    q.push(<span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;(sr, sc));</span><br><span class="line">    <span class="keyword">while</span>(q.size()) &#123;</span><br><span class="line">        <span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; t = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        image[t.first][t.second] = newColor;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> nx = t.first + next[i][<span class="number">0</span>], ny = t.second + next[i][<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span>(nx &gt;= <span class="number">0</span> &amp;&amp; nx &lt; image.size() &amp;&amp; ny &gt;= <span class="number">0</span> &amp;&amp; ny &lt; image[<span class="number">0</span>].size() &amp;&amp; image[nx][ny] == old) &#123;</span><br><span class="line">                q.push(<span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;(nx, ny));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> image;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>程序设计</category>
+      </categories>
+      <tags>
+        <tag>OJ题目</tag>
       </tags>
   </entry>
   <entry>
@@ -3089,6 +3089,17 @@
       </tags>
   </entry>
   <entry>
+    <title>41. 俄罗斯套娃信封问题</title>
+    <url>/2019/02/23/41/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>程序设计</category>
+      </categories>
+      <tags>
+        <tag>OJ题目</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>40. 使用Xshell远程连接CentOS</title>
     <url>/2019/02/21/40/</url>
     <content><![CDATA[<h1 id="下载Xshell"><a href="#下载Xshell" class="headerlink" title="下载Xshell"></a>下载Xshell</h1><blockquote>
@@ -3119,17 +3130,6 @@
       </categories>
       <tags>
         <tag>Xshell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>41. 俄罗斯套娃信封问题</title>
-    <url>/2019/02/23/41/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>程序设计</category>
-      </categories>
-      <tags>
-        <tag>OJ题目</tag>
       </tags>
   </entry>
   <entry>
@@ -3636,22 +3636,6 @@
       </tags>
   </entry>
   <entry>
-    <title>57. 渗透</title>
-    <url>/2019/05/27/57/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="f005655293fc5bf16c94122f8bfdb4711f40ae48375bb37e5377d52d0b966aa9">224e6e458bfb907617190d6d422f2f5e9d7ac4302695b37fc3fd6b70b85e826dc0df62835bc946cbdd6ba380b9abbfd1d26bc0f40c93f9694f24cefd8bb9fd4911585cb2de32a94a5952f8bfebca10dc142b1db547009a8b416dbf5f6e35789fb4537087fd61dcb278841644125c94e3f39101a4497075008298ef2236759ad12a6909b9841ca160473e4cb512004f33acfb6868cec0abac0e7116fbccf0a3485afa2dfeb3266d8811e854860c12b0094ee3508c12c7527fb049ff2b325865e39dc9a7512ad3f91dbe9b850c24a83384e14a7ccc2846f2d7c1ddabb71a1fc6f43ce031e5e2fddd407ce72ca267f7dd5733c767834ca40a62a1bf5b0470600053f925537afdd6c7deb56028594f6f37c874ff5ff0db3c33855a43a45ae0a2f2209780311c9e3eec8e4f37375d01c28bcac8ac89ae7a2ff325cee706fe45bc519d603a0010769e458a78940fc4f32772ec3d7a141140d9700b093dd59f1e0224691ef65543dcc1585184ccd374508ca3e964cad4cf644b3d4e89073f241e16c4a0f70a3bb55990e060804bde2047f833931ea3ecac299dee08b5dfd7ea53f274afa3bf77eda62e8b0aea7f9371b2cd7740e2c135cc18bf1a46905346e158c074a8da01803347452015ddf19d1e92a5766005a59a225ffec1b0f4f6dfc4b191a4be537dd3194c844e57bad9b1c2a68dde2a9d6085ef9fb79ebc965e73410a187c50fedb46a550661f3674ba052fd23c1062ef6d570a43057772d52e59eb1218e879f9e849144fb9070de87f5d6029f35d945795b31d26874a6e9c531c587b5db3c814cf8354538d0f261a9951de20fa313501913f82584ea66bb9d6d765d5743a5f9b006e4d5498f5d219a76ea6d7137392fc777afe7e6df48659b96bbe615a7e3ed8c8754f07fa9c1929cf65f5678b5ff3f4ef95f6fae345f4027ca1e5352d99057649b66c122a21157333a997786e48298fa521387fb2f5b65ff029ea3316800b87bfdd10885807df551b26cef1e9784ea2459d64cd25c82f89efc2dc9cb80caa1ffd2c004bb1c356d858cd9e526c85023216a82983e141cf3a16995440a88896dda0d7d3fb2deeb9ecc6664151a9fc0fa91102e2e8f44ccba8e791934eb5358dd4c0c28da8072f43ad0a17ad6babcea2faad3f384d294dd9e4ab30623025e266a2fd975599031e595e8c3bb7e0757e493c2df42a7a6d787d3dbfa285c509ddd64b69e564aa5042c0f596046c9a2f487039ba8a26c96190806424b63cba3df21215bdd65271d5fdd578d63a46e189da635eaeb44543f2443e37c215f750e577f7d950c09fbed02436a0bfc86a498f490be2a1b582841c57b4e7f1e369c2cf8d021c2f09f60d7707b926d7f1781601bdf72bc7a19fb1fb2cb77daaa3f391a64097</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-  </entry>
-  <entry>
     <title>56. 最小生成树</title>
     <url>/2019/05/23/56/</url>
     <content><![CDATA[<ul>
@@ -3686,6 +3670,22 @@
       <tags>
         <tag>树</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>57. 渗透</title>
+    <url>/2019/05/27/57/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="f005655293fc5bf16c94122f8bfdb4711f40ae48375bb37e5377d52d0b966aa9">224e6e458bfb907617190d6d422f2f5e9d7ac4302695b37fc3fd6b70b85e826dc0df62835bc946cbdd6ba380b9abbfd1d26bc0f40c93f9694f24cefd8bb9fd4911585cb2de32a94a5952f8bfebca10dc142b1db547009a8b416dbf5f6e35789fb4537087fd61dcb278841644125c94e3f39101a4497075008298ef2236759ad12a6909b9841ca160473e4cb512004f33acfb6868cec0abac0e7116fbccf0a3485afa2dfeb3266d8811e854860c12b0094ee3508c12c7527fb049ff2b325865e39dc9a7512ad3f91dbe9b850c24a83384e14a7ccc2846f2d7c1ddabb71a1fc6f43ce031e5e2fddd407ce72ca267f7dd5733c767834ca40a62a1bf5b0470600053f925537afdd6c7deb56028594f6f37c874ff5ff0db3c33855a43a45ae0a2f2209780311c9e3eec8e4f37375d01c28bcac8ac89ae7a2ff325cee706fe45bc519d603a0010769e458a78940fc4f32772ec3d7a141140d9700b093dd59f1e0224691ef65543dcc1585184ccd374508ca3e964cad4cf644b3d4e89073f241e16c4a0f70a3bb55990e060804bde2047f833931ea3ecac299dee08b5dfd7ea53f274afa3bf77eda62e8b0aea7f9371b2cd7740e2c135cc18bf1a46905346e158c074a8da01803347452015ddf19d1e92a5766005a59a225ffec1b0f4f6dfc4b191a4be537dd3194c844e57bad9b1c2a68dde2a9d6085ef9fb79ebc965e73410a187c50fedb46a550661f3674ba052fd23c1062ef6d570a43057772d52e59eb1218e879f9e849144fb9070de87f5d6029f35d945795b31d26874a6e9c531c587b5db3c814cf8354538d0f261a9951de20fa313501913f82584ea66bb9d6d765d5743a5f9b006e4d5498f5d219a76ea6d7137392fc777afe7e6df48659b96bbe615a7e3ed8c8754f07fa9c1929cf65f5678b5ff3f4ef95f6fae345f4027ca1e5352d99057649b66c122a21157333a997786e48298fa521387fb2f5b65ff029ea3316800b87bfdd10885807df551b26cef1e9784ea2459d64cd25c82f89efc2dc9cb80caa1ffd2c004bb1c356d858cd9e526c85023216a82983e141cf3a16995440a88896dda0d7d3fb2deeb9ecc6664151a9fc0fa91102e2e8f44ccba8e791934eb5358dd4c0c28da8072f43ad0a17ad6babcea2faad3f384d294dd9e4ab30623025e266a2fd975599031e595e8c3bb7e0757e493c2df42a7a6d787d3dbfa285c509ddd64b69e564aa5042c0f596046c9a2f487039ba8a26c96190806424b63cba3df21215bdd65271d5fdd578d63a46e189da635eaeb44543f2443e37c215f750e577f7d950c09fbed02436a0bfc86a498f490be2a1b582841c57b4e7f1e369c2cf8d021c2f09f60d7707b926d7f1781601bdf72bc7a19fb1fb2cb77daaa3f391a64097</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
   </entry>
   <entry>
     <title>58. U盘装系统，启动快捷键</title>
@@ -4182,23 +4182,6 @@
       </tags>
   </entry>
   <entry>
-    <title>65. 高等数学常用公式</title>
-    <url>/2019/08/17/65/</url>
-    <content><![CDATA[<ul>
-<li><h1 id="基本初等函数的导数公式"><a href="#基本初等函数的导数公式" class="headerlink" title="基本初等函数的导数公式"></a>基本初等函数的导数公式</h1><blockquote>
-<h3 id="2019高数18讲-P-62"><a href="#2019高数18讲-P-62" class="headerlink" title="($2019高数18讲 P_{62}$)"></a>($2019高数18讲 P_{62}$)</h3><p><img src="/images/posts/math/1.png"></p>
-</blockquote>
-<span id="more"></span></li>
-</ul>
-]]></content>
-      <categories>
-        <category>高数</category>
-      </categories>
-      <tags>
-        <tag>高数</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>64. Ubuntu18.04 安装 wine</title>
     <url>/2019/08/15/64/</url>
     <content><![CDATA[<ol>
@@ -4226,6 +4209,23 @@
       </categories>
       <tags>
         <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>65. 高等数学常用公式</title>
+    <url>/2019/08/17/65/</url>
+    <content><![CDATA[<ul>
+<li><h1 id="基本初等函数的导数公式"><a href="#基本初等函数的导数公式" class="headerlink" title="基本初等函数的导数公式"></a>基本初等函数的导数公式</h1><blockquote>
+<h3 id="2019高数18讲-P-62"><a href="#2019高数18讲-P-62" class="headerlink" title="($2019高数18讲 P_{62}$)"></a>($2019高数18讲 P_{62}$)</h3><p><img src="/images/posts/math/1.png"></p>
+</blockquote>
+<span id="more"></span></li>
+</ul>
+]]></content>
+      <categories>
+        <category>高数</category>
+      </categories>
+      <tags>
+        <tag>高数</tag>
       </tags>
   </entry>
   <entry>
@@ -5079,6 +5079,24 @@
       </tags>
   </entry>
   <entry>
+    <title>8. Jekyll添加站点访问量</title>
+    <url>/2019/01/21/8/</url>
+    <content><![CDATA[<p>……</p>
+<span id="more"></span>
+
+
+<h1 id="不蒜子"><a href="#不蒜子" class="headerlink" title="不蒜子"></a><a href="https://busuanzi.ibruce.info/">不蒜子</a></h1><h2 id="1-在-includes-head-html添加以下代码："><a href="#1-在-includes-head-html添加以下代码：" class="headerlink" title="1. 在_includes/head.html添加以下代码："></a>1. 在<code>_includes/head.html</code>添加以下代码：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;script async src&#x3D;&quot;&#x2F;&#x2F;busuanzi.ibruce.info&#x2F;busuanzi&#x2F;2.3&#x2F;busuanzi.pure.mini.js&quot;&gt;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2-在-layouts-post-html添加以下代码："><a href="#2-在-layouts-post-html添加以下代码：" class="headerlink" title="2. 在_layouts/post.html添加以下代码："></a>2. 在<code>_layouts/post.html</code>添加以下代码：</h2><h3 id="功能："><a href="#功能：" class="headerlink" title="功能："></a>功能：</h3><h4 id="1-本文总阅读量"><a href="#1-本文总阅读量" class="headerlink" title="1). 本文总阅读量"></a>1). 本文总阅读量</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;span id&#x3D;&quot;busuanzi_container_page_pv&quot;&gt;</span><br><span class="line">    本文总阅读量&lt;span id&#x3D;&quot;busuanzi_value_page_pv&quot;&gt;&lt;&#x2F;span&gt;次&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp</span><br><span class="line">&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="2-本站总访问量"><a href="#2-本站总访问量" class="headerlink" title="2). 本站总访问量"></a>2). 本站总访问量</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;span id&#x3D;&quot;busuanzi_container_site_pv&quot;&gt;</span><br><span class="line">    本站总访问量&lt;span id&#x3D;&quot;busuanzi_value_site_pv&quot;&gt;&lt;&#x2F;span&gt;次&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp</span><br><span class="line">&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="3-本站访客数"><a href="#3-本站访客数" class="headerlink" title="3). 本站访客数"></a>3). 本站访客数</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;span id&#x3D;&quot;busuanzi_container_site_uv&quot;&gt;</span><br><span class="line">    本站访客数&lt;span id&#x3D;&quot;busuanzi_value_site_uv&quot;&gt;&lt;&#x2F;span&gt;人次</span><br><span class="line">&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Github</category>
+      </categories>
+      <tags>
+        <tag>Jekyll</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>80. Ubuntu 显卡安装</title>
     <url>/2019/12/09/80/</url>
     <content><![CDATA[<ul>
@@ -5110,24 +5128,6 @@
       </categories>
       <tags>
         <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>8. Jekyll添加站点访问量</title>
-    <url>/2019/01/21/8/</url>
-    <content><![CDATA[<p>……</p>
-<span id="more"></span>
-
-
-<h1 id="不蒜子"><a href="#不蒜子" class="headerlink" title="不蒜子"></a><a href="https://busuanzi.ibruce.info/">不蒜子</a></h1><h2 id="1-在-includes-head-html添加以下代码："><a href="#1-在-includes-head-html添加以下代码：" class="headerlink" title="1. 在_includes/head.html添加以下代码："></a>1. 在<code>_includes/head.html</code>添加以下代码：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;script async src&#x3D;&quot;&#x2F;&#x2F;busuanzi.ibruce.info&#x2F;busuanzi&#x2F;2.3&#x2F;busuanzi.pure.mini.js&quot;&gt;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="2-在-layouts-post-html添加以下代码："><a href="#2-在-layouts-post-html添加以下代码：" class="headerlink" title="2. 在_layouts/post.html添加以下代码："></a>2. 在<code>_layouts/post.html</code>添加以下代码：</h2><h3 id="功能："><a href="#功能：" class="headerlink" title="功能："></a>功能：</h3><h4 id="1-本文总阅读量"><a href="#1-本文总阅读量" class="headerlink" title="1). 本文总阅读量"></a>1). 本文总阅读量</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;span id&#x3D;&quot;busuanzi_container_page_pv&quot;&gt;</span><br><span class="line">    本文总阅读量&lt;span id&#x3D;&quot;busuanzi_value_page_pv&quot;&gt;&lt;&#x2F;span&gt;次&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp</span><br><span class="line">&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="2-本站总访问量"><a href="#2-本站总访问量" class="headerlink" title="2). 本站总访问量"></a>2). 本站总访问量</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;span id&#x3D;&quot;busuanzi_container_site_pv&quot;&gt;</span><br><span class="line">    本站总访问量&lt;span id&#x3D;&quot;busuanzi_value_site_pv&quot;&gt;&lt;&#x2F;span&gt;次&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp</span><br><span class="line">&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="3-本站访客数"><a href="#3-本站访客数" class="headerlink" title="3). 本站访客数"></a>3). 本站访客数</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;span id&#x3D;&quot;busuanzi_container_site_uv&quot;&gt;</span><br><span class="line">    本站访客数&lt;span id&#x3D;&quot;busuanzi_value_site_uv&quot;&gt;&lt;&#x2F;span&gt;人次</span><br><span class="line">&lt;&#x2F;span&gt;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Github</category>
-      </categories>
-      <tags>
-        <tag>Jekyll</tag>
       </tags>
   </entry>
   <entry>
@@ -5553,6 +5553,85 @@
       </tags>
   </entry>
   <entry>
+    <title>92. Eclipse安装</title>
+    <url>/2020/02/25/92/</url>
+    <content><![CDATA[<h1 id="JDK安装"><a href="#JDK安装" class="headerlink" title="JDK安装"></a>JDK安装</h1><p>详情请见：<a href="/2019/12/02/78/" title="78. JDK安装">78. JDK安装</a></p>
+<h1 id="Eclipse安装"><a href="#Eclipse安装" class="headerlink" title="Eclipse安装"></a>Eclipse安装</h1><p>   见<a href="https://blog.csdn.net/PGY0000/article/details/79256720">这里</a></p>
+<h1 id="Eclipse汉化"><a href="#Eclipse汉化" class="headerlink" title="Eclipse汉化"></a>Eclipse汉化</h1><ol>
+<li>首先我们需要打开<code>Eclipse</code>，看一下我们安装的Eclipse的版本，依次点击<code>Help&gt;About Eclipse</code></li>
+<li>确定版本后，就打开下面这个网站<a href="http://www.eclipse.org/babel/downloads.php">http://www.eclipse.org/babel/downloads.php</a>找到对应的版本，并复制链接</li>
+<li>打开<code>Eclipse</code>，安装新服务，依次点击<code>Help&gt;Install New Software…</code></li>
+<li>在打开的新窗口中点击<code>【Add】</code>按钮，然后在<code>【Location】</code>文本框中输入刚刚复制的网址，点击<code>【OK】</code>按钮即可。</li>
+<li>等待片刻便会看到软件检索到的语言包列表，下拉垂直滚动条，选择<code>【Bable Language Packs in Chinese(Simplified)】</code>下的<code>【Bable Language Packs for eclipse in Chinese (Simplified)(简体中文)】</code>包，点击<code>【next】</code>按钮进入下一步</li>
+<li>过几秒中便跳到如下界面，勾选第一个<code>【I accept...】</code>单选框，点击<code>【Finish】</code>按钮完成设置。</li>
+<li>进入安装界面，等待安装</li>
+<li>等待片刻后，在弹出的<code>【Security Warning】</code>窗体中点击<code>【Install anyway】</code>按钮，之后在弹出的又一窗体<code>【Software Updates】</code>中点击<code>【Restart Now】</code>按钮完成语言包的安装并重启eclipse。</li>
+<li> 重启<code>eclipse</code>后，便会看到汉化后的<code>eclipse</code>界面啦</li>
+</ol>
+]]></content>
+      <categories>
+        <category>软件</category>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Eclipse</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>93. Ubuntu18.04 配置 conda 环境变量</title>
+    <url>/2020/03/06/93/</url>
+    <content><![CDATA[<blockquote>
+<p>一下操作均在 <code>Terminal</code> 进行</p>
+</blockquote>
+<span id="more"></span>
+
+<ol>
+<li>如果使用的是 <code>bash</code>:<ol>
+<li>方法一:<ol>
+<li><code>sudo gedit ~/.bashrc</code></li>
+<li>在最后一行添加： <code>export PATH=&quot;~/anaconda3/bin:$PATH&quot;</code> (注意：使用你自己的安装目录，我的anaconda目录在 <code>~/anaconda3</code>)</li>
+<li><code>source ~/.bashrc</code> (用来激活环境变量)</li>
+<li>激活：<ol>
+<li> <code>source activate</code></li>
+<li> <code>conda activate</code></li>
+</ol>
+</li>
+<li>退出激活：<ol>
+<li><code>source deactivate</code></li>
+<li><code>conda deactivate</code></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>如果使用的是 <code>zsh</code>:<ol>
+<li>方法一：<ol>
+<li><code>sudo gedit ~/.zshrc</code></li>
+<li>在最后一行添加<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export PATH&#x3D;&quot;~&#x2F;anaconda3&#x2F;bin:$PATH&quot;</span><br><span class="line">. &#x2F;home&#x2F;dgimo&#x2F;anaconda3&#x2F;etc&#x2F;profile.d&#x2F;conda.sh</span><br></pre></td></tr></table></figure></li>
+<li><code>source ~/.zshrc</code></li>
+<li>激活：<ol>
+<li><code>conda activate</code></li>
+</ol>
+</li>
+<li>退出激活：<ol>
+<li><code>conda deactivate</code></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="可以不看下面的，个人错误记录"><a href="#可以不看下面的，个人错误记录" class="headerlink" title="可以不看下面的，个人错误记录"></a>可以不看下面的，个人错误记录</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CommandNotFoundError: Your shell has not been properly configured to use &#39;conda activate&#39;.</span><br><span class="line">If your shell is Bash or a Bourne variant, enable conda for the current user with</span><br><span class="line"></span><br><span class="line">    $ echo &quot;. &#x2F;home&#x2F;dgimo&#x2F;anaconda3&#x2F;etc&#x2F;profile.d&#x2F;conda.sh&quot; &gt;&gt; ~&#x2F;.zshrc</span><br><span class="line"></span><br><span class="line">or, for all users, enable conda with</span><br><span class="line"></span><br><span class="line">    $ sudo ln -s &#x2F;home&#x2F;dgimo&#x2F;anaconda3&#x2F;etc&#x2F;profile.d&#x2F;conda.sh &#x2F;etc&#x2F;profile.d&#x2F;conda.sh</span><br><span class="line"></span><br><span class="line">The options above will permanently enable the &#39;conda&#39; command, but they do NOT</span><br><span class="line">put conda&#39;s base (root) environment on PATH.  To do so, run</span><br><span class="line"></span><br><span class="line">    $ conda activate</span><br><span class="line"></span><br><span class="line">in your terminal, or to put the base environment on PATH permanently, run</span><br><span class="line"></span><br><span class="line">    $ echo &quot;conda activate&quot; &gt;&gt; ~&#x2F;.bashrc</span><br><span class="line"></span><br><span class="line">Previous to conda 4.4, the recommended way to activate conda was to modify PATH in</span><br><span class="line">your ~&#x2F;.bashrc file.  You should manually remove the line that looks like</span><br><span class="line"></span><br><span class="line">    export PATH&#x3D;&quot;&#x2F;home&#x2F;dgimo&#x2F;anaconda3&#x2F;bin:$PATH&quot;</span><br><span class="line"></span><br><span class="line">^^^ The above line should NO LONGER be in your ~&#x2F;.bashrc file! ^^^</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>94. Tensorflow-2 安装</title>
     <url>/2020/03/07/94/</url>
     <content><![CDATA[<h1 id="Windows环境"><a href="#Windows环境" class="headerlink" title="Windows环境"></a><strong>Windows环境</strong></h1><h2 id="1-安装-CUDA-和-cudnn"><a href="#1-安装-CUDA-和-cudnn" class="headerlink" title="1. 安装 CUDA 和 cudnn"></a>1. 安装 <code>CUDA</code> 和 <code>cudnn</code></h2><ol>
@@ -5695,31 +5774,6 @@
       </tags>
   </entry>
   <entry>
-    <title>92. Eclipse安装</title>
-    <url>/2020/02/25/92/</url>
-    <content><![CDATA[<h1 id="JDK安装"><a href="#JDK安装" class="headerlink" title="JDK安装"></a>JDK安装</h1><p>详情请见：<a href="/2019/12/02/78/" title="78. JDK安装">78. JDK安装</a></p>
-<h1 id="Eclipse安装"><a href="#Eclipse安装" class="headerlink" title="Eclipse安装"></a>Eclipse安装</h1><p>   见<a href="https://blog.csdn.net/PGY0000/article/details/79256720">这里</a></p>
-<h1 id="Eclipse汉化"><a href="#Eclipse汉化" class="headerlink" title="Eclipse汉化"></a>Eclipse汉化</h1><ol>
-<li>首先我们需要打开<code>Eclipse</code>，看一下我们安装的Eclipse的版本，依次点击<code>Help&gt;About Eclipse</code></li>
-<li>确定版本后，就打开下面这个网站<a href="http://www.eclipse.org/babel/downloads.php">http://www.eclipse.org/babel/downloads.php</a>找到对应的版本，并复制链接</li>
-<li>打开<code>Eclipse</code>，安装新服务，依次点击<code>Help&gt;Install New Software…</code></li>
-<li>在打开的新窗口中点击<code>【Add】</code>按钮，然后在<code>【Location】</code>文本框中输入刚刚复制的网址，点击<code>【OK】</code>按钮即可。</li>
-<li>等待片刻便会看到软件检索到的语言包列表，下拉垂直滚动条，选择<code>【Bable Language Packs in Chinese(Simplified)】</code>下的<code>【Bable Language Packs for eclipse in Chinese (Simplified)(简体中文)】</code>包，点击<code>【next】</code>按钮进入下一步</li>
-<li>过几秒中便跳到如下界面，勾选第一个<code>【I accept...】</code>单选框，点击<code>【Finish】</code>按钮完成设置。</li>
-<li>进入安装界面，等待安装</li>
-<li>等待片刻后，在弹出的<code>【Security Warning】</code>窗体中点击<code>【Install anyway】</code>按钮，之后在弹出的又一窗体<code>【Software Updates】</code>中点击<code>【Restart Now】</code>按钮完成语言包的安装并重启eclipse。</li>
-<li> 重启<code>eclipse</code>后，便会看到汉化后的<code>eclipse</code>界面啦</li>
-</ol>
-]]></content>
-      <categories>
-        <category>软件</category>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Eclipse</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>95. Python __init__.py 使用</title>
     <url>/2020/03/13/95/</url>
     <content><![CDATA[<h1 id="Python工程的组织结构"><a href="#Python工程的组织结构" class="headerlink" title="Python工程的组织结构"></a>Python工程的组织结构</h1><blockquote>
@@ -5838,60 +5892,6 @@
       </categories>
       <tags>
         <tag>__init__</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>93. Ubuntu18.04 配置 conda 环境变量</title>
-    <url>/2020/03/06/93/</url>
-    <content><![CDATA[<blockquote>
-<p>一下操作均在 <code>Terminal</code> 进行</p>
-</blockquote>
-<span id="more"></span>
-
-<ol>
-<li>如果使用的是 <code>bash</code>:<ol>
-<li>方法一:<ol>
-<li><code>sudo gedit ~/.bashrc</code></li>
-<li>在最后一行添加： <code>export PATH=&quot;~/anaconda3/bin:$PATH&quot;</code> (注意：使用你自己的安装目录，我的anaconda目录在 <code>~/anaconda3</code>)</li>
-<li><code>source ~/.bashrc</code> (用来激活环境变量)</li>
-<li>激活：<ol>
-<li> <code>source activate</code></li>
-<li> <code>conda activate</code></li>
-</ol>
-</li>
-<li>退出激活：<ol>
-<li><code>source deactivate</code></li>
-<li><code>conda deactivate</code></li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>如果使用的是 <code>zsh</code>:<ol>
-<li>方法一：<ol>
-<li><code>sudo gedit ~/.zshrc</code></li>
-<li>在最后一行添加<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export PATH&#x3D;&quot;~&#x2F;anaconda3&#x2F;bin:$PATH&quot;</span><br><span class="line">. &#x2F;home&#x2F;dgimo&#x2F;anaconda3&#x2F;etc&#x2F;profile.d&#x2F;conda.sh</span><br></pre></td></tr></table></figure></li>
-<li><code>source ~/.zshrc</code></li>
-<li>激活：<ol>
-<li><code>conda activate</code></li>
-</ol>
-</li>
-<li>退出激活：<ol>
-<li><code>conda deactivate</code></li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<h3 id="可以不看下面的，个人错误记录"><a href="#可以不看下面的，个人错误记录" class="headerlink" title="可以不看下面的，个人错误记录"></a>可以不看下面的，个人错误记录</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CommandNotFoundError: Your shell has not been properly configured to use &#39;conda activate&#39;.</span><br><span class="line">If your shell is Bash or a Bourne variant, enable conda for the current user with</span><br><span class="line"></span><br><span class="line">    $ echo &quot;. &#x2F;home&#x2F;dgimo&#x2F;anaconda3&#x2F;etc&#x2F;profile.d&#x2F;conda.sh&quot; &gt;&gt; ~&#x2F;.zshrc</span><br><span class="line"></span><br><span class="line">or, for all users, enable conda with</span><br><span class="line"></span><br><span class="line">    $ sudo ln -s &#x2F;home&#x2F;dgimo&#x2F;anaconda3&#x2F;etc&#x2F;profile.d&#x2F;conda.sh &#x2F;etc&#x2F;profile.d&#x2F;conda.sh</span><br><span class="line"></span><br><span class="line">The options above will permanently enable the &#39;conda&#39; command, but they do NOT</span><br><span class="line">put conda&#39;s base (root) environment on PATH.  To do so, run</span><br><span class="line"></span><br><span class="line">    $ conda activate</span><br><span class="line"></span><br><span class="line">in your terminal, or to put the base environment on PATH permanently, run</span><br><span class="line"></span><br><span class="line">    $ echo &quot;conda activate&quot; &gt;&gt; ~&#x2F;.bashrc</span><br><span class="line"></span><br><span class="line">Previous to conda 4.4, the recommended way to activate conda was to modify PATH in</span><br><span class="line">your ~&#x2F;.bashrc file.  You should manually remove the line that looks like</span><br><span class="line"></span><br><span class="line">    export PATH&#x3D;&quot;&#x2F;home&#x2F;dgimo&#x2F;anaconda3&#x2F;bin:$PATH&quot;</span><br><span class="line"></span><br><span class="line">^^^ The above line should NO LONGER be in your ~&#x2F;.bashrc file! ^^^</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>OS</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -7315,32 +7315,131 @@
 <p>你会看到如下图所示：</p>
 <p><img src="/2021/05/28/142/image-20210604144211094.png" alt="image-20210604144211094"></p>
 <p>树状目录结构：（Linux的一切资源都挂载在这个 <code>/</code> 根节点下）</p>
-<p>![下载 (1)](D:/Downloads/下载 (1).png)</p>
-<ul>
-<li><code>/bin</code>：<code>bin</code>是<code>Binary</code>的缩写, 这个目录存放着最经常使用的命令。（不要动）</li>
-<li><code>/boot</code>： 这里存放的是启动<code>Linux</code>时使用的一些核心文件，包括一些连接文件以及镜像文件。 （不要动）</li>
-<li><code>/dev</code> ： <code>dev</code>是<code>Device</code>(设备)的缩写, <strong>存放的是<code>Linux</code>的外部设备</strong>，在<code>Linux</code>中访问设备的方式和访问文件的方式是相同的。 （挂载第三方设备）</li>
-<li>**<code>/etc</code>**： 这个目录用来存放所有的系统管理所需要的配置文件和子目录。</li>
-<li>**<code>/home</code>**：用户的主目录，在<code>Linux</code>中，每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的。</li>
-<li><code>/lib</code>：这个目录里存放着系统最基本的动态连接共享库，其作用类似于<code>Windows</code>里的<code>DLL</code>文件。（不要动）</li>
-<li><code>/lost+found</code>：这个目录一般情况下是空的，当系统非法关机后，这里就存放了一些文件。（存放突然关机的一些文件）</li>
-<li><code>/media</code>：linux系统会自动识别一些设备，例如U盘、光驱等等，当识别后，<code>Linux</code>会把识别的设备挂载到这个目录下。</li>
-<li><code>/mnt</code>：系统提供该目录是为了让用户临时挂载别的文件系统的，我们可以将光驱挂载在<code>/mnt/</code>上，然后进入该目录就可以查看光驱里的内容了。（挂载第三方设备，我们一般会把一些本地文件挂载在这个目录下）</li>
-<li>**<code>/opt</code>**：这是给主机额外安装软件所摆放的目录。比如你安装一个ORACLE数据库则就可以放到这个目录下。默认是空的。</li>
-<li><code>/proc</code>：这个目录是一个虚拟的目录，它是系统内存的映射，我们可以通过直接访问这个目录来获取系统信息。（不用管）</li>
-<li>**<code>/root</code>**：该目录为系统管理员，也称作超级权限者的用户主目录。</li>
-<li><code>/sbin</code>：<code>s</code>就是``Super User的意思，这里存放的是系统管理员使用的系统管理程序。</li>
-<li><code>/srv</code>：该目录存放一些服务启动之后需要提取的数据。</li>
-<li><code>/sys</code>：这是<code>linux2.6</code>内核的一个很大的变化。该目录下安装了2.6内核中新出现的一个文件系统 <code>sysfs</code> 。</li>
-<li>**<code>/tmp</code>**：这个目录是用来存放一些临时文件的。（用完即丢的文件，可以放在这个目录下，如：安装包）</li>
-<li>**<code>/usr</code>**：这是一个非常重要的目录，用户的很多应用程序和文件都放在这个目录下，类似于<code>windows</code>下的<code>program files</code>目录。</li>
-<li><code>/usr/bin</code>： 系统用户使用的应用程序。</li>
-<li><code>/usr/sbin</code>： 超级用户使用的比较高级的管理程序和系统守护程序。</li>
-<li><code>/usr/src</code>： 内核源代码默认的放置目录。</li>
-<li>**<code>/var</code>**：这个目录中存放着在不断扩充着的东西，我们习惯将那些经常被修改的目录放在这个目录下。包括各种日志文件。</li>
-<li><code>/run</code>：是一个临时文件系统，存储系统启动以来的信息。当系统重启时，这个目录下的文件应该被删掉或清除。</li>
-<li> **<code>/www</code>**：存放服务器网站相关的资源，如：环境、网站项目等；</li>
-</ul>
+<p><img src="/2021/05/28/142/TREEdir.png" alt="TREEdir"></p>
+<table>
+<thead>
+<tr>
+<th align="center">目录</th>
+<th align="center">说明</th>
+<th align="center">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>/bin</code></td>
+<td align="center"><code>bin</code>是<code>Binary</code>的缩写, 这个目录存放着最经常使用的命令。</td>
+<td align="center">不要动</td>
+</tr>
+<tr>
+<td align="center"><code>/boot</code></td>
+<td align="center">这里存放的是启动<code>Linux</code>时使用的一些核心文件，包括一些连接文件以及镜像文件。</td>
+<td align="center">不要动</td>
+</tr>
+<tr>
+<td align="center"><code>/dev</code></td>
+<td align="center"><code>dev</code>是<code>Device</code>(设备)的缩写, <strong>存放的是<code>Linux</code>的外部设备</strong>，在<code>Linux</code>中访问设备的方式和访问文件的方式是相同的。</td>
+<td align="center">挂载第三方设备</td>
+</tr>
+<tr>
+<td align="center"><strong><code>/etc</code></strong></td>
+<td align="center">这个目录用来存放所有的系统管理所需要的配置文件和子目录。</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><strong><code>/home</code></strong></td>
+<td align="center">用户的主目录，在<code>Linux</code>中，每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的。</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>/lib</code></td>
+<td align="center">这个目录里存放着系统最基本的动态连接共享库，其作用类似于<code>Windows</code>里的<code>DLL</code>文件。</td>
+<td align="center">不要动</td>
+</tr>
+<tr>
+<td align="center"><code>/lost+found</code></td>
+<td align="center">这个目录一般情况下是空的，当系统非法关机后，这里就存放了一些文件。</td>
+<td align="center">存放突然关机的一些文件</td>
+</tr>
+<tr>
+<td align="center"><code>/media</code></td>
+<td align="center">linux系统会自动识别一些设备，例如U盘、光驱等等，当识别后，<code>Linux</code>会把识别的设备挂载到这个目录下。</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>/mnt</code></td>
+<td align="center">系统提供该目录是为了让用户临时挂载别的文件系统的，我们可以将光驱挂载在<code>/mnt/</code>上，然后进入该目录就可以查看光驱里的内容了。</td>
+<td align="center">挂载第三方设备，我们一般会把一些本地文件挂载在这个目录下</td>
+</tr>
+<tr>
+<td align="center"><strong><code>/opt</code></strong></td>
+<td align="center">这是给主机额外安装软件所摆放的目录。比如你安装一个ORACLE数据库则就可以放到这个目录下。默认是空的。</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>/proc</code></td>
+<td align="center">这个目录是一个虚拟的目录，它是系统内存的映射，我们可以通过直接访问这个目录来获取系统信息。</td>
+<td align="center">不用管</td>
+</tr>
+<tr>
+<td align="center"><strong><code>/root</code></strong></td>
+<td align="center">该目录为系统管理员，也称作超级权限者的用户主目录。</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>/sbin</code></td>
+<td align="center"><code>s</code>就是<code>Super User</code>的意思，这里存放的是系统管理员使用的系统管理程序。</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>/srv</code></td>
+<td align="center">该目录存放一些服务启动之后需要提取的数据。</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>/sys</code></td>
+<td align="center">这是<code>linux2.6</code>内核的一个很大的变化。该目录下安装了2.6内核中新出现的一个文件系统 <code>sysfs</code> 。</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><strong><code>/tmp</code></strong></td>
+<td align="center">这个目录是用来存放一些临时文件的。</td>
+<td align="center">用完即丢的文件，可以放在这个目录下，如：安装包</td>
+</tr>
+<tr>
+<td align="center"><strong><code>/usr</code></strong></td>
+<td align="center">这是一个非常重要的目录，用户的很多应用程序和文件都放在这个目录下，类似于<code>windows</code>下的<code>program files</code>目录。</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>/usr/bin</code></td>
+<td align="center">系统用户使用的应用程序。</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>/usr/sbin</code></td>
+<td align="center">超级用户使用的比较高级的管理程序和系统守护程序。</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>/usr/src</code></td>
+<td align="center">内核源代码默认的放置目录。</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><strong><code>/var</code></strong></td>
+<td align="center">这个目录中存放着在不断扩充着的东西，我们习惯将那些经常被修改的目录放在这个目录下。包括各种日志文件。</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>/run</code></td>
+<td align="center">是一个临时文件系统，存储系统启动以来的信息。当系统重启时，这个目录下的文件应该被删掉或清除。</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><strong><code>/www</code></strong></td>
+<td align="center">存放服务器网站相关的资源，如：环境、网站项目等；</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
 <h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ul>
 <li>很多的大型项目都是部署在 <code>Linux</code> 服务器上；</li>
 <li>社会的生存法则：优胜劣汰；</li>
@@ -7439,7 +7538,10 @@
 <ul>
 <li><img src="/2021/05/28/142/image-20210604162620926.png" alt="image-20210604162620926"></li>
 </ul>
-<h1 id="基本属性"><a href="#基本属性" class="headerlink" title="基本属性"></a>基本属性</h1><h2 id="文件属性"><a href="#文件属性" class="headerlink" title="文件属性"></a>文件属性</h2><p><code>Linux</code>系统是一种典型的多用户系统，不同的用户处于不同的地位，拥有不同的权限。为了保护系统的安全性，<code>Linux</code>系统对不同的用户访问同一文件（包括目录文件）的权限做了不同的规定。</p>
+<h1 id="基本属性"><a href="#基本属性" class="headerlink" title="基本属性"></a>基本属性</h1><h2 id="文件属性"><a href="#文件属性" class="headerlink" title="文件属性"></a>文件属性</h2><blockquote>
+<p><code>root &gt; user</code></p>
+</blockquote>
+<p><code>Linux</code>系统是一种典型的多用户系统，不同的用户处于不同的地位，拥有不同的权限。为了保护系统的安全性，<code>Linux</code>系统对不同的用户访问同一文件（包括目录文件）的权限做了不同的规定。</p>
 <p>在Linux中我们可以使用<code>ll</code>或者<code>ls –l</code>命令来显示一个文件的属性以及文件所属的用户和组，如：</p>
 <p><img src="/2021/05/28/142/image-20210604175246056.png" alt="image-20210604175246056"></p>
 <p>实例中，<code>boot</code>文件的第一个属性用”<code>d</code>“表示。”<code>d</code>“在<code>Linux</code>中代表该文件是一个目录文件。</p>
@@ -7447,7 +7549,7 @@
 <ul>
 <li>当为[ <strong><code>d</code></strong> ]则是目录</li>
 <li>当为[ <strong><code>-</code></strong> ]则是文件；</li>
-<li>若是[ <strong><code>l</code></strong> ]则表示为链接文档 ( link file )；</li>
+<li>若是[ <strong><code>l</code></strong> ]则表示为链接文档 ( <code>link file</code> )（类似于<code>window</code>的快捷方式）；</li>
 <li>若是[ <strong><code>b</code></strong> ]则表示为装置文件里面的可供储存的接口设备 ( 可随机存取装置 )；</li>
 <li>若是[ <strong><code>c</code></strong> ]则表示为装置文件里面的串行端口设备，例如键盘、鼠标 ( 一次性读取装置 )。</li>
 </ul>
@@ -7467,14 +7569,17 @@
 <p>文件所有者以外的用户又可以分为文件所有者的同组用户和其他用户。</p>
 <p>因此，<code>Linux</code>系统按文件所有者、文件所有者同组用户和其他用户来规定了不同的文件访问权限。</p>
 <p>在以上实例中，<code>boot</code> 文件是一个目录文件，属主和属组都为 <code>root</code>。</p>
-<h2 id="修改文件属性"><a href="#修改文件属性" class="headerlink" title="修改文件属性"></a>修改文件属性</h2><h3 id="chgrp：更改文件属组"><a href="#chgrp：更改文件属组" class="headerlink" title="chgrp：更改文件属组"></a><strong><code>chgrp</code>：更改文件属组</strong></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chgrp [-R] 属组名 文件名</span><br></pre></td></tr></table></figure>
+<h2 id="修改文件属性"><a href="#修改文件属性" class="headerlink" title="修改文件属性"></a>修改文件属性</h2><h3 id="chgrp：更改文件属组"><a href="#chgrp：更改文件属组" class="headerlink" title="chgrp：更改文件属组"></a><code>chgrp</code>：更改文件属组</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chgrp [-R] 属组名 文件名</span><br></pre></td></tr></table></figure>
 
 <p><code>-R</code>：递归更改文件属组，就是在更改某个目录文件的属组时，如果加上<code>-R</code>的参数，那么该目录下的所有文件的属组都会更改。</p>
-<h3 id="chown：更改文件属主，也可以同时更改文件属组"><a href="#chown：更改文件属主，也可以同时更改文件属组" class="headerlink" title="chown：更改文件属主，也可以同时更改文件属组"></a><strong><code>chown</code>：更改文件属主，也可以同时更改文件属组</strong></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chown [–R] 属主名 文件名</span><br><span class="line">chown [-R] 属主名：属组名 文件名</span><br></pre></td></tr></table></figure>
+<h3 id="chown：更改文件属主，也可以同时更改文件属组"><a href="#chown：更改文件属主，也可以同时更改文件属组" class="headerlink" title="chown：更改文件属主，也可以同时更改文件属组"></a><code>chown</code>：更改文件属主，也可以同时更改文件属组</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chown [–R] 属主名 文件名</span><br><span class="line">chown [-R] 属主名：属组名 文件名</span><br></pre></td></tr></table></figure>
 
-<h3 id="chmod：更改文件9个属性"><a href="#chmod：更改文件9个属性" class="headerlink" title="chmod：更改文件9个属性"></a><strong><code>chmod</code>：更改文件9个属性</strong></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chmod [-R] xyz 文件或目录</span><br></pre></td></tr></table></figure>
+<h3 id="chmod：更改文件9个属性（必须要掌握）"><a href="#chmod：更改文件9个属性（必须要掌握）" class="headerlink" title="***chmod：更改文件9个属性（必须要掌握）*"></a>***<code>chmod</code><em>：更改文件9个属性（必须要掌握）</em>*</h3><blockquote>
+<p>遇到：“你没有权限操作此文件!”，就要使用 <code>chmod</code></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chmod [-R] xyz 文件或目录</span><br></pre></td></tr></table></figure>
 
-<p><code>Linux</code>文件属性有两种设置方法，一种是数字，一种是符号。</p>
+<p><code>Linux</code>文件属性有两种设置方法，一种是数字（常用的是数字），一种是符号。</p>
 <p><code>Linux</code>文件的基本权限就有九个，分别是<code>owner/group/others</code>三种身份各有自己的<code>read/write/execute</code>权限。</p>
 <p>先复习一下刚刚上面提到的数据：文件的权限字符为：<code>『-rwxrwxrwx』</code>， 这九个权限是三个三个一组的！其中，我们可以使用数字来代表各个权限，各权限的分数对照表如下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">r:4     w:2         x:1</span><br></pre></td></tr></table></figure>
@@ -7487,6 +7592,34 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chmod 770 filename</span><br></pre></td></tr></table></figure>
 
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><table>
+<thead>
+<tr>
+<th align="center">权限</th>
+<th align="center">命令</th>
+<th align="center">对应数字</th>
+<th align="center">命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">可读可写不可执行</td>
+<td align="center"><code>rw-</code></td>
+<td align="center">6</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">可读可写可执行</td>
+<td align="center"><code>rwx</code></td>
+<td align="center">7</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">文件赋予所有用户可读可写可执行权限！</td>
+<td align="center"><code>rwxrwxrwx</code></td>
+<td align="center">777</td>
+<td align="center"><code>chmod 777</code></td>
+</tr>
+</tbody></table>
 <h1 id="文件内容查看"><a href="#文件内容查看" class="headerlink" title="文件内容查看"></a>文件内容查看</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><code>Linux</code>系统中使用以下命令来查看文件的内容：</p>
 <ul>
 <li><code>cat</code> 由第一行开始显示文件内容</li>
