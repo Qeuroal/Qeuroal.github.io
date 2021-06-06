@@ -305,98 +305,162 @@
 <p>说明：以 <code>Dell 游匣</code>为例</p>
 </blockquote>
 <span id="more"></span>
-
-
-<h1 id="设置BIOS"><a href="#设置BIOS" class="headerlink" title="设置BIOS"></a>设置BIOS</h1><ol>
-<li>进入BIOS，每台机型都不同，这里以戴尔为例，按住 <code>F2</code><br><img src="/images/posts/ubuntu/install/1.jpg"></li>
-<li>将 <code>Setting-System Configuration-SATA Operation</code>设置为 <code>AHCI</code><br><img src="/images/posts/ubuntu/install/2.jpg"></li>
-<li><code>Secure Boot-Secure Boot Enable</code> 设置为<code>Disabled</code><br><img src="/images/posts/ubuntu/install/3.jpg"></li>
-<li><code>Apply - Exit</code></li>
+<h1 id="设置bios"><a class="markdownIt-Anchor" href="#设置bios"></a> 设置BIOS</h1>
+<ol>
+<li>
+<p>进入BIOS，每台机型都不同，这里以戴尔为例，按住 <code>F2</code><br>
+<img src="/images/posts/ubuntu/install/1.jpg" alt></p>
+</li>
+<li>
+<p>将 <code>Setting-System Configuration-SATA Operation</code>设置为 <code>AHCI</code><br>
+<img src="/images/posts/ubuntu/install/2.jpg" alt></p>
+</li>
+<li>
+<p><code>Secure Boot-Secure Boot Enable</code> 设置为<code>Disabled</code><br>
+<img src="/images/posts/ubuntu/install/3.jpg" alt></p>
+</li>
+<li>
+<p><code>Apply - Exit</code></p>
+</li>
 </ol>
-<h1 id="安装-win10"><a href="#安装-win10" class="headerlink" title="安装 win10"></a>安装 <code>win10</code></h1><ol>
+<h1 id="安装-win10"><a class="markdownIt-Anchor" href="#安装-win10"></a> 安装 <code>win10</code></h1>
+<ol>
 <li>下载 <code>微PE</code> （由于微PE比较干净，不会强制安装软件，且版本为win10PE，由于低版本的会出现很多问题，如：硬盘识别不出来；U盘识别不出来……）,<a target="_blank" rel="noopener" href="http://down-ww3.newasp.net/pcdown/soft/soft1/wepe_64.exe">点击这里下载微PE</a></li>
 <li>使用键盘快捷键，进入PE</li>
 <li>将系统盘（或者全部的盘（想删除干净的话）） 删除分区，提交</li>
-<li>快速建立分区（一定要用这个，否则没有引导）<br><blockquote>
+<li>快速建立分区（一定要用这个，否则没有引导）<br>
+<blockquote>
 <p>【注意】：如果要是安装双系统，并且在固态上安装ubuntu系统，那么，要分成两个区，删除其中的一个，不要弄成一个区，然后，<code>压缩卷</code>，这样的话，系统就会出现bug：安装完ubuntu之后，win10就坏了</p>
 </blockquote>
 </li>
 <li>还原win10镜像系统</li>
 </ol>
-<h1 id="安装-Ubuntu-18-04"><a href="#安装-Ubuntu-18-04" class="headerlink" title="安装 Ubuntu 18.04"></a>安装 <code>Ubuntu 18.04</code></h1><ol>
-<li><p>首先，在官网下载镜像，<a target="_blank" rel="noopener" href="http://cn.ubuntu.com/">点击这里下载</a>;</p>
-</li>
-<li><p>使用 <code>UltraISO</code> 制作系统盘（或者使用 <code>rufus</code> 制作，具体百度吧）：<br><img src="/images/posts/computer/8.png"></p>
-</li>
-<li><p>开始装系统：</p>
+<h1 id="安装-ubuntu-1804"><a class="markdownIt-Anchor" href="#安装-ubuntu-1804"></a> 安装 <code>Ubuntu 18.04</code></h1>
 <ol>
-<li><p>按住 <code>F12</code>，选择 <code>UEFI</code><br><img src="/images/posts/ubuntu/install/7.jpg"></p>
-</li>
-<li><p>选择： <code>Install Ubuntu</code><br><img src="/images/posts/ubuntu/install/4.jpg"></p>
-</li>
-<li><p>选择中文简体-继续<br><img src="/images/posts/ubuntu/install/5.jpg"></p>
-</li>
-<li><p>键盘布局默认选择-继续<br><img src="/images/posts/ubuntu/install/6.jpg"></p>
-</li>
-<li><p>不联网-继续<br><img src="/images/posts/ubuntu/install/8.jpg"></p>
-</li>
-<li><p>更新和其他软件-默认-继续<br><img src="/images/posts/ubuntu/install/9.jpg"></p>
-</li>
-<li><p>安装类型-其它选项-继续<br><img src="/images/posts/ubuntu/install/10.jpg"></p>
-</li>
-<li><p> 分区：</p>
-</li>
-<li><p>以系统安装在固态为例</p>
+<li>首先，在官网下载镜像，<a target="_blank" rel="noopener" href="http://cn.ubuntu.com/">点击这里下载</a>;</li>
+<li>使用 <code>UltraISO</code> 制作系统盘（或者使用 <code>rufus</code> 制作，具体百度吧）：<br>
+<img src="/images/posts/computer/8.png" alt></li>
+<li>开始装系统：
 <ol>
-<li>单击 <code>固态的空闲内存</code>（此处为51636），点 <code>+</code>， 挂载点选 <code>/</code>，ok<br><img src="/images/posts/ubuntu/install/11.jpg"></li>
-<li>单击 <code>机械硬盘的空闲内存</code>（此处为216372），点 <code>+</code>，输入200000（大约以这个比例输入），挂载点选 <code>/home</code>，ok<br><img src="/images/posts/ubuntu/install/12.jpg"></li>
-<li>单击<code>剩余的空闲内存</code>（此处为16372），点 <code>+</code>，设置为用于<code>交换空间</code>，点<code>现在安装</code>，继续；<br><img src="/images/posts/ubuntu/install/13.jpg"></li>
+<li>
+<p>按住 <code>F12</code>，选择 <code>UEFI</code><br>
+<img src="/images/posts/ubuntu/install/7.jpg" alt></p>
+</li>
+<li>
+<p>选择： <code>Install Ubuntu</code><br>
+<img src="/images/posts/ubuntu/install/4.jpg" alt></p>
+</li>
+<li>
+<p>选择中文简体-继续<br>
+<img src="/images/posts/ubuntu/install/5.jpg" alt></p>
+</li>
+<li>
+<p>键盘布局默认选择-继续<br>
+<img src="/images/posts/ubuntu/install/6.jpg" alt></p>
+</li>
+<li>
+<p>不联网-继续<br>
+<img src="/images/posts/ubuntu/install/8.jpg" alt></p>
+</li>
+<li>
+<p>更新和其他软件-默认-继续<br>
+<img src="/images/posts/ubuntu/install/9.jpg" alt></p>
+</li>
+<li>
+<p>安装类型-其它选项-继续<br>
+<img src="/images/posts/ubuntu/install/10.jpg" alt></p>
+</li>
+<li>
+<p>分区：</p>
+</li>
+<li>
+<p>以系统安装在固态为例</p>
+<ol>
+<li>单击 <code>固态的空闲内存</code>（此处为51636），点 <code>+</code>， 挂载点选 <code>/</code>，ok<br>
+<img src="/images/posts/ubuntu/install/11.jpg" alt></li>
+<li>单击 <code>机械硬盘的空闲内存</code>（此处为216372），点 <code>+</code>，输入200000（大约以这个比例输入），挂载点选 <code>/home</code>，ok<br>
+<img src="/images/posts/ubuntu/install/12.jpg" alt></li>
+<li>单击<code>剩余的空闲内存</code>（此处为16372），点 <code>+</code>，设置为用于<code>交换空间</code>，点<code>现在安装</code>，继续；<br>
+<img src="/images/posts/ubuntu/install/13.jpg" alt></li>
 </ol>
 </li>
-<li><p>都安装在机械硬盘：</p>
+<li>
+<p>都安装在机械硬盘：</p>
 <ol>
 <li>类似于上面，更加简单而已，<code>大小</code>类比于<code>安装Ubuntu 18.04 - 3.8.1</code>。</li>
 </ol>
 </li>
-<li><p>继续安装<br><img src="/images/posts/ubuntu/install/16.jpg"></p>
+<li>
+<p>继续安装<br>
+<img src="/images/posts/ubuntu/install/16.jpg" alt></p>
 </li>
-<li><p>位置-默认<br><img src="/images/posts/ubuntu/install/15.jpg"></p>
+<li>
+<p>位置-默认<br>
+<img src="/images/posts/ubuntu/install/15.jpg" alt></p>
 </li>
-<li><p>设置用户名和密码，密码一定要记住<br><img src="/images/posts/ubuntu/install/17.jpg"></p>
+<li>
+<p>设置用户名和密码，密码一定要记住<br>
+<img src="/images/posts/ubuntu/install/17.jpg" alt></p>
 </li>
-<li><p>重启<br><img src="/images/posts/ubuntu/install/14.jpg"></p>
+<li>
+<p>重启<br>
+<img src="/images/posts/ubuntu/install/14.jpg" alt></p>
 </li>
-<li><p>重启，如果卡住了，就直接用电源强心关机，然后再开机，这个没关系的，放心弄就行<br><img src="/images/posts/ubuntu/install/18.jpg"></p>
+<li>
+<p>重启，如果卡住了，就直接用电源强心关机，然后再开机，这个没关系的，放心弄就行<br>
+<img src="/images/posts/ubuntu/install/18.jpg" alt></p>
 </li>
 </ol>
 </li>
 </ol>
-<h1 id="配置-Ubuntu-（非常重要）"><a href="#配置-Ubuntu-（非常重要）" class="headerlink" title="配置 Ubuntu （非常重要）"></a>配置 <code>Ubuntu</code> （非常重要）</h1><ol>
-<li><p>进入 <code>Ubuntu高级设置</code><br><img src="/images/posts/ubuntu/install/19.jpg"></p>
+<h1 id="配置-ubuntu-非常重要"><a class="markdownIt-Anchor" href="#配置-ubuntu-非常重要"></a> 配置 <code>Ubuntu</code> （非常重要）</h1>
+<ol>
+<li>
+<p>进入 <code>Ubuntu高级设置</code><br>
+<img src="/images/posts/ubuntu/install/19.jpg" alt></p>
 </li>
-<li><p>进入 <code>Ubuntu,with Linux 4.10.0-15-generis (recovery mode)</code> （第二个）<br><img src="/images/posts/ubuntu/install/20.jpg"></p>
+<li>
+<p>进入 <code>Ubuntu,with Linux 4.10.0-15-generis (recovery mode)</code> （第二个）<br>
+<img src="/images/posts/ubuntu/install/20.jpg" alt></p>
 </li>
-<li><p>进入 <code>resume resume normal boot</code><br><img src="/images/posts/ubuntu/install/21.jpg"></p>
+<li>
+<p>进入 <code>resume resume normal boot</code><br>
+<img src="/images/posts/ubuntu/install/21.jpg" alt></p>
 </li>
-<li><p>回车，继续进入此时，已经进入了Ubuntu了<br><img src="/images/posts/ubuntu/install/22.jpg"></p>
+<li>
+<p>回车，继续进入此时，已经进入了Ubuntu了<br>
+<img src="/images/posts/ubuntu/install/22.jpg" alt></p>
 </li>
-<li><p>运行以下命令：</p>
+<li>
+<p>运行以下命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -f</span><br></pre></td></tr></table></figure>
-<p> <img src="/images/posts/ubuntu/install/23.png"></p>
+<p><img src="/images/posts/ubuntu/install/23.png" alt></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br><span class="line">sudo gedit &#x2F;etc&#x2F;defaul&#x2F;grub</span><br></pre></td></tr></table></figure>
-<p> <img src="/images/posts/ubuntu/install/24.jpg"><br>得到下图：<br> <img src="/images/posts/ubuntu/install/27.jpg"><br>【补】：全部命令<br> <img src="/images/posts/ubuntu/install/25.jpg"><br> <img src="/images/posts/ubuntu/install/26.jpg"></p>
+<p><img src="/images/posts/ubuntu/install/24.jpg" alt><br>
+得到下图：<br>
+<img src="/images/posts/ubuntu/install/27.jpg" alt><br>
+【补】：全部命令<br>
+<img src="/images/posts/ubuntu/install/25.jpg" alt><br>
+<img src="/images/posts/ubuntu/install/26.jpg" alt></p>
 </li>
-<li><p>找到 <code>GRUB_CMDLINE_LINUX_DEFAULT</code>这一行，在 <code>quiet splash </code>后面添加 <code>nouveau.modeset=0</code></p>
+<li>
+<p>找到 <code>GRUB_CMDLINE_LINUX_DEFAULT</code>这一行，在 <code>quiet splash</code>后面添加 <code>nouveau.modeset=0</code></p>
 </li>
-<li><p>下面是我的电脑的grub配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"># If you change this file, run &#39;update-grub&#39; afterwards to update</span><br><span class="line"># &#x2F;boot&#x2F;grub&#x2F;grub.cfg.</span><br><span class="line"># For full documentation of the options in this file, see:</span><br><span class="line">#   info -f grub -n &#39;Simple configuration&#39;</span><br><span class="line"></span><br><span class="line">GRUB_DEFAULT&#x3D;0</span><br><span class="line">GRUB_TIMEOUT_STYLE&#x3D;hidden</span><br><span class="line">GRUB_TIMEOUT&#x3D;10</span><br><span class="line">GRUB_DISTRIBUTOR&#x3D;&#96;lsb_release -i -s 2&gt; &#x2F;dev&#x2F;null || echo Debian&#96;</span><br><span class="line">GRUB_CMDLINE_LINUX_DEFAULT&#x3D;&quot;quiet splash nouveau.modeset&#x3D;0&quot;</span><br><span class="line">GRUB_CMDLINE_LINUX&#x3D;&quot;&quot;</span><br><span class="line"></span><br><span class="line"># Uncomment to enable BadRAM filtering, modify to suit your needs</span><br><span class="line"># This works with Linux (no patch required) and with any kernel that obtains</span><br><span class="line"># the memory map information from GRUB (GNU Mach, kernel of FreeBSD ...)</span><br><span class="line">#GRUB_BADRAM&#x3D;&quot;0x01234567,0xfefefefe,0x89abcdef,0xefefefef&quot;</span><br><span class="line"></span><br><span class="line"># Uncomment to disable graphical terminal (grub-pc only)</span><br><span class="line">#GRUB_TERMINAL&#x3D;console</span><br><span class="line"></span><br><span class="line"># The resolution used on graphical terminal</span><br><span class="line"># note that you can use only modes which your graphic card supports via VBE</span><br><span class="line"># you can see them in real GRUB with the command &#96;vbeinfo&#39;</span><br><span class="line">#GRUB_GFXMODE&#x3D;640x480</span><br><span class="line"></span><br><span class="line"># Uncomment if you don&#39;t want GRUB to pass &quot;root&#x3D;UUID&#x3D;xxx&quot; parameter to Linux</span><br><span class="line">#GRUB_DISABLE_LINUX_UUID&#x3D;true</span><br><span class="line"></span><br><span class="line"># Uncomment to disable generation of recovery mode menu entries</span><br><span class="line">#GRUB_DISABLE_RECOVERY&#x3D;&quot;true&quot;</span><br><span class="line"></span><br><span class="line"># Uncomment to get a beep at grub start</span><br><span class="line">#GRUB_INIT_TUNE&#x3D;&quot;480 440 1&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p>更新grub</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-grub</span><br></pre></td></tr></table></figure></li>
+<li>
+<p>下面是我的电脑的grub配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"># If you change this file, run &#39;update-grub&#39; afterwards to update</span><br><span class="line"># &#x2F;boot&#x2F;grub&#x2F;grub.cfg.</span><br><span class="line"># For full documentation of the options in this file, see:</span><br><span class="line">#   info -f grub -n &#39;Simple configuration&#39;</span><br><span class="line"></span><br><span class="line">GRUB_DEFAULT&#x3D;0</span><br><span class="line">GRUB_TIMEOUT_STYLE&#x3D;hidden</span><br><span class="line">GRUB_TIMEOUT&#x3D;10</span><br><span class="line">GRUB_DISTRIBUTOR&#x3D;&#96;lsb_release -i -s 2&gt; &#x2F;dev&#x2F;null || echo Debian&#96;</span><br><span class="line">GRUB_CMDLINE_LINUX_DEFAULT&#x3D;&quot;quiet splash nouveau.modeset&#x3D;0&quot;</span><br><span class="line">GRUB_CMDLINE_LINUX&#x3D;&quot;&quot;</span><br><span class="line"></span><br><span class="line"># Uncomment to enable BadRAM filtering, modify to suit your needs</span><br><span class="line"># This works with Linux (no patch required) and with any kernel that obtains</span><br><span class="line"># the memory map information from GRUB (GNU Mach, kernel of FreeBSD ...)</span><br><span class="line">#GRUB_BADRAM&#x3D;&quot;0x01234567,0xfefefefe,0x89abcdef,0xefefefef&quot;</span><br><span class="line"></span><br><span class="line"># Uncomment to disable graphical terminal (grub-pc only)</span><br><span class="line">#GRUB_TERMINAL&#x3D;console</span><br><span class="line"></span><br><span class="line"># The resolution used on graphical terminal</span><br><span class="line"># note that you can use only modes which your graphic card supports via VBE</span><br><span class="line"># you can see them in real GRUB with the command &#96;vbeinfo&#39;</span><br><span class="line">#GRUB_GFXMODE&#x3D;640x480</span><br><span class="line"></span><br><span class="line"># Uncomment if you don&#39;t want GRUB to pass &quot;root&#x3D;UUID&#x3D;xxx&quot; parameter to Linux</span><br><span class="line">#GRUB_DISABLE_LINUX_UUID&#x3D;true</span><br><span class="line"></span><br><span class="line"># Uncomment to disable generation of recovery mode menu entries</span><br><span class="line">#GRUB_DISABLE_RECOVERY&#x3D;&quot;true&quot;</span><br><span class="line"></span><br><span class="line"># Uncomment to get a beep at grub start</span><br><span class="line">#GRUB_INIT_TUNE&#x3D;&quot;480 440 1&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>更新grub</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-grub</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h1 id="美化"><a href="#美化" class="headerlink" title="美化"></a>美化</h1><ol>
-<li><img src="/images/posts/computer/9.png"><br><br><a href="/files/62-1.pdf">点击这里下载教程</a></li>
+<h1 id="美化"><a class="markdownIt-Anchor" href="#美化"></a> 美化</h1>
+<ol>
+<li><img src="/images/posts/computer/9.png" alt><br>
+<br><a href="/files/62-1.pdf">点击这里下载教程</a></li>
 <li>包在<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1U_F1R65JpLinOQ8u-LALcA">这里下载</a> 提取码: 3knb</li>
-<li>附：其他美化视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av26156974?from=search&seid=9708955829816132659">点击这里</a></li>
+<li>附：其他美化视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av26156974?from=search&amp;seid=9708955829816132659">点击这里</a></li>
 </ol>
 
     </div>
@@ -521,7 +585,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEBIOS"><span class="nav-number">1.</span> <span class="nav-text">设置BIOS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-win10"><span class="nav-number">2.</span> <span class="nav-text">安装 win10</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Ubuntu-18-04"><span class="nav-number">3.</span> <span class="nav-text">安装 Ubuntu 18.04</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-Ubuntu-%EF%BC%88%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%81%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">配置 Ubuntu （非常重要）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BE%8E%E5%8C%96"><span class="nav-number">5.</span> <span class="nav-text">美化</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEbios"><span class="nav-number">1.</span> <span class="nav-text"> 设置BIOS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-win10"><span class="nav-number">2.</span> <span class="nav-text"> 安装 win10</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-ubuntu-1804"><span class="nav-number">3.</span> <span class="nav-text"> 安装 Ubuntu 18.04</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-ubuntu-%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%81"><span class="nav-number">4.</span> <span class="nav-text"> 配置 Ubuntu （非常重要）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BE%8E%E5%8C%96"><span class="nav-number">5.</span> <span class="nav-text"> 美化</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -547,20 +611,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">142</span>
+          <span class="site-state-item-count">141</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-count">82</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -629,13 +693,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">523k</span>
+    <span title="站点总字数">513k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:56</span>
+    <span title="站点阅读时长">7:46</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
   </div>

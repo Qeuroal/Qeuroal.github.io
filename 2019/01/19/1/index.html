@@ -270,63 +270,88 @@
 
       
         <ul>
-<li><h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a><strong>题目</strong></h1><img src="/images/posts/acwing/17.png"></li>
+<li>
+<h1 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> <strong>题目</strong></h1>
+</li>
 </ul>
+<p><img src="/images/posts/acwing/17.png" alt></p>
 <span id="more"></span>
-
-
 <ul>
-<li><h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a><strong>解析</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">0   0000</span><br><span class="line">1   0001</span><br><span class="line">2   0010 </span><br><span class="line">3   0011</span><br><span class="line">4   0100</span><br><span class="line">5   0101</span><br><span class="line">6   0110</span><br><span class="line">7   0111</span><br><span class="line">8   1000</span><br><span class="line">9   1001</span><br><span class="line">10  1010</span><br><span class="line">11  1011</span><br><span class="line">12  1100</span><br><span class="line">13  1101</span><br><span class="line">14  1110</span><br><span class="line">15  1111</span><br></pre></td></tr></table></figure></li>
+<li>
+<h1 id="解析"><a class="markdownIt-Anchor" href="#解析"></a> <strong>解析</strong></h1>
+</li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">0   0000</span><br><span class="line">1   0001</span><br><span class="line">2   0010 </span><br><span class="line">3   0011</span><br><span class="line">4   0100</span><br><span class="line">5   0101</span><br><span class="line">6   0110</span><br><span class="line">7   0111</span><br><span class="line">8   1000</span><br><span class="line">9   1001</span><br><span class="line">10  1010</span><br><span class="line">11  1011</span><br><span class="line">12  1100</span><br><span class="line">13  1101</span><br><span class="line">14  1110</span><br><span class="line">15  1111</span><br></pre></td></tr></table></figure>
 <ol>
-<li>假设求r[i]</li>
-<li><code>r[i - 1] + 1</code> ，如果进位，那么<code>r[i]</code>就和<code>r[i - 1]</code> 没有关系了，如果没有进位，那么，<code>r[i] = r[i - 1] + 1</code></li>
-<li>接着，看进位的情况：如果 <code>i &amp; (i - 1)</code> ，那么就会把i和 <code>i - 1</code> 的最低位去掉，即变为0；<br> <blockquote>
+<li>
+<p>假设求r[i]</p>
+</li>
+<li>
+<p><code>r[i - 1] + 1</code> ，如果进位，那么<code>r[i]</code>就和<code>r[i - 1]</code> 没有关系了，如果没有进位，那么，<code>r[i] = r[i - 1] + 1</code></p>
+</li>
+<li>
+<p>接着，看进位的情况：如果 <code>i &amp; (i - 1)</code> ，那么就会把i和 <code>i - 1</code> 的最低位去掉，即变为0；<br></p>
+<blockquote>
 <p><em><strong>Ps:</strong></em> 最低位是指，从左面第0位开始，一直往右数，直到遇到两个数不一样的位置，那么后面的数（包括不一样的数）不管相不相同，都为最低位（例：9 和 10：从左面第0位开始，到第2位不同，那么第2、3位即为最低位）</p>
 </blockquote>
 </li>
-<li>显而易见，<code>i &amp; (i - 1)</code>得到的数就是去掉最低位之后的数，那么，由于进位了，所以，<code>r[i] = r[i &amp; (i - 1)] + 1</code></li>
+<li>
+<p>显而易见，<code>i &amp; (i - 1)</code>得到的数就是去掉最低位之后的数，那么，由于进位了，所以，<code>r[i] = r[i &amp; (i - 1)] + 1</code></p>
+</li>
 </ol>
 <ul>
-<li><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h1></li>
+<li>
+<h1 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> <strong>代码</strong></h1>
+</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">countBits</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">r</span><span class="params">(num + <span class="number">1</span>)</span></span>;</span><br><span class="line">    r[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= num; i++) &#123;</span><br><span class="line">        r[i] = r[i &amp; (i - <span class="number">1</span>)] + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
 <hr>
-
 <ul>
-<li><h1 id="n-amp-n-1-的妙用"><a href="#n-amp-n-1-的妙用" class="headerlink" title="n&amp;(n-1)的妙用"></a><strong>n&amp;(n-1)的妙用</strong></h1></li>
-</ul>
-<h2 id="1-判断一个数是否是2的方幂"><a href="#1-判断一个数是否是2的方幂" class="headerlink" title="1. 判断一个数是否是2的方幂"></a>1. 判断一个数是否是2的方幂</h2><ol>
-<li><p>方法：n &gt; 0 &amp;&amp; ((n &amp; (n - 1)) == 0 )</p>
+<li>
+<h1 id="nn-1的妙用"><a class="markdownIt-Anchor" href="#nn-1的妙用"></a> <strong>n&amp;(n-1)的妙用</strong></h1>
 </li>
-<li><p>解释：<br>  ((n &amp; (n-1)) == 0)：</p>
-<p>  如果A&amp;B==0，表示A与B的二进制形式没有在同一个位置都为1的时候。</p>
-<p>  不妨先看下n-1是什么意思。</p>
-<p>  令:n=1101011000(二进制,十进制也一样)，则</p>
-<p>   n-1=1101010111。</p>
-<p>  n&amp;(n-1)=1101010000</p>
-<p>  由此可以得出，n和n-1的低位不一样，直到有个转折点，就是借位的那个点，从这个点开始的高位，n和n-1都一样，如果高位一样这就造成一个问题，就是n和n-1在相同的位上可能会有同一个1，从而使((n &amp; (n-1)) != 0),如果想要((n &amp; (n-1)) == 0)，则高位必须全为0，这样就没有相同的1。</p>
-<p>  所以n是2的幂或0</p>
+</ul>
+<h2 id="1-判断一个数是否是2的方幂"><a class="markdownIt-Anchor" href="#1-判断一个数是否是2的方幂"></a> 1. 判断一个数是否是2的方幂</h2>
+<ol>
+<li>
+<p>方法：n &gt; 0 &amp;&amp; ((n &amp; (n - 1)) == 0 )</p>
+</li>
+<li>
+<p>解释：<br>
+((n &amp; (n-1)) == 0)：</p>
+<p>如果A&amp;B==0，表示A与B的二进制形式没有在同一个位置都为1的时候。</p>
+<p>不妨先看下n-1是什么意思。</p>
+<p>令:n=1101011000(二进制,十进制也一样)，则</p>
+<p>n-1=1101010111。</p>
+<p>n&amp;(n-1)=1101010000</p>
+<p>由此可以得出，n和n-1的低位不一样，直到有个转折点，就是借位的那个点，从这个点开始的高位，n和n-1都一样，如果高位一样这就造成一个问题，就是n和n-1在相同的位上可能会有同一个1，从而使((n &amp; (n-1)) != 0),如果想要((n &amp; (n-1)) == 0)，则高位必须全为0，这样就没有相同的1。</p>
+<p>所以n是2的幂或0</p>
 </li>
 </ol>
-<h2 id="2-求某一个数的二进制表示中1的个数"><a href="#2-求某一个数的二进制表示中1的个数" class="headerlink" title="2. 求某一个数的二进制表示中1的个数"></a>2. 求某一个数的二进制表示中1的个数</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (n &gt;<span class="number">0</span> ) &#123;</span><br><span class="line">      count ++;</span><br><span class="line">      n &amp;= (n<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-计算N-的质因数2的个数"><a href="#3-计算N-的质因数2的个数" class="headerlink" title="3. 计算N!的质因数2的个数"></a>3. 计算N!的质因数2的个数</h2><ol>
-<li><p>N!质因数2的个数 = [N / 2] + [N / 4] + [N / 8] + ….</p>
+<h2 id="2-求某一个数的二进制表示中1的个数"><a class="markdownIt-Anchor" href="#2-求某一个数的二进制表示中1的个数"></a> 2. 求某一个数的二进制表示中1的个数</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (n &gt;<span class="number">0</span> ) &#123;</span><br><span class="line">      count ++;</span><br><span class="line">      n &amp;= (n<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-计算n的质因数2的个数"><a class="markdownIt-Anchor" href="#3-计算n的质因数2的个数"></a> 3. 计算N!的质因数2的个数</h2>
+<ol>
+<li>
+<p>N!质因数2的个数 = [N / 2] + [N / 4] + [N / 8] + …</p>
 </li>
-<li><p>过程：<br>下面通过一个简单的例子来推导一下过程：N = 10101(二进制表示）</p>
+<li>
+<p>过程：<br>
+下面通过一个简单的例子来推导一下过程：N = 10101(二进制表示）</p>
 <p>现在我们跟踪最高位的1，不考虑其他位假定为0，</p>
 <p>则在</p>
-<p>[N / 2]    01000 <br><br>[N / 4]    00100 <br><br>[N / 8]    00010 <br><br>[N / 8]    00001 <br><br>则所有相加等于01111 = 10000 - 1</p>
+<p>[N / 2]    01000 <br><br>
+[N / 4]    00100 <br><br>
+[N / 8]    00010 <br><br>
+[N / 8]    00001 <br><br>
+则所有相加等于01111 = 10000 - 1</p>
 <p>由此推及其他位可得：(10101)!的质因数2的个数为10000 - 1 + 00100 - 1 + 00001 - 1 = 10101 - 3(二进制表示中1的个数)</p>
 <p>推及一般N!的质因数2的个数为N - （N二进制表示中1的个数）</p>
 <p>n&amp;(-n)在树状数组中lowbit出现   用来求 t 中的因子中形如2^k的数为多少     用来取得n最右边的1，可以知道其因子中有几个2</p>
 <p>10:  0000 1010</p>
 <p>-10: 1111 0110</p>
-<p>10&amp;(-10)为 0010  =  2  所以10的因子中为2的有一个，2^k的形式的为2^1</p>
-<p>8&amp;(-8) = [1000] = 8   所以8的因子中为2的有3个，2^k的形式为2^3</p>
+<p>10&amp;(-10)为 0010  =  2  所以10的因子中为2的有一个，2<sup>k的形式的为2</sup>1</p>
+<p>8&amp;(-8) = [1000] = 8   所以8的因子中为2的有3个，2<sup>k的形式为2</sup>3</p>
 </li>
 </ol>
 
@@ -449,7 +474,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">解析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#n-amp-n-1-%E7%9A%84%E5%A6%99%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">n&amp;(n-1)的妙用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E6%95%B0%E6%98%AF%E5%90%A6%E6%98%AF2%E7%9A%84%E6%96%B9%E5%B9%82"><span class="nav-number">4.1.</span> <span class="nav-text">1. 判断一个数是否是2的方幂</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%B1%82%E6%9F%90%E4%B8%80%E4%B8%AA%E6%95%B0%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%A1%A8%E7%A4%BA%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="nav-number">4.2.</span> <span class="nav-text">2. 求某一个数的二进制表示中1的个数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%AE%A1%E7%AE%97N-%E7%9A%84%E8%B4%A8%E5%9B%A0%E6%95%B02%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="nav-number">4.3.</span> <span class="nav-text">3. 计算N!的质因数2的个数</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.</span> <span class="nav-text"> 题目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text"> 解析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text"> 代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nn-1%E7%9A%84%E5%A6%99%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text"> n&amp;(n-1)的妙用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E6%95%B0%E6%98%AF%E5%90%A6%E6%98%AF2%E7%9A%84%E6%96%B9%E5%B9%82"><span class="nav-number">4.1.</span> <span class="nav-text"> 1. 判断一个数是否是2的方幂</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%B1%82%E6%9F%90%E4%B8%80%E4%B8%AA%E6%95%B0%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%A1%A8%E7%A4%BA%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="nav-number">4.2.</span> <span class="nav-text"> 2. 求某一个数的二进制表示中1的个数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%AE%A1%E7%AE%97n%E7%9A%84%E8%B4%A8%E5%9B%A0%E6%95%B02%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="nav-number">4.3.</span> <span class="nav-text"> 3. 计算N!的质因数2的个数</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -475,20 +500,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">142</span>
+          <span class="site-state-item-count">141</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-count">82</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -557,13 +582,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">523k</span>
+    <span title="站点总字数">513k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:56</span>
+    <span title="站点阅读时长">7:46</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
   </div>

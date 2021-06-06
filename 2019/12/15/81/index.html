@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"qeuroal.top","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1. 申请 Gitalk 账号 右上角头像  setting  Developer settings">
+  <meta name="description" content="1. 申请 Gitalk 账号  右上角头像 setting Developer settings">
 <meta property="og:type" content="article">
 <meta property="og:title" content="81. Github添加Gitalk评论功能">
 <meta property="og:url" content="https://qeuroal.top/2019/12/15/81/index.html">
 <meta property="og:site_name" content="Qeuroal&#39;s Bolg">
-<meta property="og:description" content="1. 申请 Gitalk 账号 右上角头像  setting  Developer settings">
+<meta property="og:description" content="1. 申请 Gitalk 账号  右上角头像 setting Developer settings">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://qeuroal.top/images/posts/github/14.png">
 <meta property="og:image" content="https://qeuroal.top/images/posts/github/15.png">
@@ -270,14 +270,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="1-申请-Gitalk-账号"><a href="#1-申请-Gitalk-账号" class="headerlink" title="1. 申请 Gitalk 账号"></a>1. 申请 <code>Gitalk</code> 账号</h1><ol>
-<li><p>右上角头像</p>
-</li>
-<li><p>setting</p>
-</li>
-<li><p>Developer settings</p>
-<span id="more"></span></li>
-<li><p>OAuth Apps<br><img src="/images/posts/github/14.png"></p>
+        <h1 id="1-申请-gitalk-账号"><a class="markdownIt-Anchor" href="#1-申请-gitalk-账号"></a> 1. 申请 <code>Gitalk</code> 账号</h1>
+<ol>
+<li>右上角头像</li>
+<li>setting</li>
+<li>Developer settings</li>
+</ol>
+<span id="more"></span>
+<ol start="4">
+<li>
+<p>OAuth Apps<br>
+<img src="/images/posts/github/14.png" alt></p>
 <ol>
 <li><code>Application name</code> : 随便取名字</li>
 <li><code>Homepage URL</code> : 你的博客地址</li>
@@ -285,20 +288,32 @@
 <li><code>Authorization callback URL</code> : 你的博客地址</li>
 </ol>
 <blockquote>
-<h3 id="注意"><a href="#注意" class="headerlink" title="[注意]:"></a>[注意]:</h3><ol>
-<li><p>如果你申请了网址,进行映射,那么你的博客地址一定要填你申请的那个,比如我的是:<code>dgimo.top</code>,那么,我的<code>Homepage URL</code> 和 <code>Authorization callback URL</code> 都是 <code>dgimo.top</code></p>
+<h3 id="注意"><a class="markdownIt-Anchor" href="#注意"></a> [注意]:</h3>
+<ol>
+<li>
+<p>如果你申请了网址,进行映射,那么你的博客地址一定要填你申请的那个,比如我的是:<code>dgimo.top</code>,那么,我的<code>Homepage URL</code> 和 <code>Authorization callback URL</code> 都是 <code>dgimo.top</code></p>
 </li>
-<li><p>如果github博客开启了force https功能，需要将OAuth Apps中的地址改为https。</p>
+<li>
+<p>如果github博客开启了force https功能，需要将OAuth Apps中的地址改为https。</p>
 </li>
 </ol>
 </blockquote>
 </li>
 </ol>
-<h1 id="2-配置-config-yml"><a href="#2-配置-config-yml" class="headerlink" title="2. 配置 _config.yml"></a>2. 配置 <code>_config.yml</code></h1>   <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">gitalk:</span></span><br><span class="line">    <span class="comment"># Gitalk</span></span><br><span class="line">    <span class="comment"># enable: true</span></span><br><span class="line">    <span class="attr">gitalk_clientID:</span> <span class="string">你的ID</span></span><br><span class="line">    <span class="attr">gitalk_Secret:</span> <span class="string">你的Secret</span></span><br><span class="line">    <span class="attr">gitalk_repo:</span> <span class="string">&#x27;你存储评论的仓库地址&#x27;</span> <span class="string">//</span> <span class="string">这里建议就是你的博客地址:如test.github.io</span></span><br><span class="line">    <span class="attr">gitalk_owner:</span> <span class="string">&#x27;你的用户名&#x27;</span>         <span class="string">//</span> <span class="string">如:test</span> </span><br><span class="line">    <span class="attr">gitalk_admin:</span> <span class="string">&#x27;你的用户名&#x27;</span>        <span class="string">//</span> <span class="string">如</span> <span class="string">test</span></span><br><span class="line">    <span class="attr">distractionFreeMode:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="3-配置-head-html"><a href="#3-配置-head-html" class="headerlink" title="3. 配置 head.html"></a>3. 配置 <code>head.html</code></h1><p>   在 <code>head.html</code> 的<head>下末尾添加:<br>   <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><br>   如下图所示:<br>   <img src="/images/posts/github/15.png"></head></p>
-<h1 id="4-添加-gitalk-html"><a href="#4-添加-gitalk-html" class="headerlink" title="4. 添加 gitalk.html"></a>4. 添加 <code>gitalk.html</code></h1><p>   在文件夹 <code>_includes</code> 下面创建 <code>gitalk.html</code>,内容如下:<br>   <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;gitalk-container&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> gitalk = <span class="keyword">new</span> Gitalk(&#123;</span></span><br><span class="line"><span class="javascript">  clientID: <span class="string">&#x27;你的ID&#x27;</span>,</span></span><br><span class="line"><span class="javascript">  clientSecret: <span class="string">&#x27;你的Secret&#x27;</span>,</span></span><br><span class="line"><span class="javascript">  repo: <span class="string">&#x27;你存储评论的仓库地址&#x27;</span>, </span></span><br><span class="line"><span class="javascript">  owner: <span class="string">&#x27;你的用户名&#x27;</span>,</span></span><br><span class="line"><span class="javascript">  admin: [<span class="string">&#x27;你的用户名&#x27;</span>],</span></span><br><span class="line"><span class="javascript">  id: location.pathname,      <span class="comment">// Ensure uniqueness and length less than 50</span></span></span><br><span class="line"><span class="javascript">  distractionFreeMode: <span class="literal">false</span>  <span class="comment">// Facebook-like distraction free mode</span></span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="javascript">gitalk.render(<span class="string">&#x27;gitalk-container&#x27;</span>)</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="注意-和-config-yml-中的保持一致"><a href="#注意-和-config-yml-中的保持一致" class="headerlink" title="[注意]:和 _config.yml 中的保持一致"></a>[注意]:和 <code>_config.yml</code> 中的保持一致</h3><h1 id="5-初始化你的-Gitalk-即可"><a href="#5-初始化你的-Gitalk-即可" class="headerlink" title="5. 初始化你的 Gitalk 即可"></a>5. 初始化你的 <code>Gitalk</code> 即可</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av56437803?from=search&seid=6150307918109771515">参考视频</a> <br><br><a target="_blank" rel="noopener" href="https://github.com/gitalk/gitalk/blob/master/readme-cn.md">参考文章</a></p>
+<h1 id="2-配置-_configyml"><a class="markdownIt-Anchor" href="#2-配置-_configyml"></a> 2. 配置 <code>_config.yml</code></h1>
+   <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">gitalk:</span></span><br><span class="line">    <span class="comment"># Gitalk</span></span><br><span class="line">    <span class="comment"># enable: true</span></span><br><span class="line">    <span class="attr">gitalk_clientID:</span> <span class="string">你的ID</span></span><br><span class="line">    <span class="attr">gitalk_Secret:</span> <span class="string">你的Secret</span></span><br><span class="line">    <span class="attr">gitalk_repo:</span> <span class="string">&#x27;你存储评论的仓库地址&#x27;</span> <span class="string">//</span> <span class="string">这里建议就是你的博客地址:如test.github.io</span></span><br><span class="line">    <span class="attr">gitalk_owner:</span> <span class="string">&#x27;你的用户名&#x27;</span>         <span class="string">//</span> <span class="string">如:test</span> </span><br><span class="line">    <span class="attr">gitalk_admin:</span> <span class="string">&#x27;你的用户名&#x27;</span>        <span class="string">//</span> <span class="string">如</span> <span class="string">test</span></span><br><span class="line">    <span class="attr">distractionFreeMode:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<h1 id="3-配置-headhtml"><a class="markdownIt-Anchor" href="#3-配置-headhtml"></a> 3. 配置 <code>head.html</code></h1>
+<p>在 <code>head.html</code> 的<head>下末尾添加:</head></p>
+   <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如下图所示:<br>
+<img src="/images/posts/github/15.png" alt></p>
+<h1 id="4-添加-gitalkhtml"><a class="markdownIt-Anchor" href="#4-添加-gitalkhtml"></a> 4. 添加 <code>gitalk.html</code></h1>
+<p>在文件夹 <code>_includes</code> 下面创建 <code>gitalk.html</code>,内容如下:</p>
+   <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;gitalk-container&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> gitalk = <span class="keyword">new</span> Gitalk(&#123;</span></span><br><span class="line"><span class="javascript">  clientID: <span class="string">&#x27;你的ID&#x27;</span>,</span></span><br><span class="line"><span class="javascript">  clientSecret: <span class="string">&#x27;你的Secret&#x27;</span>,</span></span><br><span class="line"><span class="javascript">  repo: <span class="string">&#x27;你存储评论的仓库地址&#x27;</span>, </span></span><br><span class="line"><span class="javascript">  owner: <span class="string">&#x27;你的用户名&#x27;</span>,</span></span><br><span class="line"><span class="javascript">  admin: [<span class="string">&#x27;你的用户名&#x27;</span>],</span></span><br><span class="line"><span class="javascript">  id: location.pathname,      <span class="comment">// Ensure uniqueness and length less than 50</span></span></span><br><span class="line"><span class="javascript">  distractionFreeMode: <span class="literal">false</span>  <span class="comment">// Facebook-like distraction free mode</span></span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="javascript">gitalk.render(<span class="string">&#x27;gitalk-container&#x27;</span>)</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="注意和-_configyml-中的保持一致"><a class="markdownIt-Anchor" href="#注意和-_configyml-中的保持一致"></a> [注意]:和 <code>_config.yml</code> 中的保持一致</h3>
+<h1 id="5-初始化你的-gitalk-即可"><a class="markdownIt-Anchor" href="#5-初始化你的-gitalk-即可"></a> 5. 初始化你的 <code>Gitalk</code> 即可</h1>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av56437803?from=search&amp;seid=6150307918109771515">参考视频</a> <br><br>
+<a target="_blank" rel="noopener" href="https://github.com/gitalk/gitalk/blob/master/readme-cn.md">参考文章</a></p>
 
     </div>
 
@@ -422,7 +437,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E7%94%B3%E8%AF%B7-Gitalk-%E8%B4%A6%E5%8F%B7"><span class="nav-number">1.</span> <span class="nav-text">1. 申请 Gitalk 账号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F"><span class="nav-number">1.0.1.</span> <span class="nav-text">[注意]:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E9%85%8D%E7%BD%AE-config-yml"><span class="nav-number">2.</span> <span class="nav-text">2. 配置 _config.yml</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E9%85%8D%E7%BD%AE-head-html"><span class="nav-number">3.</span> <span class="nav-text">3. 配置 head.html</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E6%B7%BB%E5%8A%A0-gitalk-html"><span class="nav-number">4.</span> <span class="nav-text">4. 添加 gitalk.html</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F-%E5%92%8C-config-yml-%E4%B8%AD%E7%9A%84%E4%BF%9D%E6%8C%81%E4%B8%80%E8%87%B4"><span class="nav-number">4.0.1.</span> <span class="nav-text">[注意]:和 _config.yml 中的保持一致</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BD%A0%E7%9A%84-Gitalk-%E5%8D%B3%E5%8F%AF"><span class="nav-number">5.</span> <span class="nav-text">5. 初始化你的 Gitalk 即可</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E7%94%B3%E8%AF%B7-gitalk-%E8%B4%A6%E5%8F%B7"><span class="nav-number">1.</span> <span class="nav-text"> 1. 申请 Gitalk 账号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F"><span class="nav-number">1.0.1.</span> <span class="nav-text"> [注意]:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E9%85%8D%E7%BD%AE-_configyml"><span class="nav-number">2.</span> <span class="nav-text"> 2. 配置 _config.yml</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E9%85%8D%E7%BD%AE-headhtml"><span class="nav-number">3.</span> <span class="nav-text"> 3. 配置 head.html</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E6%B7%BB%E5%8A%A0-gitalkhtml"><span class="nav-number">4.</span> <span class="nav-text"> 4. 添加 gitalk.html</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E5%92%8C-_configyml-%E4%B8%AD%E7%9A%84%E4%BF%9D%E6%8C%81%E4%B8%80%E8%87%B4"><span class="nav-number">4.0.1.</span> <span class="nav-text"> [注意]:和 _config.yml 中的保持一致</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BD%A0%E7%9A%84-gitalk-%E5%8D%B3%E5%8F%AF"><span class="nav-number">5.</span> <span class="nav-text"> 5. 初始化你的 Gitalk 即可</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -448,20 +463,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">142</span>
+          <span class="site-state-item-count">141</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-count">82</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -530,13 +545,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">523k</span>
+    <span title="站点总字数">513k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:56</span>
+    <span title="站点阅读时长">7:46</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
   </div>

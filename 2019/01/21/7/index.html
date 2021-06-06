@@ -272,10 +272,10 @@
 <p><strong>非常</strong>简单</p>
 </blockquote>
 <span id="more"></span>
-
-<h1 id="1-在-layouts-post-html中添加如下代码"><a href="#1-在-layouts-post-html中添加如下代码" class="headerlink" title="1. 在_layouts/post.html中添加如下代码"></a>1. 在<code>_layouts/post.html</code>中添加如下代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if page.musicId %&#125;</span><br><span class="line">    &lt;iframe frameborder&#x3D;&quot;no&quot; border&#x3D;&quot;0&quot; marginwidth&#x3D;&quot;0&quot; marginheight&#x3D;&quot;0&quot; width&#x3D;330 height&#x3D;86 src&#x3D;&quot;&#x2F;&#x2F;music.163.com&#x2F;outchain&#x2F;player?type&#x3D;2&amp;id&#x3D;&#123;&#123; page.musicId &#125;&#125;&amp;auto&#x3D;1&amp;height&#x3D;66&quot;&gt;&lt;&#x2F;iframe&gt;</span><br><span class="line">  &lt;&#x2F;p&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;p align &#x3D; &#39;center&#39;&gt;</span><br><span class="line">    &lt;font size&#x3D;&quot;4px&quot; face &#x3D; &quot;隶书&quot;&gt;</span><br><span class="line">      &lt;style&gt;</span><br><span class="line">        .vertical_line &#123;</span><br><span class="line">        width: 600px;</span><br><span class="line">        height: 60px;</span><br><span class="line">        background-color: #ffffff;</span><br><span class="line">        border-left: 5px solid #ddd;</span><br><span class="line">        text-align: left;</span><br><span class="line">        opacity: 0.4;</span><br><span class="line"></span><br><span class="line">        &#x2F;* text- *&#x2F;</span><br><span class="line">      &#125;</span><br><span class="line">      &lt;&#x2F;style&gt;</span><br><span class="line">        &lt;!-- &lt;div style&#x3D;&quot;text-align: center&quot;&gt;</span><br><span class="line">          &lt;i&gt;</span><br><span class="line">              &lt;span style&#x3D;&quot;background-color:#F5F5DC;&quot;&gt;都说音乐&lt;&#x2F;span&gt;</span><br><span class="line">          &lt;&#x2F;i&gt;</span><br><span class="line">        &lt;&#x2F;div&gt; --&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;vertical_line&quot;&gt;</span><br><span class="line">          &lt;strong&gt;</span><br><span class="line">            &lt;font size &#x3D; 4 face&#x3D;&quot;楷体&quot;&gt;</span><br><span class="line">              &lt;p class&#x3D;&quot;thick&quot;&gt;</span><br><span class="line">                “听说音乐能让人愉悦”&lt;br&#x2F;&gt;“你也来试试吧......”</span><br><span class="line">              &lt;&#x2F;p&gt;</span><br><span class="line">            &lt;&#x2F;font&gt;</span><br><span class="line">          &lt;&#x2F;strong&gt;</span><br><span class="line"></span><br><span class="line">      &lt;&#x2F;p&gt;</span><br><span class="line">    &lt;&#x2F;font&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="在-posts的文件中的头文件添加：musicId-lt-id-gt"><a href="#在-posts的文件中的头文件添加：musicId-lt-id-gt" class="headerlink" title="在_posts的文件中的头文件添加：musicId: &lt;id&gt;"></a>在<code>_posts</code>的文件中的头文件添加：<code>musicId: &lt;id&gt;</code></h1><p>如：</p>
+<h1 id="1-在_layoutsposthtml中添加如下代码"><a class="markdownIt-Anchor" href="#1-在_layoutsposthtml中添加如下代码"></a> 1. 在<code>_layouts/post.html</code>中添加如下代码</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if page.musicId %&#125;</span><br><span class="line">    &lt;iframe frameborder&#x3D;&quot;no&quot; border&#x3D;&quot;0&quot; marginwidth&#x3D;&quot;0&quot; marginheight&#x3D;&quot;0&quot; width&#x3D;330 height&#x3D;86 src&#x3D;&quot;&#x2F;&#x2F;music.163.com&#x2F;outchain&#x2F;player?type&#x3D;2&amp;id&#x3D;&#123;&#123; page.musicId &#125;&#125;&amp;auto&#x3D;1&amp;height&#x3D;66&quot;&gt;&lt;&#x2F;iframe&gt;</span><br><span class="line">  &lt;&#x2F;p&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;p align &#x3D; &#39;center&#39;&gt;</span><br><span class="line">    &lt;font size&#x3D;&quot;4px&quot; face &#x3D; &quot;隶书&quot;&gt;</span><br><span class="line">      &lt;style&gt;</span><br><span class="line">        .vertical_line &#123;</span><br><span class="line">        width: 600px;</span><br><span class="line">        height: 60px;</span><br><span class="line">        background-color: #ffffff;</span><br><span class="line">        border-left: 5px solid #ddd;</span><br><span class="line">        text-align: left;</span><br><span class="line">        opacity: 0.4;</span><br><span class="line"></span><br><span class="line">        &#x2F;* text- *&#x2F;</span><br><span class="line">      &#125;</span><br><span class="line">      &lt;&#x2F;style&gt;</span><br><span class="line">        &lt;!-- &lt;div style&#x3D;&quot;text-align: center&quot;&gt;</span><br><span class="line">          &lt;i&gt;</span><br><span class="line">              &lt;span style&#x3D;&quot;background-color:#F5F5DC;&quot;&gt;都说音乐&lt;&#x2F;span&gt;</span><br><span class="line">          &lt;&#x2F;i&gt;</span><br><span class="line">        &lt;&#x2F;div&gt; --&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;vertical_line&quot;&gt;</span><br><span class="line">          &lt;strong&gt;</span><br><span class="line">            &lt;font size &#x3D; 4 face&#x3D;&quot;楷体&quot;&gt;</span><br><span class="line">              &lt;p class&#x3D;&quot;thick&quot;&gt;</span><br><span class="line">                “听说音乐能让人愉悦”&lt;br&#x2F;&gt;“你也来试试吧......”</span><br><span class="line">              &lt;&#x2F;p&gt;</span><br><span class="line">            &lt;&#x2F;font&gt;</span><br><span class="line">          &lt;&#x2F;strong&gt;</span><br><span class="line"></span><br><span class="line">      &lt;&#x2F;p&gt;</span><br><span class="line">    &lt;&#x2F;font&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="在_posts的文件中的头文件添加musicid-id"><a class="markdownIt-Anchor" href="#在_posts的文件中的头文件添加musicid-id"></a> 在<code>_posts</code>的文件中的头文件添加：<code>musicId: &lt;id&gt;</code></h1>
+<p>如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Jekyll添加网易云音乐</span><br><span class="line">description: 在Jekyll如何添加网易云音乐</span><br><span class="line">date: 2019-1-21</span><br><span class="line">date:</span><br><span class="line">tags: Github</span><br><span class="line">musicId: 27808044</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
     </div>
 
@@ -399,7 +399,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%9C%A8-layouts-post-html%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%A6%82%E4%B8%8B%E4%BB%A3%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">1. 在_layouts&#x2F;post.html中添加如下代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%A8-posts%E7%9A%84%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E5%A4%B4%E6%96%87%E4%BB%B6%E6%B7%BB%E5%8A%A0%EF%BC%9AmusicId-lt-id-gt"><span class="nav-number">2.</span> <span class="nav-text">在_posts的文件中的头文件添加：musicId: &lt;id&gt;</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%9C%A8_layoutsposthtml%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%A6%82%E4%B8%8B%E4%BB%A3%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text"> 1. 在_layouts&#x2F;post.html中添加如下代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%A8_posts%E7%9A%84%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E5%A4%B4%E6%96%87%E4%BB%B6%E6%B7%BB%E5%8A%A0musicid-id"><span class="nav-number">2.</span> <span class="nav-text"> 在_posts的文件中的头文件添加：musicId: &lt;id&gt;</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -425,20 +425,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">142</span>
+          <span class="site-state-item-count">141</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-count">82</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -507,13 +507,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">523k</span>
+    <span title="站点总字数">513k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:56</span>
+    <span title="站点阅读时长">7:46</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
   </div>

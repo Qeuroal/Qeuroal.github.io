@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"qeuroal.top","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="一、DFS和BFS的区别和优势说明：1. BFS（宽度有限搜索） 2. DFS（深度有限搜索）">
+  <meta name="description" content="一、DFS和BFS的区别和优势  说明： 1. BFS（宽度有限搜索） 2. DFS（深度有限搜索）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="27. BFS和DFS基础知识">
 <meta property="og:url" content="https://qeuroal.top/2019/02/12/27/index.html">
 <meta property="og:site_name" content="Qeuroal&#39;s Bolg">
-<meta property="og:description" content="一、DFS和BFS的区别和优势说明：1. BFS（宽度有限搜索） 2. DFS（深度有限搜索）">
+<meta property="og:description" content="一、DFS和BFS的区别和优势  说明： 1. BFS（宽度有限搜索） 2. DFS（深度有限搜索）">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-02-11T21:00:00.000Z">
 <meta property="article:modified_time" content="2021-01-07T06:39:55.388Z">
@@ -248,7 +248,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>357</span>
+              <span>345</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -267,17 +267,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="一、DFS和BFS的区别和优势"><a href="#一、DFS和BFS的区别和优势" class="headerlink" title="一、DFS和BFS的区别和优势"></a>一、DFS和BFS的区别和优势</h1><h2 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h2><pre><code>1. BFS（宽度有限搜索）
+        <h1 id="一-dfs和bfs的区别和优势"><a class="markdownIt-Anchor" href="#一-dfs和bfs的区别和优势"></a> 一、DFS和BFS的区别和优势</h1>
+<h2 id="说明"><a class="markdownIt-Anchor" href="#说明"></a> 说明：</h2>
+<pre><code>1. BFS（宽度有限搜索）
 2. DFS（深度有限搜索）
 </code></pre>
 <span id="more"></span>
-
-
-<h2 id="优劣势："><a href="#优劣势：" class="headerlink" title="优劣势："></a>优劣势：</h2><ol>
-<li>BFS &nbsp; 需要把下一层所有的方案都存下来，需要很大的空间，空间是指数级别的；<br> DFS &nbsp; 需要的空间只与路径的长度有关系。</li>
+<h2 id="优劣势"><a class="markdownIt-Anchor" href="#优劣势"></a> 优劣势：</h2>
+<ol>
+<li>BFS   需要把下一层所有的方案都存下来，需要很大的空间，空间是指数级别的；<br> DFS   需要的空间只与路径的长度有关系。</li>
 <li>BFS优势：有可以<code>寻找最小</code>的优势 （最小性）</li>
 <li>DFS：一条路走到黑</li>
-<li>DFS劣势：<ol>
+<li>DFS劣势：
+<ol>
 <li>空间复杂度和深度成正比</li>
 <li>C++的限制：栈空间默认只有4M</li>
 <li>DFS搜索时，系统栈分到栈空间里面的，当搜索层数太多时，系统栈就会爆掉，就是RE，大概搜索 <code>10万</code> 层时就会RE</li>
@@ -285,12 +287,15 @@
 </ol>
 </li>
 </ol>
-<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><h3 id="BFS："><a href="#BFS：" class="headerlink" title="BFS："></a><strong>BFS</strong>：</h3><ol>
+<h2 id="区别"><a class="markdownIt-Anchor" href="#区别"></a> 区别</h2>
+<h3 id="bfs"><a class="markdownIt-Anchor" href="#bfs"></a> <strong>BFS</strong>：</h3>
+<ol>
 <li>空间是指数级别的，比较大！！！</li>
 <li>不会有爆栈的风险</li>
 <li>能搜索：最短，最小……</li>
 </ol>
-<h3 id="DFS："><a href="#DFS：" class="headerlink" title="DFS："></a><strong>DFS</strong>：</h3><ol>
+<h3 id="dfs"><a class="markdownIt-Anchor" href="#dfs"></a> <strong>DFS</strong>：</h3>
+<ol>
 <li>空间和深度成正比，比较小！！！</li>
 <li>有爆栈的风险，比如树的深度最坏可能有100000层，此时会爆栈</li>
 <li>不能搜：最短，最小……</li>
@@ -418,7 +423,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81DFS%E5%92%8CBFS%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8C%E4%BC%98%E5%8A%BF"><span class="nav-number">1.</span> <span class="nav-text">一、DFS和BFS的区别和优势</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">说明：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%8A%A3%E5%8A%BF%EF%BC%9A"><span class="nav-number">1.2.</span> <span class="nav-text">优劣势：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-number">1.3.</span> <span class="nav-text">区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BFS%EF%BC%9A"><span class="nav-number">1.3.1.</span> <span class="nav-text">BFS：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DFS%EF%BC%9A"><span class="nav-number">1.3.2.</span> <span class="nav-text">DFS：</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80-dfs%E5%92%8Cbfs%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8C%E4%BC%98%E5%8A%BF"><span class="nav-number">1.</span> <span class="nav-text"> 一、DFS和BFS的区别和优势</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E"><span class="nav-number">1.1.</span> <span class="nav-text"> 说明：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%8A%A3%E5%8A%BF"><span class="nav-number">1.2.</span> <span class="nav-text"> 优劣势：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-number">1.3.</span> <span class="nav-text"> 区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bfs"><span class="nav-number">1.3.1.</span> <span class="nav-text"> BFS：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dfs"><span class="nav-number">1.3.2.</span> <span class="nav-text"> DFS：</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -444,20 +449,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">142</span>
+          <span class="site-state-item-count">141</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-count">82</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -526,13 +531,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">523k</span>
+    <span title="站点总字数">513k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:56</span>
+    <span title="站点阅读时长">7:46</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
   </div>

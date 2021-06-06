@@ -292,41 +292,63 @@
 <p>sql server在安装时，一般都会选择默认实例服务器以Window身份认证，以电脑账户为名称无密码形式存在，后期我们开发项目时，用到的数据库服务器都是以IP为名称，单独设立密码的，此时我们默认安装的服务器引擎怎么修改成项目通用形式呢。</p>
 </blockquote>
 <span id="more"></span>
-
 <hr>
 <ul>
-<li><h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1></li>
+<li>
+<h1 id="步骤"><a class="markdownIt-Anchor" href="#步骤"></a> 步骤</h1>
+</li>
 </ul>
 <ol>
-<li>打开数据库，使用默认账户登录（电脑默认账户，无密码）。<br><img src="/images/posts/csharp_connect_database/1.png"></li>
-<li>右击”服务器引擎”，选择“属性”表中的“安全性”，“服务器身份验证” 选择 “SQL Server”和“Windows身份验证模式”，这一步在下面好像可以再选，具体本人没试过。<br><img src="/images/posts/csharp_connect_database/2.png">   </li>
-<li>找到数据库 “安全性” –&gt;“登录名” –&gt;“sa” 右击属性，可以修改“登录名”，以SQL Server身份验证，填写密码(密码可能会需要复杂度，字母数字组合，修改失败注意下)。<br><img src="/images/posts/csharp_connect_database/3.png">   </li>
-<li>依旧是上面截图这里，看“状态栏”内容，有人忘了设置这里，去用”sa”账户登录，得到错误，此账户禁止使用，原因就在这里，在这里我们要设置“登录”选项为“启用”。<br><img src="/images/posts/csharp_connect_database/4.png">   </li>
-<li>上面说了怎么修改服务器的名称和密码，可以用下面方式登录数据库。<br><img src="/images/posts/csharp_connect_database/5.png">      </li>
-<li>但是我们的最终目标是以IP为登录名来登录数据库，打开Sql Server配置管理器（Sql Server Configuration Manager）,找到“SQL Server网络配置”，进入“SQLEXPRESS的协议” ，“TCP/IP”右击属性 “协议” 中“已启用”修改为“是”<br><img src="/images/posts/csharp_connect_database/6.png">   </li>
-<li>继续操作第6步，“TCP/IP”右击属性 “IP 地址” 中 修改 “IP2”中的 IP地址 为自己的电脑IP，这里必须是自己电脑的IP，不是你自己随便给的IP。<br><img src="/images/posts/csharp_connect_database/7.png">   </li>
-<li>在Sql Server配置管理器（Sql Server Configuration Manager）中重启数据库服务。<br><img src="/images/posts/csharp_connect_database/8.png">   </li>
-<li>以IP为名称登录，结束。<br><img src="/images/posts/csharp_connect_database/9.png"> </li>
+<li>打开数据库，使用默认账户登录（电脑默认账户，无密码）。<br>
+<img src="/images/posts/csharp_connect_database/1.png" alt></li>
+<li>右击&quot;服务器引擎&quot;，选择“属性”表中的“安全性”，“服务器身份验证” 选择 “SQL Server”和“Windows身份验证模式”，这一步在下面好像可以再选，具体本人没试过。<br>
+<img src="/images/posts/csharp_connect_database/2.png" alt></li>
+<li>找到数据库 “安全性” --&gt;“登录名” --&gt;“sa” 右击属性，可以修改“登录名”，以SQL Server身份验证，填写密码(密码可能会需要复杂度，字母数字组合，修改失败注意下)。<br>
+<img src="/images/posts/csharp_connect_database/3.png" alt></li>
+<li>依旧是上面截图这里，看“状态栏”内容，有人忘了设置这里，去用&quot;sa&quot;账户登录，得到错误，此账户禁止使用，原因就在这里，在这里我们要设置“登录”选项为“启用”。<br>
+<img src="/images/posts/csharp_connect_database/4.png" alt></li>
+<li>上面说了怎么修改服务器的名称和密码，可以用下面方式登录数据库。<br>
+<img src="/images/posts/csharp_connect_database/5.png" alt></li>
+<li>但是我们的最终目标是以IP为登录名来登录数据库，打开Sql Server配置管理器（Sql Server Configuration Manager）,找到“SQL Server网络配置”，进入“SQLEXPRESS的协议” ，“TCP/IP”右击属性 “协议” 中“已启用”修改为“是”<br>
+<img src="/images/posts/csharp_connect_database/6.png" alt></li>
+<li>继续操作第6步，“TCP/IP”右击属性 “IP 地址” 中 修改 “IP2”中的 IP地址 为自己的电脑IP，这里必须是自己电脑的IP，不是你自己随便给的IP。<br>
+<img src="/images/posts/csharp_connect_database/7.png" alt></li>
+<li>在Sql Server配置管理器（Sql Server Configuration Manager）中重启数据库服务。<br>
+<img src="/images/posts/csharp_connect_database/8.png" alt></li>
+<li>以IP为名称登录，结束。<br>
+<img src="/images/posts/csharp_connect_database/9.png" alt></li>
 </ol>
 <ul>
-<li><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1></li>
+<li>
+<h1 id="问题"><a class="markdownIt-Anchor" href="#问题"></a> 问题</h1>
+</li>
 </ul>
 <ol>
-<li>出现<code>SQL Server2014“用户&#39;sa&#39;登录失败，错误18456”问题</code><br><img src="/images/posts/csharp_connect_database/10.png"><ol>
-<li>使用Windows身份验证登录数据库。<br><img src="/images/posts/csharp_connect_database/11.png"></li>
-<li>右键数据库服务器名，选择【属性】。<br><img src="/images/posts/csharp_connect_database/12.png"></li>
-<li>打开“服务器属性”窗口，选择【安全性】，更改“服务器身份验证”，如下图所示。<br><img src="/images/posts/csharp_connect_database/13.png"></li>
-<li>展开数据库服务器名—“安全性”—“登录名”， 右键“sa”用户，选择【属性】。<br><img src="/images/posts/csharp_connect_database/14.png"></li>
-<li>打开“登录属性”窗口，选择【常规】，设置密码。<br><img src="/images/posts/csharp_connect_database/15.png"></li>
-<li>仍然在“登录属性”窗口，选择【状态】，选择“登录”下面的【已启用】，如下图所示。<br><img src="/images/posts/csharp_connect_database/16.png"></li>
+<li>出现<code>SQL Server2014“用户'sa'登录失败，错误18456”问题</code><br>
+<img src="/images/posts/csharp_connect_database/10.png" alt>
+<ol>
+<li>使用Windows身份验证登录数据库。<br>
+<img src="/images/posts/csharp_connect_database/11.png" alt></li>
+<li>右键数据库服务器名，选择【属性】。<br>
+<img src="/images/posts/csharp_connect_database/12.png" alt></li>
+<li>打开“服务器属性”窗口，选择【安全性】，更改“服务器身份验证”，如下图所示。<br>
+<img src="/images/posts/csharp_connect_database/13.png" alt></li>
+<li>展开数据库服务器名—“安全性”—“登录名”， 右键“sa”用户，选择【属性】。<br>
+<img src="/images/posts/csharp_connect_database/14.png" alt></li>
+<li>打开“登录属性”窗口，选择【常规】，设置密码。<br>
+<img src="/images/posts/csharp_connect_database/15.png" alt></li>
+<li>仍然在“登录属性”窗口，选择【状态】，选择“登录”下面的【已启用】，如下图所示。<br>
+<img src="/images/posts/csharp_connect_database/16.png" alt></li>
 <li>右键数据库服务器名，选择【重新启动】。</li>
 </ol>
 </li>
 </ol>
 <ul>
-<li><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">SqlConnectionStringBuilder scsb = <span class="keyword">new</span> SqlConnectionStringBuilder();</span><br><span class="line">scsb.DataSource = <span class="string">&quot;127.0.0.1&quot;</span>;</span><br><span class="line">scsb.UserID = <span class="string">&quot;sa&quot;</span>;</span><br><span class="line">scsb.Password = <span class="string">&quot;password&quot;</span>;</span><br><span class="line">scsb.InitialCatalog = <span class="string">&quot;demo&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//MessageBox.Show(scsb.ToString());</span></span><br><span class="line">SqlConnection conn = <span class="keyword">new</span> SqlConnection(scsb.ToString());</span><br><span class="line"><span class="keyword">if</span> (conn.State == System.Data.ConnectionState.Closed) conn.Open();</span><br><span class="line"><span class="built_in">string</span> str_sql = <span class="string">&quot;select * from customer&quot;</span>;</span><br><span class="line"><span class="comment">//SqlCommand comm = new SqlCommand(str_sql, conn);    // 查询单行</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 查询数据表</span></span><br><span class="line">SqlDataAdapter da = <span class="keyword">new</span> SqlDataAdapter(str_sql, conn);</span><br><span class="line">DataSet ds = <span class="keyword">new</span> DataSet();</span><br><span class="line">da.Fill(ds, <span class="string">&quot;test&quot;</span>); <span class="comment">// 参数1：dataset对象； 参数2：表名，自定义的名字，不需要和查询的表名相同</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 绑定数据到datagridview */</span></span><br><span class="line"><span class="comment">/* 方法一 */</span></span><br><span class="line"><span class="comment">// show_dataGridView.DataSource = ds;</span></span><br><span class="line"><span class="comment">// show_dataGridView.DataMember = &quot;test&quot;;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 方法二 */</span></span><br><span class="line"><span class="comment">//prod_dataGridView.DataSource = ds.Tables[&quot;product&quot;];</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 方法三 */</span></span><br><span class="line">DataTable dt = ds.Tables[<span class="string">&quot;test&quot;</span>];</span><br><span class="line">prod_dataGridView.DataSource = dt.DefaultView;</span><br></pre></td></tr></table></figure></li>
+<li>
+<h1 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码</h1>
+</li>
 </ul>
-
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">SqlConnectionStringBuilder scsb = <span class="keyword">new</span> SqlConnectionStringBuilder();</span><br><span class="line">scsb.DataSource = <span class="string">&quot;127.0.0.1&quot;</span>;</span><br><span class="line">scsb.UserID = <span class="string">&quot;sa&quot;</span>;</span><br><span class="line">scsb.Password = <span class="string">&quot;password&quot;</span>;</span><br><span class="line">scsb.InitialCatalog = <span class="string">&quot;demo&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//MessageBox.Show(scsb.ToString());</span></span><br><span class="line">SqlConnection conn = <span class="keyword">new</span> SqlConnection(scsb.ToString());</span><br><span class="line"><span class="keyword">if</span> (conn.State == System.Data.ConnectionState.Closed) conn.Open();</span><br><span class="line"><span class="built_in">string</span> str_sql = <span class="string">&quot;select * from customer&quot;</span>;</span><br><span class="line"><span class="comment">//SqlCommand comm = new SqlCommand(str_sql, conn);    // 查询单行</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 查询数据表</span></span><br><span class="line">SqlDataAdapter da = <span class="keyword">new</span> SqlDataAdapter(str_sql, conn);</span><br><span class="line">DataSet ds = <span class="keyword">new</span> DataSet();</span><br><span class="line">da.Fill(ds, <span class="string">&quot;test&quot;</span>); <span class="comment">// 参数1：dataset对象； 参数2：表名，自定义的名字，不需要和查询的表名相同</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 绑定数据到datagridview */</span></span><br><span class="line"><span class="comment">/* 方法一 */</span></span><br><span class="line"><span class="comment">// show_dataGridView.DataSource = ds;</span></span><br><span class="line"><span class="comment">// show_dataGridView.DataMember = &quot;test&quot;;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 方法二 */</span></span><br><span class="line"><span class="comment">//prod_dataGridView.DataSource = ds.Tables[&quot;product&quot;];</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 方法三 */</span></span><br><span class="line">DataTable dt = ds.Tables[<span class="string">&quot;test&quot;</span>];</span><br><span class="line">prod_dataGridView.DataSource = dt.DefaultView;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -449,7 +471,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.</span> <span class="nav-text"> 步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text"> 问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text"> 代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -475,20 +497,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">142</span>
+          <span class="site-state-item-count">141</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-count">82</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -557,13 +579,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">523k</span>
+    <span title="站点总字数">513k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:56</span>
+    <span title="站点阅读时长">7:46</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
   </div>

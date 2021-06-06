@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"qeuroal.top","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Clion 中使用头文件定义类，源文件实现include什么 导入头文件(.h)和源文件(.cpp)Note: 只导入 源文件（.cpp） 也可以">
+  <meta name="description" content="Clion 中使用头文件定义类，源文件实现  include什么  导入头文件(.h)和源文件(.cpp) Note: 只导入 源文件（.cpp） 也可以">
 <meta property="og:type" content="article">
 <meta property="og:title" content="100. Clion中使用头文件和源文件坑">
 <meta property="og:url" content="https://qeuroal.top/2020/04/01/100/index.html">
 <meta property="og:site_name" content="Qeuroal&#39;s Bolg">
-<meta property="og:description" content="Clion 中使用头文件定义类，源文件实现include什么 导入头文件(.h)和源文件(.cpp)Note: 只导入 源文件（.cpp） 也可以">
+<meta property="og:description" content="Clion 中使用头文件定义类，源文件实现  include什么  导入头文件(.h)和源文件(.cpp) Note: 只导入 源文件（.cpp） 也可以">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-31T20:00:00.000Z">
 <meta property="article:modified_time" content="2021-05-19T04:16:55.826Z">
@@ -268,31 +268,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Clion-中使用头文件定义类，源文件实现"><a href="#Clion-中使用头文件定义类，源文件实现" class="headerlink" title="Clion 中使用头文件定义类，源文件实现"></a><code>Clion</code> 中使用头文件定义类，源文件实现</h1><h2 id="include什么"><a href="#include什么" class="headerlink" title="include什么"></a>include什么</h2><blockquote>
-<p>导入头文件(<code>.h</code>)和源文件(<code>.cpp</code>)<br>Note: 只导入 源文件（<code>.cpp</code>） 也可以</p>
+        <h1 id="clion-中使用头文件定义类源文件实现"><a class="markdownIt-Anchor" href="#clion-中使用头文件定义类源文件实现"></a> <code>Clion</code> 中使用头文件定义类，源文件实现</h1>
+<h2 id="include什么"><a class="markdownIt-Anchor" href="#include什么"></a> include什么</h2>
+<blockquote>
+<p>导入头文件(<code>.h</code>)和源文件(<code>.cpp</code>)<br>
+Note: 只导入 源文件（<code>.cpp</code>） 也可以</p>
 </blockquote>
 <span id="more"></span>
-
-<h2 id="CMakeLists-txt"><a href="#CMakeLists-txt" class="headerlink" title="CMakeLists.txt"></a>CMakeLists.txt</h2><ul>
+<h2 id="cmakeliststxt"><a class="markdownIt-Anchor" href="#cmakeliststxt"></a> CMakeLists.txt</h2>
+<ul>
 <li>手动添加</li>
 </ul>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.15)</span><br><span class="line">project(HCpp)</span><br><span class="line"></span><br><span class="line">set(CMAKE_CXX_STANDARD 11)</span><br><span class="line"></span><br><span class="line">add_executable(HCpp main.cpp)</span><br><span class="line">add_executable(ElemType ElemType.cpp ElemType.h)</span><br></pre></td></tr></table></figure>
-
 <ul>
-<li>自动添加 </li>
+<li>自动添加</li>
 </ul>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 遍历项目根目录下所有的 .cpp 文件</span><br><span class="line">file (GLOB files *.cpp)</span><br><span class="line">foreach (file $&#123;files&#125;)</span><br><span class="line">    string(REGEX REPLACE &quot;.+/(.+)\\..*&quot; &quot;\\1&quot; exe $&#123;file&#125;)</span><br><span class="line">    add_executable ($&#123;exe&#125; $&#123;file&#125;)</span><br><span class="line">    message (\ \ \ \ --\ src/$&#123;exe&#125;.cpp\ will\ be\ compiled\ to\ bin/$&#123;exe&#125;)</span><br><span class="line">endforeach ()</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h2 id="ElemType-h"><a href="#ElemType-h" class="headerlink" title="ElemType.h"></a><code>ElemType.h</code></h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> HCPP_ELEMTYPE_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> HCPP_ELEMTYPE_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ElemType</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line"></span><br><span class="line">    ElemType();</span><br><span class="line">    ElemType(<span class="keyword">int</span>);</span><br><span class="line">    <span class="keyword">friend</span> <span class="built_in">std</span>::ostream &amp;<span class="keyword">operator</span> &lt;&lt;(<span class="built_in">std</span>::ostream &amp;, <span class="keyword">const</span> ElemType &amp;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">//HCPP_ELEMTYPE_H</span></span></span><br></pre></td></tr></table></figure>
-
-<h2 id="ElemType-cpp"><a href="#ElemType-cpp" class="headerlink" title="ElemType.cpp"></a><code>ElemType.cpp</code></h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;ElemType.h&quot;</span></span></span><br><span class="line"></span><br><span class="line">ElemType::ElemType() &#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;data = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ElemType::ElemType(<span class="keyword">int</span> data) &#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;data = data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">std</span>::ostream&amp; <span class="keyword">operator</span> &lt;&lt;(<span class="built_in">std</span>::ostream &amp;out, <span class="keyword">const</span> ElemType &amp;e)</span><br><span class="line">&#123;</span><br><span class="line">    out &lt;&lt; e.data;</span><br><span class="line">    <span class="keyword">return</span> out;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="main-cpp"><a href="#main-cpp" class="headerlink" title="main.cpp"></a><code>main.cpp</code></h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;ElemType.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;ElemType.cpp&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span>  <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ElemType e = ElemType(<span class="number">10</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; e &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<h1 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码</h1>
+<h2 id="elemtypeh"><a class="markdownIt-Anchor" href="#elemtypeh"></a> <code>ElemType.h</code></h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> HCPP_ELEMTYPE_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> HCPP_ELEMTYPE_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ElemType</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line"></span><br><span class="line">    ElemType();</span><br><span class="line">    ElemType(<span class="keyword">int</span>);</span><br><span class="line">    <span class="keyword">friend</span> <span class="built_in">std</span>::ostream &amp;<span class="keyword">operator</span> &lt;&lt;(<span class="built_in">std</span>::ostream &amp;, <span class="keyword">const</span> ElemType &amp;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">//HCPP_ELEMTYPE_H</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="elemtypecpp"><a class="markdownIt-Anchor" href="#elemtypecpp"></a> <code>ElemType.cpp</code></h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;ElemType.h&quot;</span></span></span><br><span class="line"></span><br><span class="line">ElemType::ElemType() &#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;data = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ElemType::ElemType(<span class="keyword">int</span> data) &#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;data = data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">std</span>::ostream&amp; <span class="keyword">operator</span> &lt;&lt;(<span class="built_in">std</span>::ostream &amp;out, <span class="keyword">const</span> ElemType &amp;e)</span><br><span class="line">&#123;</span><br><span class="line">    out &lt;&lt; e.data;</span><br><span class="line">    <span class="keyword">return</span> out;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="maincpp"><a class="markdownIt-Anchor" href="#maincpp"></a> <code>main.cpp</code></h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;ElemType.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;ElemType.cpp&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span>  <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ElemType e = ElemType(<span class="number">10</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; e &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>运算符重载：详见 <a href="/2020/03/99">运算符重载</a></p>
 </blockquote>
@@ -420,7 +418,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Clion-%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%A4%B4%E6%96%87%E4%BB%B6%E5%AE%9A%E4%B9%89%E7%B1%BB%EF%BC%8C%E6%BA%90%E6%96%87%E4%BB%B6%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.</span> <span class="nav-text">Clion 中使用头文件定义类，源文件实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#include%E4%BB%80%E4%B9%88"><span class="nav-number">1.1.</span> <span class="nav-text">include什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CMakeLists-txt"><span class="nav-number">1.2.</span> <span class="nav-text">CMakeLists.txt</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ElemType-h"><span class="nav-number">2.1.</span> <span class="nav-text">ElemType.h</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ElemType-cpp"><span class="nav-number">2.2.</span> <span class="nav-text">ElemType.cpp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#main-cpp"><span class="nav-number">2.3.</span> <span class="nav-text">main.cpp</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#clion-%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%A4%B4%E6%96%87%E4%BB%B6%E5%AE%9A%E4%B9%89%E7%B1%BB%E6%BA%90%E6%96%87%E4%BB%B6%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.</span> <span class="nav-text"> Clion 中使用头文件定义类，源文件实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#include%E4%BB%80%E4%B9%88"><span class="nav-number">1.1.</span> <span class="nav-text"> include什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cmakeliststxt"><span class="nav-number">1.2.</span> <span class="nav-text"> CMakeLists.txt</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text"> 代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#elemtypeh"><span class="nav-number">2.1.</span> <span class="nav-text"> ElemType.h</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#elemtypecpp"><span class="nav-number">2.2.</span> <span class="nav-text"> ElemType.cpp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maincpp"><span class="nav-number">2.3.</span> <span class="nav-text"> main.cpp</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -446,20 +444,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">142</span>
+          <span class="site-state-item-count">141</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-count">82</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -528,13 +526,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">523k</span>
+    <span title="站点总字数">513k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:56</span>
+    <span title="站点阅读时长">7:46</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
   </div>

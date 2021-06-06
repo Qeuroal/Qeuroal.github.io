@@ -269,8 +269,6 @@
       
         <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">      <span class="attr">&quot;pyheader&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;prefix&quot;</span>: <span class="string">&quot;test&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;body&quot;</span>: [</span><br><span class="line">          <span class="string">&quot;/**&quot;</span>,</span><br><span class="line">          <span class="string">&quot;* @author: test&quot;</span>,</span><br><span class="line">          <span class="string">&quot;* @desc：$1&quot;</span>,</span><br><span class="line">          <span class="string">&quot;* @date: $&#123;CURRENT_YEAR&#125;-$&#123;CURRENT_MONTH&#125;-$&#123;CURRENT_DATE&#125; $&#123;CURRENT_HOUR&#125;:$&#123;CURRENT_MINUTE&#125;:$&#123;CURRENT_SECOND&#125;&quot;</span>,</span><br><span class="line">          <span class="string">&quot;* @Email：test@qq.com&quot;</span>,</span><br><span class="line">          <span class="string">&quot;* @url：test.com&quot;</span>,</span><br><span class="line">          <span class="string">&quot;*/&quot;</span>,</span><br><span class="line">          <span class="string">&quot;&quot;</span>,</span><br><span class="line">          <span class="string">&quot;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;test&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
-
-
 <ol>
 <li>打开 <code>vs­code</code> 在左下角设置图标 -&gt; <code>用户代码片段</code></li>
 <li><code>For_Loop</code>: 当前 <code>snip­pet</code> 名字。</li>
@@ -279,11 +277,17 @@
 <li><code>de­scrip­tion</code>: 键入前缀，vs­code 感知到前缀，显示的说明内容。</li>
 <li><code>$1,$2,$0</code>: 指定代码模块生成后，编辑光标出现位置；使用 Tab 键进行切换 (编辑光标按 <code>$1,$2,$3...$0</code> 的顺序跳转)，<code>$0</code> 是光标最后可切换位置。</li>
 </ol>
-<h1 id="Snippet-语法"><a href="#Snippet-语法" class="headerlink" title="Snippet 语法"></a>Snippet 语法</h1><h2 id="Tabstops"><a href="#Tabstops" class="headerlink" title="Tabstops"></a>Tabstops</h2><p>   <code>$1，$2</code> 指定代码块生成后，光标出现的位置；不同位置的相同 <code>$1</code> 位置同时出现光标。</p>
-<h2 id="Placeholders"><a href="#Placeholders" class="headerlink" title="Placeholders"></a>Placeholders</h2><p>   给光标出现位置加上默认值；例如，<code>$&#123;1:an­other\$&#123;2:place­holder&#125;&#125;</code>；<code>$1</code> 处位置默认值是 <code>an­other</code>。</p>
-<h2 id="Choice"><a href="#Choice" class="headerlink" title="Choice"></a>Choice</h2><p>   光标位置设置多个值可供选择；例如，<code>$&#123;1|one,two,three|&#125;</code>；<code>$1</code> 位置处可以选择 <code>one,two,three</code> 中一个词填充在此处。</p>
-<h2 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a>Variables</h2><ol>
-<li><p>常用变量</p>
+<h1 id="snippet-语法"><a class="markdownIt-Anchor" href="#snippet-语法"></a> Snippet 语法</h1>
+<h2 id="tabstops"><a class="markdownIt-Anchor" href="#tabstops"></a> Tabstops</h2>
+<p><code>$1，$2</code> 指定代码块生成后，光标出现的位置；不同位置的相同 <code>$1</code> 位置同时出现光标。</p>
+<h2 id="placeholders"><a class="markdownIt-Anchor" href="#placeholders"></a> Placeholders</h2>
+<p>给光标出现位置加上默认值；例如，<code>$&#123;1:an­other\$&#123;2:place­holder&#125;&#125;</code>；<code>$1</code> 处位置默认值是 <code>an­other</code>。</p>
+<h2 id="choice"><a class="markdownIt-Anchor" href="#choice"></a> Choice</h2>
+<p>光标位置设置多个值可供选择；例如，<code>$&#123;1|one,two,three|&#125;</code>；<code>$1</code> 位置处可以选择 <code>one,two,three</code> 中一个词填充在此处。</p>
+<h2 id="variables"><a class="markdownIt-Anchor" href="#variables"></a> Variables</h2>
+<ol>
+<li>
+<p>常用变量</p>
 <ul>
 <li><code>TM_SELECTED_TEXT</code> 当前选中内容或空字符串</li>
 <li><code>TM_CURRENT_LINE</code> 当前行内容</li>
@@ -298,7 +302,8 @@
 <li><code>WORKSPACE_NAME</code> 打开的工作空间或文件夹的名称</li>
 </ul>
 </li>
-<li><p>日期和时间相关变量</p>
+<li>
+<p>日期和时间相关变量</p>
 <ul>
 <li><code>CURRENT_YEAR</code> 当前年</li>
 <li><code>CURRENT_YEAR_SHORT</code> 当前年后两位</li>
@@ -438,7 +443,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Snippet-%E8%AF%AD%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">Snippet 语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tabstops"><span class="nav-number">1.1.</span> <span class="nav-text">Tabstops</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Placeholders"><span class="nav-number">1.2.</span> <span class="nav-text">Placeholders</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Choice"><span class="nav-number">1.3.</span> <span class="nav-text">Choice</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Variables"><span class="nav-number">1.4.</span> <span class="nav-text">Variables</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#snippet-%E8%AF%AD%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text"> Snippet 语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tabstops"><span class="nav-number">1.1.</span> <span class="nav-text"> Tabstops</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#placeholders"><span class="nav-number">1.2.</span> <span class="nav-text"> Placeholders</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#choice"><span class="nav-number">1.3.</span> <span class="nav-text"> Choice</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#variables"><span class="nav-number">1.4.</span> <span class="nav-text"> Variables</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -464,20 +469,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">142</span>
+          <span class="site-state-item-count">141</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-count">82</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -546,13 +551,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">523k</span>
+    <span title="站点总字数">513k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:56</span>
+    <span title="站点阅读时长">7:46</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
   </div>

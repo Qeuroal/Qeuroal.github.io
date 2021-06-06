@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"qeuroal.top","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="第一章 计算机网络概述 概念：  局域网  覆盖范围小，自己花钱买设备，带宽固定，自己维护">
+  <meta name="description" content="第一章 计算机网络概述  概念：   局域网  覆盖范围小，自己花钱买设备，带宽固定，自己维护">
 <meta property="og:type" content="article">
 <meta property="og:title" content="67. 计算机网络">
 <meta property="og:url" content="https://qeuroal.top/2019/08/20/67/index.html">
 <meta property="og:site_name" content="Qeuroal&#39;s Bolg">
-<meta property="og:description" content="第一章 计算机网络概述 概念：  局域网  覆盖范围小，自己花钱买设备，带宽固定，自己维护">
+<meta property="og:description" content="第一章 计算机网络概述  概念：   局域网  覆盖范围小，自己花钱买设备，带宽固定，自己维护">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://qeuroal.top/images/posts/computer_network/1.png">
 <meta property="og:image" content="https://qeuroal.top/images/posts/computer_network/2.png">
@@ -270,14 +270,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="第一章-计算机网络概述"><a href="#第一章-计算机网络概述" class="headerlink" title="第一章 计算机网络概述"></a>第一章 计算机网络概述</h1><ol>
-<li><p>概念：</p>
+        <h1 id="第一章-计算机网络概述"><a class="markdownIt-Anchor" href="#第一章-计算机网络概述"></a> 第一章 计算机网络概述</h1>
 <ol>
-<li><p>局域网</p>
+<li>概念：
 <ol>
-<li>覆盖范围小，自己花钱买设备，带宽固定，自己维护<span id="more"></span></li>
-<li><img src="/images/posts/computer_network/1.png"></li>
-<li>注意<blockquote>
+<li>
+<p>局域网</p>
+<ol>
+<li>覆盖范围小，自己花钱买设备，带宽固定，自己维护</li>
+</ol>
+<span id="more"></span>
+<ol>
+<li><img src="/images/posts/computer_network/1.png" alt></li>
+<li>注意
+<blockquote>
 <ol>
 <li>电脑到交换机长度不超过100米</li>
 <li>交换机之间的长度也不超过100米</li>
@@ -291,7 +297,8 @@
 </li>
 </ol>
 </li>
-<li><p>广域网</p>
+<li>
+<p>广域网</p>
 <ol>
 <li>距离比较远，超过100米</li>
 <li>带宽不固定</li>
@@ -299,7 +306,8 @@
 <li>链路不需要自己维护</li>
 </ol>
 </li>
-<li><p>Internet</p>
+<li>
+<p>Internet</p>
 <ol>
 <li>全球最大的互联网络</li>
 <li>由众多的ISP组成</li>
@@ -311,11 +319,13 @@
 <li>对网民提供访问Internet连接</li>
 </ol>
 </li>
-<li><p>规划IP地址介绍和MAC地址</p>
+<li>
+<p>规划IP地址介绍和MAC地址</p>
 <ol>
 <li>全球的计算机都得有IP地址。类似于写信得有地址</li>
 <li>地址不能重复</li>
-<li>讲解ip：例如：IP：13.0.0.0； 子网掩码：255.0.0.0<ol>
+<li>讲解ip：例如：IP：13.0.0.0； 子网掩码：255.0.0.0
+<ol>
 <li>13：是网络部分</li>
 <li>0.0.0：是主机部分</li>
 </ol>
@@ -325,20 +335,24 @@
 <li>一个局域网中，交换机上连接的计算机，他们的网络部分相同</li>
 <li>网关：到其他网段的应该给谁</li>
 <li>路由器作用：在不同网段转发数据</li>
-<li>MAC地址（物理地址）：<ol>
+<li>MAC地址（物理地址）：
+<ol>
 <li>出厂的时候就已经固定到芯片里面了，48位的二进制。</li>
 <li>全球唯一</li>
 </ol>
 </li>
 </ol>
 </li>
-<li><p>数据包和数据帧</p>
+<li>
+<p>数据包和数据帧</p>
 <ol>
-<li>计算机都配有DNS，其中：<ol>
+<li>计算机都配有DNS，其中：
+<ol>
 <li>DNS：用来解析地址</li>
 </ol>
 </li>
-<li>发送数据包，需要做的事：<ol>
+<li>发送数据包，需要做的事：
+<ol>
 <li>写上原地址（即自己的地址）</li>
 <li>写上目标地址</li>
 <li>目标MAC地址（疑问：通过IP地址来确定MAC地址？）</li>
@@ -357,20 +371,24 @@
 <li>路由器看IP地址，决定下一跳给哪个路由器</li>
 </ol>
 </li>
-<li><p>访问网站数据传输过程</p>
+<li>
+<p>访问网站数据传输过程</p>
 <ol>
-<li>将网页切割，如下图所示：<br><br><img src="/images/posts/computer_network/2.png"></li>
+<li>将网页切割，如下图所示：<br><br>
+<img src="/images/posts/computer_network/2.png" alt></li>
 <li>切割完毕，将数据放到缓存中</li>
 <li>网卡都有缓存：接收缓存、发送缓存</li>
-<li> 只有接收到数据包之后才会删除缓存</li>
+<li>只有接收到数据包之后才会删除缓存</li>
 </ol>
 </li>
-<li><p>OSI参考模型</p>
+<li>
+<p>OSI参考模型</p>
 <ol>
 <li>这是计算机通讯规范</li>
 <li>应用层：所有能产生网络流量的程序</li>
 <li>表示层：在传输之前是否进行加密、压缩处理，二进制、ASCII码（编码方式应一一对应）</li>
-<li>会话层： <code>netstat -n</code><ol>
+<li>会话层： <code>netstat -n</code>
+<ol>
 <li>TIME_WAIT：快要释放了</li>
 <li>可以查看木马（木马需要和外界联系，只要有联系，就会有会话）</li>
 </ol>
@@ -381,7 +399,8 @@
 <li>物理层：接口标准 电器标准；如何在物理链路上传输更快的速度</li>
 </ol>
 </li>
-<li><p>理解OSI参考模型分层思想</p>
+<li>
+<p>理解OSI参考模型分层思想</p>
 <ol>
 <li>较为独立，某一层发生改变时，不会引起其它层的改变</li>
 </ol>
@@ -389,7 +408,9 @@
 </ol>
 </li>
 </ol>
-<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><ol>
+<h1 id="第二章"><a class="markdownIt-Anchor" href="#第二章"></a> 第二章</h1>
+<h1 id="补充"><a class="markdownIt-Anchor" href="#补充"></a> 补充</h1>
+<ol>
 <li>查看帮助：/? 如：<code>ping /?</code></li>
 </ol>
 <!-- 1. 计算机网络是计算机技术和通讯技术相结合的产物
@@ -523,7 +544,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">第一章 计算机网络概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0"><span class="nav-number">2.</span> <span class="nav-text">第二章</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A5%E5%85%85"><span class="nav-number">3.</span> <span class="nav-text">补充</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text"> 第一章 计算机网络概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0"><span class="nav-number">2.</span> <span class="nav-text"> 第二章</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A5%E5%85%85"><span class="nav-number">3.</span> <span class="nav-text"> 补充</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -549,20 +570,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">142</span>
+          <span class="site-state-item-count">141</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-count">82</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -631,13 +652,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">523k</span>
+    <span title="站点总字数">513k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:56</span>
+    <span title="站点阅读时长">7:46</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
   </div>

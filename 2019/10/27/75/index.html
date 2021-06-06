@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"qeuroal.top","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="基本概念 数据：描述客观师傅的符号，是计算机中可以操作的对象，是能被计算机识别，并输入给计算机处理的符号集合。  特点： 可以输入到计算机中 能够被计算机程序处理   数据不仅仅包括整型、实型等数值类型，还包括字符及声音、图像、视频等非数值类型">
+  <meta name="description" content="基本概念  数据：描述客观师傅的符号，是计算机中可以操作的对象，是能被计算机识别，并输入给计算机处理的符号集合。  特点：  可以输入到计算机中 能够被计算机程序处理   数据不仅仅包括整型、实型等数值类型，还包括字符及声音、图像、视频等非数值类型">
 <meta property="og:type" content="article">
 <meta property="og:title" content="75. 数据结构与算法">
 <meta property="og:url" content="https://qeuroal.top/2019/10/27/75/index.html">
 <meta property="og:site_name" content="Qeuroal&#39;s Bolg">
-<meta property="og:description" content="基本概念 数据：描述客观师傅的符号，是计算机中可以操作的对象，是能被计算机识别，并输入给计算机处理的符号集合。  特点： 可以输入到计算机中 能够被计算机程序处理   数据不仅仅包括整型、实型等数值类型，还包括字符及声音、图像、视频等非数值类型">
+<meta property="og:description" content="基本概念  数据：描述客观师傅的符号，是计算机中可以操作的对象，是能被计算机识别，并输入给计算机处理的符号集合。  特点：  可以输入到计算机中 能够被计算机程序处理   数据不仅仅包括整型、实型等数值类型，还包括字符及声音、图像、视频等非数值类型">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-10-26T20:00:00.000Z">
 <meta property="article:modified_time" content="2021-01-07T06:39:55.390Z">
@@ -268,34 +268,40 @@
 
       
         <ul>
-<li><h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><ol>
-<li><p>数据：描述客观师傅的符号，是计算机中可以操作的对象，是能被计算机识别，并输入给计算机处理的符号集合。</p>
+<li>
+<h1 id="基本概念"><a class="markdownIt-Anchor" href="#基本概念"></a> 基本概念</h1>
 <ol>
-<li>特点：<ol>
+<li>数据：描述客观师傅的符号，是计算机中可以操作的对象，是能被计算机识别，并输入给计算机处理的符号集合。
+<ol>
+<li>特点：
+<ol>
 <li>可以输入到计算机中</li>
 <li>能够被计算机程序处理</li>
 </ol>
 </li>
-<li>数据不仅仅包括整型、实型等数值类型，还包括字符及声音、图像、视频等非数值类型<span id="more"></span></li>
+<li>数据不仅仅包括整型、实型等数值类型，还包括字符及声音、图像、视频等非数值类型</li>
 </ol>
 </li>
-<li><p>数据元素：组成数据的、有一定意义的基本单位，在计算机中通常作为整体处理，也被称为记录</p>
+</ol>
+</li>
+</ul>
+<span id="more"></span>
+<ol start="2">
+<li>数据元素：组成数据的、有一定意义的基本单位，在计算机中通常作为整体处理，也被称为记录
 <ol>
 <li>数据元素组成数据</li>
 </ol>
 </li>
-<li><p>数据项：数据项是数据不可分割的最小单位</p>
-</li>
-<li><p>数据对象：性质相同的数据元素的集合，是数据的子集</p>
-</li>
-<li><p>举例：</p>
+<li>数据项：数据项是数据不可分割的最小单位</li>
+<li>数据对象：性质相同的数据元素的集合，是数据的子集</li>
+<li>举例：
 <ol>
 <li>数据元素：安迪、不知火舞……</li>
 <li>数据对象：游戏角色（是数据元素的集合）</li>
 <li>数据：游戏中不只有游戏角色，还会有游戏场景、背景音乐、过场动画等</li>
 </ol>
 </li>
-<li><p>数据结构：</p>
+<li>数据结构：
 <ol>
 <li>数据元素+特定关系=数据结构</li>
 <li>现实世界中，不同数据元素之间不是独立的，而是存在特定的关系，我们将这些关系称为结构</li>
@@ -303,9 +309,10 @@
 <li>数据结构是相互之间存在一种或多种特定关系的数据元素的集合</li>
 </ol>
 </li>
-<li><p>逻辑结构</p>
+<li>逻辑结构
 <ol>
-<li>集合结构：<ol>
+<li>集合结构：
+<ol>
 <li>其中数据元素同属一个集合</li>
 <li>数据元素相互之间没有其他关系</li>
 </ol>
@@ -315,13 +322,15 @@
 <li>图形结构：数据元素之间是多对多的关系</li>
 </ol>
 </li>
-<li><p>物理结构</p>
+<li>物理结构
 <ol>
 <li>定义：又叫做存储结构，是指数据的逻辑结构在计算中的存储形式</li>
-<li>顺序存储结构：<ol>
+<li>顺序存储结构：
+<ol>
 <li>把数据元素存储在地址连续的存储单元里</li>
 <li>数据间的逻辑关系与物理关系一致</li>
-<li>链式存储结构：<ol>
+<li>链式存储结构：
+<ol>
 <li>把数据元素存放在任意的存储单元里</li>
 <li>地址可以连续也可以不连续</li>
 <li></li>
@@ -332,8 +341,6 @@
 </ol>
 </li>
 </ol>
-</li>
-</ul>
 
     </div>
 
@@ -457,7 +464,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text"> 基本概念</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -483,20 +490,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">142</span>
+          <span class="site-state-item-count">141</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-count">82</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -565,13 +572,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">523k</span>
+    <span title="站点总字数">513k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:56</span>
+    <span title="站点阅读时长">7:46</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
   </div>

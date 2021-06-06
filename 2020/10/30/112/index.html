@@ -248,7 +248,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2k</span>
+              <span>2.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -268,7 +268,7 @@
 
       
         <ol>
-<li><p>程序设计返回结果</p>
+<li>程序设计返回结果
 <ol>
 <li><code>Accepted</code>: 通过</li>
 <li><code>Wrong Answer</code>: 答案错误</li>
@@ -279,101 +279,124 @@
 <li><code>Output Limit Exceeded</code>: 表示程序输出了过多的内容。</li>
 <li><code>Compile Error</code>: 表示所提交的源代码没能通过编译，不符合语法规定。</li>
 <li><code>System Error, Validator Error</code>: 表示系统发生错误无法正常判题。</li>
-<li><code>Segmentation Fault</code>: 段错误：访问的内存超过了系统所给这个程序的内存空间<span id="more"></span></li>
+<li><code>Segmentation Fault</code>: 段错误：访问的内存超过了系统所给这个程序的内存空间</li>
 </ol>
 </li>
-<li><p>状态</p>
+</ol>
+<span id="more"></span>
+<ol start="2">
+<li>
+<p>状态</p>
 <blockquote>
-<p>例子：找最短路径的问题中，状态仅仅是目前所在位置的坐标。 <br><br>当状态更加复杂是，就需要封装成一个类来表示转态了。</p>
+<p>例子：找最短路径的问题中，状态仅仅是目前所在位置的坐标。 <br><br>
+当状态更加复杂是，就需要封装成一个类来表示转态了。</p>
 </blockquote>
 </li>
-<li><p>状态转移、转移的方式</p>
+<li>
+<p>状态转移、转移的方式</p>
 <blockquote>
-<p>例子：同1中的例子，转移的方式为4个方向移动 <br><br>又如：八连通（$P_{32}$），8个方向共对应了8种状态转移。</p>
+<p>例子：同1中的例子，转移的方式为4个方向移动 <br><br>
+又如：八连通（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>P</mi><mn>32</mn></msub></mrow><annotation encoding="application/x-tex">P_{32}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>），8个方向共对应了8种状态转移。</p>
 </blockquote>
 </li>
-<li><p><code>next_permutation</code> 函数使用</p>
+<li>
+<p><code>next_permutation</code> 函数使用</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">4</span>] = &#123;<span class="number">1</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>&#125;, i;</span><br><span class="line">    sort(a, a + <span class="number">4</span>); <span class="comment">//在使用全排列函数之前，一定要先将数组中的数排序哦(不排序好像也可以)</span></span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) <span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125; <span class="keyword">while</span> (next_permutation(a, a + <span class="number">3</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) <span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>使用 <code>next_permutation</code> 后，原数组的不变。</p>
 </li>
-<li><p>贪心算法</p>
+<li>
+<p>贪心算法</p>
 <blockquote>
-<p>贪心算法就是遵循某种规则，不断贪心地选取当期那最优策略的算法设计方法。 <br><br>如果我们不慎重地选择一个正确的规则，就会得到错误的算法。<br><br>如果问题能够用贪心算法来求解的话，那么它通常是非常高效的。</p>
+<p>贪心算法就是遵循某种规则，不断贪心地选取当期那最优策略的算法设计方法。 <br><br>
+如果我们不慎重地选择一个正确的规则，就会得到错误的算法。<br><br>
+如果问题能够用贪心算法来求解的话，那么它通常是非常高效的。</p>
 </blockquote>
 <ol>
 <li>区间问题：在可选工作中，每次都选择结束时间最早的工作。</li>
 <li>字典序比较类型的问题经常用得上贪心法</li>
 </ol>
 </li>
-<li><p>动态规划</p>
+<li>
+<p>动态规划</p>
 <ol>
-<li>记忆化搜索<blockquote>
+<li>记忆化搜索
+<blockquote>
 <p>在需要剪枝的情况下，可能会把各种参数都写在函数上，但是这种情况下会让记忆化搜索难以实现，需要注意</p>
 </blockquote>
 </li>
-<li>def<blockquote>
+<li>def
+<blockquote>
 <p>一步步按顺序求出问题的解的方法。</p>
 </blockquote>
 </li>
 </ol>
 </li>
-</ol>
-<ol start="7">
-<li><p><code>memset</code> 初始化数组</p>
+<li>
+<p><code>memset</code> 初始化数组</p>
 <blockquote>
-<p>语法： <code>memset(&lt;数组名&gt;, &lt;初始化的值&gt;, &lt;数组的大小&gt;)</code> <br><br>虽然 <code>memset</code> 按照1字节为单位对内存进行填充，-1的每一位二进制位都为1，所以不可以像0一样用 <code>memset</code> 进行初始化。通过使用 <code>Memset</code> 可以快速地对高维数组等进行初始化，但是需要注意无法初始化成1之类的数值。</p>
+<p>语法： <code>memset(&lt;数组名&gt;, &lt;初始化的值&gt;, &lt;数组的大小&gt;)</code> <br><br>
+虽然 <code>memset</code> 按照1字节为单位对内存进行填充，-1的每一位二进制位都为1，所以不可以像0一样用 <code>memset</code> 进行初始化。通过使用 <code>Memset</code> 可以快速地对高维数组等进行初始化，但是需要注意无法初始化成1之类的数值。</p>
 </blockquote>
 </li>
-<li><p>移位运算</p>
+<li>
+<p>移位运算</p>
 <ol>
-<li>$1 &lt;&lt; n = 2^n$</li>
-<li>$n &lt;&lt; 1 = 2n$</li>
-<li>$n &gt;&gt; 1 = \lfloor{\frac{n}{2.0}}\rfloor$</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>&lt;</mo><mo>&lt;</mo><mi>n</mi><mo>=</mo><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">1 &lt;&lt; n = 2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68354em;vertical-align:-0.0391em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>&lt;</mo><mo>&lt;</mo><mn>1</mn><mo>=</mo><mn>2</mn><mi>n</mi></mrow><annotation encoding="application/x-tex">n &lt;&lt; 1 = 2n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathdefault">n</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>&gt;</mo><mo>&gt;</mo><mn>1</mn><mo>=</mo><mo stretchy="false">⌊</mo><mfrac><mi>n</mi><mn>2.0</mn></mfrac><mo stretchy="false">⌋</mo></mrow><annotation encoding="application/x-tex">n &gt;&gt; 1 = \lfloor{\frac{n}{2.0}}\rfloor</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.095em;vertical-align:-0.345em;"></span><span class="mopen">⌊</span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.695392em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight">.</span><span class="mord mtight">0</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mclose">⌋</span></span></span></span></li>
 </ol>
 </li>
-<li><p>$a^b算法$</p>
+<li>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>a</mi><mi>b</mi></msup><mi mathvariant="normal">算</mi><mi mathvariant="normal">法</mi></mrow><annotation encoding="application/x-tex">a^b算法</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.849108em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">b</span></span></span></span></span></span></span></span><span class="mord cjk_fallback">算</span><span class="mord cjk_fallback">法</span></span></span></span></p>
 <blockquote>
-<p>求a的b次方对p取模的值，其中 $1 \leq a, b, p \leq 10^9$</p>
+<p>求a的b次方对p取模的值，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo separator="true">,</mo><mi>p</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">1 \leq a, b, p \leq 10^9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">b</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span></p>
 </blockquote>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">power</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">int</span> ans = <span class="number">1</span> % p;</span><br><span class="line">   <span class="keyword">for</span> (; b; b &gt;&gt;= <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (b &amp; <span class="number">1</span>) ans = <span class="number">1ll</span> *ans * a % p;</span><br><span class="line">      a = <span class="number">1ll</span> * a * a % p;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>$a * b % p$</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">power</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">int</span> ans = <span class="number">1</span> % p;</span><br><span class="line">   <span class="keyword">for</span> (; b; b &gt;&gt;= <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (b &amp; <span class="number">1</span>) ans = <span class="number">1ll</span> *ans * a % p;</span><br><span class="line">      a = <span class="number">1ll</span> * a * a % p;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>∗</mo><mi>b</mi><mi mathvariant="normal">%</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">a * b \% p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.94444em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">b</span><span class="mord">%</span><span class="mord mathdefault">p</span></span></span></span></p>
 <blockquote>
-<p>求a乘b对p取模的值，其中  $1 \leq a, b, p \leq 10^{18}$</p>
+<p>求a乘b对p取模的值，其中  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo separator="true">,</mo><mi>p</mi><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>18</mn></msup></mrow><annotation encoding="application/x-tex">1 \leq a, b, p \leq 10^{18}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">b</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">8</span></span></span></span></span></span></span></span></span></span></span></span></p>
 </blockquote>
 <ol>
-<li>方法一<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">mul</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> a, <span class="keyword">long</span> <span class="keyword">long</span> b, <span class="keyword">long</span> <span class="keyword">long</span> p)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">0</span>;</span><br><span class="line">   <span class="keyword">for</span> (; b; b &gt;&gt;= <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (b &amp; <span class="number">1</span>) ans = (ans + a) % p;</span><br><span class="line">      a = a * <span class="number">2</span> % p;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>方法二 ($P_6$)<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">mul</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> a, <span class="keyword">long</span> <span class="keyword">long</span> b, <span class="keyword">long</span> <span class="keyword">long</span> p)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>方法一<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">mul</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> a, <span class="keyword">long</span> <span class="keyword">long</span> b, <span class="keyword">long</span> <span class="keyword">long</span> p)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">0</span>;</span><br><span class="line">   <span class="keyword">for</span> (; b; b &gt;&gt;= <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (b &amp; <span class="number">1</span>) ans = (ans + a) % p;</span><br><span class="line">      a = a * <span class="number">2</span> % p;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>方法二 (<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>P</mi><mn>6</mn></msub></mrow><annotation encoding="application/x-tex">P_6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>)<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">mul</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> a, <span class="keyword">long</span> <span class="keyword">long</span> b, <span class="keyword">long</span> <span class="keyword">long</span> p)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 </li>
-<li><p>二进制状态压缩</p>
+<li>
+<p>二进制状态压缩</p>
 <table>
 <thead>
 <tr>
-<th align="center">操作</th>
-<th align="center">运算</th>
+<th style="text-align:center">操作</th>
+<th style="text-align:center">运算</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">取出整数n在二进制表示下的第k位</td>
-<td align="center">(n &gt;&gt; k) &amp; 1</td>
+<tbody>
+<tr>
+<td style="text-align:center">取出整数n在二进制表示下的第k位</td>
+<td style="text-align:center">(n &gt;&gt; k) &amp; 1</td>
 </tr>
 <tr>
-<td align="center">取出整数n在二进制表示下的第0 ~ k - 1位（后k位）</td>
-<td align="center">n &amp; ((1 &lt;&lt; k) - 1)</td>
+<td style="text-align:center">取出整数n在二进制表示下的第0 ~ k - 1位（后k位）</td>
+<td style="text-align:center">n &amp; ((1 &lt;&lt; k) - 1)</td>
 </tr>
 <tr>
-<td align="center">把整数n在二进制表示下的第k位取反</td>
-<td align="center">n xor (1 &lt;&lt; k)</td>
+<td style="text-align:center">把整数n在二进制表示下的第k位取反</td>
+<td style="text-align:center">n xor (1 &lt;&lt; k)</td>
 </tr>
 <tr>
-<td align="center">对整数n在二进制表示下的第k位赋值为1</td>
-<td align="center">n | (1&lt;&lt;k)</td>
+<td style="text-align:center">对整数n在二进制表示下的第k位赋值为1</td>
+<td style="text-align:center">n | (1&lt;&lt;k)</td>
 </tr>
 <tr>
-<td align="center">对整数n在二进制表示下的第k为赋值为0</td>
-<td align="center">n &amp; (~(1 &lt;&lt; k))</td>
+<td style="text-align:center">对整数n在二进制表示下的第k为赋值为0</td>
+<td style="text-align:center">n &amp; (~(1 &lt;&lt; k))</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 </li>
 <li></li>
 </ol>
@@ -525,20 +548,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">142</span>
+          <span class="site-state-item-count">141</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-count">82</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -607,13 +630,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">523k</span>
+    <span title="站点总字数">513k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:56</span>
+    <span title="站点阅读时长">7:46</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
   </div>

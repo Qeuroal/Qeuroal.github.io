@@ -271,19 +271,22 @@
 <p>一下操作均在 <code>Terminal</code> 进行</p>
 </blockquote>
 <span id="more"></span>
-
 <ol>
-<li>如果使用的是 <code>bash</code>:<ol>
-<li>方法一:<ol>
+<li>如果使用的是 <code>bash</code>:
+<ol>
+<li>方法一:
+<ol>
 <li><code>sudo gedit ~/.bashrc</code></li>
 <li>在最后一行添加： <code>export PATH=&quot;~/anaconda3/bin:$PATH&quot;</code> (注意：使用你自己的安装目录，我的anaconda目录在 <code>~/anaconda3</code>)</li>
 <li><code>source ~/.bashrc</code> (用来激活环境变量)</li>
-<li>激活：<ol>
-<li> <code>source activate</code></li>
-<li> <code>conda activate</code></li>
+<li>激活：
+<ol>
+<li><code>source activate</code></li>
+<li><code>conda activate</code></li>
 </ol>
 </li>
-<li>退出激活：<ol>
+<li>退出激活：
+<ol>
 <li><code>source deactivate</code></li>
 <li><code>conda deactivate</code></li>
 </ol>
@@ -292,16 +295,23 @@
 </li>
 </ol>
 </li>
-<li>如果使用的是 <code>zsh</code>:<ol>
-<li>方法一：<ol>
+<li>如果使用的是 <code>zsh</code>:
+<ol>
+<li>方法一：
+<ol>
 <li><code>sudo gedit ~/.zshrc</code></li>
-<li>在最后一行添加<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export PATH&#x3D;&quot;~&#x2F;anaconda3&#x2F;bin:$PATH&quot;</span><br><span class="line">. &#x2F;home&#x2F;dgimo&#x2F;anaconda3&#x2F;etc&#x2F;profile.d&#x2F;conda.sh</span><br></pre></td></tr></table></figure></li>
+<li>在最后一行添加</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export PATH&#x3D;&quot;~&#x2F;anaconda3&#x2F;bin:$PATH&quot;</span><br><span class="line">. &#x2F;home&#x2F;dgimo&#x2F;anaconda3&#x2F;etc&#x2F;profile.d&#x2F;conda.sh</span><br></pre></td></tr></table></figure>
+<ol start="4">
 <li><code>source ~/.zshrc</code></li>
-<li>激活：<ol>
+<li>激活：
+<ol>
 <li><code>conda activate</code></li>
 </ol>
 </li>
-<li>退出激活：<ol>
+<li>退出激活：
+<ol>
 <li><code>conda deactivate</code></li>
 </ol>
 </li>
@@ -310,7 +320,8 @@
 </ol>
 </li>
 </ol>
-<h3 id="可以不看下面的，个人错误记录"><a href="#可以不看下面的，个人错误记录" class="headerlink" title="可以不看下面的，个人错误记录"></a>可以不看下面的，个人错误记录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">CommandNotFoundError: Your shell has not been properly configured to use &#39;conda activate&#39;.</span><br><span class="line">If your shell is Bash or a Bourne variant, enable conda for the current user with</span><br><span class="line"></span><br><span class="line">    $ echo &quot;. &#x2F;home&#x2F;dgimo&#x2F;anaconda3&#x2F;etc&#x2F;profile.d&#x2F;conda.sh&quot; &gt;&gt; ~&#x2F;.zshrc</span><br><span class="line"></span><br><span class="line">or, for all users, enable conda with</span><br><span class="line"></span><br><span class="line">    $ sudo ln -s &#x2F;home&#x2F;dgimo&#x2F;anaconda3&#x2F;etc&#x2F;profile.d&#x2F;conda.sh &#x2F;etc&#x2F;profile.d&#x2F;conda.sh</span><br><span class="line"></span><br><span class="line">The options above will permanently enable the &#39;conda&#39; command, but they do NOT</span><br><span class="line">put conda&#39;s base (root) environment on PATH.  To do so, run</span><br><span class="line"></span><br><span class="line">    $ conda activate</span><br><span class="line"></span><br><span class="line">in your terminal, or to put the base environment on PATH permanently, run</span><br><span class="line"></span><br><span class="line">    $ echo &quot;conda activate&quot; &gt;&gt; ~&#x2F;.bashrc</span><br><span class="line"></span><br><span class="line">Previous to conda 4.4, the recommended way to activate conda was to modify PATH in</span><br><span class="line">your ~&#x2F;.bashrc file.  You should manually remove the line that looks like</span><br><span class="line"></span><br><span class="line">    export PATH&#x3D;&quot;&#x2F;home&#x2F;dgimo&#x2F;anaconda3&#x2F;bin:$PATH&quot;</span><br><span class="line"></span><br><span class="line">^^^ The above line should NO LONGER be in your ~&#x2F;.bashrc file! ^^^</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="可以不看下面的个人错误记录"><a class="markdownIt-Anchor" href="#可以不看下面的个人错误记录"></a> 可以不看下面的，个人错误记录</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">CommandNotFoundError: Your shell has not been properly configured to use &#39;conda activate&#39;.</span><br><span class="line">If your shell is Bash or a Bourne variant, enable conda for the current user with</span><br><span class="line"></span><br><span class="line">    $ echo &quot;. &#x2F;home&#x2F;dgimo&#x2F;anaconda3&#x2F;etc&#x2F;profile.d&#x2F;conda.sh&quot; &gt;&gt; ~&#x2F;.zshrc</span><br><span class="line"></span><br><span class="line">or, for all users, enable conda with</span><br><span class="line"></span><br><span class="line">    $ sudo ln -s &#x2F;home&#x2F;dgimo&#x2F;anaconda3&#x2F;etc&#x2F;profile.d&#x2F;conda.sh &#x2F;etc&#x2F;profile.d&#x2F;conda.sh</span><br><span class="line"></span><br><span class="line">The options above will permanently enable the &#39;conda&#39; command, but they do NOT</span><br><span class="line">put conda&#39;s base (root) environment on PATH.  To do so, run</span><br><span class="line"></span><br><span class="line">    $ conda activate</span><br><span class="line"></span><br><span class="line">in your terminal, or to put the base environment on PATH permanently, run</span><br><span class="line"></span><br><span class="line">    $ echo &quot;conda activate&quot; &gt;&gt; ~&#x2F;.bashrc</span><br><span class="line"></span><br><span class="line">Previous to conda 4.4, the recommended way to activate conda was to modify PATH in</span><br><span class="line">your ~&#x2F;.bashrc file.  You should manually remove the line that looks like</span><br><span class="line"></span><br><span class="line">    export PATH&#x3D;&quot;&#x2F;home&#x2F;dgimo&#x2F;anaconda3&#x2F;bin:$PATH&quot;</span><br><span class="line"></span><br><span class="line">^^^ The above line should NO LONGER be in your ~&#x2F;.bashrc file! ^^^</span><br><span class="line"></span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -433,7 +444,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E4%BB%A5%E4%B8%8D%E7%9C%8B%E4%B8%8B%E9%9D%A2%E7%9A%84%EF%BC%8C%E4%B8%AA%E4%BA%BA%E9%94%99%E8%AF%AF%E8%AE%B0%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">可以不看下面的，个人错误记录</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E4%BB%A5%E4%B8%8D%E7%9C%8B%E4%B8%8B%E9%9D%A2%E7%9A%84%E4%B8%AA%E4%BA%BA%E9%94%99%E8%AF%AF%E8%AE%B0%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text"> 可以不看下面的，个人错误记录</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -459,20 +470,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">142</span>
+          <span class="site-state-item-count">141</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-count">82</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -541,13 +552,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">523k</span>
+    <span title="站点总字数">513k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:56</span>
+    <span title="站点阅读时长">7:46</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
   </div>

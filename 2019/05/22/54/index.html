@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"qeuroal.top","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1. 定义 树（Tree）是n(n &gt;&#x3D; 0 )个结点的有限集。n &#x3D; 0时称为空树。在任意一棵非空树中：（1）有且仅有一个特定的称为根（root）的结点；（2）在 n &gt; 1 时，其余结点可分为m（m &gt; 0）个互不相交的有限集 $T_1、T_2、T_3 …… T_m$，其中每一个集合本身又是一颗树，并且称为根的子树（SubTree）。">
+  <meta name="description" content="1. 定义  树（Tree）是n(n &gt;&#x3D; 0 )个结点的有限集。n &#x3D; 0时称为空树。在任意一棵非空树中：（1）有且仅有一个特定的称为根（root）的结点；（2）在 n &gt; 1 时，其余结点可分为m（m &gt; 0）个互不相交的有限集 T1、T2、T3……TmT_1、T_2、T_3 …… T_mT1​、T2​、T3​……Tm​，其中每一个集合本身又是一颗树，并且称为根的子树（Su">
 <meta property="og:type" content="article">
 <meta property="og:title" content="54. 树">
 <meta property="og:url" content="https://qeuroal.top/2019/05/22/54/index.html">
 <meta property="og:site_name" content="Qeuroal&#39;s Bolg">
-<meta property="og:description" content="1. 定义 树（Tree）是n(n &gt;&#x3D; 0 )个结点的有限集。n &#x3D; 0时称为空树。在任意一棵非空树中：（1）有且仅有一个特定的称为根（root）的结点；（2）在 n &gt; 1 时，其余结点可分为m（m &gt; 0）个互不相交的有限集 $T_1、T_2、T_3 …… T_m$，其中每一个集合本身又是一颗树，并且称为根的子树（SubTree）。">
+<meta property="og:description" content="1. 定义  树（Tree）是n(n &gt;&#x3D; 0 )个结点的有限集。n &#x3D; 0时称为空树。在任意一棵非空树中：（1）有且仅有一个特定的称为根（root）的结点；（2）在 n &gt; 1 时，其余结点可分为m（m &gt; 0）个互不相交的有限集 T1、T2、T3……TmT_1、T_2、T_3 …… T_mT1​、T2​、T3​……Tm​，其中每一个集合本身又是一颗树，并且称为根的子树（Su">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-05-21T20:00:00.000Z">
 <meta property="article:modified_time" content="2021-01-07T06:39:55.391Z">
@@ -248,7 +248,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>437</span>
+              <span>467</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -267,21 +267,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h1><ol>
-<li>树（Tree）是n(n &gt;= 0 )个结点的有限集。n = 0时称为空树。在任意一棵非空树中：（1）有且仅有一个特定的称为根（root）的结点；（2）在 n &gt; 1 时，其余结点可分为m（m &gt; 0）个互不相交的有限集 $T_1、T_2、T_3 …… T_m$，其中每一个集合本身又是一颗树，并且称为根的子树（SubTree）。<span id="more"></span></li>
+        <h1 id="1-定义"><a class="markdownIt-Anchor" href="#1-定义"></a> 1. 定义</h1>
+<ol>
+<li>树（Tree）是n(n &gt;= 0 )个结点的有限集。n = 0时称为空树。在任意一棵非空树中：（1）有且仅有一个特定的称为根（root）的结点；（2）在 n &gt; 1 时，其余结点可分为m（m &gt; 0）个互不相交的有限集 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>T</mi><mn>1</mn></msub><mi mathvariant="normal">、</mi><msub><mi>T</mi><mn>2</mn></msub><mi mathvariant="normal">、</mi><msub><mi>T</mi><mn>3</mn></msub><mo>…</mo><mo>…</mo><msub><mi>T</mi><mi>m</mi></msub></mrow><annotation encoding="application/x-tex">T_1、T_2、T_3 …… T_m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord cjk_fallback">、</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord cjk_fallback">、</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，其中每一个集合本身又是一颗树，并且称为根的子树（SubTree）。</li>
 </ol>
+<span id="more"></span>
 <ol start="2">
 <li>n &gt; 0时根结点是唯一的，不可能存在多个根结点。</li>
 <li>m &gt; 0时，子树的个数没有限制，但他们一定是互不相交的。</li>
 <li>结点用用改的子树数称为结点的度。</li>
 <li>度为0的结点称为叶子结点或终端结点；度不为0的结点称为非终端结点或分支结点。</li>
 <li>除根结点之外，分支结点称为内部节点。</li>
-<li>树的度是树内各结点度的最大值。<h1 id="2-为什么-n-个结点的树，有-n-1-条边"><a href="#2-为什么-n-个结点的树，有-n-1-条边" class="headerlink" title="2. 为什么$n$个结点的树，有$n - 1$条边"></a>2. 为什么$n$个结点的树，有$n - 1$条边</h1></li>
-<li>假设有1个结点时，则有0条边</li>
-<li>有2个结点时，若是连通的且不能为环，所以就得有$1$条边将这两个结点连接在一起</li>
-<li>若有3个结点时，将前两个看为一个整体，则必须有$1$条边，将这两个部分连接在一起</li>
-<li>以此类推<h3 id="【释】：整体化一思想"><a href="#【释】：整体化一思想" class="headerlink" title="【释】：整体化一思想"></a>【释】：整体化一思想</h3><h1 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h1></li>
+<li>树的度是树内各结点度的最大值。</li>
 </ol>
+<h1 id="2-为什么n个结点的树有n-1条边"><a class="markdownIt-Anchor" href="#2-为什么n个结点的树有n-1条边"></a> 2. 为什么<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>个结点的树，有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n - 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>条边</h1>
+<ol>
+<li>假设有1个结点时，则有0条边</li>
+<li>有2个结点时，若是连通的且不能为环，所以就得有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>条边将这两个结点连接在一起</li>
+<li>若有3个结点时，将前两个看为一个整体，则必须有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>条边，将这两个部分连接在一起</li>
+<li>以此类推
+<h3 id="释整体化一思想"><a class="markdownIt-Anchor" href="#释整体化一思想"></a> 【释】：整体化一思想</h3>
+</li>
+</ol>
+<h1 id="3"><a class="markdownIt-Anchor" href="#3"></a> 3.</h1>
 
     </div>
 
@@ -405,7 +413,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">1. 定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E4%B8%BA%E4%BB%80%E4%B9%88-n-%E4%B8%AA%E7%BB%93%E7%82%B9%E7%9A%84%E6%A0%91%EF%BC%8C%E6%9C%89-n-1-%E6%9D%A1%E8%BE%B9"><span class="nav-number">2.</span> <span class="nav-text">2. 为什么$n$个结点的树，有$n - 1$条边</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E3%80%90%E9%87%8A%E3%80%91%EF%BC%9A%E6%95%B4%E4%BD%93%E5%8C%96%E4%B8%80%E6%80%9D%E6%83%B3"><span class="nav-number">2.0.1.</span> <span class="nav-text">【释】：整体化一思想</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3"><span class="nav-number">3.</span> <span class="nav-text">3.</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text"> 1. 定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E4%B8%BA%E4%BB%80%E4%B9%88n%E4%B8%AA%E7%BB%93%E7%82%B9%E7%9A%84%E6%A0%91%E6%9C%89n-1%E6%9D%A1%E8%BE%B9"><span class="nav-number">2.</span> <span class="nav-text"> 2. 为什么nnn个结点的树，有n−1n - 1n−1条边</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8A%E6%95%B4%E4%BD%93%E5%8C%96%E4%B8%80%E6%80%9D%E6%83%B3"><span class="nav-number">2.0.1.</span> <span class="nav-text"> 【释】：整体化一思想</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3"><span class="nav-number">3.</span> <span class="nav-text"> 3.</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -431,20 +439,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">142</span>
+          <span class="site-state-item-count">141</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-count">82</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -513,13 +521,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">523k</span>
+    <span title="站点总字数">513k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:56</span>
+    <span title="站点阅读时长">7:46</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
   </div>

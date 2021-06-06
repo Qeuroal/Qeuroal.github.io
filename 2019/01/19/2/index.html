@@ -248,7 +248,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -267,102 +267,151 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="位运算："><a href="#位运算：" class="headerlink" title="位运算："></a>位运算：</h1><span id="more"></span>
-
-<h2 id="amp-（与）"><a href="#amp-（与）" class="headerlink" title="&amp; （与）"></a><code>&amp;</code> （与）</h2><p> eg: </p>
+        <h1 id="位运算"><a class="markdownIt-Anchor" href="#位运算"></a> 位运算：</h1>
+<span id="more"></span>
+<h2 id="与"><a class="markdownIt-Anchor" href="#与"></a> <code>&amp;</code> （与）</h2>
+<p>eg:</p>
 <blockquote>
-<p>1 0 1<br>0 0 1<br>0 0 1</p>
+<p>1 0 1<br>
+0 0 1<br>
+0 0 1</p>
 </blockquote>
 <ul>
-<li><h2 id="（或）"><a href="#（或）" class="headerlink" title="| （或）"></a><code>|</code> （或）</h2><h4 id="eg"><a href="#eg" class="headerlink" title="eg:"></a>eg:</h4><blockquote>
-<p>1 0 1<br>0 0 1<br>1 0 1</p>
-</blockquote>
+<li>
+<h2 id="或"><a class="markdownIt-Anchor" href="#或"></a> <code>|</code> （或）</h2>
 </li>
-<li><h2 id="（异或）"><a href="#（异或）" class="headerlink" title="^ （异或）"></a><code>^</code> （异或）</h2></li>
 </ul>
-<h3 id="1-运算规则：（不进位加法）"><a href="#1-运算规则：（不进位加法）" class="headerlink" title="1. 运算规则：（不进位加法）"></a>1. 运算规则：（不进位加法）</h3><blockquote>
-<p>   0 &nbsp; &nbsp; &nbsp;  &nbsp; 0 ——&gt; 0<br>    1 &nbsp; &nbsp; &nbsp;  &nbsp; 0 ——&gt; 1<br>    0 &nbsp; &nbsp; &nbsp;  &nbsp; 1 ——&gt; 1<br>    1 &nbsp; &nbsp; &nbsp;  &nbsp; 1 ——&gt; 0  </p>
+<h4 id="eg"><a class="markdownIt-Anchor" href="#eg"></a> eg:</h4>
+<blockquote>
+<p>1 0 1<br>
+0 0 1<br>
+1 0 1</p>
 </blockquote>
-<h3 id="2-不进位的加法："><a href="#2-不进位的加法：" class="headerlink" title="2. 不进位的加法："></a>2. 不进位的加法：</h3><blockquote>
+<ul>
+<li>
+<h2 id="异或"><a class="markdownIt-Anchor" href="#异或"></a> <code>^</code> （异或）</h2>
+</li>
+</ul>
+<h3 id="1-运算规则不进位加法"><a class="markdownIt-Anchor" href="#1-运算规则不进位加法"></a> 1. 运算规则：（不进位加法）</h3>
+<blockquote>
+<p>0          0 ——&gt; 0<br>
+1          0 ——&gt; 1<br>
+0          1 ——&gt; 1<br>
+1          1 ——&gt; 0</p>
+</blockquote>
+<h3 id="2-不进位的加法"><a class="markdownIt-Anchor" href="#2-不进位的加法"></a> 2. 不进位的加法：</h3>
+<blockquote>
 <p>1 ^ 1 ==&gt; 0  正常的话：1 + 1 = 20,但是只看个位，因此，取0</p>
 </blockquote>
-<h3 id="3-运算法则："><a href="#3-运算法则：" class="headerlink" title="3. 运算法则："></a>3. 运算法则：</h3><ol>
+<h3 id="3-运算法则"><a class="markdownIt-Anchor" href="#3-运算法则"></a> 3. 运算法则：</h3>
+<ol>
 <li>交换律</li>
-<li>结合律  <blockquote>
-<p>即$(a^b)^c == a^{b^c}$</p>
+<li>结合律
+<blockquote>
+<p>即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">(</mo><msup><mi>a</mi><mi>b</mi></msup><msup><mo stretchy="false">)</mo><mi>c</mi></msup><mo>=</mo><mo>=</mo><msup><mi>a</mi><msup><mi>b</mi><mi>c</mi></msup></msup></mrow><annotation encoding="application/x-tex">(a^b)^c == a^{b^c}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.099108em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">b</span></span></span></span></span></span></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">c</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.87998em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.87998em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight">b</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7385428571428572em;"><span style="top:-2.931em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathdefault mtight">c</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></p>
 </blockquote>
 </li>
-<li>对于任何数x，都有  <blockquote>
-<p>$x^x=0，x^0=x$</p>
+<li>对于任何数x，都有
+<blockquote>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>x</mi><mi>x</mi></msup><mo>=</mo><mn>0</mn><mi mathvariant="normal">，</mi><msup><mi>x</mi><mn>0</mn></msup><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">x^x=0，x^0=x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">0</span><span class="mord cjk_fallback">，</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span></p>
 </blockquote>
 </li>
-<li>自反性：  <blockquote>
+<li>自反性：
+<blockquote>
 <p>A XOR B XOR B = A xor  0 = A</p>
 </blockquote>
 </li>
 </ol>
 <ul>
-<li><h2 id="（取反）"><a href="#（取反）" class="headerlink" title="~ （取反）"></a><code>~</code> （取反）</h2><blockquote>
-<p>把 0 变成 1<br>把 1 变成 0</p>
-</blockquote>
+<li>
+<h2 id="~-取反"><a class="markdownIt-Anchor" href="#~-取反"></a> <code>~</code> （取反）</h2>
 </li>
 </ul>
-<h2 id="lt-lt-（左移）"><a href="#lt-lt-（左移）" class="headerlink" title="&lt;&lt; （左移）"></a><code>&lt;&lt;</code> （左移）</h2><h4 id="eg-1"><a href="#eg-1" class="headerlink" title="eg:"></a>eg:</h4><blockquote>
+<blockquote>
+<p>把 0 变成 1<br>
+把 1 变成 0</p>
+</blockquote>
+<h2 id="左移"><a class="markdownIt-Anchor" href="#左移"></a> <code>&lt;&lt;</code> （左移）</h2>
+<h4 id="eg-2"><a class="markdownIt-Anchor" href="#eg-2"></a> eg:</h4>
+<blockquote>
 <ol>
 <li>1101 &lt;&lt; 1 ===&gt; 11010</li>
-<li>1 &lt;&lt; n  ==    $2^n$ （向上取整）</li>
+<li>1 &lt;&lt; n  ==    <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span> （向上取整）</li>
 </ol>
 </blockquote>
-<h2 id="gt-gt-（右移）"><a href="#gt-gt-（右移）" class="headerlink" title="&gt;&gt; （右移）"></a><code>&gt;&gt;</code> （右移）</h2><h4 id="eg-2"><a href="#eg-2" class="headerlink" title="eg:"></a>eg:</h4><blockquote>
+<h2 id="右移"><a class="markdownIt-Anchor" href="#右移"></a> <code>&gt;&gt;</code> （右移）</h2>
+<h4 id="eg-3"><a class="markdownIt-Anchor" href="#eg-3"></a> eg:</h4>
+<blockquote>
 <ol>
 <li>1101 &gt;&gt; 1 ===&gt; 110</li>
-<li>n &gt;&gt; x  ==    $n \over 2^x$(向下取整)</li>
+<li>n &gt;&gt; x  ==    <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mi>n</mi><msup><mn>2</mn><mi>x</mi></msup></mfrac></mrow><annotation encoding="application/x-tex">n \over 2^x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.040392em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.695392em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5935428571428571em;"><span style="top:-2.786em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>(向下取整)</li>
 </ol>
 </blockquote>
-<h1 id="技巧："><a href="#技巧：" class="headerlink" title="技巧："></a>技巧：</h1><blockquote>
+<h1 id="技巧"><a class="markdownIt-Anchor" href="#技巧"></a> 技巧：</h1>
+<blockquote>
 <ol>
 <li>x + (-x)</li>
 </ol>
 </blockquote>
-<h1 id="经验："><a href="#经验：" class="headerlink" title="经验："></a>经验：</h1><ul>
+<h1 id="经验"><a class="markdownIt-Anchor" href="#经验"></a> 经验：</h1>
+<ul>
 <li>将数组无穷大：memset(nums, 0x3f, sizeof(nums))</li>
 <li>竞赛中少使用#include &lt;bits/stdc++.h&gt;  // 原因：编译的时间过长,时间会超时</li>
 <li>转化成 long long的形式：乘以 <code>1ll</code>,例子见——&gt;快速幂算法模板—求$ a^b%p$</li>
 <li>将大数组放到全局变量中</li>
 </ul>
 <hr>
-<h1 id="快速幂算法模板"><a href="#快速幂算法模板" class="headerlink" title="快速幂算法模板"></a>快速幂算法模板</h1><h3 id="1：求-a-b"><a href="#1：求-a-b" class="headerlink" title="1：求 $ a^b $"></a>1：求 $ a^b $</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">quickPower</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b) &#123;</span><br><span class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>)</span><br><span class="line">            res *= <span class="number">1ll</span> * a;</span><br><span class="line">        a *= a;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2：求-a-b-p"><a href="#2：求-a-b-p" class="headerlink" title="2：求 $a^b%p$"></a>2：求 $a^b%p$</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">quickPowerMod</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">1</span> % p;</span><br><span class="line">    <span class="keyword">while</span>(b) &#123;</span><br><span class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>)</span><br><span class="line">            res = res * <span class="number">1ll</span> * a % p;</span><br><span class="line">        a = a * <span class="number">1ll</span> * a % p;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="模运算法则"><a href="#模运算法则" class="headerlink" title="模运算法则"></a>模运算法则</h1><ul>
-<li>(a + b) % p = (a % p + b % p) % p </li>
-<li>(a - b) % p = (a % p - b % p) % p </li>
-<li>(a * b) % p = (a % p * b % p) % p </li>
-<li>(a^b) % p = ((a % p)^b) % p </li>
+<h1 id="快速幂算法模板"><a class="markdownIt-Anchor" href="#快速幂算法模板"></a> 快速幂算法模板</h1>
+<h3 id="1求-ab"><a class="markdownIt-Anchor" href="#1求-ab"></a> 1：求 $ a^b $</h3>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">quickPower</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b) &#123;</span><br><span class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>)</span><br><span class="line">            res *= <span class="number">1ll</span> * a;</span><br><span class="line">        a *= a;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2求-abp"><a class="markdownIt-Anchor" href="#2求-abp"></a> 2：求 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>a</mi><mi>b</mi></msup><mi mathvariant="normal">%</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">a^b\%p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.043548em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">b</span></span></span></span></span></span></span></span><span class="mord">%</span><span class="mord mathdefault">p</span></span></span></span></h3>
+<h2 id="-code1-"><a class="markdownIt-Anchor" href="#-code1-"></a> <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">quickPowerMod</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">1</span> % p;</span><br><span class="line">    <span class="keyword">while</span>(b) &#123;</span><br><span class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>)</span><br><span class="line">            res = res * <span class="number">1ll</span> * a % p;</span><br><span class="line">        a = a * <span class="number">1ll</span> * a % p;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></h2>
+<h1 id="模运算法则"><a class="markdownIt-Anchor" href="#模运算法则"></a> 模运算法则</h1>
+<ul>
+<li>(a + b) % p = (a % p + b % p) % p</li>
+<li>(a - b) % p = (a % p - b % p) % p</li>
+<li>(a * b) % p = (a % p * b % p) % p</li>
+<li>(a^b) % p = ((a % p)^b) % p</li>
 </ul>
 <hr>
-<h1 id="位运算常用技巧"><a href="#位运算常用技巧" class="headerlink" title="位运算常用技巧"></a>位运算常用技巧</h1><h2 id="用异或来实现配偶"><a href="#用异或来实现配偶" class="headerlink" title="用异或来实现配偶"></a>用异或来实现配偶</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0，1</span><br><span class="line">2，3</span><br><span class="line">4, 5</span><br><span class="line">6, 7</span><br><span class="line">……</span><br></pre></td></tr></table></figure>
-<h4 id="即-把每个整数异或一个1，就可以得到他的配偶"><a href="#即-把每个整数异或一个1，就可以得到他的配偶" class="headerlink" title="即(把每个整数异或一个1，就可以得到他的配偶)"></a>即(把每个整数异或一个1，就可以得到他的配偶)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0 ^ 1 &#x3D; 1,            1 ^ 1 &#x3D; 0</span><br><span class="line">2 ^ 1 &#x3D; 3,            3 ^ 1 &#x3D; 2</span><br><span class="line">……</span><br><span class="line">2k ^ 1 &#x3D; 2k + 1,    (2k + 1) ^ 1 &#x3D; 2k</span><br></pre></td></tr></table></figure>
-<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一般在图论里面，写最小费用流时，我们会存一个编的正向编和反向编，会需要快速求出来一个数的反向编是什么</span><br></pre></td></tr></table></figure>
-<h2 id="lowbit运算-树状数组的基础"><a href="#lowbit运算-树状数组的基础" class="headerlink" title="lowbit运算(树状数组的基础)"></a>lowbit运算(树状数组的基础)</h2><blockquote>
-<h4 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h4><p>快速的求出来整数n，在二进制表示里面，最低的一位1是哪个(或者说：n的二进制表示中最右边一个1)</p>
-</blockquote>
-<h4 id="效果："><a href="#效果：" class="headerlink" title="效果："></a>效果：</h4><p>lowbit(1110011000) ——&gt; 1000</p>
-<h4 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">首先，假设n的二进制是1110011000</span><br><span class="line">然后，对n取反，得到：~n &#x3D; 0001100111</span><br><span class="line">接着，~n+1  &#x3D;&#x3D;&#x3D;&gt;  0001101000</span><br><span class="line">紧接着，(~n + 1) &amp; n &#x3D;&#x3D;&#x3D;&gt; 0000001000 &#x3D;&#x3D;&#x3D;&gt; 1000</span><br><span class="line">最后，由于-n &#x3D; ~n + 1,所以lowbit就是：(-n) &amp; n</span><br></pre></td></tr></table></figure>
-<h4 id="代码实现："><a href="#代码实现：" class="headerlink" title="代码实现："></a>代码实现：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int lowbit(int n)</span><br><span class="line">&#123;</span><br><span class="line">    return (-n) &amp; n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="位运算常用技巧"><a class="markdownIt-Anchor" href="#位运算常用技巧"></a> 位运算常用技巧</h1>
+<h2 id="用异或来实现配偶"><a class="markdownIt-Anchor" href="#用异或来实现配偶"></a> 用异或来实现配偶</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0，1</span><br><span class="line">2，3</span><br><span class="line">4, 5</span><br><span class="line">6, 7</span><br><span class="line">……</span><br></pre></td></tr></table></figure>
+<h4 id="即把每个整数异或一个1就可以得到他的配偶"><a class="markdownIt-Anchor" href="#即把每个整数异或一个1就可以得到他的配偶"></a> 即(把每个整数异或一个1，就可以得到他的配偶)</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0 ^ 1 &#x3D; 1,            1 ^ 1 &#x3D; 0</span><br><span class="line">2 ^ 1 &#x3D; 3,            3 ^ 1 &#x3D; 2</span><br><span class="line">……</span><br><span class="line">2k ^ 1 &#x3D; 2k + 1,    (2k + 1) ^ 1 &#x3D; 2k</span><br></pre></td></tr></table></figure>
+<h4 id="使用"><a class="markdownIt-Anchor" href="#使用"></a> 使用</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一般在图论里面，写最小费用流时，我们会存一个编的正向编和反向编，会需要快速求出来一个数的反向编是什么</span><br></pre></td></tr></table></figure>
+<h2 id="lowbit运算树状数组的基础"><a class="markdownIt-Anchor" href="#lowbit运算树状数组的基础"></a> lowbit运算(树状数组的基础)</h2>
 <blockquote>
-<h4 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h4><ol>
-<li>复杂度和1的个数有关和 </li>
-<li>可以快速求出来一个整数里面有多少个1</li>
-<li>求n是2的整次方幂<br>【释】：<br>$2^n$  &emsp; &ensp; &nbsp;<code>&lt;==&gt;</code> 1 &lt;&lt; n &ensp;<br>&emsp; &emsp; &emsp; **<code>⬇</code>**<br>n &amp; -n &nbsp; <code>&lt;==&gt;</code> &nbsp; n；  </li>
-</ol>
-<p>  <em><strong>反之</strong></em>， <strong>n &amp; -n <code>&lt;</code> n</strong></p>
+<h4 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义：</h4>
 </blockquote>
-<h1 id="原码、反码、补码"><a href="#原码、反码、补码" class="headerlink" title="原码、反码、补码"></a>原码、反码、补码</h1><h4 id="正数"><a href="#正数" class="headerlink" title="正数"></a>正数</h4><blockquote>
+<p>快速的求出来整数n，在二进制表示里面，最低的一位1是哪个(或者说：n的二进制表示中最右边一个1)</p>
+<h4 id="效果"><a class="markdownIt-Anchor" href="#效果"></a> 效果：</h4>
+<p>lowbit(1110011000) ——&gt; 1000</p>
+<h4 id="实现"><a class="markdownIt-Anchor" href="#实现"></a> 实现：</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">首先，假设n的二进制是1110011000</span><br><span class="line">然后，对n取反，得到：~n &#x3D; 0001100111</span><br><span class="line">接着，~n+1  &#x3D;&#x3D;&#x3D;&gt;  0001101000</span><br><span class="line">紧接着，(~n + 1) &amp; n &#x3D;&#x3D;&#x3D;&gt; 0000001000 &#x3D;&#x3D;&#x3D;&gt; 1000</span><br><span class="line">最后，由于-n &#x3D; ~n + 1,所以lowbit就是：(-n) &amp; n</span><br></pre></td></tr></table></figure>
+<h4 id="代码实现"><a class="markdownIt-Anchor" href="#代码实现"></a> 代码实现：</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int lowbit(int n)</span><br><span class="line">&#123;</span><br><span class="line">    return (-n) &amp; n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h4 id="拓展"><a class="markdownIt-Anchor" href="#拓展"></a> 拓展</h4>
+<ol>
+<li>复杂度和1的个数有关和</li>
+<li>可以快速求出来一个整数里面有多少个1</li>
+<li>求n是2的整次方幂<br>
+【释】：<br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span>       <code>&lt;==&gt;</code> 1 &lt;&lt; n  <br>
+      <strong><code>⬇</code></strong><br>
+n &amp; -n   <code>&lt;==&gt;</code>   n；<br>
+<em><strong>反之</strong></em>， <strong>n &amp; -n <code>&lt;</code> n</strong></li>
+</ol>
+</blockquote>
+<h1 id="原码-反码-补码"><a class="markdownIt-Anchor" href="#原码-反码-补码"></a> 原码、反码、补码</h1>
+<h4 id="正数"><a class="markdownIt-Anchor" href="#正数"></a> 正数</h4>
+<blockquote>
 <p>原码，反码，补码均相等。</p>
 </blockquote>
-<h4 id="负数"><a href="#负数" class="headerlink" title="负数"></a>负数</h4><blockquote>
+<h4 id="负数"><a class="markdownIt-Anchor" href="#负数"></a> 负数</h4>
+<blockquote>
 <ul>
 <li>反码求法：</li>
 </ul>
@@ -371,18 +420,22 @@
 <li>其他位取反。</li>
 </ol>
 <ul>
-<li>补码求法：</li>
+<li>补码求法：<br>
+1.符号位不变。<br>
+2.其他位取反。<br>
+3.最后一位加1。</li>
 </ul>
-<p>1.符号位不变。<br>2.其他位取反。<br>3.最后一位加1。</p>
 </blockquote>
-<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><blockquote>
+<h4 id="例子"><a class="markdownIt-Anchor" href="#例子"></a> 例子</h4>
+<blockquote>
 <p>以123和-123为例：</p>
 </blockquote>
 <ul>
 <li>[123] 原码：01111011。  反码：01111011。  补码：01111011。</li>
 <li>[-123]原码：11111011。 反码：10000100。  补码：10000101。</li>
 </ul>
-<h1 id="二进制转换成10进制"><a href="#二进制转换成10进制" class="headerlink" title="二进制转换成10进制"></a>二进制转换成10进制</h1><blockquote>
+<h1 id="二进制转换成10进制"><a class="markdownIt-Anchor" href="#二进制转换成10进制"></a> 二进制转换成10进制</h1>
+<blockquote>
 <ol>
 <li>如果为正数，则直接求即可</li>
 <li>如果为负数，取反+1，然后求出数值前面加个负号。</li>
@@ -511,7 +564,31 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">位运算：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#amp-%EF%BC%88%E4%B8%8E%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">&amp; （与）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EF%BC%88%E6%88%96%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">| （或）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#eg"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">eg:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EF%BC%88%E5%BC%82%E6%88%96%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">^ （异或）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%BF%90%E7%AE%97%E8%A7%84%E5%88%99%EF%BC%9A%EF%BC%88%E4%B8%8D%E8%BF%9B%E4%BD%8D%E5%8A%A0%E6%B3%95%EF%BC%89"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. 运算规则：（不进位加法）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%B8%8D%E8%BF%9B%E4%BD%8D%E7%9A%84%E5%8A%A0%E6%B3%95%EF%BC%9A"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. 不进位的加法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%BF%90%E7%AE%97%E6%B3%95%E5%88%99%EF%BC%9A"><span class="nav-number">1.3.3.</span> <span class="nav-text">3. 运算法则：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EF%BC%88%E5%8F%96%E5%8F%8D%EF%BC%89"><span class="nav-number">1.4.</span> <span class="nav-text">~ （取反）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-lt-%EF%BC%88%E5%B7%A6%E7%A7%BB%EF%BC%89"><span class="nav-number">1.5.</span> <span class="nav-text">&lt;&lt; （左移）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#eg-1"><span class="nav-number">1.5.0.1.</span> <span class="nav-text">eg:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gt-gt-%EF%BC%88%E5%8F%B3%E7%A7%BB%EF%BC%89"><span class="nav-number">1.6.</span> <span class="nav-text">&gt;&gt; （右移）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#eg-2"><span class="nav-number">1.6.0.1.</span> <span class="nav-text">eg:</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8A%80%E5%B7%A7%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">技巧：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%8F%E9%AA%8C%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">经验：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E5%B9%82%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF"><span class="nav-number">4.</span> <span class="nav-text">快速幂算法模板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%9A%E6%B1%82-a-b"><span class="nav-number">4.0.1.</span> <span class="nav-text">1：求 $ a^b $</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%9A%E6%B1%82-a-b-p"><span class="nav-number">4.0.2.</span> <span class="nav-text">2：求 $a^b%p$</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E8%BF%90%E7%AE%97%E6%B3%95%E5%88%99"><span class="nav-number">5.</span> <span class="nav-text">模运算法则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="nav-number">6.</span> <span class="nav-text">位运算常用技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E5%BC%82%E6%88%96%E6%9D%A5%E5%AE%9E%E7%8E%B0%E9%85%8D%E5%81%B6"><span class="nav-number">6.1.</span> <span class="nav-text">用异或来实现配偶</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%B3-%E6%8A%8A%E6%AF%8F%E4%B8%AA%E6%95%B4%E6%95%B0%E5%BC%82%E6%88%96%E4%B8%80%E4%B8%AA1%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E5%BE%97%E5%88%B0%E4%BB%96%E7%9A%84%E9%85%8D%E5%81%B6"><span class="nav-number">6.1.0.1.</span> <span class="nav-text">即(把每个整数异或一个1，就可以得到他的配偶)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">6.1.0.2.</span> <span class="nav-text">使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lowbit%E8%BF%90%E7%AE%97-%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E7%9A%84%E5%9F%BA%E7%A1%80"><span class="nav-number">6.2.</span> <span class="nav-text">lowbit运算(树状数组的基础)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="nav-number">6.2.0.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%88%E6%9E%9C%EF%BC%9A"><span class="nav-number">6.2.0.2.</span> <span class="nav-text">效果：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%EF%BC%9A"><span class="nav-number">6.2.0.3.</span> <span class="nav-text">实现：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%EF%BC%9A"><span class="nav-number">6.2.0.4.</span> <span class="nav-text">代码实现：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8B%93%E5%B1%95"><span class="nav-number">6.2.0.5.</span> <span class="nav-text">拓展</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81%E3%80%81%E8%A1%A5%E7%A0%81"><span class="nav-number">7.</span> <span class="nav-text">原码、反码、补码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E6%95%B0"><span class="nav-number">7.0.0.1.</span> <span class="nav-text">正数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B4%9F%E6%95%B0"><span class="nav-number">7.0.0.2.</span> <span class="nav-text">负数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-number">7.0.0.3.</span> <span class="nav-text">例子</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E6%88%9010%E8%BF%9B%E5%88%B6"><span class="nav-number">8.</span> <span class="nav-text">二进制转换成10进制</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="nav-number">1.</span> <span class="nav-text"> 位运算：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8E"><span class="nav-number">1.1.</span> <span class="nav-text"> &amp; （与）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%96"><span class="nav-number">1.2.</span> <span class="nav-text"> | （或）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#eg"><span class="nav-number">1.2.0.1.</span> <span class="nav-text"> eg:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E6%88%96"><span class="nav-number">1.3.</span> <span class="nav-text"> ^ （异或）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%BF%90%E7%AE%97%E8%A7%84%E5%88%99%E4%B8%8D%E8%BF%9B%E4%BD%8D%E5%8A%A0%E6%B3%95"><span class="nav-number">1.3.1.</span> <span class="nav-text"> 1. 运算规则：（不进位加法）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%B8%8D%E8%BF%9B%E4%BD%8D%E7%9A%84%E5%8A%A0%E6%B3%95"><span class="nav-number">1.3.2.</span> <span class="nav-text"> 2. 不进位的加法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%BF%90%E7%AE%97%E6%B3%95%E5%88%99"><span class="nav-number">1.3.3.</span> <span class="nav-text"> 3. 运算法则：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#~-%E5%8F%96%E5%8F%8D"><span class="nav-number">1.4.</span> <span class="nav-text"> ~ （取反）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A6%E7%A7%BB"><span class="nav-number">1.5.</span> <span class="nav-text"> &lt;&lt; （左移）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#eg-2"><span class="nav-number">1.5.0.1.</span> <span class="nav-text"> eg:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%B3%E7%A7%BB"><span class="nav-number">1.6.</span> <span class="nav-text"> &gt;&gt; （右移）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#eg-3"><span class="nav-number">1.6.0.1.</span> <span class="nav-text"> eg:</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8A%80%E5%B7%A7"><span class="nav-number">2.</span> <span class="nav-text"> 技巧：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%8F%E9%AA%8C"><span class="nav-number">3.</span> <span class="nav-text"> 经验：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E5%B9%82%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF"><span class="nav-number">4.</span> <span class="nav-text"> 快速幂算法模板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E6%B1%82-ab"><span class="nav-number">4.0.1.</span> <span class="nav-text"> 1：求 $ a^b $</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E6%B1%82-abp"><span class="nav-number">4.0.2.</span> <span class="nav-text"> 2：求 ab%pa^b\%pab%p</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#-code1-"><span class="nav-number">4.1.</span> <span class="nav-text"> 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+int quickPowerMod(int a, int b, int p)
+&amp;#123;
+    int res &#x3D; 1 % p;
+    while(b) &amp;#123;
+        if(b &amp; 1)
+            res &#x3D; res * 1ll * a % p;
+        a &#x3D; a * 1ll * a % p;
+        b &gt;&gt;&#x3D; 1;
+    &amp;#125;
+    return res;
+&amp;#125;
+
+</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E8%BF%90%E7%AE%97%E6%B3%95%E5%88%99"><span class="nav-number">5.</span> <span class="nav-text"> 模运算法则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="nav-number">6.</span> <span class="nav-text"> 位运算常用技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E5%BC%82%E6%88%96%E6%9D%A5%E5%AE%9E%E7%8E%B0%E9%85%8D%E5%81%B6"><span class="nav-number">6.1.</span> <span class="nav-text"> 用异或来实现配偶</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%B3%E6%8A%8A%E6%AF%8F%E4%B8%AA%E6%95%B4%E6%95%B0%E5%BC%82%E6%88%96%E4%B8%80%E4%B8%AA1%E5%B0%B1%E5%8F%AF%E4%BB%A5%E5%BE%97%E5%88%B0%E4%BB%96%E7%9A%84%E9%85%8D%E5%81%B6"><span class="nav-number">6.1.0.1.</span> <span class="nav-text"> 即(把每个整数异或一个1，就可以得到他的配偶)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">6.1.0.2.</span> <span class="nav-text"> 使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lowbit%E8%BF%90%E7%AE%97%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E7%9A%84%E5%9F%BA%E7%A1%80"><span class="nav-number">6.2.</span> <span class="nav-text"> lowbit运算(树状数组的基础)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">6.2.0.1.</span> <span class="nav-text"> 定义：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%88%E6%9E%9C"><span class="nav-number">6.2.0.2.</span> <span class="nav-text"> 效果：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-number">6.2.0.3.</span> <span class="nav-text"> 实现：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">6.2.0.4.</span> <span class="nav-text"> 代码实现：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8B%93%E5%B1%95"><span class="nav-number">6.2.0.5.</span> <span class="nav-text"> 拓展</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81-%E5%8F%8D%E7%A0%81-%E8%A1%A5%E7%A0%81"><span class="nav-number">7.</span> <span class="nav-text"> 原码、反码、补码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E6%95%B0"><span class="nav-number">7.0.0.1.</span> <span class="nav-text"> 正数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B4%9F%E6%95%B0"><span class="nav-number">7.0.0.2.</span> <span class="nav-text"> 负数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-number">7.0.0.3.</span> <span class="nav-text"> 例子</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E6%88%9010%E8%BF%9B%E5%88%B6"><span class="nav-number">8.</span> <span class="nav-text"> 二进制转换成10进制</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -537,20 +614,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">142</span>
+          <span class="site-state-item-count">141</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-count">82</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -619,13 +696,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">523k</span>
+    <span title="站点总字数">513k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:56</span>
+    <span title="站点阅读时长">7:46</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
   </div>

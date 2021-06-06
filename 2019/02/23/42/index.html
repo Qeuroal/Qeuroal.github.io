@@ -269,20 +269,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="张量"><a href="#张量" class="headerlink" title="张量"></a><strong>张量</strong></h1><span id="more"></span>
-
-
-<h2 id="1-什么是张量（Tensors）"><a href="#1-什么是张量（Tensors）" class="headerlink" title="1. 什么是张量（Tensors）"></a>1. 什么是张量（Tensors）</h2><blockquote>
+        <h1 id="张量"><a class="markdownIt-Anchor" href="#张量"></a> <strong>张量</strong></h1>
+<span id="more"></span>
+<h2 id="1-什么是张量tensors"><a class="markdownIt-Anchor" href="#1-什么是张量tensors"></a> 1. 什么是张量（Tensors）</h2>
+<blockquote>
 <p>张量与Numpy的ndarray相同都表示的是一个多维的矩阵。 与ndarray的最大区别就是，PyTorch的Tensor可以在 GPU 上运行，而 numpy 的 ndarray 只能在 CPU 上运行，在GPU上运行大大加快了运算速度。</p>
 </blockquote>
-<h2 id="2-成员方法"><a href="#2-成员方法" class="headerlink" title="2. 成员方法"></a>2. 成员方法</h2><p><img src="/images/posts/pytorch/1.png"></p>
-<h2 id="3-难点解析"><a href="#3-难点解析" class="headerlink" title="3. 难点解析"></a>3. 难点解析</h2><ol>
+<h2 id="2-成员方法"><a class="markdownIt-Anchor" href="#2-成员方法"></a> 2. 成员方法</h2>
+<p><img src="/images/posts/pytorch/1.png" alt></p>
+<h2 id="3-难点解析"><a class="markdownIt-Anchor" href="#3-难点解析"></a> 3. 难点解析</h2>
+<ol>
 <li>x.view()：类似于numpy中的 <code>reshape</code>，但更高级一点，如果只知道列，那么第一个参数写 <code>-1</code><br> 比如：如果x为<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tensor([[0.1483, 0.6744, 0.9375],</span><br><span class="line">     [0.4576, 0.2121, 0.5305],</span><br><span class="line">     [0.8123, 0.9203, 0.2041],</span><br><span class="line">     [0.4643, 0.2020, 0.3629],</span><br><span class="line">     [0.3258, 0.1127, 0.2111]])</span><br></pre></td></tr></table></figure>
 已知列为10，那么就可以这么分割： <code>z = x.view(-1, 10)</code></li>
 </ol>
 <hr>
-
-
 <!-- - #  -->
     </div>
 
@@ -406,7 +406,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%A0%E9%87%8F"><span class="nav-number">1.</span> <span class="nav-text">张量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%BC%A0%E9%87%8F%EF%BC%88Tensors%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">1. 什么是张量（Tensors）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">2. 成员方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E9%9A%BE%E7%82%B9%E8%A7%A3%E6%9E%90"><span class="nav-number">1.3.</span> <span class="nav-text">3. 难点解析</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%A0%E9%87%8F"><span class="nav-number">1.</span> <span class="nav-text"> 张量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%BC%A0%E9%87%8Ftensors"><span class="nav-number">1.1.</span> <span class="nav-text"> 1. 什么是张量（Tensors）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text"> 2. 成员方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E9%9A%BE%E7%82%B9%E8%A7%A3%E6%9E%90"><span class="nav-number">1.3.</span> <span class="nav-text"> 3. 难点解析</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -432,20 +432,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">142</span>
+          <span class="site-state-item-count">141</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-count">82</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -514,13 +514,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">523k</span>
+    <span title="站点总字数">513k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:56</span>
+    <span title="站点阅读时长">7:46</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
   </div>

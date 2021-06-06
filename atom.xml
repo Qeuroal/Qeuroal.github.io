@@ -6,7 +6,7 @@
   <link href="https://qeuroal.top/atom.xml" rel="self"/>
   
   <link href="https://qeuroal.top/"/>
-  <updated>2021-06-05T03:55:38.269Z</updated>
+  <updated>2021-05-20T10:48:32.616Z</updated>
   <id>https://qeuroal.top/</id>
   
   <author>
@@ -17,27 +17,6 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>142. Linux</title>
-    <link href="https://qeuroal.top/2021/05/28/142/"/>
-    <id>https://qeuroal.top/2021/05/28/142/</id>
-    <published>2021-05-28T10:44:21.000Z</published>
-    <updated>2021-06-05T03:55:38.269Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;入门概述&quot;&gt;&lt;a href=&quot;#入门概述&quot; class=&quot;headerlink&quot; title=&quot;入门概述&quot;&gt;&lt;/a&gt;入门概述&lt;/h1&gt;&lt;h2 id=&quot;我们为什么要学习Linux&quot;&gt;&lt;a href=&quot;#我们为什么要学习Linux&quot; class=&quot;headerlink&quot; title=&quot;我们为什么要学习Linux&quot;&gt;&lt;/a&gt;我们为什么要学习Linux&lt;/h2&gt;&lt;p&gt;&lt;code&gt;linux&lt;/code&gt;诞生了这么多年，以前还喊着如何能取代&lt;code&gt;windows&lt;/code&gt;系统，现在这个口号已经小多了，任何事物发展都有其局限性都有其天花板。就如同在国内再搞一个社交软件取代腾讯一样，想想而已基本不可能，因为用户已经习惯于使用微信交流，不是说技术上实现不了解而是老百姓已经习惯了，想让他们不用，即使他们自己不用亲戚朋友还是要用，没有办法的事情。&lt;/p&gt;
-&lt;p&gt;用习惯了windows操作系统，再让大家切换到别的操作系统基本上是不可能的事情，改变一个人已经养成的习惯太难。没有办法深入到普通老百姓的生活中，并不意味着&lt;code&gt;linux&lt;/code&gt;就没有用武之地了。在服务器端，在开发领域&lt;code&gt;linux&lt;/code&gt;倒是越来越受欢迎，很多程序员都觉得不懂点&lt;code&gt;linux&lt;/code&gt;都觉得不好意思，&lt;code&gt;linux&lt;/code&gt;在开源社区的地位依然岿然不动。&lt;/p&gt;
-&lt;p&gt;尤其是作为一个后端程序员，是必须要掌握Linux的，因为这都成为了你找工作的基础门槛了，所以不得不学习！&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://qeuroal.top/categories/Linux/"/>
-    
-    
-    <category term="Linux" scheme="https://qeuroal.top/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
     <title>141. C++</title>
     <link href="https://qeuroal.top/2021/05/17/141/"/>
     <id>https://qeuroal.top/2021/05/17/141/</id>
@@ -45,10 +24,14 @@
     <updated>2021-05-20T10:48:32.616Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;函数&quot;&gt;&lt;a href=&quot;#函数&quot; class=&quot;headerlink&quot; title=&quot;函数&quot;&gt;&lt;/a&gt;函数&lt;/h1&gt;&lt;h2 id=&quot;函数指针&quot;&gt;&lt;a href=&quot;#函数指针&quot; class=&quot;headerlink&quot; title=&quot;函数指针&quot;&gt;&lt;/a&gt;函数指针&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;函数的地址是存储其机器语言代码的内存开始的地址&lt;/p&gt;
+    <summary type="html">&lt;h1 id=&quot;函数&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#函数&quot;&gt;&lt;/a&gt; 函数&lt;/h1&gt;
+&lt;h2 id=&quot;函数指针&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#函数指针&quot;&gt;&lt;/a&gt; 函数指针&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;函数的地址是存储其机器语言代码的内存开始的地址&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;好处：可在在不同的时间使用不同的函数（可以把函数当做参数传递）&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</summary>
+&lt;li&gt;
+&lt;p&gt;好处：可在在不同的时间使用不同的函数（可以把函数当做参数传递）&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</summary>
     
     
     
@@ -67,7 +50,8 @@
     <updated>2021-05-17T11:46:21.606Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;简单介绍&quot;&gt;&lt;a href=&quot;#简单介绍&quot; class=&quot;headerlink&quot; title=&quot;简单介绍&quot;&gt;&lt;/a&gt;简单介绍&lt;/h1&gt;&lt;ul&gt;
+    <summary type="html">&lt;h1 id=&quot;简单介绍&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#简单介绍&quot;&gt;&lt;/a&gt; 简单介绍&lt;/h1&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;HTML&lt;/code&gt; + &lt;code&gt;CSS&lt;/code&gt; + &lt;code&gt;JavaScript&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;结构 + 表现 + 交互&lt;/li&gt;
 &lt;/ul&gt;</summary>
@@ -89,14 +73,18 @@
     <updated>2021-04-29T09:44:57.181Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;前端&quot;&gt;&lt;a href=&quot;#前端&quot; class=&quot;headerlink&quot; title=&quot;前端&quot;&gt;&lt;/a&gt;前端&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;HTML&lt;/code&gt;：网页基本结构&lt;/p&gt;
-&lt;p&gt; &lt;img src=&quot;/2021/04/29/139/image-20210429101432734.png&quot; alt=&quot;image-20210429101432734&quot;&gt;&lt;/p&gt;
+    <summary type="html">&lt;h1 id=&quot;前端&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#前端&quot;&gt;&lt;/a&gt; 前端&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;HTML&lt;/code&gt;：网页基本结构&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2021/04/29/139/image-20210429101432734.png&quot; alt=&quot;image-20210429101432734&quot;&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;CSS&lt;/code&gt;：美化网页&lt;/p&gt;
-&lt;p&gt; &lt;img src=&quot;/2021/04/29/139/image-20210429101443830.png&quot; alt=&quot;image-20210429101443830&quot;&gt;&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;CSS&lt;/code&gt;：美化网页&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2021/04/29/139/image-20210429101443830.png&quot; alt=&quot;image-20210429101443830&quot;&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt; &lt;code&gt;JS&lt;/code&gt;：使得网页动起来产生交互性行为&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;JS&lt;/code&gt;：使得网页动起来产生交互性行为&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;</summary>
     
@@ -118,7 +106,8 @@
     
     
     <summary type="html">&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;打开 &lt;code&gt;文件资源管理器&lt;/code&gt; （按 &lt;code&gt;win+e&lt;/code&gt;）&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</summary>
+&lt;li&gt;打开 &lt;code&gt;文件资源管理器&lt;/code&gt; （按 &lt;code&gt;win+e&lt;/code&gt;）&lt;/li&gt;
+&lt;/ol&gt;</summary>
     
     
     
@@ -139,19 +128,20 @@
     <updated>2021-04-27T08:23:40.154Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;第一个flask程序&quot;&gt;&lt;a href=&quot;#第一个flask程序&quot; class=&quot;headerlink&quot; title=&quot;第一个flask程序&quot;&gt;&lt;/a&gt;第一个flask程序&lt;/h1&gt;&lt;h2 id=&quot;Flask-name&quot;&gt;&lt;a href=&quot;#Flask-name&quot; class=&quot;headerlink&quot; title=&quot;Flask(__name__)&quot;&gt;&lt;/a&gt;&lt;code&gt;Flask(__name__)&lt;/code&gt;&lt;/h2&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 初始化一个Flask对象&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Flask()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 需要传递一个参数 __name__&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#   1. 方便flask框架去寻找资源&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#   2. 方便flask插件比如Flask-Sqlalchemy出现错误的时候，好去寻找问题所在的位置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-
-
-&lt;h2 id=&quot;app-route&quot;&gt;&lt;a href=&quot;#app-route&quot; class=&quot;headerlink&quot; title=&quot;@app.route()&quot;&gt;&lt;/a&gt;&lt;code&gt;@app.route()&lt;/code&gt;&lt;/h2&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# @app.route是一个装饰器（可以看成url的后缀：127.0.0.1:5000/login 的 /login）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# @开头，并且在函数的上面，说明是装饰器&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 这个装饰器的作用是做一个url和视图函数(习惯性的命名，就是这里的hello_world函数)的映射&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 127.0.0.1:5000 -&amp;gt; 去请求hello_world这个函数然后将结果返回给浏览器&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;@app.route(&lt;span class=&quot;params&quot;&gt;&lt;span class=&quot;string&quot;&gt;&amp;#x27;/&amp;#x27;&lt;/span&gt;&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;hello_world&lt;/span&gt;():&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; “我是第一个flask程序”&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h2 id=&quot;app-run&quot;&gt;&lt;a href=&quot;#app-run&quot; class=&quot;headerlink&quot; title=&quot;app.run():&quot;&gt;&lt;/a&gt;&lt;code&gt;app.run()&lt;/code&gt;:&lt;/h2&gt;&lt;p&gt;启动一个应用服务器，来接收用户的请求。&lt;/p&gt;
+    <summary type="html">&lt;h1 id=&quot;第一个flask程序&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#第一个flask程序&quot;&gt;&lt;/a&gt; 第一个flask程序&lt;/h1&gt;
+&lt;h2 id=&quot;flask__name__&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#flask__name__&quot;&gt;&lt;/a&gt; &lt;code&gt;Flask(__name__)&lt;/code&gt;&lt;/h2&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 初始化一个Flask对象&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Flask()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 需要传递一个参数 __name__&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#   1. 方便flask框架去寻找资源&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#   2. 方便flask插件比如Flask-Sqlalchemy出现错误的时候，好去寻找问题所在的位置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;approute&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#approute&quot;&gt;&lt;/a&gt; &lt;code&gt;@app.route()&lt;/code&gt;&lt;/h2&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# @app.route是一个装饰器（可以看成url的后缀：127.0.0.1:5000/login 的 /login）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# @开头，并且在函数的上面，说明是装饰器&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 这个装饰器的作用是做一个url和视图函数(习惯性的命名，就是这里的hello_world函数)的映射&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 127.0.0.1:5000 -&amp;gt; 去请求hello_world这个函数然后将结果返回给浏览器&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;@app.route(&lt;span class=&quot;params&quot;&gt;&lt;span class=&quot;string&quot;&gt;&amp;#x27;/&amp;#x27;&lt;/span&gt;&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;hello_world&lt;/span&gt;():&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; “我是第一个flask程序”&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;apprun&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#apprun&quot;&gt;&lt;/a&gt; &lt;code&gt;app.run()&lt;/code&gt;:&lt;/h2&gt;
+&lt;p&gt;启动一个应用服务器，来接收用户的请求。&lt;/p&gt;
 &lt;p&gt;类似于:&lt;/p&gt;
 &lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; (&lt;span class=&quot;literal&quot;&gt;True&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	listen()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h1 id=&quot;设置debug模式&quot;&gt;&lt;a href=&quot;#设置debug模式&quot; class=&quot;headerlink&quot; title=&quot;设置debug模式&quot;&gt;&lt;/a&gt;设置debug模式&lt;/h1&gt;&lt;ol&gt;
+&lt;h1 id=&quot;设置debug模式&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#设置debug模式&quot;&gt;&lt;/a&gt; 设置debug模式&lt;/h1&gt;
+&lt;ol&gt;
 &lt;li&gt;在 &lt;code&gt;app.run()&lt;/code&gt; 中传入一个关键字参数&lt;code&gt;debug&lt;/code&gt;，&lt;code&gt;app.run(debug=True)&lt;/code&gt;， 就设置当前项目为 &lt;code&gt;debug&lt;/code&gt; 模式&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;debug&lt;/code&gt; 模式的两大功能&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;debug&lt;/code&gt; 模式的两大功能
+&lt;ul&gt;
 &lt;li&gt;当程序出现问题时，可以在也米那种看到错误信息和出错的位置&lt;/li&gt;
 &lt;li&gt;只要修改了项目中的 &lt;code&gt;Python&lt;/code&gt; 文件，程序会自动加载，不需要手动重新启动服务器&lt;/li&gt;
 &lt;/ul&gt;
@@ -179,7 +169,8 @@
     <updated>2021-03-30T09:52:00.407Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;getResource&quot;&gt;&lt;a href=&quot;#getResource&quot; class=&quot;headerlink&quot; title=&quot;getResource&quot;&gt;&lt;/a&gt;&lt;code&gt;getResource&lt;/code&gt;&lt;/h1&gt;&lt;p&gt;&lt;code&gt;getResource&lt;/code&gt;读取的是 &lt;code&gt;out&lt;/code&gt; 下的文件,即 &lt;code&gt;classpath&lt;/code&gt;&lt;/p&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;getresource&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#getresource&quot;&gt;&lt;/a&gt; &lt;code&gt;getResource&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;getResource&lt;/code&gt;读取的是 &lt;code&gt;out&lt;/code&gt; 下的文件,即 &lt;code&gt;classpath&lt;/code&gt;&lt;/p&gt;</summary>
     
     
     
@@ -200,7 +191,8 @@
     <updated>2021-03-22T13:09:48.771Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;地球村&lt;/strong&gt;：现代科技缩小世界的时空距离&lt;/p&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;概述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#概述&quot;&gt;&lt;/a&gt; 概述&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;地球村&lt;/strong&gt;：现代科技缩小世界的时空距离&lt;/p&gt;</summary>
     
     
     
@@ -222,7 +214,8 @@
     
     
     <summary type="html">&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;BIOS界面的全部主要功能选项，重要的就那几条选项，其他不重要的无需过多了解。&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</summary>
+&lt;li&gt;
+&lt;p&gt;BIOS界面的全部主要功能选项，重要的就那几条选项，其他不重要的无需过多了解。&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</summary>
     
     
     
@@ -266,13 +259,16 @@
     <updated>2021-03-09T04:20:06.138Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;分辨需要设置的代理&quot;&gt;&lt;a href=&quot;#分辨需要设置的代理&quot; class=&quot;headerlink&quot; title=&quot;分辨需要设置的代理&quot;&gt;&lt;/a&gt;分辨需要设置的代理&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;HTTP&lt;/code&gt;形式：&lt;/p&gt;
+    <summary type="html">&lt;h1 id=&quot;分辨需要设置的代理&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#分辨需要设置的代理&quot;&gt;&lt;/a&gt; 分辨需要设置的代理&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;HTTP&lt;/code&gt;形式：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;code&gt;git clone https://github.com/user/test.git&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;SSH&lt;/code&gt;形式&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;SSH&lt;/code&gt;形式&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;code&gt;git clone git@github.com:user/test.git&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -315,7 +311,10 @@
     <updated>2021-03-20T10:22:55.927Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;GUI简介&quot;&gt;&lt;a href=&quot;#GUI简介&quot; class=&quot;headerlink&quot; title=&quot;GUI简介&quot;&gt;&lt;/a&gt;GUI简介&lt;/h1&gt;&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;GUI核心开发技术：Swing、AWT&lt;br&gt;不流行原因：&lt;/p&gt;
+    <summary type="html">&lt;h1 id=&quot;gui简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#gui简介&quot;&gt;&lt;/a&gt; GUI简介&lt;/h1&gt;
+&lt;h2 id=&quot;简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#简介&quot;&gt;&lt;/a&gt; 简介&lt;/h2&gt;
+&lt;p&gt;GUI核心开发技术：Swing、AWT&lt;br&gt;
+不流行原因：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;界面不美观&lt;/li&gt;
 &lt;li&gt;需要 &lt;code&gt;jre&lt;/code&gt; 环境&lt;/li&gt;
@@ -346,10 +345,12 @@
     <updated>2021-03-03T08:20:29.014Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;IO&quot;&gt;&lt;a href=&quot;#IO&quot; class=&quot;headerlink&quot; title=&quot;IO&quot;&gt;&lt;/a&gt;IO&lt;/h1&gt;&lt;p&gt;   IO是指Input/Output，即输入和输出。以内存为中心：&lt;/p&gt;
+    <summary type="html">&lt;h1 id=&quot;io&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#io&quot;&gt;&lt;/a&gt; IO&lt;/h1&gt;
+&lt;p&gt;IO是指Input/Output，即输入和输出。以内存为中心：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Input指从外部读入数据到内存，例如，把文件从磁盘读取到内存，从网络读取数据到内存等等。&lt;/li&gt;
-&lt;li&gt;Output指把数据从内存输出到外部，例如，把数据从内存写入到文件，把数据从内存输出到网络等等。&lt;/li&gt;&lt;/ul&gt;</summary>
+&lt;li&gt;Output指把数据从内存输出到外部，例如，把数据从内存写入到文件，把数据从内存输出到网络等等。&lt;/li&gt;
+&lt;/ul&gt;</summary>
     
     
     
@@ -370,10 +371,12 @@
     <updated>2021-03-09T13:21:06.591Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;length-length-size&quot;&gt;&lt;a href=&quot;#length-length-size&quot; class=&quot;headerlink&quot; title=&quot;length(), length, size()&quot;&gt;&lt;/a&gt;length(), length, size()&lt;/h1&gt;&lt;ul&gt;
+    <summary type="html">&lt;h1 id=&quot;length-length-size&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#length-length-size&quot;&gt;&lt;/a&gt; length(), length, size()&lt;/h1&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;length()&lt;/code&gt; 方法是针对字符串来说的，要求一个字符串的长度就要用到它的length()方法；&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;length&lt;/code&gt; 属性是针对 Java 中的数组来说的，要求数组的长度可以用其 length 属性；&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;size()&lt;/code&gt; 方法是针对泛型集合说的, 如果想看这个泛型有多少个元素, 就调用此方法来查看!&lt;/li&gt;&lt;/ul&gt;</summary>
+&lt;li&gt;&lt;code&gt;size()&lt;/code&gt; 方法是针对泛型集合说的, 如果想看这个泛型有多少个元素, 就调用此方法来查看!&lt;/li&gt;
+&lt;/ul&gt;</summary>
     
     
     
@@ -405,7 +408,8 @@
     <updated>2021-02-03T09:16:50.855Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h1&gt;&lt;blockquote&gt;
+    <summary type="html">&lt;h1 id=&quot;安装&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#安装&quot;&gt;&lt;/a&gt; 安装&lt;/h1&gt;
+&lt;blockquote&gt;
 &lt;p&gt;注意：解压压缩包到本地磁盘（解压目录不要有中文、空格）&lt;/p&gt;
 &lt;/blockquote&gt;</summary>
     
@@ -428,11 +432,14 @@
     <updated>2021-02-08T03:59:39.381Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;h2 id=&quot;Collection&quot;&gt;&lt;a href=&quot;#Collection&quot; class=&quot;headerlink&quot; title=&quot;Collection&quot;&gt;&lt;/a&gt;Collection&lt;/h2&gt;&lt;p&gt;   Java 标准库自带的 java.util 包提供了集合类：Collection，它是除 Map 外所有其他集合类的根接口。Java 的 java.util 包主要提供了以下三种类型的集合：&lt;/p&gt;
+    <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#简介&quot;&gt;&lt;/a&gt; 简介&lt;/h1&gt;
+&lt;h2 id=&quot;collection&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#collection&quot;&gt;&lt;/a&gt; Collection&lt;/h2&gt;
+&lt;p&gt;Java 标准库自带的 java.util 包提供了集合类：Collection，它是除 Map 外所有其他集合类的根接口。Java 的 java.util 包主要提供了以下三种类型的集合：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;List：一种有序列表的集合，例如，按索引排列的 Student 的 List；&lt;/li&gt;
 &lt;li&gt;Set：一种保证没有重复元素的集合，例如，所有无重复名称的 Student 的 Set；&lt;/li&gt;
-&lt;li&gt;Map：一种通过键值（key-value）查找的映射表集合，例如，根据 Student 的 name 查找对应 Student 的 Map。&lt;/li&gt;&lt;/ul&gt;</summary>
+&lt;li&gt;Map：一种通过键值（key-value）查找的映射表集合，例如，根据 Student 的 name 查找对应 Student 的 Map。&lt;/li&gt;
+&lt;/ul&gt;</summary>
     
     
     
@@ -453,10 +460,15 @@
     <updated>2021-01-18T03:21:24.475Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;   在讲解什么是泛型之前，我们先观察 Java 标准库提供的 &lt;code&gt;ArrayList&lt;/code&gt;，它可以看作 “可变长度” 的数组，因为用起来比数组更方便。&lt;br&gt;   实际上 &lt;code&gt;ArrayList&lt;/code&gt; 内部就是一个&lt;code&gt; Object[]&lt;/code&gt;数组，配合存储一个当前分配的长度，就可以充当“可变数组”：&lt;br&gt;   &lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;ArrayList&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; Object[] array;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; size;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(Object e)&lt;/span&gt; &lt;/span&gt;&amp;#123;...&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; index)&lt;/span&gt; &lt;/span&gt;&amp;#123;...&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; Object &lt;span class=&quot;title&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; index)&lt;/span&gt; &lt;/span&gt;&amp;#123;...&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;br&gt;   如果用上述 &lt;code&gt;ArrayList&lt;/code&gt; 存储 &lt;code&gt;String&lt;/code&gt; 类型，会有这么几个缺点：&lt;/p&gt;
+    <summary type="html">&lt;h1 id=&quot;概述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#概述&quot;&gt;&lt;/a&gt; 概述&lt;/h1&gt;
+&lt;p&gt;在讲解什么是泛型之前，我们先观察 Java 标准库提供的 &lt;code&gt;ArrayList&lt;/code&gt;，它可以看作 “可变长度” 的数组，因为用起来比数组更方便。&lt;br&gt;
+实际上 &lt;code&gt;ArrayList&lt;/code&gt; 内部就是一个&lt;code&gt;Object[]&lt;/code&gt;数组，配合存储一个当前分配的长度，就可以充当“可变数组”：&lt;/p&gt;
+   &lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;ArrayList&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; Object[] array;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; size;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(Object e)&lt;/span&gt; &lt;/span&gt;&amp;#123;...&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;remove&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; index)&lt;/span&gt; &lt;/span&gt;&amp;#123;...&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; Object &lt;span class=&quot;title&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; index)&lt;/span&gt; &lt;/span&gt;&amp;#123;...&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如果用上述 &lt;code&gt;ArrayList&lt;/code&gt; 存储 &lt;code&gt;String&lt;/code&gt; 类型，会有这么几个缺点：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;需要强制转型；&lt;/li&gt;
-&lt;li&gt;不方便，易出错。&lt;/li&gt;&lt;/ul&gt;</summary>
+&lt;li&gt;不方便，易出错。&lt;/li&gt;
+&lt;/ul&gt;</summary>
     
     
     
@@ -477,7 +489,10 @@
     <updated>2021-01-15T07:07:29.836Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;Java-的异常&quot;&gt;&lt;a href=&quot;#Java-的异常&quot; class=&quot;headerlink&quot; title=&quot;Java 的异常&quot;&gt;&lt;/a&gt;Java 的异常&lt;/h1&gt;&lt;p&gt;   在语言层面上提供一个异常处理机制。&lt;br&gt;   Java 内置了一套异常处理机制，总是使用异常来表示错误。&lt;br&gt;   异常是一种 class，因此它本身带有类型信息。异常可以在任何地方抛出，但只需要在上层捕获，这样就和方法调用分离了：&lt;br&gt;&lt;/p&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;java-的异常&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#java-的异常&quot;&gt;&lt;/a&gt; Java 的异常&lt;/h1&gt;
+&lt;p&gt;在语言层面上提供一个异常处理机制。&lt;br&gt;
+Java 内置了一套异常处理机制，总是使用异常来表示错误。&lt;br&gt;
+异常是一种 class，因此它本身带有类型信息。异常可以在任何地方抛出，但只需要在上层捕获，这样就和方法调用分离了：&lt;/p&gt;</summary>
     
     
     
@@ -485,6 +500,33 @@
     
     
     <category term="Java" scheme="https://qeuroal.top/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>122. idea插件</title>
+    <link href="https://qeuroal.top/2021/01/13/122/"/>
+    <id>https://qeuroal.top/2021/01/13/122/</id>
+    <published>2021-01-13T06:07:22.000Z</published>
+    <updated>2021-01-13T07:57:59.662Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;插件列表&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#插件列表&quot;&gt;&lt;/a&gt; 插件列表&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;- 来源: 插件名&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;alibaba: Alibaba Java Coding Guidelines&lt;/li&gt;
+&lt;li&gt;Kite: Kite AI Code AutoComplete Python, Java Javascript, HTML/CSS, Go, C/C#/C++&lt;/li&gt;
+&lt;li&gt;izhangzhihao: Rainbow Brackets&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="软件" scheme="https://qeuroal.top/categories/%E8%BD%AF%E4%BB%B6/"/>
+    
+    
+    <category term="idea" scheme="https://qeuroal.top/tags/idea/"/>
     
   </entry>
   
