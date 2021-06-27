@@ -6,7 +6,7 @@
   <link href="https://qeuroal.top/atom.xml" rel="self"/>
   
   <link href="https://qeuroal.top/"/>
-  <updated>2021-05-20T10:48:32.616Z</updated>
+  <updated>2021-06-27T14:33:30.068Z</updated>
   <id>https://qeuroal.top/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>142. Linux</title>
+    <link href="https://qeuroal.top/2021/05/28/142/"/>
+    <id>https://qeuroal.top/2021/05/28/142/</id>
+    <published>2021-05-28T10:44:21.000Z</published>
+    <updated>2021-06-27T14:33:30.068Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;入门概述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#入门概述&quot;&gt;&lt;/a&gt; 入门概述&lt;/h1&gt;
+&lt;h2 id=&quot;我们为什么要学习linux&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#我们为什么要学习linux&quot;&gt;&lt;/a&gt; 我们为什么要学习Linux&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;linux&lt;/code&gt;诞生了这么多年，以前还喊着如何能取代&lt;code&gt;windows&lt;/code&gt;系统，现在这个口号已经小多了，任何事物发展都有其局限性都有其天花板。就如同在国内再搞一个社交软件取代腾讯一样，想想而已基本不可能，因为用户已经习惯于使用微信交流，不是说技术上实现不了解而是老百姓已经习惯了，想让他们不用，即使他们自己不用亲戚朋友还是要用，没有办法的事情。&lt;/p&gt;
+&lt;p&gt;用习惯了windows操作系统，再让大家切换到别的操作系统基本上是不可能的事情，改变一个人已经养成的习惯太难。没有办法深入到普通老百姓的生活中，并不意味着&lt;code&gt;linux&lt;/code&gt;就没有用武之地了。在服务器端，在开发领域&lt;code&gt;linux&lt;/code&gt;倒是越来越受欢迎，很多程序员都觉得不懂点&lt;code&gt;linux&lt;/code&gt;都觉得不好意思，&lt;code&gt;linux&lt;/code&gt;在开源社区的地位依然岿然不动。&lt;/p&gt;
+&lt;p&gt;尤其是作为一个后端程序员，是必须要掌握Linux的，因为这都成为了你找工作的基础门槛了，所以不得不学习！&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://qeuroal.top/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://qeuroal.top/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>141. C++</title>
@@ -500,33 +523,6 @@ Java 内置了一套异常处理机制，总是使用异常来表示错误。&lt
     
     
     <category term="Java" scheme="https://qeuroal.top/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>122. idea插件</title>
-    <link href="https://qeuroal.top/2021/01/13/122/"/>
-    <id>https://qeuroal.top/2021/01/13/122/</id>
-    <published>2021-01-13T06:07:22.000Z</published>
-    <updated>2021-01-13T07:57:59.662Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;插件列表&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#插件列表&quot;&gt;&lt;/a&gt; 插件列表&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;- 来源: 插件名&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;alibaba: Alibaba Java Coding Guidelines&lt;/li&gt;
-&lt;li&gt;Kite: Kite AI Code AutoComplete Python, Java Javascript, HTML/CSS, Go, C/C#/C++&lt;/li&gt;
-&lt;li&gt;izhangzhihao: Rainbow Brackets&lt;/li&gt;
-&lt;/ul&gt;</summary>
-    
-    
-    
-    <category term="软件" scheme="https://qeuroal.top/categories/%E8%BD%AF%E4%BB%B6/"/>
-    
-    
-    <category term="idea" scheme="https://qeuroal.top/tags/idea/"/>
     
   </entry>
   
