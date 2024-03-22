@@ -31,11 +31,11 @@
 <meta property="og:image" content="http://qeuroal.top/2024/03/21/203/image-20240322202009950.png">
 <meta property="og:image" content="http://qeuroal.top/2024/03/21/203/image-20240322202207124.png">
 <meta property="og:image" content="http://qeuroal.top/2024/03/21/203/image-20240322202257396.png">
-<meta property="og:image" content="http://qeuroal.top/2024/03/21/203/image-20240321134641377.png">
-<meta property="og:image" content="http://qeuroal.top/2024/03/21/203/image-20240321153113316.png">
+<meta property="og:image" content="http://qeuroal.top/2024/03/21/203/image-20240322215818564.png">
+<meta property="og:image" content="http://qeuroal.top/2024/03/21/203/image-20240322220834475.png">
 <meta property="og:image" content="http://qeuroal.top/2024/03/21/203/image-20240321154608517.png">
 <meta property="article:published_time" content="2024-03-21T05:00:00.000Z">
-<meta property="article:modified_time" content="2024-03-22T12:32:08.208Z">
+<meta property="article:modified_time" content="2024-03-22T14:08:42.241Z">
 <meta property="article:author" content="Qeuroal">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="kernel">
@@ -244,7 +244,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-22 20:32:08" itemprop="dateModified" datetime="2024-03-22T20:32:08+08:00">2024-03-22</time>
+      <time title="修改时间：2024-03-22 22:08:42" itemprop="dateModified" datetime="2024-03-22T22:08:42+08:00">2024-03-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -332,7 +332,7 @@
 <li><p><code>-S size,count</code>: 限制输出文件的大小(单位MB)和最大的文件数。这个选项会实现一个回滚机制的日志输出，日志文件名会加一个序列号的后缀。</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stap -o outfile.log -S 1,2 isprime_test.stp</span><br></pre></td></tr></table></figure>
 
- <img data-src="/2024/03/21/203/image-20240321134641377.png" class="" title="image-20240321134641377">
+ <img data-src="/2024/03/21/203/image-20240322215818564.png" class="" title="image-20240322215818564">
 </li>
 <li><p><code>-F</code>: 使用SystemTap的长期记录模式，脚本后台执行。</p>
 </li>
@@ -368,10 +368,10 @@
 <li><code>kernel.function(pattern).call</code>: 内核函数的调用入口处放置探测点，获取对应函数信息</li>
 <li><code>kernel.fuction(pattern).inline</code>: 获取符合条件的内联函数</li>
 <li><code>kernel.function(pattern).exported</code>: 只选择导出的函数</li>
-<li><code>module(moduname).fuction(pattern)</code>: 在模块modulename中调用的函数入口处放置探测点</li>
-<li><code>module(moduname).fuction(pattern).return</code>: 在模块module中调用的函数返回时放置探测点</li>
-<li><code>module(moduname).fuction(pattern).call</code>: 在模块modulename中调用的函数入口处放置探测点</li>
-<li><code>module(moduname).fuction(pattern).inline</code>: 在模块modulename中调用的内联函数处放置探测点</li>
+<li><code>module(modulename).fuction(pattern)</code>: 在模块modulename中调用的函数入口处放置探测点</li>
+<li><code>module(modulename).fuction(pattern).return</code>: 在模块module中调用的函数返回时放置探测点</li>
+<li><code>module(modulename).fuction(pattern).call</code>: 在模块modulename中调用的函数入口处放置探测点</li>
+<li><code>module(modulename).fuction(pattern).inline</code>: 在模块modulename中调用的内联函数处放置探测点</li>
 <li><code>kernel.statement(pattern)</code>: 在内核中的某个地址处增加探针（函数、文件行号）</li>
 <li><code>kernel.statement(pattern).absolute</code>: 在内核中的某个地址处增加探针（函数、文件行号），精确匹配地址</li>
 <li><code>module(modulename).statement(pattern)</code>: 在内核模块中的某个地址处增加探针（函数、文件行号）</li>
@@ -386,47 +386,47 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>begin</td>
+<td><code>begin</code></td>
 <td>脚本开始时触发</td>
 </tr>
 <tr>
-<td>end</td>
+<td><code>end</code></td>
 <td>脚本结束时触发</td>
 </tr>
 <tr>
-<td>kernel.function(“sys_read”)</td>
-<td>调用sys_read时触发</td>
+<td><code>kernel.function(&quot;sys_read&quot;)</code></td>
+<td>调用<code>sys_read</code>时触发</td>
 </tr>
 <tr>
-<td>kernel.function(“sys_read”).call</td>
+<td><code>kernel.function(&quot;sys_read&quot;).call</code></td>
 <td>同上</td>
 </tr>
 <tr>
-<td>kernel.function(“sys_read”).return</td>
-<td>sys_read执行完，返回时触发</td>
+<td><code>kernel.function(&quot;sys_read&quot;).return</code></td>
+<td><code>sys_read</code>执行完，返回时触发</td>
 </tr>
 <tr>
-<td>kernel.syscall.*</td>
+<td><code>kernel.syscall.*</code></td>
 <td>调用任何系统调用时触发</td>
 </tr>
 <tr>
-<td>kernel.function(“*@kernel&#x2F;fork.c:934”)</td>
-<td>执行到fork.c的934行时触发</td>
+<td><code>kernel.function(&quot;*@kernel/fork.c:934&quot;)</code></td>
+<td>执行到 fork.c 的934行时触发</td>
 </tr>
 <tr>
-<td>module(“ext3”).function(“ext3_file_write”)</td>
-<td>调用ext3模块中的ext3_file_write时触发</td>
+<td><code>module(“ext3”).function(“ext3_file_write”)</code></td>
+<td>调用ext3模块中的<code>ext3_file_write</code>时触发</td>
 </tr>
 <tr>
-<td>timer.jiffies(1000)</td>
-<td>每隔1000个内核jiffy时触发一次</td>
+<td><code>timer.jiffies(1000)</code></td>
+<td>每隔1000个内核<code>jiffy</code>时触发一次</td>
 </tr>
 <tr>
-<td>timer.ms()</td>
+<td><code>timer.ms()</code></td>
 <td></td>
 </tr>
 <tr>
-<td>timer.s()</td>
+<td><code>timer.s()</code></td>
 <td></td>
 </tr>
 </tbody></table>
@@ -434,8 +434,8 @@
 </ul>
 <p>Systemtap包含了一个黑名单，其中列出的函数不能被Systemtap探测，因为它们会导致无限探测循环、锁重入等问题</p>
 <p>所有的脚本内容在转换时进行严格的检查，并且在运行时也要检查（如无限循环、内存使用、递归和无效指针等）</p>
-<p>Systemtap 脚本文件是.stp后缀的文件</p>
-<p>tapsets 是一个脚本库，包含了许多 tapset，每一个 tapset 一般为某一内核子系统或特定的功能块预定义了一套探测点、辅助函数或全局变量供用户脚本或其它的 tapset 引用，它定义的一些数据能够被每一个探测点处理函数或脚本使用</p>
+<p>Systemtap 脚本文件是<code>.stp</code>后缀的文件</p>
+<p><strong>tapsets</strong> 是一个脚本库，包含了许多 tapset，每一个 tapset 一般为某一内核子系统或特定的功能块预定义了一套探测点、辅助函数或全局变量供用户脚本或其它的 tapset 引用，它定义的一些数据能够被每一个探测点处理函数或脚本使用</p>
 <ul>
 <li><p>API函数</p>
 <table>
@@ -544,12 +544,12 @@
 
 <h2 id="查看文件能够添加探针的位置-对比源代码"><a href="#查看文件能够添加探针的位置-对比源代码" class="headerlink" title="查看文件能够添加探针的位置(对比源代码)"></a>查看文件能够添加探针的位置(对比源代码)</h2><figure class="highlight stp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stap -L <span class="string">&#x27;kernel.statement(&quot;*@fs/statfs.c&quot;)&#x27;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="打印函数参数"><a href="#打印函数参数" class="headerlink" title="打印函数参数"></a>打印函数参数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/stap</span><br><span class="line"></span><br><span class="line">probe begin &#123;</span><br><span class="line">    printf(&quot;begin to probe\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">probe kernel.function(&quot;vfs_statfs&quot;) &#123; //在调用vfs_statfs处添加探针</span><br><span class="line">    printf(&quot;%s %d\n&quot;, execname(),pid());//打印调用vfs_statfs函数的进程名称以及进程号</span><br><span class="line">    printf(&quot;path : %s buf : %s\n&quot;,$path-&gt;mnt-&gt;mnt_root-&gt;d_iname$,$buf$); //打印path参数的结构体成员，以及整个buf结构体</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">probe end &#123;</span><br><span class="line">	printf(&quot;end to probe\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="打印函数参数"><a href="#打印函数参数" class="headerlink" title="打印函数参数"></a>打印函数参数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/stap</span><br><span class="line"></span><br><span class="line">probe begin &#123;</span><br><span class="line">    printf(&quot;begin to probe\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//在调用vfs_statfs处添加探针</span><br><span class="line">probe kernel.function(&quot;vfs_statfs&quot;) &#123;</span><br><span class="line">    //打印调用vfs_statfs函数的进程名称以及进程号</span><br><span class="line">    printf(&quot;%s %d\n&quot;, execname(),pid());</span><br><span class="line">    //打印path参数的结构体成员，以及整个buf结构体</span><br><span class="line">    printf(&quot;path : %s buf : %s\n&quot;,$path-&gt;mnt-&gt;mnt_root-&gt;d_iname$,$buf$);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">probe end &#123;</span><br><span class="line">	printf(&quot;end to probe\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="打印函数局部变量"><a href="#打印函数局部变量" class="headerlink" title="打印函数局部变量"></a>打印函数局部变量</h2><h3 id="函数实现"><a href="#函数实现" class="headerlink" title="函数实现"></a>函数实现</h3><img data-src="/2024/03/21/203/image-20240321153113316.png" class="" title="image-20240321153113316">
+<h2 id="打印函数局部变量"><a href="#打印函数局部变量" class="headerlink" title="打印函数局部变量"></a>打印函数局部变量</h2><h3 id="函数实现"><a href="#函数实现" class="headerlink" title="函数实现"></a>函数实现</h3><img data-src="/2024/03/21/203/image-20240322220834475.png" class="" title="image-20240322220834475">
 
 <h3 id="查看结果"><a href="#查看结果" class="headerlink" title="查看结果"></a>查看结果</h3><p>查看error在函数statfs_by_dentry执行完成之后的结果，那么就在下一行处添加探针</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/stap</span><br><span class="line"></span><br><span class="line">probe begin &#123;</span><br><span class="line">    printf(&quot;begin to probe&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">probe kernel.statement(&quot;vfs_statfs@fs/statfs.c:75&quot;) &#123;//探测statfs.c中的第75行</span><br><span class="line">    printf(&quot;%s %d\n&quot;, execname(),pid());</span><br><span class="line">    printf(&quot;error number is %d\n&quot;,$error);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">probe timer.s(10) #100ms later</span><br><span class="line">&#123;</span><br><span class="line">    log(&quot;probe exit&quot;)</span><br><span class="line">    exit()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">probe end &#123;</span><br><span class="line">    printf(&quot;end to probe&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/stap</span><br><span class="line"></span><br><span class="line">probe begin &#123;</span><br><span class="line">    printf(&quot;begin to probe&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//探测statfs.c中的第75行</span><br><span class="line">probe kernel.statement(&quot;vfs_statfs@fs/statfs.c:75&quot;) &#123;</span><br><span class="line">    printf(&quot;%s %d\n&quot;, execname(),pid());</span><br><span class="line">    printf(&quot;error number is %d\n&quot;,$error);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">probe timer.s(10) #100ms later</span><br><span class="line">&#123;</span><br><span class="line">    log(&quot;probe exit&quot;)</span><br><span class="line">    exit()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">probe end &#123;</span><br><span class="line">    printf(&quot;end to probe&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="修改函数局部变量-慎重"><a href="#修改函数局部变量-慎重" class="headerlink" title="修改函数局部变量(慎重)"></a>修改函数局部变量(慎重)</h2><h3 id="将上一个打印的变量的值从0-更改为其他的数值"><a href="#将上一个打印的变量的值从0-更改为其他的数值" class="headerlink" title="将上一个打印的变量的值从0 更改为其他的数值"></a>将上一个打印的变量的值从0 更改为其他的数值</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/stap</span><br><span class="line"></span><br><span class="line">probe begin &#123;</span><br><span class="line">    printf(&quot;begin to probe&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">probe kernel.statement(&quot;vfs_statfs@fs/statfs.c:73&quot;) &#123;</span><br><span class="line">    printf(&quot;%s %d\n&quot;, execname(),pid());</span><br><span class="line">    printf(&quot;error number before modify is %d\n&quot;,$error);</span><br><span class="line">    $error=$1; //传入的第一个参数</span><br><span class="line">    printf(&quot;error number after modify is %d\n&quot;,$error);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">probe end &#123;</span><br><span class="line">    printf(&quot;end to probe&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
