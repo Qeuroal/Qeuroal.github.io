@@ -153,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">143</span>
+          <span class="site-state-item-count">144</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -186,6 +186,172 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/03/25/97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/03/25/97/" class="post-title-link" itemprop="url">97. 双系统安装之后必做的事</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-25 04:00:00" itemprop="dateCreated datePublished" datetime="2020-03-25T04:00:00+08:00">2020-03-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-03-07 08:23:10" itemprop="dateModified" datetime="2024-03-07T08:23:10+08:00">2024-03-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/os/" itemprop="url" rel="index"><span itemprop="name">os</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="双系统时间不一致"><a href="#双系统时间不一致" class="headerlink" title="双系统时间不一致"></a>双系统时间不一致</h1><ol>
+<li><p>首先我们把硬件时间（BIOS时间）将默认的UTC改为CST，然后重启，使得两个系统的时间保持一致</p>
+<ol>
+<li>上述代码中的1改为0即可将硬件时间修改为默认的UTC时间: <code>sudo timedatectl set-local-rtc 1</code></li>
+<li>重启系统使改动生效: <code>sudo reboot</code></li>
+</ol>
+</li>
+<li><p>接着我们更新一下系统时间</p>
+<ol>
+<li>这里的操作是安装ntpdate工具: <code>sudo apt-get install ntpdate</code></li>
+<li>使用ntpdate工具从time.windows.com上面同步时间: <code>sudo ntpdate time.windows.com</code></li>
+</ol>
+</li>
+<li><p>最后我们将时间更新到硬件上，以保证重启后改动不会被还原</p>
+<p>这里的代码意思是使用hwclock命令将本地时间localtime从sysclock同步到hwclock: <code>sudo hwclock --localtime --systohc</code></p>
+</li>
+</ol>
+<h1 id="Ubuntu-科学上网"><a href="#Ubuntu-科学上网" class="headerlink" title="Ubuntu 科学上网"></a>Ubuntu 科学上网</h1><ol>
+<li><a href="/files/ssr-linux.AppImage">点击这里下载AppImage</a> </li>
+<li><a href="/files/electron-ssr-0.2.6.deb">点击这里下载deb</a></li>
+</ol>
+<blockquote>
+<p>注意：必须要安装 Python2、Python3，才可以使用<br>deb安装： <code>sudo dpkg -i &lt;deb文件&gt;</code></p>
+</blockquote>
+<h1 id="Windows-Defender关闭"><a href="#Windows-Defender关闭" class="headerlink" title="Windows Defender关闭"></a>Windows Defender关闭</h1><ol>
+<li><code>cmd</code> 运行 <code>regedit</code></li>
+<li>定位到： <code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SecurityHealthService</code></li>
+<li>在右侧找到 <code>DWORD（32位）</code> 值，名为 <code>Start</code></li>
+<li>修改数值数据为4(十六进制)</li>
+<li>重启文件资源管理器，或注销再登录&#x2F;重启系统</li>
+</ol>
+<blockquote>
+<p>注意:</p>
+<ol>
+<li>如果你安装第三方杀软或安全软件，Windows Defender会自动被关闭。</li>
+<li>start的默认值为 <code>3</code></li>
+</ol>
+</blockquote>
+<h1 id="Ubuntu-安装字体"><a href="#Ubuntu-安装字体" class="headerlink" title="Ubuntu 安装字体"></a>Ubuntu 安装字体</h1><blockquote>
+<p>详见<a href="2020-1-7-85.md">Ubuntu配置Win10字体</a></p>
+</blockquote>
+<h1 id="Ubuntu-安装zsh"><a href="#Ubuntu-安装zsh" class="headerlink" title="Ubuntu 安装zsh"></a>Ubuntu 安装zsh</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/Jinxiaoyu886/article/details/88974811">git、vim、oh-my-zsh 的安装和配置</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/1df9df37ef34">Linux 安装 oh-my-zsh</a></li>
+</ol>
+<h1 id="Ubuntu不能访问Windows下的磁盘"><a href="#Ubuntu不能访问Windows下的磁盘" class="headerlink" title="Ubuntu不能访问Windows下的磁盘"></a>Ubuntu不能访问Windows下的磁盘</h1><ol>
+<li>控制面板—系统和安全—电源选项—选择电源按钮的功能</li>
+<li>首先点击上部分的 <code>更改当前不可用的设置</code></li>
+<li>然后去掉 <code>启用快速启动（推荐）</code> 前面的勾即可</li>
+<li>这个时候再选择Windows关机后，就是完全关机了</li>
+</ol>
+<h1 id="不能读取exfat格式的u盘问题"><a href="#不能读取exfat格式的u盘问题" class="headerlink" title="不能读取exfat格式的u盘问题"></a>不能读取exfat格式的u盘问题</h1><ol>
+<li>Ubuntu默认不支持exfat格式的U盘，只需要运行如下的命令：<code>sudo apt-get install exfat-utils</code></li>
+<li>安装完成后重启即可</li>
+</ol>
+<h1 id="不能挂载移动硬盘问题"><a href="#不能挂载移动硬盘问题" class="headerlink" title="不能挂载移动硬盘问题"></a>不能挂载移动硬盘问题</h1><ol>
+<li>在终端输入如下命令，查看分区挂载情况： <code>sudo fdisk -l</code></li>
+<li>输入下面的命令： <code>sudo ntfsfix /dev/sdb1</code><blockquote>
+<p>注意：&#x2F;dev&#x2F;sdb1 为移动硬盘的设备名，找到硬盘size对应的设备名</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="Ubuntu-查找文件"><a href="#Ubuntu-查找文件" class="headerlink" title="Ubuntu 查找文件"></a>Ubuntu 查找文件</h1><ol>
+<li>命令：<code>locate &lt;文件名&gt;</code></li>
+<li>网址：<a target="_blank" rel="noopener" href="https://blog.csdn.net/dcrmg/article/details/78000961">在ubuntu中搜索文件或文件夹的方法</a></li>
+</ol>
+<h1 id="Ubuntu-更新慢"><a href="#Ubuntu-更新慢" class="headerlink" title="Ubuntu 更新慢"></a>Ubuntu 更新慢</h1><ol>
+<li><p>步骤:</p>
+<ol>
+<li>选择 <code>软件和更新</code></li>
+<li>打开 <code>软件和更新窗口</code></li>
+<li>我们点击 <code>Ubuntu软件</code> 选项卡下的 <code>其他站点</code></li>
+<li>这里有好多国外的源及我们国内的源，我也试了不少，我目前使用的是aliyun的源，感觉速度还不错，其他国内的速度也都不可以，大家也可以试试。不要怕麻烦，就是要折腾</li>
+<li>我们选择 <code>mirrors.aliyun.com</code>，然后点击 选择服务器</li>
+<li>同样需要我们密码认证</li>
+<li>修改成功</li>
+<li>等待系统更新完毕,源更新成功后，会自动关闭窗口。此时，我们安装软件或更新软件（系统）就是用的我们选择的源啦。</li>
+</ol>
+</li>
+<li><p>网址：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_22122811/article/details/52741428">Ubuntu加快软件安装更新速度方法</a></p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1541,155 +1707,6 @@
 </li>
 </ol>
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/9384af4896f3">参考网址</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2019/12/02/78/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/12/02/78/" class="post-title-link" itemprop="url">78. JDK下载、安装及配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-12-02 12:28:06" itemprop="dateCreated datePublished" datetime="2019-12-02T12:28:06+08:00">2019-12-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-29 08:58:34" itemprop="dateModified" datetime="2023-11-29T08:58:34+08:00">2023-11-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="win10"><a href="#win10" class="headerlink" title="win10"></a>win10</h1><ol>
-<li><p>下载地址：<code>https://www.oracle.com/java/technologies/javase-downloads.html</code></p>
-</li>
-<li><p>选择 <code>Java SE 8</code> - <code>Oracle JDK</code> - <code>JDK Download</code></p>
-</li>
-<li><p>双击打开jdk，如： <code>jdk-8u202-windows-x64.exe</code></p>
-</li>
-<li><p>安装完JDK后配置环境变量。右击“计算机”。点击“属性”</p>
-</li>
-<li><p>点击“高级系统设置”</p>
-</li>
-<li><p>点击“高级”，再点击“环境变量”。</p>
-</li>
-<li><p>点击“新建”。变量名输入<code>JAVA_HOME</code>，变量值输入安装路径。<code>D:\Java\jdk1.8.0_202\</code></p>
-</li>
-<li><p>点击“新建”。变量名输入 <code>CLASSPATH</code> ，变量值输入 <code>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar</code> </p>
-<blockquote>
-<p>注意前面有一个 <code>.</code> 千万不要忘了。</p>
-</blockquote>
-</li>
-<li><p>在系统变量中找到“Path”,点击“编辑”</p>
-<ul>
-<li>(Error): 变量值输入<code>%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;</code> （这个是不行的，<code>javac</code> 用不了）</li>
-<li>(Success): <code>D:\Java\jdk1.8.0_202\bin;D:\Java\jdk1.8.0_202\bin\jre\bin;</code> （分不分开都可以，只要是绝对路径即可，并且在前在后应该无关，如果 <code>javac</code> 用不了，那么就把这两个移到最前端即可）</li>
-</ul>
-</li>
-</ol>
-<h1 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h1><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/downloads/#java8-mac">Java Downloads | Oracle</a></p>
-<h2 id="安装JDK1-8"><a href="#安装JDK1-8" class="headerlink" title="安装JDK1.8"></a>安装JDK1.8</h2><p>下载的安装包jdk-8u281-macosx-x64.dmg、双击<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=pkg&spm=1001.2101.3001.7020">pkg</a>，按提示流程安装：</p>
-<h2 id="确定jdk安装完整"><a href="#确定jdk安装完整" class="headerlink" title="确定jdk安装完整"></a>确定jdk安装完整</h2><p>按照完成以后、我们可以查看JDK的安装路径、在资源库&#x2F;Library下面会出现一个Java的文件夹、目录层级如下：<code>/Library/Java/JavaVirtualMachines/jdk1.8.0_281.jdk</code></p>
-<ol>
-<li><p>打开终端</p>
-</li>
-<li><p>如果想要配置 jdk，那么我们需要知道 jdk 的安装目录，与 WIN 系统有很大的不同，我们在 MAC 中想要查看 jdk 的安装路径需要在终端执行以下的命令行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/libexec/java_home -V</span><br></pre></td></tr></table></figure>
-
-<img data-src="/2019/12/02/78/image-20230602111018751.png" class="" title="image-20230602111018751">
-
-<p>如图所示：带有 &#x3D;&#x3D;Java SE 8&#x3D;&#x3D; 和 &#x3D;&#x3D;jdk1.8.jdk&#x3D;&#x3D; 的这一行信息是最重要的，可以将这段信息复制下来，后面需要使用！</p>
-</li>
-<li><p>查看 Java 版本：<code>java -version</code></p>
-</li>
-</ol>
-<h2 id="配置JDK的系统环境变量"><a href="#配置JDK的系统环境变量" class="headerlink" title="配置JDK的系统环境变量"></a>配置JDK的系统环境变量</h2><p>在配置环境变量之前，我本人遇到一种情况就是：安装了jdk安装包之后，就可以直接在终端里面使用java -version 和java以及javac的命令。也就是说不需要配置jdk的环境变量也可以直接使用。后面我查了一些资料，我本人的理解是：在MAC系统中，jdk会默认安装到“用户”的目录下，当我们打开终端的时候会直接扫描用户，所以可以直接执行上面的三个命令。</p>
-<p>但是无论是否可以直接使用java命令，我个人都建议配置jdk，具体的流程如下：</p>
-<ol>
-<li><p><code>vim ~/.zshrc</code> 在末尾添加如下代码:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home</span><br><span class="line">export CLASSpATH=$&#123;JAVA_HOME&#125;/lib</span><br><span class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$&#123;PATH&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意：java_HOME&#x3D;后面填入的信息就是“之前我们复制的那段重要信息”（即jdk的安装目录），其余的配置信息不变与我相同就可以。（一定要注意保存文件）</p>
-</li>
-<li><p><code>source ~/.zshrc</code></p>
-</li>
-<li><p>在终端输入 <code>echo $JAVA_HOME</code>，如果配置成功则会显示刚刚配置的 JAVA_HOME 路径信息。（echo后面有空格），也可以直接使用 <code>vim ~/.zshrc</code> 来查看环境变量的信息。如图：</p>
-<img data-src="/2019/12/02/78/image-20230602111552331.png" class="" title="image-20230602111552331">
-</li>
-<li><p>查看java版本：<code>java -version</code></p>
-<img data-src="/2019/12/02/78/image-20230602111621567.png" class="" title="image-20230602111621567">
-</li>
-<li><p>javac的命令来检验是否配置成功</p>
-<p><strong>Note</strong>：系统会输出 javac 的帮助信息。如果成功，说明已经成功配置了JDK , 否则需要仔细检查上面的步骤的配置是否正确。</p>
-<img data-src="/2019/12/02/78/image-20230602111708456.png" class="" title="image-20230602111708456"></li>
-</ol>
-<h1 id="jdk-文档"><a href="#jdk-文档" class="headerlink" title="jdk 文档"></a>jdk 文档</h1><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/">jdk8</a></p>
-<p>点击 Java 文档页面的“Tree”按钮,页面会显示 Java 中所有的类供你查询</p>
 
       
     </div>

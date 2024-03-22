@@ -153,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">143</span>
+          <span class="site-state-item-count">144</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -186,6 +186,155 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2019/12/02/78/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/12/02/78/" class="post-title-link" itemprop="url">78. JDK下载、安装及配置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-12-02 12:28:06" itemprop="dateCreated datePublished" datetime="2019-12-02T12:28:06+08:00">2019-12-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-29 08:58:34" itemprop="dateModified" datetime="2023-11-29T08:58:34+08:00">2023-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="win10"><a href="#win10" class="headerlink" title="win10"></a>win10</h1><ol>
+<li><p>下载地址：<code>https://www.oracle.com/java/technologies/javase-downloads.html</code></p>
+</li>
+<li><p>选择 <code>Java SE 8</code> - <code>Oracle JDK</code> - <code>JDK Download</code></p>
+</li>
+<li><p>双击打开jdk，如： <code>jdk-8u202-windows-x64.exe</code></p>
+</li>
+<li><p>安装完JDK后配置环境变量。右击“计算机”。点击“属性”</p>
+</li>
+<li><p>点击“高级系统设置”</p>
+</li>
+<li><p>点击“高级”，再点击“环境变量”。</p>
+</li>
+<li><p>点击“新建”。变量名输入<code>JAVA_HOME</code>，变量值输入安装路径。<code>D:\Java\jdk1.8.0_202\</code></p>
+</li>
+<li><p>点击“新建”。变量名输入 <code>CLASSPATH</code> ，变量值输入 <code>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar</code> </p>
+<blockquote>
+<p>注意前面有一个 <code>.</code> 千万不要忘了。</p>
+</blockquote>
+</li>
+<li><p>在系统变量中找到“Path”,点击“编辑”</p>
+<ul>
+<li>(Error): 变量值输入<code>%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;</code> （这个是不行的，<code>javac</code> 用不了）</li>
+<li>(Success): <code>D:\Java\jdk1.8.0_202\bin;D:\Java\jdk1.8.0_202\bin\jre\bin;</code> （分不分开都可以，只要是绝对路径即可，并且在前在后应该无关，如果 <code>javac</code> 用不了，那么就把这两个移到最前端即可）</li>
+</ul>
+</li>
+</ol>
+<h1 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h1><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/downloads/#java8-mac">Java Downloads | Oracle</a></p>
+<h2 id="安装JDK1-8"><a href="#安装JDK1-8" class="headerlink" title="安装JDK1.8"></a>安装JDK1.8</h2><p>下载的安装包jdk-8u281-macosx-x64.dmg、双击<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=pkg&spm=1001.2101.3001.7020">pkg</a>，按提示流程安装：</p>
+<h2 id="确定jdk安装完整"><a href="#确定jdk安装完整" class="headerlink" title="确定jdk安装完整"></a>确定jdk安装完整</h2><p>按照完成以后、我们可以查看JDK的安装路径、在资源库&#x2F;Library下面会出现一个Java的文件夹、目录层级如下：<code>/Library/Java/JavaVirtualMachines/jdk1.8.0_281.jdk</code></p>
+<ol>
+<li><p>打开终端</p>
+</li>
+<li><p>如果想要配置 jdk，那么我们需要知道 jdk 的安装目录，与 WIN 系统有很大的不同，我们在 MAC 中想要查看 jdk 的安装路径需要在终端执行以下的命令行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/libexec/java_home -V</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2019/12/02/78/image-20230602111018751.png" class="" title="image-20230602111018751">
+
+<p>如图所示：带有 &#x3D;&#x3D;Java SE 8&#x3D;&#x3D; 和 &#x3D;&#x3D;jdk1.8.jdk&#x3D;&#x3D; 的这一行信息是最重要的，可以将这段信息复制下来，后面需要使用！</p>
+</li>
+<li><p>查看 Java 版本：<code>java -version</code></p>
+</li>
+</ol>
+<h2 id="配置JDK的系统环境变量"><a href="#配置JDK的系统环境变量" class="headerlink" title="配置JDK的系统环境变量"></a>配置JDK的系统环境变量</h2><p>在配置环境变量之前，我本人遇到一种情况就是：安装了jdk安装包之后，就可以直接在终端里面使用java -version 和java以及javac的命令。也就是说不需要配置jdk的环境变量也可以直接使用。后面我查了一些资料，我本人的理解是：在MAC系统中，jdk会默认安装到“用户”的目录下，当我们打开终端的时候会直接扫描用户，所以可以直接执行上面的三个命令。</p>
+<p>但是无论是否可以直接使用java命令，我个人都建议配置jdk，具体的流程如下：</p>
+<ol>
+<li><p><code>vim ~/.zshrc</code> 在末尾添加如下代码:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home</span><br><span class="line">export CLASSpATH=$&#123;JAVA_HOME&#125;/lib</span><br><span class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$&#123;PATH&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：java_HOME&#x3D;后面填入的信息就是“之前我们复制的那段重要信息”（即jdk的安装目录），其余的配置信息不变与我相同就可以。（一定要注意保存文件）</p>
+</li>
+<li><p><code>source ~/.zshrc</code></p>
+</li>
+<li><p>在终端输入 <code>echo $JAVA_HOME</code>，如果配置成功则会显示刚刚配置的 JAVA_HOME 路径信息。（echo后面有空格），也可以直接使用 <code>vim ~/.zshrc</code> 来查看环境变量的信息。如图：</p>
+<img data-src="/2019/12/02/78/image-20230602111552331.png" class="" title="image-20230602111552331">
+</li>
+<li><p>查看java版本：<code>java -version</code></p>
+<img data-src="/2019/12/02/78/image-20230602111621567.png" class="" title="image-20230602111621567">
+</li>
+<li><p>javac的命令来检验是否配置成功</p>
+<p><strong>Note</strong>：系统会输出 javac 的帮助信息。如果成功，说明已经成功配置了JDK , 否则需要仔细检查上面的步骤的配置是否正确。</p>
+<img data-src="/2019/12/02/78/image-20230602111708456.png" class="" title="image-20230602111708456"></li>
+</ol>
+<h1 id="jdk-文档"><a href="#jdk-文档" class="headerlink" title="jdk 文档"></a>jdk 文档</h1><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/">jdk8</a></p>
+<p>点击 Java 文档页面的“Tree”按钮,页面会显示 Java 中所有的类供你查询</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1595,103 +1744,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2019/06/08/58/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/06/08/58/" class="post-title-link" itemprop="url">58. U盘装系统，启动快捷键</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-06-08 04:00:00" itemprop="dateCreated datePublished" datetime="2019-06-08T04:00:00+08:00">2019-06-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-29 08:58:33" itemprop="dateModified" datetime="2023-11-29T08:58:33+08:00">2023-11-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/os/" itemprop="url" rel="index"><span itemprop="name">os</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="笔记本"><a href="#笔记本" class="headerlink" title="笔记本"></a>笔记本</h1><img data-src="/2019/06/08/58/bjb1.png" class="" title="bjb1">
-
-<img data-src="/2019/06/08/58/bjb2.png" class="" title="bjb2">
-
-
-
-<h1 id="组装机"><a href="#组装机" class="headerlink" title="组装机"></a>组装机</h1><img data-src="/2019/06/08/58/zzdn2.png" class="" title="zzdn2">
-
-<img data-src="/2019/06/08/58/zzdn1.png" class="" title="zzdn1">
-
-
-
-<h1 id="台式机"><a href="#台式机" class="headerlink" title="台式机"></a>台式机</h1><img data-src="/2019/06/08/58/tsj.png" class="" title="tsj">
-
       
     </div>
 
