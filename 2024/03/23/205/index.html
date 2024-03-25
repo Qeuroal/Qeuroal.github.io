@@ -28,7 +28,7 @@
 <meta property="og:description" content="rime用于配置小鹤音形, 一些配置的随记">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-22T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-03-25T09:59:59.956Z">
+<meta property="article:modified_time" content="2024-03-25T10:13:49.457Z">
 <meta property="article:author" content="Qeuroal">
 <meta property="article:tag" content="software">
 <meta property="article:tag" content="rime">
@@ -142,7 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E4%B8%AD%E8%8B%B1%E6%96%87%E5%88%87%E6%8D%A2%E6%8F%90%E7%A4%BA"><span class="nav-number">1.1.</span> <span class="nav-text">配置中英文切换提示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%97%AD%E5%85%A8%E8%A7%92%E6%8C%89%E9%94%AEshift-space"><span class="nav-number">1.2.</span> <span class="nav-text">关闭全角按键shift+space</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E4%BD%BF%E7%94%A8%E8%8B%B1%E6%96%87%E6%A0%87%E7%82%B9"><span class="nav-number">1.3.</span> <span class="nav-text">设置中文输入使用英文标点</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E4%B8%AD%E8%8B%B1%E6%96%87%E5%88%87%E6%8D%A2%E6%8F%90%E7%A4%BA"><span class="nav-number">1.1.</span> <span class="nav-text">配置中英文切换提示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%97%AD%E5%85%A8%E8%A7%92%E6%8C%89%E9%94%AEshift-space"><span class="nav-number">1.2.</span> <span class="nav-text">关闭全角按键shift+space</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E4%BD%BF%E7%94%A8%E8%8B%B1%E6%96%87%E6%A0%87%E7%82%B9"><span class="nav-number">1.3.</span> <span class="nav-text">设置中文输入使用英文标点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%951"><span class="nav-number">1.3.1.</span> <span class="nav-text">方法1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%952"><span class="nav-number">1.3.2.</span> <span class="nav-text">方法2</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -236,7 +236,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-25 17:59:59" itemprop="dateModified" datetime="2024-03-25T17:59:59+08:00">2024-03-25</time>
+      <time title="修改时间：2024-03-25 18:13:49" itemprop="dateModified" datetime="2024-03-25T18:13:49+08:00">2024-03-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -264,9 +264,9 @@
 <ol>
 <li><p>进入Rime配置文件夹: <code>~/Library/Rime</code></p>
 </li>
-<li><p>打开flypydz.schema.yaml文件</p>
+<li><p>打开flypy.schema.yaml文件</p>
 </li>
-<li><p>在switches项中的name为”ascii_mode”项添加 <code>states: [&quot;中文&quot;, &quot;英文&quot;]</code>, 如下所示:</p>
+<li><p>在switches项中的name为”ascii_mode”项添加 <code>states: [&quot;中文&quot;, &quot;英文&quot;]</code>或<code>states: [ 中文, 英文 ]</code>, 如下所示:</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">switches:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">ascii_mode</span></span><br><span class="line">    <span class="attr">reset:</span> <span class="number">0</span></span><br><span class="line">    <span class="attr">states:</span> [<span class="string">&quot;中文&quot;</span>, <span class="string">&quot;西文&quot;</span>]</span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">full_shape</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">simplification</span></span><br><span class="line">    <span class="attr">reset:</span> <span class="number">0</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">ascii_punct</span></span><br><span class="line">    <span class="attr">reset:</span> <span class="number">0</span></span><br></pre></td></tr></table></figure></li>
 </ol>
 <h2 id="关闭全角按键shift-space"><a href="#关闭全角按键shift-space" class="headerlink" title="关闭全角按键shift+space"></a>关闭全角按键shift+space</h2><ol>
@@ -280,7 +280,10 @@
 <p>效果如下所示:</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">patch:</span></span><br><span class="line">  <span class="attr">schema_list:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">schema:</span> <span class="string">flypy</span> <span class="comment"># 添加小鹤音形</span></span><br><span class="line">  <span class="attr">punctuator:</span></span><br><span class="line">    <span class="attr">import_preset:</span> <span class="string">alternative</span></span><br><span class="line">  <span class="attr">key_binder:</span></span><br><span class="line">    <span class="attr">bindings:</span></span><br><span class="line">      <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">&quot;shift+space&quot;</span>, <span class="attr">toggle:</span> <span class="string">noop</span>, <span class="attr">when:</span> <span class="string">always</span>&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
-<h2 id="设置中文输入使用英文标点"><a href="#设置中文输入使用英文标点" class="headerlink" title="设置中文输入使用英文标点"></a>设置中文输入使用英文标点</h2><ol>
+<blockquote>
+<p><strong>注意</strong>: 需要看一下你的方案(如: flypy.schema.yaml)是否绑定了 “shift+space” 键, 如果绑定了, 设置为noop或者删除(删除没有试过, 只是将toggle改为noop)</p>
+</blockquote>
+<h2 id="设置中文输入使用英文标点"><a href="#设置中文输入使用英文标点" class="headerlink" title="设置中文输入使用英文标点"></a>设置中文输入使用英文标点</h2><h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><ol>
 <li><p>下载<a target="_blank" rel="noopener" href="https://gist.githubusercontent.com/lotem/2334409/raw/0941ff22b30e8a6199838623d31a9406ee1d8a74/alternative.yaml">alternative</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -JLO https://gist.githubusercontent.com/lotem/2334409/raw/0941ff22b30e8a6199838623d31a9406ee1d8a74/alternative.yaml</span><br></pre></td></tr></table></figure>
 </li>
@@ -293,6 +296,20 @@
 
 <p>效果如下:</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">patch:</span></span><br><span class="line">  <span class="attr">schema_list:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">schema:</span> <span class="string">flypy</span> <span class="comment"># 添加小鹤音形</span></span><br><span class="line">  <span class="attr">punctuator:</span></span><br><span class="line">    <span class="attr">import_preset:</span> <span class="string">alternative</span></span><br><span class="line">  <span class="attr">key_binder:</span></span><br><span class="line">    <span class="attr">bindings:</span></span><br><span class="line">      <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">&quot;shift+space&quot;</span>, <span class="attr">toggle:</span> <span class="string">noop</span>, <span class="attr">when:</span> <span class="string">always</span>&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><ol>
+<li><p>下载<a target="_blank" rel="noopener" href="https://gist.githubusercontent.com/lotem/2334409/raw/0941ff22b30e8a6199838623d31a9406ee1d8a74/alternative.yaml">alternative</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -JLO https://gist.githubusercontent.com/lotem/2334409/raw/0941ff22b30e8a6199838623d31a9406ee1d8a74/alternative.yaml</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入Rime配置文件夹</p>
+</li>
+<li><p>打开flypy.schema.yaml文件</p>
+</li>
+<li><p>在punctuator项添加</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">import_preset:</span> <span class="string">alternative</span></span><br></pre></td></tr></table></figure>
+
+<p>效果如下:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">punctuator:</span></span><br><span class="line">  <span class="attr">import_preset:</span> <span class="string">default</span></span><br><span class="line">  <span class="attr">import_preset:</span> <span class="string">alternative</span></span><br></pre></td></tr></table></figure></li>
 </ol>
 
     </div>
