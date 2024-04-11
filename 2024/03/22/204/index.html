@@ -22,26 +22,29 @@
 
     <meta name="description" content="Linux系统管理，包括但不限于内核管理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="188. Linux系统管理">
+<meta property="og:title" content="204. Linux系统管理">
 <meta property="og:url" content="http://qeuroal.top/2024/03/22/204/index.html">
 <meta property="og:site_name" content="Qeuroal&#39;s Blog">
 <meta property="og:description" content="Linux系统管理，包括但不限于内核管理">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qeuroal.top/2024/03/22/204/image-20240411080144183.png">
+<meta property="og:image" content="http://qeuroal.top/2024/03/22/204/image-20240411083618413.png">
 <meta property="article:published_time" content="2024-03-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-03-22T12:38:57.427Z">
+<meta property="article:modified_time" content="2024-04-11T00:41:04.208Z">
 <meta property="article:author" content="Qeuroal">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qeuroal.top/2024/03/22/204/image-20240411080144183.png">
 
 
 <link rel="canonical" href="http://qeuroal.top/2024/03/22/204/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2024/03/22/204/","path":"2024/03/22/204/","title":"188. Linux系统管理"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2024/03/22/204/","path":"2024/03/22/204/","title":"204. Linux系统管理"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>188. Linux系统管理 | Qeuroal's Blog</title>
+<title>204. Linux系统管理 | Qeuroal's Blog</title>
   
 
 
@@ -141,7 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E6%A0%B8%E9%99%8D%E7%BA%A7"><span class="nav-number">1.</span> <span class="nav-text">内核降级</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E6%A0%B8%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">内核安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%951"><span class="nav-number">1.1.</span> <span class="nav-text">方法1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%952"><span class="nav-number">1.2.</span> <span class="nav-text">方法2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E6%A0%B8%E9%99%8D%E7%BA%A7"><span class="nav-number">2.</span> <span class="nav-text">内核降级</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%86%85%E6%A0%B8"><span class="nav-number">3.</span> <span class="nav-text">删除内核</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -156,7 +159,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">146</span>
+          <span class="site-state-item-count">147</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -212,12 +215,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="188. Linux系统管理 | Qeuroal's Blog">
+      <meta itemprop="name" content="204. Linux系统管理 | Qeuroal's Blog">
       <meta itemprop="description" content="Linux系统管理，包括但不限于内核管理">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          188. Linux系统管理
+          204. Linux系统管理
         </h1>
 
         <div class="post-meta-container">
@@ -227,9 +230,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-03-22 00:00:00 / 修改时间：20:38:57" itemprop="dateCreated datePublished" datetime="2024-03-22T00:00:00+08:00">2024-03-22</time>
+      <time title="创建时间：2024-03-22 00:00:00" itemprop="dateCreated datePublished" datetime="2024-03-22T00:00:00+08:00">2024-03-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-04-11 08:41:04" itemprop="dateModified" datetime="2024-04-11T08:41:04+08:00">2024-04-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -251,32 +260,104 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="内核降级"><a href="#内核降级" class="headerlink" title="内核降级"></a>内核降级</h1><ol>
+    <div class="post-body" itemprop="articleBody"><h1 id="内核安装"><a href="#内核安装" class="headerlink" title="内核安装"></a>内核安装</h1><h2 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h2><blockquote>
+<p>apt安装</p>
+</blockquote>
+<ol>
 <li><p>执行以下命令安装</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install linux-image-4.15.0-20-generic</span><br></pre></td></tr></table></figure>
 
 <p>（这个包名按自己想要的版本改）</p>
 </li>
 <li><p>查看是否安装成功</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg --get-selections| grep linux-image-4.15.0-20-generic</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg --get-selections| grep linux-image-4.15.0-20-generic</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h2><blockquote>
+<p>编译安装</p>
+</blockquote>
+<ol>
+<li><p>下载内核源码:<a href="www.kernel.org">www.kernel.org</a></p>
+</li>
+<li><p>配置</p>
+<p>为了简便, 可以在当前系统的config文件基础上进行, 假设当前工作目录是源码所在目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> /boot/config-$(<span class="built_in">uname</span> -r)-generic .config</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="内核降级"><a href="#内核降级" class="headerlink" title="内核降级"></a>内核降级</h1><ol>
+<li><p>查看grub版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-install --version</span><br></pre></td></tr></table></figure>
+
+<p>记住(GRUB)之后的大版本是2.00以后还是2.00以前</p>
+</li>
+<li><p>查看自己现有的内核版本（完全版）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep <span class="string">&#x27;menuentry&#x27;</span> /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2024/03/22/204/image-20240411080144183.png" class="" title="image-20240411080144183">
+
+<ol>
+<li><p>方法2: 特定版本查找</p>
+<p>这个<code>5.15.0-102-generic</code>具体怎么改去 &#x2F;boot&#x2F;grub&#x2F;grub.cfg 这个文件里面找</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /boot/grub/grub.cfg | grep 5.15.0-102-generic</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>找到自己想换回的内核</p>
+<ol>
+<li><p>例如，这里我想要更换为5.15.0-102-generic，就找到对应的选项: </p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">menuentry &#x27;Ubuntu, with Linux 5.15.0-102-generic&#x27; --class ubuntu --class gnu-linux --class gnu --class os $menuentry_id_option &#x27;gnulinux-5.15.0-102-generic-advanced-7b69c9c6-4acb-4713-8167-caba8ee7aea2&#x27; &#123;</span><br><span class="line">这一选项，**注意不是(recovery mode)**</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>复制上面信息中<code>menuentry</code>之后的单引号内的字符串</p>
+<p> 比如我是<code>Ubuntu, with Linux 5.15.0-102-generic</code></p>
+</li>
+</ol>
 </li>
 <li><p>修改&#x2F;etc&#x2F;default&#x2F;grub文件</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/default/grub</span><br></pre></td></tr></table></figure>
 
-<p>找到 GRUB_DEFAULT&#x3D;0, 修改为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRUB_DEFAULT=<span class="string">&quot;Advanced options for Ubuntu&gt;Ubuntu, with Linux 4.15.0-20-generic&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>（这个具体怎么改去 &#x2F;boot&#x2F;grub&#x2F;grub.cfg 这个文件里面找 ）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /boot/grub/grub.cfg | grep 4.15.0-20-generic</span><br></pre></td></tr></table></figure>
+<p>找到 <code>GRUB_DEFAULT=0</code>, 修改为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRUB_DEFAULT=<span class="string">&quot;Ubuntu, with Linux 5.15.0-102-generic&quot;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p><code>wq</code>，然后执行以下命令更新 Grub 引导</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-grub</span><br></pre></td></tr></table></figure>
+
+<p><strong>如果</strong>看到下面有</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Warning: Please don&#x27;t use old title `Ubuntu, with Linux 5.15.0-102-generic&#x27; for GRUB_DEFAULT, use `Advanced options for Ubuntu&gt;Ubuntu, with Linux 5.15.0-102-generic&#x27; (for versions before 2.00) or `gnulinux-advanced-7b69c9c6-4acb-4713-8167-caba8ee7aea2&gt;gnulinux-5.15.0-102-generic-advanced-7b69c9c6-4acb-4713-8167-caba8ee7aea2&#x27; (for 2.00 or later)</span><br></pre></td></tr></table></figure>
+
+<p>根据<code>grub-install --version</code>得到的grub版本,如果大于等于<code>2.00</code>,则返回第四步把<strong>第三个</strong>单引号内的字符串复制粘贴; 否则把<strong>第二个</strong>单引号内的字符串复制粘贴.</p>
+<p><strong>也就是说一定要重新修改一次grub</strong>, 例如:</p>
+<ul>
+<li>grub版本大于等于2.00,则再次将之前的<code>GRUB_DEFAULT=&quot;Ubuntu, with Linux 5.15.0-102-generic&quot;</code>修改为 <code>GRUB_DEFAULT=&quot;gnulinux-advanced-7b69c9c6-4acb-4713-8167-caba8ee7aea2&gt;gnulinux-5.15.0-102-generic-advanced-7b69c9c6-4acb-4713-8167-caba8ee7aea2&quot;</code></li>
+<li>grub版本小于2.00,则再次将之前的<code>GRUB_DEFAULT=&quot;Ubuntu, with Linux 5.15.0-102-generic&quot;</code>修改为 <code>GRUB_DEFAULT=&quot;Advanced options for Ubuntu&gt;Ubuntu, with Linux 5.15.0-102-generic&quot;</code></li>
+</ul>
+</li>
+<li><p>修改完成后,再次在终端中输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-grub</span><br></pre></td></tr></table></figure>
+
+<p>此时, 不应看到上一步的警告</p>
 </li>
 <li><p>更新完成后重启系统</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意,此时grub引导时光标默认指向的应该是Ubuntu高级选项之类的选项,<em>不要移动光标</em>,让它自动选择启动</strong></p>
 </li>
 <li><p>重启之后不出意外（ps：我的出了点意外，重启起不来了）就是新内核了，查看一下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uname</span> -r</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uname</span> -r</span><br></pre></td></tr></table></figure>
+
+<p>如果已经变成你想要改的内核版本,则继续,否则检查是否忘了<code>sudo update-grub</code>或者grub修改错误</p>
+</li>
+</ol>
+<h1 id="删除内核"><a href="#删除内核" class="headerlink" title="删除内核"></a>删除内核</h1><ol>
+<li><p>查看当前的所有已安装的内核</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg --get-selections | grep linux-image</span><br></pre></td></tr></table></figure>
+
+<p>输出:</p>
+<img data-src="/2024/03/22/204/image-20240411083618413.png" class="" title="image-20240411083618413">
+</li>
+<li><p>找到原有内核名字, 如: <code>linux-image-5.15.0-101-generic</code></p>
+</li>
+<li><p>删除内核</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove linux-image-5.15.0-101-generic</span><br><span class="line">sudo dpkg -P linux-image-5.15.0-101-generic</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>修改&#x2F;etc&#x2F;default&#x2F;grub的<code>GRUB_DEFAULT</code>为<code>=0</code>,以及<code>sudo update-grub</code></strong></p>
+</li>
 </ol>
 
     </div>
@@ -295,7 +376,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://qeuroal.top/2024/03/22/204/" title="188. Linux系统管理">http://qeuroal.top/2024/03/22/204/</a>
+      <a href="http://qeuroal.top/2024/03/22/204/" title="204. Linux系统管理">http://qeuroal.top/2024/03/22/204/</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
