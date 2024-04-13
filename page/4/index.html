@@ -791,7 +791,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-27 09:17:18" itemprop="dateModified" datetime="2024-03-27T09:17:18+08:00">2024-03-27</time>
+      <time title="修改时间：2024-04-13 08:52:14" itemprop="dateModified" datetime="2024-04-13T08:52:14+08:00">2024-04-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1671,6 +1671,20 @@
 </ol>
 </li>
 </ul>
+<h1 id="路径和工作目录"><a href="#路径和工作目录" class="headerlink" title="路径和工作目录"></a>路径和工作目录</h1><h2 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h2><p>path设置的目的是为了查找文件，比如说你使用gf指令打不开文件时，就得看看path是否设置正确了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">:help path</span><br><span class="line"></span><br><span class="line">//查看path</span><br><span class="line">:set path?</span><br><span class="line"></span><br><span class="line">// 检查头文件加载情况</span><br><span class="line">:checkpath!</span><br><span class="line"></span><br><span class="line">//添加path</span><br><span class="line">:set path+=/sdsd/sdsd</span><br><span class="line"></span><br><span class="line">//添加相对路径,注意要以.开头，否则无效</span><br><span class="line">:set path+=./../core</span><br></pre></td></tr></table></figure>
+
+<p>默认的path包含：</p>
+<ul>
+<li>当前文件路径，用dot<code>.</code>表示</li>
+<li>当前的工作路径，用两个逗号<code>,,</code>表示</li>
+</ul>
+<h2 id="working-directory"><a href="#working-directory" class="headerlink" title="working directory"></a>working directory</h2><p>working directory不同于path。path表示查找文件的路径，working directory表示vim的工作路径，往往是打开vim的当前路径。在新建文件，或者打开文件时，会在working directory下操作。</p>
+<p>working directory会被默认加到path中，即<code>,,</code> 用两个逗号表示</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//查看working directory</span><br><span class="line">:pwd</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//设置工作目录</span><br><span class="line">:cd %:h      //跳转到当前文件目录</span><br><span class="line">:lcd %:h     //仅改变当前窗口的目录为当前文件目录</span><br><span class="line">:cd -        //跳转到前一个目录</span><br><span class="line"></span><br><span class="line">//自动设置当前文件路径为working directory</span><br><span class="line">set acd     //设置自动跳转到文件路径</span><br><span class="line"></span><br><span class="line">:help autochdir</span><br><span class="line">:help :cd</span><br></pre></td></tr></table></figure>
+
+
+
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
 <li><a target="_blank" rel="noopener" href="https://yianwillis.github.io/">vim手册</a></li>
 <li>vim improved recommendations： <a target="_blank" rel="noopener" href="https://www.vi-improved.org/recommendations/">https://www.vi-improved.org/recommendations/</a></li>
