@@ -153,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">147</span>
+          <span class="site-state-item-count">149</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -164,7 +164,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -186,6 +186,671 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/05/26/103/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/05/26/103/" class="post-title-link" itemprop="url">103. tmux操作</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-05-26 04:00:00" itemprop="dateCreated datePublished" datetime="2020-05-26T04:00:00+08:00">2020-05-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-04-13 09:07:55" itemprop="dateModified" datetime="2024-04-13T09:07:55+08:00">2024-04-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/software/" itemprop="url" rel="index"><span itemprop="name">software</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="进入tmux翻屏模式"><a href="#进入tmux翻屏模式" class="headerlink" title="进入tmux翻屏模式"></a>进入tmux翻屏模式</h1><ul>
+<li>先按 <code>ctrl+b</code>，松开，然后再按 <code>[</code></li>
+<li>实现上下翻页: 进入翻屏模式后，<code>PgUp</code>, <code>PgDn</code> 实现上下翻页</li>
+<li>退出: <code>q</code></li>
+</ul>
+<blockquote>
+<p>ps:  <code>ctrl + b + [</code>，很多人会以为是同时按三个键，但是这样是不行的。</p>
+</blockquote>
+<h1 id="简单介绍下tmux的其他功能"><a href="#简单介绍下tmux的其他功能" class="headerlink" title="简单介绍下tmux的其他功能"></a>简单介绍下tmux的其他功能</h1><h2 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h2><table>
+<thead>
+<tr>
+<th align="center">快捷键</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>Ctrl-B %</code></td>
+<td align="center">竖直拆分屏幕（两个 Shell 分别位于左右）</td>
+</tr>
+<tr>
+<td align="center"><code>Ctrl-B &quot;</code></td>
+<td align="center">水平拆分屏幕（两个 Shell 分别位于上下）</td>
+</tr>
+<tr>
+<td align="center"><code>Ctrl-B O</code></td>
+<td align="center">切换到另一个 Shell</td>
+</tr>
+<tr>
+<td align="center"><code>Ctrl-B ?</code></td>
+<td align="center">查看帮助</td>
+</tr>
+<tr>
+<td align="center"><code>Ctrl-B d</code></td>
+<td align="center">断开 tmux 并让其在后台运行（可以使用 tmux attach 重新进入）</td>
+</tr>
+<tr>
+<td align="center"><code>Ctrl-B &lt;arrow key&gt;</code></td>
+<td align="center">光标切换到其他窗格 <code>&lt;arrow key&gt;</code> 是指向要切换到的窗格的方向键<br />比如切换到下方窗格，就按方向键↓</td>
+</tr>
+<tr>
+<td align="center"><code>Ctrl-B ;</code></td>
+<td align="center">光标切换到上一个窗格</td>
+</tr>
+<tr>
+<td align="center"><code>Ctrl-B o</code></td>
+<td align="center">光标切换到下一个窗格</td>
+</tr>
+<tr>
+<td align="center"><code>Ctrl-B &#123;</code></td>
+<td align="center">当前窗格与上一个窗格交换位置</td>
+</tr>
+<tr>
+<td align="center"><code>Ctrl-B &#125;</code></td>
+<td align="center">当前窗格与下一个窗格交换位置</td>
+</tr>
+<tr>
+<td align="center"><code>Ctrl-B Ctrl+o</code></td>
+<td align="center">所有窗格向前移动一个位置，第一个窗格变成最后一个窗格</td>
+</tr>
+<tr>
+<td align="center"><code>Ctrl-B Alt+o</code></td>
+<td align="center">所有窗格向后移动一个位置，最后一个窗格变成第一个窗格</td>
+</tr>
+<tr>
+<td align="center"><code>Ctrl-B x</code></td>
+<td align="center">关闭当前窗格</td>
+</tr>
+<tr>
+<td align="center"><code>Ctrl-B !</code></td>
+<td align="center">将当前窗格拆分为一个独立窗口</td>
+</tr>
+<tr>
+<td align="center"><code>Ctrl-B z</code></td>
+<td align="center">当前窗格全屏显示，再使用一次会变回原来大小</td>
+</tr>
+<tr>
+<td align="center"><code>Ctrl-B Ctrl+&lt;arrow key&gt;</code></td>
+<td align="center">按箭头方向调整窗格大小</td>
+</tr>
+<tr>
+<td align="center"><code>Ctrl-B q</code></td>
+<td align="center">显示窗格编号</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>prefix</th>
+<th>Ctrl+b</th>
+<th>激活控制台；此时以下按键生效</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>系统操作</td>
+<td><code>?</code></td>
+<td>列出所有快捷键；按q返回</td>
+</tr>
+<tr>
+<td></td>
+<td><code>d</code></td>
+<td>脱离当前会话；这样可以暂时返回Shell界面，输入tmux attach能够重新进入之前的会话</td>
+</tr>
+<tr>
+<td></td>
+<td><code>D</code></td>
+<td>选择要脱离的会话；在同时开启了多个会话时使用</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Ctrl+z</code></td>
+<td>挂起当前会话</td>
+</tr>
+<tr>
+<td></td>
+<td><code>r</code></td>
+<td>强制重绘未脱离的会话</td>
+</tr>
+<tr>
+<td></td>
+<td><code>s</code></td>
+<td>选择并切换会话；在同时开启了多个会话时使用</td>
+</tr>
+<tr>
+<td></td>
+<td><code>:</code></td>
+<td>进入命令行模式；此时可以输入支持的命令，例如kill-server可以关闭服务器</td>
+</tr>
+<tr>
+<td></td>
+<td><code>[</code></td>
+<td>进入复制模式；此时的操作与vi&#x2F;emacs相同，按q&#x2F;Esc退出</td>
+</tr>
+<tr>
+<td></td>
+<td><code>~</code></td>
+<td>列出提示信息缓存；其中包含了之前tmux返回的各种提示信息</td>
+</tr>
+<tr>
+<td>窗口操作</td>
+<td><code>c</code></td>
+<td>创建新窗口</td>
+</tr>
+<tr>
+<td></td>
+<td><code>&amp;</code></td>
+<td>关闭当前窗口</td>
+</tr>
+<tr>
+<td></td>
+<td><code>数字键</code></td>
+<td>切换至指定窗口</td>
+</tr>
+<tr>
+<td></td>
+<td><code>p</code></td>
+<td>切换至上一窗口</td>
+</tr>
+<tr>
+<td></td>
+<td><code>n</code></td>
+<td>切换至下一窗口</td>
+</tr>
+<tr>
+<td></td>
+<td><code>l</code></td>
+<td>在前后两个窗口间互相切换</td>
+</tr>
+<tr>
+<td></td>
+<td><code>w</code></td>
+<td>通过窗口列表切换窗口</td>
+</tr>
+<tr>
+<td></td>
+<td><code>,</code></td>
+<td>重命名当前窗口；这样便于识别</td>
+</tr>
+<tr>
+<td></td>
+<td><code>.</code></td>
+<td>修改当前窗口编号；相当于窗口重新排序</td>
+</tr>
+<tr>
+<td></td>
+<td><code>f</code></td>
+<td>在所有窗口中查找指定文本</td>
+</tr>
+<tr>
+<td>面板操作</td>
+<td><code>”</code></td>
+<td>将当前面板平分为上下两块</td>
+</tr>
+<tr>
+<td></td>
+<td><code>%</code></td>
+<td>将当前面板平分为左右两块</td>
+</tr>
+<tr>
+<td></td>
+<td><code>x</code></td>
+<td>关闭当前面板</td>
+</tr>
+<tr>
+<td></td>
+<td><code>!</code></td>
+<td>将当前面板置于新窗口；即新建一个窗口，其中仅包含当前面板</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Ctrl+方向键</code></td>
+<td>以1个单元格为单位移动边缘以调整当前面板大小</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Alt+方向键</code></td>
+<td>以5个单元格为单位移动边缘以调整当前面板大小</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Space</code></td>
+<td>在预置的面板布局中循环切换；依次包括even-horizontal、even-vertical、main-horizontal、main-vertical、tiled</td>
+</tr>
+<tr>
+<td></td>
+<td><code>q</code></td>
+<td>显示面板编号</td>
+</tr>
+<tr>
+<td></td>
+<td><code>o</code></td>
+<td>在当前窗口中选择下一面板</td>
+</tr>
+<tr>
+<td></td>
+<td><code>方向键</code></td>
+<td>移动光标以选择面板</td>
+</tr>
+<tr>
+<td></td>
+<td><code>&#123;</code></td>
+<td>向前置换当前面板</td>
+</tr>
+<tr>
+<td></td>
+<td><code>&#125;</code></td>
+<td>向后置换当前面板</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Alt+o</code></td>
+<td>逆时针旋转当前窗口的面板</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Ctrl+o</code></td>
+<td>顺时针旋转当前窗口的面板</td>
+</tr>
+</tbody></table>
+<h2 id="创建tmux"><a href="#创建tmux" class="headerlink" title="创建tmux"></a>创建tmux</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tmux new -s &lt;session-name&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="列出已有的tmux列表"><a href="#列出已有的tmux列表" class="headerlink" title="列出已有的tmux列表"></a>列出已有的tmux列表</h2><ul>
+<li><p>命令</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ tmux <span class="built_in">ls</span></span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ tmux list-session</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Ctrl+b s</code>：列出所有会话。</p>
+</li>
+</ul>
+<h2 id="进入已创建的tmux"><a href="#进入已创建的tmux" class="headerlink" title="进入已创建的tmux"></a>进入已创建的tmux</h2><ul>
+<li><p>使用会话编号</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ tmux attach -t &lt;session-number&gt;</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ tmux a -t &lt;session-number&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用会话名称</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ tmux attach -t &lt;session-name&gt;</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ tmux a -t &lt;session-name&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="切换会话"><a href="#切换会话" class="headerlink" title="切换会话"></a>切换会话</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用会话编号</span></span><br><span class="line">$ tmux switch -t &lt;session-number&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用会话名称</span></span><br><span class="line">$ tmux switch -t &lt;session-name&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="重命名会话"><a href="#重命名会话" class="headerlink" title="重命名会话"></a>重命名会话</h2><ul>
+<li><code>$ tmux rename-session</code>命令用于重命名会话。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tmux rename-session -t &lt;session-number&gt; &lt;new-name&gt;</span><br></pre></td></tr></table></figure>
+
+<p>上面命令将<code>&lt;session-number&gt;</code>号会话重命名。</p>
+<ul>
+<li><code>Ctrl+b $</code></li>
+</ul>
+<h2 id="临时退出tmux"><a href="#临时退出tmux" class="headerlink" title="临时退出tmux"></a>临时退出tmux</h2><ul>
+<li><code>Ctrl-B d</code></li>
+<li><code>$ tmux detach</code></li>
+</ul>
+<h2 id="杀死tmux"><a href="#杀死tmux" class="headerlink" title="杀死tmux"></a>杀死tmux</h2><ul>
+<li><p>tmux外：<code>$ tmux kill-session -t &lt;session-name&gt;</code></p>
+</li>
+<li><p>tmux内：</p>
+<ul>
+<li><code>Ctrl-d</code></li>
+<li><code>&lt;Prefix(ctrl+q)&gt; + :kill-session</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="删除所有tmux"><a href="#删除所有tmux" class="headerlink" title="删除所有tmux"></a>删除所有tmux</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tmux kill-server</span><br><span class="line">或</span><br><span class="line">tmux ls | grep : | cut -d. -f1 | awk &#x27;&#123;print substr($1, 0, length($1)-1)&#125;&#x27; | xargs kill</span><br></pre></td></tr></table></figure>
+
+<h1 id="vi-mode"><a href="#vi-mode" class="headerlink" title="vi-mode"></a>vi-mode</h1><table>
+<thead>
+<tr>
+<th>vi</th>
+<th>emacs</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>^</td>
+<td>M-m</td>
+<td>反缩进</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>C-g</td>
+<td>清除选定内容</td>
+</tr>
+<tr>
+<td>Enter</td>
+<td>M-w</td>
+<td>复制选定内容</td>
+</tr>
+<tr>
+<td>j</td>
+<td>Down</td>
+<td>光标下移</td>
+</tr>
+<tr>
+<td>h</td>
+<td>Left</td>
+<td>光标左移</td>
+</tr>
+<tr>
+<td>l</td>
+<td>Right</td>
+<td>光标右移</td>
+</tr>
+<tr>
+<td>L</td>
+<td></td>
+<td>光标移到尾行</td>
+</tr>
+<tr>
+<td>M</td>
+<td>M-r</td>
+<td>光标移到中间行</td>
+</tr>
+<tr>
+<td>H</td>
+<td>M-R</td>
+<td>光标移到首行</td>
+</tr>
+<tr>
+<td>k</td>
+<td>Up</td>
+<td>光标上移</td>
+</tr>
+<tr>
+<td>d</td>
+<td>C-u</td>
+<td>删除整行</td>
+</tr>
+<tr>
+<td>D</td>
+<td>C-k</td>
+<td>删除到行末</td>
+</tr>
+<tr>
+<td>$</td>
+<td>C-e</td>
+<td>移到行尾</td>
+</tr>
+<tr>
+<td>:</td>
+<td>g</td>
+<td>前往指定行</td>
+</tr>
+<tr>
+<td>C-d</td>
+<td>M-Down</td>
+<td>向下滚动半屏</td>
+</tr>
+<tr>
+<td>C-u</td>
+<td>M-Up</td>
+<td>向上滚动半屏</td>
+</tr>
+<tr>
+<td>C-f</td>
+<td>Page down</td>
+<td>下一页</td>
+</tr>
+<tr>
+<td>w</td>
+<td>M-f</td>
+<td>下一个词</td>
+</tr>
+<tr>
+<td>p</td>
+<td>C-y</td>
+<td>粘贴</td>
+</tr>
+<tr>
+<td>C-b</td>
+<td>Page up</td>
+<td>上一页</td>
+</tr>
+<tr>
+<td>b</td>
+<td>M-b</td>
+<td>上一个词</td>
+</tr>
+<tr>
+<td>q</td>
+<td>Escape</td>
+<td>退出</td>
+</tr>
+<tr>
+<td>C-Down or J</td>
+<td>C-Down</td>
+<td>向下翻</td>
+</tr>
+<tr>
+<td>C-Up or K</td>
+<td>C-Up</td>
+<td>向下翻</td>
+</tr>
+<tr>
+<td>n</td>
+<td>n</td>
+<td>继续搜索</td>
+</tr>
+<tr>
+<td>?</td>
+<td>C-r</td>
+<td>向前搜索</td>
+</tr>
+<tr>
+<td>&#x2F;</td>
+<td>C-s</td>
+<td>向后搜索</td>
+</tr>
+<tr>
+<td>0</td>
+<td>C-a</td>
+<td>移到行首</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>C-Space</td>
+<td>开始选中</td>
+</tr>
+<tr>
+<td></td>
+<td>C-t</td>
+<td>字符调序</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/04/14/101/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/04/14/101/" class="post-title-link" itemprop="url">101. Win10 Git配置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-04-14 04:00:00" itemprop="dateCreated datePublished" datetime="2020-04-14T04:00:00+08:00">2020-04-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-03-20 18:56:25" itemprop="dateModified" datetime="2024-03-20T18:56:25+08:00">2024-03-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/software/" itemprop="url" rel="index"><span itemprop="name">software</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ol>
+<li><p>更改Git的样式</p>
+<ol>
+<li>更改主题透明度和光标<img data-src="/2020/04/14/101/16.png" class=""></li>
+<li>更改字体<img data-src="/2020/04/14/101/17.png" class=""></li>
+<li>更改中文<img data-src="/2020/04/14/101/18.png" class=""></li>
+</ol>
+</li>
+<li><p>美化</p>
+<ol>
+<li><p>基本配置</p>
+<blockquote>
+<p>在用户根目录下新建一个名为 .minttyrc 的文件，写入以下内容，然后重启 git bash，就能看到美化后的样子了。</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> ~</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">touch</span> .minttyrc</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">vi .minttyrc</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>复制以下代码到 <code>.minttyrc</code>： </p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">FontHeight=11</span><br><span class="line">Font=Consolas</span><br><span class="line">Transparency=low</span><br><span class="line">FontSmoothing=full</span><br><span class="line">Locale=zh_CN</span><br><span class="line">Charset=GBK</span><br><span class="line">Columns=88</span><br><span class="line">Rows=26</span><br><span class="line">OpaqueWhenFocused=no</span><br><span class="line">Scrollbar=none</span><br><span class="line">Language=zh_CN</span><br><span class="line"></span><br><span class="line">ForegroundColour=131,148,150</span><br><span class="line">BackgroundColour=0,43,54</span><br><span class="line">CursorColour=220,130,71</span><br><span class="line"></span><br><span class="line">BoldBlack=128,128,128</span><br><span class="line">Red=255,64,40</span><br><span class="line">BoldRed=255,128,64</span><br><span class="line">Green=64,200,64</span><br><span class="line">BoldGreen=64,255,64</span><br><span class="line">Yellow=190,190,0</span><br><span class="line">BoldYellow=255,255,64</span><br><span class="line">Blue=0,128,255</span><br><span class="line">BoldBlue=128,160,255</span><br><span class="line">Magenta=211,54,130</span><br><span class="line">BoldMagenta=255,128,255</span><br><span class="line">Cyan=64,190,190</span><br><span class="line">BoldCyan=128,255,255</span><br><span class="line">White=200,200,200</span><br><span class="line">BoldWhite=255,255,255</span><br><span class="line">CursorType=block</span><br><span class="line">CursorBlinks=no</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新 <code>git-prompt.d</code></p>
+<blockquote>
+<p>仅仅是换了一个主题还不够，还需要更改终端提示符，更改 git 安装目录下 etc 目录里面的一个文件即可，这个文件也可以通过绝对路径访问到。</p>
+</blockquote>
+<blockquote>
+<p>进入</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /etc/profile.d/git-prompt.sh</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>复制代码到 <code>git-prompt.sh</code></p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="built_in">test</span> -f /etc/profile.d/git-sdk.sh</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">	TITLEPREFIX=SDK-<span class="variable">$&#123;MSYSTEM#MINGW&#125;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	TITLEPREFIX=<span class="variable">$MSYSTEM</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">test</span> -f ~/.config/git/git-prompt.sh</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">	. ~/.config/git/git-prompt.sh</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	PS1=<span class="string">&#x27;\[\033]0;Bash In $PWD\007\]&#x27;</span> <span class="comment"># 窗口标题</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\n&#x27;</span>                                <span class="comment"># 换行</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\[\033[32m\]&#x27;</span>               <span class="comment"># 绿色</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\u &#x27;</span>            	                <span class="comment"># 用户名</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\[\033[0m\]&#x27;</span>                <span class="comment"># 灰色</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;at &#x27;</span>			       <span class="comment"># 自定义内容</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\[\033[35m\]&#x27;</span>             <span class="comment"># 粉红色</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\t &#x27;</span>			       <span class="comment"># 时间</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\[\033[33m\]&#x27;</span>             <span class="comment"># 黄色</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\W &#x27;</span>                            <span class="comment"># 当前目录</span></span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">test</span> -z <span class="string">&quot;<span class="variable">$WINELOADERNOEXEC</span>&quot;</span></span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">		GIT_EXEC_PATH=<span class="string">&quot;<span class="subst">$(git --exec-path 2&gt;/dev/null)</span>&quot;</span></span><br><span class="line">		COMPLETION_PATH=<span class="string">&quot;<span class="variable">$&#123;GIT_EXEC_PATH%/libexec/git-core&#125;</span>&quot;</span></span><br><span class="line">		COMPLETION_PATH=<span class="string">&quot;<span class="variable">$&#123;COMPLETION_PATH%/lib/git-core&#125;</span>&quot;</span></span><br><span class="line">		COMPLETION_PATH=<span class="string">&quot;<span class="variable">$COMPLETION_PATH</span>/share/git/completion&quot;</span></span><br><span class="line">		<span class="keyword">if</span> <span class="built_in">test</span> -f <span class="string">&quot;<span class="variable">$COMPLETION_PATH</span>/git-prompt.sh&quot;</span></span><br><span class="line">		<span class="keyword">then</span></span><br><span class="line">			. <span class="string">&quot;<span class="variable">$COMPLETION_PATH</span>/git-completion.bash&quot;</span></span><br><span class="line">			. <span class="string">&quot;<span class="variable">$COMPLETION_PATH</span>/git-prompt.sh&quot;</span></span><br><span class="line">			PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\[\033[36m\]&#x27;</span>  <span class="comment"># change color to cyan</span></span><br><span class="line">			PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;`__git_ps1`&#x27;</span>   <span class="comment"># bash function</span></span><br><span class="line">		<span class="keyword">fi</span></span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\[\033[0m\]&#x27;</span>        <span class="comment"># 灰色</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;$ &#x27;</span>                       <span class="comment"># 命令提示符</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">MSYS2_PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span>               <span class="comment"># for detection by MSYS2 SDK&#x27;s bash.basrc</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1613,358 +2278,6 @@
 <li><code>insertLinkList</code> 和 <code>deleteLinkList</code>的异同：<ol>
 <li><code>insertLinkList</code> 和 <code>deleteLinkList</code>不论在位置 <code>pos</code> 处插入一个结点还是在pos处删除结点，都是对 <code>pos-1</code> 进行操作。</li>
 <li>在使用 <code>while</code> 循环时，<code>insertLinkList</code>是以第j个位置为判断对象，而 <code>deleteLinkList</code>是以第j+1个位置为判断对象的（其中：头结点为第1个位置）。</li>
-</ol>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/01/07/85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/01/07/85/" class="post-title-link" itemprop="url">85. Linux字体</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-01-07 06:00:00" itemprop="dateCreated datePublished" datetime="2020-01-07T06:00:00+08:00">2020-01-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-15 13:53:18" itemprop="dateModified" datetime="2024-03-15T13:53:18+08:00">2024-03-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/os/" itemprop="url" rel="index"><span itemprop="name">os</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="字体下载"><a href="#字体下载" class="headerlink" title="字体下载"></a>字体下载</h1><blockquote>
-<p>推荐使用 <code>JetBrainsMono Nerd Font</code></p>
-</blockquote>
-<h2 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h2><h3 id="Nerd-Fonts"><a href="#Nerd-Fonts" class="headerlink" title="Nerd Fonts"></a>Nerd Fonts</h3><ul>
-<li><p><a target="_blank" rel="noopener" href="https://www.nerdfonts.com/font-downloads">Nerd Fonts 下载</a> (包含所有常用字体, 非常全, <strong>强烈推荐</strong>)</p>
-<p> 推荐 <code>JetBrainsMono Nerd Font</code></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.nerdfonts.com/">Nerd Fonts 官网</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/ryanoasis/nerd-fonts/">Nerd Fonts Github</a></p>
-</li>
-</ul>
-<h3 id="单独字体"><a href="#单独字体" class="headerlink" title="单独字体"></a>单独字体</h3><ul>
-<li><p>JetBrainsMono Nerd Font 下载方式(2选1):</p>
-<ul>
-<li><p>shell命令下载最新版本:</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- -t1 -T2 <span class="string">&quot;https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest&quot;</span> | grep <span class="string">&quot;tag_name&quot;</span> | <span class="built_in">head</span> -n 1 | awk -F <span class="string">&quot;:&quot;</span> <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | sed <span class="string">&#x27;s/\&quot;//g;s/,//g;s/ //g&#x27;</span> | \</span><br><span class="line">    xargs -I &#123;&#125; -p wget https://github.com/ryanoasis/nerd-fonts/releases/download/&#123;&#125;/JetBrainsMono.zip</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/ryanoasis/nerd-fonts/releases">JetBrainsMono Nerd Font Github</a></p>
-</li>
-<li><p>点击这里下载固定版本(<em><strong>Not Recommand</strong></em>)</p>
-<p> <a target="_blank" rel="noopener" href="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip">JetBrainsMono v3.0.2</a></p>
-</li>
-</ul>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/source-foundry/Hack/releases">Hack Nerd Font Github</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/microsoft/cascadia-code">Caskaydia Cove Nerd Font Github</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k">MesloLGS NF Github(官网)</a></p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> fonts</span><br><span class="line">curl -o ./fonts/MesloLGS\ NF\ Regular.ttf https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/MesloLGS%20NF%20Regular.ttf</span><br><span class="line">curl -o ./fonts/MesloLGS\ NF\ Bold.ttf https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/MesloLGS%20NF%20Bold.ttf</span><br><span class="line">curl -o ./fonts/MesloLGS\ NF\ Italic.ttf https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/MesloLGS%20NF%20Italic.ttf</span><br><span class="line">curl -o ./fonts/MesloLGS\ NF\ Bold\ Italic.ttf https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/MesloLGS%20NF%20Bold%20Italic.ttf</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="Ubuntu安装win10字体"><a href="#Ubuntu安装win10字体" class="headerlink" title="Ubuntu安装win10字体"></a>Ubuntu安装win10字体</h1><ol>
-<li><p>进入windows : <code>/media/qeuro/系统/Windows/Fonts</code></p>
-</li>
-<li><p><code>sudo cp *.ttf ~/桌面/WinFonts</code></p>
-</li>
-<li><p><code>sudo cp *.TTF ~/桌面/WinFonts</code></p>
-</li>
-<li><p><code>cd ~/桌面</code></p>
-</li>
-<li><p><code>sudo mv WinFonts /usr/share/fonts/</code></p>
-</li>
-<li><p><code>sudo chmod -R 755 /usr/share/fonts/WinFonts</code></p>
-</li>
-<li><p><code>sudo mkfontscale &amp;&amp; sudo mkfontdir &amp;&amp; sudo fc-cache -fv</code></p>
-</li>
-<li><p>字体名称对照：</p>
-<table>
-<thead>
-<tr>
-<th align="center">ttf</th>
-<th align="center">字体</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">arial.ttf</td>
-<td align="center">Arial</td>
-</tr>
-<tr>
-<td align="center">couri.ttf</td>
-<td align="center">Courier New</td>
-</tr>
-<tr>
-<td align="center">times.ttf</td>
-<td align="center">Times New Roman</td>
-</tr>
-<tr>
-<td align="center">timesbd.ttf</td>
-<td align="center">Times New Roman Bole</td>
-</tr>
-<tr>
-<td align="center">FZSTK.TTF</td>
-<td align="center">方正舒体</td>
-</tr>
-<tr>
-<td align="center">FZYTK.TTF</td>
-<td align="center">方正姚体</td>
-</tr>
-<tr>
-<td align="center">msyh.ttf</td>
-<td align="center">微软雅黑</td>
-</tr>
-<tr>
-<td align="center">msyhbd.ttf</td>
-<td align="center">微软雅黑Bold</td>
-</tr>
-<tr>
-<td align="center">simfang.ttf</td>
-<td align="center">仿宋GB_2312</td>
-</tr>
-<tr>
-<td align="center">simhei.ttf</td>
-<td align="center">黑体</td>
-</tr>
-<tr>
-<td align="center">simkai.ttf</td>
-<td align="center">楷体GB_2312</td>
-</tr>
-<tr>
-<td align="center">SIMLI.TTF</td>
-<td align="center">隶书</td>
-</tr>
-<tr>
-<td align="center">simsun.ttc</td>
-<td align="center">宋体、宋体PUA、新宋体</td>
-</tr>
-<tr>
-<td align="center">SIMYOU.TTF</td>
-<td align="center">幼圆</td>
-</tr>
-<tr>
-<td align="center">STCAIYUN.TTF</td>
-<td align="center">华文彩云</td>
-</tr>
-<tr>
-<td align="center">STFANGSO.TTF</td>
-<td align="center">华文仿宋</td>
-</tr>
-<tr>
-<td align="center">STHUPO.TTF</td>
-<td align="center">华文琥珀</td>
-</tr>
-<tr>
-<td align="center">STKAITI.TTF</td>
-<td align="center">华文楷体</td>
-</tr>
-<tr>
-<td align="center">STLITI.TTF</td>
-<td align="center">华文隶书</td>
-</tr>
-<tr>
-<td align="center">STSONG.TTF</td>
-<td align="center">华文宋体</td>
-</tr>
-<tr>
-<td align="center">STXIHEI.TTF</td>
-<td align="center">华文细黑</td>
-</tr>
-<tr>
-<td align="center">STXINGKA.TTF</td>
-<td align="center">华文行楷</td>
-</tr>
-<tr>
-<td align="center">STXINWEI.TTF</td>
-<td align="center">华文新魏</td>
-</tr>
-<tr>
-<td align="center">STZHONGS.TTF</td>
-<td align="center">华文中宋</td>
-</tr>
-<tr>
-<td align="center">SURSONG.TTF</td>
-<td align="center">宋体-方正超大字符集</td>
-</tr>
-</tbody></table>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/01/07/84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/01/07/84/" class="post-title-link" itemprop="url">84. Ubuntu美化说明</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-01-07 05:00:00" itemprop="dateCreated datePublished" datetime="2020-01-07T05:00:00+08:00">2020-01-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-29 08:58:34" itemprop="dateModified" datetime="2023-11-29T08:58:34+08:00">2023-11-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/os/" itemprop="url" rel="index"><span itemprop="name">os</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ol>
-<li><p>Cupertino:图标 —— icons</p>
-</li>
-<li><p>dash-to-dock-gnome:dash to dock</p>
-</li>
-<li><p>grub2-themes-master:grub启动界面 —— sudo .&#x2F;install.sh -v</p>
-</li>
-<li><p>High_Ubunterra_CC : Ubuntu 锁屏启动界面（模糊的那个）</p>
-</li>
-<li><p>Mojave-light: 主题 —— themes</p>
-</li>
-<li><p>suadesplas: 启动动画</p>
-</li>
-<li><p>美化网址有去除启动时紫框的说明是：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/feipeng8848/p/8970556.html">https://www.cnblogs.com/feipeng8848/p/8970556.html</a></p>
-<blockquote>
-<p>即：找到&#x2F;boot&#x2F;grub&#x2F;grub.cfg文件，找到这样一行： if background_color 44,0,30,0;修改成 if background_color 0,0,0,0;就会去除grub在选中Ubuntu系统之后出现的短暂的紫色。</p>
-</blockquote>
-</li>
-<li><p>美化网址：</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/feipeng8848/p/8970556.html">https://www.cnblogs.com/feipeng8848/p/8970556.html</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40389121/article/details/81703577">https://blog.csdn.net/weixin_40389121/article/details/81703577</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lishanlei/p/9090404.html">https://www.cnblogs.com/lishanlei/p/9090404.html</a></li>
 </ol>
 </li>
 </ol>
