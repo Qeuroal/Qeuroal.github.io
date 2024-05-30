@@ -49,7 +49,7 @@
 <meta property="og:image" content="http://qeuroal.top/2020/05/30/107/39a4d7dfdfbb496383e130b1607fa203.png">
 <meta property="og:image" content="http://qeuroal.top/2020/05/30/107/439134b4ab2242bf9a9b43437043cea1.png">
 <meta property="article:published_time" content="2020-05-29T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-05-30T03:11:23.906Z">
+<meta property="article:modified_time" content="2024-05-30T04:33:21.909Z">
 <meta property="article:author" content="Qeuroal">
 <meta property="article:tag" content="software">
 <meta property="article:tag" content="cuda">
@@ -258,7 +258,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-05-30 11:11:23" itemprop="dateModified" datetime="2024-05-30T11:11:23+08:00">2024-05-30</time>
+      <time title="修改时间：2024-05-30 12:33:21" itemprop="dateModified" datetime="2024-05-30T12:33:21+08:00">2024-05-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -406,7 +406,7 @@
 <p>   查看效果：<code>nvcc -V</code><br>   <img data-src="/2020/05/30/107/44ccdd70d5844b8d831cb1d2d99e9d21.png" class="" title="请添加图片描述"><br>   显示CUDA 10.2，已经安装成功</p>
 <ol>
 <li><p>ln映射文件夹</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">ln</span> -s /home/&lt;username&gt;/&lt;cuda-10.2&gt; /usr/local/cuda</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s /home/&lt;username&gt;/&lt;cuda-10.2&gt; /usr/local/cuda</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p><strong>PS</strong>: &#x2F;usr&#x2F;local&#x2F;cuda 目录可以换</p>
@@ -439,7 +439,10 @@
 </li>
 </ol>
 <h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><ol>
-<li><p>根据安装的CUDA工具包版本在<a target="_blank" rel="noopener" href="https://developer.nvidia.com/rdp/cudnn-archive">官网</a>选择适合版本的cuDNN，本文安装的CUDA版本是11.2，就选择与之对应的<code>cuDNN v8.4.0</code>，选择<code>Local Installer for Linux x86_64 (Tar)</code>。<br><img data-src="https://img-blog.csdnimg.cn/73e8f1b0964743e2a23d516600d513e8.png" alt="在这里插入图片描述"></p>
+<li><p>查看CUDA版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvcc -V</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>根据安装的CUDA工具包版本在<a target="_blank" rel="noopener" href="https://developer.nvidia.com/rdp/cudnn-archive">[官网]</a>选择适合版本的cuDNN，本文安装的CUDA版本是11.2，就选择与之对应的<code>cuDNN v8.4.0</code>，选择<code>Local Installer for Linux x86_64 (Tar)</code>。<br><img data-src="https://img-blog.csdnimg.cn/73e8f1b0964743e2a23d516600d513e8.png" alt="在这里插入图片描述"></p>
 </li>
 <li><p>复制cuDNN库的链接，使用<code>wget</code>下载或者下载到自己电脑之后再传到服务器上。</p>
 </li>
