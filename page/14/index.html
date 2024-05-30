@@ -153,18 +153,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">150</span>
+          <span class="site-state-item-count">152</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -186,6 +186,323 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2019/02/14/29/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/02/14/29/" class="post-title-link" itemprop="url">29. 完全平方数</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-02-14 04:00:00" itemprop="dateCreated datePublished" datetime="2019-02-14T04:00:00+08:00">2019-02-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-29 08:58:33" itemprop="dateModified" datetime="2023-11-29T08:58:33+08:00">2023-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programming/" itemprop="url" rel="index"><span itemprop="name">programming</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><img data-src="/2019/02/14/29/10.png" class="" width="10">
+
+
+
+
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><h2 id="类型：BFS"><a href="#类型：BFS" class="headerlink" title="类型：BFS"></a>类型：BFS</h2><h2 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h2><ol>
+<li>首先，把要求的数分为多个数相加，比如：10 &#x3D; 1 + 9 &#x3D; 1 + 4 + 4 + 1 &#x3D; 1 + 1 + …… + 1</li>
+<li>但是，由于使用的循环，所以肯定是1 + 9先出现</li>
+<li>所以，依次类推，直到找到要求的数</li>
+</ol>
+<ul>
+<li>PS：<ol>
+<li>BFS就是一层找一层，找到的肯定是最近的；</li>
+<li>比如：4就是 0 + 4，只有一个数，设为第一层；同理，9 &#x3D; 0 + 9，也只有一个数，同样为第一层</li>
+<li>当遍历完0后，开始遍历第一层的数，那么找到的就是两个数的，即为第二层</li>
+<li>依次类推</li>
+</ol>
+</li>
+</ul>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">numSquares</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    queue&lt;<span class="type">int</span>&gt; q;</span><br><span class="line">    q.<span class="built_in">push</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dist</span><span class="params">(n + <span class="number">1</span>, INT_MAX)</span></span>;</span><br><span class="line">    dist[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(q.<span class="built_in">size</span>()) &#123;</span><br><span class="line">        <span class="type">int</span> t = q.<span class="built_in">front</span>();</span><br><span class="line">        q.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span>(t == n) &#123;</span><br><span class="line">            <span class="keyword">return</span> dist[t];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i * i + t &lt;= n; i++) &#123;</span><br><span class="line">            <span class="type">int</span> j = i * i + t;</span><br><span class="line">            <span class="keyword">if</span>(dist[j] &gt; dist[t] + <span class="number">1</span>) &#123;</span><br><span class="line">                dist[j] = dist[t] + <span class="number">1</span>;</span><br><span class="line">                q.<span class="built_in">push</span>(j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2019/02/12/28/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/02/12/28/" class="post-title-link" itemprop="url">28. cmd命令大全</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-02-12 06:00:00" itemprop="dateCreated datePublished" datetime="2019-02-12T06:00:00+08:00">2019-02-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-29 08:58:33" itemprop="dateModified" datetime="2023-11-29T08:58:33+08:00">2023-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/os/" itemprop="url" rel="index"><span itemprop="name">os</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>AT          计划在计算机上运行的命令和程序。</li>
+<li>ATTRIB      显示或更改文件属性。</li>
+<li>BREAK       设置或清除扩展式 CTRL+C 检查。</li>
+<li>CACLS       显示或修改文件的访问控制列表(ACLs)。</li>
+<li>CALL        从另一个批处理程序调用这一个。</li>
+<li>CD          显示当前目录的名称或将其更改。</li>
+<li>CHCP        显示或设置活动代码页数。</li>
+<li>CHDIR       显示当前目录的名称或将其更改。</li>
+<li>CHKDSK      检查磁盘并显示状态报告。</li>
+<li>CHKNTFS     显示或修改启动时间磁盘检查。</li>
+<li>CLS         清除屏幕。</li>
+<li>CMD         打开另一个 Windows 命令解释程序窗口。</li>
+<li>COLOR       设置默认控制台前景和背景颜色。</li>
+<li>COMP        比较两个或两套文件的内容。</li>
+<li>COMPACT     显示或更改 NTFS 分区上文件的压缩。</li>
+<li>CONVERT     将 FAT 卷转换成 NTFS。您不能转换当前驱动器。</li>
+<li>COPY        将至少一个文件复制到另一个位置。</li>
+<li>DATE        显示或设置日期。</li>
+<li>DEL         删除至少一个文件。</li>
+<li>DIR         显示一个目录中的文件和子目录。</li>
+<li>DISKCOMP    比较两个软盘的内容。</li>
+<li>DISKCOPY    将一个软盘的内容复制到另一个软盘。</li>
+<li>DOSKEY      编辑命令行、调用 Windows 命令并创建宏。</li>
+<li>ECHO        显示消息，或将命令回显打开或关上。</li>
+<li>ENDLOCAL    结束批文件中环境更改的本地化。</li>
+<li>ERASE       删除至少一个文件。</li>
+<li>EXIT        退出 CMD.EXE 程序(命令解释程序)。</li>
+<li>FC          比较两个或两套文件，并显示不同处。</li>
+<li>FIND        在文件中搜索文字字符串。</li>
+<li>FINDSTR     在文件中搜索字符串。</li>
+<li>FOR         为一套文件中的每个文件运行一个指定的命令。</li>
+<li>FORMAT      格式化磁盘，以便跟 Windows 使用。</li>
+<li>FTYPE       显示或修改用于文件扩展名关联的文件类型。</li>
+<li>GOTO        将 Windows 命令解释程序指向批处理程序中某个标明的行1. 。</li>
+<li>GRAFTABL    启用 Windows 来以图像模式显示扩展字符集。</li>
+<li>HELP        提供 Windows 命令的帮助信息。</li>
+<li>IF          执行批处理程序中的条件性处理。</li>
+<li>LABEL       创建、更改或删除磁盘的卷标。</li>
+<li>MD          创建目录。</li>
+<li>MKDIR       创建目录。</li>
+<li>MODE        配置系统设备。</li>
+<li>MORE        一次显示一个结果屏幕。</li>
+<li>MOVE        将文件从一个目录移到另一个目录。</li>
+<li>PATH        显示或设置可执行文件的搜索路径。</li>
+<li>PAUSE       暂停批文件的处理并显示消息。</li>
+<li>POPD        还原PUSHD保存的当前目录的上一个值。</li>
+<li>PRINT       打印文本文件。</li>
+<li>PROMPT      更改Windows命令提示符。</li>
+<li>PUSHD       保存当前目录，然后对其进行更改。</li>
+<li>RD          删除目录。</li>
+<li>RECOVER     从有问题的磁盘恢复可读信息。</li>
+<li>REM         记录批文件或CONFIG.SYS中的注释。</li>
+<li>REN         重命名文件。</li>
+<li>RENAME      重命名文件。</li>
+<li>REPLACE     替换文件。</li>
+<li>RMDIR       删除目录</li>
+<li>SET         显示、设置或删除Windows环境变量。</li>
+<li>SETLOCAL    开始批文件中环境更改的本地化。</li>
+<li>SHIFT       更换批文件中可替换参数的位置。</li>
+<li>SORT        对输入进行分类。</li>
+<li>START       启动另一个窗口来运行指定的程序或命令。</li>
+<li>SUBST       将路径跟一个驱动器号关联。</li>
+<li>TIME        显示或设置系统时间。</li>
+<li>TITLE       设置CMD.EXE会话的窗口标题。</li>
+<li>TREE        以图形模式显示驱动器或路径的目录结构。</li>
+<li>TYPE        显示文本文件的内容。</li>
+<li>VER         显示Windows版本。</li>
+<li>VERIFY      告诉Windows   是否验证文件是否已正确写入磁盘。</li>
+<li>VOL         显示磁盘卷标和序列号。</li>
+<li>XCOPY       复制文件和目录树。</li>
+<li>appwiz.cpl  添加删除程序</li>
+<li>control userpasswords2  用户帐户设置</li>
+<li>cleanmgr    垃圾整理</li>
+<li>CMD         命令提示符可以当作是Windows的一个附件</li>
+<li>Ping，Convert这些不能在图形环境下使用的功能要借助它来完成。</li>
+<li>cmd         jview察看Java虚拟机版本。</li>
+<li>command.com 调用的则是系统内置的NTVDM，一个DOS虚拟机。它完全是一个类似VirtualPC的虚拟环境，和系统本身联系不大。当我们在命令提示符下运行  DOS程序时，实际上也是自动转移到NTVDM虚拟机下，和CMD本身没什么关系。</li>
+<li>calc        启动计算器</li>
+<li>chkdsk.exe  Chkdsk磁盘检查</li>
+<li>compmgmt.msc    计算机管理</li>
+<li>conf        启动netmeeting</li>
+<li>control userpasswords2 User Account 权限设置</li>
+<li>devmgmt.msc     设备管理器</li>
+<li>diskmgmt.msc    磁盘管理实用程序</li>
+<li>dfrg.msc        磁盘碎片整理程序</li>
+<li>drwtsn32        系统医生</li>
+<li>dvdplay         启动Media Player</li>
+<li>dxdiag DirectX Diagnostic Tool</li>
+<li>gpedit.msc      组策略编辑器</li>
+<li>gpupdate &#x2F;target:computer &#x2F;force    强制刷新组策略</li>
+<li>eventvwr.exe    事件查看器</li>
+<li>explorer    打开资源管理器</li>
+<li>logoff      注销命令</li>
+<li>lusrmgr.msc 本机用户和组</li>
+<li>msinfo32    系统信息</li>
+<li>msconfig    系统配置实用程序</li>
+<li>net start (servicename) 启动该服务</li>
+<li>net stop (servicename)  停止该服务</li>
+<li>notepad     打开记事本</li>
+<li>nusrmgr.cpl 同control userpasswords，打开用户帐户控制面板</li>
+<li>Nslookup    IP地址侦测器</li>
+<li>oobe&#x2F;msoobe &#x2F;a  检查系统是否激活</li>
+<li>perfmon.msc 计算机性能监测程序</li>
+<li>progman     程序管理器</li>
+<li>regedit     注册表编辑器</li>
+<li>regedt32    注册表编辑器</li>
+<li>regsvr32 &#x2F;u *.dll   停止dll文件运行</li>
+<li>route print     查看路由表           </li>
+<li>rononce -p      15秒关机</li>
+<li>rsop.msc        组策略结果集</li>
+<li>rundll32.exe rundll32.exe %Systemroot%System32shimgvw.dll,ImageView_Fullscreen  启动一个空白的Windows图片和传真查看器</li>
+<li>secpol.msc      本地安全策略</li>
+<li>services.msc    本地服务设置</li>
+<li>sfc &#x2F;scannow    启动系统文件检查器</li>
+<li>sndrec32        录音机</li>
+<li>taskmgr         任务管理器（适用于2000／xp／2003）</li>
+<li>tsshutdn        60秒倒计时关机命令</li>
+<li>winchat         XP自带局域网聊天</li>
+<li>winmsd          系统信息</li>
+<li>winver          显示About Windows窗口</li>
+<li>wupdmgr         Windows Update</li>
+<li>mspaint:打开画图</li>
+<li>calc:打开计算器</li>
+<li>winver:检查window版本</li>
+<li>mstsc:远程桌面连接</li>
+<li>write:写字板</li>
+<li>mem.exe:显示内存的使用情况</li>
+<li>notepad:打开记事本</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1273,241 +1590,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2019/01/23/15/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/01/23/15/" class="post-title-link" itemprop="url">15. 只出现一次的数字 II</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-01-23 04:00:00" itemprop="dateCreated datePublished" datetime="2019-01-23T04:00:00+08:00">2019-01-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-29 08:58:33" itemprop="dateModified" datetime="2023-11-29T08:58:33+08:00">2023-11-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/programming/" itemprop="url" rel="index"><span itemprop="name">programming</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h1><p>给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现了三次。找出那个只出现了一次的元素。</p>
-<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</p>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [2,2,3,2]</span><br><span class="line">输出: 3</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">singleNum</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span>; i++) &#123;</span><br><span class="line">        <span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; nums.<span class="built_in">size</span>(); j++) &#123;</span><br><span class="line">            count += (nums[j] &gt;&gt; i) &amp; <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        res += (count % <span class="number">3</span>) &lt;&lt; i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><ol>
-<li>首先：为什么<code>i &lt; 32</code>?<br>int型占4个字节，即32位，所以int的大小为 int$\in$ [$-2^{31}$, $2 ^ {31} -1$]</li>
-<li>时间复杂度为：O(32n) <code>&lt;===&gt;</code> O(n)；</li>
-<li>虽然是二进制，但是运算法则和十进制并无差异，变的只是进制而已；</li>
-<li>因为要确定一个数字，所以$<code>\%3</code>$会让那个数字显示出来在<strong>二进制</strong>形式下，那个位置有1。</li>
-</ol>
-<h1 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h1><h2 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">singleNum</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> ones = <span class="number">0</span>, twos = <span class="number">0</span>;</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">auto</span> x : nums) &#123;</span><br><span class="line">         ones = (ones ^ x) &amp; ~twos;</span><br><span class="line">         twos = (twos ^ x) &amp; ~ones;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> ones;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="解析-1"><a href="#解析-1" class="headerlink" title="解析"></a>解析</h2><ol>
-<li>从 <code>自动机</code> 的角度出发；</li>
-<li>状态机：（举例：）</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th align="center">状态量</th>
-<th align="center">ones</th>
-<th align="center">twos</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">初始状态</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">一个1</td>
-<td align="center">1</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">两个1</td>
-<td align="center">0</td>
-<td align="center">1</td>
-</tr>
-<tr>
-<td align="center">三个1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr>
-<td align="center">3. 三个状态一循环，比如有6个1， 则进行两轮循环，状态量为0 &emsp; 0</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2019/01/22/13/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/01/22/13/" class="post-title-link" itemprop="url">13. unordered_map(哈希表)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-01-22 05:00:00" itemprop="dateCreated datePublished" datetime="2019-01-22T05:00:00+08:00">2019-01-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-29 08:58:32" itemprop="dateModified" datetime="2023-11-29T08:58:32+08:00">2023-11-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/programming/" itemprop="url" rel="index"><span itemprop="name">programming</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>unordered_map是C++中的哈希表，可以在任意类型与类型之间做映射。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/01/22/13/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/15/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/15/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

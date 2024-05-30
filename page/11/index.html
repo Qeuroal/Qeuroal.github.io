@@ -153,18 +153,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">150</span>
+          <span class="site-state-item-count">152</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -186,6 +186,235 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/03/06/93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/03/06/93/" class="post-title-link" itemprop="url">93. Ubuntu18.04 配置 conda 环境变量</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-06 04:00:00" itemprop="dateCreated datePublished" datetime="2020-03-06T04:00:00+08:00">2020-03-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-29 08:58:34" itemprop="dateModified" datetime="2023-11-29T08:58:34+08:00">2023-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/os/" itemprop="url" rel="index"><span itemprop="name">os</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>以下操作均在 <code>Terminal</code> 进行</p>
+</blockquote>
+<ol>
+<li>如果使用的是 <code>bash</code>:<ol>
+<li>方法一:<ol>
+<li><code>sudo gedit ~/.bashrc</code></li>
+<li>在最后一行添加： <code>export PATH=&quot;~/anaconda3/bin:$PATH&quot;</code> (注意：使用你自己的安装目录，我的anaconda目录在 <code>~/anaconda3</code>)</li>
+<li><code>source ~/.bashrc</code> (用来激活环境变量)</li>
+<li>激活：<ol>
+<li><code>source activate</code></li>
+<li><code>conda activate</code></li>
+</ol>
+</li>
+<li>退出激活：<ol>
+<li><code>source deactivate</code></li>
+<li><code>conda deactivate</code></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>如果使用的是 <code>zsh</code>:<ol>
+<li>方法一：<ol>
+<li><code>sudo gedit ~/.zshrc</code></li>
+<li>在最后一行添加<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export PATH=&quot;~/anaconda3/bin:$PATH&quot;</span><br><span class="line">. /home/dgimo/anaconda3/etc/profile.d/conda.sh</span><br></pre></td></tr></table></figure></li>
+<li><code>source ~/.zshrc</code></li>
+<li>激活：<ol>
+<li><code>conda activate</code></li>
+</ol>
+</li>
+<li>退出激活：<ol>
+<li><code>conda deactivate</code></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="可以不看下面的，个人错误记录"><a href="#可以不看下面的，个人错误记录" class="headerlink" title="可以不看下面的，个人错误记录"></a>可以不看下面的，个人错误记录</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">CommandNotFoundError: Your shell has not been properly configured to use &#x27;conda activate&#x27;.</span><br><span class="line">If your shell is Bash or a Bourne variant, enable conda for the current user with</span><br><span class="line"></span><br><span class="line">    $ echo &quot;. /home/dgimo/anaconda3/etc/profile.d/conda.sh&quot; &gt;&gt; ~/.zshrc</span><br><span class="line"></span><br><span class="line">or, for all users, enable conda with</span><br><span class="line"></span><br><span class="line">    $ sudo ln -s /home/dgimo/anaconda3/etc/profile.d/conda.sh /etc/profile.d/conda.sh</span><br><span class="line"></span><br><span class="line">The options above will permanently enable the &#x27;conda&#x27; command, but they do NOT</span><br><span class="line">put conda&#x27;s base (root) environment on PATH.  To do so, run</span><br><span class="line"></span><br><span class="line">    $ conda activate</span><br><span class="line"></span><br><span class="line">in your terminal, or to put the base environment on PATH permanently, run</span><br><span class="line"></span><br><span class="line">    $ echo &quot;conda activate&quot; &gt;&gt; ~/.bashrc</span><br><span class="line"></span><br><span class="line">Previous to conda 4.4, the recommended way to activate conda was to modify PATH in</span><br><span class="line">your ~/.bashrc file.  You should manually remove the line that looks like</span><br><span class="line"></span><br><span class="line">    export PATH=&quot;/home/dgimo/anaconda3/bin:$PATH&quot;</span><br><span class="line"></span><br><span class="line">^^^ The above line should NO LONGER be in your ~/.bashrc file! ^^^</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/02/23/91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/02/23/91/" class="post-title-link" itemprop="url">91. C/C++ 链表指针</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-02-23 04:00:00" itemprop="dateCreated datePublished" datetime="2020-02-23T04:00:00+08:00">2020-02-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-29 08:58:34" itemprop="dateModified" datetime="2023-11-29T08:58:34+08:00">2023-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/c-c/" itemprop="url" rel="index"><span itemprop="name">c/c++</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h1><p>如果要改变变量的值就用指针，不改变就用变量本身；使用变量本身，那么相当于读取，对原来的数据没有任何影响。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1>   <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">   <span class="type">int</span> data;</span><br><span class="line">   <span class="keyword">struct</span> <span class="title class_">Node</span> *next;</span><br><span class="line">&#125;Node;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">Node</span> *LinkList;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">initLinkList</span><span class="params">(LinkList *L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   (*L) = <span class="keyword">new</span> Node;</span><br><span class="line">   (*L)-&gt;data = <span class="number">0</span>;</span><br><span class="line">   (*L)-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">insertLinkList</span><span class="params">(LinkList head, <span class="type">int</span> pos, <span class="type">int</span> value)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   LinkList p = head, t;</span><br><span class="line">   <span class="type">int</span> j = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">while</span> (p &amp;&amp; j &lt; pos) &#123;</span><br><span class="line">      p = p-&gt;next;</span><br><span class="line">      j++;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span> (!(p) || j &gt; pos) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">   t = <span class="keyword">new</span> Node;</span><br><span class="line">   t-&gt;data = value;</span><br><span class="line">   t-&gt;next = p-&gt;next;</span><br><span class="line">   p-&gt;next = t;</span><br><span class="line">   head-&gt;data++;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">deleteLinkList</span><span class="params">(LinkList l, <span class="type">int</span> pos, <span class="type">int</span> *value)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   LinkList p = l, q;</span><br><span class="line">   <span class="type">int</span> j = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">while</span> (p-&gt;next &amp;&amp; j &lt; pos) &#123;</span><br><span class="line">      p = p-&gt;next;</span><br><span class="line">      j++;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span> (!(p-&gt;next) || j &gt; pos) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">   q = p-&gt;next;</span><br><span class="line">   p-&gt;next = q-&gt;next;</span><br><span class="line">   <span class="built_in">delete</span>(q);</span><br><span class="line">   l-&gt;data--;</span><br><span class="line">   <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">clearLinkList</span><span class="params">(LinkList l)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   LinkList p = l-&gt;next, q;</span><br><span class="line">   l-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">   <span class="keyword">while</span> (p) &#123;</span><br><span class="line">      q = p-&gt;next;</span><br><span class="line">      <span class="built_in">delete</span> (p);</span><br><span class="line">      p = q;</span><br><span class="line">      l-&gt;data--;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">showLinkList</span><span class="params">(LinkList l)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   cout &lt;&lt; <span class="string">&quot;Length is &quot;</span> &lt;&lt; l-&gt;data &lt;&lt; endl;</span><br><span class="line">   l = l-&gt;next;</span><br><span class="line">   <span class="keyword">while</span> (l) &#123;</span><br><span class="line">      cout &lt;&lt; l-&gt;data &lt;&lt; <span class="string">&quot;\t&quot;</span>;</span><br><span class="line">      l = l-&gt;next;</span><br><span class="line">   &#125;</span><br><span class="line">   cout &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   LinkList head = <span class="literal">NULL</span>;</span><br><span class="line">   <span class="built_in">initLinkList</span>(&amp;head);</span><br><span class="line"></span><br><span class="line">   <span class="type">int</span> value_del;</span><br><span class="line">   <span class="built_in">deleteLinkList</span>(head, <span class="number">1</span>, &amp;value_del);</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++) &#123;</span><br><span class="line">      <span class="built_in">insertLinkList</span>(head, i, i);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="built_in">insertLinkList</span>(head, <span class="number">4</span>, <span class="number">10</span>);</span><br><span class="line">   <span class="built_in">showLinkList</span>(head);</span><br><span class="line"></span><br><span class="line">   <span class="built_in">deleteLinkList</span>(head, <span class="number">4</span>, &amp;value_del);</span><br><span class="line">   <span class="built_in">showLinkList</span>(head);</span><br><span class="line"></span><br><span class="line">   <span class="built_in">clearLinkList</span>(head);</span><br><span class="line">   <span class="built_in">showLinkList</span>(head);</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h1><ol>
+<li>该链表是有头结点的链表；</li>
+<li>什么时候用 <code>LinkList L</code> 和 <code>LinkList *L</code>：<ol>
+<li>需要改变指针的值的时候用 <code>LinkList *L</code>，若对指针的值没有改变时，使用 <code>LinkList L</code></li>
+</ol>
+</li>
+<li>链表注意事项：<ol>
+<li><code>LinkList head;</code>只是定义了一个 变量名为<code>head</code>的指针变量，是一个野指针，那么需要在定义的时候进行初始化，即：<code>LinkList head = NULL</code></li>
+<li>想要使用 <code>head</code> 指向头结点，需要自己 <code>new</code> 一个结构体，将这个结构体的地址赋给 <code>head</code></li>
+</ol>
+</li>
+<li><code>insertLinkList</code> 和 <code>deleteLinkList</code>的异同：<ol>
+<li><code>insertLinkList</code> 和 <code>deleteLinkList</code>不论在位置 <code>pos</code> 处插入一个结点还是在pos处删除结点，都是对 <code>pos-1</code> 进行操作。</li>
+<li>在使用 <code>while</code> 循环时，<code>insertLinkList</code>是以第j个位置为判断对象，而 <code>deleteLinkList</code>是以第j+1个位置为判断对象的（其中：头结点为第1个位置）。</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1550,247 +1779,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2019/11/10/76/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/11/10/76/" class="post-title-link" itemprop="url">76. Ubuntu Spyder 添加桌面快捷方式</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-11-10 04:00:00" itemprop="dateCreated datePublished" datetime="2019-11-10T04:00:00+08:00">2019-11-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-29 08:58:34" itemprop="dateModified" datetime="2023-11-29T08:58:34+08:00">2023-11-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/software/" itemprop="url" rel="index"><span itemprop="name">software</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ol>
-<li><p>在桌面 <code>gedit spyder.desktop</code></p>
-</li>
-<li><p>输入下面文本</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Encoding=UTF-8</span><br><span class="line">Name=Spyder</span><br><span class="line">Comment=The Smarter Way to manage dadabase</span><br><span class="line">Exec=/home/dgimo/anaconda3/bin/python &quot;/home/dgimo/anaconda3/bin/spyder&quot;</span><br><span class="line">Icon=/home/dgimo/anaconda3/share/icons/spyder3.png</span><br><span class="line">Categories=Development;Science;IDE;Qt;</span><br><span class="line">Type=Application</span><br><span class="line">Terminal=0</span><br><span class="line">StartupNotify=true</span><br><span class="line">MimeType=text/x-python;</span><br><span class="line">X-AppStream-Ignore=True</span><br></pre></td></tr></table></figure></li>
-<li><p>将该文件移动到 <code>/usr/share/applications</code></p>
-</li>
-<li><p>解决不能使用中文输入法的问题</p>
-<ol>
-<li><code>cd /usr/lib/x86_64-linux-gnu/qt5/plugins/platforminputcontexts</code> 找到文件所在的文件夹</li>
-<li><code>ls</code> 查看当前文件夹中的文件，其实这条可以省略</li>
-<li><code>sudo cp libfcitxplatforminputcontextplugin.so ~/anaconda3/plugins/platforminputcontexts</code> 将其复制到anaconda插件相应的文件下</li>
-<li>重启Spyder即可</li>
-</ol>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2019/10/12/73/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/10/12/73/" class="post-title-link" itemprop="url">73. C++ STL</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-10-12 04:00:00" itemprop="dateCreated datePublished" datetime="2019-10-12T04:00:00+08:00">2019-10-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-29 08:58:34" itemprop="dateModified" datetime="2023-11-29T08:58:34+08:00">2023-11-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/c-c/" itemprop="url" rel="index"><span itemprop="name">c/c++</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="string"><a href="#string" class="headerlink" title="string"></a>string</h1><ol>
-<li>length()   &#x2F;&#x2F; 返回字符串的长度</li>
-<li>empty()    &#x2F;&#x2F; 判断是否为空</li>
-<li>push_back() &#x2F;&#x2F; 恢复字符到结尾</li>
-<li>int compare(const string &amp;s) const;&#x2F;&#x2F;比较当前字符串和s的大小</li>
-</ol>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lanyzh0909/article/details/6957649">更多点击这里</a> </p>
-<h1 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h1><ol>
-<li>初始化：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>():创建一个空<span class="function">vector</span></span><br><span class="line"><span class="function"><span class="title">vector</span><span class="params">(<span class="type">int</span> nSize)</span>:创建一个vector,元素个数为nSize</span></span><br><span class="line"><span class="function">vector(int nSize,const t&amp; t):创建一个vector，元素个数为nSize,且值均为t</span></span><br><span class="line"><span class="function">vector(const vector&amp;):复制构造函数</span></span><br><span class="line"><span class="function">vector(begin,end):复制[begin,end)区间内另一个数组的元素到vector中</span></span><br></pre></td></tr></table></figure></li>
-<li>void push_back(const T&amp; x):向量尾部增加一个元素X</li>
-<li>删除<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">iterator <span class="title">erase</span><span class="params">(iterator it)</span>:删除向量中迭代器指向元素</span></span><br><span class="line"><span class="function">iterator erase(iterator first,iterator last):删除向量中[first,last)中元素</span></span><br><span class="line"><span class="function">void pop_back():删除向量中最后一个元素</span></span><br><span class="line"><span class="function">void clear():清空向量中所有元素</span></span><br></pre></td></tr></table></figure></li>
-<li>int size() const:返回向量中元素的个数</li>
-<li>empty 判断vector是否为空</li>
-</ol>
-<p><a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/cpp-vector-container-analysis.html">更多点击这里</a> </p>
-<h1 id="map-（键值对）"><a href="#map-（键值对）" class="headerlink" title="map （键值对）"></a>map （键值对）</h1><ol>
-<li>初始化: <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map&lt;<span class="type">int</span>, string&gt; m</span><br></pre></td></tr></table></figure></li>
-<li>添加<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">m.insert(pair&lt;int,string&gt;(102,&quot;aclive&quot;));</span><br><span class="line">m.insert(map&lt;int,string&gt;::value_type(321,&quot;hai&quot;));</span><br><span class="line">m[112]=&quot;April&quot;;//map中最简单最常用的插入添加！</span><br></pre></td></tr></table></figure></li>
-<li>遍历<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (map&lt;<span class="type">int</span>, string&gt;::iterator iter = m.<span class="built_in">begin</span>(); iter != m.<span class="built_in">end</span>(); iter++) &#123;</span><br><span class="line">     cout &lt;&lt; iter-&gt;first &lt;&lt; <span class="string">&quot;, &quot;</span> &lt;&lt; iter-&gt;second &lt;&lt; <span class="string">&quot;  &quot;</span>;</span><br><span class="line"> &#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br></pre></td></tr></table></figure></li>
-<li>个数： <code>m.size()</code><br><a target="_blank" rel="noopener" href="https://www.w3cschool.cn/cpp/cpp-fu8l2ppt.html">更多点击这里</a></li>
-</ol>
-<h1 id="pair"><a href="#pair" class="headerlink" title="pair"></a>pair</h1><ol>
-<li>初始化：<ol>
-<li>pair&lt;int, string&gt; p;</li>
-<li>pair&lt;int, string&gt; p (1, 2);</li>
-<li>make_pair(1,2);</li>
-<li>pair&lt;int, string&gt; (1, 2) (C11)</li>
-</ol>
-</li>
-<li>操作<ol>
-<li>p.first</li>
-<li>p.second</li>
-</ol>
-</li>
-</ol>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_35121480/article/details/54728594">更多点击这里</a></p>
-<h1 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h1><ol>
-<li>初始化<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">queue&lt;<span class="type">int</span>&gt; q;</span><br></pre></td></tr></table></figure></li>
-<li>入队<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">q.<span class="built_in">push</span>(<span class="number">1</span>);</span><br></pre></td></tr></table></figure></li>
-<li>出队<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">q.<span class="built_in">pop</span>();</span><br></pre></td></tr></table></figure></li>
-<li>访问队首元素<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">q.<span class="built_in">front</span>();</span><br></pre></td></tr></table></figure></li>
-<li>访问队尾元素<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">q.<span class="built_in">back</span>();</span><br></pre></td></tr></table></figure></li>
-<li>判断队列空<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">q.<span class="built_in">empty</span>();</span><br></pre></td></tr></table></figure></li>
-<li>元素的个数<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">q.<span class="built_in">size</span>();</span><br></pre></td></tr></table></figure>
-<a target="_blank" rel="noopener" href="https://blog.csdn.net/wangshihui512/article/details/8930652">更多点击这里</a></li>
-</ol>
-<h1 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h1><ol>
-<li>初始化<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stack&lt;<span class="type">int</span>&gt; s;</span><br></pre></td></tr></table></figure></li>
-<li>入栈<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.<span class="built_in">push</span>(<span class="number">1</span>);</span><br></pre></td></tr></table></figure></li>
-<li>出栈<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.<span class="built_in">pop</span>();</span><br></pre></td></tr></table></figure></li>
-<li>访问栈顶<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.<span class="built_in">top</span>();</span><br></pre></td></tr></table></figure></li>
-<li>判断栈空<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.<span class="built_in">empty</span>();</span><br></pre></td></tr></table></figure></li>
-<li>元素的个数<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.<span class="built_in">size</span>();</span><br></pre></td></tr></table></figure>
-<a target="_blank" rel="noopener" href="https://www.cnblogs.com/mfryf/archive/2012/08/09/2629992.html">更多点击这里</a></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/12/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/12/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
