@@ -195,154 +195,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2024/06/13/74/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/13/74/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2024-06-13 09:27:53 / 修改时间：09:33:44" itemprop="dateCreated datePublished" datetime="2024-06-13T09:27:53+08:00">2024-06-13</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="開始安裝"><a href="#開始安裝" class="headerlink" title="開始安裝"></a>開始安裝</h1><h5 id="1-准备好你的机器环境并开机"><a href="#1-准备好你的机器环境并开机" class="headerlink" title="1 准备好你的机器环境并开机"></a><strong>1 准备好你的机器环境并开机</strong></h5><p>基本上测试的环境<strong>只需要32GB 的硬碟空间及2GB 的记忆体</strong>就可以运作了，请依照你自己的实际环境，若是用usb 开机安装在实体机上的话，可参考<a target="_blank" rel="noopener" href="https://briian.com/7214/">这篇</a>把ISO 档写入usb 随身碟中，本篇说明是采用PVE 虚拟机架构进行测试(<strong>如果对PVE - Provmox VE 有兴趣的朋友，可以先参考</strong>[这里](<a target="_blank" rel="noopener" href="http://blog.jason.tools/search/label/Proxmox">http://blog.jason.tools/search/label/Proxmox</a> VE))。</p>
-<h5 id="2-选择语言"><a href="#2-选择语言" class="headerlink" title="2 选择语言"></a><strong>2 选择语言</strong></h5><p>以虚拟机开机后经过一连串的讯息画面后，会先出现以下选单，请利用方向键往上切换至「English」，并按下Enter 键继续安装流程。</p>
-<img data-src="/2024/06/13/74/image-20240613092106184.png" class="" title="image-20240613092106184">
-
-<h5 id="3-询问是否要更新installer"><a href="#3-询问是否要更新installer" class="headerlink" title="3 询问是否要更新installer"></a><strong>3 询问是否要更新installer</strong></h5><p>接下来系统会先询问你，要不要先设定更新到最新的installer (最新的是22.06.1，现在是使用22.02.2)，如果没有特别的硬体需求或是网路暂且是中断或不稳定的情况下，请直接选择「Continue without updating」继续，因为安装完系统也会直接做升级的工作。</p>
-<img data-src="/2024/06/13/74/image-1657849530512.png" class="" title="image-1657849530512.png">
-
-<h5 id="4-设定键盘Layout"><a href="#4-设定键盘Layout" class="headerlink" title="4 设定键盘Layout"></a><strong>4 设定键盘Layout</strong></h5><p>接下来设定keyboard layout，没意外的话就选择「Done」采用预设值即可。</p>
-<img data-src="/2024/06/13/74/image-1657846363956.png" class="" title="image-1657846363956.png">
-
-<h5 id="5-设置IP"><a href="#5-设置IP" class="headerlink" title="5 设置IP"></a><strong>5 设置IP</strong></h5><p>设定IP 的部份，如果没有想特别设定的话，采用预设的DHCP 即可，不过通常伺服器应用都会设定固定IP，在此请先将光标用键盘方向键移动至「ens18 eth」这边并按下「Enter」键选取「Edit Ipv4」，再按下「Enter」键进到「IPv4 Method」的选项，预设会设定为「Automatic (DHCP)」，请先按下「Enter」键，并用方向键「下」将选项切换为「Manual」。</p>
-<img data-src="/2024/06/13/74/image-1657846630873.png" class="" title="image-1657846630873.png">
-
-<p>按下「Enter」键后，会直接出现IPv4 固定IP 的设定画面，请填入内部网路的资讯，Subnet 写法范例**( C class：192.168.1.0&#x2F;24 )**。</p>
-<img data-src="/2024/06/13/74/image-1657846907013.png" class="" title="image-1657846907013.png">
-
-<p>接下来请将光标移动到「Save」，并按下「Enter」键继续下一步，会回到网路的设定画面，此时IP 已经变了，再把光标移动到「Done」按下「Enter 」键继续下一步。</p>
-<img data-src="/2024/06/13/74/image-1657847283663.png" class="" title="image-1657847283663.png">
-
-<h5 id="6-指定-Proxy"><a href="#6-指定-Proxy" class="headerlink" title="6 指定 Proxy"></a><strong>6 指定 Proxy</strong></h5><p>接着下来看到Proxy 的设定画面，通常不会设定，直接在「Done」按下「Enter」键跳过即可。</p>
-<img data-src="/2024/06/13/74/image-1657847459044.png" class="" title="image-1657847459044.png">
-
-<h5 id="7-设定预设更新来源"><a href="#7-设定预设更新来源" class="headerlink" title="7 设定预设更新来源"></a><strong>7 设定预设更新来源</strong></h5><p>接下来设定预设的Ubuntu 套件来源库的位置，没有意外的话，一开始都会使用预设值，请直接在「Done」按下「Enter」键跳过即可。</p>
-<img data-src="/2024/06/13/74/image-1657847630094.png" class="" title="image-1657847630094.png">
-
-<h5 id="8-分割硬碟"><a href="#8-分割硬碟" class="headerlink" title="8 分割硬碟"></a><strong>8 分割硬碟</strong></h5><p>然后来到分割硬碟的画面，通常都是建议要自行建立硬碟分割资讯，基本上我们需要几个分割区：</p>
-<ul>
-<li>boot - 放置核心相关档案。</li>
-<li>swap - Linux 记忆体置换分割区。</li>
-<li>&#x2F; - root 空间，如果是测试站台，可以把剩下的空间都分给它。</li>
-<li>&#x2F;var - 通常会是网页、mail、Log 等资源的硬碟空间，如果是正式主机，建议将此分割区独立依据用述做更详细的规划。</li>
-<li>&#x2F;data - 通常会做为网站服务的用户储存空间路径，不会直接曝露在网站的连结路径中。</li>
-</ul>
-<p>因为此是是示范主机，故本文只分割boot(1GB)、swap (4GB)，其它的空间就分配给&#x2F; 分割区，请先将滑鼠光标移动到「Custom storage layout」并按下「Enter」键，选完后一样把光标移动到「Done」按下「Enter」键继续。</p>
-<img data-src="/2024/06/13/74/image-1657848195752.png" class="" title="image-1657848195752.png">
-
-<p>接下来进到储存装置的设定画面，首先，先设定哪一个硬碟为「开机碟」，本文案例只有一个硬碟，请先选择硬碟的型号，按下「Enter」键，并将光标移动到「Use As Boot Device」并按下「Enter」键继续。</p>
-<img data-src="/2024/06/13/74/image-1657848585738.png" class="" title="image-1657848585738.png">
-
-<p>完成后，在下方的「USED DEVICES」列表就会出现设定好的开机磁区清单。</p>
-<img data-src="/2024/06/13/74/image-1657848674397.png" class="" title="image-1657848674397.png">
-
-<p>接下来请将光标移动到「free space」，并按下「Enter」键选择「Add GPT Partition」后，分别设定boot(1GB&#x2F;Ext4)、swap(4GB&#x2F;swap) 及&#x2F;(约27GB&#x2F;Ext4)的分割资讯，每个分割区资讯填写完成后，都请将光碟移动到「Create」按下「Enter」键完成设定。</p>
-<ul>
-<li><p>启动（1GB）</p>
-<img data-src="/2024/06/13/74/image-1657849197191.png" class="" title="image-1657849197191.png">
-</li>
-<li><p>swap(4GB)</p>
- <img data-src="/2024/06/13/74/image-1657849083579.png" class="" title="image-1657849083579.png">
-</li>
-<li><p>&#x2F;(剩下的空間 - 留空白就是把所有空間都分配下來)</p>
- <img data-src="/2024/06/13/74/image-1658806135003.png" class="" title="image-1658806135003.png"></li>
-</ul>
-<p>分割完的资讯列表如下，确认无误后，请将光标移动到「Done」并按下「Enter」键继续。</p>
-<img data-src="/2024/06/13/74/image-1657849312872.png" class="" title="image-1657849312872.png">
-
-<p>系统会提出警告，确认后请将光碟移动到「Continue」并按下「Enter」键继续往下。</p>
-<img data-src="/2024/06/13/74/image-1657849404401.png" class="" title="image-1657849404401.png">
-
-<h5 id="9-设定主机名称及使用者资讯"><a href="#9-设定主机名称及使用者资讯" class="headerlink" title="9 设定主机名称及使用者资讯"></a><strong>9 设定主机名称及使用者资讯</strong></h5><p>接下来请设定主机的名称及一位使用者帐号，此帐号未来会担负管理帐号的身份，确认后请将光标移动到「Done」并按下「Enter」键继续往下。</p>
-<img data-src="/2024/06/13/74/image-1657849819370.png" class="" title="image-1657849819370.png">
-
-<h5 id="10-输入-Ubuntu-Advantage-token"><a href="#10-输入-Ubuntu-Advantage-token" class="headerlink" title="10 输入 Ubuntu Advantage token"></a><strong>10 输入 Ubuntu Advantage token</strong></h5><p>如果您有购买Ubuntu 的订阅服务，请在此输入Token 资讯，若没有的话，请将光标移动到「Done」并按下「Enter」键继续往下。</p>
-<img data-src="/2024/06/13/74/image-1657850003938.png" class="" title="image-1657850003938.png">
-
-<h5 id="11-安裝-OpenSSH-Server"><a href="#11-安裝-OpenSSH-Server" class="headerlink" title="11 安裝 OpenSSH Server"></a><strong>11 安裝 OpenSSH Server</strong></h5><p>系统会出现安装OpenSSH Server 的画面，如果不安装，则开始时候就只能在机器前面登入，所以建议一开始请选择安装，请用键盘光标移动到「Install OpenSSH Server」的位置，按下「Enter 」键选择，「Importy SSH identity」的部份就采用预设设定即可，然后请将光标移动到「Done」并按下「Enter」键继续往下。</p>
-<img data-src="/2024/06/13/74/image-1657850193062.png" class="" title="image-1657850193062.png">
-
-<h5 id="12-选择安装其它套件"><a href="#12-选择安装其它套件" class="headerlink" title="12 选择安装其它套件"></a><strong>12 选择安装其它套件</strong></h5><p>Ubuntu 帮用户整合许多工具，安装流程的最后会列出清单让用户参考，这边目前建议是不需要安装，请将光标移动到「Done」并按下「Enter」键继续往下。</p>
-<img data-src="/2024/06/13/74/image-1657850317136.png" class="" title="image-1657850317136.png">
-
-<h5 id="13-安装进行中"><a href="#13-安装进行中" class="headerlink" title="13 安装进行中"></a><strong>13 安装进行中</strong></h5><p>接下来系统会开始进行安装作业，如下所示，请等待其完成。</p>
-<img data-src="/2024/06/13/74/image-1657850367059.png" class="" title="image-1657850367059.png">
-
-<h5 id="14-重新开机"><a href="#14-重新开机" class="headerlink" title="14 重新开机"></a><strong>14 重新开机</strong></h5><p>安装完成后，画面最下的选单会变成「Reboot Now」，代表已完成安装作业，请先移除主机的光碟片，或是移除虚拟主机的开机ISO 位置设定，然后将光标移动到「Reboot Now」并按下「Enter」键重新开机即完成安装作业。</p>
-<img data-src="/2024/06/13/74/image-1657851541825.png" class="" title="image-1657851541825.png">
-
-<p>成功开机的画面如下：</p>
-<img data-src="/2024/06/13/74/image-1658806851637.png" class="" title="image-1658806851637.png">
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2024/06/04/211/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1123,6 +975,82 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/03/21/203/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2024/03/21/202/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/03/21/202/" class="post-title-link" itemprop="url">202. 汇编语言</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-03-21 10:28:36" itemprop="dateCreated datePublished" datetime="2024-03-21T10:28:36+08:00">2024-03-21</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>读书笔记</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/03/21/202/">
                 阅读全文 &raquo;
               </a>
             </div>
