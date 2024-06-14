@@ -953,7 +953,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-15 13:53:18" itemprop="dateModified" datetime="2024-03-15T13:53:18+08:00">2024-03-15</time>
+      <time title="修改时间：2024-06-15 07:32:20" itemprop="dateModified" datetime="2024-06-15T07:32:20+08:00">2024-06-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -988,14 +988,23 @@
 </li>
 </ul>
 <h3 id="单独字体"><a href="#单独字体" class="headerlink" title="单独字体"></a>单独字体</h3><ul>
-<li><p>JetBrainsMono Nerd Font 下载方式(2选1):</p>
+<li><p>JetBrainsMono Nerd Font 下载方式(3选1):</p>
 <ul>
-<li><p>shell命令下载最新版本:</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- -t1 -T2 <span class="string">&quot;https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest&quot;</span> | grep <span class="string">&quot;tag_name&quot;</span> | <span class="built_in">head</span> -n 1 | awk -F <span class="string">&quot;:&quot;</span> <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | sed <span class="string">&#x27;s/\&quot;//g;s/,//g;s/ //g&#x27;</span> | \</span><br><span class="line">    xargs -I &#123;&#125; -p wget https://github.com/ryanoasis/nerd-fonts/releases/download/&#123;&#125;/JetBrainsMono.zip</span><br></pre></td></tr></table></figure>
+<li><p>命令下载最新版本:</p>
+<ul>
+<li><p>方法1</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -A <span class="string">&quot;Google Chrome&quot;</span> -JLO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip</span><br></pre></td></tr></table></figure>
+
+<p> 或者点击下载</p>
+<p> <a target="_blank" rel="noopener" href="https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip">https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip</a></p>
 </li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/ryanoasis/nerd-fonts/releases">JetBrainsMono Nerd Font Github</a></p>
+<li><p>方法2</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- -t1 -T2 <span class="string">&quot;https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest&quot;</span> | grep <span class="string">&quot;tag_name&quot;</span> | <span class="built_in">head</span> -n 1 | awk -F <span class="string">&quot;:&quot;</span> <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | sed <span class="string">&#x27;s/\&quot;//g;s/,//g;s/ //g&#x27;</span> | \</span><br><span class="line">    xargs -I &#123;&#125; -p wget https://github.com/ryanoasis/nerd-fonts/releases/download/&#123;&#125;/JetBrainsMono.zip</span><br></pre></td></tr></table></figure></li>
+</ul>
 </li>
-<li><p>点击这里下载固定版本(<em><strong>Not Recommand</strong></em>)</p>
+<li><p>Github官网下载: <a target="_blank" rel="noopener" href="https://github.com/ryanoasis/nerd-fonts/releases">JetBrainsMono Nerd Font Github</a></p>
+</li>
+<li><p>下载固定版本(<em><strong>Not Recommand</strong></em>)</p>
 <p> <a target="_blank" rel="noopener" href="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip">JetBrainsMono v3.0.2</a></p>
 </li>
 </ul>
