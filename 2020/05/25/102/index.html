@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://qeuroal.top/2020/05/25/102/%E5%AE%89%E8%A3%85%E5%91%BD%E4%BB%A4.png">
 <meta property="og:image" content="http://qeuroal.top/2020/05/25/102/cu111.png">
 <meta property="article:published_time" content="2020-05-24T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-05-30T05:20:53.583Z">
+<meta property="article:modified_time" content="2024-06-25T06:20:35.236Z">
 <meta property="article:author" content="Qeuroal">
 <meta property="article:tag" content="pytorch">
 <meta name="twitter:card" content="summary">
@@ -144,7 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CPU"><span class="nav-number">1.</span> <span class="nav-text">CPU</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pytorch%E4%B8%8Etorchvision%E7%89%88%E6%9C%AC%E5%8C%B9%E9%85%8D"><span class="nav-number">1.1.</span> <span class="nav-text">pytorch与torchvision版本匹配</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GPU%E7%89%88%E6%9C%AC"><span class="nav-number">2.</span> <span class="nav-text">GPU版本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CUDA"><span class="nav-number">2.1.</span> <span class="nav-text">CUDA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cuDNN"><span class="nav-number">2.1.1.</span> <span class="nav-text">cuDNN</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CPU"><span class="nav-number">1.</span> <span class="nav-text">CPU</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pytorch%E4%B8%8Etorchvision%E7%89%88%E6%9C%AC%E5%8C%B9%E9%85%8D"><span class="nav-number">1.1.</span> <span class="nav-text">pytorch与torchvision版本匹配</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GPU%E7%89%88%E6%9C%AC"><span class="nav-number">2.</span> <span class="nav-text">GPU版本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CUDA"><span class="nav-number">2.1.</span> <span class="nav-text">CUDA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cuDNN"><span class="nav-number">2.1.1.</span> <span class="nav-text">cuDNN</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB"><span class="nav-number">3.</span> <span class="nav-text">常见问题汇总</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -238,7 +238,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-05-30 13:20:53" itemprop="dateModified" datetime="2024-05-30T13:20:53+08:00">2024-05-30</time>
+      <time title="修改时间：2024-06-25 14:20:35" itemprop="dateModified" datetime="2024-06-25T14:20:35+08:00">2024-06-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -421,6 +421,20 @@
 <p>CUDA安装<a href="/2020/05/30/107/#CUDA">具体步骤见这里</a></p>
 <h3 id="cuDNN"><a href="#cuDNN" class="headerlink" title="cuDNN"></a>cuDNN</h3><p>有了CUDA平台，还需要安装cuDNN，cuDNN全称为NVIDIA CUDA Deep Neural Network (<em>cuDNN</em>) 。它是一个深度神经网络的加速库，里边实现了神经网络常用的操作，并且是高度优化的，可以极大地榨干NVIDA显卡的性能，因此用N卡都会用cuDNN库。</p>
 <p>cuDNN库的安装非常简单，与其说是安装，不如说是下载库文件，放到CUDA所在的目录下。<a href="/2020/05/30/107/#cuDNN">具体步骤见这里</a></p>
+<h1 id="常见问题汇总"><a href="#常见问题汇总" class="headerlink" title="常见问题汇总"></a>常见问题汇总</h1><ul>
+<li><p>如何安装gpu版本</p>
+<p> <a target="_blank" rel="noopener" href="https://pytorch.org/get-started/previous-versions/">[点击查看官网命令]</a>, 直接一个命令搞定</p>
+</li>
+<li><p>GET was unable to find an engine to execute this computation解决方案</p>
+<p> 我建议直接把虚拟环境删掉，重新建立，因为torch卸载有的时候不干净，安装新的torch会有各种冲突，很麻烦。</p>
+<p> 因为torch torchvision cuda以及python版本都是一一有兼容关系的，所以不要乱安装，并且直接安装都时cpu版本，还得再安装对应版本的cuda，更麻烦。</p>
+<p> 最好这样，直接一个命令搞定</p>
+<p> 查看官网：<a target="_blank" rel="noopener" href="https://pytorch.org/get-started/previous-versions/">[https://pytorch.org/get-started/previous-versions/]</a></p>
+<blockquote>
+<p>参考网址: <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_33431368/article/details/131318202">[https://blog.csdn.net/qq_33431368&#x2F;article&#x2F;details&#x2F;131318202]</a></p>
+</blockquote>
+</li>
+</ul>
 
     </div>
 
