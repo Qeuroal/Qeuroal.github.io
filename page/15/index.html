@@ -153,18 +153,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">156</span>
+          <span class="site-state-item-count">158</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-count">47</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -186,6 +186,201 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2019/02/06/23/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/02/06/23/" class="post-title-link" itemprop="url">23.数字范围按位与</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-02-06 04:00:00" itemprop="dateCreated datePublished" datetime="2019-02-06T04:00:00+08:00">2019-02-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-29 08:58:33" itemprop="dateModified" datetime="2023-11-29T08:58:33+08:00">2023-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programming/" itemprop="url" rel="index"><span itemprop="name">programming</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><img data-src="/2019/02/06/23/5.png" class="" width="5">
+
+
+
+
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><ol>
+<li><code>与&amp;</code>只要有一个为0，则与的所有数为0</li>
+<li>对每个 <code>位</code> 分别判断是否有0</li>
+<li>首先判断m的第i位是否为0</li>
+<li>然后判断第i位为0，且$&gt;$m的最小的数是否大于n，如果大于，则这些都为1</li>
+</ol>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">rangeBitwiseAnd</span><span class="params">(<span class="type">int</span> m, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; (<span class="number">1ll</span> &lt;&lt; i) &lt;= m; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(m &gt;&gt; i &amp; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(((m &amp; ~((<span class="number">1ll</span> &lt;&lt; i) - <span class="number">1</span>)) + (<span class="number">1ll</span> &lt;&lt; i)) &gt; n)</span><br><span class="line">                res += (<span class="number">1</span> &lt;&lt; i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2019/02/05/21/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/02/05/21/" class="post-title-link" itemprop="url">21. 只出现一次的数字</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-02-05 04:00:00" itemprop="dateCreated datePublished" datetime="2019-02-05T04:00:00+08:00">2019-02-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-29 08:58:33" itemprop="dateModified" datetime="2023-11-29T08:58:33+08:00">2023-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programming/" itemprop="url" rel="index"><span itemprop="name">programming</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><img data-src="/2019/02/05/21/2.png" class="" width="2">
+
+
+
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><ol>
+<li>利用异或运算的性质<ol>
+<li>x ^ x &#x3D; 0</li>
+<li>x ^ 0 &#x3D; x</li>
+</ol>
+</li>
+<li>对所有数字异或运算<ol>
+<li>$x_1$  ^ $x_2$ ^ …… ^ $x_n$ &#x3D; 只出现过一次的数</li>
+</ol>
+</li>
+<li>程序<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">singleNumber</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">     <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">auto</span> x : nums)</span><br><span class="line">         res ^= x;</span><br><span class="line">     <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1296,345 +1491,6 @@
 <li>n ≤ 10000000 &#x3D;&gt; O(n)O(n)，双指针扫描、kmp、AC自动机、线性筛素数</li>
 <li>n ≤ $10^9$ &#x3D;&gt; O(n√)O(n)，判断质数</li>
 <li>n ≤ $ 10^{18} $ &#x3D;&gt; O(logn)O(logn)，最大公约数</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2019/01/19/2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/01/19/2/" class="post-title-link" itemprop="url">2. 位运算的知识点以及常用技巧</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-01-19 05:00:00" itemprop="dateCreated datePublished" datetime="2019-01-19T05:00:00+08:00">2019-01-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-29 08:58:33" itemprop="dateModified" datetime="2023-11-29T08:58:33+08:00">2023-11-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/programming/" itemprop="url" rel="index"><span itemprop="name">programming</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="位运算："><a href="#位运算：" class="headerlink" title="位运算："></a>位运算：</h1><h2 id="（与）"><a href="#（与）" class="headerlink" title="&amp; （与）"></a>&amp; （与）</h2><p> eg: </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 0 1 </span><br><span class="line">0 0 1 </span><br><span class="line">0 0 1</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="（或）"><a href="#（或）" class="headerlink" title="| （或）"></a>| （或）</h2><p>eg: </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 0 1 </span><br><span class="line">0 0 1 </span><br><span class="line">1 0 1</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="（异或）"><a href="#（异或）" class="headerlink" title="^ （异或）"></a>^ （异或）</h2><h3 id="运算规则：（不进位加法）"><a href="#运算规则：（不进位加法）" class="headerlink" title="运算规则：（不进位加法）"></a>运算规则：（不进位加法）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0 &amp;nbsp; &amp;nbsp; &amp;nbsp;  &amp;nbsp; 0 ——&gt; 0  </span><br><span class="line">1 &amp;nbsp; &amp;nbsp; &amp;nbsp;  &amp;nbsp; 0 ——&gt; 1</span><br><span class="line">0 &amp;nbsp; &amp;nbsp; &amp;nbsp;  &amp;nbsp; 1 ——&gt; 1  </span><br><span class="line">1 &amp;nbsp; &amp;nbsp; &amp;nbsp;  &amp;nbsp; 1 ——&gt; 0  </span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="不进位的加法"><a href="#不进位的加法" class="headerlink" title="不进位的加法"></a>不进位的加法</h3><p><code>1 ^ 1 ==&gt; 0</code>  正常的话：<code>1 + 1 = 20b</code>,但是只看个位, 因此, 取0</p>
-<h3 id="运算法则："><a href="#运算法则：" class="headerlink" title="运算法则："></a>运算法则：</h3><ol>
-<li><p>交换律</p>
-</li>
-<li><p>结合律  </p>
-<p>即$(a^b)^c &#x3D;&#x3D; a^{b^c}$</p>
-</li>
-<li><p>对于任何数x, 都有  </p>
-<p>$x^x&#x3D;0, x^0&#x3D;x$</p>
-</li>
-<li><p>自反性：  </p>
-<p>A XOR B XOR B &#x3D; A xor  0 &#x3D; A</p>
-</li>
-</ol>
-<h2 id="（取反）"><a href="#（取反）" class="headerlink" title="~ （取反）"></a>~ （取反）</h2><ul>
-<li>把 0 变成 1 </li>
-<li>把 1 变成 0</li>
-</ul>
-<h2 id="（左移）"><a href="#（左移）" class="headerlink" title="&lt;&lt; （左移）"></a>&lt;&lt; （左移）</h2><p>eg:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1101 &lt;&lt; 1 ===&gt; 11010</span><br><span class="line">1 &lt;&lt; n  &lt;==&gt;    2^n （向上取整）</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="（右移）"><a href="#（右移）" class="headerlink" title="&gt;&gt; （右移）"></a>&gt;&gt; （右移）</h2><p>eg:</p>
-<ul>
-<li><p>1101 &gt;&gt; 1 &lt;&#x3D;&#x3D;&gt; 110</p>
-</li>
-<li><p><code>n &gt;&gt; x</code>  &lt;&#x3D;&#x3D;&gt;    $n \over 2^x$(向下取整)</p>
-</li>
-</ul>
-<h1 id="技巧："><a href="#技巧：" class="headerlink" title="技巧："></a>技巧：</h1><p><code>x + (-x)</code></p>
-<h1 id="经验："><a href="#经验：" class="headerlink" title="经验："></a>经验：</h1><ul>
-<li>将数组无穷大：<code>memset(nums, 0x3f, sizeof(nums))</code></li>
-<li>竞赛中少使用 <code>#include &lt;bits/stdc++.h&gt;</code>  &#x2F;&#x2F; 原因：编译的时间过长,时间会超时</li>
-<li>转化成 <code>long long</code> 的形式：乘以 <code>1ll</code>,例子见——&gt;快速幂算法模板—求 $a^b%p$</li>
-<li>将大数组放到全局变量中</li>
-</ul>
-<h1 id="快速幂算法模板"><a href="#快速幂算法模板" class="headerlink" title="快速幂算法模板"></a>快速幂算法模板</h1><blockquote>
-<p>求 $a^b$</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">quickPower</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b) &#123;</span><br><span class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>)</span><br><span class="line">            res *= <span class="number">1ll</span> * a;</span><br><span class="line">        a *= a;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p>求 $a^b%p$</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">quickPowerMod</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> res = <span class="number">1</span> % p;</span><br><span class="line">    <span class="keyword">while</span>(b) &#123;</span><br><span class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>)</span><br><span class="line">            res = res * <span class="number">1ll</span> * a % p;</span><br><span class="line">        a = a * <span class="number">1ll</span> * a % p;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h1 id="模运算法则"><a href="#模运算法则" class="headerlink" title="模运算法则"></a>模运算法则</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(a + b) % p = (a % p + b % p) % p</span><br><span class="line"></span><br><span class="line">(a - b) % p = (a % p - b % p) % p </span><br><span class="line"></span><br><span class="line">(a * b) % p = (a % p * b % p) % p </span><br><span class="line"></span><br><span class="line">(a^b) % p = ((a % p)^b) % p </span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<h1 id="位运算常用技巧"><a href="#位运算常用技巧" class="headerlink" title="位运算常用技巧"></a>位运算常用技巧</h1><h2 id="用异或来实现配偶"><a href="#用异或来实现配偶" class="headerlink" title="用异或来实现配偶"></a>用异或来实现配偶</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0, 1</span><br><span class="line">2, 3</span><br><span class="line">4, 5</span><br><span class="line">6, 7</span><br><span class="line">……</span><br></pre></td></tr></table></figure>
-
-<p>即(把每个整数异或一个1, 就可以得到他的配偶)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0 ^ 1 = 1,            1 ^ 1 = 0</span><br><span class="line">2 ^ 1 = 3,            3 ^ 1 = 2</span><br><span class="line">……</span><br><span class="line">2k ^ 1 = 2k + 1,    (2k + 1) ^ 1 = 2k</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>一般在图论里面, 写最小费用流时, 我们会存一个编的正向编和反向编, 会需要快速求出来一个数的反向编是什么</p>
-<h2 id="lowbit运算-树状数组的基础"><a href="#lowbit运算-树状数组的基础" class="headerlink" title="lowbit运算(树状数组的基础)"></a>lowbit运算(树状数组的基础)</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>快速的求出来整数n, 在二进制表示里面, 最低的一位1是哪个(或者说：n的二进制表示中最右边一个1)</p>
-<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p><code>lowbit(1110011000) ——&gt; 1000</code></p>
-<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">首先, 假设n的二进制是1110011000</span><br><span class="line">然后, 对n取反, 得到：~n = 0001100111</span><br><span class="line">接着, ~n+1  ===&gt;  0001101000</span><br><span class="line">紧接着, (~n + 1) &amp; n ===&gt; 0000001000 ===&gt; 1000</span><br><span class="line">最后, 由于-n = ~n + 1,所以lowbit就是：(-n) &amp; n</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">lowbit</span><span class="params">(<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (-n) &amp; n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><ol>
-<li><p>复杂度和1的个数有关和 </p>
-</li>
-<li><p>可以快速求出来一个整数里面有多少个1</p>
-</li>
-<li><p>求n是2的整次方幂</p>
-<p> 解析:<br> $$<br> 2^n &#x3D;&#x3D; 1 &lt;&lt; n<br> $$</p>
-<p> $$<br> n &amp; (-n) &#x3D;&#x3D; n<br> $$</p>
-<p> $$<br> otherwise,  n &amp; (-n) &lt; n<br> $$</p>
-</li>
-</ol>
-<h1 id="原码、反码、补码"><a href="#原码、反码、补码" class="headerlink" title="原码、反码、补码"></a>原码、反码、补码</h1><h2 id="正数"><a href="#正数" class="headerlink" title="正数"></a>正数</h2><p>原码, 反码, 补码均相等。</p>
-<h2 id="负数"><a href="#负数" class="headerlink" title="负数"></a>负数</h2><ul>
-<li>反码求法：<ol>
-<li>符号位不变。</li>
-<li>其他位取反。</li>
-</ol>
-</li>
-<li>补码求法：<br>1.符号位不变。<br>2.其他位取反。<br>3.最后一位加1。</li>
-</ul>
-<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>以123和-123为例：</p>
-<ul>
-<li>[123] 原码：01111011。  反码：01111011。  补码：01111011。</li>
-<li>[-123]原码：11111011。 反码：10000100。  补码：10000101。</li>
-</ul>
-<h1 id="二进制转换成10进制"><a href="#二进制转换成10进制" class="headerlink" title="二进制转换成10进制"></a>二进制转换成10进制</h1><ol>
-<li>如果为正数, 则直接求即可</li>
-<li>如果为负数, 取反+1, 然后求出数值前面加个负号。</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2019/01/19/1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/01/19/1/" class="post-title-link" itemprop="url">1. 比特位计数 + n&(n-1)的妙用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-01-19 04:00:00" itemprop="dateCreated datePublished" datetime="2019-01-19T04:00:00+08:00">2019-01-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-29 08:58:32" itemprop="dateModified" datetime="2023-11-29T08:58:32+08:00">2023-11-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/programming/" itemprop="url" rel="index"><span itemprop="name">programming</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><img data-src="/2019/01/19/1/17.png" class="">
-
-
-<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">0   0000</span><br><span class="line">1   0001</span><br><span class="line">2   0010 </span><br><span class="line">3   0011</span><br><span class="line">4   0100</span><br><span class="line">5   0101</span><br><span class="line">6   0110</span><br><span class="line">7   0111</span><br><span class="line">8   1000</span><br><span class="line">9   1001</span><br><span class="line">10  1010</span><br><span class="line">11  1011</span><br><span class="line">12  1100</span><br><span class="line">13  1101</span><br><span class="line">14  1110</span><br><span class="line">15  1111</span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>假设求r[i]</p>
-</li>
-<li><p><code>r[i - 1] + 1</code> ，如果进位，那么<code>r[i]</code>就和<code>r[i - 1]</code> 没有关系了，如果没有进位，那么，<code>r[i] = r[i - 1] + 1</code></p>
-</li>
-<li><p>接着，看进位的情况：如果 <code>i &amp; (i - 1)</code> ，那么就会把i和 <code>i - 1</code> 的最低位去掉，即变为0；<br/> </p>
-<blockquote>
-<p><em><strong>Ps:</strong></em> 最低位是指，从左面第0位开始，一直往右数，直到遇到两个数不一样的位置，那么后面的数（包括不一样的数）不管相不相同，都为最低位（例：9 和 10：从左面第0位开始，到第2位不同，那么第2、3位即为最低位）</p>
-</blockquote>
-</li>
-<li><p>显而易见，<code>i &amp; (i - 1)</code>得到的数就是去掉最低位之后的数，那么，由于进位了，所以，<code>r[i] = r[i &amp; (i - 1)] + 1</code></p>
-</li>
-</ol>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">countBits</span><span class="params">(<span class="type">int</span> num)</span> </span>&#123;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">r</span><span class="params">(num + <span class="number">1</span>)</span></span>;</span><br><span class="line">    r[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= num; i++) &#123;</span><br><span class="line">        r[i] = r[i &amp; (i - <span class="number">1</span>)] + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<hr>
-# n&(n-1)的妙用
-
-<h2 id="判断一个数是否是2的方幂"><a href="#判断一个数是否是2的方幂" class="headerlink" title="判断一个数是否是2的方幂"></a>判断一个数是否是2的方幂</h2><ol>
-<li><p>方法：n &gt; 0 &amp;&amp; ((n &amp; (n - 1)) &#x3D;&#x3D; 0 )</p>
-</li>
-<li><p>解释：<br>  ((n &amp; (n-1)) &#x3D;&#x3D; 0)：</p>
-<p>  如果A&amp;B&#x3D;&#x3D;0，表示A与B的二进制形式没有在同一个位置都为1的时候。</p>
-<p>  不妨先看下n-1是什么意思。</p>
-<p>  令:n&#x3D;1101011000(二进制,十进制也一样)，则</p>
-<p>   n-1&#x3D;1101010111。</p>
-<p>  n&amp;(n-1)&#x3D;1101010000</p>
-<p>  由此可以得出，n和n-1的低位不一样，直到有个转折点，就是借位的那个点，从这个点开始的高位，n和n-1都一样，如果高位一样这就造成一个问题，就是n和n-1在相同的位上可能会有同一个1，从而使((n &amp; (n-1)) !&#x3D; 0),如果想要((n &amp; (n-1)) &#x3D;&#x3D; 0)，则高位必须全为0，这样就没有相同的1。</p>
-<p>  所以n是2的幂或0</p>
-</li>
-</ol>
-<h2 id="求某一个数的二进制表示中1的个数"><a href="#求某一个数的二进制表示中1的个数" class="headerlink" title="求某一个数的二进制表示中1的个数"></a>求某一个数的二进制表示中1的个数</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (n &gt;<span class="number">0</span> ) &#123;</span><br><span class="line">      count ++;</span><br><span class="line">      n &amp;= (n<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="计算N-的质因数2的个数"><a href="#计算N-的质因数2的个数" class="headerlink" title="计算N!的质因数2的个数"></a>计算N!的质因数2的个数</h2><ol>
-<li><p>N!质因数2的个数 &#x3D; [N &#x2F; 2] + [N &#x2F; 4] + [N &#x2F; 8] + ….</p>
-</li>
-<li><p>过程：<br>下面通过一个简单的例子来推导一下过程：N &#x3D; 10101(二进制表示）</p>
-<p>现在我们跟踪最高位的1，不考虑其他位假定为0，</p>
-<p>则在</p>
-<p>[N &#x2F; 2]    01000 <br/><br>[N &#x2F; 4]    00100 <br/><br>[N &#x2F; 8]    00010 <br/><br>[N &#x2F; 8]    00001 <br/><br>则所有相加等于01111 &#x3D; 10000 - 1</p>
-<p>由此推及其他位可得：(10101)!的质因数2的个数为10000 - 1 + 00100 - 1 + 00001 - 1 &#x3D; 10101 - 3(二进制表示中1的个数)</p>
-<p>推及一般N!的质因数2的个数为N - （N二进制表示中1的个数）</p>
-<p>n&amp;(-n)在树状数组中lowbit出现   用来求 t 中的因子中形如2^k的数为多少     用来取得n最右边的1，可以知道其因子中有几个2</p>
-<p>10:  0000 1010</p>
-<p>-10: 1111 0110</p>
-<p>10&amp;(-10)为 0010  &#x3D;  2  所以10的因子中为2的有一个，$2^k$ 的形式的为 $2^1$</p>
-<p>8&amp;(-8) &#x3D; [1000] &#x3D; 8   所以8的因子中为2的有3个，$2^k$ 的形式为 $2^3$</p>
-</li>
 </ol>
 
       
