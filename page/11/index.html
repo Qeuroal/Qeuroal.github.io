@@ -153,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">158</span>
+          <span class="site-state-item-count">159</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -186,6 +186,185 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/03/29/99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/03/29/99/" class="post-title-link" itemprop="url">99. C++运算符重载</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-29 05:00:00" itemprop="dateCreated datePublished" datetime="2020-03-29T05:00:00+08:00">2020-03-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-29 08:58:34" itemprop="dateModified" datetime="2023-11-29T08:58:34+08:00">2023-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/c-c/" itemprop="url" rel="index"><span itemprop="name">c/c++</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="重载运算符规则"><a href="#重载运算符规则" class="headerlink" title="重载运算符规则"></a>重载运算符规则</h1><ol>
+<li><p>重载意义</p>
+<blockquote>
+<p>函数重载（Function Overloading）可以让一个函数名有多种功能，在不同情况下进行不同的操作；<br/><br>运算符重载（Operator Overloading）也是一个道理，同一个运算符可以有不同的功能；</p>
+</blockquote>
+<blockquote>
+<p>C++中预定义的运算符的操作对象只能是基本数据类型。但实际上，对于许多用户自定义类型（例如类），也需要类似的运算操作。这时就必须在C++中重新定义这些运算符，赋予已有运算符新的功能，使它能够用于特定类型执行特定的操作。运算符重载的实质是函数重载，它提供了C++的可扩展性，也是C++最吸引人的特性之一。</p>
+</blockquote>
+<blockquote>
+<p>比如,我们定义两个string类对象a,b后我们之所以可以使用+运算，是因为string类重载了+运算符。</p>
+</blockquote>
+</li>
+<li><p>语法</p>
+ <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;返回类型说明符&gt; <span class="keyword">operator</span> &lt;运算符符号&gt;(&lt;参数表&gt;)</span><br><span class="line">&#123;</span><br><span class="line">&lt;函数体&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>哪些运算符可以被重载，哪些运算符不能被重载</p>
+<ul>
+<li><p>可以被重载的运算符：</p>
+<blockquote>
+<p>算术运算符：<code>+ , - , * , / , % , ++ , --</code> <br/><br>位操作运算符：<code>&amp; , | , ~ , ^ , &lt;&lt; , &gt;&gt;</code> <br/><br>逻辑运算符：<code>! , &amp;&amp; , ||</code> <br/><br>比较运算符：<code>&lt; , &gt; , &gt;= , &lt;= , == , != </code> <br/><br>赋值运算符：<code>= , += , -= , *= , /= , %= , &amp;= , |= , ^= , &lt;&lt;= , &gt;&gt;= </code> <br/><br>其他运算符：<code>[] , () , -&gt; , ,(逗号运算符) , new , delete , new[] , delete[] , -&gt;*</code> <br/></p>
+</blockquote>
+</li>
+<li><p>不允许的运算符重载：</p>
+<blockquote>
+<p><code>. , .* , :: , ?: ，siezof</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="重载运算符函数在类内部"><a href="#重载运算符函数在类内部" class="headerlink" title="重载运算符函数在类内部"></a>重载运算符函数在类内部</h1><ol>
+<li><p>Notes:</p>
+<ol>
+<li><p><code>运算符重载函数是类的成员函数时</code>&gt;</p>
+<ol>
+<li>注意<blockquote>
+<p>要是内部的，必须得是<code>&lt;=1</code>个参数，不需要加 <code>friend</code>（友元函数）</p>
+</blockquote>
+</li>
+<li>语法(在类内声明，在类外实现时的代码)<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;返回类型说明符&gt; &lt;类名&gt;::<span class="keyword">operator</span> &lt;运算符符号&gt;(&lt;参数表&gt;)</span><br><span class="line">&#123;</span><br><span class="line">   &lt;函数体&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p><code>运算符重载函数不是类的成员函数时</code>（或者说<code>当运算符函数是非成员函数时</code>）</p>
+<ol>
+<li>函数在类中声明的时候需要在前面加上 <code>friend</code>（友元函数），不管参数是不是类的对象</li>
+<li>函数的参数与该运算符作用的运算对象数量一样多</li>
+</ol>
+</li>
+<li><p>为什么用 <code>const</code> 和 <code>&amp;</code>:</p>
+<ol>
+<li><p><code>const</code>：</p>
+<ol>
+<li>我们不希望在这个函数中对用来进行赋值的“原版”做任何修改。函数加上const后缀的作用是表明函数本身不会修改类成员变量。</li>
+<li>加上const，对于const的和非const的实参，函数就能接受；如果不加，就只能接受非const的实参。</li>
+</ol>
+</li>
+<li><p><code>&amp;</code>（引用）：</p>
+<blockquote>
+<p>这样可以避免在函数调用时对实参的一次拷贝，提高了效率。</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>代码</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Dgimo</span></span><br><span class="line"><span class="comment"> * Date: 2020/3/30</span></span><br><span class="line"><span class="comment"> * <span class="doctag">TODO:</span> 类运算符重载</span></span><br><span class="line"><span class="comment"> * Describe: </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   <span class="keyword">typedef</span> <span class="keyword">struct</span> &#123;</span><br><span class="line">       <span class="type">int</span> first;</span><br><span class="line">       <span class="type">int</span> second;</span><br><span class="line">   &#125; TestStuct;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   <span class="comment">/*</span></span><br><span class="line"><span class="comment">    * 类运算符重载</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">class</span> <span class="title class_">TestClass</span> &#123;</span><br><span class="line">   <span class="keyword">private</span>:</span><br><span class="line">       <span class="type">int</span> first;</span><br><span class="line">       <span class="type">int</span> second;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">public</span>:</span><br><span class="line">       <span class="built_in">TestClass</span>(<span class="type">int</span>, <span class="type">int</span>);</span><br><span class="line">       <span class="built_in">TestClass</span>();</span><br><span class="line"></span><br><span class="line">       <span class="function"><span class="type">void</span> <span class="title">show</span><span class="params">(string)</span></span>;</span><br><span class="line"></span><br><span class="line">       TestClass <span class="keyword">operator</span>+(<span class="type">const</span> TestClass &amp;);</span><br><span class="line">       TestClass <span class="keyword">operator</span>+(<span class="type">const</span> TestStuct &amp;);</span><br><span class="line">       <span class="keyword">friend</span> TestClass <span class="keyword">operator</span>+(<span class="type">const</span> TestClass &amp;, <span class="type">const</span> TestClass &amp;); <span class="comment">// 如果不是内部的，得加friend 声明不是内部的，如果不是两个会怎样？见下面！！！</span></span><br><span class="line">       <span class="keyword">friend</span> TestClass <span class="keyword">operator</span>+(<span class="type">const</span> TestStuct &amp;, <span class="type">const</span> TestStuct &amp;); <span class="comment">// 只要在类内部定义的运算符重载，就需要加上friend</span></span><br><span class="line"></span><br><span class="line">    TestStuct ts1, ts2;</span><br><span class="line">    ts1.first = <span class="number">1</span>, ts1.second = <span class="number">2</span>;</span><br><span class="line">    ts2.first = <span class="number">10</span>, ts2.second = <span class="number">20</span>;</span><br><span class="line">    </span><br><span class="line">    tc1.<span class="built_in">show</span>(<span class="string">&quot;tc1&quot;</span>);</span><br><span class="line">    tc2.<span class="built_in">show</span>(<span class="string">&quot;tc2&quot;</span>);</span><br><span class="line"> </span><br><span class="line">    add_tc = tc1 + tc2; <span class="comment">// TestClass + TestClass </span></span><br><span class="line">    add_tc.<span class="built_in">show</span>(<span class="string">&quot;add_tc&quot;</span>);</span><br><span class="line"> </span><br><span class="line">    add_tc1 = add_tc + ts1; <span class="comment">// TestClass + TestStruct</span></span><br><span class="line">    add_tc1.<span class="built_in">show</span>(<span class="string">&quot;add_tc1&quot;</span>);</span><br><span class="line"> </span><br><span class="line">    add_ts = ts1 + ts2; <span class="comment">// TestStrcut + TestStrcut</span></span><br><span class="line">    add_ts.<span class="built_in">show</span>(<span class="string">&quot;add_ts&quot;</span>);</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="重载运算符在函数外部"><a href="#重载运算符在函数外部" class="headerlink" title="重载运算符在函数外部"></a>重载运算符在函数外部</h1><ol>
+<li><p>暂时未发现 <code>Bug</code></p>
+</li>
+<li><p>代码</p>
+ <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Author: Dgimo</span></span><br><span class="line"><span class="comment">* Date: 2020/3/31</span></span><br><span class="line"><span class="comment">* <span class="doctag">TODO:</span> 结构体运算符重载</span></span><br><span class="line"><span class="comment">* Describe: </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 结构体运算符重载</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="type">int</span> first;</span><br><span class="line">    <span class="type">int</span> second;</span><br><span class="line">&#125; TestStuct;</span><br><span class="line"></span><br><span class="line">TestStuct <span class="keyword">operator</span>+(TestStuct ts1, TestStuct ts2)</span><br><span class="line">&#123;</span><br><span class="line">    TestStuct res;</span><br><span class="line">    res.first = ts1.first + ts2.first;</span><br><span class="line">    res.second = ts1.second + ts2.second;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">show</span><span class="params">(TestStuct ts)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;first: &quot;</span> &lt;&lt; ts.first &lt;&lt; <span class="string">&quot;, second: &quot;</span> &lt;&lt; ts.second &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    TestStuct ts1;</span><br><span class="line">    ts1.first = <span class="number">1</span>;</span><br><span class="line">    ts1.second = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    TestStuct ts2;</span><br><span class="line">    ts2.first = <span class="number">2</span>;</span><br><span class="line">    ts2.second = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">    TestStuct <span class="type">res_t</span> = ts1 + ts2;</span><br><span class="line">    <span class="built_in">show</span>(<span class="type">res_t</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="只能定义友元函数"><a href="#只能定义友元函数" class="headerlink" title="&lt;&lt; 和 &gt;&gt; 只能定义友元函数"></a><code>&lt;&lt;</code> 和 <code>&gt;&gt;</code> 只能定义友元函数</h1><ol>
+<li><p>原因</p>
+<blockquote>
+<p>定义为成员函数，那么就隐含this指针了对吧，你要知道重载其实也是一种函数，那么函数就有调用他的对象，如果是成员函数，那么调用他的对象就肯定是想对应的类对象了对吧，但是&lt;&lt;和&gt;&gt;调用的对象肯定只能是cout或者cin对吧，那么久不能定义为成员函数了，只有定义成友元，那么就可以把cin,cout作为一个参数传进你重载的操作符函数里面去了</p>
+</blockquote>
+</li>
+<li><p>语法：</p>
+<ol>
+<li><p>在类中：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">friend</span> ostream &amp;<span class="keyword">operator</span> &lt;&lt;(ostream &amp;out, <span class="type">const</span> ElemType &amp;e);</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 在外面： </span><br><span class="line">   </span><br><span class="line">   ```cpp</span><br><span class="line">   ostream &amp;oprator &lt;&lt;(ostream &amp;out, <span class="type">const</span> ElemType &amp;e);</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>代码</p>
+<ol>
+<li><p>头文件(<code>.h</code>)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> ELEMTYPE_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ELEMTYPE_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ElemType</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="type">int</span> data;</span><br><span class="line">        <span class="built_in">ElemType</span>();</span><br><span class="line">        <span class="built_in">ElemType</span>(<span class="type">int</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">friend</span> ostream &amp;<span class="keyword">operator</span> &lt;&lt;(ostream &amp;out, <span class="type">const</span> ElemType &amp;e); <span class="comment">// Success</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span> <span class="comment">// ELEMTYPE_H</span></span></span><br></pre></td></tr></table></figure></li>
+<li><p>源文件(<code>.cpp</code>)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;ElemType.h&quot;</span></span></span><br><span class="line"></span><br><span class="line">ElemType::<span class="built_in">ElemType</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//ctor</span></span><br><span class="line">    <span class="keyword">this</span>-&gt;data = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ElemType::<span class="built_in">ElemType</span>(<span class="type">int</span> data)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;data = data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ostream&amp; <span class="keyword">operator</span> &lt;&lt;(ostream &amp;out, <span class="type">const</span> ElemType &amp;e)</span><br><span class="line">&#123;</span><br><span class="line">    out &lt;&lt; e.data;</span><br><span class="line">    <span class="keyword">return</span> out;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1780,96 +1959,6 @@
 <li>安装好<code>anaconda</code>后是没有图标的</li>
 <li>安装<code>anaocnda</code>直接 <code>bash anaconda.sh</code></li>
 <li>安装<code>anaconda</code>之前应该先安装 <code>Vscode</code></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2019/12/29/82/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/12/29/82/" class="post-title-link" itemprop="url">82. matplotlib 动态绘图</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-12-29 04:00:00" itemprop="dateCreated datePublished" datetime="2019-12-29T04:00:00+08:00">2019-12-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-29 08:58:34" itemprop="dateModified" datetime="2023-11-29T08:58:34+08:00">2023-11-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="代码如下："><a href="#代码如下：" class="headerlink" title="代码如下："></a>代码如下：</h1>   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> matplotlib.font_manager <span class="keyword">as</span> fm</span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> Axes3D</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解决中文乱码问题</span></span><br><span class="line"><span class="comment"># myfont = fm.FontProperties(fname=&#x27;/home/zk/study/python_lessions/DataVisualiztion/Library/Fonts/simsun.ttc&#x27;, size=14</span></span><br><span class="line">myfont = <span class="string">&#x27;kaiti&#x27;</span></span><br><span class="line">matplotlib.rcParams[<span class="string">&quot;axes.unicode_minus&quot;</span>] = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">simple_plot</span>():</span><br><span class="line">   <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">   simple plot</span></span><br><span class="line"><span class="string">   :return:</span></span><br><span class="line"><span class="string">   &quot;&quot;&quot;</span></span><br><span class="line">   <span class="comment">#生成画布</span></span><br><span class="line">   plt.figure(figsize=(<span class="number">8</span>,<span class="number">6</span>), dpi=<span class="number">80</span>)</span><br><span class="line"></span><br><span class="line">   <span class="comment">#打开交互模式</span></span><br><span class="line">   plt.ion()</span><br><span class="line"></span><br><span class="line">   <span class="comment"># 循环</span></span><br><span class="line">   <span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br><span class="line">      <span class="comment">#清除原有图像</span></span><br><span class="line">      plt.cla()</span><br><span class="line">      <span class="comment">#设定标题等</span></span><br><span class="line">      plt.title(<span class="string">&quot;动态曲线图&quot;</span>,fontproperties=myfont)</span><br><span class="line">      plt.grid(<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">      <span class="comment">#生成测试数据</span></span><br><span class="line">      x = np.linspace(-np.pi + index, np.pi+<span class="number">0.1</span>*index, <span class="number">256</span>,endpoint=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">      y_cos, y_sin = np.cos(x),np.sin(x)</span><br><span class="line"></span><br><span class="line">      <span class="comment"># 设置ｘ轴</span></span><br><span class="line">      plt.xlabel(<span class="string">&quot;x轴&quot;</span>, fontproperties= myfont)</span><br><span class="line">      plt.xlim(-<span class="number">4</span> + <span class="number">0.1</span>*index,<span class="number">4</span> + <span class="number">0.1</span>*index)</span><br><span class="line">      plt.xticks(np.linspace(-<span class="number">4</span> + <span class="number">0.1</span> * index, <span class="number">4</span> + <span class="number">0.1</span> * index, <span class="number">9</span>, endpoint=<span class="literal">True</span>))</span><br><span class="line">      <span class="comment"># 设置Y轴</span></span><br><span class="line">      plt.ylabel(<span class="string">&quot;Y轴&quot;</span>, fontproperties=myfont)</span><br><span class="line">      plt.ylim(-<span class="number">1.0</span>, <span class="number">1.0</span>)</span><br><span class="line">      plt.yticks(np.linspace(-<span class="number">1</span>, <span class="number">1</span>, <span class="number">9</span>, endpoint=<span class="literal">True</span>))</span><br><span class="line"></span><br><span class="line">      <span class="comment"># 画两条曲线</span></span><br><span class="line">      plt.plot(x, y_cos, <span class="string">&quot;b--&quot;</span>, linewidth=<span class="number">2.0</span>, label=<span class="string">&quot;cos示例&quot;</span>)</span><br><span class="line">      plt.plot(x, y_sin, <span class="string">&quot;g-&quot;</span>, linewidth=<span class="number">2.0</span>, label=<span class="string">&quot;sin示例&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      <span class="comment"># 设置图例位置,loc可以为[upper, lower, left, right, center]</span></span><br><span class="line">      plt.legend(loc=<span class="string">&quot;upper left&quot;</span>, prop=&#123;<span class="string">&#x27;family&#x27;</span>: <span class="string">&quot;kaiti&quot;</span>&#125;, shadow=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">      <span class="comment"># 暂停</span></span><br><span class="line">      plt.pause(<span class="number">0.1</span>)</span><br><span class="line"></span><br><span class="line">   <span class="comment"># 关闭交互模式</span></span><br><span class="line">   plt.ioff()</span><br><span class="line"></span><br><span class="line">   <span class="comment"># 图形显示</span></span><br><span class="line">   plt.show()</span><br><span class="line">   <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">   simple_plot()</span><br></pre></td></tr></table></figure>
-
-<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><ol>
-<li>如果没有交互模式 那么就不能动态绘图</li>
-<li><code>plt.figure</code>是可以自己显示画板的</li>
 </ol>
 
       
