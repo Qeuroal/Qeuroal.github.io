@@ -153,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">159</span>
+          <span class="site-state-item-count">160</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -186,6 +186,234 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2023/06/30/158/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/06/30/158/" class="post-title-link" itemprop="url">158. SSH</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-30 00:00:00" itemprop="dateCreated datePublished" datetime="2023-06-30T00:00:00+08:00">2023-06-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-03-12 21:31:13" itemprop="dateModified" datetime="2024-03-12T21:31:13+08:00">2024-03-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/software/" itemprop="url" rel="index"><span itemprop="name">software</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Secure Shell (SSH) 是一个网络协议，它主要被用来加密客户端和服务端之间的连接。 在客户端和服务端的每一次交互都被加密。</p>
+<p>这个教程解释了如何在 Ubuntu 机器上启用 SSH。</p>
+<p>启用  SSH 将会允许你远程连接到你的系统，并且执行管理员任务。你将能够通过 <code>scp</code>和<code>sftp</code>安全传输文件。</p>
+<h1 id="在-Ubuntu-上启用-SSH"><a href="#在-Ubuntu-上启用-SSH" class="headerlink" title="在 Ubuntu 上启用 SSH"></a>在 Ubuntu 上启用 SSH</h1><p>默认情况下，当 Ubuntu 最初被安装的时候，通过 SSH 进行远程访问是不被允许的。在 Ubuntu 上启用 SSH 非常的简单直接。</p>
+<p>以 root 或者其他 sudo 用户身份执行下面的步骤，在你的 Ubuntu 系统上安装并且启用 SSH。</p>
+<p>01.使用<code>Ctrl+Alt+T</code>打开终端，并且安装<code>openssh-server</code>软件包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install openssh-server</span><br></pre></td></tr></table></figure>
+
+<p>当被提示时，输入你的密码并且按 Enter，继续安装。</p>
+<img data-src="/2023/06/30/158/1200-20230630145454221" class="" title="img">
+
+<p>02.一旦安装完成，SSH 服务将会被自动启动。你可以验证 SSH 是否正在运行，输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status ssh</span><br></pre></td></tr></table></figure>
+
+<p>输出将会告诉你服务正在运行，并且启用开机启动：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">● ssh.service - OpenBSD Secure Shell server</span><br><span class="line">    Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)</span><br><span class="line">    Active: active (running) since Mon 2020-06-01 12:34:00 CEST; 9h ago</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>按<code>q</code>返回命令行。</p>
+<p>03.Ubuntu 自带一个配置防火墙配置工具，称为 UFW。如果防火墙在你的系统上被启用，请确保打开了 SSH 端口：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow ssh</span><br></pre></td></tr></table></figure>
+
+<p>就这些。现在你可以从任何远程机器上通过 SSH 连接到你的 Ubuntu 系统。Linux 和 macOS 系统默认都安装了 SSH 客户端。想要从一个 Window 机器上连接，使用一个 SSH 客户端，例如:<a target="_blank" rel="noopener" href="https://www.putty.org/">PUTTY</a>。</p>
+<h1 id="连接到-SSH-服务器"><a href="#连接到-SSH-服务器" class="headerlink" title="连接到 SSH 服务器"></a>连接到 SSH 服务器</h1><p>想要在局域网内连接到你的 Ubuntu 机器，以下面的格式输入 ssh 命令，加上用户名和 IP 地址。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh username@ip_address</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">确保你将`username`修改成你自己的用户名，`ip_address`修改成你安装了 SSH 的 Ubuntu 机器的 IP 地址。</span><br></pre></td></tr></table></figure>
+
+<p>如果你不知道你的 IP 地址，你可以使用<code>ip</code>命令轻易地找到它：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip a</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2023/06/30/158/1200" class="" title="img">
+
+<p>你可以从输出中看到，系统 IP 地址是<code>10.0.2.15</code>。</p>
+<p>一旦你找到 IP 地址，通过运行下面的ssh 命令登录远程机器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh linuxize@10.0.2.15</span><br></pre></td></tr></table></figure>
+
+<p>当你第一次连接时，你将看到下面的信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The authenticity of host <span class="string">&#x27;10.0.2.15 (10.0.2.15)&#x27;</span> can<span class="string">&#x27;t be established.</span></span><br><span class="line"><span class="string">ECDSA key fingerprint is SHA256:Vybt22mVXuNuB5unE++yowF7lgA/9/2bLSiO3qmYWBY.</span></span><br><span class="line"><span class="string">Are you sure you want to continue connecting (yes/no)?</span></span><br></pre></td></tr></table></figure>
+
+<p>输入<code>yes</code>并且你将会被提示输入你的密码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Warning: Permanently added <span class="string">&#x27;10.0.2.15&#x27;</span> (ECDSA) to the list of known hosts.</span><br><span class="line">linuxize@10.0.2.15<span class="string">&#x27;s password:</span></span><br></pre></td></tr></table></figure>
+
+<p>一旦你输入密码，你将会看到默认的 Ubuntu 消息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Welcome to Ubuntu 20.04 LTS (GNU/Linux 5.4.0-26-generic x86_64)</span><br><span class="line"></span><br><span class="line"> * Documentation:  https://help.ubuntu.com</span><br><span class="line"> * Management:     https://landscape.canonical.com</span><br><span class="line"> * Support:        https://ubuntu.com/advantage</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>现在你可以登录到你的 Ubuntu 机器上。</p>
+<h1 id="连接到-NAT-后面的-SSH"><a href="#连接到-NAT-后面的-SSH" class="headerlink" title="连接到 NAT 后面的 SSH"></a>连接到 NAT 后面的 SSH</h1><p>想要通过互联网连接到你的 Ubuntu 机器，你需要知道你的公网 IP 地址，并且配置你的路由器接收端口22的数据，并且发送它到正在运行 SSH 的 Ubuntu 机器。</p>
+<p>想要获取你尝试通过 SSH 连接的机器的公网 IP，在这个机器上访问 URL 地址：<code>https://api.ipify.org</code>。</p>
+<p>当设置端口转发时，每一个路由器都有不同的方式来设置端口转发。你应该参考你的路由器文档，关于如何设置端口转发的信息。简单来讲，你应该输入之前设置的 SSH 端口号 22，以及之前<a target="_blank" rel="noopener" href="https://cloud.tencent.com/product/cvm?from=20065&from_column=20065">服务器</a>的私有 IP 地址。</p>
+<p>一旦你找到 IP 地址，配置你的路由器，输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh username@public_ip_address</span><br></pre></td></tr></table></figure>
+
+<p>如果你将你的机器暴露在互联网中，你最好采取一些安全措施。最基础的一个措施就是配置你的路由器接受一个非标准端口的 SSH 流量，并且转发到你运行 SSH 服务的机器的端口22。</p>
+<p>你也可以<a target="_blank" rel="noopener" href="https://linuxize.com/post/how-to-setup-passwordless-ssh-login/">设置 SSH 密钥公钥验证方式</a>，之后你就可以不使用密码就可以连接到你的 Ubuntu 机器上了。</p>
+<h1 id="在-Ubuntu-上禁用-SSH"><a href="#在-Ubuntu-上禁用-SSH" class="headerlink" title="在 Ubuntu 上禁用 SSH"></a>在 Ubuntu 上禁用 SSH</h1><p>想要在你的 Ubuntu 系统上禁用 SSH 服务器，简单停止 SSH 即可，输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">disable</span> --now ssh</span><br></pre></td></tr></table></figure>
+
+<p>稍后，你可以重新启用，输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> --now ssh</span><br></pre></td></tr></table></figure>
+
+<h1 id="SSH登录"><a href="#SSH登录" class="headerlink" title="SSH登录"></a>SSH登录</h1><h2 id="SSH-无密登录"><a href="#SSH-无密登录" class="headerlink" title="SSH 无密登录"></a>SSH 无密登录</h2><h3 id="step1-客户端生成公私钥"><a href="#step1-客户端生成公私钥" class="headerlink" title="step1 客户端生成公私钥"></a>step1 客户端生成公私钥</h3><p>本地客户端生成公私钥：（一路回车默认即可）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen</span><br></pre></td></tr></table></figure>
+
+<p>生成之后会在用户的根目录生成一个 “<code>.ssh</code>”的文件夹，进入“<code>.ssh</code>”会生成如下几个文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br></pre></td></tr></table></figure>
+
+<p>下创建两个密钥：</p>
+<ol>
+<li><code>authorized_keys</code>: 存放远程免密登录的公钥,主要通过这个文件记录多台机器的公钥</li>
+<li><code>id_rsa</code> : 生成的私钥文件</li>
+<li><code>id_rsa.pub</code> ： 生成的公钥文件</li>
+<li><code>know_hosts</code> : 已知的主机公钥清单</li>
+</ol>
+<blockquote>
+<p><strong>ps</strong></p>
+</blockquote>
+<p>ssh公钥生效需满足至少下面两个条件：</p>
+<ul>
+<li><code>.ssh</code> 目录的权限必须是700</li>
+<li><code>.ssh/authorized_keys</code> 文件权限必须是600</li>
+</ul>
+<h3 id="step2-上传公钥到服务器"><a href="#step2-上传公钥到服务器" class="headerlink" title="step2 上传公钥到服务器"></a>step2 上传公钥到服务器</h3><p>这里测试用的服务器地址为：<code>192.168.32.32</code></p>
+<p>用户为：<code>root</code></p>
+<h4 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id -i ~/.ssh/id_rsa.pub &lt;remote_ip&gt;</span><br></pre></td></tr></table></figure>
+
+<p>上面这条命令是写到服务器上的ssh目录下去了</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br><span class="line">vim authorized_keys</span><br></pre></td></tr></table></figure>
+
+<p>可以看到客户端写入到服务器的 <code>id_rsa.pub</code> （公钥）内容。</p>
+<h4 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h4><p>使用命令<code>ssh-copy-id &lt;remote_ip&gt;</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id root@192.168.32.32</span><br></pre></td></tr></table></figure>
+
+<h4 id="方法3"><a href="#方法3" class="headerlink" title="方法3"></a>方法3</h4><p>通过<code>scp</code>将内容写到对方的<code>authorized_keys</code>文件中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -p ~/.ssh/id_rsa.pub root@&lt;remote_ip&gt;:/root/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+
+<h3 id="step3-测试免密登录"><a href="#step3-测试免密登录" class="headerlink" title="step3 测试免密登录"></a>step3 测试免密登录</h3><p>客户端通过ssh连接远程服务器，就可以免密登录了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.32.32</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置指定用户"><a href="#设置指定用户" class="headerlink" title="设置指定用户"></a>设置指定用户</h2><h3 id="step1-配置SSH服务器"><a href="#step1-配置SSH服务器" class="headerlink" title="step1 配置SSH服务器"></a>step1 配置SSH服务器</h3><p>编辑SSH服务器配置文件（通常位于<code>/etc/ssh/sshd_config</code>）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+
+<p>确保以下行未注释（没有<code>#</code>）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PubkeyAuthentication yes</span><br><span class="line">PasswordAuthentication yes</span><br></pre></td></tr></table></figure>
+
+<p>这允许使用SSH密钥和密码进行身份验证。</p>
+<h3 id="step2-设置Match块"><a href="#step2-设置Match块" class="headerlink" title="step2 设置Match块"></a>step2 设置<code>Match</code>块</h3><p>在配置文件的末尾添加<code>Match</code>块，限制只允许用户<code>user1, user2, user3</code>使用密钥登录。您可以这样做：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Match User user1,user2,user3</span><br><span class="line">    PasswordAuthentication no</span><br></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Match User user1</span><br><span class="line">    PasswordAuthentication no</span><br><span class="line"></span><br><span class="line">Match User user2</span><br><span class="line">    PasswordAuthentication no</span><br><span class="line"></span><br><span class="line">Match User user3</span><br><span class="line">    PasswordAuthentication no</span><br></pre></td></tr></table></figure>
+
+<p>这将禁用<code>user1,user2,user3</code>用户的密码登录。其他用户将按照默认设置进行身份验证，允许密码登录。</p>
+<blockquote>
+<p>多个用户也可以单独</p>
+</blockquote>
+<h3 id="step3-重启SSH服务"><a href="#step3-重启SSH服务" class="headerlink" title="step3 重启SSH服务"></a>step3 重启SSH服务</h3><p>保存配置文件并重启SSH服务，以使更改生效：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo systemctl restart ssh</span><br></pre></td></tr></table></figure>
+
+<p>现在，<code>user1,user2,user3</code>用户只能使用其SSH密钥进行身份验证，而其他用户仍然可以使用密码进行身份验证。</p>
+<p>请确保在执行此操作之前，您已经测试过SSH密钥对的工作方式，并且确保您至少有一种方法可以访问服务器，以防止自身被锁定。</p>
+<h1 id="SSH-上传下载"><a href="#SSH-上传下载" class="headerlink" title="SSH 上传下载"></a>SSH 上传下载</h1><h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><h3 id="上传本地文件到服务器"><a href="#上传本地文件到服务器" class="headerlink" title="上传本地文件到服务器"></a>上传本地文件到服务器</h3><p>格式：<code>scp 要上传的文件路径 用户名@服务器地址:服务器保存路径</code></p>
+<p>例如：把本机 <code>/home/test.txt</code> 文件上传到 <code>192.168.0.101</code> 这台服务器上的 <code>/data/</code> 目录中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp /home/test.txt root@192.168.0.101:/data/</span><br></pre></td></tr></table></figure>
+
+<h3 id="上传目录到服务器"><a href="#上传目录到服务器" class="headerlink" title="上传目录到服务器"></a>上传目录到服务器</h3><p>格式：<code>scp -r 要上传的目录 用户名@服务器地址:服务器的保存目录</code></p>
+<p>例如：把 <code>/home</code> 目录上传到服务器的 <code>/data/</code> 目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r /home root@192.168.0.101:/data/</span><br></pre></td></tr></table></figure>
+
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><h3 id="从服务器上下载文件"><a href="#从服务器上下载文件" class="headerlink" title="从服务器上下载文件"></a>从服务器上下载文件</h3><p>格式：<code>scp 用户名@服务器地址:要下载的文件路径 保存文件的文件夹路径</code></p>
+<p>例如：把 <code>192.168.0.101</code> 上的 <code>/data/test.txt</code> 的文件下载到 <code>/home</code>（本地目录）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp root@192.168.0.101:/data/test.txt /home</span><br></pre></td></tr></table></figure>
+
+<h3 id="从服务器下载整个目录"><a href="#从服务器下载整个目录" class="headerlink" title="从服务器下载整个目录"></a>从服务器下载整个目录</h3><p>格式：<code>scp -r 用户名@服务器地址:要下载的服务器目录 保存下载的目录</code></p>
+<p>例如：把 <code>192.168.0.101</code> 上的 <code>/data</code> 目录下载到 <code>/home</code>（本地目录）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r root@192.168.0.101:/data  /home/</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注：目标服务器要开启写入权限。</p>
+</blockquote>
+<h1 id="访问服务器的-127-0-0-1-port"><a href="#访问服务器的-127-0-0-1-port" class="headerlink" title="访问服务器的 127.0.0.1:port"></a>访问服务器的 127.0.0.1:port</h1><p>假设目标服务器的 ip 地址为: <code>192.168.32.32</code>, port 为 <code>8080</code></p>
+<p>则在本地的浏览器地址栏输入: <code>&lt;ip&gt;:&lt;port&gt;</code>, 这里输入: <code>192.168.32.32:8080</code></p>
+<h1 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h1><h2 id="ssh-连接-remote-host-identification-has-changed"><a href="#ssh-连接-remote-host-identification-has-changed" class="headerlink" title="ssh 连接 remote host identification has changed"></a>ssh 连接 remote host identification has changed</h2><img data-src="/2023/06/30/158/20170726161546339.png" class="" title="img">
+
+<p>找到<code>.ssh</code>目录，下面有一个<code>known_hosts</code>文件，删除 <code>~/.ssh/known_hosts</code> 文件，或者如果你可以判断出<code>known_hosts</code>中原ssh服务器的公钥，删去那部分，</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -6677,332 +6905,6 @@
 <li><p>Connect the Parallels Tools image and run the installer script</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir /mnt/cdrom</span><br><span class="line">mount /dev/cdrom /mnt/cdrom</span><br><span class="line">/mnt/cdrom/install</span><br></pre></td></tr></table></figure></li>
 </ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2023/05/12/148/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/05/12/148/" class="post-title-link" itemprop="url">148. zsh + powerlevel10</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-05-12 13:00:00" itemprop="dateCreated datePublished" datetime="2023-05-12T13:00:00+08:00">2023-05-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-20 18:56:25" itemprop="dateModified" datetime="2024-03-20T18:56:25+08:00">2024-03-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="安装-zsh"><a href="#安装-zsh" class="headerlink" title="安装 zsh"></a>安装 zsh</h2><h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># macOS</span></span><br><span class="line">brew install zsh zsh-completions</span><br><span class="line"></span><br><span class="line"><span class="comment"># Ubuntu</span></span><br><span class="line">sudo apt-get install zsh</span><br><span class="line"></span><br><span class="line"><span class="comment"># CentOS</span></span><br><span class="line">sudo yum -y install zsh</span><br></pre></td></tr></table></figure>
-
-<h3 id="切换"><a href="#切换" class="headerlink" title="切换"></a>切换</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /bin/zsh</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装zsh框架"><a href="#安装zsh框架" class="headerlink" title="安装zsh框架"></a>安装zsh框架</h2><p><em><strong>选择其中一个安装即可</strong></em></p>
-<h3 id="安装-oh-my-zsh"><a href="#安装-oh-my-zsh" class="headerlink" title="安装 oh-my-zsh"></a>安装 oh-my-zsh</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mac</span></span><br><span class="line">bash -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ubuntu</span></span><br><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="安装-zim"><a href="#安装-zim" class="headerlink" title="安装 zim"></a>安装 zim</h3><ol>
-<li><p>安装 <code>zim</code> 。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编辑 Zsh 配置文件 <code>~/.zimrc</code> ：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.zimrc</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在文件最后加入下面的一行文字，以添加 <code>powerlevel10k</code> 模块，然后退出。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zmodule romkatv/powerlevel10k</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装 <code>powerlevel10k</code> 模块，在终端输入如下命令即可。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zimfw install</span><br></pre></td></tr></table></figure>
-
-<p>安装之后，<code>powerlevel10k</code>会让你进行配置。</p>
-<p>在此时配置时，很多图标符号看不到，因为 <code>powerlevel10k</code> 中包含许多特殊图标符号，需要与之兼容的字体。</p>
-</li>
-</ol>
-<h2 id="安装-powerlevel10K-主题"><a href="#安装-powerlevel10K-主题" class="headerlink" title="安装 powerlevel10K 主题"></a>安装 powerlevel10K 主题</h2><h3 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h3><blockquote>
-<p>方法1 (推荐)</p>
-</blockquote>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth=1 https://github.com/romkatv/powerlevel10k.git <span class="variable">$ZSH_CUSTOM</span>/themes/powerlevel10k</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>方法2</p>
-</blockquote>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ./.oh-my-zsh/themes</span><br><span class="line">git <span class="built_in">clone</span>  https://github.com/romkatv/powerlevel10k.git</span><br></pre></td></tr></table></figure>
-
-<h3 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h3><p><code>~/.zshrc</code> 设置如下内容, 以使用p10k主题 </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZSH_THEME=&quot;powerlevel10k/powerlevel10k&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><h3 id="语法高亮插件"><a href="#语法高亮插件" class="headerlink" title="语法高亮插件"></a>语法高亮插件</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.oh-my-zsh/custom/plugins/</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="自动补全"><a href="#自动补全" class="headerlink" title="自动补全"></a>自动补全</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.oh-my-zsh/custom/plugins/</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
-
-<h3 id="自动跳转"><a href="#自动跳转" class="headerlink" title="自动跳转"></a>自动跳转</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mac</span></span><br><span class="line">brew install autojump</span><br><span class="line"></span><br><span class="line"><span class="comment"># ubuntu</span></span><br><span class="line">sudo apt install autojump</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="zshrc-配置插件"><a href="#zshrc-配置插件" class="headerlink" title="zshrc 配置插件"></a>zshrc 配置插件</h2><h3 id="oh-my-zsh框架"><a href="#oh-my-zsh框架" class="headerlink" title="oh-my-zsh框架"></a>oh-my-zsh框架</h3><p>接下来 <code>~/.zshrc</code> 在插件配置处添加下载的这两个插件名</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">plugins=(</span><br><span class="line">     git</span><br><span class="line">     zsh-syntax-highlighting</span><br><span class="line">     zsh-autosuggestions</span><br><span class="line">     autojump</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<p>另外, 时间戳改一下格式</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HIST_STAMPS=&quot;yyyy-mm-dd&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="zim框架"><a href="#zim框架" class="headerlink" title="zim框架"></a>zim框架</h3><ul>
-<li><p>mac</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[ -s /usr/local/etc/profile.d/autojump.sh  ]] &amp;&amp; . /usr/local/etc/profile.d/autojump.sh</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>linux</p>
-<ul>
-<li><p>ubuntu</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[ -s /usr/share/autojump/autojump.sh ]] &amp;&amp; . /usr/share/autojump/autojump.sh</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>archlinux</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[ -s /usr/share/autojump/autojump.bash ]] &amp;&amp; . /usr/share/autojump/autojump.bash</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<h1 id="安装依赖字体"><a href="#安装依赖字体" class="headerlink" title="安装依赖字体"></a>安装依赖字体</h1><p>运行 <code>p10k configure</code> 向导模式进行p10k的主题定制</p>
-<p>完成后会生成一个配置文件 <code>~/.p10k.zsh</code>，并且在 <code>~/.zshrc</code> 中自动加入了</p>
-<h2 id="下载字体"><a href="#下载字体" class="headerlink" title="下载字体"></a>下载字体</h2><p>推荐 <code>JetBrainsMono Nerd Font</code></p>
-<blockquote>
-<p>网站</p>
-</blockquote>
-<ul>
-<li><p><a target="_blank" rel="noopener" href="https://www.nerdfonts.com/font-downloads">Nert Fonts 下载</a></p>
-<p> 推荐 <code>JetBrainsMono Nerd Font</code>, <a target="_blank" rel="noopener" href="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip">点击下载(v3.0.2)</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.nerdfonts.com/">Nert Fonts</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/ryanoasis/nerd-fonts/">Nerd Font Github</a> </p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/source-foundry/Hack/releases">Hack Nerd Font Github</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/microsoft/cascadia-code">Caskaydia Cove Nerd Font</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k">MesloLGS NF 官网地址</a></p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> fonts</span><br><span class="line">curl -o ./fonts/MesloLGS\ NF\ Regular.ttf https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/MesloLGS%20NF%20Regular.ttf</span><br><span class="line">curl -o ./fonts/MesloLGS\ NF\ Bold.ttf https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/MesloLGS%20NF%20Bold.ttf</span><br><span class="line">curl -o ./fonts/MesloLGS\ NF\ Italic.ttf https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/MesloLGS%20NF%20Italic.ttf</span><br><span class="line">curl -o ./fonts/MesloLGS\ NF\ Bold\ Italic.ttf https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/MesloLGS%20NF%20Bold%20Italic.ttf</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="安装字体"><a href="#安装字体" class="headerlink" title="安装字体"></a>安装字体</h2><ol>
-<li><p>linux</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash ./install.sh -of</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>manually</p>
-<ol>
-<li>Unzip the archive (解压)</li>
-<li>install the font (安装)<ul>
-<li>macOS<br>  Select all font files in the folder and <strong>&#x3D;&#x3D;double-click&#x3D;&#x3D;</strong> the “Install Font” button.</li>
-<li>Windows<br>  Select all font files in the folder, right-click any of them, then pick “**&#x3D;&#x3D;Install&#x3D;&#x3D;**” from the menu.</li>
-<li>Linux<br>  Unpack fonts to <code>~/.local/share/fonts</code> (or <code>/usr/share/fonts</code>, to install fonts system-wide) and &#x3D;&#x3D;<code>fc-cache -f -v</code>&#x3D;&#x3D;</li>
-</ul>
-</li>
-<li>Restart your software and choose the font</li>
-</ol>
-</li>
-</ol>
-<h2 id="设置字体"><a href="#设置字体" class="headerlink" title="设置字体"></a>设置字体</h2><p>从<code>Profiles -&gt; Open Profiles -&gt; Edit Profiles -&gt; Text</code>修改字体。红色矩形框勾选，字体其实有好几个，至于用哪个<code>Powerline</code>结尾的都行，只是大小和间距略有不同。</p>
-<img data-src="/2023/05/12/148/1200.jpeg" class="" title="img">
-
-
-
-
-
-<h1 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h1><table>
-<thead>
-<tr>
-<th>快捷键</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>⌃ + u</code></td>
-<td>清空当前行</td>
-</tr>
-<tr>
-<td><code>⌃ + a</code></td>
-<td>移动到行首</td>
-</tr>
-<tr>
-<td><code>⌃ + e</code></td>
-<td>移动到行尾</td>
-</tr>
-<tr>
-<td><code>⌃ + f</code></td>
-<td>向前移动 （front） 前面</td>
-</tr>
-<tr>
-<td><code>⌃ + b</code></td>
-<td>向后移动 （ before ）在某某之前</td>
-</tr>
-<tr>
-<td><code>⌃ + p</code></td>
-<td>上一条命令  （ prev ）</td>
-</tr>
-<tr>
-<td><code>⌃ + n</code></td>
-<td>下一条命令  ( next )</td>
-</tr>
-<tr>
-<td><code>⌃ + r</code></td>
-<td>搜索历史命令</td>
-</tr>
-<tr>
-<td><code>⌃ + y</code></td>
-<td>召回最近用命令删除的文字</td>
-</tr>
-<tr>
-<td><code>⌃ + h</code></td>
-<td>删除光标之前的字符</td>
-</tr>
-<tr>
-<td><code>⌃ + d</code></td>
-<td>删除光标所指的字符</td>
-</tr>
-<tr>
-<td><code>⌃ + w</code></td>
-<td>删除光标之前的单词</td>
-</tr>
-<tr>
-<td><code>⌃ + k</code></td>
-<td>删除从光标到行尾的内容</td>
-</tr>
-<tr>
-<td><code>⌃ + t</code></td>
-<td>交换光标和之前的字符</td>
-</tr>
-<tr>
-<td><code>⌘ + Click</code></td>
-<td>可以打开文件，文件夹和链接</td>
-</tr>
-<tr>
-<td><code>⌘ + n</code></td>
-<td>新建窗口</td>
-</tr>
-<tr>
-<td><code>⌘ + t</code></td>
-<td>新建标签页</td>
-</tr>
-<tr>
-<td><code>⌘ + w</code></td>
-<td>关闭当前页</td>
-</tr>
-<tr>
-<td><code>⌘ + 数字&amp;⌘ + 方向键</code></td>
-<td>切换标签页</td>
-</tr>
-<tr>
-<td><code>⌥⌘ + 数字</code></td>
-<td>切换窗口</td>
-</tr>
-<tr>
-<td><code>⌘ + enter</code></td>
-<td>切换全屏</td>
-</tr>
-<tr>
-<td><code>⌘ + d</code></td>
-<td>左右分屏</td>
-</tr>
-<tr>
-<td><code>⇧⌘ + d</code></td>
-<td>上下分屏</td>
-</tr>
-<tr>
-<td><code>⌘ + ;</code></td>
-<td>自动补全历史记录</td>
-</tr>
-<tr>
-<td><code>⇧⌘ + h</code></td>
-<td>自动补全剪贴板历史</td>
-</tr>
-<tr>
-<td><code>⌥⌘ + e</code></td>
-<td>查找所有来定位某个标签页</td>
-</tr>
-<tr>
-<td><code>⌘ + r&amp;⌃ + l</code></td>
-<td>清屏</td>
-</tr>
-<tr>
-<td><code>⌘ + /</code></td>
-<td>显示光标位置</td>
-</tr>
-<tr>
-<td><code>⌥⌘ + b</code></td>
-<td>历史回放</td>
-</tr>
-<tr>
-<td><code>⌘ + f</code></td>
-<td>查找，然后用tab和⇧ + tab可以向右和向左补全，补全之后的内容会被自动复制， 还可以用⌥ + enter将查找结果输入终端</td>
-</tr>
-</tbody></table>
 
       
     </div>
