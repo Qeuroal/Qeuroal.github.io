@@ -20,30 +20,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="【导言】大家一定都对for loop 很熟悉，也很会使用enumerate()等iteration function (迭代函数)不陌生，绝大多数程式语言都有自己的Iteration 功能与机制，今天会将Python 中Iteration &#x2F; Iterable &#x2F; Iterator 三个常混用的名词厘清，并且深入理解Iterable &#x2F; Iterator 的运作机制，">
+    <meta name="description" content="防止忘记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Qeuroal&#39;s Blog">
-<meta property="og:url" content="http://qeuroal.top/2024/07/02/212/index.html">
+<meta property="og:title" content="212. 迭代器">
+<meta property="og:url" content="http://qeuroal.top/2024/06/14/212/index.html">
 <meta property="og:site_name" content="Qeuroal&#39;s Blog">
-<meta property="og:description" content="【导言】大家一定都对for loop 很熟悉，也很会使用enumerate()等iteration function (迭代函数)不陌生，绝大多数程式语言都有自己的Iteration 功能与机制，今天会将Python 中Iteration &#x2F; Iterable &#x2F; Iterator 三个常混用的名词厘清，并且深入理解Iterable &#x2F; Iterator 的运作机制，">
+<meta property="og:description" content="防止忘记">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://qeuroal.top/2024/07/02/212/1*sbHkAAzifUm0Wb9Gicu4_g-20240702141511033.png">
-<meta property="article:published_time" content="2024-07-02T06:13:59.083Z">
-<meta property="article:modified_time" content="2024-07-02T06:32:16.668Z">
+<meta property="og:image" content="http://qeuroal.top/2024/06/14/212/1*sbHkAAzifUm0Wb9Gicu4_g-20240702141511033.png">
+<meta property="article:published_time" content="2024-06-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-09-09T00:51:19.963Z">
 <meta property="article:author" content="Qeuroal">
-<meta property="article:tag" content="C&#x2F;C++, Python, Java">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://qeuroal.top/2024/07/02/212/1*sbHkAAzifUm0Wb9Gicu4_g-20240702141511033.png">
+<meta name="twitter:image" content="http://qeuroal.top/2024/06/14/212/1*sbHkAAzifUm0Wb9Gicu4_g-20240702141511033.png">
 
 
-<link rel="canonical" href="http://qeuroal.top/2024/07/02/212/">
+<link rel="canonical" href="http://qeuroal.top/2024/06/14/212/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2024/07/02/212/","path":"2024/07/02/212/","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2024/06/14/212/","path":"2024/06/14/212/","title":"212. 迭代器"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title> | Qeuroal's Blog</title>
+<title>212. 迭代器 | Qeuroal's Blog</title>
   
 
 
@@ -201,7 +201,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2024/07/02/212/">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2024/06/14/212/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -214,12 +214,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Qeuroal's Blog">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="212. 迭代器 | Qeuroal's Blog">
+      <meta itemprop="description" content="防止忘记">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
+          212. 迭代器
         </h1>
 
         <div class="post-meta-container">
@@ -229,14 +229,30 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-07-02 14:13:59 / 修改时间：14:32:16" itemprop="dateCreated datePublished" datetime="2024-07-02T14:13:59+08:00">2024-07-02</time>
+      <time title="创建时间：2024-06-14 00:00:00" itemprop="dateCreated datePublished" datetime="2024-06-14T00:00:00+08:00">2024-06-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-09-09 08:51:19" itemprop="dateModified" datetime="2024-09-09T08:51:19+08:00">2024-09-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
     </span>
 
   
 </div>
 
+            <div class="post-description">防止忘记</div>
         </div>
       </header>
 
@@ -269,7 +285,7 @@
 <p>由上面程式码，两种方法都显示，<code>list</code>object 有<code>__iter__</code>以及<code>__getitem__</code>但没有<code>__next__</code>，所以是Iterable 但不是Iterator。但是，透过call <code>iter(x)</code>（其实就是call <code>x.__iter__()</code>） ，会回传一个同时带有<code>__iter__</code>和<code>__next__</code>的新的object <code>x_iter</code>，此时<code>x_iter</code>就是一个Iterator 了！</p>
 <h1 id="了解-iter-getitem-next"><a href="#了解-iter-getitem-next" class="headerlink" title="了解__iter__, __getitem__, __next__"></a>了解__iter__, __getitem__, __next__</h1><p>要了解这三个attributes 最直接的例子就是透过for loop 的运作机制来解说。</p>
 <p>制图师（自己），来，请下图！</p>
-<img data-src="/2024/07/02/212/1*sbHkAAzifUm0Wb9Gicu4_g-20240702141511033.png" class="" title="img">
+<img data-src="/2024/06/14/212/1*sbHkAAzifUm0Wb9Gicu4_g-20240702141511033.png" class="" title="img">
 
 <p>当你轻松call for loop 时，其实发生了上图所绘的步骤。</p>
 <p>值得注意的是，可以搭配for loop 的object，不需要一定是Iterator，Iterable 就可以了。</p>
@@ -334,7 +350,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://qeuroal.top/2024/07/02/212/" title="">http://qeuroal.top/2024/07/02/212/</a>
+      <a href="http://qeuroal.top/2024/06/14/212/" title="212. 迭代器">http://qeuroal.top/2024/06/14/212/</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -342,6 +358,9 @@
 </ul>
 </div>
 
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          </div>
 
         
 
@@ -352,8 +371,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/07/06/213/" rel="next" title="213. 设计模式">
-                  213. 设计模式 <i class="fa fa-angle-right"></i>
+                <a href="/2024/07/06/213/" rel="next" title="213. 设计原则与思想:面向对象">
+                  213. 设计原则与思想:面向对象 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
