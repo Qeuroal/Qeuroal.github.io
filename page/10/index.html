@@ -153,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">157</span>
+          <span class="site-state-item-count">158</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -186,6 +186,102 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/09/08/108/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/09/08/108/" class="post-title-link" itemprop="url">108. Ubuntu给ss.AppImage创建快捷方式</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-08 04:00:00" itemprop="dateCreated datePublished" datetime="2020-09-08T04:00:00+08:00">2020-09-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-29 08:58:32" itemprop="dateModified" datetime="2023-11-29T08:58:32+08:00">2023-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/software/" itemprop="url" rel="index"><span itemprop="name">software</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ol>
+<li><p>新建 <code>shadowsocks.desktop</code></p>
+</li>
+<li><p>将以下内容根据自己的情况更改，复制到 <code>shadowsocks.desktop</code> 内：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Version=1.0</span><br><span class="line">Type=Application</span><br><span class="line">Name=Shadowsocks</span><br><span class="line">Comment=Connection Manager — Shadowsocks-Qt5</span><br><span class="line">Exec=/home/gph/shadowsocks_ubuntu/Shadowsocks-Qt5-3.0.1-x86_64.AppImage // AppImage程序路径</span><br><span class="line">Icon=/home/gph/shadowsocks_ubuntu/shadowsocks.png // 小飞机的图标</span><br><span class="line">Terminal=<span class="literal">false</span></span><br><span class="line">StartupNotify=<span class="literal">true</span></span><br><span class="line">Categories=Application</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>即创建快捷方式</p>
+</li>
+</ol>
+<blockquote>
+<p>Note: 如果没有创建快捷方式，好像应该不能开机自启。</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1604,274 +1700,6 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> ELEMTYPE_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ELEMTYPE_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ElemType</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="type">int</span> data;</span><br><span class="line">        <span class="built_in">ElemType</span>();</span><br><span class="line">        <span class="built_in">ElemType</span>(<span class="type">int</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">friend</span> ostream &amp;<span class="keyword">operator</span> &lt;&lt;(ostream &amp;out, <span class="type">const</span> ElemType &amp;e); <span class="comment">// Success</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span> <span class="comment">// ELEMTYPE_H</span></span></span><br></pre></td></tr></table></figure></li>
 <li><p>源文件(<code>.cpp</code>)</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;ElemType.h&quot;</span></span></span><br><span class="line"></span><br><span class="line">ElemType::<span class="built_in">ElemType</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//ctor</span></span><br><span class="line">    <span class="keyword">this</span>-&gt;data = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ElemType::<span class="built_in">ElemType</span>(<span class="type">int</span> data)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;data = data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ostream&amp; <span class="keyword">operator</span> &lt;&lt;(ostream &amp;out, <span class="type">const</span> ElemType &amp;e)</span><br><span class="line">&#123;</span><br><span class="line">    out &lt;&lt; e.data;</span><br><span class="line">    <span class="keyword">return</span> out;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/03/29/98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/29/98/" class="post-title-link" itemprop="url">98. JetBrains家族之Clion配置、汉化及快捷键</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-03-29 04:00:00" itemprop="dateCreated datePublished" datetime="2020-03-29T04:00:00+08:00">2020-03-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-29 08:58:34" itemprop="dateModified" datetime="2023-11-29T08:58:34+08:00">2023-11-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/software/" itemprop="url" rel="index"><span itemprop="name">software</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>JetBrains 家族其他软件的手法相似，按需使用即可，此路不通，找度娘</p>
-<ul>
-<li><h1 id="Win10"><a href="#Win10" class="headerlink" title="Win10"></a>Win10</h1></li>
-</ul>
-<ol>
-<li><p>配置</p>
-<ol>
-<li><p>下载 <a href="/files/win_settings_3.zip">setting_3.zip</a>, <a href="/files/win_settings_4.zip">setting_4.zip</a>, <a href="/files/win_settings_5.zip">setting_5.zip</a>, <a href="/files/win_settings_6.zip">setting_6.zip</a>, <a href="/files/win_settings_7.zip">setting_7.zip</a>, <a href="/files/win_settings_8.zip">setting_8.zip</a></p>
-<blockquote>
-<p>数字越大，版本越新</p>
-</blockquote>
-</li>
-<li><p>打开 <code>Clion</code></p>
-</li>
-<li><p>选择： <code>File</code> - <code>Import setting</code></p>
-</li>
-<li><p>选择这个 <code>setting</code> 文件即可（一般全部导入，看个人）</p>
-</li>
-</ol>
-</li>
-<li><p>取消开始界面打开默认项目配置</p>
-<ol>
-<li>打开：<code>File</code> - <code>Settings</code> - <code>Appearance &amp; Behavior</code> - <code>System Settings</code></li>
-<li>取消勾选 <code>Reopen last project on startup</code></li>
-</ol>
-</li>
-<li><p>更改模板注释：</p>
-<ol>
-<li><p>打开：<code>File</code> - <code>Settings</code> - <code>Editor</code> - <code>File and Code Templates</code> - <code>Includes</code></p>
-</li>
-<li><p>下面有一个面板，在面板输入</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">if</span> ($HEADER_COMMENTS)</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* author $&#123;USER_NAME&#125;</span></span><br><span class="line"><span class="comment">* date $&#123;DATE&#125;</span></span><br><span class="line"><span class="comment">* description </span></span><br><span class="line"><span class="comment">#if ($ORGANIZATION_NAME &amp;&amp; $ORGANIZATION_NAME != &quot;&quot;)</span></span><br><span class="line"><span class="comment">* copyright (c) $YEAR $&#123;ORGANIZATION_NAME&#125;#if (!$ORGANIZATION_NAME.endsWith(&quot;.&quot;)).#end All rights reserved.</span></span><br><span class="line"><span class="comment">#end</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#end</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<p><a target="_blank" rel="noopener" href="https://blog.cugxuan.cn/2019/11/01/Software/multi-main-func-run-in-clion/">参考文档</a></p>
-</li>
-<li><p>Clion 多个 <code>main</code> 函数存在</p>
-<ol>
-<li><p>在 <code>CMakeLists.txt</code> 中加入</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 遍历项目根目录下所有的 .cpp 文件</span><br><span class="line"><span class="built_in">file</span> (GLOB files *.cpp)</span><br><span class="line">foreach (file $&#123;files&#125;)</span><br><span class="line">    <span class="built_in">string</span>(REGEX REPLACE <span class="string">&quot;.+/(.+)\\..*&quot;</span> <span class="string">&quot;\\1&quot;</span> exe $&#123;file&#125;)</span><br><span class="line">    <span class="built_in">add_executable</span> ($&#123;exe&#125; $&#123;file&#125;)</span><br><span class="line">    <span class="built_in">message</span> (\ \ \ \ --\ src/$&#123;exe&#125;.cpp\ will\ be\ compiled\ to\ bin/$&#123;exe&#125;)</span><br><span class="line"><span class="built_in">endforeach</span> ()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>为了方便可以自己定义快捷键：（个人用的是： <code>Alt-Shift+R</code>）</p>
-<ol>
-<li><code>File</code> - <code>Settings</code> - <code>Keymap</code></li>
-<li>搜索 <code>Reload cmake project</code> 即可</li>
-</ol>
-</li>
-<li><p>参考：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cmake_minimum_required</span>(VERSION <span class="number">3.15</span>)</span><br><span class="line"><span class="built_in">project</span>(DataStruct)</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span>(CMAKE_CXX_STANDARD <span class="number">11</span>)</span><br><span class="line"></span><br><span class="line"># 遍历项目根目录下所有的 .cpp 文件</span><br><span class="line"><span class="built_in">file</span> (GLOB files *.cpp)</span><br><span class="line">foreach (file $&#123;files&#125;)</span><br><span class="line">    <span class="built_in">string</span>(REGEX REPLACE <span class="string">&quot;.+/(.+)\\..*&quot;</span> <span class="string">&quot;\\1&quot;</span> exe $&#123;file&#125;)</span><br><span class="line">    <span class="built_in">add_executable</span> ($&#123;exe&#125; $&#123;file&#125;)</span><br><span class="line">    <span class="built_in">message</span> (\ \ \ \ --\ src/$&#123;exe&#125;.cpp\ will\ be\ compiled\ to\ bin/$&#123;exe&#125;)</span><br><span class="line"><span class="built_in">endforeach</span> ()</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li><p><code>CMakeLists</code> 自动加载</p>
-<ol>
-<li>打开 <code>Files</code> - <code>settings</code> - <code>Build, Execution, Deployment</code> - <code>CMake</code></li>
-<li>选择 <code>Automatically reload CMake project on editing</code></li>
-</ol>
-</li>
-<li><p>侧边栏无焦点自动隐藏</p>
-<ol>
-<li>选择侧边栏的 <code>扳手</code></li>
-<li>选择 <code>View Mode</code> - <code>Dock Unpinned</code></li>
-</ol>
-</li>
-<li><p>汉化步骤</p>
-<ol>
-<li>下载 <a href="./files/resources_cn.jar">resources-cn.jar</a></li>
-<li>将 <code>resources-cn.jar</code> 复制到 <code>安装目录下lib文件夹下</code></li>
-<li>结束</li>
-</ol>
-</li>
-<li><p>快捷键</p>
-<table>
-<thead>
-<tr>
-<th align="center">快捷键</th>
-<th align="center">含义</th>
-<th align="center">备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">Ctrl + Shift + U</td>
-<td align="center">大小写切换</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">Ctrl + Shift + Space</td>
-<td align="center">补全单词</td>
-<td align="center">new后直接键入构造器、构造器内提供构造信息</td>
-</tr>
-<tr>
-<td align="center">Ctrl + Alt + L</td>
-<td align="center">格式化代码</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">Ctrl + Shift + Backspace</td>
-<td align="center">回到最后编辑的地方</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">Ctrl + N</td>
-<td align="center">查找类</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">Ctrl + F12</td>
-<td align="center">快速查看类成员</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">Ctrl + P</td>
-<td align="center">提示参数信息</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">Ctrl + Alt + B</td>
-<td align="center">查看接口、抽象类的实现类</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">Ctrl + F7</td>
-<td align="center">找到某个类、变量、函数等在文中被使用到的的地方</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">连续点击Shift</td>
-<td align="center">全局搜索</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">Shift + F6</td>
-<td align="center">重新命名变量</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">连续按两次Esc</td>
-<td align="center">搜索框就会消失</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">Alt + insert</td>
-<td align="center">添加自动代码生成信息</td>
-<td align="center">新建新的文件</td>
-</tr>
-<tr>
-<td align="center">Ctrl + j</td>
-<td align="center">插入完整的代码块</td>
-<td align="center">默认只有 <code>for</code>, <code>iter</code>, <code>itit</code>，也可以自己在 <code>Setting—&gt;Live Templates</code> 里添加自定义的代码块</td>
-</tr>
-<tr>
-<td align="center">Ctrl + Alt + -&#x2F;+</td>
-<td align="center">展开折叠当前函数、类</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">Ctrl + Shift + -&#x2F;+</td>
-<td align="center">展开折叠所有函数、类</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">Ctrl + Alt + T</td>
-<td align="center">就可以选择给这些代码包裹上 <code>if</code>, <code>for</code> 等(surround with)</td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-</li>
-<li><p>自动换行</p>
-<blockquote>
-<p>idea设置自动换行其实很简单，只需要进行一步操作就可以了。<br/><br>看下图：我们只需要在相应的位置加上文件的类型就可以了，比如我们写的类都是.java文件，那么我们只需要加上 *.java就可以实现自动换行了。</p>
-</blockquote>
-<img data-src="/2020/03/29/98/1.png" class="">
-
-</li>
-<li><p><code>JetBrains</code>学生认证：自行百度</p>
-</li>
-<li><p><code>JetBrains</code> sync配置同步：</p>
-<p><code>Files</code> - <code>Sync ……</code></p>
-</li>
-<li><p><code>Clion</code> 输出乱码   </p>
-<ol>
-<li>在设置里将编码都设置为UTF8，并点击OK保存设置;<img data-src="/2020/03/29/98/2.jpg" class=""></li>
-<li>按住<code>Ctrl+Shift+Alt+/</code>选中<code>Registry..</code>.，然后取消掉 <code>run.processes.with.pty</code> 后面的 <code>√</code></li>
 </ol>
 </li>
 </ol>
