@@ -1358,7 +1358,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-15 13:59:58" itemprop="dateModified" datetime="2024-03-15T13:59:58+08:00">2024-03-15</time>
+      <time title="修改时间：2024-12-13 10:05:46" itemprop="dateModified" datetime="2024-12-13T10:05:46+08:00">2024-12-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1445,6 +1445,14 @@
 </li>
 </ol>
 </blockquote>
+<h1 id="设置vimdiff"><a href="#设置vimdiff" class="headerlink" title="设置vimdiff"></a>设置vimdiff</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global diff.tool nvimdiff</span><br><span class="line">git config --global difftool.prompt <span class="literal">false</span></span><br><span class="line">git config --global alias.vd difftool</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>gitdiff 在打开每一个文件的 diff 时都会进行输入确认, 设置 <code>difftool.prompt</code> 可以禁用这一行为.<br> 给 difftool 起个别名 vd</p>
+</blockquote>
+<p>此后使用 git difftool 时 Git 便会调用 vimdiff 逐一打开每个文件的 Diff. 查看完成一个文件的 diff 后使用 <code>:qa</code> 关闭该文件 diff.<br>这时 Git 会自动打开下一个文件的 diff. 如果中止本次 Diff 呢？首先需要让 Git 信任 difftool 的返回码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global difftool.trustExitCode <span class="literal">true</span></span><br><span class="line">git config --global mergetool.trustExitCode <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>然后让 vimdiff 返回 1：<code>:cq</code> (<code>:help cquit</code>) 退出 Vim.</p>
 <h1 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h1><h2 id="init"><a href="#init" class="headerlink" title="init"></a>init</h2><p><code>git init</code> 命令把这个目录变成Git可以管理的仓库</p>
 <p>也不一定必须在空目录下创建Git仓库，选择一个已经有东西的目录也是可以的。</p>
 <h2 id="status"><a href="#status" class="headerlink" title="status"></a>status</h2><p>运行<code>git status</code>命令查看仓库当前状态</p>
