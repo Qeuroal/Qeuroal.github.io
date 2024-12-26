@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Pacmanpacman是arch linux的主要包管理工具。它包含了简单的二进制包格式和易于使用的编译体系。通过和主服务器同步pacman可以保持系统的软件包更新，其服务器&#x2F;客户对模式允许用户下载和安装软件包以及所有依赖软件包。 pacman简明使用  备注  pacman 的 -S 参数表示 --sync 同步软件包，软件包将直接从远程仓库安装到本地主机，包括所有运行着软件包的依赖">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Qeuroal&#39;s Blog">
+<meta property="og:url" content="http://qeuroal.top/2024/12/26/222/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Blog">
+<meta property="og:description" content="Pacmanpacman是arch linux的主要包管理工具。它包含了简单的二进制包格式和易于使用的编译体系。通过和主服务器同步pacman可以保持系统的软件包更新，其服务器&#x2F;客户对模式允许用户下载和安装软件包以及所有依赖软件包。 pacman简明使用  备注  pacman 的 -S 参数表示 --sync 同步软件包，软件包将直接从远程仓库安装到本地主机，包括所有运行着软件包的依赖">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-12-26T00:37:13.791Z">
+<meta property="article:modified_time" content="2024-12-26T08:25:34.416Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="C&#x2F;C++, Python, Java">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://qeuroal.top/2024/12/26/222/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2024/12/26/222/","path":"2024/12/26/222/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | Qeuroal's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Qeuroal's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">静幽正治</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Pacman"><span class="nav-number">1.</span> <span class="nav-text">Pacman</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pacman%E7%AE%80%E6%98%8E%E4%BD%BF%E7%94%A8"><span class="nav-number">1.1.</span> <span class="nav-text">pacman简明使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BF%80%E6%B4%BB%E4%BB%93%E5%BA%93-%E5%AE%89%E8%A3%85%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC%E5%8F%8A%E9%94%81%E5%AE%9A%E7%89%88%E6%9C%AC"><span class="nav-number">1.2.</span> <span class="nav-text">激活仓库,安装指定版本及锁定版本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BD%E5%86%85%E4%BB%93%E5%BA%93%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.1.</span> <span class="nav-text">国内仓库配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#break-dependency"><span class="nav-number">1.3.</span> <span class="nav-text">break dependency</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#signature-error"><span class="nav-number">1.4.</span> <span class="nav-text">signature error</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#conflicting-files"><span class="nav-number">1.5.</span> <span class="nav-text">conflicting files</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B6%E8%A1%8C%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.6.</span> <span class="nav-text">并行下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">1.7.</span> <span class="nav-text">参考</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Arch-Linux-AUR"><span class="nav-number">2.</span> <span class="nav-text">Arch Linux AUR</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">大人者，不失其赤子之心</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">167</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2024/12/26/222/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-12-26 08:37:13 / 修改时间：16:25:34" itemprop="dateCreated datePublished" datetime="2024-12-26T08:37:13+08:00">2024-12-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="Pacman"><a href="#Pacman" class="headerlink" title="Pacman"></a>Pacman</h1><p>pacman是arch linux的主要包管理工具。它包含了简单的二进制包格式和易于使用的编译体系。通过和主服务器同步pacman可以保持系统的软件包更新，其服务器&#x2F;客户对模式允许用户下载和安装软件包以及所有依赖软件包。</p>
+<h2 id="pacman简明使用"><a href="#pacman简明使用" class="headerlink" title="pacman简明使用"></a>pacman简明使用</h2><blockquote>
+<p> 备注</p>
+<p> pacman 的 <code>-S</code> 参数表示 <code>--sync</code> 同步软件包，软件包将直接从远程仓库安装到本地主机，包括所有运行着软件包的依赖包。</p>
+</blockquote>
+<ul>
+<li><p>安装软件包:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S package_name1 package_name2 ...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用正则方式安装一系列软件包:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S $(pacman -Ssq package_regex)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果有多个软件包位于不同仓库，例如extra仓库和testing仓库，则在软件包前加上仓库定义:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S extra/package_name</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>支持简单的名字模式:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S plasma-&#123;desktop,mediacenter,nm&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>甚至支持多级扩展:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S plasma-&#123;workspace&#123;,-wallpapers&#125;&lt;Plug&gt;PeepOpena&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一些软件包支持整组安装，例如gnome:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S gnome</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>要检查这个组中包含的软件包:</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Sg gnome</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>忽略依赖强制安装:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Sd package_name</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Arch Linux的软件包是 <code>tar.stz</code> 格式，可以下载以后本地安装:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -U --noconfirm edk2-armvirt-202208-3-any.pkg.tar.zst</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除单一软件包，但是保留已经安装的这个软件包的依赖:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -R package_name</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除软件包并且删除所有没有被其他软件包所使用的该软件包的依赖:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Rs package_name</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除软件包，该软件包被其他软件包所使用，但是不删除依赖软件包:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Rdd package_name</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>警告</p>
+<p>上述命令会打破系统完整，所以需要避免</p>
+<ul>
+<li><p>升级整个系统所有软件包:</p>
+<p> 升级整个arch linux系统<a target="_blank" rel="noopener" href="https://cloud-atlas.readthedocs.io/zh-cn/latest/linux/arch_linux/pacman.html#id9">¶</a></p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Syu</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>清理缓存:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Sc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查询系统中安装的某个程序属于哪个软件包提供(这里举例查询netstat命令):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacmsn -Qo /usr/bin/netstat</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查询系统某个软件包包含的文件:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Ql package_name</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="激活仓库-安装指定版本及锁定版本"><a href="#激活仓库-安装指定版本及锁定版本" class="headerlink" title="激活仓库,安装指定版本及锁定版本"></a>激活仓库,安装指定版本及锁定版本</h2><p>默认情况下， <code>testing</code> 和 <code>community-testing</code> 仓库没有激活，这个配置位于 <code>/etc/pacman.conf</code> 。例如，在 <a target="_blank" rel="noopener" href="https://cloud-atlas.readthedocs.io/zh-cn/latest/kubernetes/arm/arm_k8s_deploy.html#arm-k8s-deploy">部署ARM架构Kubernetes</a> 在加入Arch Linux节点时，为了能够安装 <code>community-testing</code> 仓库最新版本的Kubernetes 1.22.0 ，配置如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[community-testing]</span><br><span class="line">Include = /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>然后执行仓库数据库同步:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Sy</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装指定版本:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S kubelet=1.22.0-1 kubeadm=1.22.0-1 kubectl=1.22.0-1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>由于Kubernetes软件升级涉及到管控和工作节点升级，需要精心的手工操作，所以必须锁定软件版本不能滚动升级。锁定软件版本也是编辑 <code>/etc/pacman.conf</code> 将需要忽略升级到软件包配置如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IgnorePkg   = kubelet kubeadm kubectl</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>再次修订 <code>/etc/pacman.conf</code> 将 <code>community-testing</code> 仓库注释掉，避免其他软件版本升级到测试版本。</p>
+</li>
+</ul>
+<h3 id="国内仓库配置"><a href="#国内仓库配置" class="headerlink" title="国内仓库配置"></a>国内仓库配置</h3><ul>
+<li><p>在 <code>/etc/pacman.conf</code> 最后添加两行:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://mirrirs.tuna.tsinghua.edu.cn/archlinuxcn/$arch</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 <code>paman -Sy</code> 同步源</p>
+</li>
+<li><p>然后导入GPG key:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="break-dependency"><a href="#break-dependency" class="headerlink" title="break dependency"></a>break dependency</h2><p>执行 <code>pacman -Syu</code> 时候遇到报错:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">looking for conflicting packages...</span><br><span class="line">error: failed to prepare transaction (could not satisfy dependencies)</span><br><span class="line">:: installing xorgproto (2019.2-2) breaks dependency &#x27;xf86miscproto&#x27; required by libxxf86misc</span><br></pre></td></tr></table></figure>
+
+<p>参考 <a target="_blank" rel="noopener" href="https://bbs.archlinux.org/viewtopic.php?id=251517">xorgproto issues..</a> 处理:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Rdd libxxf86misc &amp;&amp; pacman -Syu</span><br></pre></td></tr></table></figure>
+
+<h2 id="signature-error"><a href="#signature-error" class="headerlink" title="signature error"></a>signature error</h2><p>执行 <code>pacman -Syu</code> 出现报错:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">error: pacman: signature from &quot;Levente Polyak (anthraxx) &lt;levente@leventepolyak.net&gt;&quot; is unknown trust</span><br><span class="line">:: File /var/cache/pacman/pkg/pacman-5.2.1-4-x86_64.pkg.tar.zst is corrupted (invalid or corrupted package (PGP signature)).</span><br></pre></td></tr></table></figure>
+
+<p>上述问题参考 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Pacman/Package_signing">pacman&#x2F;Package signing</a> 和 [Signature is unknown trust <a target="_blank" rel="noopener" href="https://bbs.archlinux.org/viewtopic.php?id=207957">SOLVED]</a> 原因是系统长时间没有更新，本地使用的key已经过期，需要重新刷新:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman-key --refresh-keys</span><br></pre></td></tr></table></figure>
+
+<h2 id="conflicting-files"><a href="#conflicting-files" class="headerlink" title="conflicting files"></a>conflicting files</h2><p>执行 <code>pacman -Syu</code> 提示报错:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">error: failed to commit transaction (conflicting files)</span><br><span class="line">nss: /usr/lib/p11-kit-trust.so exists in filesystem</span><br><span class="line">Errors occurred, no packages were upgraded.</span><br></pre></td></tr></table></figure>
+
+<p>这个问题参考 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Pacman">archlinux - pacman</a> 中 <code>&quot;Failed to commit transaction (conflicting files)&quot; error</code> 解决方法:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Qo /usr/lib/p11-kit-trust.so</span><br></pre></td></tr></table></figure>
+
+<p>检查看看是否有软件包包含这个文件:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error: No package owns /usr/lib/p11-kit-trust.so</span><br></pre></td></tr></table></figure>
+
+<p>然后将这个文件重命名:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv /usr/lib/p11-kit-trust.so /usr/lib/p11-kit-trust.so.bak</span><br></pre></td></tr></table></figure>
+
+<h2 id="并行下载"><a href="#并行下载" class="headerlink" title="并行下载"></a>并行下载</h2><p>从 pacman 6.0 开始支持平行下载功能，但是默认没有启用，修改配置 <code>/etc/pacman.conf</code> 如下(实际只要取消注释#就可以，默认并发下载数量是5):</p>
+<p>修订 <code>/etc/pacman.conf</code> 设置并行下载<a target="_blank" rel="noopener" href="https://cloud-atlas.readthedocs.io/zh-cn/latest/linux/arch_linux/pacman.html#id10">¶</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ParallelDownloads = 5</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://cloud-atlas.readthedocs.io/zh-cn/latest/linux/arch_linux/pacman.html">cloud-atlas.readthedocs.io</a></li>
+<li><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Pacman">archlinux - pacman</a></li>
+<li><a target="_blank" rel="noopener" href="https://bbs.archlinux.org/viewtopic.php?id=251517">xorgproto issues..</a></li>
+<li><a target="_blank" rel="noopener" href="https://superuser.com/questions/1265425/how-do-i-list-files-installed-by-a-package-from-the-aur">How do I list files installed by a package from the AUR?</a></li>
+<li><a target="_blank" rel="noopener" href="https://ostechnix.com/enable-parallel-downloading-in-pacman-in-arch-linux/">Enable Parallel Downloading In Pacman In Arch Linux</a></li>
+</ul>
+<h1 id="Arch-Linux-AUR"><a href="#Arch-Linux-AUR" class="headerlink" title="Arch Linux AUR"></a>Arch Linux AUR</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://cloud-atlas.readthedocs.io/zh-cn/latest/linux/arch_linux/archlinux_aur.html">https://cloud-atlas.readthedocs.io/zh-cn/latest/linux/arch_linux/archlinux_aur.html</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://qeuroal.top/2024/12/26/222/" title="">http://qeuroal.top/2024/12/26/222/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/12/26/221/" rel="prev" title="221. dwm 依赖">
+                  <i class="fa fa-angle-left"></i> 221. dwm 依赖
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Qeuroal" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

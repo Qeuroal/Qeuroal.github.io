@@ -153,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">165</span>
+          <span class="site-state-item-count">167</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -186,6 +186,555 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2021/03/20/135/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/03/20/135/" class="post-title-link" itemprop="url">135. 网络编程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-03-20 18:24:04" itemprop="dateCreated datePublished" datetime="2021-03-20T18:24:04+08:00">2021-03-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-29 08:58:32" itemprop="dateModified" datetime="2023-11-29T08:58:32+08:00">2023-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p><strong>地球村</strong>：现代科技缩小世界的时空距离</p>
+<p>信件 ——&gt; 网络编程</p>
+<img data-src="/2021/03/20/135/image-20210320183140514.png" class="" title="image-20210320183140514">
+
+
+
+<h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><blockquote>
+<p>计算机网络是指将<code>地理位置不同</code>的具有独立功能的<code>多台计算机机器外部设备，通过通信线路连接起来</code>，在网络操作系统，网络管理软件及光<code>网络通信协议（类似于方言、语言）</code>的管理和协调下，实现<code>资源共享</code>和信息传递的计算机系统。</p>
+</blockquote>
+<h2 id="网络编程的目的"><a href="#网络编程的目的" class="headerlink" title="网络编程的目的"></a>网络编程的目的</h2><blockquote>
+<p>无线电台… ：传播交流信息，数据交换。（<strong>通信</strong>）</p>
+</blockquote>
+<h2 id="想要达到这个效果需要什么"><a href="#想要达到这个效果需要什么" class="headerlink" title="想要达到这个效果需要什么"></a>想要达到这个效果需要什么</h2><ol>
+<li>如何准确的定位网络上的一台主机 ：<code>192.168.16.124:port</code>，定位到这个计算机上的某个资源</li>
+<li>找到了这个主机，如何传输数据呢？</li>
+</ol>
+<blockquote>
+<p><code>javaweb</code>: 网页编程  <code>B/S</code>架构</p>
+<p><code>网络编程</code>:  <code>TCP/IP</code></p>
+</blockquote>
+<h1 id="网络通信的要素"><a href="#网络通信的要素" class="headerlink" title="网络通信的要素"></a>网络通信的要素</h1><p>如何实现网络的通信？</p>
+<p><strong>通信双方的地址</strong>：</p>
+<ul>
+<li><code>ip</code> （唯一（指的是公网，不是局域网））</li>
+<li><code>port</code></li>
+<li><code>192.168.16.124:5900</code>（<code>ip:port</code>）：就可以定位到某台计算机上的某一个应用</li>
+</ul>
+<p><strong>规则</strong>：网络通信的协议</p>
+<p><code>http</code>, <code>ftp</code>, <code>smtp</code>, <code>tcp</code>, <code>udp</code>, ….</p>
+<p><code>TCP/IP</code>参考模型：</p>
+<img data-src="/2021/03/20/135/image-20210320191036557.png" class="" title="image-20210320191036557">
+
+<p>本章目的：</p>
+<img data-src="/2021/03/20/135/image-20210320191157727.png" class="" title="image-20210320191157727">
+
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
+<li>网络编程中有两个主要的问题<ul>
+<li>如何准确的定位网络上的一台或多台主机</li>
+<li>找到主机之后如何进行通信</li>
+</ul>
+</li>
+<li>网络编程中的要素<ul>
+<li><code>IP</code>和 <code>port</code>：<code>ip</code></li>
+<li>网络通信协议：<code>udp</code>, <code>tcp</code></li>
+</ul>
+</li>
+<li>万物皆对象</li>
+</ul>
+<h1 id="IP"><a href="#IP" class="headerlink" title="IP"></a><code>IP</code></h1><p><code>ip</code>地址：<code>InetAddress</code></p>
+<p><strong>用处</strong>：</p>
+<ul>
+<li>唯一定位一台网络上计算机</li>
+<li><code>127.0.0.1</code>(<code>localhost</code>): 本机</li>
+<li><code>ip</code>地址的分类<ul>
+<li><code>IP</code>地址分类：<code>IPV4/IPV6</code><ul>
+<li><code>IPV4</code>: 如<code>127.0.0.1</code>。4个字节（32位）组成（0-255），全球42亿个（30亿都在北美，亚洲4亿，2011年就用尽了）</li>
+<li><code>IPV6</code>: 如 <code>2001:0bb2:aaaa:0015:0000:00000:1aaa:1312</code>。16字节（128位）组成，8个 <code>无符号整数（4个字节）</code>，用的是16进制（16进制占4位）。</li>
+</ul>
+</li>
+<li>公网（互联网使用）和私网（局域网使用）<ul>
+<li><code>192.168.xx.xx</code>：局域网，专门给组织内部使用</li>
+<li><code>ABCD</code>类地址</li>
+</ul>
+</li>
+<li>域名：记忆 <code>IP</code> 问题<ul>
+<li><code>IP</code>: <code>www.vip.com</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h1><p>端口表示计算机上的一个程序的进程(类似于：一栋楼代表一个 <code>ip</code>，门牌号代表 <code>端口</code>)</p>
+<ul>
+<li><p>不同的进程有不同的端口号，用来区分软件</p>
+</li>
+<li><p>被规定：<code>0~65535</code> </p>
+</li>
+<li><p><code>TCP/UDP端口</code>: <code>65535 * 2</code>,单个协议下端口号不能冲突，不同协议下，端口可以冲突</p>
+</li>
+<li><p>端口分类</p>
+<ul>
+<li><p>公有端口：（0~1023）最好不要用</p>
+<ul>
+<li><code>HTTP</code>: 80</li>
+<li><code>HTTPS</code>:43</li>
+<li><code>FTP</code>:21</li>
+<li><code>SSH</code>:22</li>
+<li><code>Telent</code>: 23</li>
+</ul>
+</li>
+<li><p>程序注册端口：1024~49151，分配给用户或者程序，建议不要用</p>
+<ul>
+<li><code>Tomcat</code>: 8080</li>
+<li><code>Mysql</code>:3306</li>
+<li><code>Oracle</code>: 1521</li>
+</ul>
+</li>
+<li><p>动态、私有：49152~65535,建议不要用</p>
+<ul>
+<li><p><code>Idea</code>:63342</p>
+</li>
+<li><p>查看所有接口</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">netstat -ano <span class="comment"># 查看所有端口</span></span><br><span class="line">netstat -ano|findstr <span class="string">&quot;5900&quot;</span><span class="comment"># 管道流： |，查看指定的端口</span></span><br><span class="line">tasklist|findstr <span class="string">&quot;8696&quot;</span> <span class="comment"># 查看指定端口的进程</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>打开任务管理器： <code>ctrl+shift+esc</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>代码</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.kuangstudy.net.module4;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.net.InetSocketAddress;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Qeuroal</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021-03-21 16:15</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestInetSocketAddress</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">InetSocketAddress</span> <span class="variable">inetSocketAddress</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">InetSocketAddress</span>(<span class="string">&quot;127.0.0.1&quot;</span>, <span class="number">8080</span>);</span><br><span class="line">        System.out.println(inetSocketAddress);</span><br><span class="line">        <span class="type">InetSocketAddress</span> <span class="variable">inetSocketAddress2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">InetSocketAddress</span>(<span class="string">&quot;localhost&quot;</span>, <span class="number">8080</span>);</span><br><span class="line">        System.out.println(inetSocketAddress2);</span><br><span class="line"></span><br><span class="line">        System.out.println(inetSocketAddress.getAddress());</span><br><span class="line">        <span class="comment">// 地址，可以更改hosts文件来更改映射</span></span><br><span class="line">        System.out.println(inetSocketAddress.getHostName());</span><br><span class="line">        <span class="comment">// 端口</span></span><br><span class="line">        System.out.println(inetSocketAddress.getPort());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>图片</p>
+ <img data-src="/2021/03/20/135/image-20210321162748752.png" class="" title="image-20210321162748752"></li>
+</ul>
+</li>
+</ul>
+<h1 id="通信协议"><a href="#通信协议" class="headerlink" title="通信协议"></a>通信协议</h1><ul>
+<li><strong>协议</strong>: 约定，就好比我们现在说的普通话</li>
+<li><strong>网络通信协议</strong>：针对于网络所产生的协议，如：速率，传输码率，代码结构，传输控制……</li>
+<li><strong>问题</strong>：非常的复杂</li>
+<li><strong>大事化小</strong>：分层</li>
+<li><strong>TCP&#x2F;IP协议簇</strong>：实际上是一组协议，不止两个协议。</li>
+</ul>
+<p>重要的协议：</p>
+<ul>
+<li><code>TCP</code>: 用户传输协议，类似于打电话</li>
+<li><code>UDP</code>: 用户数据报协议，类似于发短信</li>
+</ul>
+<p>出名的协议：</p>
+<ul>
+<li><code>TCP</code>: 用户传输协议</li>
+<li><code>IP</code>：网络互连协议</li>
+<li><img data-src="/2021/03/20/135/image-20210321163837855.png" class="" title="image-20210321163837855"></li>
+</ul>
+<p><code>TCP</code>, <code>UDP</code>对比</p>
+<ul>
+<li><p><code>TCP</code>: 打电话</p>
+<ul>
+<li><p>连接：稳定</p>
+</li>
+<li><p>连接：<strong>三次握手</strong>，<strong>四次挥手</strong></p>
+<ul>
+<li><p>三次握手：</p>
+<blockquote>
+<p>最少需要三次，保证稳定连接！</p>
+<p>A：你瞅啥？</p>
+<p>B：瞅你咋地？</p>
+<p>A：干一场！</p>
+</blockquote>
+</li>
+<li><p>四次挥手</p>
+<blockquote>
+<p>A：我要走了！</p>
+<p>B：你真的要走了吗！</p>
+<p>B：你真的真的要走了吗？</p>
+<p>A：我真的要走了！</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>客户端、服务端连接</p>
+</li>
+<li><p>传输完成，释放连接，效率低</p>
+</li>
+</ul>
+</li>
+<li><p><code>UDP</code>: 发短信</p>
+<ul>
+<li>不连接：不稳定</li>
+<li>客户端、服务端连接：没有明确的界限</li>
+<li>不管有没有准备好，都可以发给你</li>
+<li>类似于导弹攻击</li>
+<li><code>DDOS</code>: 洪水攻击（饱和攻击）</li>
+</ul>
+</li>
+</ul>
+<h1 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h1><h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><ol>
+<li>连接服务器 <code>socket</code></li>
+<li>发送消息</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.kuangstudy.net.module6;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStream;</span><br><span class="line"><span class="keyword">import</span> java.net.InetAddress;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Qeuroal</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021-03-21 16:53</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span> 客户端</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestTcpClient</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Socket</span> <span class="variable">socket</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">OutputStream</span> <span class="variable">os</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 1. 要知道服务器的地址</span></span><br><span class="line">            <span class="type">InetAddress</span> <span class="variable">serverIP</span> <span class="operator">=</span> InetAddress.getByName(<span class="string">&quot;127.0.0.1&quot;</span>);</span><br><span class="line">            <span class="comment">// 2. 端口号</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">port</span> <span class="operator">=</span> <span class="number">9999</span>;</span><br><span class="line">            <span class="comment">// 3. 创建一个socket连接</span></span><br><span class="line">            socket = <span class="keyword">new</span> <span class="title class_">Socket</span>(serverIP, port);</span><br><span class="line">            <span class="comment">// 4. 发送消息: io流</span></span><br><span class="line">            os = socket.getOutputStream();</span><br><span class="line">            os.write(<span class="string">&quot;你好,欢迎学习网络编程&quot;</span>.getBytes());</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (os != <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    os.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (socket != <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    socket.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h2><ol>
+<li>建立服务的端口 <code>ServerSocket</code></li>
+<li>等待用户的连接 <code>accept</code></li>
+<li>接受用户消息</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.kuangstudy.net.module6;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.ByteArrayOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.net.ServerSocket;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Qeuroal</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021-03-21 16:53</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span> 服务端</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestTcpSever</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">ServerSocket</span> <span class="variable">serverSocket</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">Socket</span> <span class="variable">socket</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">InputStream</span> <span class="variable">is</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">ByteArrayOutputStream</span> <span class="variable">baos</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 1. 我得有一个地址</span></span><br><span class="line">            serverSocket = <span class="keyword">new</span> <span class="title class_">ServerSocket</span>(<span class="number">9999</span>);</span><br><span class="line">            <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">                <span class="comment">// 2. 等待客户端连接过来</span></span><br><span class="line">                socket = serverSocket.accept();</span><br><span class="line">                <span class="comment">// 3. 读取客户端的消息</span></span><br><span class="line">                is = socket.getInputStream();</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 管道流</span></span><br><span class="line">                baos = <span class="keyword">new</span> <span class="title class_">ByteArrayOutputStream</span>();</span><br><span class="line">                <span class="type">byte</span>[] buffer = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">1024</span>];</span><br><span class="line">                <span class="type">int</span> len;</span><br><span class="line">                <span class="keyword">while</span> ((len = is.read(buffer)) != -<span class="number">1</span>) &#123;</span><br><span class="line">                    baos.write(buffer, <span class="number">0</span>, len);</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(baos.toString());</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="comment">// 关闭资源</span></span><br><span class="line">            <span class="keyword">if</span> (baos != <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    baos.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (is != <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    is.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (socket != <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    socket.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (serverSocket != <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    serverSocket.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><blockquote>
+<p>读取文件-&gt;流-&gt;传出去</p>
+</blockquote>
+<h3 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.kuangstudy.net.module7;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStream;</span><br><span class="line"><span class="keyword">import</span> java.net.ServerSocket;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Qeuroal</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021-03-22 16:13</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestTcpFileServer</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">// 1. 创建服务</span></span><br><span class="line">        <span class="type">ServerSocket</span> <span class="variable">serverSocket</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ServerSocket</span>(<span class="number">9000</span>);</span><br><span class="line">        <span class="comment">// 2. 监听客户端的连接</span></span><br><span class="line">        <span class="type">Socket</span> <span class="variable">socket</span> <span class="operator">=</span> serverSocket.accept();<span class="comment">// 阻塞式监听,会一直等待客户端连接</span></span><br><span class="line">        <span class="comment">// 3. 获取输入流</span></span><br><span class="line">        <span class="type">InputStream</span> <span class="variable">is</span> <span class="operator">=</span> socket.getInputStream();</span><br><span class="line">        <span class="comment">// 4. 文件输出</span></span><br><span class="line">        <span class="type">FileOutputStream</span> <span class="variable">fos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;receive.png&quot;</span>));</span><br><span class="line">        <span class="type">byte</span>[] buffer = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="type">int</span> len;</span><br><span class="line">        <span class="keyword">while</span> ((len = is.read(buffer)) != -<span class="number">1</span>) &#123;</span><br><span class="line">            fos.write(buffer, <span class="number">0</span>, len);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 5. 通知客户端接收完毕</span></span><br><span class="line">        <span class="type">OutputStream</span> <span class="variable">os</span> <span class="operator">=</span> socket.getOutputStream();</span><br><span class="line">        os.write(<span class="string">&quot;我接收完毕了,你可以断开了&quot;</span>.getBytes());</span><br><span class="line">        <span class="comment">// 6. 关闭资源</span></span><br><span class="line">        fos.close();</span><br><span class="line">        is.close();</span><br><span class="line">        socket.close();</span><br><span class="line">        serverSocket.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="客户端-1"><a href="#客户端-1" class="headerlink" title="客户端"></a>客户端</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.kuangstudy.net.module7;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.net.InetAddress;</span><br><span class="line"><span class="keyword">import</span> java.net.Socket;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Qeuroal</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021-03-22 16:07</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestTcpFileClient</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">// 1. 创建一个socket连接</span></span><br><span class="line">        <span class="type">Socket</span> <span class="variable">socket</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Socket</span>(InetAddress.getByName(<span class="string">&quot;127.0.0.1&quot;</span>), <span class="number">9000</span>);</span><br><span class="line">        <span class="comment">// 2. 创建一个输出流</span></span><br><span class="line">        <span class="type">OutputStream</span> <span class="variable">os</span> <span class="operator">=</span> socket.getOutputStream();</span><br><span class="line">        <span class="comment">// 3. 读取文件</span></span><br><span class="line">        <span class="type">FileInputStream</span> <span class="variable">fis</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;src/resource/xly2.png&quot;</span>));</span><br><span class="line">        <span class="comment">// 4. 写出文件</span></span><br><span class="line">        <span class="type">byte</span>[] buffer = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="type">int</span> len;</span><br><span class="line">        <span class="keyword">while</span> ((len = fis.read(buffer)) != -<span class="number">1</span>) &#123;</span><br><span class="line">            os.write(buffer, <span class="number">0</span>, len);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 5. 通知服务器,我已经结束了</span></span><br><span class="line">        socket.shutdownOutput(); <span class="comment">// 我已经传输完了</span></span><br><span class="line">        <span class="comment">// 5. 确定服务器接收完毕,才能够断开连接</span></span><br><span class="line">        <span class="type">InputStream</span> <span class="variable">is</span> <span class="operator">=</span> socket.getInputStream();</span><br><span class="line">        <span class="comment">// String byte[]</span></span><br><span class="line">        <span class="type">ByteArrayOutputStream</span> <span class="variable">baos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ByteArrayOutputStream</span>();</span><br><span class="line">        <span class="type">byte</span>[] buffer2 = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="type">int</span> len2;</span><br><span class="line">        <span class="keyword">while</span> ((len2 = is.read(buffer2)) != -<span class="number">1</span>) &#123;</span><br><span class="line">            baos.write(buffer2, <span class="number">0</span>, len2);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(baos.toString());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 5. 关闭资源</span></span><br><span class="line">        baos.close();</span><br><span class="line">        is.close();</span><br><span class="line">        fis.close();</span><br><span class="line">        os.close();</span><br><span class="line">        socket.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h1><h2 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h2><ul>
+<li>自定义 S</li>
+<li>Tomcat服务器 S: Java后台开发!</li>
+</ul>
+<h2 id="客户端-2"><a href="#客户端-2" class="headerlink" title="客户端"></a>客户端</h2><ul>
+<li>自定义 S</li>
+<li>浏览器 B</li>
+</ul>
+<h1 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a><code>UDP</code></h1><blockquote>
+<p>发短信:不用连接,需要知道对方的地址</p>
+</blockquote>
+<hr>
+<p>涉及到两个类:</p>
+<ul>
+<li><code>DatagramPacket</code></li>
+<li><code>DatagramSocket</code></li>
+</ul>
+<h2 id="发送端"><a href="#发送端" class="headerlink" title="发送端"></a>发送端</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.kuangstudy.net.module9;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.net.DatagramPacket;</span><br><span class="line"><span class="keyword">import</span> java.net.DatagramSocket;</span><br><span class="line"><span class="keyword">import</span> java.net.InetAddress;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Qeuroal</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021-03-22 17:29</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span> 不需要连接服务器</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestUdpClient</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">// 1. 建立一个Socket</span></span><br><span class="line">        <span class="type">DatagramSocket</span> <span class="variable">socket</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DatagramSocket</span>(); <span class="comment">// 用来发东西的</span></span><br><span class="line">        <span class="comment">// 2. 建个包</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">msg</span> <span class="operator">=</span> <span class="string">&quot;你好啊,服务器!&quot;</span>;</span><br><span class="line">        <span class="comment">// 3. 发送给谁</span></span><br><span class="line">        <span class="type">InetAddress</span> <span class="variable">localhost</span> <span class="operator">=</span> InetAddress.getByName(<span class="string">&quot;localhost&quot;</span>);</span><br><span class="line">        <span class="type">int</span> <span class="variable">port</span> <span class="operator">=</span> <span class="number">9090</span>;</span><br><span class="line">        <span class="comment">// 数据,数据的长度起始,要发送给谁</span></span><br><span class="line">        <span class="type">DatagramPacket</span> <span class="variable">packet</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DatagramPacket</span>(msg.getBytes(), <span class="number">0</span>, msg.getBytes().length, localhost, port);</span><br><span class="line">        <span class="comment">// 4. 发送包</span></span><br><span class="line">        socket.send(packet);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 5. 关闭</span></span><br><span class="line">        socket.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="接收端"><a href="#接收端" class="headerlink" title="接收端"></a>接收端</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.kuangstudy.net.module9;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.net.DatagramPacket;</span><br><span class="line"><span class="keyword">import</span> java.net.DatagramSocket;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Qeuroal</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021-03-22 17:35</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span> 还是要等待客户端的连接</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestUdpServer</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="comment">// 开放端口</span></span><br><span class="line">        <span class="type">DatagramSocket</span> <span class="variable">socket</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DatagramSocket</span>(<span class="number">9090</span>);</span><br><span class="line">        <span class="comment">// 接收数据包</span></span><br><span class="line">        <span class="type">byte</span>[] buffer = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="type">DatagramPacket</span> <span class="variable">packet</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DatagramPacket</span>(buffer, <span class="number">0</span>, buffer.length); <span class="comment">// 接收</span></span><br><span class="line">        socket.receive(packet); <span class="comment">// 阻塞接收</span></span><br><span class="line">        System.out.println(packet.getAddress().getHostName());</span><br><span class="line">        System.out.println(<span class="keyword">new</span> <span class="title class_">String</span>(packet.getData(), <span class="number">0</span>, packet.getLength()));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 关闭连接</span></span><br><span class="line">        socket.close();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>本质上没有服务器:因为可以互相发送,因此就没有服务器的概念</p>
+</blockquote>
+<h1 id="咨询"><a href="#咨询" class="headerlink" title="咨询"></a>咨询</h1><p>类似于:广告的客服</p>
+<blockquote>
+<p>xxx: 你好</p>
+<p>xxx: 你好</p>
+</blockquote>
+<ul>
+<li><p><code>BufferedReader</code> : 包装流包装 <code>System.in</code>,为了控制台读取</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(System.in))</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="循环发送消息"><a href="#循环发送消息" class="headerlink" title="循环发送消息"></a>循环发送消息</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="循环接收消息"><a href="#循环接收消息" class="headerlink" title="循环接收消息"></a>循环接收消息</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="在线咨询"><a href="#在线咨询" class="headerlink" title="在线咨询"></a>在线咨询</h1><blockquote>
+<p>两个人都是发送方,同时也都是接收方</p>
+</blockquote>
+<h2 id="TalkSend"><a href="#TalkSend" class="headerlink" title="TalkSend"></a><code>TalkSend</code></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="TalkReceive"><a href="#TalkReceive" class="headerlink" title="TalkReceive"></a><code>TalkReceive</code></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="TalkStudent"><a href="#TalkStudent" class="headerlink" title="TalkStudent"></a><code>TalkStudent</code></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="TalkTeacher"><a href="#TalkTeacher" class="headerlink" title="TalkTeacher"></a><code>TalkTeacher</code></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h1><blockquote>
+<p>如:<code>https://www.baidu.com/</code> </p>
+<p>统一资源定位符:定位资源的,定位互联网上的某一个资源</p>
+<p>  <code>DNS</code>域名解析: 将 <code>www.baidu.com</code> &#x3D;&#x3D;&gt; <code>xxx.xx.xx.xx</code> </p>
+<p>组成(可以少,但不能多)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">协议://ip地址:端口号/项目名/资源</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li><code>URL()</code> : 网络类,代表一个地址<ul>
+<li><code>param</code>: <code>String</code></li>
+<li><code>url.getProtocol</code>: 得到协议名</li>
+<li><code>url.getHost()</code>: 得到主机<code>ip</code></li>
+<li><code>url.getPort()</code>: 得到端口</li>
+<li><code>url.getPath()</code>: 文件地址</li>
+<li><code>url.getFile()</code>: 得到文件全路径</li>
+<li><code>url.getQuery</code>: 得到参数(如:查询的名字)</li>
+<li><code>url.openConnection()</code>: 打开连接</li>
+<li><code>urlConnection.getInputStream()</code>: 得到流</li>
+<li><code>urlConnection.disconnect()</code>: 断开连接</li>
+</ul>
+</li>
+</ul>
+<h2 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h2><ol>
+<li>下载地址</li>
+<li>连接到这个资源,用 <code>HTTP</code> 连接</li>
+<li>下载</li>
+</ol>
+<h1 id="getResource"><a href="#getResource" class="headerlink" title="getResource"></a><code>getResource</code></h1><p><code>getResource</code>读取的是 <code>out</code> 下的文件,即 <code>classpath</code></p>
+
+
+<ul>
+<li>相对路径: 即在当前包内的路径,如: <code>Test.class.getResource(&quot;xly2.png&quot;);</code>, <code>xly2.png</code>在当前包内,或者说和运行的class在同一目录下</li>
+<li>绝对路径:  用 <code>/</code> 表示,代表是当前项目下,如 <code>Test.class.getResource(&quot;/resource/xly2.png&quot;)</code>,如上图可见 <code>resource</code> 的位置</li>
+</ul>
+<h1 id="new-File"><a href="#new-File" class="headerlink" title="new File"></a><code>new File</code></h1><p>读取的是 <code>目录文件</code>,如下所示</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;src/resource/xly2.png&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2021/03/08/132/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/03/08/132/" class="post-title-link" itemprop="url">132. 代理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-03-08 17:32:48" itemprop="dateCreated datePublished" datetime="2021-03-08T17:32:48+08:00">2021-03-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-29 08:58:32" itemprop="dateModified" datetime="2023-11-29T08:58:32+08:00">2023-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/software/" itemprop="url" rel="index"><span itemprop="name">software</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Git设置"><a href="#Git设置" class="headerlink" title="Git设置"></a>Git设置</h1><h2 id="分辨需要设置的代理"><a href="#分辨需要设置的代理" class="headerlink" title="分辨需要设置的代理"></a>分辨需要设置的代理</h2><ul>
+<li><p><code>HTTP</code>形式：</p>
+<blockquote>
+<p><code>git clone https://github.com/user/test.git</code></p>
+</blockquote>
+</li>
+<li><p><code>SSH</code>形式</p>
+<blockquote>
+<p><code>git clone git@github.com:user/test.git</code></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="HTTP形式"><a href="#HTTP形式" class="headerlink" title="HTTP形式"></a><code>HTTP</code>形式</h2><blockquote>
+<p>我的端口为</p>
+</blockquote>
+<h3 id="走-HTTP-代理"><a href="#走-HTTP-代理" class="headerlink" title="走 HTTP 代理"></a>走 <code>HTTP</code> 代理</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy &quot;http://127.0.0.1:8080&quot;</span><br><span class="line">git config --global https.proxy &quot;http://127.0.0.1:8080&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="走-socks5-代理（如-Shadowsocks）"><a href="#走-socks5-代理（如-Shadowsocks）" class="headerlink" title="走 socks5 代理（如 Shadowsocks）"></a>走 <code>socks5</code> 代理（如 <code>Shadowsocks</code>）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy &quot;socks5://127.0.0.1:8080&quot;</span><br><span class="line">git config --global https.proxy &quot;socks5://127.0.0.1:8080&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="取消设置"><a href="#取消设置" class="headerlink" title="取消设置"></a>取消设置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
+
+<h3 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h3><blockquote>
+<p>建议走 <code>HTTP</code> 代理，socks代理不知道为啥，还是慢</p>
+</blockquote>
+<ul>
+<li><p>走 <code>HTTP</code> 代理</p>
+ <img data-src="/2021/03/08/132/image-20210308185317490.png" class="" title="image-20210308185317490">
+</li>
+<li><p>走 <code>socks5</code> 代理</p>
+ <img data-src="/2021/03/08/132/image-20210308185406707.png" class="" title="image-20210308185406707"></li>
+</ul>
+<h2 id="SSH-形式"><a href="#SSH-形式" class="headerlink" title="SSH 形式"></a>SSH 形式</h2><blockquote>
+<p>修改 <code>~/.ssh/config</code> 文件（不存在则新建）：</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># github</span><br><span class="line">Host github.com</span><br><span class="line">  HostName github.com</span><br><span class="line">  PreferredAuthentications publickey</span><br><span class="line">  # 私钥位置</span><br><span class="line">  IdentityFile ~/.ssh/id_rsa</span><br><span class="line">  # 设置代理, 127.0.0.1:8080 换成你自己代理软件监听的本地地址</span><br><span class="line">  # HTTPS使用-H，SOCKS使用-S</span><br><span class="line">  ProxyCommand connect -H 127.0.0.1:8080 -a none %h %p</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>走 <code>HTTPS</code> 代理速度</p>
+ <img data-src="/2021/03/08/132/image-20210308192008840.png" class="" title="image-20210308192008840">
+</li>
+<li><p>走 <code>socks</code> 代理速度</p>
+ <img data-src="/2021/03/08/132/image-20210308192102678.png" class="" title="image-20210308192102678"></li>
+</ul>
+<p>或者</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># github.com</span><br><span class="line">Host github.com</span><br><span class="line">    Hostname ssh.github.com</span><br><span class="line">    User git</span><br><span class="line">    Port 443</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa  # id_rsa改成你的ssh密钥的文件名</span><br><span class="line">    ProxyCommand nc -X connect -x 127.0.0.1:3128 %h %p  # 127.0.0.1:3128改成你的代理的ip:port</span><br><span class="line">    ServerAliveInterval 20</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Note:</p>
+<ul>
+<li>gitee 不一定支持 443 接口</li>
+</ul>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li><p><code>HTTP</code> 形式和 <code>SSH</code>形式速度相差不大</p>
+</li>
+<li><p>一定要保证端口号和你的电脑的端口号一致</p>
+</li>
+<li><p><code>HTTP</code> 形式的缺点：需要认证 <code>GitHub</code>，而 <code>SSH</code>形式则不需要</p>
+</li>
+<li><p><code>SSH</code>形式的缺点：目前表现为：<code>hexo d</code>部署速度慢</p>
+<ul>
+<li><p>使用 <code>SSH</code>形式： </p>
+ <img data-src="/2021/03/08/132/image-20210309121037652.png" class="" title="image-20210309121037652">
+</li>
+<li><p>若不使用 <code>SSH形式</code>：</p>
+ <img data-src="/2021/03/08/132/image-20210309121428159.png" class="" title="image-20210309121428159"></li>
+</ul>
+</li>
+</ul>
+<h3 id="如何查看端口号"><a href="#如何查看端口号" class="headerlink" title="如何查看端口号"></a>如何查看端口号</h3><p><code>设置</code> - <code>网络和Internet</code> - <code>代理</code>，如下所示</p>
+<img data-src="/2021/03/08/132/image-20210308174818280.png" class="" title="image-20210308174818280">
+
+
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://gist.github.com/chuyik/02d0d37a49edc162546441092efae6a1">https://gist.github.com/chuyik/02d0d37a49edc162546441092efae6a1</a></li>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000021998129">https://segmentfault.com/a/1190000021998129</a></li>
+</ul>
+<h1 id="linux-系统设置代理"><a href="#linux-系统设置代理" class="headerlink" title="linux 系统设置代理"></a>linux 系统设置代理</h1><h2 id="图形界面GUI设置方式"><a href="#图形界面GUI设置方式" class="headerlink" title="图形界面GUI设置方式"></a>图形界面GUI设置方式</h2><p>打开 <code>设置 -&gt; 网络 -&gt; 网络代理 -&gt; 手动</code> 或 <code>Settings -&gt; Network -&gt; Network Proxy -&gt; Manual</code></p>
+<p>设置完点击<code>Apply system wide</code></p>
+<h2 id="命令行CLI设置方式"><a href="#命令行CLI设置方式" class="headerlink" title="命令行CLI设置方式"></a>命令行CLI设置方式</h2><h3 id="系统代理设置"><a href="#系统代理设置" class="headerlink" title="系统代理设置"></a>系统代理设置</h3><p>虚拟机设置使用宿主机(10.10.1.10)的代理</p>
+<p>我们将在 <code>/etc/profile.d/proxy.sh</code> 下添加一个shell脚本文件，这将确保设置适用于所有已登录的用户：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim  /etc/profile.d/proxy.sh</span><br></pre></td></tr></table></figure>
+
+<p>将以下内容写到文档中：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># set proxy config via profie.d - should apply for all users</span></span><br><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">&quot;http://10.10.1.10:7890/&quot;</span></span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">&quot;http://10.10.1.10:7890/&quot;</span></span><br><span class="line"><span class="built_in">export</span> ftp_proxy=<span class="string">&quot;http://10.10.1.10:7890/&quot;</span></span><br><span class="line"><span class="built_in">export</span> no_proxy=<span class="string">&quot;127.0.0.1,localhost&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># For curl</span></span><br><span class="line"><span class="built_in">export</span> HTTP_PROXY=<span class="string">&quot;http://10.10.1.10:7890/&quot;</span></span><br><span class="line"><span class="built_in">export</span> HTTPS_PROXY=<span class="string">&quot;http://10.10.1.10:7890/&quot;</span></span><br><span class="line"><span class="built_in">export</span> FTP_PROXY=<span class="string">&quot;http://10.10.1.10:7890/&quot;</span></span><br><span class="line"><span class="built_in">export</span> NO_PROXY=<span class="string">&quot;127.0.0.1,localhost&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#将要从代理中排除的其他IP添加到NO_PROXY和no_proxy环境变量中</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>PS: 附本地机器如下设置 (本地机器是虚拟机, 设置使用宿主机(<code>10.10.1.10</code>)的代理)</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> HTTP_PROXY=<span class="string">&quot;http://10.10.1.10:7890/&quot;</span></span><br><span class="line"><span class="built_in">export</span> HTTPS_PROXY=<span class="string">&quot;http://10.10.1.10:7890/&quot;</span></span><br><span class="line"><span class="built_in">export</span> FTP_PROXY=<span class="string">&quot;http://10.10.1.10:7890/&quot;</span></span><br><span class="line"><span class="built_in">export</span> ALL_PROXY=<span class="string">&quot;socks://10.10.1.10:7890/&quot;</span></span><br><span class="line"><span class="built_in">export</span> NO_PROXY=<span class="string">&quot;localhost,127.0.0.0/8,::1&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">&quot;http://10.10.1.10:7890/&quot;</span></span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">&quot;http://10.10.1.10:7890/&quot;</span></span><br><span class="line"><span class="built_in">export</span> ftp_proxy=<span class="string">&quot;http://10.10.1.10:7890/&quot;</span></span><br><span class="line"><span class="built_in">export</span> all_proxy=<span class="string">&quot;socks://10.10.1.10:7890/&quot;</span></span><br><span class="line"><span class="built_in">export</span> no_proxy=<span class="string">&quot;localhost,127.0.0.0/8,::1&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>为该文件填加执行权限：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chmod</span> +x  /etc/profile.d/proxy.sh</span><br></pre></td></tr></table></figure>
+
+<p>激活文件以开始使用代理设置，或者注销并重新登录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile.d/proxy.sh</span><br><span class="line"><span class="comment">#查看环境变量进行确认是否生效</span></span><br><span class="line"><span class="built_in">env</span> | grep -i proxy</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -2227,410 +2776,6 @@
 <li>不剥夺条件：进程已获得的资源，在未使用完之前，不能强行剥夺</li>
 <li>循环等待条件：若干进程之间形成一种头尾相接的循环等待资源关系。</li>
 </ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2021/01/11/120/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/01/11/120/" class="post-title-link" itemprop="url">120. 多线程有问题的点</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-01-11 15:21:45" itemprop="dateCreated datePublished" datetime="2021-01-11T15:21:45+08:00">2021-01-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-29 08:58:32" itemprop="dateModified" datetime="2023-11-29T08:58:32+08:00">2023-11-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Runnable-线程创建"><a href="#Runnable-线程创建" class="headerlink" title="Runnable 线程创建"></a>Runnable 线程创建</h1><h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2>   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">       <span class="type">MyRunnable</span> <span class="variable">myRunnable</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyRunnable</span>()</span><br><span class="line">       <span class="type">Thread</span> <span class="variable">thread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(myRunnable);</span><br><span class="line">       thread.start(); <span class="comment">// 启动新线程</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyRunnable</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">       System.out.println(<span class="string">&quot;start new thread!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2>   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">       <span class="type">MyRunnable</span> <span class="variable">myRunnable</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyRunnable</span>()</span><br><span class="line">       <span class="keyword">new</span> <span class="title class_">Thread</span>(myRunnable).start(); <span class="comment">// 启动新线程</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyRunnable</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">       System.out.println(<span class="string">&quot;start new thread!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2>   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Thread</span> <span class="variable">t</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;start new thread!&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line">t.start(); <span class="comment">// 启动新线程</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="4"><a href="#4" class="headerlink" title="4"></a>4</h2>   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt; &#123;</span><br><span class="line">   System.out.println(<span class="string">&quot;start new thread!&quot;</span>);</span><br><span class="line">&#125;).start();</span><br></pre></td></tr></table></figure>
-<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>   要想给每个实例不一样的参数：用构造函数</p>
-<h1 id="Thread-创建线程"><a href="#Thread-创建线程" class="headerlink" title="Thread 创建线程"></a>Thread 创建线程</h1>   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">      <span class="type">Thread</span> <span class="variable">t</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyThread</span>();</span><br><span class="line">      t.start(); <span class="comment">// 启动新线程</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyThread</span> <span class="keyword">extends</span> <span class="title class_">Thread</span> &#123;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;start new thread!&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2021/01/09/119/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/01/09/119/" class="post-title-link" itemprop="url">119. maven</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-01-09 21:41:57" itemprop="dateCreated datePublished" datetime="2021-01-09T21:41:57+08:00">2021-01-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-29 08:58:32" itemprop="dateModified" datetime="2023-11-29T08:58:32+08:00">2023-11-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Maven-介绍"><a href="#Maven-介绍" class="headerlink" title="Maven 介绍"></a>Maven 介绍</h1><p>   在了解 Maven 之前，我们先来看看一个 Java 项目需要的东西。首先，我们需要确定引入哪些依赖包。例如，如果我们需要用到 commons logging，我们就必须把 commons logging 的 jar 包放入 classpath。如果我们还需要 log4j，就需要把 log4j 相关的 jar 包都放到 classpath 中。这些就是依赖包的管理。<br>   其次，我们要确定项目的目录结构。例如，<code>src</code> 目录存放 <code>Java源码</code>，<code>resources</code> 目录存放 <code>配置文件</code>，<code>bin</code> 目录存放编译生成的 <code>.class</code> 文件。<br>   此外，我们还需要配置环境，例如 JDK 的版本，编译打包的流程，当前代码的版本号。<br>   最后，除了使用 Eclipse 这样的 IDE 进行编译外，我们还必须能通过命令行工具进行编译，才能够让项目在一个独立的服务器上编译、测试、部署。<br>   这些工作难度不大，但是非常琐碎且耗时。如果每一个项目都自己搞一套配置，肯定会一团糟。我们需要的是一个标准化的 Java 项目管理和构建工具。</p>
-<p>   Maven 就是是专门为 Java 项目打造的管理和构建工具，它的主要功能有：</p>
-<ul>
-<li>提供了一套标准化的项目结构；</li>
-<li>提供了一套标准化的构建流程（编译，测试，打包，发布……）；</li>
-<li>提供了一套依赖管理机制。</li>
-</ul>
-<h2 id="Maven-项目结构"><a href="#Maven-项目结构" class="headerlink" title="Maven 项目结构"></a>Maven 项目结构</h2><p>   一个使用Maven管理的普通的Java项目，它的目录结构默认如下：<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a-maven-project</span><br><span class="line">├── pom.xml</span><br><span class="line">├── src</span><br><span class="line">│   ├── main</span><br><span class="line">│   │   ├── java</span><br><span class="line">│   │   └── resources</span><br><span class="line">│   └── test</span><br><span class="line">│       ├── java</span><br><span class="line">│       └── resources</span><br><span class="line">└── target</span><br></pre></td></tr></table></figure><br>   项目的根目录 <code>a-maven-project</code> 是项目名，它有一个项目描述文件 <code>pom.xml</code>，存放 Java 源码的目录是 <code>src/main/java</code>，存放资源文件的目录是 <code>src/main/resources</code>，存放测试源码的目录是 <code>src/test/java</code>，存放测试资源的目录是 <code>src/test/resources</code>，最后，所有编译、打包生成的文件都放在 <code>target</code> 目录里。这些就是一个 Maven 项目的标准目录结构。<br>   所有的目录结构都是约定好的标准结构，我们千万不要随意修改目录结构。使用标准结构不需要做任何配置，Maven 就可以正常使用。<br>   我们再来看最关键的一个项目描述文件pom.xml，它的内容长得像下面：<br>   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">...</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.itranswarp.learnjava<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">      ...</span><br><span class="line">   <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-logging<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-logging<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure><br>   其中，<code>groupId</code> 类似于 Java 的包名，通常是公司或组织名称，<code>artifactId</code> 类似于 Java 的类名，通常是项目名称，再加上 <code>version</code>，一个 Maven 工程就是由 <code>groupId</code>，<code>artifactId</code> 和 <code>version</code> 作为唯一标识。我们在引用其他第三方库的时候，也是通过这 <code>3</code> 个变量确定。例如，依赖 <code>commons-logging</code>：<br>   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-logging<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-logging<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure><br>   使用 <code>&lt;dependency&gt;</code> 声明一个依赖后，Maven 就会自动下载这个依赖包并把它放到 classpath 中。</p>
-<h2 id="安装Maven"><a href="#安装Maven" class="headerlink" title="安装Maven"></a>安装Maven</h2><p>   要安装Maven，可以从<a target="_blank" rel="noopener" href="https://maven.apache.org/">Maven官网</a>下载最新的Maven 3.6.x，然后在本地解压，设置几个环境变量：<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">M2_HOME=/path/to/maven-3.6.x</span><br><span class="line">PATH=$PATH:$M2_HOME/bin</span><br></pre></td></tr></table></figure><br>   Windows可以把%M2_HOME%\bin添加到系统Path变量中。<br>   然后，打开命令行窗口，输入<code>mvn -version</code>，应该看到Maven的版本信息：<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Apache Maven 3.6.3 (cecedd343002696d0abb50b32b541b8a6ba2883f)</span><br><span class="line">Maven home: D:\maven\bin\..</span><br><span class="line">Java version: 1.8.0_271, vendor: Oracle Corporation, runtime: D:\Program Files\Java\jdk1.8.0_271\jre</span><br><span class="line">Default locale: zh_CN, platform encoding: GBK</span><br><span class="line">os name: &quot;windows 10&quot;, version: &quot;10.0&quot;, arch: &quot;amd64&quot;, family: &quot;windows&quot;</span><br></pre></td></tr></table></figure><br>   如果提示命令未找到，说明系统PATH路径有误，需要修复后再运行。</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>   Maven是一个Java项目的管理和构建工具：</p>
-<ul>
-<li>Maven使用pom.xml定义项目内容，并使用预设的目录结构；</li>
-<li>在Maven中声明一个依赖项可以自动下载并导入classpath；</li>
-<li>Maven使用groupId，artifactId和version唯一定位一个依赖。</li>
-</ul>
-<h1 id="依赖管理"><a href="#依赖管理" class="headerlink" title="依赖管理"></a>依赖管理</h1><p>   如果我们的项目依赖第三方的jar包，例如commons logging，那么问题来了：commons logging发布的jar包在哪下载？<br>   如果我们还希望依赖log4j，那么使用log4j需要哪些jar包？<br>   类似的依赖还包括：JUnit，JavaMail，MySQL驱动等等，一个可行的方法是通过搜索引擎搜索到项目的官网，然后手动下载zip包，解压，放入classpath。但是，这个过程非常繁琐。<br>   Maven解决了依赖管理问题。例如，我们的项目依赖abc这个jar包，而abc又依赖xyz这个jar包：<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">┌──────────────┐</span><br><span class="line">│Sample Project│</span><br><span class="line">└──────────────┘</span><br><span class="line">       │  </span><br><span class="line">       ▼</span><br><span class="line">┌──────────────┐</span><br><span class="line">│     abc      │</span><br><span class="line">└──────────────┘</span><br><span class="line">       │</span><br><span class="line">       ▼</span><br><span class="line">┌──────────────┐</span><br><span class="line">│     xyz      │</span><br><span class="line">└──────────────┘</span><br></pre></td></tr></table></figure><br>   当我们声明了abc的依赖时，Maven自动把abc和xyz都加入了我们的项目依赖，不需要我们自己去研究abc是否需要依赖xyz。<br>   因此，Maven的第一个作用就是解决依赖管理。我们声明了自己的项目需要abc，Maven会自动导入abc的jar包，再判断出abc需要xyz，又会自动导入xyz的jar包，这样，最终我们的项目会依赖abc和xyz两个jar包。</p>
-<p>   我们来看一个复杂依赖示例：<br>   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.4.2.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure><br>   当我们声明一个 <code>spring-boot-starter-web</code> 依赖时，Maven 会自动解析并判断最终需要大概二三十个其他依赖：<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">spring-boot-starter-web</span><br><span class="line">spring-boot-starter</span><br><span class="line">   spring-boot</span><br><span class="line">   sprint-boot-autoconfigure</span><br><span class="line">   spring-boot-starter-logging</span><br><span class="line">      logback-classic</span><br><span class="line">      logback-core</span><br><span class="line">      slf4j-api</span><br><span class="line">      jcl-over-slf4j</span><br><span class="line">      slf4j-api</span><br><span class="line">      jul-to-slf4j</span><br><span class="line">      slf4j-api</span><br><span class="line">      log4j-over-slf4j</span><br><span class="line">      slf4j-api</span><br><span class="line">   spring-core</span><br><span class="line">   snakeyaml</span><br><span class="line">spring-boot-starter-tomcat</span><br><span class="line">   tomcat-embed-core</span><br><span class="line">   tomcat-embed-el</span><br><span class="line">   tomcat-embed-websocket</span><br><span class="line">      tomcat-embed-core</span><br><span class="line">jackson-databind</span><br><span class="line">...</span><br></pre></td></tr></table></figure><br>   如果我们自己去手动管理这些依赖是非常费时费力的，而且出错的概率很大。</p>
-<h2 id="依赖关系"><a href="#依赖关系" class="headerlink" title="依赖关系"></a>依赖关系</h2><p>   Maven定义了几种依赖关系，分别是 <code>compile</code>、<code>test</code>、<code>runtime</code> 和 <code>provided</code>：</p>
-<table>
-<thead>
-<tr>
-<th align="center">scope</th>
-<th align="center">说明</th>
-<th align="center">示例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">compile</td>
-<td align="center">编译时需要用到该jar包（默认）</td>
-<td align="center">commons-logging</td>
-</tr>
-<tr>
-<td align="center">test</td>
-<td align="center">编译Test时需要用到该jar包</td>
-<td align="center">junit</td>
-</tr>
-<tr>
-<td align="center">runtime</td>
-<td align="center">编译时不需要，但运行时需要用到</td>
-<td align="center">mysql</td>
-</tr>
-<tr>
-<td align="center">provided</td>
-<td align="center">编译时需要用到，但运行时由JDK或某个服务器提供</td>
-<td align="center">servlet-api</td>
-</tr>
-</tbody></table>
-<p>   其中，默认的 <code>compile</code> 是最常用的，Maven 会把这种类型的依赖直接放入 <code>classpath</code>。<br>   <code>test</code> 依赖表示仅在测试时使用，正常运行时并不需要。最常用的 <code>test</code> 依赖就是 <code>JUnit</code>：<br>   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.junit.jupiter<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit-jupiter-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.3.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure><br>   <code>runtime</code> 依赖表示编译时不需要，但运行时需要。最典型的 <code>runtime</code> 依赖是 <code>JDBC</code> 驱动，例如 <code>MySQL</code> 驱动：<br>   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.48<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure><br>   <code>provided</code> 依赖表示编译时需要，但运行时不需要。最典型的 <code>provided</code> 依赖是 <code>Servlet API</code>，编译的时候需要，但是运行时，Servlet 服务器内置了相关的 jar，所以运行期不需要：<br>   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javax.servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure><br>   最后一个问题是，Maven 如何知道从何处下载所需的依赖？也就是相关的 jar 包？答案是 Maven 维护了一个中央仓库（<a target="_blank" rel="noopener" href="https://repo1.maven.org/">repo1.maven.org</a>），所有第三方库将自身的 jar 以及相关信息上传至中央仓库，Maven 就可以从中央仓库把所需依赖下载到本地。<br>   Maven并不会每次都从中央仓库下载jar包。一个jar包一旦被下载过，就会被Maven自动缓存在本地目录（用户主目录的<code>.m2</code>目录），所以，除了第一次编译时因为下载需要时间会比较慢，后续过程因为有本地缓存，并不会重复下载相同的jar包。</p>
-<h2 id="唯一ID"><a href="#唯一ID" class="headerlink" title="唯一ID"></a>唯一ID</h2><p>   对于某个依赖，Maven只需要3个变量即可唯一确定某个jar包：</p>
-<ul>
-<li>groupId：属于组织的名称，类似Java的包名；</li>
-<li>artifactId：该jar包自身的名称，类似Java的类名；</li>
-<li>version：该jar包的版本。</li>
-</ul>
-<p>   通过上述3个变量，即可唯一确定某个jar包。Maven通过对jar包进行PGP签名确保任何一个jar包一经发布就无法修改。修改已发布jar包的唯一方法是发布一个新版本。<br>   因此，某个jar包一旦被Maven下载过，即可永久地安全缓存在本地。</p>
-<blockquote>
-<p>注：只有以 <code>-SNAPSHOT</code> 结尾的版本号会被 Maven 视为开发版本，开发版本每次都会重复下载，这种 <code>SNAPSHOT</code> 版本只能用于内部私有的 <code>Maven repo</code>，公开发布的版本不允许出现 <code>SNAPSHOT</code>。</p>
-</blockquote>
-<h2 id="Maven镜像"><a href="#Maven镜像" class="headerlink" title="Maven镜像"></a>Maven镜像</h2><p>   除了可以从Maven的中央仓库下载外，还可以从Maven的镜像仓库下载。如果访问Maven的中央仓库非常慢，我们可以选择一个速度较快的Maven的镜像仓库。Maven镜像仓库定期从中央仓库同步：<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">          slow    ┌───────────────────┐</span><br><span class="line">   ┌─────────────&gt;│Maven Central Repo.│</span><br><span class="line">   │              └───────────────────┘</span><br><span class="line">   │                        │</span><br><span class="line">   │                        │sync</span><br><span class="line">   │                        ▼</span><br><span class="line">┌───────┐  fast    ┌───────────────────┐</span><br><span class="line">│ User  │─────────&gt;│Maven Mirror Repo. │</span><br><span class="line">└───────┘          └───────────────────┘</span><br></pre></td></tr></table></figure><br>   中国区用户可以使用阿里云提供的Maven镜像仓库。使用Maven镜像仓库需要一个配置，在用户主目录下进入<code>.m2</code>目录，创建一个<code>settings.xml</code>配置文件（个人是在<code>安装目录-conf-settings.xml</code>），内容如下：<br>   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">settings</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>aliyun<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 国内推荐阿里云的Maven镜像 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://maven.aliyun.com/repository/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">settings</span>&gt;</span></span><br></pre></td></tr></table></figure><br>   配置镜像仓库后，Maven的下载速度就会非常快。</p>
-<h2 id="搜索第三方组件"><a href="#搜索第三方组件" class="headerlink" title="搜索第三方组件"></a>搜索第三方组件</h2><p>   最后一个问题：如果我们要引用一个第三方组件，比如 <code>okhttp</code>，如何确切地获得它的 <code>groupId</code>、<code>artifactId</code> 和 <code>version</code>？方法是通过 <a target="_blank" rel="noopener" href="https://search.maven.org/">search.maven.org</a> 搜索关键字，找到对应的组件后，直接复制。</p>
-<h2 id="命令行编译"><a href="#命令行编译" class="headerlink" title="命令行编译"></a>命令行编译</h2><p>   在命令中，进入到<code>pom.xml</code>所在目录，输入以下命令：<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean packages</span><br></pre></td></tr></table></figure><br>   如果一切顺利，即可在target目录下获得编译后自动打包的jar。</p>
-<h2 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h2><ul>
-<li>Maven 通过解析依赖关系确定项目所需的 jar 包，常用的 4 种 <code>scope</code> 有：<code>compile（默认）</code>，<code>test</code>，<code>runtime</code> 和 <code>provided</code>；</li>
-<li>Maven 从中央仓库下载所需的 jar 包并缓存在本地；</li>
-<li>可以通过镜像仓库加速下载。</li>
-</ul>
-<h1 id="构建流程"><a href="#构建流程" class="headerlink" title="构建流程"></a>构建流程</h1><h2 id="构建流程-1"><a href="#构建流程-1" class="headerlink" title="构建流程"></a>构建流程</h2><p>   Maven不但有标准化的项目结构，而且还有一套标准化的构建流程，可以自动化实现编译，打包，发布，等等。</p>
-<h2 id="Lifecycle和Phase"><a href="#Lifecycle和Phase" class="headerlink" title="Lifecycle和Phase"></a>Lifecycle和Phase</h2><p>   使用Maven时，我们首先要了解什么是Maven的生命周期（lifecycle）。<br>   Maven的生命周期由一系列阶段（phase）构成，以内置的生命周期<code>default</code>为例，它包含以下phase：</p>
-<ul>
-<li>validate</li>
-<li>initialize</li>
-<li>generate-sources</li>
-<li>process-sources</li>
-<li>generate-resources</li>
-<li>process-resources</li>
-<li>compile</li>
-<li>process-classes</li>
-<li>generate-test-sources</li>
-<li>process-test-sources</li>
-<li>generate-test-resources</li>
-<li>process-test-resources</li>
-<li>test-compile</li>
-<li>process-test-classes</li>
-<li>test</li>
-<li>prepare-package</li>
-<li>package</li>
-<li>pre-integration-test</li>
-<li>integration-test</li>
-<li>post-integration-test</li>
-<li>verify</li>
-<li>install</li>
-<li>deploy</li>
-</ul>
-<p>   如果我们运行 <code>mvn package</code>，Maven 就会执行 <code>default</code> 生命周期，它会从开始一直运行到 <code>package</code> 这个 <code>phase</code> 为止：</p>
-<ul>
-<li>validate</li>
-<li>…</li>
-<li>package</li>
-</ul>
-<p>   如果我们运行 <code>mvn compile</code>，Maven 也会执行 <code>default</code> 生命周期，但这次它只会运行到 compile，即以下几个 phase：</p>
-<ul>
-<li>validate</li>
-<li>…</li>
-<li>compile</li>
-</ul>
-<p>   Maven 另一个常用的生命周期是 <code>clean</code>，它会执行 3 个 phase：</p>
-<ul>
-<li>pre-clean</li>
-<li>clean （注意这个clean不是lifecycle而是phase）</li>
-<li>post-clean</li>
-</ul>
-<p>   所以，我们使用mvn这个命令时，后面的参数是phase，Maven自动根据生命周期运行到指定的phase。<br>   更复杂的例子是指定多个phase，例如，运行<code>mvn clean package</code>，Maven先执行clean生命周期并运行到clean这个phase，然后执行default生命周期并运行到package这个phase，实际执行的phase如下：</p>
-<ul>
-<li>pre-clean</li>
-<li>clean （注意这个clean是phase）</li>
-<li>validate</li>
-<li>…</li>
-<li>package</li>
-</ul>
-<p>   在实际开发过程中，经常使用的命令有：<br>   <code>mvn clean</code>：清理所有生成的class和jar；<br>   <code>mvn clean compile</code>：先清理，再执行到compile；<br>   <code>mvn clean test</code>：先清理，再执行到test，因为执行test前必须执行compile，所以这里不必指定compile；<br>   <code>mvn clean package</code>：先清理，再执行到package。  </p>
-<p>   大多数phase在执行过程中，因为我们通常没有在pom.xml中配置相关的设置，所以这些phase什么事情都不做。<br>   经常用到的phase其实只有几个：<br>   <code>clean</code>：清理<br>   <code>compile</code>：编译<br>   <code>test</code>：运行测试<br>   <code>package</code>：打包</p>
-<h2 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h2><p>   执行一个phase又会触发一个或多个goal：</p>
-<table>
-<thead>
-<tr>
-<th align="center">执行的Phase</th>
-<th align="center">对应执行的Goal</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">compile</td>
-<td align="center">compiler:compile</td>
-</tr>
-<tr>
-<td align="center">test</td>
-<td align="center">compiler:testCompile <br> surefire:test</td>
-</tr>
-<tr>
-<td align="center">goal的命名总是<code>abc:xyz</code>这种形式。</td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<p>   其实我们类比一下就明白了：</p>
-<ul>
-<li>lifecycle相当于Java的package，它包含一个或多个phase；</li>
-<li>phase相当于Java的class，它包含一个或多个goal；</li>
-<li>goal相当于class的method，它其实才是真正干活的。</li>
-</ul>
-<p>   大多数情况，我们只要指定phase，就默认执行这些phase默认绑定的goal，只有少数情况，我们可以直接指定运行一个goal，例如，启动Tomcat服务器：<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn tomcat:run</span><br></pre></td></tr></table></figure></p>
-<h2 id="小结-2"><a href="#小结-2" class="headerlink" title="小结"></a>小结</h2><p>   Maven通过lifecycle、phase和goal来提供标准的构建流程。<br>   最常用的构建命令是指定phase，然后让Maven执行到指定的phase：</p>
-<ul>
-<li>mvn clean</li>
-<li>mvn clean compile</li>
-<li>mvn clean test</li>
-<li>mvn clean package</li>
-</ul>
-<p>   通常情况，我们总是执行phase默认绑定的goal，因此不必指定goal。</p>
-<h1 id="使用插件"><a href="#使用插件" class="headerlink" title="使用插件"></a>使用插件</h1><p>   我们在前面介绍了 Maven 的 lifecycle，phase 和 goal：使用 Maven 构建项目就是执行 lifecycle，执行到指定的 phase 为止。每个 phase 会执行自己默认的一个或多个 goal。goal 是最小任务单元。<br>   我们以compile这个phase为例，如果执行：<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn compile</span><br></pre></td></tr></table></figure><br>   Maven将执行compile这个phase，这个phase会调用compiler插件执行关联的<code>compiler:compile</code>这个goal。<br>   实际上，执行每个phase，都是通过某个插件（plugin）来执行的，Maven本身其实并不知道如何执行compile，它只是负责找到对应的compiler插件，然后执行默认的<code>compiler:compile</code>这个goal来完成编译。<br>   所以，使用Maven，实际上就是配置好需要使用的插件，然后通过phase调用它们。<br>   Maven已经内置了一些常用的标准插件：</p>
-<table>
-<thead>
-<tr>
-<th align="center">插件名称</th>
-<th align="center">对应执行的phase</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">clean</td>
-<td align="center">clean</td>
-</tr>
-<tr>
-<td align="center">compiler</td>
-<td align="center">compile</td>
-</tr>
-<tr>
-<td align="center">surefire</td>
-<td align="center">test</td>
-</tr>
-<tr>
-<td align="center">jar</td>
-<td align="center">package</td>
-</tr>
-<tr>
-<td align="center">如果标准插件无法满足需求，我们还可以使用自定义插件。使用自定义插件的时候，需要声明。例如，使用<code>maven-shade-plugin</code>可以创建一个可执行的jar，要使用这个插件，需要在<code>pom.xml</code>中声明它：</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">   ...</span><br><span class="line">   <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-shade-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.2.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                  <span class="tag">&lt;<span class="name">phase</span>&gt;</span>package<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">                  <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;<span class="name">goal</span>&gt;</span>shade<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                  <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                  <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                           ...</span><br><span class="line">                  <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">自定义插件往往需要一些配置，例如，<code>maven-shade-plugin</code>需要指定Java程序的入口，它的配置是：</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">transformers</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">transformer</span> <span class="attr">implementation</span>=<span class="string">&quot;org.apache.maven.plugins.shade.resource.ManifestResourceTransformer&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">mainClass</span>&gt;</span>com.itranswarp.learnjava.Main<span class="tag">&lt;/<span class="name">mainClass</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">transformer</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">transformers</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">注意，Maven自带的标准插件例如<code>compiler</code>是无需声明的，只有引入其它的插件才需要声明。</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">下面列举了一些常用的插件：</td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<ul>
-<li>maven-shade-plugin：打包所有依赖包并生成可执行jar；</li>
-<li>cobertura-maven-plugin：生成单元测试覆盖率报告；</li>
-<li>findbugs-maven-plugin：对Java源码进行静态分析以找出潜在问题。</li>
-</ul>
-<h2 id="小结-3"><a href="#小结-3" class="headerlink" title="小结"></a>小结</h2><ul>
-<li>Maven通过自定义插件可以执行项目构建时需要的额外功能，使用自定义插件必须在<code>pom.xml</code>中声明插件及配置；</li>
-<li>插件会在某个<code>phase</code>被执行时执行；</li>
-<li>插件的配置和用法需参考插件的官方文档。</li>
-</ul>
-<h1 id="模块管理"><a href="#模块管理" class="headerlink" title="模块管理"></a>模块管理</h1><p>   在软件开发中，把一个大项目分拆为多个模块是降低软件复杂度的有效方法：<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">                        ┌ ─ ─ ─ ─ ─ ─ ┐</span><br><span class="line">                          ┌─────────┐</span><br><span class="line">                        │ │Module A │ │</span><br><span class="line">                          └─────────┘</span><br><span class="line">┌──────────────┐ split  │ ┌─────────┐ │</span><br><span class="line">│Single Project│───────&gt;  │Module B │</span><br><span class="line">└──────────────┘        │ └─────────┘ │</span><br><span class="line">                          ┌─────────┐</span><br><span class="line">                        │ │Module C │ │</span><br><span class="line">                          └─────────┘</span><br><span class="line">                        └ ─ ─ ─ ─ ─ ─ ┘</span><br></pre></td></tr></table></figure><br>   对于Maven工程来说，原来是一个大项目：<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">single-project</span><br><span class="line">├── pom.xml</span><br><span class="line">└── src</span><br></pre></td></tr></table></figure><br>   现在可以分拆成3个模块：<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mutiple-project</span><br><span class="line">├── module-a</span><br><span class="line">│   ├── pom.xml</span><br><span class="line">│   └── src</span><br><span class="line">├── module-b</span><br><span class="line">│   ├── pom.xml</span><br><span class="line">│   └── src</span><br><span class="line">└── module-c</span><br><span class="line">   ├── pom.xml</span><br><span class="line">   └── src</span><br></pre></td></tr></table></figure><br>   Maven可以有效地管理多个模块，我们只需要把每个模块当作一个独立的Maven项目，它们有各自独立的<code>pom.xml</code>。例如，模块A的<code>pom.xml</code>：<br>   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span></span><br><span class="line"><span class="tag">   <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">   <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.itranswarp.learnjava<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>module-a<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>module-a<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">project.reporting.outputEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.reporting.outputEncoding</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>11<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>11<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">java.version</span>&gt;</span>11<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>slf4j-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.28<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>ch.qos.logback<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>logback-classic<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.junit.jupiter<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit-jupiter-engine<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.5.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure><br>   模块B的<code>pom.xml</code>：<br>   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span></span><br><span class="line"><span class="tag">   <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">   <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.itranswarp.learnjava<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>module-b<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>module-b<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">project.reporting.outputEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.reporting.outputEncoding</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>11<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>11<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">java.version</span>&gt;</span>11<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>slf4j-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.28<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>ch.qos.logback<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>logback-classic<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.junit.jupiter<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit-jupiter-engine<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.5.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure><br>   可以看出来，模块A和模块B的<code>pom.xml</code>高度相似，因此，我们可以提取出共同部分作为<code>parent</code>：<br>   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span></span><br><span class="line"><span class="tag">   <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">   <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.itranswarp.learnjava<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>parent<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">project.reporting.outputEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.reporting.outputEncoding</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>11<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>11<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">java.version</span>&gt;</span>11<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>slf4j-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.28<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>ch.qos.logback<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>logback-classic<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.junit.jupiter<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit-jupiter-engine<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.5.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure><br>   注意到parent的<code>&lt;packaging&gt;</code>是<code>pom</code>而不是<code>jar</code>，因为parent本身不含任何Java代码。编写parent的<code>pom.xml</code>只是为了在各个模块中减少重复的配置。现在我们的整个工程结构如下：<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">multiple-project</span><br><span class="line">├── pom.xml</span><br><span class="line">├── parent</span><br><span class="line">│   └── pom.xml</span><br><span class="line">├── module-a</span><br><span class="line">│   ├── pom.xml</span><br><span class="line">│   └── src</span><br><span class="line">├── module-b</span><br><span class="line">│   ├── pom.xml</span><br><span class="line">│   └── src</span><br><span class="line">└── module-c</span><br><span class="line">   ├── pom.xml</span><br><span class="line">   └── src</span><br></pre></td></tr></table></figure><br>   这样模块A就可以简化为：<br>   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span></span><br><span class="line"><span class="tag">   <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">   <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.itranswarp.learnjava<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">relativePath</span>&gt;</span>../parent/pom.xml<span class="tag">&lt;/<span class="name">relativePath</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>module-a<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>module-a<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure><br>   模块B、模块C都可以直接从parent继承，大幅简化了<code>pom.xml</code>的编写。<br>   如果模块A依赖模块B，则模块A需要模块B的jar包才能正常编译，我们需要在模块A中引入模块B：<br>   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   ...</span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.itranswarp.learnjava<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>module-b<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure><br>   最后，在编译的时候，需要在根目录创建一个<code>pom.xml</code>统一编译：<br>   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span></span><br><span class="line"><span class="tag">   <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">   <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.itranswarp.learnjava<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>build<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>build<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">modules</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">module</span>&gt;</span>parent<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">module</span>&gt;</span>module-a<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">module</span>&gt;</span>module-b<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">module</span>&gt;</span>module-c<span class="tag">&lt;/<span class="name">module</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">modules</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure><br>   这样，在根目录执行<code>mvn clean package</code>时，Maven根据根目录的pom.xml找到包括parent在内的共4个<code>&lt;module&gt;</code>，一次性全部编译。</p>
-<h2 id="中央仓库"><a href="#中央仓库" class="headerlink" title="中央仓库"></a>中央仓库</h2><p>   其实我们使用的大多数第三方模块都是这个用法，例如，我们使用<code>commons logging</code>、<code>log4j</code>这些第三方模块，就是第三方模块的开发者自己把编译好的jar包发布到Maven的中央仓库中。</p>
-<h2 id="私有仓库"><a href="#私有仓库" class="headerlink" title="私有仓库"></a>私有仓库</h2><p>   私有仓库是指公司内部如果不希望把源码和jar包放到公网上，那么可以搭建私有仓库。私有仓库总是在公司内部使用，它只需要在本地的<code>~/.m2/settings.xml</code>中配置好，使用方式和中央仓位没有任何区别。</p>
-<h2 id="本地仓库"><a href="#本地仓库" class="headerlink" title="本地仓库"></a>本地仓库</h2><p>   本地仓库是指把本地开发的项目“发布”在本地，这样其他项目可以通过本地仓库引用它。但是我们不推荐把自己的模块安装到Maven的本地仓库，因为每次修改某个模块的源码，都需要重新安装，非常容易出现版本不一致的情况。更好的方法是使用模块化编译，在编译的时候，告诉Maven几个模块之间存在依赖关系，需要一块编译，Maven就会自动按依赖顺序编译这些模块。</p>
-<h2 id="小结-4"><a href="#小结-4" class="headerlink" title="小结"></a>小结</h2><p>   Maven支持模块化管理，可以把一个大项目拆成几个模块：</p>
-<ul>
-<li>可以通过继承在<code>parent</code>的<code>pom.xml</code>统一定义重复配置；</li>
-<li>可以通过<code>&lt;modules&gt;</code>编译多个模块。</li>
-</ul>
-<h1 id="使用mvnw"><a href="#使用mvnw" class="headerlink" title="使用mvnw"></a>使用mvnw</h1><p>   我们使用Maven时，基本上只会用到mvn这一个命令。有些童鞋可能听说过mvnw，这个是啥？<br>   mvnw是Maven Wrapper的缩写。因为我们安装Maven时，默认情况下，系统所有项目都会使用全局安装的这个Maven版本。但是，对于某些项目来说，它可能必须使用某个特定的Maven版本，这个时候，就可以使用Maven Wrapper，它可以负责给这个特定的项目安装指定版本的Maven，而其他项目不受影响。<br>   简单地说，Maven Wrapper就是给一个项目提供一个独立的，指定版本的Maven给它使用。</p>
-<h2 id="安装Maven-Wrapper"><a href="#安装Maven-Wrapper" class="headerlink" title="安装Maven Wrapper"></a>安装Maven Wrapper</h2><p>   安装Maven Wrapper最简单的方式是在项目的根目录（即pom.xml所在的目录）下运行安装命令：<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn -N io.takari:maven:0.7.6:wrapper</span><br></pre></td></tr></table></figure><br>   它会自动使用最新版本的Maven。注意0.7.6是Maven Wrapper的版本。最新的Maven Wrapper版本可以去<a target="_blank" rel="noopener" href="https://github.com/takari/maven-wrapper">官方网站</a>查看。<br>   如果要指定使用的Maven版本，使用下面的安装命令指定版本，例如3.3.3：<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn -N io.takari:maven:0.7.6:wrapper -Dmaven=3.3.3</span><br></pre></td></tr></table></figure><br>   安装后，查看项目结构：<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">my-project</span><br><span class="line">├── .mvn</span><br><span class="line">│   └── wrapper</span><br><span class="line">│       ├── MavenWrapperDownloader.java</span><br><span class="line">│       ├── maven-wrapper.jar</span><br><span class="line">│       └── maven-wrapper.properties</span><br><span class="line">├── mvnw</span><br><span class="line">├── mvnw.cmd</span><br><span class="line">├── pom.xml</span><br><span class="line">└── src</span><br><span class="line">   ├── main</span><br><span class="line">   │   ├── java</span><br><span class="line">   │   └── resources</span><br><span class="line">   └── test</span><br><span class="line">      ├── java</span><br><span class="line">      └── resources</span><br></pre></td></tr></table></figure><br>   发现多了 <code>mvnw</code>、<code>mvnw.cmd</code> 和 <code>.mvn</code> 目录，我们只需要把 mvn 命令改成 mvnw 就可以使用跟项目关联的 Maven。例如：<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvnw clean package</span><br></pre></td></tr></table></figure><br>   在Linux或macOS下运行时需要加上<code>./</code>：<br>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./mvnw clean package</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
