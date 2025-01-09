@@ -20,28 +20,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Pacmanpacman是arch linux的主要包管理工具。它包含了简单的二进制包格式和易于使用的编译体系。通过和主服务器同步pacman可以保持系统的软件包更新，其服务器&#x2F;客户对模式允许用户下载和安装软件包以及所有依赖软件包。 pacman简明使用  备注  pacman 的 -S 参数表示 --sync 同步软件包，软件包将直接从远程仓库安装到本地主机，包括所有运行着软件包的依赖">
+    <meta name="description" content="omit...">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Qeuroal&#39;s Blog">
-<meta property="og:url" content="http://qeuroal.top/2024/12/26/222/index.html">
+<meta property="og:title" content="222. Pacman 用法">
+<meta property="og:url" content="http://qeuroal.top/2025/01/09/222/index.html">
 <meta property="og:site_name" content="Qeuroal&#39;s Blog">
-<meta property="og:description" content="Pacmanpacman是arch linux的主要包管理工具。它包含了简单的二进制包格式和易于使用的编译体系。通过和主服务器同步pacman可以保持系统的软件包更新，其服务器&#x2F;客户对模式允许用户下载和安装软件包以及所有依赖软件包。 pacman简明使用  备注  pacman 的 -S 参数表示 --sync 同步软件包，软件包将直接从远程仓库安装到本地主机，包括所有运行着软件包的依赖">
+<meta property="og:description" content="omit...">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-12-26T00:37:13.791Z">
-<meta property="article:modified_time" content="2024-12-26T08:25:34.416Z">
+<meta property="article:published_time" content="2025-01-09T08:57:05.000Z">
+<meta property="article:modified_time" content="2025-01-09T09:23:40.326Z">
 <meta property="article:author" content="Qeuroal">
-<meta property="article:tag" content="C&#x2F;C++, Python, Java">
+<meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://qeuroal.top/2024/12/26/222/">
+<link rel="canonical" href="http://qeuroal.top/2025/01/09/222/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2024/12/26/222/","path":"2024/12/26/222/","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2025/01/09/222/","path":"2025/01/09/222/","title":"222. Pacman 用法"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title> | Qeuroal's Blog</title>
+<title>222. Pacman 用法 | Qeuroal's Blog</title>
   
 
 
@@ -141,7 +141,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Pacman"><span class="nav-number">1.</span> <span class="nav-text">Pacman</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pacman%E7%AE%80%E6%98%8E%E4%BD%BF%E7%94%A8"><span class="nav-number">1.1.</span> <span class="nav-text">pacman简明使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BF%80%E6%B4%BB%E4%BB%93%E5%BA%93-%E5%AE%89%E8%A3%85%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC%E5%8F%8A%E9%94%81%E5%AE%9A%E7%89%88%E6%9C%AC"><span class="nav-number">1.2.</span> <span class="nav-text">激活仓库,安装指定版本及锁定版本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BD%E5%86%85%E4%BB%93%E5%BA%93%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.1.</span> <span class="nav-text">国内仓库配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#break-dependency"><span class="nav-number">1.3.</span> <span class="nav-text">break dependency</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#signature-error"><span class="nav-number">1.4.</span> <span class="nav-text">signature error</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#conflicting-files"><span class="nav-number">1.5.</span> <span class="nav-text">conflicting files</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B6%E8%A1%8C%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.6.</span> <span class="nav-text">并行下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">1.7.</span> <span class="nav-text">参考</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Arch-Linux-AUR"><span class="nav-number">2.</span> <span class="nav-text">Arch Linux AUR</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Pacman"><span class="nav-number">1.</span> <span class="nav-text">Pacman</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-number">1.1.</span> <span class="nav-text">准备</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pacman-%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">Pacman 使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pacman%E7%AE%80%E6%98%8E%E4%BD%BF%E7%94%A8"><span class="nav-number">2.1.</span> <span class="nav-text">pacman简明使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">2.1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%87%E7%BA%A7"><span class="nav-number">2.1.2.</span> <span class="nav-text">升级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4"><span class="nav-number">2.1.3.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.1.4.</span> <span class="nav-text">查询</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BF%80%E6%B4%BB%E4%BB%93%E5%BA%93-%E5%AE%89%E8%A3%85%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC%E5%8F%8A%E9%94%81%E5%AE%9A%E7%89%88%E6%9C%AC"><span class="nav-number">2.2.</span> <span class="nav-text">激活仓库,安装指定版本及锁定版本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BD%E5%86%85%E4%BB%93%E5%BA%93%E9%85%8D%E7%BD%AE"><span class="nav-number">2.2.1.</span> <span class="nav-text">国内仓库配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#break-dependency"><span class="nav-number">2.3.</span> <span class="nav-text">break dependency</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#signature-error"><span class="nav-number">2.4.</span> <span class="nav-text">signature error</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#conflicting-files"><span class="nav-number">2.5.</span> <span class="nav-text">conflicting files</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B6%E8%A1%8C%E4%B8%8B%E8%BD%BD"><span class="nav-number">2.6.</span> <span class="nav-text">并行下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">2.7.</span> <span class="nav-text">参考</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Arch-Linux-AUR"><span class="nav-number">3.</span> <span class="nav-text">Arch Linux AUR</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -199,7 +199,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2024/12/26/222/">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2025/01/09/222/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -212,12 +212,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Qeuroal's Blog">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="222. Pacman 用法 | Qeuroal's Blog">
+      <meta itemprop="description" content="omit...">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
+          222. Pacman 用法
         </h1>
 
         <div class="post-meta-container">
@@ -229,106 +229,168 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2024-12-26 08:37:13 / 修改时间：16:25:34" itemprop="dateCreated datePublished" datetime="2024-12-26T08:37:13+08:00">2024-12-26</time>
+      <time title="创建时间：2025-01-09 16:57:05 / 修改时间：17:23:40" itemprop="dateCreated datePublished" datetime="2025-01-09T16:57:05+08:00">2025-01-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+        </span>
     </span>
 
   
 </div>
 
+            <div class="post-description">omit...</div>
         </div>
       </header>
 
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="Pacman"><a href="#Pacman" class="headerlink" title="Pacman"></a>Pacman</h1><p>pacman是arch linux的主要包管理工具。它包含了简单的二进制包格式和易于使用的编译体系。通过和主服务器同步pacman可以保持系统的软件包更新，其服务器&#x2F;客户对模式允许用户下载和安装软件包以及所有依赖软件包。</p>
+    <div class="post-body" itemprop="articleBody"><h1 id="Pacman"><a href="#Pacman" class="headerlink" title="Pacman"></a>Pacman</h1><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>在 archlinux 上安装的软件都通过 Pacman 来进行管理。</p>
+<p>为了使用 Pacman 额外的命令需要先安装 <a target="_blank" rel="noopener" href="https://archlinux.org/packages/extra/x86_64/pacman-contrib/">pacman-contrib</a> extra / aur。</p>
+<p>安装 <code>pacman-contrib</code> ：</p>
+<ul>
+<li><p>方法 1</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S pacman-contrib</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方法 2</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S pacman-contrib-git</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>可以把 Pacman 理解为一个软件管理器（软件管家？），可以进行软件的安装、删除、查询等</p>
+<h1 id="Pacman-使用"><a href="#Pacman-使用" class="headerlink" title="Pacman 使用"></a>Pacman 使用</h1><p>pacman是arch linux的主要包管理工具。它包含了简单的二进制包格式和易于使用的编译体系。通过和主服务器同步pacman可以保持系统的软件包更新，其服务器&#x2F;客户对模式允许用户下载和安装软件包以及所有依赖软件包。</p>
 <h2 id="pacman简明使用"><a href="#pacman简明使用" class="headerlink" title="pacman简明使用"></a>pacman简明使用</h2><blockquote>
 <p> 备注</p>
 <p> pacman 的 <code>-S</code> 参数表示 <code>--sync</code> 同步软件包，软件包将直接从远程仓库安装到本地主机，包括所有运行着软件包的依赖包。</p>
 </blockquote>
-<ul>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
+<li><p>在同步数据库搜索包</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Ss <span class="comment"># 在同步数据库中搜索包，包括包的名称和描述</span></span><br></pre></td></tr></table></figure>
+</li>
 <li><p>安装软件包:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S package_name1 package_name2 ...</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S package_name1 package_name2 ...</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使用正则方式安装一系列软件包:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S $(pacman -Ssq package_regex)</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S $(pacman -Ssq package_regex)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果有多个软件包位于不同仓库，例如extra仓库和testing仓库，则在软件包前加上仓库定义:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S extra/package_name</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S extra/package_name</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>支持简单的名字模式:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S plasma-&#123;desktop,mediacenter,nm&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S plasma-&#123;desktop,mediacenter,nm&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>甚至支持多级扩展:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S plasma-&#123;workspace&#123;,-wallpapers&#125;&lt;Plug&gt;PeepOpena&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S plasma-&#123;workspace&#123;,-wallpapers&#125;&lt;Plug&gt;PeepOpena&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>一些软件包支持整组安装，例如gnome:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S gnome</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S gnome</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>要检查这个组中包含的软件包:</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Sg gnome</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Sg gnome</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>忽略依赖强制安装:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Sd package_name</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Sd package_name</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Arch Linux的软件包是 <code>tar.stz</code> 格式，可以下载以后本地安装:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -U --noconfirm edk2-armvirt-202208-3-any.pkg.tar.zst</span><br></pre></td></tr></table></figure>
-</li>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -U --noconfirm edk2-armvirt-202208-3-any.pkg.tar.zst</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h3><ul>
+<li><p>升级系统</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Syu <span class="comment"># 升级系统。 -y:标记刷新、-yy：标记强制刷新、-u：标记升级动作（一般使用 -Syu 即可）</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><ul>
 <li><p>删除单一软件包，但是保留已经安装的这个软件包的依赖:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -R package_name</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -R package_name <span class="comment"># 删除软件包，保留其全部已经安装的依赖关系</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>删除软件包并且删除所有没有被其他软件包所使用的该软件包的依赖:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Rs package_name</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Rs package_name</span><br></pre></td></tr></table></figure>
+
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Rns package_name <span class="comment"># 删除软件包，及其所有没有被其他已安装软件包使用的依赖包</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>删除软件包，该软件包被其他软件包所使用，但是不删除依赖软件包:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Rdd package_name</span><br></pre></td></tr></table></figure></li>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Rdd package_name</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除孤立的安装包</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Rns $(pacman -Qtdq) <span class="comment"># 如上文所述，删除孤立软件包（常用）</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除当前未安装的所有缓存包和未使用的同步数据库</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Sc <span class="comment"># 删除当前未安装的所有缓存包和未使用的同步数据库（可选）</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从缓存中删除所有文件</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Scc <span class="comment"># 从缓存中删除所有文件，这是最激进的方法，不会在缓存文件夹中留下任何内容（一般不使用）</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除已安装和未安装包的所有缓存版本</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paccache -r <span class="comment"># 删除已安装和未安装包的所有缓存版本，但最近 3 个版本除外</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><ul>
+<li><p>检查安装包</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Qi package_name <span class="comment"># 检查已安装包的相关信息。-Q：查询本地软件包数据库</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>找出孤立包</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Qdt <span class="comment"># 找出孤立包。-d：标记依赖包、-t：标记不需要的包、-dt：合并标记孤立包</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除孤立包</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Rns $(pacman -Qtdq) <span class="comment"># 删除孤立包</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新命令查询文件列表数据库</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Fy <span class="comment"># 更新命令查询文件列表数据库</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查询命令属于哪个包</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -F some_command <span class="comment"># 当不知道某个命令属于哪个包时，用来在远程软件包中查询某个命令属于哪个包（即使没有安装）</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查询包依赖</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pactree package_name <span class="comment"># 查看一个包的依赖树</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 <p>警告</p>
 <p>上述命令会打破系统完整，所以需要避免</p>
 <ul>
 <li><p>升级整个系统所有软件包:</p>
-<p> 升级整个arch linux系统<a target="_blank" rel="noopener" href="https://cloud-atlas.readthedocs.io/zh-cn/latest/linux/arch_linux/pacman.html#id9">¶</a></p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Syu</span><br></pre></td></tr></table></figure>
+<p>  升级整个arch linux系统<a target="_blank" rel="noopener" href="https://cloud-atlas.readthedocs.io/zh-cn/latest/linux/arch_linux/pacman.html#id9">¶</a></p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Syu</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>清理缓存:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Sc</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Sc</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>查询系统中安装的某个程序属于哪个软件包提供(这里举例查询netstat命令):</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacmsn -Qo /usr/bin/netstat</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacmsn -Qo /usr/bin/netstat</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>查询系统某个软件包包含的文件:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Ql package_name</span><br></pre></td></tr></table></figure></li>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Ql package_name</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="激活仓库-安装指定版本及锁定版本"><a href="#激活仓库-安装指定版本及锁定版本" class="headerlink" title="激活仓库,安装指定版本及锁定版本"></a>激活仓库,安装指定版本及锁定版本</h2><p>默认情况下， <code>testing</code> 和 <code>community-testing</code> 仓库没有激活，这个配置位于 <code>/etc/pacman.conf</code> 。例如，在 <a target="_blank" rel="noopener" href="https://cloud-atlas.readthedocs.io/zh-cn/latest/kubernetes/arm/arm_k8s_deploy.html#arm-k8s-deploy">部署ARM架构Kubernetes</a> 在加入Arch Linux节点时，为了能够安装 <code>community-testing</code> 仓库最新版本的Kubernetes 1.22.0 ，配置如下:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[community-testing]</span><br><span class="line">Include = /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><p>然后执行仓库数据库同步:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Sy</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Sy</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装指定版本:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S kubelet=1.22.0-1 kubeadm=1.22.0-1 kubectl=1.22.0-1</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S kubelet=1.22.0-1 kubeadm=1.22.0-1 kubectl=1.22.0-1</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>由于Kubernetes软件升级涉及到管控和工作节点升级，需要精心的手工操作，所以必须锁定软件版本不能滚动升级。锁定软件版本也是编辑 <code>/etc/pacman.conf</code> 将需要忽略升级到软件包配置如下:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IgnorePkg   = kubelet kubeadm kubectl</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IgnorePkg   = kubelet kubeadm kubectl</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>再次修订 <code>/etc/pacman.conf</code> 将 <code>community-testing</code> 仓库注释掉，避免其他软件版本升级到测试版本。</p>
 </li>
 </ul>
 <h3 id="国内仓库配置"><a href="#国内仓库配置" class="headerlink" title="国内仓库配置"></a>国内仓库配置</h3><ul>
 <li><p>在 <code>/etc/pacman.conf</code> 最后添加两行:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://mirrirs.tuna.tsinghua.edu.cn/archlinuxcn/$arch</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://mirrirs.tuna.tsinghua.edu.cn/archlinuxcn/$arch</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使用 <code>paman -Sy</code> 同步源</p>
 </li>
 <li><p>然后导入GPG key:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure></li>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="break-dependency"><a href="#break-dependency" class="headerlink" title="break dependency"></a>break dependency</h2><p>执行 <code>pacman -Syu</code> 时候遇到报错:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">looking for conflicting packages...</span><br><span class="line">error: failed to prepare transaction (could not satisfy dependencies)</span><br><span class="line">:: installing xorgproto (2019.2-2) breaks dependency &#x27;xf86miscproto&#x27; required by libxxf86misc</span><br></pre></td></tr></table></figure>
 
 <p>参考 <a target="_blank" rel="noopener" href="https://bbs.archlinux.org/viewtopic.php?id=251517">xorgproto issues..</a> 处理:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Rdd libxxf86misc &amp;&amp; pacman -Syu</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Rdd libxxf86misc &amp;&amp; pacman -Syu</span><br></pre></td></tr></table></figure>
 
 <h2 id="signature-error"><a href="#signature-error" class="headerlink" title="signature error"></a>signature error</h2><p>执行 <code>pacman -Syu</code> 出现报错:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">error: pacman: signature from &quot;Levente Polyak (anthraxx) &lt;levente@leventepolyak.net&gt;&quot; is unknown trust</span><br><span class="line">:: File /var/cache/pacman/pkg/pacman-5.2.1-4-x86_64.pkg.tar.zst is corrupted (invalid or corrupted package (PGP signature)).</span><br></pre></td></tr></table></figure>
@@ -340,13 +402,13 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">error: failed to commit transaction (conflicting files)</span><br><span class="line">nss: /usr/lib/p11-kit-trust.so exists in filesystem</span><br><span class="line">Errors occurred, no packages were upgraded.</span><br></pre></td></tr></table></figure>
 
 <p>这个问题参考 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Pacman">archlinux - pacman</a> 中 <code>&quot;Failed to commit transaction (conflicting files)&quot; error</code> 解决方法:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Qo /usr/lib/p11-kit-trust.so</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Qo /usr/lib/p11-kit-trust.so</span><br></pre></td></tr></table></figure>
 
 <p>检查看看是否有软件包包含这个文件:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error: No package owns /usr/lib/p11-kit-trust.so</span><br></pre></td></tr></table></figure>
 
 <p>然后将这个文件重命名:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv /usr/lib/p11-kit-trust.so /usr/lib/p11-kit-trust.so.bak</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mv</span> /usr/lib/p11-kit-trust.so /usr/lib/p11-kit-trust.so.bak</span><br></pre></td></tr></table></figure>
 
 <h2 id="并行下载"><a href="#并行下载" class="headerlink" title="并行下载"></a>并行下载</h2><p>从 pacman 6.0 开始支持平行下载功能，但是默认没有启用，修改配置 <code>/etc/pacman.conf</code> 如下(实际只要取消注释#就可以，默认并发下载数量是5):</p>
 <p>修订 <code>/etc/pacman.conf</code> 设置并行下载<a target="_blank" rel="noopener" href="https://cloud-atlas.readthedocs.io/zh-cn/latest/linux/arch_linux/pacman.html#id10">¶</a></p>
@@ -359,7 +421,13 @@
 <li><a target="_blank" rel="noopener" href="https://superuser.com/questions/1265425/how-do-i-list-files-installed-by-a-package-from-the-aur">How do I list files installed by a package from the AUR?</a></li>
 <li><a target="_blank" rel="noopener" href="https://ostechnix.com/enable-parallel-downloading-in-pacman-in-arch-linux/">Enable Parallel Downloading In Pacman In Arch Linux</a></li>
 </ul>
-<h1 id="Arch-Linux-AUR"><a href="#Arch-Linux-AUR" class="headerlink" title="Arch Linux AUR"></a>Arch Linux AUR</h1><ul>
+<h1 id="Arch-Linux-AUR"><a href="#Arch-Linux-AUR" class="headerlink" title="Arch Linux AUR"></a>Arch Linux AUR</h1><p>yay 的用法和 Pacman 是基本一样的。有额外几条常用命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo yay <span class="comment"># 等同于 yay -Syu</span></span><br><span class="line">sudo yay package_name <span class="comment"># 等同于 yay -Ss package_name &amp;&amp; yay -S package_name</span></span><br><span class="line">sudo yay -Ps <span class="comment"># 打印系统统计信息</span></span><br><span class="line">sudo yay -Yc <span class="comment"># 清理不需要的依赖</span></span><br></pre></td></tr></table></figure>
+
+<p>清理 yay 缓存<br>如果使用了 yay 来安装 AUR 中的软件包的话，可以选择清理 yay 的缓存目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf ~/.cache/yay</span><br></pre></td></tr></table></figure>
+
+<ul>
 <li><a target="_blank" rel="noopener" href="https://cloud-atlas.readthedocs.io/zh-cn/latest/linux/arch_linux/archlinux_aur.html">https://cloud-atlas.readthedocs.io/zh-cn/latest/linux/arch_linux/archlinux_aur.html</a></li>
 </ul>
 
@@ -379,7 +447,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://qeuroal.top/2024/12/26/222/" title="">http://qeuroal.top/2024/12/26/222/</a>
+      <a href="http://qeuroal.top/2025/01/09/222/" title="222. Pacman 用法">http://qeuroal.top/2025/01/09/222/</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -387,6 +455,9 @@
 </ul>
 </div>
 
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+          </div>
 
         
 
@@ -416,7 +487,7 @@
 
   <div class="copyright">
     &copy; 
-    <span itemprop="copyrightYear">2024</span>
+    <span itemprop="copyrightYear">2025</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>

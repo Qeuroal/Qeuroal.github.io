@@ -28,7 +28,7 @@
 <meta property="og:description" content="依赖项总结，包括：必选项和可选项">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-12-25T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-12-26T08:25:08.982Z">
+<meta property="article:modified_time" content="2024-12-26T08:53:11.063Z">
 <meta property="article:author" content="Qeuroal">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -141,7 +141,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E4%BE%9D%E8%B5%96"><span class="nav-number">1.</span> <span class="nav-text">软件依赖</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E4%BE%9D%E8%B5%96"><span class="nav-number">1.</span> <span class="nav-text">软件依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DWM-%E5%BF%85%E9%80%89%E9%A1%B9"><span class="nav-number">1.1.</span> <span class="nav-text">DWM 必选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E9%80%89%E9%A1%B9"><span class="nav-number">1.2.</span> <span class="nav-text">可选项</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -229,7 +229,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2024-12-26 00:00:00 / 修改时间：16:25:08" itemprop="dateCreated datePublished" datetime="2024-12-26T00:00:00+08:00">2024-12-26</time>
+      <time title="创建时间：2024-12-26 00:00:00 / 修改时间：16:53:11" itemprop="dateCreated datePublished" datetime="2024-12-26T00:00:00+08:00">2024-12-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -251,7 +251,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="软件依赖"><a href="#软件依赖" class="headerlink" title="软件依赖"></a>软件依赖</h1><ul>
+    <div class="post-body" itemprop="articleBody"><h1 id="软件依赖"><a href="#软件依赖" class="headerlink" title="软件依赖"></a>软件依赖</h1><h2 id="DWM-必选项"><a href="#DWM-必选项" class="headerlink" title="DWM 必选项"></a>DWM 必选项</h2><ul>
 <li><p>找不到 <code>libasound.so.2</code></p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S alsa-lib</span><br></pre></td></tr></table></figure>
 </li>
@@ -267,12 +267,24 @@
 <li><p>找不到 <code>xset</code></p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S xorg-xset</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>dmenu</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S dmenu</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="可选项"><a href="#可选项" class="headerlink" title="可选项"></a>可选项</h2><ul>
 <li><p>rime</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S fcitx5-rime</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>锁屏</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S slock </span><br></pre></td></tr></table></figure>
+<p> [opt]</p>
 <p> 虽然我有很多事情要做，但我似乎想不出一种万无一失的方法把屏幕锁在笔记本电脑上。目前，我有一个部分工作的解决方案，使用一个名为xautolock的程序。它能够在指定的超时后锁定屏幕。但醒来后却没能锁定屏幕。这对我来说很重要。</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xautolock -time 10 -locker slock</span><br></pre></td></tr></table></figure></li>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xautolock -time 10 -locker slock</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>PDF 阅读</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S okular</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>chrome</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S chromium</span><br></pre></td></tr></table></figure></li>
 </ul>
 
     </div>
@@ -312,8 +324,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/12/26/222/" rel="next" title="">
-                   <i class="fa fa-angle-right"></i>
+                <a href="/2025/01/09/222/" rel="next" title="222. Pacman 用法">
+                  222. Pacman 用法 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -334,7 +346,7 @@
 
   <div class="copyright">
     &copy; 
-    <span itemprop="copyrightYear">2024</span>
+    <span itemprop="copyrightYear">2025</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
