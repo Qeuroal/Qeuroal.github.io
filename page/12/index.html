@@ -153,18 +153,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">168</span>
+          <span class="site-state-item-count">171</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-count">48</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -186,6 +186,416 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/04/14/101/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/04/14/101/" class="post-title-link" itemprop="url">101. Win10 Git配置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-04-14 04:00:00" itemprop="dateCreated datePublished" datetime="2020-04-14T04:00:00+08:00">2020-04-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-03-20 18:56:25" itemprop="dateModified" datetime="2024-03-20T18:56:25+08:00">2024-03-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/software/" itemprop="url" rel="index"><span itemprop="name">software</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ol>
+<li><p>更改Git的样式</p>
+<ol>
+<li>更改主题透明度和光标<img data-src="/2020/04/14/101/16.png" class=""></li>
+<li>更改字体<img data-src="/2020/04/14/101/17.png" class=""></li>
+<li>更改中文<img data-src="/2020/04/14/101/18.png" class=""></li>
+</ol>
+</li>
+<li><p>美化</p>
+<ol>
+<li><p>基本配置</p>
+<blockquote>
+<p>在用户根目录下新建一个名为 .minttyrc 的文件，写入以下内容，然后重启 git bash，就能看到美化后的样子了。</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> ~</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">touch</span> .minttyrc</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">vi .minttyrc</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>复制以下代码到 <code>.minttyrc</code>： </p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">FontHeight=11</span><br><span class="line">Font=Consolas</span><br><span class="line">Transparency=low</span><br><span class="line">FontSmoothing=full</span><br><span class="line">Locale=zh_CN</span><br><span class="line">Charset=GBK</span><br><span class="line">Columns=88</span><br><span class="line">Rows=26</span><br><span class="line">OpaqueWhenFocused=no</span><br><span class="line">Scrollbar=none</span><br><span class="line">Language=zh_CN</span><br><span class="line"></span><br><span class="line">ForegroundColour=131,148,150</span><br><span class="line">BackgroundColour=0,43,54</span><br><span class="line">CursorColour=220,130,71</span><br><span class="line"></span><br><span class="line">BoldBlack=128,128,128</span><br><span class="line">Red=255,64,40</span><br><span class="line">BoldRed=255,128,64</span><br><span class="line">Green=64,200,64</span><br><span class="line">BoldGreen=64,255,64</span><br><span class="line">Yellow=190,190,0</span><br><span class="line">BoldYellow=255,255,64</span><br><span class="line">Blue=0,128,255</span><br><span class="line">BoldBlue=128,160,255</span><br><span class="line">Magenta=211,54,130</span><br><span class="line">BoldMagenta=255,128,255</span><br><span class="line">Cyan=64,190,190</span><br><span class="line">BoldCyan=128,255,255</span><br><span class="line">White=200,200,200</span><br><span class="line">BoldWhite=255,255,255</span><br><span class="line">CursorType=block</span><br><span class="line">CursorBlinks=no</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新 <code>git-prompt.d</code></p>
+<blockquote>
+<p>仅仅是换了一个主题还不够，还需要更改终端提示符，更改 git 安装目录下 etc 目录里面的一个文件即可，这个文件也可以通过绝对路径访问到。</p>
+</blockquote>
+<blockquote>
+<p>进入</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /etc/profile.d/git-prompt.sh</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>复制代码到 <code>git-prompt.sh</code></p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="built_in">test</span> -f /etc/profile.d/git-sdk.sh</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">	TITLEPREFIX=SDK-<span class="variable">$&#123;MSYSTEM#MINGW&#125;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	TITLEPREFIX=<span class="variable">$MSYSTEM</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">test</span> -f ~/.config/git/git-prompt.sh</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">	. ~/.config/git/git-prompt.sh</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	PS1=<span class="string">&#x27;\[\033]0;Bash In $PWD\007\]&#x27;</span> <span class="comment"># 窗口标题</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\n&#x27;</span>                                <span class="comment"># 换行</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\[\033[32m\]&#x27;</span>               <span class="comment"># 绿色</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\u &#x27;</span>            	                <span class="comment"># 用户名</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\[\033[0m\]&#x27;</span>                <span class="comment"># 灰色</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;at &#x27;</span>			       <span class="comment"># 自定义内容</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\[\033[35m\]&#x27;</span>             <span class="comment"># 粉红色</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\t &#x27;</span>			       <span class="comment"># 时间</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\[\033[33m\]&#x27;</span>             <span class="comment"># 黄色</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\W &#x27;</span>                            <span class="comment"># 当前目录</span></span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">test</span> -z <span class="string">&quot;<span class="variable">$WINELOADERNOEXEC</span>&quot;</span></span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">		GIT_EXEC_PATH=<span class="string">&quot;<span class="subst">$(git --exec-path 2&gt;/dev/null)</span>&quot;</span></span><br><span class="line">		COMPLETION_PATH=<span class="string">&quot;<span class="variable">$&#123;GIT_EXEC_PATH%/libexec/git-core&#125;</span>&quot;</span></span><br><span class="line">		COMPLETION_PATH=<span class="string">&quot;<span class="variable">$&#123;COMPLETION_PATH%/lib/git-core&#125;</span>&quot;</span></span><br><span class="line">		COMPLETION_PATH=<span class="string">&quot;<span class="variable">$COMPLETION_PATH</span>/share/git/completion&quot;</span></span><br><span class="line">		<span class="keyword">if</span> <span class="built_in">test</span> -f <span class="string">&quot;<span class="variable">$COMPLETION_PATH</span>/git-prompt.sh&quot;</span></span><br><span class="line">		<span class="keyword">then</span></span><br><span class="line">			. <span class="string">&quot;<span class="variable">$COMPLETION_PATH</span>/git-completion.bash&quot;</span></span><br><span class="line">			. <span class="string">&quot;<span class="variable">$COMPLETION_PATH</span>/git-prompt.sh&quot;</span></span><br><span class="line">			PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\[\033[36m\]&#x27;</span>  <span class="comment"># change color to cyan</span></span><br><span class="line">			PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;`__git_ps1`&#x27;</span>   <span class="comment"># bash function</span></span><br><span class="line">		<span class="keyword">fi</span></span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\[\033[0m\]&#x27;</span>        <span class="comment"># 灰色</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;$ &#x27;</span>                       <span class="comment"># 命令提示符</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">MSYS2_PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span>               <span class="comment"># for detection by MSYS2 SDK&#x27;s bash.basrc</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/04/01/100/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/04/01/100/" class="post-title-link" itemprop="url">100. Clion中使用头文件和源文件坑</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-04-01 04:00:00" itemprop="dateCreated datePublished" datetime="2020-04-01T04:00:00+08:00">2020-04-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-29 08:58:32" itemprop="dateModified" datetime="2023-11-29T08:58:32+08:00">2023-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/c-c/" itemprop="url" rel="index"><span itemprop="name">c/c++</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Clion-中使用头文件定义类，源文件实现"><a href="#Clion-中使用头文件定义类，源文件实现" class="headerlink" title="Clion 中使用头文件定义类，源文件实现"></a><code>Clion</code> 中使用头文件定义类，源文件实现</h1><h2 id="include什么"><a href="#include什么" class="headerlink" title="include什么"></a>include什么</h2><blockquote>
+<p>导入头文件(<code>.h</code>)和源文件(<code>.cpp</code>)<br>Note: 只导入 源文件（<code>.cpp</code>） 也可以</p>
+</blockquote>
+<h2 id="CMakeLists-txt"><a href="#CMakeLists-txt" class="headerlink" title="CMakeLists.txt"></a>CMakeLists.txt</h2><ul>
+<li>手动添加</li>
+</ul>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.15)</span><br><span class="line">project(HCpp)</span><br><span class="line"></span><br><span class="line">set(CMAKE_CXX_STANDARD 11)</span><br><span class="line"></span><br><span class="line">add_executable(HCpp main.cpp)</span><br><span class="line">add_executable(ElemType ElemType.cpp ElemType.h)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>自动添加</li>
+</ul>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 遍历项目根目录下所有的 .cpp 文件</span><br><span class="line">file (GLOB files *.cpp)</span><br><span class="line">foreach (file $&#123;files&#125;)</span><br><span class="line">    string(REGEX REPLACE &quot;.+/(.+)\\..*&quot; &quot;\\1&quot; exe $&#123;file&#125;)</span><br><span class="line">    add_executable ($&#123;exe&#125; $&#123;file&#125;)</span><br><span class="line">    message (\ \ \ \ --\ src/$&#123;exe&#125;.cpp\ will\ be\ compiled\ to\ bin/$&#123;exe&#125;)</span><br><span class="line">endforeach ()</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h2 id="ElemType-h"><a href="#ElemType-h" class="headerlink" title="ElemType.h"></a><code>ElemType.h</code></h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> HCPP_ELEMTYPE_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> HCPP_ELEMTYPE_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ElemType</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> data;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">ElemType</span>();</span><br><span class="line">    <span class="built_in">ElemType</span>(<span class="type">int</span>);</span><br><span class="line">    <span class="keyword">friend</span> std::ostream &amp;<span class="keyword">operator</span> &lt;&lt;(std::ostream &amp;, <span class="type">const</span> ElemType &amp;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span> <span class="comment">//HCPP_ELEMTYPE_H</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="ElemType-cpp"><a href="#ElemType-cpp" class="headerlink" title="ElemType.cpp"></a><code>ElemType.cpp</code></h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;ElemType.h&quot;</span></span></span><br><span class="line"></span><br><span class="line">ElemType::<span class="built_in">ElemType</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;data = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ElemType::<span class="built_in">ElemType</span>(<span class="type">int</span> data) &#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;data = data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">std::ostream&amp; <span class="keyword">operator</span> &lt;&lt;(std::ostream &amp;out, <span class="type">const</span> ElemType &amp;e)</span><br><span class="line">&#123;</span><br><span class="line">    out &lt;&lt; e.data;</span><br><span class="line">    <span class="keyword">return</span> out;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="main-cpp"><a href="#main-cpp" class="headerlink" title="main.cpp"></a><code>main.cpp</code></h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;ElemType.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;ElemType.cpp&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span>  <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ElemType e = <span class="built_in">ElemType</span>(<span class="number">10</span>);</span><br><span class="line">    cout &lt;&lt; e &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>运算符重载：详见 <a href="/2020/03/99">运算符重载</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/03/29/99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/03/29/99/" class="post-title-link" itemprop="url">99. C++运算符重载</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-29 05:00:00" itemprop="dateCreated datePublished" datetime="2020-03-29T05:00:00+08:00">2020-03-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-29 08:58:34" itemprop="dateModified" datetime="2023-11-29T08:58:34+08:00">2023-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/c-c/" itemprop="url" rel="index"><span itemprop="name">c/c++</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="重载运算符规则"><a href="#重载运算符规则" class="headerlink" title="重载运算符规则"></a>重载运算符规则</h1><ol>
+<li><p>重载意义</p>
+<blockquote>
+<p>函数重载（Function Overloading）可以让一个函数名有多种功能，在不同情况下进行不同的操作；<br/><br>运算符重载（Operator Overloading）也是一个道理，同一个运算符可以有不同的功能；</p>
+</blockquote>
+<blockquote>
+<p>C++中预定义的运算符的操作对象只能是基本数据类型。但实际上，对于许多用户自定义类型（例如类），也需要类似的运算操作。这时就必须在C++中重新定义这些运算符，赋予已有运算符新的功能，使它能够用于特定类型执行特定的操作。运算符重载的实质是函数重载，它提供了C++的可扩展性，也是C++最吸引人的特性之一。</p>
+</blockquote>
+<blockquote>
+<p>比如,我们定义两个string类对象a,b后我们之所以可以使用+运算，是因为string类重载了+运算符。</p>
+</blockquote>
+</li>
+<li><p>语法</p>
+ <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;返回类型说明符&gt; <span class="keyword">operator</span> &lt;运算符符号&gt;(&lt;参数表&gt;)</span><br><span class="line">&#123;</span><br><span class="line">&lt;函数体&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>哪些运算符可以被重载，哪些运算符不能被重载</p>
+<ul>
+<li><p>可以被重载的运算符：</p>
+<blockquote>
+<p>算术运算符：<code>+ , - , * , / , % , ++ , --</code> <br/><br>位操作运算符：<code>&amp; , | , ~ , ^ , &lt;&lt; , &gt;&gt;</code> <br/><br>逻辑运算符：<code>! , &amp;&amp; , ||</code> <br/><br>比较运算符：<code>&lt; , &gt; , &gt;= , &lt;= , == , != </code> <br/><br>赋值运算符：<code>= , += , -= , *= , /= , %= , &amp;= , |= , ^= , &lt;&lt;= , &gt;&gt;= </code> <br/><br>其他运算符：<code>[] , () , -&gt; , ,(逗号运算符) , new , delete , new[] , delete[] , -&gt;*</code> <br/></p>
+</blockquote>
+</li>
+<li><p>不允许的运算符重载：</p>
+<blockquote>
+<p><code>. , .* , :: , ?: ，siezof</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="重载运算符函数在类内部"><a href="#重载运算符函数在类内部" class="headerlink" title="重载运算符函数在类内部"></a>重载运算符函数在类内部</h1><ol>
+<li><p>Notes:</p>
+<ol>
+<li><p><code>运算符重载函数是类的成员函数时</code>&gt;</p>
+<ol>
+<li>注意<blockquote>
+<p>要是内部的，必须得是<code>&lt;=1</code>个参数，不需要加 <code>friend</code>（友元函数）</p>
+</blockquote>
+</li>
+<li>语法(在类内声明，在类外实现时的代码)<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;返回类型说明符&gt; &lt;类名&gt;::<span class="keyword">operator</span> &lt;运算符符号&gt;(&lt;参数表&gt;)</span><br><span class="line">&#123;</span><br><span class="line">   &lt;函数体&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p><code>运算符重载函数不是类的成员函数时</code>（或者说<code>当运算符函数是非成员函数时</code>）</p>
+<ol>
+<li>函数在类中声明的时候需要在前面加上 <code>friend</code>（友元函数），不管参数是不是类的对象</li>
+<li>函数的参数与该运算符作用的运算对象数量一样多</li>
+</ol>
+</li>
+<li><p>为什么用 <code>const</code> 和 <code>&amp;</code>:</p>
+<ol>
+<li><p><code>const</code>：</p>
+<ol>
+<li>我们不希望在这个函数中对用来进行赋值的“原版”做任何修改。函数加上const后缀的作用是表明函数本身不会修改类成员变量。</li>
+<li>加上const，对于const的和非const的实参，函数就能接受；如果不加，就只能接受非const的实参。</li>
+</ol>
+</li>
+<li><p><code>&amp;</code>（引用）：</p>
+<blockquote>
+<p>这样可以避免在函数调用时对实参的一次拷贝，提高了效率。</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>代码</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Dgimo</span></span><br><span class="line"><span class="comment"> * Date: 2020/3/30</span></span><br><span class="line"><span class="comment"> * <span class="doctag">TODO:</span> 类运算符重载</span></span><br><span class="line"><span class="comment"> * Describe: </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   <span class="keyword">typedef</span> <span class="keyword">struct</span> &#123;</span><br><span class="line">       <span class="type">int</span> first;</span><br><span class="line">       <span class="type">int</span> second;</span><br><span class="line">   &#125; TestStuct;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   <span class="comment">/*</span></span><br><span class="line"><span class="comment">    * 类运算符重载</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">class</span> <span class="title class_">TestClass</span> &#123;</span><br><span class="line">   <span class="keyword">private</span>:</span><br><span class="line">       <span class="type">int</span> first;</span><br><span class="line">       <span class="type">int</span> second;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">public</span>:</span><br><span class="line">       <span class="built_in">TestClass</span>(<span class="type">int</span>, <span class="type">int</span>);</span><br><span class="line">       <span class="built_in">TestClass</span>();</span><br><span class="line"></span><br><span class="line">       <span class="function"><span class="type">void</span> <span class="title">show</span><span class="params">(string)</span></span>;</span><br><span class="line"></span><br><span class="line">       TestClass <span class="keyword">operator</span>+(<span class="type">const</span> TestClass &amp;);</span><br><span class="line">       TestClass <span class="keyword">operator</span>+(<span class="type">const</span> TestStuct &amp;);</span><br><span class="line">       <span class="keyword">friend</span> TestClass <span class="keyword">operator</span>+(<span class="type">const</span> TestClass &amp;, <span class="type">const</span> TestClass &amp;); <span class="comment">// 如果不是内部的，得加friend 声明不是内部的，如果不是两个会怎样？见下面！！！</span></span><br><span class="line">       <span class="keyword">friend</span> TestClass <span class="keyword">operator</span>+(<span class="type">const</span> TestStuct &amp;, <span class="type">const</span> TestStuct &amp;); <span class="comment">// 只要在类内部定义的运算符重载，就需要加上friend</span></span><br><span class="line"></span><br><span class="line">    TestStuct ts1, ts2;</span><br><span class="line">    ts1.first = <span class="number">1</span>, ts1.second = <span class="number">2</span>;</span><br><span class="line">    ts2.first = <span class="number">10</span>, ts2.second = <span class="number">20</span>;</span><br><span class="line">    </span><br><span class="line">    tc1.<span class="built_in">show</span>(<span class="string">&quot;tc1&quot;</span>);</span><br><span class="line">    tc2.<span class="built_in">show</span>(<span class="string">&quot;tc2&quot;</span>);</span><br><span class="line"> </span><br><span class="line">    add_tc = tc1 + tc2; <span class="comment">// TestClass + TestClass </span></span><br><span class="line">    add_tc.<span class="built_in">show</span>(<span class="string">&quot;add_tc&quot;</span>);</span><br><span class="line"> </span><br><span class="line">    add_tc1 = add_tc + ts1; <span class="comment">// TestClass + TestStruct</span></span><br><span class="line">    add_tc1.<span class="built_in">show</span>(<span class="string">&quot;add_tc1&quot;</span>);</span><br><span class="line"> </span><br><span class="line">    add_ts = ts1 + ts2; <span class="comment">// TestStrcut + TestStrcut</span></span><br><span class="line">    add_ts.<span class="built_in">show</span>(<span class="string">&quot;add_ts&quot;</span>);</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="重载运算符在函数外部"><a href="#重载运算符在函数外部" class="headerlink" title="重载运算符在函数外部"></a>重载运算符在函数外部</h1><ol>
+<li><p>暂时未发现 <code>Bug</code></p>
+</li>
+<li><p>代码</p>
+ <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Author: Dgimo</span></span><br><span class="line"><span class="comment">* Date: 2020/3/31</span></span><br><span class="line"><span class="comment">* <span class="doctag">TODO:</span> 结构体运算符重载</span></span><br><span class="line"><span class="comment">* Describe: </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 结构体运算符重载</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="type">int</span> first;</span><br><span class="line">    <span class="type">int</span> second;</span><br><span class="line">&#125; TestStuct;</span><br><span class="line"></span><br><span class="line">TestStuct <span class="keyword">operator</span>+(TestStuct ts1, TestStuct ts2)</span><br><span class="line">&#123;</span><br><span class="line">    TestStuct res;</span><br><span class="line">    res.first = ts1.first + ts2.first;</span><br><span class="line">    res.second = ts1.second + ts2.second;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">show</span><span class="params">(TestStuct ts)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;first: &quot;</span> &lt;&lt; ts.first &lt;&lt; <span class="string">&quot;, second: &quot;</span> &lt;&lt; ts.second &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    TestStuct ts1;</span><br><span class="line">    ts1.first = <span class="number">1</span>;</span><br><span class="line">    ts1.second = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    TestStuct ts2;</span><br><span class="line">    ts2.first = <span class="number">2</span>;</span><br><span class="line">    ts2.second = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">    TestStuct <span class="type">res_t</span> = ts1 + ts2;</span><br><span class="line">    <span class="built_in">show</span>(<span class="type">res_t</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="只能定义友元函数"><a href="#只能定义友元函数" class="headerlink" title="&lt;&lt; 和 &gt;&gt; 只能定义友元函数"></a><code>&lt;&lt;</code> 和 <code>&gt;&gt;</code> 只能定义友元函数</h1><ol>
+<li><p>原因</p>
+<blockquote>
+<p>定义为成员函数，那么就隐含this指针了对吧，你要知道重载其实也是一种函数，那么函数就有调用他的对象，如果是成员函数，那么调用他的对象就肯定是想对应的类对象了对吧，但是&lt;&lt;和&gt;&gt;调用的对象肯定只能是cout或者cin对吧，那么久不能定义为成员函数了，只有定义成友元，那么就可以把cin,cout作为一个参数传进你重载的操作符函数里面去了</p>
+</blockquote>
+</li>
+<li><p>语法：</p>
+<ol>
+<li><p>在类中：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">friend</span> ostream &amp;<span class="keyword">operator</span> &lt;&lt;(ostream &amp;out, <span class="type">const</span> ElemType &amp;e);</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 在外面： </span><br><span class="line">   </span><br><span class="line">   ```cpp</span><br><span class="line">   ostream &amp;oprator &lt;&lt;(ostream &amp;out, <span class="type">const</span> ElemType &amp;e);</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>代码</p>
+<ol>
+<li><p>头文件(<code>.h</code>)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> ELEMTYPE_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ELEMTYPE_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ElemType</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="type">int</span> data;</span><br><span class="line">        <span class="built_in">ElemType</span>();</span><br><span class="line">        <span class="built_in">ElemType</span>(<span class="type">int</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">friend</span> ostream &amp;<span class="keyword">operator</span> &lt;&lt;(ostream &amp;out, <span class="type">const</span> ElemType &amp;e); <span class="comment">// Success</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span> <span class="comment">// ELEMTYPE_H</span></span></span><br></pre></td></tr></table></figure></li>
+<li><p>源文件(<code>.cpp</code>)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;ElemType.h&quot;</span></span></span><br><span class="line"></span><br><span class="line">ElemType::<span class="built_in">ElemType</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//ctor</span></span><br><span class="line">    <span class="keyword">this</span>-&gt;data = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ElemType::<span class="built_in">ElemType</span>(<span class="type">int</span> data)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;data = data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ostream&amp; <span class="keyword">operator</span> &lt;&lt;(ostream &amp;out, <span class="type">const</span> ElemType &amp;e)</span><br><span class="line">&#123;</span><br><span class="line">    out &lt;&lt; e.data;</span><br><span class="line">    <span class="keyword">return</span> out;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1594,303 +2004,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/01/07/84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/01/07/84/" class="post-title-link" itemprop="url">84. Ubuntu美化说明</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-01-07 05:00:00" itemprop="dateCreated datePublished" datetime="2020-01-07T05:00:00+08:00">2020-01-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-29 08:58:34" itemprop="dateModified" datetime="2023-11-29T08:58:34+08:00">2023-11-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/os/" itemprop="url" rel="index"><span itemprop="name">os</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ol>
-<li><p>Cupertino:图标 —— icons</p>
-</li>
-<li><p>dash-to-dock-gnome:dash to dock</p>
-</li>
-<li><p>grub2-themes-master:grub启动界面 —— sudo .&#x2F;install.sh -v</p>
-</li>
-<li><p>High_Ubunterra_CC : Ubuntu 锁屏启动界面（模糊的那个）</p>
-</li>
-<li><p>Mojave-light: 主题 —— themes</p>
-</li>
-<li><p>suadesplas: 启动动画</p>
-</li>
-<li><p>美化网址有去除启动时紫框的说明是：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/feipeng8848/p/8970556.html">https://www.cnblogs.com/feipeng8848/p/8970556.html</a></p>
-<blockquote>
-<p>即：找到&#x2F;boot&#x2F;grub&#x2F;grub.cfg文件，找到这样一行： if background_color 44,0,30,0;修改成 if background_color 0,0,0,0;就会去除grub在选中Ubuntu系统之后出现的短暂的紫色。</p>
-</blockquote>
-</li>
-<li><p>美化网址：</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/feipeng8848/p/8970556.html">https://www.cnblogs.com/feipeng8848/p/8970556.html</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40389121/article/details/81703577">https://blog.csdn.net/weixin_40389121/article/details/81703577</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lishanlei/p/9090404.html">https://www.cnblogs.com/lishanlei/p/9090404.html</a></li>
-</ol>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/01/07/83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/01/07/83/" class="post-title-link" itemprop="url">83. Ubuntu 相关</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-01-07 04:00:00" itemprop="dateCreated datePublished" datetime="2020-01-07T04:00:00+08:00">2020-01-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-29 08:58:34" itemprop="dateModified" datetime="2023-11-29T08:58:34+08:00">2023-11-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/os/" itemprop="url" rel="index"><span itemprop="name">os</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="清理"><a href="#清理" class="headerlink" title="清理"></a>清理</h1><ul>
-<li><code>sudo apt-get purge -y --auto-remove</code></li>
-</ul>
-<h1 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h1><ol>
-<li>grub启动界面：直接使用 <code>sudo ./install.sh -v</code>，而不是<code>sudo ./install.sh -v -2</code></li>
-<li>安装微软字体库时，使用Tab健选择确定</li>
-<li>搜狗输入法 如果调到第一门语言就会乱码(可能有的电脑没问题)</li>
-<li>安装好<code>anaconda</code>后是没有图标的</li>
-<li>安装<code>anaocnda</code>直接 <code>bash anaconda.sh</code></li>
-<li>安装<code>anaconda</code>之前应该先安装 <code>Vscode</code></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2019/12/29/82/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/12/29/82/" class="post-title-link" itemprop="url">82. matplotlib 动态绘图</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-12-29 04:00:00" itemprop="dateCreated datePublished" datetime="2019-12-29T04:00:00+08:00">2019-12-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-29 08:58:34" itemprop="dateModified" datetime="2023-11-29T08:58:34+08:00">2023-11-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="代码如下："><a href="#代码如下：" class="headerlink" title="代码如下："></a>代码如下：</h1>   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> matplotlib.font_manager <span class="keyword">as</span> fm</span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> Axes3D</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解决中文乱码问题</span></span><br><span class="line"><span class="comment"># myfont = fm.FontProperties(fname=&#x27;/home/zk/study/python_lessions/DataVisualiztion/Library/Fonts/simsun.ttc&#x27;, size=14</span></span><br><span class="line">myfont = <span class="string">&#x27;kaiti&#x27;</span></span><br><span class="line">matplotlib.rcParams[<span class="string">&quot;axes.unicode_minus&quot;</span>] = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">simple_plot</span>():</span><br><span class="line">   <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">   simple plot</span></span><br><span class="line"><span class="string">   :return:</span></span><br><span class="line"><span class="string">   &quot;&quot;&quot;</span></span><br><span class="line">   <span class="comment">#生成画布</span></span><br><span class="line">   plt.figure(figsize=(<span class="number">8</span>,<span class="number">6</span>), dpi=<span class="number">80</span>)</span><br><span class="line"></span><br><span class="line">   <span class="comment">#打开交互模式</span></span><br><span class="line">   plt.ion()</span><br><span class="line"></span><br><span class="line">   <span class="comment"># 循环</span></span><br><span class="line">   <span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br><span class="line">      <span class="comment">#清除原有图像</span></span><br><span class="line">      plt.cla()</span><br><span class="line">      <span class="comment">#设定标题等</span></span><br><span class="line">      plt.title(<span class="string">&quot;动态曲线图&quot;</span>,fontproperties=myfont)</span><br><span class="line">      plt.grid(<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">      <span class="comment">#生成测试数据</span></span><br><span class="line">      x = np.linspace(-np.pi + index, np.pi+<span class="number">0.1</span>*index, <span class="number">256</span>,endpoint=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">      y_cos, y_sin = np.cos(x),np.sin(x)</span><br><span class="line"></span><br><span class="line">      <span class="comment"># 设置ｘ轴</span></span><br><span class="line">      plt.xlabel(<span class="string">&quot;x轴&quot;</span>, fontproperties= myfont)</span><br><span class="line">      plt.xlim(-<span class="number">4</span> + <span class="number">0.1</span>*index,<span class="number">4</span> + <span class="number">0.1</span>*index)</span><br><span class="line">      plt.xticks(np.linspace(-<span class="number">4</span> + <span class="number">0.1</span> * index, <span class="number">4</span> + <span class="number">0.1</span> * index, <span class="number">9</span>, endpoint=<span class="literal">True</span>))</span><br><span class="line">      <span class="comment"># 设置Y轴</span></span><br><span class="line">      plt.ylabel(<span class="string">&quot;Y轴&quot;</span>, fontproperties=myfont)</span><br><span class="line">      plt.ylim(-<span class="number">1.0</span>, <span class="number">1.0</span>)</span><br><span class="line">      plt.yticks(np.linspace(-<span class="number">1</span>, <span class="number">1</span>, <span class="number">9</span>, endpoint=<span class="literal">True</span>))</span><br><span class="line"></span><br><span class="line">      <span class="comment"># 画两条曲线</span></span><br><span class="line">      plt.plot(x, y_cos, <span class="string">&quot;b--&quot;</span>, linewidth=<span class="number">2.0</span>, label=<span class="string">&quot;cos示例&quot;</span>)</span><br><span class="line">      plt.plot(x, y_sin, <span class="string">&quot;g-&quot;</span>, linewidth=<span class="number">2.0</span>, label=<span class="string">&quot;sin示例&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      <span class="comment"># 设置图例位置,loc可以为[upper, lower, left, right, center]</span></span><br><span class="line">      plt.legend(loc=<span class="string">&quot;upper left&quot;</span>, prop=&#123;<span class="string">&#x27;family&#x27;</span>: <span class="string">&quot;kaiti&quot;</span>&#125;, shadow=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">      <span class="comment"># 暂停</span></span><br><span class="line">      plt.pause(<span class="number">0.1</span>)</span><br><span class="line"></span><br><span class="line">   <span class="comment"># 关闭交互模式</span></span><br><span class="line">   plt.ioff()</span><br><span class="line"></span><br><span class="line">   <span class="comment"># 图形显示</span></span><br><span class="line">   plt.show()</span><br><span class="line">   <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">   simple_plot()</span><br></pre></td></tr></table></figure>
-
-<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><ol>
-<li>如果没有交互模式 那么就不能动态绘图</li>
-<li><code>plt.figure</code>是可以自己显示画板的</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/13/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/13/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

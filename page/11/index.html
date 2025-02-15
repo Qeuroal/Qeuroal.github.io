@@ -153,18 +153,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">168</span>
+          <span class="site-state-item-count">171</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-count">48</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -186,6 +186,510 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/10/30/112/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/10/30/112/" class="post-title-link" itemprop="url">112. 程序设计</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-30 04:00:00" itemprop="dateCreated datePublished" datetime="2020-10-30T04:00:00+08:00">2020-10-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-29 08:58:32" itemprop="dateModified" datetime="2023-11-29T08:58:32+08:00">2023-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programming/" itemprop="url" rel="index"><span itemprop="name">programming</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ol>
+<li><p>程序设计返回结果</p>
+<ol>
+<li><code>Accepted</code>: 通过</li>
+<li><code>Wrong Answer</code>: 答案错误</li>
+<li><code>Runtime Error</code>: 表示程序因为非法访问或未处理异常而结束。</li>
+<li><code>Memory Limit Exceeded</code>: 表示程序因为使用的内存超过规定的内存限制。</li>
+<li><code>Presentation Error</code>: 表示虽然程序输出的答案是对的，但是换行或空格等不符合输出格式要求</li>
+<li><code>Time Limit Exceed</code>: 超时</li>
+<li><code>Output Limit Exceeded</code>: 表示程序输出了过多的内容。</li>
+<li><code>Compile Error</code>: 表示所提交的源代码没能通过编译，不符合语法规定。</li>
+<li><code>System Error, Validator Error</code>: 表示系统发生错误无法正常判题。</li>
+<li><code>Segmentation Fault</code>: 段错误：访问的内存超过了系统所给这个程序的内存空间</li>
+</ol>
+</li>
+<li><p>状态</p>
+<blockquote>
+<p>例子：找最短路径的问题中，状态仅仅是目前所在位置的坐标。 <br/><br>当状态更加复杂是，就需要封装成一个类来表示转态了。</p>
+</blockquote>
+</li>
+<li><p>状态转移、转移的方式</p>
+<blockquote>
+<p>例子：同1中的例子，转移的方式为4个方向移动 <br/><br>又如：八连通（$P_{32}$），8个方向共对应了8种状态转移。</p>
+</blockquote>
+</li>
+<li><p><code>next_permutation</code> 函数使用</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> a[<span class="number">4</span>] = &#123;<span class="number">1</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>&#125;, i;</span><br><span class="line">    <span class="built_in">sort</span>(a, a + <span class="number">4</span>); <span class="comment">//在使用全排列函数之前，一定要先将数组中的数排序哦(不排序好像也可以)</span></span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) cout &lt;&lt; a[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125; <span class="keyword">while</span> (<span class="built_in">next_permutation</span>(a, a + <span class="number">3</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) cout &lt;&lt; a[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用 <code>next_permutation</code> 后，原数组的不变。</p>
+</li>
+<li><p>贪心算法</p>
+<blockquote>
+<p>贪心算法就是遵循某种规则，不断贪心地选取当期那最优策略的算法设计方法。 <br><br>如果我们不慎重地选择一个正确的规则，就会得到错误的算法。<br><br>如果问题能够用贪心算法来求解的话，那么它通常是非常高效的。</p>
+</blockquote>
+<ol>
+<li>区间问题：在可选工作中，每次都选择结束时间最早的工作。</li>
+<li>字典序比较类型的问题经常用得上贪心法</li>
+</ol>
+</li>
+<li><p>动态规划</p>
+<ol>
+<li>记忆化搜索<blockquote>
+<p>在需要剪枝的情况下，可能会把各种参数都写在函数上，但是这种情况下会让记忆化搜索难以实现，需要注意</p>
+</blockquote>
+</li>
+<li>def<blockquote>
+<p>一步步按顺序求出问题的解的方法。</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p><code>memset</code> 初始化数组</p>
+<blockquote>
+<p>语法： <code>memset(&lt;数组名&gt;, &lt;初始化的值&gt;, &lt;数组的大小&gt;)</code> <br/><br>虽然 <code>memset</code> 按照1字节为单位对内存进行填充，-1的每一位二进制位都为1，所以不可以像0一样用 <code>memset</code> 进行初始化。通过使用 <code>Memset</code> 可以快速地对高维数组等进行初始化，但是需要注意无法初始化成1之类的数值。</p>
+</blockquote>
+</li>
+<li><p>移位运算</p>
+<ol>
+<li>$1 &lt;&lt; n &#x3D; 2^n$</li>
+<li>$n &lt;&lt; 1 &#x3D; 2n$</li>
+<li>$n &gt;&gt; 1 &#x3D; \lfloor{\frac{n}{2.0}}\rfloor$</li>
+</ol>
+</li>
+<li><p>$a^b$ 算法</p>
+<blockquote>
+<p>求a的b次方对p取模的值，其中 $1 \leq a, b, p \leq 10^9$</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">power</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> p)</span> </span>&#123;</span><br><span class="line">   <span class="type">int</span> ans = <span class="number">1</span> % p;</span><br><span class="line">   <span class="keyword">for</span> (; b; b &gt;&gt;= <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (b &amp; <span class="number">1</span>) ans = <span class="number">1ll</span> *ans * a % p;</span><br><span class="line">      a = <span class="number">1ll</span> * a * a % p;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>$a * b % p$</p>
+<blockquote>
+<p>求a乘b对p取模的值，其中  $1 \leq a, b, p \leq 10^{18}$</p>
+</blockquote>
+<ol>
+<li>方法一<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">mul</span><span class="params">(<span class="type">long</span> <span class="type">long</span> a, <span class="type">long</span> <span class="type">long</span> b, <span class="type">long</span> <span class="type">long</span> p)</span> </span>&#123;</span><br><span class="line">   <span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line">   <span class="keyword">for</span> (; b; b &gt;&gt;= <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (b &amp; <span class="number">1</span>) ans = (ans + a) % p;</span><br><span class="line">      a = a * <span class="number">2</span> % p;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>方法二 ($P_6$)<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">mul</span><span class="params">(<span class="type">long</span> <span class="type">long</span> a, <span class="type">long</span> <span class="type">long</span> b, <span class="type">long</span> <span class="type">long</span> p)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>二进制状态压缩</p>
+<table>
+<thead>
+<tr>
+<th align="center">操作</th>
+<th align="center">运算</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">取出整数n在二进制表示下的第k位</td>
+<td align="center">(n &gt;&gt; k) &amp; 1</td>
+</tr>
+<tr>
+<td align="center">取出整数n在二进制表示下的第0 ~ k - 1位（后k位）</td>
+<td align="center">n &amp; ((1 &lt;&lt; k) - 1)</td>
+</tr>
+<tr>
+<td align="center">把整数n在二进制表示下的第k位取反</td>
+<td align="center">n xor (1 &lt;&lt; k)</td>
+</tr>
+<tr>
+<td align="center">对整数n在二进制表示下的第k位赋值为1</td>
+<td align="center">n | (1&lt;&lt;k)</td>
+</tr>
+<tr>
+<td align="center">对整数n在二进制表示下的第k为赋值为0</td>
+<td align="center">n &amp; (~(1 &lt;&lt; k))</td>
+</tr>
+</tbody></table>
+</li>
+<li></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/10/29/111/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/10/29/111/" class="post-title-link" itemprop="url">111. Vscode</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-29 04:00:00" itemprop="dateCreated datePublished" datetime="2020-10-29T04:00:00+08:00">2020-10-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-29 08:58:32" itemprop="dateModified" datetime="2023-11-29T08:58:32+08:00">2023-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/software/" itemprop="url" rel="index"><span itemprop="name">software</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="插件列表"><a href="#插件列表" class="headerlink" title="插件列表"></a>插件列表</h1><table>
+<thead>
+<tr>
+<th>插件名</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C&#x2F;C++</td>
+<td></td>
+</tr>
+<tr>
+<td>Chinese (Simplified)</td>
+<td></td>
+</tr>
+<tr>
+<td>Code Runner</td>
+<td></td>
+</tr>
+<tr>
+<td>highlight-words</td>
+<td></td>
+</tr>
+<tr>
+<td>indent-rainbow</td>
+<td></td>
+</tr>
+<tr>
+<td>IntelliCode</td>
+<td></td>
+</tr>
+<tr>
+<td>IntelliCode API Usage Examples</td>
+<td></td>
+</tr>
+<tr>
+<td>LaTeX Workshop</td>
+<td></td>
+</tr>
+<tr>
+<td>One Dark Pro</td>
+<td></td>
+</tr>
+<tr>
+<td>Path Intellisense</td>
+<td></td>
+</tr>
+<tr>
+<td>Power Mode</td>
+<td></td>
+</tr>
+<tr>
+<td>Python</td>
+<td></td>
+</tr>
+<tr>
+<td>Remote - SSH</td>
+<td></td>
+</tr>
+<tr>
+<td>Vim</td>
+<td></td>
+</tr>
+<tr>
+<td>vscode-icons</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h1><p>1、退出vscode</p>
+<p>2、删除配置文件</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">sudo</span> <span class="selector-tag">rm</span> <span class="selector-tag">-rf</span> $<span class="selector-tag">HOME</span>/<span class="selector-tag">Library</span>/<span class="selector-tag">Application</span>\ <span class="selector-tag">Support</span>/<span class="selector-tag">Code</span></span><br><span class="line"><span class="comment">// if you&#x27;re using insider*</span></span><br><span class="line"><span class="selector-tag">sudo</span> <span class="selector-tag">rm</span> <span class="selector-tag">-rf</span> $<span class="selector-tag">HOME</span>/<span class="selector-tag">Library</span>/<span class="selector-tag">Application</span>\ <span class="selector-tag">Support</span>/<span class="selector-tag">Code</span>\ <span class="selector-tag">-</span>\ <span class="selector-tag">Insiders</span>/</span><br></pre></td></tr></table></figure>
+
+<p>3、删除扩展插件</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf <span class="variable">$HOME</span>/.vscode</span><br><span class="line"><span class="comment">// if you&#x27;re using insider*</span></span><br><span class="line">sudo rm -rf <span class="variable">$HOME</span>/.vscode-insiders/</span><br></pre></td></tr></table></figure>
+
+<p>4、从应用中删除vscode（如果存在的话，如果直接解压后使用似乎不用做）</p>
+<p>5、卸载所有vscode系统配置</p>
+<p>6、重新下载vscode安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">rm</span> -rf <span class="variable">$HOME</span>/.vscode</span><br></pre></td></tr></table></figure>
+
+<h1 id="删除云端配置"><a href="#删除云端配置" class="headerlink" title="删除云端配置"></a>删除云端配置</h1><img data-src="/2020/10/29/111/v2-ae77fbb0384d166b1cb11e7b07199715_720w.png" class="" title="img">
+
+<img data-src="/2020/10/29/111/v2-884037c09e32462160b6f72de659a120_720w.png" class="" title="img">
+
+<img data-src="/2020/10/29/111/v2-3765a8bbcf247233c1f4a042d87bb9f5_720w.webp" class="" title="img">
+
+<h1 id="设置代码模板：自动生成文件名、作者、创建日期等信息"><a href="#设置代码模板：自动生成文件名、作者、创建日期等信息" class="headerlink" title="设置代码模板：自动生成文件名、作者、创建日期等信息"></a>设置代码模板：自动生成文件名、作者、创建日期等信息</h1><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;pyheader&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;test&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">          <span class="string">&quot;/**&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;* @author: test&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;* @desc：$1&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;* @date: $&#123;CURRENT_YEAR&#125;-$&#123;CURRENT_MONTH&#125;-$&#123;CURRENT_DATE&#125; $&#123;CURRENT_HOUR&#125;:$&#123;CURRENT_MINUTE&#125;:$&#123;CURRENT_SECOND&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;* @Email：test@qq.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;* @url：test.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;*/&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;&quot;</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;test&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ol>
+<li>打开 <code>vs­code</code> 在左下角设置图标 -&gt; <code>用户代码片段</code></li>
+<li><code>For_Loop</code>: 当前 <code>snip­pet</code> 名字。</li>
+<li><code>pre­fix</code>: 前缀，代码块使用快捷方式；键入前缀，按 tab 键，代码块就会被使用。</li>
+<li><code>body</code>: 代码块内容；换行使用 rn。</li>
+<li><code>de­scrip­tion</code>: 键入前缀，vs­code 感知到前缀，显示的说明内容。</li>
+<li><code>$1,$2,$0</code>: 指定代码模块生成后，编辑光标出现位置；使用 Tab 键进行切换 (编辑光标按 <code>$1,$2,$3...$0</code> 的顺序跳转)，<code>$0</code> 是光标最后可切换位置。</li>
+</ol>
+<h2 id="Snippet-语法"><a href="#Snippet-语法" class="headerlink" title="Snippet 语法"></a>Snippet 语法</h2><h3 id="Tabstops"><a href="#Tabstops" class="headerlink" title="Tabstops"></a>Tabstops</h3><p>   <code>$1，$2</code> 指定代码块生成后，光标出现的位置；不同位置的相同 <code>$1</code> 位置同时出现光标。</p>
+<h3 id="Placeholders"><a href="#Placeholders" class="headerlink" title="Placeholders"></a>Placeholders</h3><p>   给光标出现位置加上默认值；例如，<code>$&#123;1:an­other\$&#123;2:place­holder&#125;&#125;</code>；<code>$1</code> 处位置默认值是 <code>an­other</code>。</p>
+<h3 id="Choice"><a href="#Choice" class="headerlink" title="Choice"></a>Choice</h3><p>   光标位置设置多个值可供选择；例如，<code>$&#123;1|one,two,three|&#125;</code>；<code>$1</code> 位置处可以选择 <code>one,two,three</code> 中一个词填充在此处。</p>
+<h3 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a>Variables</h3><ol>
+<li><p>常用变量</p>
+<ul>
+<li><code>TM_SELECTED_TEXT</code> 当前选中内容或空字符串</li>
+<li><code>TM_CURRENT_LINE</code> 当前行内容</li>
+<li><code>TM_CURRENT_WORD</code> 光标处字符或空字符串</li>
+<li><code>TM_LINE_INDEX</code> 从 0 开始的行号</li>
+<li><code>TM_LINE_NUMBER</code> 从 1 开始的行号</li>
+<li><code>TM_FILENAME</code> 当前被编辑文档名</li>
+<li><code>TM_FILENAME_BASE</code> 当前被编辑文档名，没有后缀</li>
+<li><code>TM_DIRECTORY</code> 当前被编辑文档目录</li>
+<li><code>TM_FILEPATH</code> 当前被编辑文档全路径</li>
+<li><code>CLIPBOARD</code> 当前剪切板内容</li>
+<li><code>WORKSPACE_NAME</code> 打开的工作空间或文件夹的名称</li>
+</ul>
+</li>
+<li><p>日期和时间相关变量</p>
+<ul>
+<li><code>CURRENT_YEAR</code> 当前年</li>
+<li><code>CURRENT_YEAR_SHORT</code> 当前年后两位</li>
+<li><code>CURRENT_MONTH</code> 月份，两位数字表示，例如 02</li>
+<li><code>CURRENT_MONTH_NAME</code> 月份全称，例如’July’</li>
+<li><code>CURRENT_MONTH_NAME_SHORT</code> 月份简写 ，例如’Jul</li>
+<li><code>CURRENT_DATE</code> 某天</li>
+<li><code>CURRENT_DAY_NAME</code> 星期几， 例如’Monday’</li>
+<li><code>CURRENT_DAY_NAME_SHORT</code> 星期几的简写， ‘Mon’</li>
+<li><code>CURRENT_HOUR</code> 小时，24 小时制</li>
+<li><code>CURRENT_MINUTE</code> 分钟</li>
+<li><code>CURRENT_SECOND</code> 秒数</li>
+<li><code>CURRENT_SECONDS_UNIX</code> 自 <code>Unix</code> 时代以来的秒数</li>
+</ul>
+</li>
+</ol>
+<h1 id="VsCode-Terminal-设置"><a href="#VsCode-Terminal-设置" class="headerlink" title="VsCode-Terminal 设置"></a>VsCode-Terminal 设置</h1><h2 id="部分设置"><a href="#部分设置" class="headerlink" title="部分设置"></a>部分设置</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;workbench.colorCustomizations&quot; : &#123;</span><br><span class="line">  &quot;terminal.foreground&quot; : &quot;#00FD61&quot;,</span><br><span class="line">  &quot;terminal.background&quot; : &quot;#383737&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="完整设置"><a href="#完整设置" class="headerlink" title="完整设置"></a>完整设置</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&quot;workbench.colorCustomizations&quot;: &#123;</span><br><span class="line">    &quot;terminal.background&quot;: &quot;#181818&quot;,</span><br><span class="line">    &quot;terminal.foreground&quot;: &quot;#D8D8D8&quot;,</span><br><span class="line">    &quot;terminalCursor.background&quot;: &quot;#D8D8D8&quot;,</span><br><span class="line">    &quot;terminalCursor.foreground&quot;: &quot;#D8D8D8&quot;,</span><br><span class="line">    &quot;terminal.ansiBlack&quot;: &quot;#181818&quot;,</span><br><span class="line">    &quot;terminal.ansiBlue&quot;: &quot;#7CAFC2&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightBlack&quot;: &quot;#585858&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightBlue&quot;: &quot;#7CAFC2&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightCyan&quot;: &quot;#86C1B9&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightGreen&quot;: &quot;#A1B56C&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightMagenta&quot;: &quot;#BA8BAF&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightRed&quot;: &quot;#AB4642&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightWhite&quot;: &quot;#F8F8F8&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightYellow&quot;: &quot;#F7CA88&quot;,</span><br><span class="line">    &quot;terminal.ansiCyan&quot;: &quot;#86C1B9&quot;,</span><br><span class="line">    &quot;terminal.ansiGreen&quot;: &quot;#A1B56C&quot;,</span><br><span class="line">    &quot;terminal.ansiMagenta&quot;: &quot;#BA8BAF&quot;,</span><br><span class="line">    &quot;terminal.ansiRed&quot;: &quot;#AB4642&quot;,</span><br><span class="line">    &quot;terminal.ansiWhite&quot;: &quot;#D8D8D8&quot;,</span><br><span class="line">    &quot;terminal.ansiYellow&quot;: &quot;#F7CA88&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="用户配置"><a href="#用户配置" class="headerlink" title="用户配置"></a>用户配置</h1><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="comment">/// workplace</span></span><br><span class="line">    <span class="comment">// file</span></span><br><span class="line">    <span class="comment">// 自动保存选项</span></span><br><span class="line">    <span class="attr">&quot;files.autoSave&quot;</span><span class="punctuation">:</span> <span class="string">&quot;onWindowChange&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;files.autoGuessEncoding&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// editor</span></span><br><span class="line">    <span class="attr">&quot;editor.fontSize&quot;</span><span class="punctuation">:</span> <span class="number">15.5</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;editor.suggestSelection&quot;</span><span class="punctuation">:</span> <span class="string">&quot;recentlyUsedByPrefix&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;editor.inlayHints.fontFamily&quot;</span><span class="punctuation">:</span> <span class="string">&quot;JetBrainsMono Nerd Font, JetBrains Mono, MesloLGS NF, Menlo, Monaco, Courier New, monospace&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;editor.snippetSuggestions&quot;</span><span class="punctuation">:</span> <span class="string">&quot;inline&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;editor.fontFamily&quot;</span><span class="punctuation">:</span> <span class="string">&quot;JetBrainsMono Nerd Font, JetBrains Mono, MesloLGS NF, Menlo, Monaco, Courier New, monospace, Menlo for Powerline&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;editor.wordWrap&quot;</span><span class="punctuation">:</span> <span class="string">&quot;on&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;editor.quickSuggestionsDelay&quot;</span><span class="punctuation">:</span> <span class="number">10</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 自动修正格式</span></span><br><span class="line">    <span class="attr">&quot;editor.formatOnType&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;diffEditor.wordWrap&quot;</span><span class="punctuation">:</span> <span class="string">&quot;on&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// workbench</span></span><br><span class="line">    <span class="attr">&quot;workbench.colorTheme&quot;</span><span class="punctuation">:</span> <span class="string">&quot;One Dark Pro Mix&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;workbench.iconTheme&quot;</span><span class="punctuation">:</span> <span class="string">&quot;vscode-icons&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;workbench.sideBar.location&quot;</span><span class="punctuation">:</span> <span class="string">&quot;right&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;workbench.startupEditor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;none&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 资源管理器排列方式</span></span><br><span class="line">    <span class="attr">&quot;explorer.sortOrder&quot;</span><span class="punctuation">:</span> <span class="string">&quot;foldersNestsFiles&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// update 发行说明</span></span><br><span class="line">    <span class="attr">&quot;update.showReleaseNotes&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 关闭工作区信任</span></span><br><span class="line">    <span class="attr">&quot;security.workspace.trust.enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 在文件和文件夹上显示错误和警告</span></span><br><span class="line">    <span class="attr">&quot;problems.decorations.enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 选项卡是否应在多行之间换行</span></span><br><span class="line">    <span class="attr">&quot;workbench.editor.wrapTabs&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/// abundant</span></span><br><span class="line">    <span class="comment">// &quot;editor.formatOnPaste&quot;: true, // 粘贴自动修正格式</span></span><br><span class="line">    <span class="comment">// &quot;files.trimTrailingWhitespace&quot;: true, // 自动删除尾随空格</span></span><br><span class="line">    <span class="comment">// &quot;files.trimFinalNewlines&quot;: true,   // 自动删除空行</span></span><br><span class="line">    <span class="comment">// &quot;workbench.editor.decorations.colors&quot;:false,</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// terminal</span></span><br><span class="line">    <span class="attr">&quot;terminal.integrated.inheritEnv&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.integrated.fontSize&quot;</span><span class="punctuation">:</span> <span class="number">16</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.integrated.fontFamily&quot;</span><span class="punctuation">:</span> <span class="string">&quot;JetBrains Mono, DroidSansMono Nerd Font, MesloLGS NF&quot;</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/// powermode</span></span><br><span class="line">    <span class="attr">&quot;powermode.enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;powermode.presets&quot;</span><span class="punctuation">:</span> <span class="string">&quot;particles&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;powermode.shake.enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;powermode.combo.counterEnabled&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hide&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;powermode.combo.timerEnabled&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hide&quot;</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/// python</span></span><br><span class="line">    <span class="comment">// &quot;python.defaultInterpreterPath&quot;: &quot;~/anaconda3/bin/python&quot;,</span></span><br><span class="line">    <span class="attr">&quot;python.languageServer&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Default&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;python.defaultInterpreterPath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;~/anaconda3/bin/python&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// &quot;python.linting.enabled&quot;: false,</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/// cpp</span></span><br><span class="line">    <span class="attr">&quot;C_Cpp.errorSquiggles&quot;</span><span class="punctuation">:</span> <span class="string">&quot;disabled&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;C_Cpp.intelliSenseEngine&quot;</span><span class="punctuation">:</span> <span class="string">&quot;default&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;C_Cpp.intelliSenseUpdateDelay&quot;</span><span class="punctuation">:</span> <span class="number">500</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;C_Cpp.clang_format_fallbackStyle&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&#123; BasedOnStyle: Google, UseTab: Never, IndentWidth: 4, TabWidth: 4, BreakBeforeBraces: Attach, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false, ColumnLimit: 80, AccessModifierOffset: -4 &#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;C_Cpp.suggestSnippets&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/// leetcode</span></span><br><span class="line">    <span class="attr">&quot;settingsSync.ignoredExtensions&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;leetcode.vscode-leetcode&quot;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/// Doxygen</span></span><br><span class="line">    <span class="attr">&quot;doxdocgen.generic.authorName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&lt;username&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;doxdocgen.generic.authorEmail&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&lt;user_email&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;doxdocgen.generic.order&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;brief&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;empty&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;tparam&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;param&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;return&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;doxdocgen.file.versionTag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;@version 1.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;doxdocgen.generic.dateFormat&quot;</span><span class="punctuation">:</span> <span class="string">&quot;YYYY-MM-DD HH:MM:SS&quot;</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/// git</span></span><br><span class="line">    <span class="comment">// &quot;git.ignoreMissingGitWarning&quot;: true,</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/// vim</span></span><br><span class="line">    <span class="attr">&quot;vim.useSystemClipboard&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;vim.replaceWithRegister&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// &quot;vim.visualstar&quot;: true,</span></span><br><span class="line">    <span class="attr">&quot;vim.mouseSelectionGoesIntoVisualMode&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;editor.cursorBlinking&quot;</span><span class="punctuation">:</span> <span class="string">&quot;solid&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// Use key mappings from a `.vimrc` file.</span></span><br><span class="line">    <span class="attr">&quot;vim.vimrc.enable&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// Path to a Vim configuration file. If unset, it will check for `$HOME/.vscodevimrc`, `$HOME/.vimrc`, `$HOME/_vimrc`, and `$HOME/.config/nvim/init.vim`, in that order.</span></span><br><span class="line">    <span class="attr">&quot;vim.vimrc.path&quot;</span><span class="punctuation">:</span> <span class="string">&quot;~/.vimrc&quot;</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/// incedent-rainbow</span></span><br><span class="line">    <span class="comment">// Using the light mode</span></span><br><span class="line">    <span class="attr">&quot;indentRainbow.indicatorStyle&quot;</span><span class="punctuation">:</span> <span class="string">&quot;light&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// we use a simple 1 pixel wide line</span></span><br><span class="line">    <span class="attr">&quot;indentRainbow.lightIndicatorStyleLineWidth&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span></span><br><span class="line">      <span class="comment">// the same colors as above but more visible</span></span><br><span class="line">    <span class="attr">&quot;indentRainbow.colors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;rgba(255,255,64,0.3)&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;rgba(127,255,127,0.3)&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;rgba(255,127,255,0.3)&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;rgba(79,236,236,0.3)&quot;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/// latex</span></span><br><span class="line">    <span class="comment">// 使用内置pdf浏览器预览pdf文件</span></span><br><span class="line">    <span class="attr">&quot;latex-workshop.view.pdf.viewer&quot;</span><span class="punctuation">:</span> <span class="string">&quot;tab&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// tex文件时禁止自动编译</span></span><br><span class="line">    <span class="attr">&quot;latex-workshop.latex.autoBuild.run&quot;</span><span class="punctuation">:</span> <span class="string">&quot;never&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 隐藏在编译出现错误或警告时自动弹出的提示窗口</span></span><br><span class="line">    <span class="attr">&quot;latex-workshop.message.error.show&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;latex-workshop.message.warning.show&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 启用或禁用自动提示功能</span></span><br><span class="line">    <span class="attr">&quot;latex-workshop.intellisense.package.enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 启用或禁用数学符号的自动提示功能。</span></span><br><span class="line">    <span class="attr">&quot;latex-workshop.intellisense.unimathsymbols.enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 配置自动提示的更新延迟时间</span></span><br><span class="line">    <span class="attr">&quot;latex-workshop.intellisense.update.delay&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;latex-workshop.latex.recipe.default&quot;</span><span class="punctuation">:</span> <span class="string">&quot;lastUsed&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 自动清理</span></span><br><span class="line">    <span class="attr">&quot;latex-workshop.latex.autoClean.run&quot;</span><span class="punctuation">:</span> <span class="string">&quot;onBuilt&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 发行版的可执行文件路径</span></span><br><span class="line">        <span class="comment">// &quot;latex-workshop.latex.path&quot;: </span></span><br><span class="line">    <span class="comment">// 将编译工具配置添加到用户设置中</span></span><br><span class="line">    <span class="attr">&quot;latex-workshop.latex.tools&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;latexmk&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;latexmk&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;-synctex=1&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;-interaction=nonstopmode&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;-file-line-error&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;-pdf&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;%DOC%&quot;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;pdflatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;pdflatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;-synctex=1&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;-interaction=nonstopmode&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;-file-line-error&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;%DOC%&quot;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xelatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xelatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;-synctex=1&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;-interaction=nonstopmode&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;-file-line-error&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;%DOC%&quot;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;bibtex&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;bibtex&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;%DOCFILE%&quot;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 编译方案配置</span></span><br><span class="line">    <span class="attr">&quot;latex-workshop.latex.recipes&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;XeLaTeX&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;tools&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;xelatex&quot;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;latexmk&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;tools&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;latexmk&quot;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;PDFLaTeX&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;tools&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;pdflatex&quot;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;BibTeX&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;tools&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;bibtex&quot;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;pdflatex -&gt; bibtex -&gt; pdflatex*2&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;tools&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;pdflatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;bibtex&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;pdflatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;pdflatex&quot;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xelatex -&gt; bibtex -&gt; xelatex*2&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;tools&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;xelatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;bibtex&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;xelatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;xelatex&quot;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xelatex*2&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;tools&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;xelatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;xelatex&quot;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 编译后自动清理多余文件</span></span><br><span class="line">    <span class="attr">&quot;latex-workshop.latex.clean.fileTypes&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;*.aux&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.bbl&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.blg&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.idx&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.ind&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.lof&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.lot&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.out&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.toc&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.acn&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.acr&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.alg&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.glg&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.glo&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.gls&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.ist&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.fls&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.log&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.fdb_latexmk&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.pdfsync&quot;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/// end &lt;===</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/10/22/110/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/10/22/110/" class="post-title-link" itemprop="url">110. 双系统下 .Trash-1000 的说明</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-22 04:00:00" itemprop="dateCreated datePublished" datetime="2020-10-22T04:00:00+08:00">2020-10-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-01-09 17:40:54" itemprop="dateModified" datetime="2025-01-09T17:40:54+08:00">2025-01-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/os/" itemprop="url" rel="index"><span itemprop="name">os</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h1><p>网上的解释是 由ubuntu系统自动创建的回收站文件夹，每个盘都有一个 。s<br>也就是说，系统在删除某个盘里的垃圾文件的时候，是创建一个 .Trash-1000文件夹，然后将它放进去。</p>
+<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><p>比如 我在u盘上执行了删除操作，ubuntu系统会在u盘里也创建一个.Trash-1000文件夹，info文件夹应该是保存的是垃圾文件的对应关系，files文件夹里应该是删除的垃圾文件。</p>
+<h1 id="管理"><a href="#管理" class="headerlink" title="管理"></a>管理</h1><p>如果在 ubuntu系统里–清除回收站，各个盘里对应的垃圾文件就会自动删除了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1523,418 +2027,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/04/14/101/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/04/14/101/" class="post-title-link" itemprop="url">101. Win10 Git配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-04-14 04:00:00" itemprop="dateCreated datePublished" datetime="2020-04-14T04:00:00+08:00">2020-04-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-20 18:56:25" itemprop="dateModified" datetime="2024-03-20T18:56:25+08:00">2024-03-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/software/" itemprop="url" rel="index"><span itemprop="name">software</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ol>
-<li><p>更改Git的样式</p>
-<ol>
-<li>更改主题透明度和光标<img data-src="/2020/04/14/101/16.png" class=""></li>
-<li>更改字体<img data-src="/2020/04/14/101/17.png" class=""></li>
-<li>更改中文<img data-src="/2020/04/14/101/18.png" class=""></li>
-</ol>
-</li>
-<li><p>美化</p>
-<ol>
-<li><p>基本配置</p>
-<blockquote>
-<p>在用户根目录下新建一个名为 .minttyrc 的文件，写入以下内容，然后重启 git bash，就能看到美化后的样子了。</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> ~</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">touch</span> .minttyrc</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">vi .minttyrc</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>复制以下代码到 <code>.minttyrc</code>： </p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">FontHeight=11</span><br><span class="line">Font=Consolas</span><br><span class="line">Transparency=low</span><br><span class="line">FontSmoothing=full</span><br><span class="line">Locale=zh_CN</span><br><span class="line">Charset=GBK</span><br><span class="line">Columns=88</span><br><span class="line">Rows=26</span><br><span class="line">OpaqueWhenFocused=no</span><br><span class="line">Scrollbar=none</span><br><span class="line">Language=zh_CN</span><br><span class="line"></span><br><span class="line">ForegroundColour=131,148,150</span><br><span class="line">BackgroundColour=0,43,54</span><br><span class="line">CursorColour=220,130,71</span><br><span class="line"></span><br><span class="line">BoldBlack=128,128,128</span><br><span class="line">Red=255,64,40</span><br><span class="line">BoldRed=255,128,64</span><br><span class="line">Green=64,200,64</span><br><span class="line">BoldGreen=64,255,64</span><br><span class="line">Yellow=190,190,0</span><br><span class="line">BoldYellow=255,255,64</span><br><span class="line">Blue=0,128,255</span><br><span class="line">BoldBlue=128,160,255</span><br><span class="line">Magenta=211,54,130</span><br><span class="line">BoldMagenta=255,128,255</span><br><span class="line">Cyan=64,190,190</span><br><span class="line">BoldCyan=128,255,255</span><br><span class="line">White=200,200,200</span><br><span class="line">BoldWhite=255,255,255</span><br><span class="line">CursorType=block</span><br><span class="line">CursorBlinks=no</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>更新 <code>git-prompt.d</code></p>
-<blockquote>
-<p>仅仅是换了一个主题还不够，还需要更改终端提示符，更改 git 安装目录下 etc 目录里面的一个文件即可，这个文件也可以通过绝对路径访问到。</p>
-</blockquote>
-<blockquote>
-<p>进入</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /etc/profile.d/git-prompt.sh</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>复制代码到 <code>git-prompt.sh</code></p>
-</blockquote>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="built_in">test</span> -f /etc/profile.d/git-sdk.sh</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">	TITLEPREFIX=SDK-<span class="variable">$&#123;MSYSTEM#MINGW&#125;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	TITLEPREFIX=<span class="variable">$MSYSTEM</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">test</span> -f ~/.config/git/git-prompt.sh</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">	. ~/.config/git/git-prompt.sh</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	PS1=<span class="string">&#x27;\[\033]0;Bash In $PWD\007\]&#x27;</span> <span class="comment"># 窗口标题</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\n&#x27;</span>                                <span class="comment"># 换行</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\[\033[32m\]&#x27;</span>               <span class="comment"># 绿色</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\u &#x27;</span>            	                <span class="comment"># 用户名</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\[\033[0m\]&#x27;</span>                <span class="comment"># 灰色</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;at &#x27;</span>			       <span class="comment"># 自定义内容</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\[\033[35m\]&#x27;</span>             <span class="comment"># 粉红色</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\t &#x27;</span>			       <span class="comment"># 时间</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\[\033[33m\]&#x27;</span>             <span class="comment"># 黄色</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\W &#x27;</span>                            <span class="comment"># 当前目录</span></span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">test</span> -z <span class="string">&quot;<span class="variable">$WINELOADERNOEXEC</span>&quot;</span></span><br><span class="line">	<span class="keyword">then</span></span><br><span class="line">		GIT_EXEC_PATH=<span class="string">&quot;<span class="subst">$(git --exec-path 2&gt;/dev/null)</span>&quot;</span></span><br><span class="line">		COMPLETION_PATH=<span class="string">&quot;<span class="variable">$&#123;GIT_EXEC_PATH%/libexec/git-core&#125;</span>&quot;</span></span><br><span class="line">		COMPLETION_PATH=<span class="string">&quot;<span class="variable">$&#123;COMPLETION_PATH%/lib/git-core&#125;</span>&quot;</span></span><br><span class="line">		COMPLETION_PATH=<span class="string">&quot;<span class="variable">$COMPLETION_PATH</span>/share/git/completion&quot;</span></span><br><span class="line">		<span class="keyword">if</span> <span class="built_in">test</span> -f <span class="string">&quot;<span class="variable">$COMPLETION_PATH</span>/git-prompt.sh&quot;</span></span><br><span class="line">		<span class="keyword">then</span></span><br><span class="line">			. <span class="string">&quot;<span class="variable">$COMPLETION_PATH</span>/git-completion.bash&quot;</span></span><br><span class="line">			. <span class="string">&quot;<span class="variable">$COMPLETION_PATH</span>/git-prompt.sh&quot;</span></span><br><span class="line">			PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\[\033[36m\]&#x27;</span>  <span class="comment"># change color to cyan</span></span><br><span class="line">			PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;`__git_ps1`&#x27;</span>   <span class="comment"># bash function</span></span><br><span class="line">		<span class="keyword">fi</span></span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;\[\033[0m\]&#x27;</span>        <span class="comment"># 灰色</span></span><br><span class="line">	PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span><span class="string">&#x27;$ &#x27;</span>                       <span class="comment"># 命令提示符</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">MSYS2_PS1=<span class="string">&quot;<span class="variable">$PS1</span>&quot;</span>               <span class="comment"># for detection by MSYS2 SDK&#x27;s bash.basrc</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/04/01/100/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/04/01/100/" class="post-title-link" itemprop="url">100. Clion中使用头文件和源文件坑</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-04-01 04:00:00" itemprop="dateCreated datePublished" datetime="2020-04-01T04:00:00+08:00">2020-04-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-29 08:58:32" itemprop="dateModified" datetime="2023-11-29T08:58:32+08:00">2023-11-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/c-c/" itemprop="url" rel="index"><span itemprop="name">c/c++</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Clion-中使用头文件定义类，源文件实现"><a href="#Clion-中使用头文件定义类，源文件实现" class="headerlink" title="Clion 中使用头文件定义类，源文件实现"></a><code>Clion</code> 中使用头文件定义类，源文件实现</h1><h2 id="include什么"><a href="#include什么" class="headerlink" title="include什么"></a>include什么</h2><blockquote>
-<p>导入头文件(<code>.h</code>)和源文件(<code>.cpp</code>)<br>Note: 只导入 源文件（<code>.cpp</code>） 也可以</p>
-</blockquote>
-<h2 id="CMakeLists-txt"><a href="#CMakeLists-txt" class="headerlink" title="CMakeLists.txt"></a>CMakeLists.txt</h2><ul>
-<li>手动添加</li>
-</ul>
-<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.15)</span><br><span class="line">project(HCpp)</span><br><span class="line"></span><br><span class="line">set(CMAKE_CXX_STANDARD 11)</span><br><span class="line"></span><br><span class="line">add_executable(HCpp main.cpp)</span><br><span class="line">add_executable(ElemType ElemType.cpp ElemType.h)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>自动添加</li>
-</ul>
-<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 遍历项目根目录下所有的 .cpp 文件</span><br><span class="line">file (GLOB files *.cpp)</span><br><span class="line">foreach (file $&#123;files&#125;)</span><br><span class="line">    string(REGEX REPLACE &quot;.+/(.+)\\..*&quot; &quot;\\1&quot; exe $&#123;file&#125;)</span><br><span class="line">    add_executable ($&#123;exe&#125; $&#123;file&#125;)</span><br><span class="line">    message (\ \ \ \ --\ src/$&#123;exe&#125;.cpp\ will\ be\ compiled\ to\ bin/$&#123;exe&#125;)</span><br><span class="line">endforeach ()</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h2 id="ElemType-h"><a href="#ElemType-h" class="headerlink" title="ElemType.h"></a><code>ElemType.h</code></h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> HCPP_ELEMTYPE_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> HCPP_ELEMTYPE_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ElemType</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> data;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">ElemType</span>();</span><br><span class="line">    <span class="built_in">ElemType</span>(<span class="type">int</span>);</span><br><span class="line">    <span class="keyword">friend</span> std::ostream &amp;<span class="keyword">operator</span> &lt;&lt;(std::ostream &amp;, <span class="type">const</span> ElemType &amp;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span> <span class="comment">//HCPP_ELEMTYPE_H</span></span></span><br></pre></td></tr></table></figure>
-
-<h2 id="ElemType-cpp"><a href="#ElemType-cpp" class="headerlink" title="ElemType.cpp"></a><code>ElemType.cpp</code></h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;ElemType.h&quot;</span></span></span><br><span class="line"></span><br><span class="line">ElemType::<span class="built_in">ElemType</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;data = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ElemType::<span class="built_in">ElemType</span>(<span class="type">int</span> data) &#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;data = data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">std::ostream&amp; <span class="keyword">operator</span> &lt;&lt;(std::ostream &amp;out, <span class="type">const</span> ElemType &amp;e)</span><br><span class="line">&#123;</span><br><span class="line">    out &lt;&lt; e.data;</span><br><span class="line">    <span class="keyword">return</span> out;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="main-cpp"><a href="#main-cpp" class="headerlink" title="main.cpp"></a><code>main.cpp</code></h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;ElemType.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;ElemType.cpp&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span>  <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ElemType e = <span class="built_in">ElemType</span>(<span class="number">10</span>);</span><br><span class="line">    cout &lt;&lt; e &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p>运算符重载：详见 <a href="/2020/03/99">运算符重载</a></p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/03/29/99/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/29/99/" class="post-title-link" itemprop="url">99. C++运算符重载</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-03-29 05:00:00" itemprop="dateCreated datePublished" datetime="2020-03-29T05:00:00+08:00">2020-03-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-29 08:58:34" itemprop="dateModified" datetime="2023-11-29T08:58:34+08:00">2023-11-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/c-c/" itemprop="url" rel="index"><span itemprop="name">c/c++</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="重载运算符规则"><a href="#重载运算符规则" class="headerlink" title="重载运算符规则"></a>重载运算符规则</h1><ol>
-<li><p>重载意义</p>
-<blockquote>
-<p>函数重载（Function Overloading）可以让一个函数名有多种功能，在不同情况下进行不同的操作；<br/><br>运算符重载（Operator Overloading）也是一个道理，同一个运算符可以有不同的功能；</p>
-</blockquote>
-<blockquote>
-<p>C++中预定义的运算符的操作对象只能是基本数据类型。但实际上，对于许多用户自定义类型（例如类），也需要类似的运算操作。这时就必须在C++中重新定义这些运算符，赋予已有运算符新的功能，使它能够用于特定类型执行特定的操作。运算符重载的实质是函数重载，它提供了C++的可扩展性，也是C++最吸引人的特性之一。</p>
-</blockquote>
-<blockquote>
-<p>比如,我们定义两个string类对象a,b后我们之所以可以使用+运算，是因为string类重载了+运算符。</p>
-</blockquote>
-</li>
-<li><p>语法</p>
- <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;返回类型说明符&gt; <span class="keyword">operator</span> &lt;运算符符号&gt;(&lt;参数表&gt;)</span><br><span class="line">&#123;</span><br><span class="line">&lt;函数体&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>哪些运算符可以被重载，哪些运算符不能被重载</p>
-<ul>
-<li><p>可以被重载的运算符：</p>
-<blockquote>
-<p>算术运算符：<code>+ , - , * , / , % , ++ , --</code> <br/><br>位操作运算符：<code>&amp; , | , ~ , ^ , &lt;&lt; , &gt;&gt;</code> <br/><br>逻辑运算符：<code>! , &amp;&amp; , ||</code> <br/><br>比较运算符：<code>&lt; , &gt; , &gt;= , &lt;= , == , != </code> <br/><br>赋值运算符：<code>= , += , -= , *= , /= , %= , &amp;= , |= , ^= , &lt;&lt;= , &gt;&gt;= </code> <br/><br>其他运算符：<code>[] , () , -&gt; , ,(逗号运算符) , new , delete , new[] , delete[] , -&gt;*</code> <br/></p>
-</blockquote>
-</li>
-<li><p>不允许的运算符重载：</p>
-<blockquote>
-<p><code>. , .* , :: , ?: ，siezof</code></p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ol>
-<h1 id="重载运算符函数在类内部"><a href="#重载运算符函数在类内部" class="headerlink" title="重载运算符函数在类内部"></a>重载运算符函数在类内部</h1><ol>
-<li><p>Notes:</p>
-<ol>
-<li><p><code>运算符重载函数是类的成员函数时</code>&gt;</p>
-<ol>
-<li>注意<blockquote>
-<p>要是内部的，必须得是<code>&lt;=1</code>个参数，不需要加 <code>friend</code>（友元函数）</p>
-</blockquote>
-</li>
-<li>语法(在类内声明，在类外实现时的代码)<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;返回类型说明符&gt; &lt;类名&gt;::<span class="keyword">operator</span> &lt;运算符符号&gt;(&lt;参数表&gt;)</span><br><span class="line">&#123;</span><br><span class="line">   &lt;函数体&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li><p><code>运算符重载函数不是类的成员函数时</code>（或者说<code>当运算符函数是非成员函数时</code>）</p>
-<ol>
-<li>函数在类中声明的时候需要在前面加上 <code>friend</code>（友元函数），不管参数是不是类的对象</li>
-<li>函数的参数与该运算符作用的运算对象数量一样多</li>
-</ol>
-</li>
-<li><p>为什么用 <code>const</code> 和 <code>&amp;</code>:</p>
-<ol>
-<li><p><code>const</code>：</p>
-<ol>
-<li>我们不希望在这个函数中对用来进行赋值的“原版”做任何修改。函数加上const后缀的作用是表明函数本身不会修改类成员变量。</li>
-<li>加上const，对于const的和非const的实参，函数就能接受；如果不加，就只能接受非const的实参。</li>
-</ol>
-</li>
-<li><p><code>&amp;</code>（引用）：</p>
-<blockquote>
-<p>这样可以避免在函数调用时对实参的一次拷贝，提高了效率。</p>
-</blockquote>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>代码</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Author: Dgimo</span></span><br><span class="line"><span class="comment"> * Date: 2020/3/30</span></span><br><span class="line"><span class="comment"> * <span class="doctag">TODO:</span> 类运算符重载</span></span><br><span class="line"><span class="comment"> * Describe: </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   <span class="keyword">typedef</span> <span class="keyword">struct</span> &#123;</span><br><span class="line">       <span class="type">int</span> first;</span><br><span class="line">       <span class="type">int</span> second;</span><br><span class="line">   &#125; TestStuct;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   <span class="comment">/*</span></span><br><span class="line"><span class="comment">    * 类运算符重载</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">class</span> <span class="title class_">TestClass</span> &#123;</span><br><span class="line">   <span class="keyword">private</span>:</span><br><span class="line">       <span class="type">int</span> first;</span><br><span class="line">       <span class="type">int</span> second;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">public</span>:</span><br><span class="line">       <span class="built_in">TestClass</span>(<span class="type">int</span>, <span class="type">int</span>);</span><br><span class="line">       <span class="built_in">TestClass</span>();</span><br><span class="line"></span><br><span class="line">       <span class="function"><span class="type">void</span> <span class="title">show</span><span class="params">(string)</span></span>;</span><br><span class="line"></span><br><span class="line">       TestClass <span class="keyword">operator</span>+(<span class="type">const</span> TestClass &amp;);</span><br><span class="line">       TestClass <span class="keyword">operator</span>+(<span class="type">const</span> TestStuct &amp;);</span><br><span class="line">       <span class="keyword">friend</span> TestClass <span class="keyword">operator</span>+(<span class="type">const</span> TestClass &amp;, <span class="type">const</span> TestClass &amp;); <span class="comment">// 如果不是内部的，得加friend 声明不是内部的，如果不是两个会怎样？见下面！！！</span></span><br><span class="line">       <span class="keyword">friend</span> TestClass <span class="keyword">operator</span>+(<span class="type">const</span> TestStuct &amp;, <span class="type">const</span> TestStuct &amp;); <span class="comment">// 只要在类内部定义的运算符重载，就需要加上friend</span></span><br><span class="line"></span><br><span class="line">    TestStuct ts1, ts2;</span><br><span class="line">    ts1.first = <span class="number">1</span>, ts1.second = <span class="number">2</span>;</span><br><span class="line">    ts2.first = <span class="number">10</span>, ts2.second = <span class="number">20</span>;</span><br><span class="line">    </span><br><span class="line">    tc1.<span class="built_in">show</span>(<span class="string">&quot;tc1&quot;</span>);</span><br><span class="line">    tc2.<span class="built_in">show</span>(<span class="string">&quot;tc2&quot;</span>);</span><br><span class="line"> </span><br><span class="line">    add_tc = tc1 + tc2; <span class="comment">// TestClass + TestClass </span></span><br><span class="line">    add_tc.<span class="built_in">show</span>(<span class="string">&quot;add_tc&quot;</span>);</span><br><span class="line"> </span><br><span class="line">    add_tc1 = add_tc + ts1; <span class="comment">// TestClass + TestStruct</span></span><br><span class="line">    add_tc1.<span class="built_in">show</span>(<span class="string">&quot;add_tc1&quot;</span>);</span><br><span class="line"> </span><br><span class="line">    add_ts = ts1 + ts2; <span class="comment">// TestStrcut + TestStrcut</span></span><br><span class="line">    add_ts.<span class="built_in">show</span>(<span class="string">&quot;add_ts&quot;</span>);</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="重载运算符在函数外部"><a href="#重载运算符在函数外部" class="headerlink" title="重载运算符在函数外部"></a>重载运算符在函数外部</h1><ol>
-<li><p>暂时未发现 <code>Bug</code></p>
-</li>
-<li><p>代码</p>
- <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Author: Dgimo</span></span><br><span class="line"><span class="comment">* Date: 2020/3/31</span></span><br><span class="line"><span class="comment">* <span class="doctag">TODO:</span> 结构体运算符重载</span></span><br><span class="line"><span class="comment">* Describe: </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 结构体运算符重载</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="type">int</span> first;</span><br><span class="line">    <span class="type">int</span> second;</span><br><span class="line">&#125; TestStuct;</span><br><span class="line"></span><br><span class="line">TestStuct <span class="keyword">operator</span>+(TestStuct ts1, TestStuct ts2)</span><br><span class="line">&#123;</span><br><span class="line">    TestStuct res;</span><br><span class="line">    res.first = ts1.first + ts2.first;</span><br><span class="line">    res.second = ts1.second + ts2.second;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">show</span><span class="params">(TestStuct ts)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;first: &quot;</span> &lt;&lt; ts.first &lt;&lt; <span class="string">&quot;, second: &quot;</span> &lt;&lt; ts.second &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    TestStuct ts1;</span><br><span class="line">    ts1.first = <span class="number">1</span>;</span><br><span class="line">    ts1.second = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    TestStuct ts2;</span><br><span class="line">    ts2.first = <span class="number">2</span>;</span><br><span class="line">    ts2.second = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">    TestStuct <span class="type">res_t</span> = ts1 + ts2;</span><br><span class="line">    <span class="built_in">show</span>(<span class="type">res_t</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="只能定义友元函数"><a href="#只能定义友元函数" class="headerlink" title="&lt;&lt; 和 &gt;&gt; 只能定义友元函数"></a><code>&lt;&lt;</code> 和 <code>&gt;&gt;</code> 只能定义友元函数</h1><ol>
-<li><p>原因</p>
-<blockquote>
-<p>定义为成员函数，那么就隐含this指针了对吧，你要知道重载其实也是一种函数，那么函数就有调用他的对象，如果是成员函数，那么调用他的对象就肯定是想对应的类对象了对吧，但是&lt;&lt;和&gt;&gt;调用的对象肯定只能是cout或者cin对吧，那么久不能定义为成员函数了，只有定义成友元，那么就可以把cin,cout作为一个参数传进你重载的操作符函数里面去了</p>
-</blockquote>
-</li>
-<li><p>语法：</p>
-<ol>
-<li><p>在类中：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">friend</span> ostream &amp;<span class="keyword">operator</span> &lt;&lt;(ostream &amp;out, <span class="type">const</span> ElemType &amp;e);</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 在外面： </span><br><span class="line">   </span><br><span class="line">   ```cpp</span><br><span class="line">   ostream &amp;oprator &lt;&lt;(ostream &amp;out, <span class="type">const</span> ElemType &amp;e);</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li><p>代码</p>
-<ol>
-<li><p>头文件(<code>.h</code>)</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> ELEMTYPE_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ELEMTYPE_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ElemType</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="type">int</span> data;</span><br><span class="line">        <span class="built_in">ElemType</span>();</span><br><span class="line">        <span class="built_in">ElemType</span>(<span class="type">int</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">friend</span> ostream &amp;<span class="keyword">operator</span> &lt;&lt;(ostream &amp;out, <span class="type">const</span> ElemType &amp;e); <span class="comment">// Success</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span> <span class="comment">// ELEMTYPE_H</span></span></span><br></pre></td></tr></table></figure></li>
-<li><p>源文件(<code>.cpp</code>)</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;ElemType.h&quot;</span></span></span><br><span class="line"></span><br><span class="line">ElemType::<span class="built_in">ElemType</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//ctor</span></span><br><span class="line">    <span class="keyword">this</span>-&gt;data = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ElemType::<span class="built_in">ElemType</span>(<span class="type">int</span> data)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;data = data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ostream&amp; <span class="keyword">operator</span> &lt;&lt;(ostream &amp;out, <span class="type">const</span> ElemType &amp;e)</span><br><span class="line">&#123;</span><br><span class="line">    out &lt;&lt; e.data;</span><br><span class="line">    <span class="keyword">return</span> out;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/12/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/12/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
