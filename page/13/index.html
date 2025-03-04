@@ -153,13 +153,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">171</span>
+          <span class="site-state-item-count">172</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -186,6 +186,257 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/01/07/85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/01/07/85/" class="post-title-link" itemprop="url">85. Linux字体</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-01-07 06:00:00" itemprop="dateCreated datePublished" datetime="2020-01-07T06:00:00+08:00">2020-01-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-06-15 07:32:20" itemprop="dateModified" datetime="2024-06-15T07:32:20+08:00">2024-06-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/os/" itemprop="url" rel="index"><span itemprop="name">os</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="字体下载"><a href="#字体下载" class="headerlink" title="字体下载"></a>字体下载</h1><blockquote>
+<p>推荐使用 <code>JetBrainsMono Nerd Font</code></p>
+</blockquote>
+<h2 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h2><h3 id="Nerd-Fonts"><a href="#Nerd-Fonts" class="headerlink" title="Nerd Fonts"></a>Nerd Fonts</h3><ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.nerdfonts.com/font-downloads">Nerd Fonts 下载</a> (包含所有常用字体, 非常全, <strong>强烈推荐</strong>)</p>
+<p> 推荐 <code>JetBrainsMono Nerd Font</code></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.nerdfonts.com/">Nerd Fonts 官网</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/ryanoasis/nerd-fonts/">Nerd Fonts Github</a></p>
+</li>
+</ul>
+<h3 id="单独字体"><a href="#单独字体" class="headerlink" title="单独字体"></a>单独字体</h3><ul>
+<li><p>JetBrainsMono Nerd Font 下载方式(3选1):</p>
+<ul>
+<li><p>命令下载最新版本:</p>
+<ul>
+<li><p>方法1</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -A <span class="string">&quot;Google Chrome&quot;</span> -JLO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip</span><br></pre></td></tr></table></figure>
+
+<p> 或者点击下载</p>
+<p> <a target="_blank" rel="noopener" href="https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip">https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip</a></p>
+</li>
+<li><p>方法2</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- -t1 -T2 <span class="string">&quot;https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest&quot;</span> | grep <span class="string">&quot;tag_name&quot;</span> | <span class="built_in">head</span> -n 1 | awk -F <span class="string">&quot;:&quot;</span> <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | sed <span class="string">&#x27;s/\&quot;//g;s/,//g;s/ //g&#x27;</span> | \</span><br><span class="line">    xargs -I &#123;&#125; -p wget https://github.com/ryanoasis/nerd-fonts/releases/download/&#123;&#125;/JetBrainsMono.zip</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>Github官网下载: <a target="_blank" rel="noopener" href="https://github.com/ryanoasis/nerd-fonts/releases">JetBrainsMono Nerd Font Github</a></p>
+</li>
+<li><p>下载固定版本(<em><strong>Not Recommand</strong></em>)</p>
+<p> <a target="_blank" rel="noopener" href="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip">JetBrainsMono v3.0.2</a></p>
+</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/source-foundry/Hack/releases">Hack Nerd Font Github</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/microsoft/cascadia-code">Caskaydia Cove Nerd Font Github</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k">MesloLGS NF Github(官网)</a></p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> fonts</span><br><span class="line">curl -o ./fonts/MesloLGS\ NF\ Regular.ttf https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/MesloLGS%20NF%20Regular.ttf</span><br><span class="line">curl -o ./fonts/MesloLGS\ NF\ Bold.ttf https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/MesloLGS%20NF%20Bold.ttf</span><br><span class="line">curl -o ./fonts/MesloLGS\ NF\ Italic.ttf https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/MesloLGS%20NF%20Italic.ttf</span><br><span class="line">curl -o ./fonts/MesloLGS\ NF\ Bold\ Italic.ttf https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/MesloLGS%20NF%20Bold%20Italic.ttf</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="Ubuntu安装win10字体"><a href="#Ubuntu安装win10字体" class="headerlink" title="Ubuntu安装win10字体"></a>Ubuntu安装win10字体</h1><ol>
+<li><p>进入windows : <code>/media/qeuro/系统/Windows/Fonts</code></p>
+</li>
+<li><p><code>sudo cp *.ttf ~/桌面/WinFonts</code></p>
+</li>
+<li><p><code>sudo cp *.TTF ~/桌面/WinFonts</code></p>
+</li>
+<li><p><code>cd ~/桌面</code></p>
+</li>
+<li><p><code>sudo mv WinFonts /usr/share/fonts/</code></p>
+</li>
+<li><p><code>sudo chmod -R 755 /usr/share/fonts/WinFonts</code></p>
+</li>
+<li><p><code>sudo mkfontscale &amp;&amp; sudo mkfontdir &amp;&amp; sudo fc-cache -fv</code></p>
+</li>
+<li><p>字体名称对照：</p>
+<table>
+<thead>
+<tr>
+<th align="center">ttf</th>
+<th align="center">字体</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">arial.ttf</td>
+<td align="center">Arial</td>
+</tr>
+<tr>
+<td align="center">couri.ttf</td>
+<td align="center">Courier New</td>
+</tr>
+<tr>
+<td align="center">times.ttf</td>
+<td align="center">Times New Roman</td>
+</tr>
+<tr>
+<td align="center">timesbd.ttf</td>
+<td align="center">Times New Roman Bole</td>
+</tr>
+<tr>
+<td align="center">FZSTK.TTF</td>
+<td align="center">方正舒体</td>
+</tr>
+<tr>
+<td align="center">FZYTK.TTF</td>
+<td align="center">方正姚体</td>
+</tr>
+<tr>
+<td align="center">msyh.ttf</td>
+<td align="center">微软雅黑</td>
+</tr>
+<tr>
+<td align="center">msyhbd.ttf</td>
+<td align="center">微软雅黑Bold</td>
+</tr>
+<tr>
+<td align="center">simfang.ttf</td>
+<td align="center">仿宋GB_2312</td>
+</tr>
+<tr>
+<td align="center">simhei.ttf</td>
+<td align="center">黑体</td>
+</tr>
+<tr>
+<td align="center">simkai.ttf</td>
+<td align="center">楷体GB_2312</td>
+</tr>
+<tr>
+<td align="center">SIMLI.TTF</td>
+<td align="center">隶书</td>
+</tr>
+<tr>
+<td align="center">simsun.ttc</td>
+<td align="center">宋体、宋体PUA、新宋体</td>
+</tr>
+<tr>
+<td align="center">SIMYOU.TTF</td>
+<td align="center">幼圆</td>
+</tr>
+<tr>
+<td align="center">STCAIYUN.TTF</td>
+<td align="center">华文彩云</td>
+</tr>
+<tr>
+<td align="center">STFANGSO.TTF</td>
+<td align="center">华文仿宋</td>
+</tr>
+<tr>
+<td align="center">STHUPO.TTF</td>
+<td align="center">华文琥珀</td>
+</tr>
+<tr>
+<td align="center">STKAITI.TTF</td>
+<td align="center">华文楷体</td>
+</tr>
+<tr>
+<td align="center">STLITI.TTF</td>
+<td align="center">华文隶书</td>
+</tr>
+<tr>
+<td align="center">STSONG.TTF</td>
+<td align="center">华文宋体</td>
+</tr>
+<tr>
+<td align="center">STXIHEI.TTF</td>
+<td align="center">华文细黑</td>
+</tr>
+<tr>
+<td align="center">STXINGKA.TTF</td>
+<td align="center">华文行楷</td>
+</tr>
+<tr>
+<td align="center">STXINWEI.TTF</td>
+<td align="center">华文新魏</td>
+</tr>
+<tr>
+<td align="center">STZHONGS.TTF</td>
+<td align="center">华文中宋</td>
+</tr>
+<tr>
+<td align="center">SURSONG.TTF</td>
+<td align="center">宋体-方正超大字符集</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1491,145 +1742,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2019/10/12/73/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/10/12/73/" class="post-title-link" itemprop="url">73. C++ STL</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-10-12 04:00:00" itemprop="dateCreated datePublished" datetime="2019-10-12T04:00:00+08:00">2019-10-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-29 08:58:34" itemprop="dateModified" datetime="2023-11-29T08:58:34+08:00">2023-11-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/c-c/" itemprop="url" rel="index"><span itemprop="name">c/c++</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="string"><a href="#string" class="headerlink" title="string"></a>string</h1><ol>
-<li>length()   &#x2F;&#x2F; 返回字符串的长度</li>
-<li>empty()    &#x2F;&#x2F; 判断是否为空</li>
-<li>push_back() &#x2F;&#x2F; 恢复字符到结尾</li>
-<li>int compare(const string &amp;s) const;&#x2F;&#x2F;比较当前字符串和s的大小</li>
-</ol>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lanyzh0909/article/details/6957649">更多点击这里</a> </p>
-<h1 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h1><ol>
-<li>初始化：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>():创建一个空<span class="function">vector</span></span><br><span class="line"><span class="function"><span class="title">vector</span><span class="params">(<span class="type">int</span> nSize)</span>:创建一个vector,元素个数为nSize</span></span><br><span class="line"><span class="function">vector(int nSize,const t&amp; t):创建一个vector，元素个数为nSize,且值均为t</span></span><br><span class="line"><span class="function">vector(const vector&amp;):复制构造函数</span></span><br><span class="line"><span class="function">vector(begin,end):复制[begin,end)区间内另一个数组的元素到vector中</span></span><br></pre></td></tr></table></figure></li>
-<li>void push_back(const T&amp; x):向量尾部增加一个元素X</li>
-<li>删除<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">iterator <span class="title">erase</span><span class="params">(iterator it)</span>:删除向量中迭代器指向元素</span></span><br><span class="line"><span class="function">iterator erase(iterator first,iterator last):删除向量中[first,last)中元素</span></span><br><span class="line"><span class="function">void pop_back():删除向量中最后一个元素</span></span><br><span class="line"><span class="function">void clear():清空向量中所有元素</span></span><br></pre></td></tr></table></figure></li>
-<li>int size() const:返回向量中元素的个数</li>
-<li>empty 判断vector是否为空</li>
-</ol>
-<p><a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/cpp-vector-container-analysis.html">更多点击这里</a> </p>
-<h1 id="map-（键值对）"><a href="#map-（键值对）" class="headerlink" title="map （键值对）"></a>map （键值对）</h1><ol>
-<li>初始化: <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map&lt;<span class="type">int</span>, string&gt; m</span><br></pre></td></tr></table></figure></li>
-<li>添加<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">m.insert(pair&lt;int,string&gt;(102,&quot;aclive&quot;));</span><br><span class="line">m.insert(map&lt;int,string&gt;::value_type(321,&quot;hai&quot;));</span><br><span class="line">m[112]=&quot;April&quot;;//map中最简单最常用的插入添加！</span><br></pre></td></tr></table></figure></li>
-<li>遍历<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (map&lt;<span class="type">int</span>, string&gt;::iterator iter = m.<span class="built_in">begin</span>(); iter != m.<span class="built_in">end</span>(); iter++) &#123;</span><br><span class="line">     cout &lt;&lt; iter-&gt;first &lt;&lt; <span class="string">&quot;, &quot;</span> &lt;&lt; iter-&gt;second &lt;&lt; <span class="string">&quot;  &quot;</span>;</span><br><span class="line"> &#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br></pre></td></tr></table></figure></li>
-<li>个数： <code>m.size()</code><br><a target="_blank" rel="noopener" href="https://www.w3cschool.cn/cpp/cpp-fu8l2ppt.html">更多点击这里</a></li>
-</ol>
-<h1 id="pair"><a href="#pair" class="headerlink" title="pair"></a>pair</h1><ol>
-<li>初始化：<ol>
-<li>pair&lt;int, string&gt; p;</li>
-<li>pair&lt;int, string&gt; p (1, 2);</li>
-<li>make_pair(1,2);</li>
-<li>pair&lt;int, string&gt; (1, 2) (C11)</li>
-</ol>
-</li>
-<li>操作<ol>
-<li>p.first</li>
-<li>p.second</li>
-</ol>
-</li>
-</ol>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_35121480/article/details/54728594">更多点击这里</a></p>
-<h1 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h1><ol>
-<li>初始化<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">queue&lt;<span class="type">int</span>&gt; q;</span><br></pre></td></tr></table></figure></li>
-<li>入队<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">q.<span class="built_in">push</span>(<span class="number">1</span>);</span><br></pre></td></tr></table></figure></li>
-<li>出队<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">q.<span class="built_in">pop</span>();</span><br></pre></td></tr></table></figure></li>
-<li>访问队首元素<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">q.<span class="built_in">front</span>();</span><br></pre></td></tr></table></figure></li>
-<li>访问队尾元素<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">q.<span class="built_in">back</span>();</span><br></pre></td></tr></table></figure></li>
-<li>判断队列空<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">q.<span class="built_in">empty</span>();</span><br></pre></td></tr></table></figure></li>
-<li>元素的个数<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">q.<span class="built_in">size</span>();</span><br></pre></td></tr></table></figure>
-<a target="_blank" rel="noopener" href="https://blog.csdn.net/wangshihui512/article/details/8930652">更多点击这里</a></li>
-</ol>
-<h1 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h1><ol>
-<li>初始化<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stack&lt;<span class="type">int</span>&gt; s;</span><br></pre></td></tr></table></figure></li>
-<li>入栈<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.<span class="built_in">push</span>(<span class="number">1</span>);</span><br></pre></td></tr></table></figure></li>
-<li>出栈<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.<span class="built_in">pop</span>();</span><br></pre></td></tr></table></figure></li>
-<li>访问栈顶<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.<span class="built_in">top</span>();</span><br></pre></td></tr></table></figure></li>
-<li>判断栈空<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.<span class="built_in">empty</span>();</span><br></pre></td></tr></table></figure></li>
-<li>元素的个数<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.<span class="built_in">size</span>();</span><br></pre></td></tr></table></figure>
-<a target="_blank" rel="noopener" href="https://www.cnblogs.com/mfryf/archive/2012/08/09/2629992.html">更多点击这里</a></li>
-</ol>
-
       
     </div>
 
