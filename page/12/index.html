@@ -1660,7 +1660,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-28 14:39:37" itemprop="dateModified" datetime="2025-03-28T14:39:37+08:00">2025-03-28</time>
+      <time title="修改时间：2025-03-28 14:58:42" itemprop="dateModified" datetime="2025-03-28T14:58:42+08:00">2025-03-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1776,14 +1776,17 @@
 <li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/277053071/answer/2702359378?utm_id=0">Arkcia</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/277053071/answer/946713532">张兴远</a></li>
 </ul>
-<h1 id="激活环境时设置环境变量"><a href="#激活环境时设置环境变量" class="headerlink" title="激活环境时设置环境变量"></a>激活环境时设置环境变量</h1><p>假设环境名为 <code>env_name</code>, 在env_name环境目录中, 创建文件夹 <code>etc/conda/activate.d</code>。在该文件夹下，创建 <code>*.sh</code> (linux&#x2F;macos) 或 <code>*.bat</code> (windows) 文件, 将需设置的环境变量或脚本写入其中, 激活虚拟环境时, 该脚本自动运行.</p>
+<h1 id="激活环境时设置环境变量"><a href="#激活环境时设置环境变量" class="headerlink" title="激活环境时设置环境变量"></a>激活环境时设置环境变量</h1><p>假设环境名为 <code>env_name</code>, 在env_name环境目录中, 创建文件夹 <code>etc/conda/activate.d</code>。在该文件夹下，创建 <code>*.sh</code> (linux&#x2F;macos) 或 <code>*.bat</code> (windows) 文件, 将需设置的环境变量或脚本写入其中, 并通过 <code>chmod +x *.sh</code> 添加可执行权限. 当激活虚拟环境时, 该脚本自动运行.</p>
 <p>分步骤如下:</p>
 <ol>
 <li><p>在你的虚拟环境的 <code>etc/conda/activate.d/</code> 目录下创建一个脚本文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda activate env_name</span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="variable">$CONDA_PREFIX</span>/etc/conda/activate.d</span><br><span class="line"><span class="built_in">touch</span> <span class="variable">$CONDA_PREFIX</span>/etc/conda/activate.d/env_vars.sh</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>编辑env_vars.sh文件，添加你需要的环境变量：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> MY_VAR=<span class="string">&quot;my_value&quot;</span></span><br><span class="line"><span class="built_in">export</span> ANOTHER_VAR=<span class="string">&quot;another_value&quot;</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> MY_VAR=<span class="string">&quot;my_value&quot;</span></span><br><span class="line"><span class="built_in">export</span> ANOTHER_VAR=<span class="string">&quot;another_value&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>为 <code>env_vars.sh</code> 添加可执行权限:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x <span class="variable">$CONDA_PREFIX</span>/etc/conda/activate.d/env_vars.sh</span><br></pre></td></tr></table></figure></li>
 </ol>
 
       
