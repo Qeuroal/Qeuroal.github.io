@@ -153,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">173</span>
+          <span class="site-state-item-count">172</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -164,7 +164,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-count">47</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -186,762 +186,6 @@
     </div>
 
     <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/05/26/103/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/05/26/103/" class="post-title-link" itemprop="url">103. tmux操作</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-05-26 04:00:00" itemprop="dateCreated datePublished" datetime="2020-05-26T04:00:00+08:00">2020-05-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-28 09:23:12" itemprop="dateModified" datetime="2025-03-28T09:23:12+08:00">2025-03-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/software/" itemprop="url" rel="index"><span itemprop="name">software</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="进入tmux翻屏模式"><a href="#进入tmux翻屏模式" class="headerlink" title="进入tmux翻屏模式"></a>进入tmux翻屏模式</h1><ul>
-<li>先按 <code>Ctrl+q</code>，松开，然后再按 <code>[</code></li>
-<li>实现上下翻页: 进入翻屏模式后，<code>PgUp</code>, <code>PgDn</code> 实现上下翻页</li>
-<li>退出: <code>q</code></li>
-</ul>
-<blockquote>
-<p>ps:  <code>ctrl + b + [</code>，很多人会以为是同时按三个键，但是这样是不行的。</p>
-</blockquote>
-<h1 id="简单介绍下tmux的其他功能"><a href="#简单介绍下tmux的其他功能" class="headerlink" title="简单介绍下tmux的其他功能"></a>简单介绍下tmux的其他功能</h1><h2 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h2><h3 id="Tmux快捷指令"><a href="#Tmux快捷指令" class="headerlink" title="Tmux快捷指令"></a>Tmux快捷指令</h3><p>关于快捷指令，首先要认识到的是：tmux的所有指令，都包含同一个前缀，默认为<code>Ctrl+q</code>，输入完前缀过后，控制台激活，命令按键才能生效。前面tmux会话相关的操作中，我们共用到了两个快捷键<code>Ctrl+q</code> + <code>d</code>、<code>Ctrl+q</code> + <code>s</code>，但这仅仅是冰山一角，欲窥tmux庞大的快捷键体系，请看下表。</p>
-<blockquote>
-<p> Note: prefix: <code>Ctrl+q</code></p>
-</blockquote>
-<h4 id="系统指令"><a href="#系统指令" class="headerlink" title="系统指令"></a>系统指令</h4><table>
-<thead>
-<tr>
-<th align="center">前缀</th>
-<th align="center">指令</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>?</code></td>
-<td align="center">显示快捷键帮助文档</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>d</code></td>
-<td align="center">断开当前会话</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>D</code></td>
-<td align="center">选择要断开的会话</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>Ctrl+z</code></td>
-<td align="center">挂起当前会话</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>r</code></td>
-<td align="center">强制重载当前会话</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>s</code></td>
-<td align="center">显示会话列表用于选择并切换</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>:</code></td>
-<td align="center">进入命令行模式，此时可直接输入<code>ls</code>等命令</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>[</code></td>
-<td align="center">进入复制模式，按<code>q</code>退出</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>]</code></td>
-<td align="center">粘贴复制模式中复制的文本</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>~</code></td>
-<td align="center">列出提示信息缓存</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>$</code></td>
-<td align="center">重名名当前会话</td>
-</tr>
-</tbody></table>
-<h4 id="窗口（window）指令。"><a href="#窗口（window）指令。" class="headerlink" title="窗口（window）指令。"></a>窗口（window）指令。</h4><table>
-<thead>
-<tr>
-<th align="center">前缀</th>
-<th align="center">指令</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>c</code></td>
-<td align="center">新建窗口</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>&amp;</code></td>
-<td align="center">关闭当前窗口（关闭前需输入<code>y</code> or <code>n</code>确认）</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>0~9</code></td>
-<td align="center">切换到指定窗口</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>p</code></td>
-<td align="center">切换到上一窗口</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>n</code></td>
-<td align="center">切换到下一窗口</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>w</code></td>
-<td align="center">打开窗口列表，用于且切换窗口</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>,</code></td>
-<td align="center">重命名当前窗口</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>.</code></td>
-<td align="center">修改当前窗口编号（适用于窗口重新排序）</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>f</code></td>
-<td align="center">快速定位到窗口（输入关键字匹配窗口名称）</td>
-</tr>
-</tbody></table>
-<h4 id="表三：面板（pane）指令。"><a href="#表三：面板（pane）指令。" class="headerlink" title="表三：面板（pane）指令。"></a>表三：面板（pane）指令。</h4><table>
-<thead>
-<tr>
-<th align="center">前缀</th>
-<th align="center">指令</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>&quot;</code></td>
-<td align="center">当前面板上下一分为二，下侧新建面板</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>%</code></td>
-<td align="center">当前面板左右一分为二，右侧新建面板</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>x</code></td>
-<td align="center">关闭当前面板（关闭前需输入<code>y</code> or <code>n</code>确认）</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>z</code></td>
-<td align="center">最大化当前面板，再重复一次按键后恢复正常（v1.8版本新增）</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>!</code></td>
-<td align="center">将当前面板移动到新的窗口打开（原窗口中存在两个及以上面板有效）</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>;</code></td>
-<td align="center">切换到最后一次使用的面板</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>q</code></td>
-<td align="center">显示面板编号，在编号消失前输入对应的数字可切换到相应的面板</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>&#123;</code></td>
-<td align="center">向前置换当前面板</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>&#125;</code></td>
-<td align="center">向后置换当前面板</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>Ctrl+o</code></td>
-<td align="center">顺时针旋转当前窗口中的所有面板</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>方向键</code></td>
-<td align="center">移动光标切换面板</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>o</code></td>
-<td align="center">选择下一面板</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>空格键</code></td>
-<td align="center">在自带的面板布局中循环切换</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>Alt+方向键</code></td>
-<td align="center">以5个单元格为单位调整当前面板边缘</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>Ctrl+方向键</code></td>
-<td align="center">以1个单元格为单位调整当前面板边缘（Mac下被系统快捷键覆盖）</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q</code></td>
-<td align="center"><code>t</code></td>
-<td align="center">显示时钟</td>
-</tr>
-</tbody></table>
-<p>tmux的丝滑分屏功能正是得益于以上系统、窗口、面板的快捷指令，只要你愿意，你就可以解除任意的快捷指令，然后绑上你喜欢的指令，当然这就涉及到它的可配置性了。</p>
-<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><table>
-<thead>
-<tr>
-<th align="center">快捷键</th>
-<th align="center">功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>Ctrl+q %</code></td>
-<td align="center">竖直拆分屏幕（两个 Shell 分别位于左右）</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q &quot;</code></td>
-<td align="center">水平拆分屏幕（两个 Shell 分别位于上下）</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q O</code></td>
-<td align="center">切换到另一个 Shell</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q ?</code></td>
-<td align="center">查看帮助</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q d</code></td>
-<td align="center">断开 tmux 并让其在后台运行（可以使用 tmux attach 重新进入）</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q &lt;arrow key&gt;</code></td>
-<td align="center">光标切换到其他窗格 <code>&lt;arrow key&gt;</code> 是指向要切换到的窗格的方向键<br />比如切换到下方窗格，就按方向键↓</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q ;</code></td>
-<td align="center">光标切换到上一个窗格</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q o</code></td>
-<td align="center">光标切换到下一个窗格</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q &#123;</code></td>
-<td align="center">当前窗格与上一个窗格交换位置</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q &#125;</code></td>
-<td align="center">当前窗格与下一个窗格交换位置</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q Ctrl+o</code></td>
-<td align="center">所有窗格向前移动一个位置，第一个窗格变成最后一个窗格</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q Alt+o</code></td>
-<td align="center">所有窗格向后移动一个位置，最后一个窗格变成第一个窗格</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q x</code></td>
-<td align="center">关闭当前窗格</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q !</code></td>
-<td align="center">将当前窗格拆分为一个独立窗口</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q z</code></td>
-<td align="center">当前窗格全屏显示，再使用一次会变回原来大小</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q Ctrl+&lt;arrow key&gt;</code></td>
-<td align="center">按箭头方向调整窗格大小</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+q q</code></td>
-<td align="center">显示窗格编号</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>prefix</th>
-<th>Ctrl+q</th>
-<th>激活控制台；此时以下按键生效</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>系统操作</td>
-<td><code>?</code></td>
-<td>列出所有快捷键；按q返回</td>
-</tr>
-<tr>
-<td></td>
-<td><code>d</code></td>
-<td>脱离当前会话；这样可以暂时返回Shell界面，输入tmux attach能够重新进入之前的会话</td>
-</tr>
-<tr>
-<td></td>
-<td><code>D</code></td>
-<td>选择要脱离的会话；在同时开启了多个会话时使用</td>
-</tr>
-<tr>
-<td></td>
-<td><code>Ctrl+z</code></td>
-<td>挂起当前会话</td>
-</tr>
-<tr>
-<td></td>
-<td><code>r</code></td>
-<td>强制重绘未脱离的会话</td>
-</tr>
-<tr>
-<td></td>
-<td><code>s</code></td>
-<td>选择并切换会话；在同时开启了多个会话时使用</td>
-</tr>
-<tr>
-<td></td>
-<td><code>:</code></td>
-<td>进入命令行模式；此时可以输入支持的命令，例如kill-server可以关闭服务器</td>
-</tr>
-<tr>
-<td></td>
-<td><code>[</code></td>
-<td>进入复制模式；此时的操作与vi&#x2F;emacs相同，按q&#x2F;Esc退出</td>
-</tr>
-<tr>
-<td></td>
-<td><code>~</code></td>
-<td>列出提示信息缓存；其中包含了之前tmux返回的各种提示信息</td>
-</tr>
-<tr>
-<td>窗口操作</td>
-<td><code>c</code></td>
-<td>创建新窗口</td>
-</tr>
-<tr>
-<td></td>
-<td><code>&amp;</code></td>
-<td>关闭当前窗口</td>
-</tr>
-<tr>
-<td></td>
-<td><code>数字键</code></td>
-<td>切换至指定窗口</td>
-</tr>
-<tr>
-<td></td>
-<td><code>p</code></td>
-<td>切换至上一窗口</td>
-</tr>
-<tr>
-<td></td>
-<td><code>n</code></td>
-<td>切换至下一窗口</td>
-</tr>
-<tr>
-<td></td>
-<td><code>l</code></td>
-<td>在前后两个窗口间互相切换</td>
-</tr>
-<tr>
-<td></td>
-<td><code>w</code></td>
-<td>通过窗口列表切换窗口</td>
-</tr>
-<tr>
-<td></td>
-<td><code>,</code></td>
-<td>重命名当前窗口；这样便于识别</td>
-</tr>
-<tr>
-<td></td>
-<td><code>.</code></td>
-<td>修改当前窗口编号；相当于窗口重新排序</td>
-</tr>
-<tr>
-<td></td>
-<td><code>f</code></td>
-<td>在所有窗口中查找指定文本</td>
-</tr>
-<tr>
-<td>面板操作</td>
-<td><code>”</code></td>
-<td>将当前面板平分为上下两块</td>
-</tr>
-<tr>
-<td></td>
-<td><code>%</code></td>
-<td>将当前面板平分为左右两块</td>
-</tr>
-<tr>
-<td></td>
-<td><code>x</code></td>
-<td>关闭当前面板</td>
-</tr>
-<tr>
-<td></td>
-<td><code>!</code></td>
-<td>将当前面板置于新窗口；即新建一个窗口，其中仅包含当前面板</td>
-</tr>
-<tr>
-<td></td>
-<td><code>Ctrl+方向键</code></td>
-<td>以1个单元格为单位移动边缘以调整当前面板大小</td>
-</tr>
-<tr>
-<td></td>
-<td><code>Alt+方向键</code></td>
-<td>以5个单元格为单位移动边缘以调整当前面板大小</td>
-</tr>
-<tr>
-<td></td>
-<td><code>Space</code></td>
-<td>在预置的面板布局中循环切换；依次包括even-horizontal、even-vertical、main-horizontal、main-vertical、tiled</td>
-</tr>
-<tr>
-<td></td>
-<td><code>q</code></td>
-<td>显示面板编号</td>
-</tr>
-<tr>
-<td></td>
-<td><code>o</code></td>
-<td>在当前窗口中选择下一面板</td>
-</tr>
-<tr>
-<td></td>
-<td><code>方向键</code></td>
-<td>移动光标以选择面板</td>
-</tr>
-<tr>
-<td></td>
-<td><code>&#123;</code></td>
-<td>向前置换当前面板</td>
-</tr>
-<tr>
-<td></td>
-<td><code>&#125;</code></td>
-<td>向后置换当前面板</td>
-</tr>
-<tr>
-<td></td>
-<td><code>Alt+o</code></td>
-<td>逆时针旋转当前窗口的面板</td>
-</tr>
-<tr>
-<td></td>
-<td><code>Ctrl+o</code></td>
-<td>顺时针旋转当前窗口的面板</td>
-</tr>
-</tbody></table>
-<h2 id="创建tmux"><a href="#创建tmux" class="headerlink" title="创建tmux"></a>创建tmux</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tmux new -s &lt;session-name&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="列出已有的tmux列表"><a href="#列出已有的tmux列表" class="headerlink" title="列出已有的tmux列表"></a>列出已有的tmux列表</h2><ul>
-<li><p>命令</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ tmux <span class="built_in">ls</span></span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ tmux list-session</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>Ctrl+q s</code>：列出所有会话。</p>
-</li>
-</ul>
-<h2 id="进入已创建的tmux"><a href="#进入已创建的tmux" class="headerlink" title="进入已创建的tmux"></a>进入已创建的tmux</h2><ul>
-<li><p>使用会话编号</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ tmux attach -t &lt;session-number&gt;</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ tmux a -t &lt;session-number&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用会话名称</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ tmux attach -t &lt;session-name&gt;</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">$ tmux a -t &lt;session-name&gt;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="切换会话"><a href="#切换会话" class="headerlink" title="切换会话"></a>切换会话</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用会话编号</span></span><br><span class="line">$ tmux switch -t &lt;session-number&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用会话名称</span></span><br><span class="line">$ tmux switch -t &lt;session-name&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="重命名会话"><a href="#重命名会话" class="headerlink" title="重命名会话"></a>重命名会话</h2><ul>
-<li><p><code>$ tmux rename-session</code>命令用于重命名会话。</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tmux rename-session -t &lt;session-number&gt; &lt;new-name&gt;</span><br></pre></td></tr></table></figure>
-
-<p> 上面命令将<code>&lt;session-number&gt;</code>号会话重命名。</p>
-</li>
-<li><p><code>Ctrl+q $</code></p>
-</li>
-</ul>
-<h2 id="临时退出tmux"><a href="#临时退出tmux" class="headerlink" title="临时退出tmux"></a>临时退出tmux</h2><ul>
-<li><code>Ctrl+q d</code></li>
-<li><code>$ tmux detach</code></li>
-</ul>
-<h2 id="杀死tmux"><a href="#杀死tmux" class="headerlink" title="杀死tmux"></a>杀死tmux</h2><ul>
-<li><p>tmux外：<code>$ tmux kill-session -t &lt;session-name&gt;</code></p>
-</li>
-<li><p>tmux内：</p>
-<ul>
-<li><code>Ctrl-d</code></li>
-<li><code>&lt;Prefix(ctrl+q)&gt; + :kill-session</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="删除所有tmux"><a href="#删除所有tmux" class="headerlink" title="删除所有tmux"></a>删除所有tmux</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tmux kill-server</span><br><span class="line">或</span><br><span class="line">tmux ls | grep : | cut -d. -f1 | awk &#x27;&#123;print substr($1, 0, length($1)-1)&#125;&#x27; | xargs kill</span><br></pre></td></tr></table></figure>
-
-<h1 id="vi-mode"><a href="#vi-mode" class="headerlink" title="vi-mode"></a>vi-mode</h1><table>
-<thead>
-<tr>
-<th>vi</th>
-<th>emacs</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>^</td>
-<td>M-m</td>
-<td>反缩进</td>
-</tr>
-<tr>
-<td>Escape</td>
-<td>C-g</td>
-<td>清除选定内容</td>
-</tr>
-<tr>
-<td>Enter</td>
-<td>M-w</td>
-<td>复制选定内容</td>
-</tr>
-<tr>
-<td>j</td>
-<td>Down</td>
-<td>光标下移</td>
-</tr>
-<tr>
-<td>h</td>
-<td>Left</td>
-<td>光标左移</td>
-</tr>
-<tr>
-<td>l</td>
-<td>Right</td>
-<td>光标右移</td>
-</tr>
-<tr>
-<td>L</td>
-<td></td>
-<td>光标移到尾行</td>
-</tr>
-<tr>
-<td>M</td>
-<td>M-r</td>
-<td>光标移到中间行</td>
-</tr>
-<tr>
-<td>H</td>
-<td>M-R</td>
-<td>光标移到首行</td>
-</tr>
-<tr>
-<td>k</td>
-<td>Up</td>
-<td>光标上移</td>
-</tr>
-<tr>
-<td>d</td>
-<td>C-u</td>
-<td>删除整行</td>
-</tr>
-<tr>
-<td>D</td>
-<td>C-k</td>
-<td>删除到行末</td>
-</tr>
-<tr>
-<td>$</td>
-<td>C-e</td>
-<td>移到行尾</td>
-</tr>
-<tr>
-<td>:</td>
-<td>g</td>
-<td>前往指定行</td>
-</tr>
-<tr>
-<td>C-d</td>
-<td>M-Down</td>
-<td>向下滚动半屏</td>
-</tr>
-<tr>
-<td>C-u</td>
-<td>M-Up</td>
-<td>向上滚动半屏</td>
-</tr>
-<tr>
-<td>C-f</td>
-<td>Page down</td>
-<td>下一页</td>
-</tr>
-<tr>
-<td>w</td>
-<td>M-f</td>
-<td>下一个词</td>
-</tr>
-<tr>
-<td>p</td>
-<td>C-y</td>
-<td>粘贴</td>
-</tr>
-<tr>
-<td>C-b</td>
-<td>Page up</td>
-<td>上一页</td>
-</tr>
-<tr>
-<td>b</td>
-<td>M-b</td>
-<td>上一个词</td>
-</tr>
-<tr>
-<td>q</td>
-<td>Escape</td>
-<td>退出</td>
-</tr>
-<tr>
-<td>C-Down or J</td>
-<td>C-Down</td>
-<td>向下翻</td>
-</tr>
-<tr>
-<td>C-Up or K</td>
-<td>C-Up</td>
-<td>向下翻</td>
-</tr>
-<tr>
-<td>n</td>
-<td>n</td>
-<td>继续搜索</td>
-</tr>
-<tr>
-<td>?</td>
-<td>C-r</td>
-<td>向前搜索</td>
-</tr>
-<tr>
-<td>&#x2F;</td>
-<td>C-s</td>
-<td>向后搜索</td>
-</tr>
-<tr>
-<td>0</td>
-<td>C-a</td>
-<td>移到行首</td>
-</tr>
-<tr>
-<td>Space</td>
-<td>C-Space</td>
-<td>开始选中</td>
-</tr>
-<tr>
-<td></td>
-<td>C-t</td>
-<td>字符调序</td>
-</tr>
-</tbody></table>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
 
     
 
@@ -2398,7 +1642,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/06/93/" class="post-title-link" itemprop="url">93. Ubuntu18.04 配置 conda 环境变量</a>
+          <a href="/2020/03/06/93/" class="post-title-link" itemprop="url">93. Anaconda配置</a>
         </h2>
 
         <div class="post-meta-container">
@@ -2416,7 +1660,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-28 09:23:13" itemprop="dateModified" datetime="2025-03-28T09:23:13+08:00">2025-03-28</time>
+      <time title="修改时间：2025-03-28 14:39:37" itemprop="dateModified" datetime="2025-03-28T14:39:37+08:00">2025-03-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -2438,48 +1682,214 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>以下操作均在 <code>Terminal</code> 进行</p>
+          <h1 id="Anaconda创建的虚拟环境多用户共享访问使用"><a href="#Anaconda创建的虚拟环境多用户共享访问使用" class="headerlink" title="Anaconda创建的虚拟环境多用户共享访问使用"></a>Anaconda创建的虚拟环境多用户共享访问使用</h1><p>在服务器上的sudo用户安装了anaconda，假设现在配置了虚拟的环境pytorch，需要怎么设置配置文件，才能保证连接服务器的别的标准用户（不具有sudo权限）怎么可以用到这个环境.</p>
+<h2 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h2><p>建议使用国内源，例如清华大学开源软件镜像站。下载对应架构的安装包，例如 Anaconda3-2022.05-Linux-x86_64.sh。注意下载的是 anaconda3。下面假定你在 root 用户中执行指令，并且之前没有安装过 anaconda。</p>
+<h2 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h2><ol>
+<li><p>运行下载的文件</p>
+<p>通过 <code>chmod +x</code> 为它增加执行权限</p>
+</li>
+<li><p>回车开始安装</p>
+</li>
+<li><p>阅读并输入 yes</p>
+</li>
+<li><p>指定安装目录，例如 <code>/opt/anaconda3</code>. (不要放在 root 根目录（<code>~</code>）下。)</p>
+</li>
+<li><p>等待安装完成</p>
+</li>
+</ol>
+<h2 id="用户组与目录权限"><a href="#用户组与目录权限" class="headerlink" title="用户组与目录权限"></a>用户组与目录权限</h2><p>为了使 anaconda 的文件仍归 root 所有，我们将新建一个用户组来为其余用户提供访问权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">groupadd condagroup <span class="comment"># 新建一个名为 condagroup 的组；可以使用其它名称</span></span><br><span class="line">adduser &lt;username&gt; condagroup  <span class="comment"># 将需要的用户加入该组</span></span><br><span class="line"><span class="built_in">chgrp</span> -R condagroup /opt/anaconda3  <span class="comment"># 将安装目录转给该组</span></span><br><span class="line"><span class="built_in">chmod</span> 770 -R /opt/anaconda3  <span class="comment"># 设置 root 用户与 condagroup 组的读写权限</span></span><br><span class="line">find /opt/anaconda3 -<span class="built_in">type</span> d -<span class="built_in">exec</span> <span class="built_in">chmod</span> g+s &#123;&#125; +  <span class="comment"># 设置组继承，使以后新建的文件夹仍属于 condagroup 组</span></span><br><span class="line"><span class="built_in">chmod</span> g-w /opt/anaconda3/envs  <span class="comment"># 共享环境只能由 root 修改</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="新环境位置"><a href="#新环境位置" class="headerlink" title="新环境位置"></a>新环境位置</h2><p>接下来，为了确保其余用户可以正确地在自己的目录中使用 <code>-n &lt;name&gt;</code> 新建环境，还要创建系统级的 anaconda 配置文件。在安装目录下(<code>/opt/anaconda3</code>)新建<code>.condarc</code>文件并写入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">envs_dirs:</span><br><span class="line">  - /opt/anaconda3/envs</span><br><span class="line">  - ~/.conda/envs</span><br></pre></td></tr></table></figure>
+
+<p>根据 <a target="_blank" rel="noopener" href="https://docs.conda.io/projects/conda/en/latest/configuration.html">Conda configuration</a>，envs_dirs是搜索命名环境的目录列表。创建新的命名环境时将放置在第一个可写位置，因此 root 用户将默认创建在安装目录下，成为共享环境，而其余用户会创建在自己的主目录中。</p>
+<blockquote>
+<p>关于更多的管理选项，参见 Administering a multi-user conda installation。</p>
+</blockquote>
+<p>你可能会想把这个文件的权限设为 644来避免被其余用户改动。这也是默认行为，因为 root 用户的默认 umask 是 0022。我们接下来将介绍这个 umask 可能带来的问题。</p>
+<h2 id="关于-umask"><a href="#关于-umask" class="headerlink" title="关于 umask"></a>关于 umask</h2><p>umask 控制新建文件的权限，简单来说是对指定的权限位进行排除。详细信息参见它的维基百科。</p>
+<p>前述文件共享的机制是通过组读写权限完成的，意味着 anaconda 的文件需要有用户组的读与写权限。普通用户的默认 umask 是 0002，提供了用户组写仅限，但 root 用户的0022并没有。因此在使用 root 用户创建共享环境前需要修改 umask。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">umask</span> 0002</span><br><span class="line">conda create -n env_name python  <span class="comment"># 示例</span></span><br><span class="line"><span class="built_in">umask</span> 0022  <span class="comment"># 你可能会想恢复原值</span></span><br></pre></td></tr></table></figure>
+
+<p>否则会导致其它用户无权访问某些新下载的包的缓存等问题。在这种情况下，可以找到相应的文件并为其附加用户组写权限chmod g+w。</p>
+<h2 id="新增用户"><a href="#新增用户" class="headerlink" title="新增用户"></a>新增用户</h2><p>现在你已经安装好了想要的 anaconda。如果有新用户，只需将其加入<strong>condagroup</strong>用户组，即可使用共享环境或创建新环境。</p>
+<h2 id="conda-环境配置"><a href="#conda-环境配置" class="headerlink" title="conda 环境配置"></a>conda 环境配置</h2><h3 id="方法1-局部-用户-配置-Recommend"><a href="#方法1-局部-用户-配置-Recommend" class="headerlink" title="方法1: 局部(用户)配置 (Recommend)"></a>方法1: 局部(用户)配置 (Recommend)</h3><blockquote>
+<p>以普通用户执行如下操作, 但是需要在所有的权限设置完毕之后方可使用</p>
 </blockquote>
 <ol>
-<li>如果使用的是 <code>bash</code>:<ol>
-<li>方法一:<ol>
-<li><code>sudo gedit ~/.bashrc</code></li>
-<li>在最后一行添加： <code>export PATH=&quot;~/anaconda3/bin:$PATH&quot;</code> (注意：使用你自己的安装目录，我的anaconda目录在 <code>~/anaconda3</code>)</li>
-<li><code>source ~/.bashrc</code> (用来激活环境变量)</li>
-<li>激活：<ol>
+<li><p>运行命令 <code>eval &quot;$(/opt/anaconda3/bin/conda shell.&lt;YOUR_SHELL_NAME&gt; hook)&quot;</code></p>
+<p>如: <code>eval &quot;$(/opt/anaconda3/bin/conda shell.zsh hook)&quot;</code></p>
+</li>
+<li><p>运行命令 <code>conda init</code> 或 <code>conda init &lt;YOUR_SHELL_NAME&gt;</code></p>
+<blockquote>
+<p>注: <code>conda init</code> 好像只会修改 <code>.bashrc</code> 文件</p>
+</blockquote>
+</li>
+<li><p>设置关闭自启动base环境</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda config --<span class="built_in">set</span> auto_activate_base <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<p>或者修改文件 <code>~/.condarc</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">auto_activate_base: false</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="方法2-全局-root-配置-Not-recommend"><a href="#方法2-全局-root-配置-Not-recommend" class="headerlink" title="方法2: 全局(root)配置 (Not recommend)"></a>方法2: 全局(root)配置 (Not recommend)</h3><blockquote>
+<p>以root用户进行如下操作</p>
+</blockquote>
+<ol>
+<li><p>使用vim打开 <code>/etc/profile</code>, 在末尾添加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/opt/anaconda3/bin:$PATH</span><br></pre></td></tr></table></figure>
+
+<p>目的是为了让各用户的终端都能找到conda并运行。如果你安装在其它位置，请对应地更改目录值（下同）</p>
+</li>
+<li><p>运行 <code>source /etc/profile</code> 应用这项更改</p>
+</li>
+</ol>
+<h3 id="方法3-直接配置-bashrc或-zshrc"><a href="#方法3-直接配置-bashrc或-zshrc" class="headerlink" title="方法3: 直接配置.bashrc或.zshrc"></a>方法3: 直接配置.bashrc或.zshrc</h3><ol>
+<li><p><code>vim ~/.bashrc</code></p>
+</li>
+<li><p>在最后一行添加： </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;/opt/anaconda3/bin:<span class="variable">$PATH</span>&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用来激活环境变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure></li>
+<li><p>激活：</p>
+<ul>
 <li><code>source activate</code></li>
 <li><code>conda activate</code></li>
-</ol>
+</ul>
 </li>
-<li>退出激活：<ol>
+<li><p>退出激活：</p>
+<ul>
 <li><code>source deactivate</code></li>
 <li><code>conda deactivate</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><blockquote>
+<p>Q: <code>conda create</code> 创建的目录不在 <code>~/.conda/envs</code></p>
+</blockquote>
+<p>A: 删除 <code>/opt/anaconda3/envs/.conda_envs_dir_test</code> 文件</p>
+<blockquote>
+<p>参考: </p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/277053071/answer/2702359378?utm_id=0">Arkcia</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/277053071/answer/946713532">张兴远</a></li>
+</ul>
+<h1 id="激活环境时设置环境变量"><a href="#激活环境时设置环境变量" class="headerlink" title="激活环境时设置环境变量"></a>激活环境时设置环境变量</h1><p>假设环境名为 <code>env_name</code>, 在env_name环境目录中, 创建文件夹 <code>etc/conda/activate.d</code>。在该文件夹下，创建 <code>*.sh</code> (linux&#x2F;macos) 或 <code>*.bat</code> (windows) 文件, 将需设置的环境变量或脚本写入其中, 激活虚拟环境时, 该脚本自动运行.</p>
+<p>分步骤如下:</p>
+<ol>
+<li><p>在你的虚拟环境的 <code>etc/conda/activate.d/</code> 目录下创建一个脚本文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda activate env_name</span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="variable">$CONDA_PREFIX</span>/etc/conda/activate.d</span><br><span class="line"><span class="built_in">touch</span> <span class="variable">$CONDA_PREFIX</span>/etc/conda/activate.d/env_vars.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑env_vars.sh文件，添加你需要的环境变量：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> MY_VAR=<span class="string">&quot;my_value&quot;</span></span><br><span class="line"><span class="built_in">export</span> ANOTHER_VAR=<span class="string">&quot;another_value&quot;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/02/23/91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/02/23/91/" class="post-title-link" itemprop="url">91. C/C++ 链表指针</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-02-23 04:00:00" itemprop="dateCreated datePublished" datetime="2020-02-23T04:00:00+08:00">2020-02-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-28 09:23:13" itemprop="dateModified" datetime="2025-03-28T09:23:13+08:00">2025-03-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/c-c/" itemprop="url" rel="index"><span itemprop="name">c/c++</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h1><p>如果要改变变量的值就用指针，不改变就用变量本身；使用变量本身，那么相当于读取，对原来的数据没有任何影响。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1>   <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">   <span class="type">int</span> data;</span><br><span class="line">   <span class="keyword">struct</span> <span class="title class_">Node</span> *next;</span><br><span class="line">&#125;Node;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">Node</span> *LinkList;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">initLinkList</span><span class="params">(LinkList *L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   (*L) = <span class="keyword">new</span> Node;</span><br><span class="line">   (*L)-&gt;data = <span class="number">0</span>;</span><br><span class="line">   (*L)-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">insertLinkList</span><span class="params">(LinkList head, <span class="type">int</span> pos, <span class="type">int</span> value)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   LinkList p = head, t;</span><br><span class="line">   <span class="type">int</span> j = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">while</span> (p &amp;&amp; j &lt; pos) &#123;</span><br><span class="line">      p = p-&gt;next;</span><br><span class="line">      j++;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span> (!(p) || j &gt; pos) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">   t = <span class="keyword">new</span> Node;</span><br><span class="line">   t-&gt;data = value;</span><br><span class="line">   t-&gt;next = p-&gt;next;</span><br><span class="line">   p-&gt;next = t;</span><br><span class="line">   head-&gt;data++;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">deleteLinkList</span><span class="params">(LinkList l, <span class="type">int</span> pos, <span class="type">int</span> *value)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   LinkList p = l, q;</span><br><span class="line">   <span class="type">int</span> j = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">while</span> (p-&gt;next &amp;&amp; j &lt; pos) &#123;</span><br><span class="line">      p = p-&gt;next;</span><br><span class="line">      j++;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span> (!(p-&gt;next) || j &gt; pos) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">   q = p-&gt;next;</span><br><span class="line">   p-&gt;next = q-&gt;next;</span><br><span class="line">   <span class="built_in">delete</span>(q);</span><br><span class="line">   l-&gt;data--;</span><br><span class="line">   <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">clearLinkList</span><span class="params">(LinkList l)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   LinkList p = l-&gt;next, q;</span><br><span class="line">   l-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">   <span class="keyword">while</span> (p) &#123;</span><br><span class="line">      q = p-&gt;next;</span><br><span class="line">      <span class="built_in">delete</span> (p);</span><br><span class="line">      p = q;</span><br><span class="line">      l-&gt;data--;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">showLinkList</span><span class="params">(LinkList l)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   cout &lt;&lt; <span class="string">&quot;Length is &quot;</span> &lt;&lt; l-&gt;data &lt;&lt; endl;</span><br><span class="line">   l = l-&gt;next;</span><br><span class="line">   <span class="keyword">while</span> (l) &#123;</span><br><span class="line">      cout &lt;&lt; l-&gt;data &lt;&lt; <span class="string">&quot;\t&quot;</span>;</span><br><span class="line">      l = l-&gt;next;</span><br><span class="line">   &#125;</span><br><span class="line">   cout &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   LinkList head = <span class="literal">NULL</span>;</span><br><span class="line">   <span class="built_in">initLinkList</span>(&amp;head);</span><br><span class="line"></span><br><span class="line">   <span class="type">int</span> value_del;</span><br><span class="line">   <span class="built_in">deleteLinkList</span>(head, <span class="number">1</span>, &amp;value_del);</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++) &#123;</span><br><span class="line">      <span class="built_in">insertLinkList</span>(head, i, i);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="built_in">insertLinkList</span>(head, <span class="number">4</span>, <span class="number">10</span>);</span><br><span class="line">   <span class="built_in">showLinkList</span>(head);</span><br><span class="line"></span><br><span class="line">   <span class="built_in">deleteLinkList</span>(head, <span class="number">4</span>, &amp;value_del);</span><br><span class="line">   <span class="built_in">showLinkList</span>(head);</span><br><span class="line"></span><br><span class="line">   <span class="built_in">clearLinkList</span>(head);</span><br><span class="line">   <span class="built_in">showLinkList</span>(head);</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h1><ol>
+<li>该链表是有头结点的链表；</li>
+<li>什么时候用 <code>LinkList L</code> 和 <code>LinkList *L</code>：<ol>
+<li>需要改变指针的值的时候用 <code>LinkList *L</code>，若对指针的值没有改变时，使用 <code>LinkList L</code></li>
+</ol>
+</li>
+<li>链表注意事项：<ol>
+<li><code>LinkList head;</code>只是定义了一个 变量名为<code>head</code>的指针变量，是一个野指针，那么需要在定义的时候进行初始化，即：<code>LinkList head = NULL</code></li>
+<li>想要使用 <code>head</code> 指向头结点，需要自己 <code>new</code> 一个结构体，将这个结构体的地址赋给 <code>head</code></li>
+</ol>
+</li>
+<li><code>insertLinkList</code> 和 <code>deleteLinkList</code>的异同：<ol>
+<li><code>insertLinkList</code> 和 <code>deleteLinkList</code>不论在位置 <code>pos</code> 处插入一个结点还是在pos处删除结点，都是对 <code>pos-1</code> 进行操作。</li>
+<li>在使用 <code>while</code> 循环时，<code>insertLinkList</code>是以第j个位置为判断对象，而 <code>deleteLinkList</code>是以第j+1个位置为判断对象的（其中：头结点为第1个位置）。</li>
 </ol>
 </li>
 </ol>
-</li>
-</ol>
-</li>
-<li>如果使用的是 <code>zsh</code>:<ol>
-<li>方法一：<ol>
-<li><code>sudo gedit ~/.zshrc</code></li>
-<li>在最后一行添加<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export PATH=&quot;~/anaconda3/bin:$PATH&quot;</span><br><span class="line">. /home/dgimo/anaconda3/etc/profile.d/conda.sh</span><br></pre></td></tr></table></figure></li>
-<li><code>source ~/.zshrc</code></li>
-<li>激活：<ol>
-<li><code>conda activate</code></li>
-</ol>
-</li>
-<li>退出激活：<ol>
-<li><code>conda deactivate</code></li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<h3 id="可以不看下面的，个人错误记录"><a href="#可以不看下面的，个人错误记录" class="headerlink" title="可以不看下面的，个人错误记录"></a>可以不看下面的，个人错误记录</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">CommandNotFoundError: Your shell has not been properly configured to use &#x27;conda activate&#x27;.</span><br><span class="line">If your shell is Bash or a Bourne variant, enable conda for the current user with</span><br><span class="line"></span><br><span class="line">    $ echo &quot;. /home/dgimo/anaconda3/etc/profile.d/conda.sh&quot; &gt;&gt; ~/.zshrc</span><br><span class="line"></span><br><span class="line">or, for all users, enable conda with</span><br><span class="line"></span><br><span class="line">    $ sudo ln -s /home/dgimo/anaconda3/etc/profile.d/conda.sh /etc/profile.d/conda.sh</span><br><span class="line"></span><br><span class="line">The options above will permanently enable the &#x27;conda&#x27; command, but they do NOT</span><br><span class="line">put conda&#x27;s base (root) environment on PATH.  To do so, run</span><br><span class="line"></span><br><span class="line">    $ conda activate</span><br><span class="line"></span><br><span class="line">in your terminal, or to put the base environment on PATH permanently, run</span><br><span class="line"></span><br><span class="line">    $ echo &quot;conda activate&quot; &gt;&gt; ~/.bashrc</span><br><span class="line"></span><br><span class="line">Previous to conda 4.4, the recommended way to activate conda was to modify PATH in</span><br><span class="line">your ~/.bashrc file.  You should manually remove the line that looks like</span><br><span class="line"></span><br><span class="line">    export PATH=&quot;/home/dgimo/anaconda3/bin:$PATH&quot;</span><br><span class="line"></span><br><span class="line">^^^ The above line should NO LONGER be in your ~/.bashrc file! ^^^</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
       
     </div>
 

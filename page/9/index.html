@@ -153,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">173</span>
+          <span class="site-state-item-count">172</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -164,7 +164,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-count">47</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -186,166 +186,6 @@
     </div>
 
     <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2021/05/17/141/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/05/17/141/" class="post-title-link" itemprop="url">141. C++</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-05-17 19:53:15" itemprop="dateCreated datePublished" datetime="2021-05-17T19:53:15+08:00">2021-05-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-28 09:23:12" itemprop="dateModified" datetime="2025-03-28T09:23:12+08:00">2025-03-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/c-c/" itemprop="url" rel="index"><span itemprop="name">c/c++</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h2><ul>
-<li><p>函数的地址是存储其机器语言代码的内存开始的地址</p>
-</li>
-<li><p>好处：可在在不同的时间使用不同的函数（可以把函数当做参数传递）</p>
-</li>
-<li><p>声明：</p>
- <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 函数原型</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">sum</span><span class="params">(<span class="type">double</span>, <span class="type">double</span>)</span></span></span><br><span class="line"><span class="function"><span class="comment">// 函数指针声明</span></span></span><br><span class="line"><span class="function"><span class="title">double</span> <span class="params">(*ptrSum)</span><span class="params">(<span class="type">double</span>, <span class="type">double</span>)</span></span></span><br></pre></td></tr></table></figure>
-
-<p> 注意：</p>
-<ul>
-<li>该语句声明了一个指针<code>ptrSum</code>，指向一个函数</li>
-<li><code>double *ptrSum(double, double)</code>不是函数指针，而是：声明了一个函数<code>ptrSum</code>，返回 <code>double *类型</code></li>
-</ul>
-</li>
-<li><p>用法</p>
- <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明power函数</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">power</span><span class="params">(<span class="type">int</span>, <span class="type">int</span>)</span></span>;</span><br><span class="line"><span class="comment">// 声明函数指针</span></span><br><span class="line"><span class="built_in">int</span> (*powerPtr)(<span class="type">int</span>, <span class="type">int</span>);</span><br><span class="line"><span class="comment">// 让声明的函数指针指向函数，以便调用</span></span><br><span class="line">powerPtr = power;</span><br><span class="line"><span class="comment">// 调用</span></span><br><span class="line"><span class="built_in">powerPtr</span>(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">(*powerPtr)(<span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>应用</p>
-<ul>
-<li><p>题目</p>
-<p> 用函数指针实现加减乘除</p>
-</li>
-<li><p>代码</p>
-<ul>
-<li><p><code>Caculator.h</code></p>
- <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* author Qeuroal</span></span><br><span class="line"><span class="comment">* date 2021/5/19</span></span><br><span class="line"><span class="comment">* description </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="keyword">ifndef</span> BLOG141_CACULATOR_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> BLOG141_CACULATOR_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定义计算器，使用函数指针</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 加法</span></span><br><span class="line"><span class="comment"> * @return</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">addition</span><span class="params">(<span class="type">double</span>, <span class="type">double</span>)</span></span>;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 减法</span></span><br><span class="line"><span class="comment"> * @return</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">subtraction</span><span class="params">(<span class="type">double</span>, <span class="type">double</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 乘法</span></span><br><span class="line"><span class="comment"> * @return</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">multiplication</span><span class="params">(<span class="type">double</span>, <span class="type">double</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 除法</span></span><br><span class="line"><span class="comment"> * @return</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">division</span><span class="params">(<span class="type">double</span>, <span class="type">double</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 打印计算结果</span></span><br><span class="line"><span class="comment"> * param double (*)(double , double ) 函数指针</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">printResult</span><span class="params">(<span class="type">double</span> (*)(<span class="type">double</span> , <span class="type">double</span> ), <span class="type">double</span>, <span class="type">double</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">printResult</span><span class="params">(<span class="type">double</span> (*calcPtr)(<span class="type">double</span>, <span class="type">double</span>), <span class="type">double</span> num1, <span class="type">double</span> num2)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 调用函数，打印结果</span></span><br><span class="line">    <span class="type">double</span> result = <span class="built_in">calcPtr</span>(num1, num2);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;运算结果为：&quot;</span> &lt;&lt; result &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">addition</span><span class="params">(<span class="type">double</span> num1, <span class="type">double</span> num2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">subtraction</span><span class="params">(<span class="type">double</span> num1, <span class="type">double</span> num2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 - num2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">multiplication</span><span class="params">(<span class="type">double</span> num1, <span class="type">double</span> num2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 * num2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">division</span><span class="params">(<span class="type">double</span> num1, <span class="type">double</span> num2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (num2 == <span class="number">0</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;除数不能为0！！&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> num1 / num2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span> <span class="comment">//BLOG141_CACULATOR_H</span></span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>FuncPtr.cpp</code></p>
- <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* author Qeuroal</span></span><br><span class="line"><span class="comment">* date 2021/5/19</span></span><br><span class="line"><span class="comment">* description </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Caculator.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 定义函数指针</span></span><br><span class="line">    <span class="built_in">double</span> (*calcPtr)(<span class="type">double</span>, <span class="type">double</span>) = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="comment">// 定义函数指针数组</span></span><br><span class="line">    <span class="built_in">double</span> (*calcPtrArray[])(<span class="type">double</span>, <span class="type">double</span>) = &#123;&#125;;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;请输入两个操作数：&quot;</span>;</span><br><span class="line">    <span class="type">double</span> num1, num2;</span><br><span class="line">    cin &gt;&gt; num1 &gt;&gt; num2;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;请输入运算符：&quot;</span>;</span><br><span class="line">    <span class="type">char</span> op;</span><br><span class="line">    cin &gt;&gt; op;</span><br><span class="line">    <span class="keyword">switch</span> (op) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;+&#x27;</span>:</span><br><span class="line">            calcPtr = addition;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">            calcPtr = subtraction;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;*&#x27;</span>:</span><br><span class="line">            calcPtr = multiplication;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;/&#x27;</span>:</span><br><span class="line">            calcPtr = division;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printResult</span>(calcPtr, num1, num2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>注意</p>
-<ul>
-<li><p>要用函数指针的话，先定义函数，再定义函数指针；</p>
-</li>
-<li><p>在 <code>C11</code> 中可以使用 <code>auto funcPtr = addition;</code> 自动推断类型（自动类型推断需要确保变量的类型与初值类型一致）;</p>
-</li>
-<li><p>使用<code>auto</code>时，需要初始化，否则会报错；</p>
-</li>
-<li><p>可以使用 <code>typedef</code> 简化声明：</p>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">double</span> <span class="params">(*funcPtr)</span><span class="params">(<span class="type">double</span>, <span class="type">double</span>)</span></span>;</span><br><span class="line"><span class="comment">// 此时funcPtr是一个新的类型，而不是一个函数指针，真正的函数指针是calcPtr</span></span><br><span class="line">funcPtr = calcPtr;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><h2 id="注意点。"><a href="#注意点。" class="headerlink" title="注意点。"></a>注意点。</h2><ul>
-<li>类一般是在头文件定义</li>
-<li><code>.h文件</code> 声明类的结构，<code>.cpp文件</code>实现类的成员函数</li>
-</ul>
-<h2 id="实例化方法（以无参构造为例）"><a href="#实例化方法（以无参构造为例）" class="headerlink" title="实例化方法（以无参构造为例）"></a>实例化方法（以无参构造为例）</h2><blockquote>
-<p>假设定义了 <code>Person</code> 类。</p>
-</blockquote>
-<ul>
-<li><p>省略了默认构造：<code>Person person;</code> （在栈内存中直接分配空间）</p>
-</li>
-<li><p>标准写法：<code>Person person();</code> （在栈内存中直接分配空间）</p>
-</li>
-<li><p>指针写法：<code>Person *person = new Person();</code> （在堆内存分配空间，并用指针 <code>person</code> 指向该内存空间）</p>
-</li>
-<li><p>如果构造函数中只有一个是带<em><strong>唯一</strong></em>的参数，如下所示：</p>
-<ul>
-<li><p>类</p>
- <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">    <span class="built_in">Person</span>(<span class="type">int</span> age) &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;age = age; </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">Person</span>(string name, <span class="type">int</span> age) &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;name = name;</span><br><span class="line">        <span class="keyword">this</span>-&gt;age = age;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    string name;</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>实例化</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Person person =20;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><ul>
-<li><p>正常写法（略）</p>
-</li>
-<li><p>简化写法：初始化参数列表写法</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Person::Person(string name, int age) : name(name), age(age) &#123;&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
 
     
 
@@ -3113,6 +2953,115 @@
 <h2 id="小结-11"><a href="#小结-11" class="headerlink" title="小结"></a>小结</h2><ul>
 <li>对于简单的小文件读写操作，可以使用Files工具类简化代码。</li>
 </ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2021/02/03/128/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/02/03/128/" class="post-title-link" itemprop="url">128. Java易混知识点</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-02-03 17:08:19" itemprop="dateCreated datePublished" datetime="2021-02-03T17:08:19+08:00">2021-02-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-28 09:23:12" itemprop="dateModified" datetime="2025-03-28T09:23:12+08:00">2025-03-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="length-length-size"><a href="#length-length-size" class="headerlink" title="length(), length, size()"></a>length(), length, size()</h1><ul>
+<li><code>length()</code> 方法是针对字符串来说的，要求一个字符串的长度就要用到它的length()方法；</li>
+<li><code>length</code> 属性是针对 Java 中的数组来说的，要求数组的长度可以用其 length 属性；</li>
+<li><code>size()</code> 方法是针对泛型集合说的, 如果想看这个泛型有多少个元素, 就调用此方法来查看!</li>
+</ul>
+<blockquote>
+<p>例子<br>   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>   public class Main {</p>
+<pre><code>  public static void main(String[] args) &#123;
+     String array[] = &#123; &quot;First&quot;, &quot;Second&quot;, &quot;Third&quot; &#125;;
+     String a = &quot;HelloWorld&quot;;
+     List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+     list.add(a);
+     System.out.println(&quot;数组array的长度为&quot; + array.length);
+     System.out.println(&quot;字符串a的长度为&quot; + a.length());
+     System.out.println(&quot;list中元素个数为&quot; + list.size());
+
+  &#125;
+</code></pre>
+<p>   }</p>
+<blockquote>
+<p>输出</p>
+</blockquote>
+<p>   数组array的长度为3<br>   字符串a的长度为10<br>   list中元素个数为1</p>
 
       
     </div>
