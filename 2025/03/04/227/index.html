@@ -28,7 +28,7 @@
 <meta property="og:description" content="使用SSH方法">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-03-04T05:34:58.000Z">
-<meta property="article:modified_time" content="2025-03-28T01:23:12.787Z">
+<meta property="article:modified_time" content="2025-04-01T08:15:13.379Z">
 <meta property="article:author" content="Qeuroal">
 <meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
@@ -141,7 +141,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E4%B8%AAssh-key%E7%9A%84%E7%AE%A1%E7%90%86"><span class="nav-number">1.1.</span> <span class="nav-text">多个ssh key的管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ssh-key%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-number">1.1.1.</span> <span class="nav-text">ssh key的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEssh%E4%BB%A3%E7%90%86"><span class="nav-number">1.1.2.</span> <span class="nav-text">配置ssh代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E5%85%AC%E9%92%A5"><span class="nav-number">1.1.3.</span> <span class="nav-text">添加公钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6config"><span class="nav-number">1.1.4.</span> <span class="nav-text">配置文件config</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81ssh-key"><span class="nav-number">1.1.5.</span> <span class="nav-text">验证ssh key</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E4%B8%AAgit%E8%B4%A6%E6%88%B7%E7%9A%84%E6%8F%90%E4%BA%A4%E9%97%AE%E9%A2%98"><span class="nav-number">1.2.</span> <span class="nav-text">多个git账户的提交问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.1.</span> <span class="nav-text">检查全局配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%E5%92%8C%E5%B1%80%E9%83%A8%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.2.</span> <span class="nav-text">全局配置和局部配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo%E9%83%A8%E7%BD%B2%E6%97%B6%E7%9A%84git%E6%8F%90%E4%BA%A4%E9%97%AE%E9%A2%98"><span class="nav-number">1.2.3.</span> <span class="nav-text">hexo部署时的git提交问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#QAs"><span class="nav-number">2.</span> <span class="nav-text">QAs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%88%E9%AA%8C%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">先验知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E4%B8%AAssh-key%E7%9A%84%E7%AE%A1%E7%90%86"><span class="nav-number">2.1.</span> <span class="nav-text">多个ssh key的管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ssh-key%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-number">2.1.1.</span> <span class="nav-text">ssh key的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEssh%E4%BB%A3%E7%90%86"><span class="nav-number">2.1.2.</span> <span class="nav-text">配置ssh代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E5%85%AC%E9%92%A5"><span class="nav-number">2.1.3.</span> <span class="nav-text">添加公钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6config"><span class="nav-number">2.1.4.</span> <span class="nav-text">配置文件config</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81ssh-key"><span class="nav-number">2.1.5.</span> <span class="nav-text">验证ssh key</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E4%B8%AAgit%E8%B4%A6%E6%88%B7%E7%9A%84%E6%8F%90%E4%BA%A4%E9%97%AE%E9%A2%98"><span class="nav-number">2.2.</span> <span class="nav-text">多个git账户的提交问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE"><span class="nav-number">2.2.1.</span> <span class="nav-text">检查全局配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%E5%92%8C%E5%B1%80%E9%83%A8%E9%85%8D%E7%BD%AE"><span class="nav-number">2.2.2.</span> <span class="nav-text">全局配置和局部配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo%E9%83%A8%E7%BD%B2%E6%97%B6%E7%9A%84git%E6%8F%90%E4%BA%A4%E9%97%AE%E9%A2%98"><span class="nav-number">2.2.3.</span> <span class="nav-text">hexo部署时的git提交问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#globa%E5%9F%BA%E4%BA%8Ehttps%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E8%B4%A6%E6%88%B7%E7%9A%84%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93"><span class="nav-number">3.</span> <span class="nav-text">globa基于https管理多个账户的私有仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#QAs"><span class="nav-number">4.</span> <span class="nav-text">QAs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -235,7 +235,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-28 09:23:12" itemprop="dateModified" datetime="2025-03-28T09:23:12+08:00">2025-03-28</time>
+      <time title="修改时间：2025-04-01 16:15:13" itemprop="dateModified" datetime="2025-04-01T16:15:13+08:00">2025-04-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -258,6 +258,13 @@
     
     
     <div class="post-body" itemprop="articleBody"><p>平时开发过程中可能遇到这样的问题，就是在进行公司的项目开发时要用公司的git账号，以及对应的git仓库，比如gitlab的；对于个人的开源项目，又会有自己的git账号，以及对应的git仓库，比如github或者码云（gitee）。<br>这时就会遇到多账户提交时的冲突问题，以及对应的多个ssh key的管理的问题。</p>
+<h1 id="先验知识"><a href="#先验知识" class="headerlink" title="先验知识"></a>先验知识</h1><ul>
+<li>查看所有配置及其来源: <code>git config [--global] --list --show-origin</code></li>
+<li>检查配置: <code>git config [--global] --get &lt;credential.helper&gt;</code></li>
+</ul>
+<blockquote>
+<p>[!NOTE]<br>如果命令配置后无效, 请使用 <code>git config [--global] --list --show-origin</code> 查看所在文件, 直接修改文件也可以达到同样的目的. (万物皆文件)</p>
+</blockquote>
 <h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h2 id="多个ssh-key的管理"><a href="#多个ssh-key的管理" class="headerlink" title="多个ssh key的管理"></a>多个ssh key的管理</h2><h3 id="ssh-key的创建"><a href="#ssh-key的创建" class="headerlink" title="ssh key的创建"></a>ssh key的创建</h3><p>假如有两个git账户，分别是<code>github@example.com</code>和<code>gitee@example.com</code>。为了提交git，我们需要设置对应的ssh key，ssh key具体其在对应平台的配置方法比较简单，本文不再详述，可参考对应的资料，这里只是ssh key的创建及管理。<br>在终端输入如下命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;github@example.com&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -331,6 +338,21 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">*** Please tell me who you are.</span><br><span class="line"></span><br><span class="line">Run</span><br><span class="line"></span><br><span class="line">  git config --global user.email &quot;you@example.com&quot;</span><br><span class="line">  git config --global user.name &quot;Your Name&quot;</span><br><span class="line"></span><br><span class="line">to set your account&#x27;s default identity.</span><br><span class="line">Omit --global to set the identity only in this repository.</span><br></pre></td></tr></table></figure>
 
 <p>不知道是不是因为hexo必须要求读取全局配置，设置了几个文件夹的局部git配置，均无效，只好又恢复了全局配置，也就是对应的github的账户信息，因为之前提到过，局部配置的优先级大于全局配置，所以不用担心账户冲突的问题，只要设置好对应仓库的局部配置信息，就不用担心全局配置的存在。<br>当然，这只是折中的方案，如果有人知道如何配置hexo仓库的局部配置信息，欢迎指教。</p>
+<h1 id="globa基于https管理多个账户的私有仓库"><a href="#globa基于https管理多个账户的私有仓库" class="headerlink" title="globa基于https管理多个账户的私有仓库"></a>globa基于https管理多个账户的私有仓库</h1><ol>
+<li><p>添加 github 账户的 SSH keys</p>
+</li>
+<li><p>新建 github 账户的 token</p>
+</li>
+<li><p>按照上面的教程配置多个账户的ssh key</p>
+</li>
+<li><p>使用命令: <code>git clone git@&lt;user_hostname&gt;:&lt;repository_owner&gt;/&lt;repository_name&gt;.git</code> 下载该仓库</p>
+</li>
+<li><p>使用命令设置 local 配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config --<span class="built_in">local</span> user.name &lt;username&gt;         <span class="comment"># 设置用户名</span></span><br><span class="line">git config --<span class="built_in">local</span> user.email &lt;usermail&gt;        <span class="comment"># 设置用户邮箱</span></span><br><span class="line">git config --<span class="built_in">local</span> credential.helper store      <span class="comment"># 设置存储密钥</span></span><br><span class="line">git remote <span class="built_in">rm</span> origin                            <span class="comment"># 移除远程链接</span></span><br><span class="line">git remote add origin &lt;remote_url&gt;              <span class="comment"># 添加仓库的url</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>大功告成</p>
+</li>
+</ol>
 <h1 id="QAs"><a href="#QAs" class="headerlink" title="QAs"></a>QAs</h1><ul>
 <li><p>如果存在无法上传到仓库的问题</p>
 <p> 运行命令:</p>
