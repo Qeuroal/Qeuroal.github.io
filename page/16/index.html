@@ -153,18 +153,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">173</span>
+          <span class="site-state-item-count">174</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-count">48</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -186,6 +186,103 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2019/02/15/32/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/02/15/32/" class="post-title-link" itemprop="url">32. 岛屿的个数</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-02-15 04:00:00" itemprop="dateCreated datePublished" datetime="2019-02-15T04:00:00+08:00">2019-02-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-04-02 10:53:23" itemprop="dateModified" datetime="2025-04-02T10:53:23+08:00">2025-04-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programming/" itemprop="url" rel="index"><span itemprop="name">programming</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><img data-src="/2019/02/15/32/12.png" class="" width="12">
+
+
+
+
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><blockquote>
+<p>同 733. 图像渲染</p>
+</blockquote>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h2 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(vector&lt;vector&lt;<span class="type">char</span>&gt;&gt;&amp; grid, <span class="type">int</span> x, <span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> next[<span class="number">4</span>][<span class="number">2</span>] = &#123; &#123;<span class="number">0</span>, <span class="number">1</span>&#125;, &#123;<span class="number">1</span>, <span class="number">0</span>&#125;,  &#123;<span class="number">0</span>, <span class="number">-1</span>&#125;, &#123;<span class="number">-1</span>, <span class="number">0</span>&#125; &#125;;</span><br><span class="line">    grid[x][y] = <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">        <span class="type">int</span> nx = x + next[i][<span class="number">0</span>];</span><br><span class="line">        <span class="type">int</span> ny = y + next[i][<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">if</span>(nx &gt;= <span class="number">0</span> &amp;&amp; nx &lt; grid.<span class="built_in">size</span>() &amp;&amp; ny &gt;= <span class="number">0</span> &amp;&amp; ny &lt; grid[<span class="number">0</span>].<span class="built_in">size</span>() &amp;&amp; grid[nx][ny] == <span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">            <span class="built_in">dfs</span>(grid, nx, ny);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">numIslands</span><span class="params">(vector&lt;vector&lt;<span class="type">char</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(grid.<span class="built_in">empty</span>() || grid[<span class="number">0</span>].<span class="built_in">empty</span>())</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> m = grid.<span class="built_in">size</span>(), n = grid[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++) </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j++) </span><br><span class="line">            <span class="keyword">if</span>(grid[i][j] == <span class="string">&#x27;1&#x27;</span>) &#123;</span><br><span class="line">                res++;</span><br><span class="line">                <span class="built_in">dfs</span>(grid, i, j);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h2><blockquote>
+<p>RE?</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">numIslands</span><span class="params">(vector&lt;vector&lt;<span class="type">char</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(grid.<span class="built_in">empty</span>() || grid[<span class="number">0</span>].<span class="built_in">empty</span>())</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> next[<span class="number">4</span>][<span class="number">2</span>] = &#123; &#123;<span class="number">0</span>, <span class="number">1</span>&#125;, &#123;<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">0</span>, <span class="number">-1</span>&#125;, &#123;<span class="number">-1</span>, <span class="number">0</span>&#125; &#125;;</span><br><span class="line">    <span class="type">int</span> landCount = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; grid.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; grid[<span class="number">0</span>].<span class="built_in">size</span>(); j++) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(grid[i][j] == <span class="string">&#x27;1&#x27;</span>) &#123;</span><br><span class="line">                landCount++;</span><br><span class="line">                queue&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; &gt; q;</span><br><span class="line">                q.<span class="built_in">push</span>(<span class="built_in">pair</span>&lt;<span class="type">int</span>, <span class="type">int</span>&gt; (i, j));</span><br><span class="line">                <span class="keyword">while</span>(q.<span class="built_in">size</span>()) &#123;</span><br><span class="line">                    pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; t = q.<span class="built_in">front</span>();</span><br><span class="line">                    q.<span class="built_in">pop</span>();</span><br><span class="line">                    grid[t.first][t.second] = <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">0</span>; k &lt; <span class="number">4</span>; k++) &#123;</span><br><span class="line">                        <span class="type">int</span> ni = t.first + next[k][<span class="number">0</span>], nj = t.second + next[k][<span class="number">1</span>];</span><br><span class="line">                        <span class="keyword">if</span>(ni &gt;= <span class="number">0</span> &amp;&amp; ni &lt; grid.<span class="built_in">size</span>() &amp;&amp; nj &gt;= <span class="number">0</span> &amp;&amp; nj &lt; grid[<span class="number">0</span>].<span class="built_in">size</span>() &amp;&amp; grid[ni][nj] == <span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">                            q.<span class="built_in">push</span>(<span class="built_in">pair</span>&lt;<span class="type">int</span>, <span class="type">int</span>&gt; (ni, nj));</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> landCount;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1329,250 +1426,6 @@
 
 <p>自定义当前工作目录（Current working directory）的路径。</p>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2019/01/23/16/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/01/23/16/" class="post-title-link" itemprop="url">16. 电脑常用快捷键</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-01-23 05:00:00" itemprop="dateCreated datePublished" datetime="2019-01-23T05:00:00+08:00">2019-01-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-04-02 10:53:23" itemprop="dateModified" datetime="2025-04-02T10:53:23+08:00">2025-04-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/os/" itemprop="url" rel="index"><span itemprop="name">os</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Win10系统："><a href="#Win10系统：" class="headerlink" title="Win10系统："></a>Win10系统：</h1><h3 id="新增："><a href="#新增：" class="headerlink" title="新增："></a>新增：</h3><ul>
-<li>贴靠窗口：<br> Win + 左&#x2F;右 &gt;  Win + 上&#x2F;下 &gt; 窗口可以变为 1&#x2F;4 大小放置在屏幕 4 个角落。  </li>
-<li>切换窗口：<br> Alt + Tab（不是新的，但任务切换界面改进）。  </li>
-<li>任务视图：<br> Win + Tab（松开键盘界面不会消失）。</li>
-<li>创建新的虚拟桌面：<br> Win + Ctrl + D。  </li>
-<li>关闭当前虚拟桌面：<br> Win + Ctrl + F4。</li>
-<li>切换虚拟桌面：<br> Win + Ctrl + 左&#x2F;右。</li>
-</ul>
-<h3 id="常用："><a href="#常用：" class="headerlink" title="常用："></a>常用：</h3><ul>
-<li>Win键 &emsp; 桌面与开始菜单切换按键  </li>
-<li>Win + R &emsp;打开运行对话框  </li>
-<li>Win + Q &emsp;快速打开搜索   </li>
-<li>Win + I &emsp;快速打开Win10设置栏  </li>
-<li>Ctrl+Alt+Del &emsp;快速打开任务管理器  </li>
-<li>Alt+F4 &emsp;关机快捷键</li>
-</ul>
-<h3 id="Windows键组合快捷键"><a href="#Windows键组合快捷键" class="headerlink" title="Windows键组合快捷键"></a>Windows键组合快捷键</h3><ul>
-<li>Win + ←：最大化窗口到左侧的屏幕上（与开始屏幕应用无关）</li>
-<li>Win + →：最大化窗口到右侧的屏幕上（与开始屏幕应用无关）1.  Win+ ↑：最大化窗口（与开始屏幕应用无关）</li>
-<li>Win+ ↓：最小化窗口（与开始屏幕应用无关）</li>
-<li>Win+ SHIFT +↑：垂直拉伸窗口，宽度不变（与开始屏幕应用无关）</li>
-<li>Win+ SHIFT +↓：垂直缩小窗口，宽度不变（与开始屏幕应用无关）</li>
-<li>Win+SHIFT+←：将活动窗口移至左侧显示器 （与开始屏幕应用无关）</li>
-<li>Win+SHIFT+→：将活动窗口移至右侧显示器（与开始屏幕应用无关）</li>
-<li>Win+ P：演示设置</li>
-<li>Win+ Home：最小化所有窗口，第二次键击恢复窗口（不恢复开始屏幕应用）</li>
-<li>Win+ 数字键：打开或切换位于任务栏指定位置的程序</li>
-<li>Win+Shift+数字键：打开位于任务栏指定位置程序的新实例</li>
-<li>Win+B：光标移至通知区域</li>
-<li>Win+Break：显示“系统属性”对话框</li>
-<li>Win+D：显示桌面，第二次键击恢复桌面 （不恢复开始屏幕应用）</li>
-<li>Win+E：打开我的电脑</li>
-<li>Win+Ctrl+F：搜索计算机（如果你在网络上）</li>
-<li>Win+G：循环切换侧边栏小工具</li>
-<li>Win+L：锁住电脑或切换用户</li>
-<li>Win+M：最小化所有窗口</li>
-<li>Win+Shift+M：在桌面恢复所有最小化窗口（不恢复开始屏幕应用）</li>
-<li>Win+R：打开“运行”对话框</li>
-<li>Win+T：切换任务栏上的程序</li>
-<li>Win+Alt+回车：打开Windows媒体中心</li>
-<li>Win+U：打开轻松访问中心</li>
-<li>Win+F1：打开Windows帮助和支持</li>
-<li>Win+N：插件新笔记（OneNote）</li>
-<li>Win+S：打开屏幕截图工具（OneNote）</li>
-<li>Win+Q：打开Lync，Windows 8搜索功能移除了该快捷键</li>
-<li>Win+A：接受所有来电 （在microsoft Lync中）</li>
-<li>Win+X：拒绝来电（在microsoft Lync中），如果Windows移动中心存在，该快捷键不起作用</li>
-<li>Win+减号：缩小（放大镜）</li>
-<li>Win+加号：放大（放大镜）</li>
-<li>Win+Esc：关闭放大镜</li>
-<li>Win+空格键：切换输入语言和键盘布局</li>
-<li>Win+O：禁用屏幕翻转</li>
-<li>Win+，：临时查看桌面</li>
-<li>Win+V：切换系统通知信息</li>
-<li>Win+Shift+V：反向切换系统通知信息</li>
-<li>Win+回车：打开“讲述人”</li>
-<li>Win+PgUp：将开始屏幕或开始屏幕应用移至左侧显示器</li>
-<li>Win+PgDown：将开始屏幕或开始屏幕应用移至右侧显示器</li>
-<li>Win+Shift+.：将应用移至左侧</li>
-<li>Win+.：将应用移至右侧</li>
-<li>Win+C：打开Charms栏（提供设置、设备、共享和搜索等选项）</li>
-<li>Win+I：打开设置栏</li>
-<li>Win+K：打开连接显示屏</li>
-<li>Win+H：打开共享栏</li>
-<li>Win+Q：打开应用搜索面板</li>
-<li>Win+W：打开“设置搜索”应用</li>
-<li>Win+F：打开“文件搜索”应用</li>
-<li>Win+Tab：循环切换应用</li>
-<li>Win+Shift+Tab：反向循环切换应用</li>
-<li>Win+Ctrl+Tab：循环切换应用，切换时手动选择应用</li>
-<li>Win+Z：打开“应用栏”</li>
-<li>Win+&#x2F;：恢复默认输入法</li>
-<li>Win+J：显示之前操作的应用</li>
-<li>Win+X：快捷菜单</li>
-</ul>
-<h3 id="常规-通用-的键盘快捷方式："><a href="#常规-通用-的键盘快捷方式：" class="headerlink" title="常规(通用)的键盘快捷方式："></a>常规(通用)的键盘快捷方式：</h3><ul>
-<li>F1 显示帮助</li>
-<li>Ctrl+Shift+Esc 打开任务管理器</li>
-<li>Ctrl+A 全选</li>
-<li>Ctrl+C 复制选择的项目</li>
-<li>Ctrl+X 剪切选择的项目</li>
-<li>Ctrl+V(或 Shift+Insert) 粘贴选择的项目</li>
-<li>Ctrl+Z 撤消操作</li>
-<li>Ctrl+Y 重新执行某项操作</li>
-<li>Delete(或 Ctrl+D) 删除所选项目并将其移动到“回收站”</li>
-<li>Shift+Delete 不先将所选项目移动到“回收站”而直接将其删除</li>
-<li>F2 重命名选定项目</li>
-<li>Ctrl+向右键 将光标移动到下一个字词的起始处</li>
-<li>Ctrl+向左键 将光标移动到上一个字词的起始处</li>
-<li>Ctrl+向下键 将光标移动到下一个段落的起始处</li>
-<li>Ctrl+向上键 将光标移动到上一个段落的起始处</li>
-<li>Ctrl+Shift 加某个箭头键 选择一块文本</li>
-<li>Shift 加任意箭头键 在窗口中或桌面上选择多个项目，或者在文档中选择文本</li>
-<li>Ctrl 加任意箭头键+空格键 选择窗口中或桌面上的多个单个项目</li>
-<li>Ctrl+A 选择文档或窗口中的所有项目</li>
-<li>F3 搜索文件或文件夹</li>
-<li>Alt+Enter 显示所选项的属性</li>
-<li>Alt+F4 关闭活动项目或者退出活动程序</li>
-<li>Alt+空格键 为活动窗口打开快捷方式菜单</li>
-<li>Ctrl+F4 关闭活动文档(在允许同时打开多个文档的程序中)</li>
-<li>Ctrl+ Alt+Tab 使用箭头键在打开的项目之间切换</li>
-<li>Ctrl+鼠标滚轮 更改桌面上的图标大小</li>
-<li>Win键 + Tab 使用 Aero Flip 31. D 循环切换任务栏上的程序</li>
-<li>Ctrl + Win键 + Tab 通过 Aero Flip 31. D 使用箭头键循环切换任务栏上的程序</li>
-<li>Alt+Esc 以项目打开的顺序循环切换项目</li>
-<li>F6 在窗口中或桌面上循环切换屏幕元素</li>
-<li>F4 在 Win资源管理器中显示地址栏列表</li>
-<li>Shift+F10 显示选定项目的快捷菜单</li>
-<li>Ctrl+Esc 打开“开始”菜单</li>
-<li>Alt+加下划线的字母 显示相应的菜单</li>
-<li>Alt+加下划线的字母 执行菜单命令(或其他有下划线的命令)</li>
-<li>F10 激活活动程序中的菜单栏</li>
-<li>向右键 打开右侧的下一个菜单或者打开子菜单</li>
-<li>向左键 打开左侧的下一个菜单或者关闭子菜单</li>
-<li>F5(或 Ctrl+R) 刷新活动窗口</li>
-<li>Alt+向上键 在 Win资源管理器中查看上一级文件夹</li>
-<li>Esc 取消当前任务</li>
-<li>插入 CD 时按住 Shift 阻止 CD 自动播放</li>
-<li>左 Alt+Shift 在启用多种输入语言时切换输入语言</li>
-<li>Ctrl+Shift 在启用多个键盘布局时切换键盘布局</li>
-<li>右或左 Ctrl+Shift 更改从右到左阅读语言的文本阅读方向</li>
-<li>Win资源管理器中的快捷键</li>
-<li>Ctrl+N 打开新窗口</li>
-<li>Ctrl+W 关闭当前窗口</li>
-<li>Ctrl+Shift+N 新建文件夹</li>
-<li>End 显示活动窗口的底端</li>
-<li>Home 显示活动窗口的顶端</li>
-<li>F11 最大化或最小化活动窗口</li>
-<li>Ctrl+句点 顺时针旋转图片</li>
-<li>Ctrl+逗号 逆时针旋转图片</li>
-<li>Num Lock+数字键盘上的星号 (*) 显示所选文件夹下的所有子文件夹</li>
-<li>Num Lock+数字键盘上的加号 (+) 显示所选文件夹的内容</li>
-<li>Num Lock+数字键盘上的减号 (1. ) 折叠选定的文件夹</li>
-<li>向左键折叠当前选项(如果它处于展开状态)，或者选择其父文件夹</li>
-<li>Alt+Enter 打开所选项目的“属性”对话框</li>
-<li>Alt+P 显示预览窗格</li>
-<li>Alt+向左键 &emsp; 查看上一个文件夹</li>
-<li>Backspace(退格键)向上 返回父文件夹</li>
-<li>向右键显示当前选项(如果它处于折叠状态)，或者选择第一个子文件夹</li>
-<li>Alt+向右键 查看下一个文件夹</li>
-<li>Alt+向上键 查看父文件夹</li>
-<li>Ctrl+Shift+E 显示所选文件夹上面的所有文件夹</li>
-<li>Ctrl+鼠标滚轮 更改文件和文件夹图标的大小和外观</li>
-<li>Alt+D 选择地址栏</li>
-<li>Ctrl+E 选择搜索框</li>
-<li>Ctrl+F 选择搜索框</li>
-</ul>
-<h3 id="在对话框中使用的快捷键"><a href="#在对话框中使用的快捷键" class="headerlink" title="在对话框中使用的快捷键"></a>在对话框中使用的快捷键</h3><ul>
-<li>Ctrl+Tab 在选项卡上向前移动</li>
-<li>Ctrl+Shift+Tab 在选项卡上向后移动</li>
-<li>Tab 在选项上向前移动</li>
-<li>Shift+Tab 在选项上向后移动</li>
-<li>Alt+加下划线的字母 执行与该字母匹配的命令(或选择选项)</li>
-<li>Enter 对于许多选定命令代替单击鼠标</li>
-<li>空格键 如果活动选项是复选框，则选中或清除该复选框</li>
-<li>箭头键 如果活动选项是一组选项按钮，则选择某个按钮</li>
-<li>F1 显示帮助</li>
-<li>F4 显示活动列表中的项目</li>
-<li>Backspace 如果在“另存为”或“打开”对话框中选中了某个文件夹，则打开上一级文件夹</li>
-</ul>
-<h1 id="Word"><a href="#Word" class="headerlink" title="Word"></a>Word</h1><h1 id="Excel"><a href="#Excel" class="headerlink" title="Excel"></a>Excel</h1><h1 id="PPT"><a href="#PPT" class="headerlink" title="PPT"></a>PPT</h1>
       
     </div>
 
