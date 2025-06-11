@@ -153,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">178</span>
+          <span class="site-state-item-count">179</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -186,6 +186,101 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2019/02/11/25/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/02/11/25/" class="post-title-link" itemprop="url">25.汉明距离总和</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-02-11 04:00:00" itemprop="dateCreated datePublished" datetime="2019-02-11T04:00:00+08:00">2019-02-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-05-19 08:11:18" itemprop="dateModified" datetime="2025-05-19T08:11:18+08:00">2025-05-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programming/" itemprop="url" rel="index"><span itemprop="name">programming</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><img data-src="/2019/02/11/25/6.png" class="" width="6">
+
+
+
+
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><ol>
+<li>以第k位为例</li>
+<li>假设所有数字的第k位为：<code>1  0  1  0</code></li>
+<li>汉明距离与 <code>0 1的个数</code>有关</li>
+<li>第k位汉明距离总和为 $num_0 * num_1$</li>
+</ol>
+<h3 id="【其中】：-1-num-0-：数字0的个数-2-num-1-：数字1的个数"><a href="#【其中】：-1-num-0-：数字0的个数-2-num-1-：数字1的个数" class="headerlink" title="【其中】： 1. $num_0$：数字0的个数  2. $num_1$：数字1的个数"></a>【其中】：<br/> 1. $num_0$：数字0的个数 <br/> 2. $num_1$：数字1的个数</h3><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">totalHammingDistance</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">31</span>; i++) &#123;</span><br><span class="line">        <span class="type">int</span> ones = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> x : nums) &#123;</span><br><span class="line">            <span class="keyword">if</span>(x &gt;&gt; i &amp; <span class="number">1</span>)</span><br><span class="line">                ones++;</span><br><span class="line">        &#125;</span><br><span class="line">        res += ones * (nums.<span class="built_in">size</span>() - ones);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1396,102 +1491,6 @@
 <pre><code>&gt; Note: 一般常用的是 `6.2`，因为有些比赛的命令行不能粘贴，一个个的打又太麻烦了，这样就会方便很多
 </code></pre>
 <h1 id="导入全部头文件"><a href="#导入全部头文件" class="headerlink" title="导入全部头文件"></a>导入全部头文件</h1>   <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2019/01/19/3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/01/19/3/" class="post-title-link" itemprop="url">3. 由数据范围反推算法复杂度以及算法内容</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-01-19 06:00:00" itemprop="dateCreated datePublished" datetime="2019-01-19T06:00:00+08:00">2019-01-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-05-19 08:11:18" itemprop="dateModified" datetime="2025-05-19T08:11:18+08:00">2025-05-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/programming/" itemprop="url" rel="index"><span itemprop="name">programming</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="友情提示"><a href="#友情提示" class="headerlink" title="友情提示"></a>友情提示</h1><p>一般ACM或者笔试题的时间限制是1秒或2秒。<br>在这种情况下，C++代码中的操作次数控制在 $10^7$ 为最佳。</p>
-<h1 id="下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择："><a href="#下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择：" class="headerlink" title="下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择："></a>下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择：</h1><ol>
-<li>n ≤ 30 &#x3D;&gt; 指数级别, dfs+剪枝，状态压缩dp</li>
-<li>n ≤ 100 &#x3D;&gt; O(n3)O(n3)，floyd，dp</li>
-<li>n ≤ 1000 &#x3D;&gt; O(n2)O(n2)，O(n2logn)O(n2logn)，dp，二分</li>
-<li>n ≤ 10000 &#x3D;&gt; O(n∗n√)O(n∗n)，块状链表</li>
-<li>n ≤ 100000 &#x3D;&gt; O(nlogn)O(nlogn) &#x3D;&gt; 各种sort，线段树、树状数组、set&#x2F;map、heap、dijkstra+heap、spfa、求凸包、求半平面交、二分</li>
-<li>n ≤ 1000000 &#x3D;&gt; O(n)O(n), 以及常数较小的 O(nlogn)O(nlogn) 算法 &#x3D;&gt; hash、双指针扫描、kmp、AC自动机，常数比较小的 O(nlogn)O(nlogn) 的做法：sort、树状数组、heap、dijkstra、spfa</li>
-<li>n ≤ 10000000 &#x3D;&gt; O(n)O(n)，双指针扫描、kmp、AC自动机、线性筛素数</li>
-<li>n ≤ $10^9$ &#x3D;&gt; O(n√)O(n)，判断质数</li>
-<li>n ≤ $ 10^{18} $ &#x3D;&gt; O(logn)O(logn)，最大公约数</li>
-</ol>
 
       
     </div>
