@@ -153,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">179</span>
+          <span class="site-state-item-count">180</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -186,6 +186,116 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/04/01/100/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/04/01/100/" class="post-title-link" itemprop="url">100. Clion中使用头文件和源文件坑</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-04-01 04:00:00" itemprop="dateCreated datePublished" datetime="2020-04-01T04:00:00+08:00">2020-04-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-05-19 08:11:17" itemprop="dateModified" datetime="2025-05-19T08:11:17+08:00">2025-05-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/c-c/" itemprop="url" rel="index"><span itemprop="name">c/c++</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Clion-中使用头文件定义类，源文件实现"><a href="#Clion-中使用头文件定义类，源文件实现" class="headerlink" title="Clion 中使用头文件定义类，源文件实现"></a><code>Clion</code> 中使用头文件定义类，源文件实现</h1><h2 id="include什么"><a href="#include什么" class="headerlink" title="include什么"></a>include什么</h2><blockquote>
+<p>导入头文件(<code>.h</code>)和源文件(<code>.cpp</code>)<br>Note: 只导入 源文件（<code>.cpp</code>） 也可以</p>
+</blockquote>
+<h2 id="CMakeLists-txt"><a href="#CMakeLists-txt" class="headerlink" title="CMakeLists.txt"></a>CMakeLists.txt</h2><ul>
+<li>手动添加</li>
+</ul>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.15)</span><br><span class="line">project(HCpp)</span><br><span class="line"></span><br><span class="line">set(CMAKE_CXX_STANDARD 11)</span><br><span class="line"></span><br><span class="line">add_executable(HCpp main.cpp)</span><br><span class="line">add_executable(ElemType ElemType.cpp ElemType.h)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>自动添加</li>
+</ul>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 遍历项目根目录下所有的 .cpp 文件</span><br><span class="line">file (GLOB files *.cpp)</span><br><span class="line">foreach (file $&#123;files&#125;)</span><br><span class="line">    string(REGEX REPLACE &quot;.+/(.+)\\..*&quot; &quot;\\1&quot; exe $&#123;file&#125;)</span><br><span class="line">    add_executable ($&#123;exe&#125; $&#123;file&#125;)</span><br><span class="line">    message (\ \ \ \ --\ src/$&#123;exe&#125;.cpp\ will\ be\ compiled\ to\ bin/$&#123;exe&#125;)</span><br><span class="line">endforeach ()</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h2 id="ElemType-h"><a href="#ElemType-h" class="headerlink" title="ElemType.h"></a><code>ElemType.h</code></h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> HCPP_ELEMTYPE_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> HCPP_ELEMTYPE_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ElemType</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> data;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">ElemType</span>();</span><br><span class="line">    <span class="built_in">ElemType</span>(<span class="type">int</span>);</span><br><span class="line">    <span class="keyword">friend</span> std::ostream &amp;<span class="keyword">operator</span> &lt;&lt;(std::ostream &amp;, <span class="type">const</span> ElemType &amp;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span> <span class="comment">//HCPP_ELEMTYPE_H</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="ElemType-cpp"><a href="#ElemType-cpp" class="headerlink" title="ElemType.cpp"></a><code>ElemType.cpp</code></h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;ElemType.h&quot;</span></span></span><br><span class="line"></span><br><span class="line">ElemType::<span class="built_in">ElemType</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;data = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ElemType::<span class="built_in">ElemType</span>(<span class="type">int</span> data) &#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;data = data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">std::ostream&amp; <span class="keyword">operator</span> &lt;&lt;(std::ostream &amp;out, <span class="type">const</span> ElemType &amp;e)</span><br><span class="line">&#123;</span><br><span class="line">    out &lt;&lt; e.data;</span><br><span class="line">    <span class="keyword">return</span> out;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="main-cpp"><a href="#main-cpp" class="headerlink" title="main.cpp"></a><code>main.cpp</code></h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;ElemType.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;ElemType.cpp&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span>  <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ElemType e = <span class="built_in">ElemType</span>(<span class="number">10</span>);</span><br><span class="line">    cout &lt;&lt; e &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>运算符重载：详见 <a href="/2020/03/99">运算符重载</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1992,101 +2102,6 @@
 <li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lishanlei/p/9090404.html">https://www.cnblogs.com/lishanlei/p/9090404.html</a></li>
 </ol>
 </li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/01/07/83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/01/07/83/" class="post-title-link" itemprop="url">83. Ubuntu 相关</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-01-07 04:00:00" itemprop="dateCreated datePublished" datetime="2020-01-07T04:00:00+08:00">2020-01-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-05-19 08:11:19" itemprop="dateModified" datetime="2025-05-19T08:11:19+08:00">2025-05-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/os/" itemprop="url" rel="index"><span itemprop="name">os</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="清理"><a href="#清理" class="headerlink" title="清理"></a>清理</h1><ul>
-<li><code>sudo apt-get purge -y --auto-remove</code></li>
-</ul>
-<h1 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h1><ol>
-<li>grub启动界面：直接使用 <code>sudo ./install.sh -v</code>，而不是<code>sudo ./install.sh -v -2</code></li>
-<li>安装微软字体库时，使用Tab健选择确定</li>
-<li>搜狗输入法 如果调到第一门语言就会乱码(可能有的电脑没问题)</li>
-<li>安装好<code>anaconda</code>后是没有图标的</li>
-<li>安装<code>anaocnda</code>直接 <code>bash anaconda.sh</code></li>
-<li>安装<code>anaconda</code>之前应该先安装 <code>Vscode</code></li>
 </ol>
 
       
