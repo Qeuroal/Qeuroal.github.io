@@ -153,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">180</span>
+          <span class="site-state-item-count">181</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -186,6 +186,261 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2023/06/23/156/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/06/23/156/" class="post-title-link" itemprop="url">156. vagrant + virturalbox 环境</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-23 15:00:00" itemprop="dateCreated datePublished" datetime="2023-06-23T15:00:00+08:00">2023-06-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-05-19 08:11:18" itemprop="dateModified" datetime="2025-05-19T08:11:18+08:00">2025-05-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/software/" itemprop="url" rel="index"><span itemprop="name">software</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="vagrant-安装"><a href="#vagrant-安装" class="headerlink" title="vagrant 安装"></a>vagrant 安装</h1><h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><ul>
+<li><p>vagrant <a target="_blank" rel="noopener" href="https://developer.hashicorp.com/vagrant/downloads">官网地址</a></p>
+</li>
+<li><p>vagrantbox</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://developer.hashicorp.com/vagrant/docs/boxes">官方文档</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://app.vagrantup.com/boxes/search?provider=virtualbox">下载地址</a></p>
+ <img data-src="/2023/06/23/156/image-20230623074435666.png" class="" title="image-20230623074435666"></li>
+</ul>
+</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ol>
+<li><p>添加 box 到vagrant</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant box add &lt;box_name&gt; &lt;box_path&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>&lt;box_name&gt;</code>: 为 box 取的名字，供后续创建虚拟机</li>
+<li><code>&lt;box_path&gt;</code>: vagrantbox 所在地址</li>
+</ul>
+</li>
+<li><p>查看是否添加成功</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant box list</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建虚拟机</p>
+<p>创建一个目录, 然后在该目录下执行以下命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant init &lt;box_name&gt;</span><br></pre></td></tr></table></figure>
+
+<p>会生成一个 <code>Vagrantfile</code> 文件</p>
+</li>
+<li><p>修改 <code>Vagrantfile</code> 文件配置</p>
+</li>
+<li><p>启动虚拟机</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant up</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入虚拟机</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant ssh</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>默认用户: <code>vagrant</code></li>
+<li>用户密码: <code>vagrant</code></li>
+</ul>
+</li>
+<li><p>关闭虚拟机</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant halt</span><br></pre></td></tr></table></figure></li>
+</ol>
+<blockquote>
+<p>PS: </p>
+<ul>
+<li>每次启动虚拟机需要使用命令行（cmd）进入 <code>Vagrantfile</code> 文件所在的目录，然后再使用 <code>vagrant up</code> 命令启动虚拟机。</li>
+<li>关机同理，使用命令行（cmd）进入 <code>Vagrantfile</code> 文件所在的目录，然后再使用 <code>vagrant halt</code> 命令关闭虚拟机。</li>
+</ul>
+</blockquote>
+<h1 id="virtualbox-安装"><a href="#virtualbox-安装" class="headerlink" title="virtualbox 安装"></a>virtualbox 安装</h1><h2 id="下载地址-1"><a href="#下载地址-1" class="headerlink" title="下载地址"></a>下载地址</h2><ul>
+<li><p>官网<a target="_blank" rel="noopener" href="https://www.virtualbox.org/wiki/Downloads">下载地址</a></p>
+</li>
+<li><p>c++依赖<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-CN/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022">下载地址</a></p>
+ <img data-src="/2023/06/23/156/image-20230623072754976.png" class="" title="image-20230623072754976">
+
+<p> 按需下载即可</p>
+</li>
+</ul>
+<h2 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h2><p>双击打开, 默认安装就可以</p>
+<h2 id="Ubuntu镜像地址"><a href="#Ubuntu镜像地址" class="headerlink" title="Ubuntu镜像地址"></a>Ubuntu镜像地址</h2><p><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/">清华镜像站</a></p>
+<p>fate 官方测试使用的版本为 18.04</p>
+<h1 id="vagrant-系统外部可访问"><a href="#vagrant-系统外部可访问" class="headerlink" title="vagrant 系统外部可访问"></a>vagrant 系统外部可访问</h1><blockquote>
+<p>win10系统下的设置</p>
+</blockquote>
+<h2 id="step1-设置防火墙入站规则"><a href="#step1-设置防火墙入站规则" class="headerlink" title="step1. 设置防火墙入站规则"></a>step1. 设置防火墙入站规则</h2><ol>
+<li><p>进入windows 防火墙</p>
+</li>
+<li><p>控制面板 -&gt; 系统和安全  -&gt; Windows Defender 防火墙 -&gt; 高级设置 -&gt; 入站规则 -&gt; 文件和打印机共享(回显请求 - ICMPv4-In)</p>
+</li>
+<li><p>右键属性 -&gt; 作用域 -&gt; 远程IP地址 -&gt; 下列 IP 地址 -&gt; 添加</p>
+</li>
+<li><p>我使用的是 <code>此IP地址或子网</code></p>
+<p>目的: 仅允许部分用户使用</p>
+<p>如添加: <code>10.132.0.0/16</code></p>
+</li>
+</ol>
+<p><strong>测试是否成功配置</strong></p>
+<p>即查看是否可以 ping 通</p>
+<h2 id="step2-设置-vagrantfile-为桥接网络"><a href="#step2-设置-vagrantfile-为桥接网络" class="headerlink" title="step2. 设置 vagrantfile 为桥接网络"></a>step2. 设置 vagrantfile 为桥接网络</h2><ol>
+<li><p>查看名称或接口索引</p>
+<ul>
+<li><p>方法1</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh interface ipv4 show interfaces</span><br></pre></td></tr></table></figure>
+
+<p> 我的这里是 <code>WLAN</code></p>
+</li>
+<li><p>方法2 (未测试)</p>
+<ol>
+<li>打开”控制面板”。您可以在开始菜单中搜索”控制面板”，然后选择相应的结果打开它。</li>
+<li>在控制面板窗口中，将视图设置为”小图标”或”大图标”，以便更轻松找到所需的项目。</li>
+<li>找到并点击”网络和共享中心”。</li>
+<li>在左侧导航栏中，点击”更改适配器设置”，以打开网络连接设置。</li>
+<li>在网络连接设置中，您将看到可用的网络适配器列表。查找您希望用作桥接网络的适配器，例如您的有线网卡或无线网卡。</li>
+<li>右键单击所选适配器，并选择”属性”。</li>
+<li>在适配器属性对话框中，找到并选中”Internet 协议版本 4 (TCP&#x2F;IPv4)”，然后点击”属性”按钮。</li>
+<li>在”Internet 协议版本 4 (TCP&#x2F;IPv4) 属性”对话框中，您可以看到适配器的IP地址配置。请注意当前配置的详细信息，以便在后续步骤中进行参考。</li>
+<li>在同一对话框中，点击”高级”按钮。</li>
+<li>在”高级 TCP&#x2F;IP 设置”对话框中，切换到”IP 设置”选项卡。</li>
+<li>在”IP 设置”选项卡中，您将看到网卡的名称和接口索引。记下名称或接口索引，这将用于Vagrantfile中的网络配置。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>设置 <code>config.vm.network &quot;public_network&quot;, bright: &quot;WLAN&quot;</code></p>
+<p><code>bright</code>: 就是上面的“查看名称或接口索引 ”</p>
+</li>
+<li><p>启动&#x2F;重启虚拟机: <code>vagrant up</code>&#x2F;<code>vagrant reload</code></p>
+</li>
+<li><p>查看ip地址: <code>ifconfig</code>, 我这里的是 <code>10.132.22.5</code></p>
+</li>
+<li><p>设置Vigrant: <code>config.vm.network &quot;public_network&quot;, bright: &quot;WLAN&quot;, ip: &quot;10.132.22.5&quot;</code></p>
+<blockquote>
+<p>也可以加入子网掩码, 如 <code>config.vm.network &quot;public_network&quot;, bridge: &quot;WLAN&quot;, netmask: &quot;255.255.0.0&quot;, ip: &quot;10.132.22.5&quot;</code></p>
+</blockquote>
+</li>
+</ol>
+<h2 id="step3-更改-vagrant-密码"><a href="#step3-更改-vagrant-密码" class="headerlink" title="step3. 更改 vagrant 密码"></a>step3. 更改 vagrant 密码</h2><p><code>passwd</code></p>
+<p>或</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br><span class="line">passwd vagrant</span><br></pre></td></tr></table></figure>
+
+<p>PS: 更多信息查看 Ubuntu 处理方法</p>
+<h1 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h1><ul>
+<li>华硕主板打不开virtualbox虚拟机的ubuntu安装系统 (虚拟机VirtualBox异常退出解决办法)</li>
+<li>vagrant ssh 连接 remote host identification has changed</li>
+<li>解决vagrant ssh登录时permission deny的问题</li>
+</ul>
+<h2 id="华硕主板打不开virtualbox虚拟机的ubuntu安装系统-虚拟机VirtualBox异常退出解决办法"><a href="#华硕主板打不开virtualbox虚拟机的ubuntu安装系统-虚拟机VirtualBox异常退出解决办法" class="headerlink" title="华硕主板打不开virtualbox虚拟机的ubuntu安装系统 (虚拟机VirtualBox异常退出解决办法)"></a>华硕主板打不开virtualbox虚拟机的ubuntu安装系统 (虚拟机VirtualBox异常退出解决办法)</h2><h2 id="vagrant-启动失败-There-was-an-error-while-executing-VBoxManage-a-CLI-used-by-Vagrant-for-controlli……"><a href="#vagrant-启动失败-There-was-an-error-while-executing-VBoxManage-a-CLI-used-by-Vagrant-for-controlli……" class="headerlink" title="vagrant 启动失败 There was an error while executing VBoxManage, a CLI used by Vagrant for controlli……"></a>vagrant 启动失败 There was an error while executing VBoxManage, a CLI used by Vagrant for controlli……</h2><p>进入 BIOS 下, 开启 <code>Intel (VMX) 虚拟化技术</code></p>
+<img data-src="/2023/06/23/156/image-20230623074137777.png" class="" title="image-20230623074137777">
+
+
+
+
+
+<h2 id="vagrant-ssh-连接-remote-host-identification-has-changed"><a href="#vagrant-ssh-连接-remote-host-identification-has-changed" class="headerlink" title="vagrant ssh 连接 remote host identification has changed"></a>vagrant ssh 连接 remote host identification has changed</h2><img data-src="/2023/06/23/156/20170726161546339.png" class="" title="img">
+
+<p>找到<code>.ssh</code>目录，下面有一个<code>known_hosts</code>文件，删除 <code>~/.ssh/known_hosts</code> 文件，或者如果你可以判断出<code>known_hosts</code>中原ssh服务器的公钥，删去那部分，</p>
+<h2 id="解决vagrant-ssh登录时permission-deny的问题"><a href="#解决vagrant-ssh登录时permission-deny的问题" class="headerlink" title="解决vagrant ssh登录时permission deny的问题"></a>解决vagrant ssh登录时permission deny的问题</h2><ol>
+<li><p>进入虚拟机</p>
+<ul>
+<li><p>方法1: <code>vagrant ssh</code></p>
+<p> 在 <code>Vagrantfile</code> 文件夹下打开 <code>cmd</code>, 运行命令 <code>vagrant ssh</code></p>
+</li>
+<li><p>方法2: virtualbox</p>
+<p> 打开 <code>Vagrantfile</code> 中的 virtualbox 显示</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">config.vm.provider &quot;virtualbox&quot; do |vb|      </span><br><span class="line">    vb.gui = true      # 启动机器时显示 VirtualBox GUI    </span><br><span class="line">  end</span><br></pre></td></tr></table></figure>
+
+<p> 然后运行 <code>vagrant up</code> (虚拟机处于关机状态) 或 <code>vagrant reload</code> (虚拟机处于开机状态)</p>
+</li>
+</ul>
+</li>
+<li><p>更改 <code>/etc/ssh/sshd_config</code> 文件下的 <code>PasswordAuthentication no</code> 改为 <code>PasswordAuthentication yes</code></p>
+</li>
+<li><p>重启虚拟机 <code>vagrant reload</code></p>
+</li>
+</ol>
+<h2 id="不在一个小局域网，而在同一个大局域网"><a href="#不在一个小局域网，而在同一个大局域网" class="headerlink" title="不在一个小局域网，而在同一个大局域网"></a>不在一个小局域网，而在同一个大局域网</h2><p>那就把局域网扩大一些, 可以通过设置子网掩码来设置</p>
+<ul>
+<li><p>临时设置子网掩码</p>
+<ol>
+<li><p>查看网络: <code>ifconfig</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">enp0s3: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 10.0.2.15  netmask 255.255.255.0  broadcast 10.0.2.255</span><br><span class="line">        inet6 fe80::3b:7bff:feb7:3b2d  prefixlen 64  scopeid 0x20&lt;link&gt;</span><br><span class="line">        ether 02:3b:7b:b7:3b:2d  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 523  bytes 61926 (61.9 KB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 387  bytes 70310 (70.3 KB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">enp0s8: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 10.10.32.32  netmask 255.255.255.0  broadcast 10.10.32.255</span><br><span class="line">        inet6 240c:c983:5:2b48::813  prefixlen 128  scopeid 0x0&lt;global&gt;</span><br><span class="line">        inet6 240c:c983:5:2b48:a00:27ff:feab:56e5  prefixlen 64  scopeid 0x0&lt;global&gt;</span><br><span class="line">        inet6 fe80::a00:27ff:feab:56e5  prefixlen 64  scopeid 0x20&lt;link&gt;</span><br><span class="line">        ether 08:00:27:ab:56:e5  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 1089  bytes 184808 (184.8 KB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 85  bytes 12017 (12.0 KB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536</span><br><span class="line">        inet 127.0.0.1  netmask 255.0.0.0</span><br><span class="line">        inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;</span><br><span class="line">        loop  txqueuelen 1000  (Local Loopback)</span><br><span class="line">        RX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置子网</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ifconfig enp0s8 10.10.32.32 netmask 255.255.0.0</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -6367,7 +6622,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-05-19 08:11:18" itemprop="dateModified" datetime="2025-05-19T08:11:18+08:00">2025-05-19</time>
+      <time title="修改时间：2025-07-09 10:03:31" itemprop="dateModified" datetime="2025-07-09T10:03:31+08:00">2025-07-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -6638,6 +6893,9 @@
 <li>archlinux 运行命令: <code>echo &#39;skip_global_init=1&#39; &gt;&gt; ~/.zshenv</code></li>
 <li>ubuntu 运行命令: <code>echo &#39;skip_global_compinit=1&#39; &gt;&gt; ~/.zshenv</code></li>
 </ul>
+</li>
+<li><p>autojump (linux): ImportError: No module named autojump_argparse</p>
+<p> 修改 <code>/usr/bin/autojump</code> 文件首行 <code>#!/usr/bin/env python</code> 或 <code>#!/usr/bin/python3</code>, 这两个有哪个 python 程序就写哪个路径.</p>
 </li>
 </ul>
 
@@ -7247,446 +7505,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2023/05/10/146/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/05/10/146/" class="post-title-link" itemprop="url">146. gdb</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-05-10 18:00:00" itemprop="dateCreated datePublished" datetime="2023-05-10T18:00:00+08:00">2023-05-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-05-19 08:11:18" itemprop="dateModified" datetime="2025-05-19T08:11:18+08:00">2025-05-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/debug/" itemprop="url" rel="index"><span itemprop="name">debug</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="GDB"><a href="#GDB" class="headerlink" title="GDB"></a>GDB</h1><p>GDB（GNU symbolic Debugger）是Linux系统下的强大的调试工具，可以用来调试ada, c, c++, asm, minimal, d, fortran, objective-c, go, java,pascal 等多种语言。</p>
-<p>我们以调试<code>go</code>代码为示例来介绍GDB的使用。源码内容如下：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(a, b <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">	sum := <span class="number">0</span></span><br><span class="line">	sum = a + b</span><br><span class="line">	<span class="keyword">return</span> sum</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	sum := add(<span class="number">10</span>, <span class="number">20</span>)</span><br><span class="line">	fmt.Println(sum)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>构建二进制应用：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go build -gcflags=<span class="string">&quot;-N -l&quot;</span> -o <span class="built_in">test</span> main.go</span><br></pre></td></tr></table></figure>
-
-<h2 id="启动调试"><a href="#启动调试" class="headerlink" title="启动调试"></a>启动调试</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gdb ./test</span><br><span class="line">gdb --args ./test arg1 arg2 <span class="comment"># 指定参数启动</span></span><br></pre></td></tr></table></figure>
-
-<p>进入gdb调试界面之后，执行<code>run</code>命令运行程序。若程序已经运行，我们可以<code>attach</code>该程序的进程id进行调试:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gdb</span><br><span class="line">(gdb) attach 1785</span><br></pre></td></tr></table></figure>
-
-<p>当执行<code>attach</code>命令的时候，GDB首先会在当前工作目录下查找进程的可执行程序，如果没有找到，接着会用源代码文件搜索路径。我们也可以用file命令来加载可执行文件。</p>
-<p>或者通过命令设置进程id:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gdb <span class="built_in">test</span> 1785 </span><br><span class="line">gdb <span class="built_in">test</span> --pid 1785</span><br></pre></td></tr></table></figure>
-
-<p>若已运行的进程不含调试信息，我们可以使用同样代码编译出一个带调试信息的版本，然后使用file和attach命令进行运行调试。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ gdb</span><br><span class="line">(gdb) file <span class="built_in">test</span></span><br><span class="line">Reading symbols from test...done.</span><br><span class="line">(gdb) attach 1785</span><br></pre></td></tr></table></figure>
-
-<h3 id="可视化窗口"><a href="#可视化窗口" class="headerlink" title="可视化窗口"></a>可视化窗口</h3><p>GDB也支持多窗口图形启动运行，一个窗口显示源码信息，一个窗口显示调试信息：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb <span class="built_in">test</span> -tui</span><br></pre></td></tr></table></figure>
-
-<p>GDB支持在运行过程中使用<code>Crtl+X+A</code>组合键进入多窗口图形界面， GDB支持的快捷操作有：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Crtl+X+A // 多窗口与单窗口界面切换</span><br><span class="line">Ctrl + X + 2 // 显示两个窗口</span><br><span class="line">Ctrl + X + 1 // 显示一个窗口</span><br></pre></td></tr></table></figure>
-
-<h2 id="运行程序"><a href="#运行程序" class="headerlink" title="运行程序"></a>运行程序</h2><p>通过<code>run</code>命令运行程序：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) run</span><br></pre></td></tr></table></figure>
-
-<p>指定命令行参数运行：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) run arg1 arg2</span><br></pre></td></tr></table></figure>
-
-<p>或者通过<code>set</code>命令设置命令行参数：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) <span class="built_in">set</span> args arg1 arg2</span><br><span class="line">(gdb) run</span><br></pre></td></tr></table></figure>
-
-<p>除了<code>run</code>命令外，我们也可以使用<code>start</code>命令运行程序。<code>start</code>命令会在在main函数的第一条语句前面停下来。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) start</span><br></pre></td></tr></table></figure>
-
-<h2 id="断点设置、查看、删除、禁用"><a href="#断点设置、查看、删除、禁用" class="headerlink" title="断点设置、查看、删除、禁用"></a>断点设置、查看、删除、禁用</h2><h3 id="设置断点"><a href="#设置断点" class="headerlink" title="设置断点"></a>设置断点</h3><p>GDB中是通过<code>break</code>命令来设置断点(BreakPoint)，<code>break</code>可以简写成<code>b</code>。</p>
-<ul>
-<li><p><code>break function</code></p>
-<p> 在指定函数出设置断点，设置断点后程序会在进入指定函数时停住</p>
-</li>
-<li><p><code>breshak linenum</code></p>
-<p> 在指定行号处设置断点</p>
-</li>
-<li><p><code>break +offset/-offset</code></p>
-<p> 在当前行号的前面或后面的offset行处设置断点。offset为自然数</p>
-</li>
-<li><p><code>break filename:linenum</code></p>
-<p> 在源文件filename的linenum行处设置断点</p>
-</li>
-<li><p><code>break filename:function</code></p>
-<p> 在源文件filename的function函数的入口处设置断点</p>
-</li>
-<li><p><strong><code>break \*address</code></strong></p>
-<p> 在程序运行的内存地址处设置断点</p>
-</li>
-<li><p><code>break</code></p>
-<p> break命令没有参数时，表示在下一条指令处停住。</p>
-</li>
-<li><p><code>break … if</code></p>
-<p> …可以是上述的参数，condition表示条件，在条件成立时停住。比如在循环境体中，可以设置break if i&#x3D;100，表示当i为100时停住程序</p>
-</li>
-</ul>
-<h3 id="查看断点"><a href="#查看断点" class="headerlink" title="查看断点"></a>查看断点</h3><p>我们可以通过<code>info</code>命令查看断点：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) info breakpoint <span class="comment"># 查看所有断点</span></span><br><span class="line">(gdb) info breakpoint 3 <span class="comment"># 查看3号断点</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="删除断点"><a href="#删除断点" class="headerlink" title="删除断点"></a>删除断点</h3><p>删除断点是通过<code>delete</code>命令删除的，<code>delete</code>命令可以简写成<code>d</code>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) delete 3 # 删除3号断点</span><br></pre></td></tr></table></figure>
-
-<h3 id="断点启用与禁用"><a href="#断点启用与禁用" class="headerlink" title="断点启用与禁用"></a>断点启用与禁用</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) disable 3 # 禁用3号断点</span><br><span class="line">(gdb) enable 3 # 启用3号断点</span><br></pre></td></tr></table></figure>
-
-<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><h3 id="单步执行"><a href="#单步执行" class="headerlink" title="单步执行"></a>单步执行</h3><p><code>next</code>用于单步执行，会一行行执行代码，运到函数时候，不会进入到函数内部，跳过该函数，但会执行该函数，即<code>step over</code>。可以简写成<code>n</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) next</span><br></pre></td></tr></table></figure>
-
-<h3 id="单步进入"><a href="#单步进入" class="headerlink" title="单步进入"></a>单步进入</h3><p><code>step</code>用于单步进入执行，跟<code>next</code>命令类似，但是遇到函数时候，会进入到函数内部一步步执行，即<code>step into</code>。可以简写成<code>s</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) step</span><br></pre></td></tr></table></figure>
-
-<p>与<code>step</code>相关的命令<code>stepi</code>，用于每次执行每次执行一条机器指令。可以简写成<code>si</code>。</p>
-<h3 id="继续执行到下一个断点"><a href="#继续执行到下一个断点" class="headerlink" title="继续执行到下一个断点"></a>继续执行到下一个断点</h3><p><code>continue</code>命令会继续执行程序，直到再次遇到断点处。可以简写成<code>c</code>:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) continue</span><br><span class="line">(gdb) continue 3 # 跳过3个断点</span><br></pre></td></tr></table></figure>
-
-<h3 id="继续运行到指定位置"><a href="#继续运行到指定位置" class="headerlink" title="继续运行到指定位置"></a>继续运行到指定位置</h3><p><code>until</code>命令可以帮助我们实现运行到某一行停住，可以简写成<code>u</code>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) until 5</span><br></pre></td></tr></table></figure>
-
-<h3 id="跳过执行"><a href="#跳过执行" class="headerlink" title="跳过执行"></a>跳过执行</h3><p><code>skip</code>命令可以在step时跳过一些不想关注的函数或者某个文件的代码:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) skip function add   # step时跳过add函数</span><br><span class="line">(gdb) info skip   # 查看skip列表</span><br></pre></td></tr></table></figure>
-
-<p>其他相关命令：</p>
-<ul>
-<li>skip delete [num] 删除skip</li>
-<li>skip enable [num] 启动skip</li>
-<li>skip disable [num] 关闭skip</li>
-</ul>
-<p><strong>注意：</strong> 当不带skip号时候，是针对所有skip进行设置。</p>
-<h3 id="执行完成当前函数"><a href="#执行完成当前函数" class="headerlink" title="执行完成当前函数"></a>执行完成当前函数</h3><p><code>finish</code>命令用来将当前函数执行完成，并打印函数返回时的堆栈地址、返回值、参数值等信息，即<code>step out</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) finish</span><br></pre></td></tr></table></figure>
-
-<h2 id="查看源码"><a href="#查看源码" class="headerlink" title="查看源码"></a>查看源码</h2><p>GDB中的<code>list</code>命令用来显示源码信息。<code>list</code>命令可以简写成<code>l</code>。</p>
-<ul>
-<li><p><strong>list</strong></p>
-<p> 从第一行开始显示源码，继续输入list，可列出后面的源码</p>
-</li>
-<li><p><strong>list linenum</strong></p>
-<p> 列出linenum行附近的源码</p>
-</li>
-<li><p><strong>list function</strong></p>
-<p> 列出函数function的代码</p>
-</li>
-<li><p>list filename:linenum</p>
-<p> 列出文件filename文件中，linenum行出的代码</p>
-</li>
-<li><p>list filename:function</p>
-<p> 列出文件filename中，函数function的代码</p>
-</li>
-<li><p>list +offset&#x2F;-offset</p>
-<p> 列出在当前行号的前面或后面的offset行附近的代码。offset为自然数。</p>
-</li>
-<li><p>list +&#x2F;-</p>
-<p> 列出当前行后面或者前面的代码</p>
-</li>
-<li><p>list linenum1, linenum2</p>
-<p> 列出行linenum1和linenum2之间的代码</p>
-</li>
-</ul>
-<h2 id="查看信息"><a href="#查看信息" class="headerlink" title="查看信息"></a>查看信息</h2><p><code>info</code>命令用来显示信息，可以简写成<code>i</code>。</p>
-<ul>
-<li><p><strong>info files</strong></p>
-<p> 显示当前的debug文件，包含程序入口地址，内存分段布局位置信息等</p>
-</li>
-<li><p>info breakpoints</p>
-<p> 显示当前设置的断点列表</p>
-</li>
-<li><p>info registers</p>
-<p> 显示当前寄存器的值，可以简写成<code>i r</code>。指定寄存器名称，可以查看具体寄存器信息：<code>i r rsp</code></p>
-<p> 如: 查看 rax 寄存器的信息: <code>info reg rax</code></p>
-</li>
-<li><p>info all-registers</p>
-<p> 显示所有寄存器的值。GDB提供四个标准寄存器：pc是程序计数器寄存器，sp是堆栈指针。fp用于记录当前堆栈帧的指针，ps用于记录处理器状态的寄存器，GDB会处理好不同架构系统寄存器不一致问题，比如对于amd64架构，pc对应就是rip寄存器。</p>
-<p> 引用寄存器内容是将寄存器名前置<code>$</code>符作为变量来用。比如<code>$pc</code>就是程序计数器寄存器值。</p>
-</li>
-<li><p>info args</p>
-<p> 显示当前函数参数</p>
-</li>
-<li><p>info locals</p>
-<p> 显示当前局部变量</p>
-</li>
-<li><p><strong>info frame</strong></p>
-<p> 查看当前栈帧的详细信息，包括rip信息，正在运行的指令所在文件位置</p>
-</li>
-<li><p>info variables</p>
-<p> 查看程序中的变量符号</p>
-</li>
-<li><p>info functions</p>
-<p> 查看程序中的函数符号</p>
-</li>
-<li><p>info functions regexp</p>
-<p> 通过正则匹配来查看程序中的函数符号</p>
-</li>
-<li><p>info goroutines</p>
-<p> 显示当前执行的goroutine列表，带*的表示当前执行的。注意需要加载go runtime支持。</p>
-</li>
-<li><p>info stack</p>
-<p> 查看栈信息</p>
-</li>
-<li><p>info proc mappings</p>
-<p> 可以简写成<code>i proc m</code>。用来查看应用内存映射</p>
-</li>
-<li><p>info proc [procid]</p>
-<p> 显示进程信息</p>
-</li>
-<li><p>info proc status</p>
-<p> 显示进程相关信息，包括user id和group id；进程内有多少线程；虚拟内存的使用；挂起的信号，阻塞的信号，忽略的信号；TTY；消耗的系统和用户时间；堆栈大小；nice值</p>
-</li>
-<li><p>info display</p>
-</li>
-<li><p>info watchpoints</p>
-<p> 列出当前所设置了的所有观察点</p>
-</li>
-<li><p>info line [linenum]</p>
-<p> 查看第linenum的代码指令地址信息，不带linenum时，显示的是当前位置的指令地址信息</p>
-</li>
-<li><p>info source</p>
-<p> 显示此源代码的源代码语言</p>
-</li>
-<li><p>info sources</p>
-<p> 显示程序中所有有调试信息的源文件名，一共显示两个列表：一个是其符号信息已经读过的，一个是还未读取过的</p>
-</li>
-<li><p>info types</p>
-<p> 显示程序中所有类型符号</p>
-</li>
-<li><p>info types regexp</p>
-<p> 通过正则匹配来查看程序中的类型符号</p>
-</li>
-</ul>
-<p>其他类似命令有：</p>
-<ul>
-<li><p>show args</p>
-<p> 查看命令行参数</p>
-</li>
-<li><p>show environment [envname]</p>
-<p> 查看环境变量信息</p>
-</li>
-<li><p>show paths</p>
-<p> 查看程序的运行路径</p>
-</li>
-<li><p>whatis var1</p>
-<p> 显示变量var1类型</p>
-</li>
-<li><p>ptype var1</p>
-<p> 显示变量var1类型，若是var1结构体类型，会显示该结构体定义信息。</p>
-</li>
-</ul>
-<h2 id="查看调用栈"><a href="#查看调用栈" class="headerlink" title="查看调用栈"></a>查看调用栈</h2><p>通过<code>where</code>可以查看调用栈信息：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(gdb) where</span><br><span class="line">#0  _rt0_amd64 ()</span><br><span class="line">    at /usr/lib/go/src/runtime/asm_amd64.s:15</span><br><span class="line">#1  0x0000000000000001 in ?? ()</span><br><span class="line">#2  0x00007fffffffdd2c in ?? ()</span><br><span class="line">#3  0x0000000000000000 in ?? ()</span><br></pre></td></tr></table></figure>
-
-<h2 id="设置观察点"><a href="#设置观察点" class="headerlink" title="设置观察点"></a>设置观察点</h2><p>通过<code>watch</code>命令，可以设置观察点。当观察点的变量发生变化时，程序会停下来。可以简写成<code>wa</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) watch sum</span><br></pre></td></tr></table></figure>
-
-<h2 id="查看汇编代码"><a href="#查看汇编代码" class="headerlink" title="查看汇编代码"></a>查看汇编代码</h2><p>我们可以通过开启<code>disassemble-next-line</code>自动显示汇编代码。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) set disassemble-next-line on</span><br></pre></td></tr></table></figure>
-
-<p>当面我们可以查看指定函数的汇编代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) disassemble main.main</span><br></pre></td></tr></table></figure>
-
-<p><code>disassemble</code>可以简写成<code>disas</code>。我们也可以将源代码和汇编代码一一映射起来后，查看</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) disas /m main.main</span><br></pre></td></tr></table></figure>
-
-<p>GDB默认显示汇编指令格式是AT&amp;T格式，我们可以改成intel格式：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) set disassembly-flavor intel</span><br></pre></td></tr></table></figure>
-
-<h2 id="自动显示变量值"><a href="#自动显示变量值" class="headerlink" title="自动显示变量值"></a>自动显示变量值</h2><p><code>display</code>命令支持自动显示变量值功能。当进行next或者step等调试操作时候，GDB会自动显示<code>display</code>所设置的变量或者地址的值信息。</p>
-<p><code>display</code>命令格式：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">display &lt;expr&gt;</span><br><span class="line">display /&lt;fmt&gt; &lt;expr&gt;</span><br><span class="line">display /&lt;fmt&gt; &lt;addr&gt;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>expr是一个表达式</li>
-<li>fmt表示显示的格式</li>
-<li>addr表示内存地址</li>
-</ul>
-<p>其他相关命令：</p>
-<ul>
-<li>undisplay [num]: 不显示</li>
-<li>delete display [num]: 删除</li>
-<li>disable display [num]: 关闭自动显示</li>
-<li>enable display [num]： 开启自动显示</li>
-<li>info display: 查看display信息</li>
-</ul>
-<p><strong>注意：</strong> 当不带display号时候，是针对所有display进行设置。</p>
-<h2 id="显示将要执行的汇编指令"><a href="#显示将要执行的汇编指令" class="headerlink" title="显示将要执行的汇编指令"></a>显示将要执行的汇编指令</h2><p>我们可以通过<code>display</code>命令，实现当程序停止时，查看将要执行的汇编指令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) display /i $pc # 为了让每次执行都能看到汇编代码</span><br><span class="line">(gdb) display /3i $pc # 一次性显示3条指令</span><br></pre></td></tr></table></figure>
-
-<p><code>==&gt;</code> 指的那一行就是正准备执行的代码, 但还没有执行的</p>
-<p>取消显示可以用undisplay命令进行操作。</p>
-<h2 id="查看backtrace信息"><a href="#查看backtrace信息" class="headerlink" title="查看backtrace信息"></a>查看backtrace信息</h2><p><code>backtrace</code>命令用来查看栈帧信息。可以简写成<code>bt</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(gdb) backtrace # 显示当前函数的栈帧以及局部变量信息</span><br><span class="line">(gdb) backtrace full # 显示各个函数的栈帧以及局部变量值</span><br><span class="line">(gdb) backtrace full n # 从内向外显示n个栈桢，及其局部变量</span><br><span class="line">(gdb) backtrace full -n # 从外向内显示n个栈桢，及其局部变量</span><br></pre></td></tr></table></figure>
-
-<h2 id="切换栈帧信息"><a href="#切换栈帧信息" class="headerlink" title="切换栈帧信息"></a>切换栈帧信息</h2><p><code>frame</code>命令可以切换栈帧信息：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) frame n # 其中n是层数，最内层的函数帧为第0帧</span><br></pre></td></tr></table></figure>
-
-<p>其他相关命令：</p>
-<ul>
-<li>info frame: 查看栈帧列表</li>
-</ul>
-<h2 id="调试多线程"><a href="#调试多线程" class="headerlink" title="调试多线程"></a>调试多线程</h2><p>GDB中有一组命令能够辅助多线程的调试：</p>
-<ul>
-<li><p>info threads</p>
-<p> 显示当前可调式的所有线程，线程 ID 前有 “*” 表示当前被调试的线程。</p>
-</li>
-<li><p>thread threadid</p>
-<p> 切换线程到线程threadid</p>
-</li>
-<li><p>set scheduler-locking [on|off|step]</p>
-<p> 多线程环境下，会存在多个线程运行，这会影响调试某个线程的结果，这个命令可以设置调试的时候多个线程的运行情况，on 表示只有当前调试的线程会继续执行，off 表示不屏蔽任何线程，所有线程都可以执行，step 表示在单步执行时，只有当前线程会执行。</p>
-</li>
-<li><p>thread apply [threadid] [all] args</p>
-<p> 对线程列表执行命令。比如通过<code>thread apply all bt full</code>可以查看所有线程的局部变量信息。</p>
-</li>
-</ul>
-<h2 id="查看运行时变量"><a href="#查看运行时变量" class="headerlink" title="查看运行时变量"></a>查看运行时变量</h2><p><code>print</code>命令可以用来查看变量的值。<code>print</code>命令可以简写成<code>p</code>。<code>print</code>命令格式如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print [&lt;/format&gt;] &lt;expr&gt;</span><br></pre></td></tr></table></figure>
-
-<p>format用来设置显示变量的格式，可选的。可用值有如下：</p>
-<ul>
-<li>x 按十六进制格式显示变量</li>
-<li>d 按十进制格式显示变量</li>
-<li>u 按十六进制格式显示无符号整型</li>
-<li>o 按八进制格式显示变量</li>
-<li>t 按二进制格式显示变量</li>
-<li>a 按十六进制格式显示变量</li>
-<li>c 按字符格式显示变量</li>
-<li>f 按浮点数格式显示变量</li>
-<li>z 按十六进制格式显示变量，左侧填充零</li>
-</ul>
-<p>expr可以是一个变量，也可以是表达式，也可以是寄存器：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(gdb) p var1 # 打印变量var1</span><br><span class="line">(gdb) p &amp;var1 # 打印变量var1地址</span><br><span class="line">(gdb) p $rsp # 打印rsp寄存器地址</span><br><span class="line">(gdb) p $rsp + 8 # 打印rsp加8后的地址信息</span><br><span class="line">(gdb) p 0xc000068fd0 # 打印0xc000068fd0转换成10进制格式</span><br><span class="line">(gdb) p /x 824634150864 # 打印824634150864转换成16进制格式</span><br></pre></td></tr></table></figure>
-
-<p><code>print</code>也支持查看连续内存，<code>@</code>操作符用于查看连续内存，<code>@</code>的左边是第一个内存的地址的值，<code>@</code>的右边则想查看内存的长度。</p>
-<p>例如对于如下代码：<code>int arr[] = &#123;2, 4, 6, 8, 10&#125;;</code>，可以通过如下命令查看arr前三个单元的数据：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) p *arr@3</span><br><span class="line">$2 = &#123;2, 4, 6&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="查看内存中的值"><a href="#查看内存中的值" class="headerlink" title="查看内存中的值"></a>查看内存中的值</h2><p><code>examine</code>命令用来查看内存地址中的值，可以简写成<code>x</code>。<code>examine</code>命令的语法如下所示：</p>
-<blockquote>
-<p>examine &#x2F;&lt;n&#x2F;f&#x2F;u&gt;</p>
-</blockquote>
-<ul>
-<li>n 表示显示字段的长度，也就是说从当前地址向后显示几个地址的内容。</li>
-<li>f 表示显示的格式<ul>
-<li>d 数字 decimal</li>
-<li>u 无符号数字 unsigned decimal</li>
-<li>s 字符串 string</li>
-<li>c 字符 char</li>
-<li>u 无符号整数 unsigned integer</li>
-<li>t 二进制 binary</li>
-<li>o 八进制格式 octal</li>
-<li>x 十六进制格式 hex</li>
-<li>f 浮点数格式 float</li>
-<li>i 指令 instruction</li>
-<li>a 地址 address</li>
-<li>z 十六进制格式，左侧填充零 hex, zero padded on the left</li>
-</ul>
-</li>
-<li>u 表示从当前地址往后请求的字节数，默认是4个bytes<ul>
-<li>b 一个字节 byte</li>
-<li>h 两个字节 halfword</li>
-<li>w 四个字节 word</li>
-<li>g 八个字节 giantword</li>
-</ul>
-</li>
-</ul>
-<p>示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(gdb) x/10c 0x4005d4 # 打印前10个字符</span><br><span class="line">(gdb) x/16xb a # 以16进制格式打印数组前a16个byte的值</span><br><span class="line">(gdb) x/16ub a # 以无符号10进制格式打印数组a前16个byte的值</span><br><span class="line">(gdb) x/16tb a # 以2进制格式打印数组前16个abyte的值</span><br><span class="line">(gdb) x/16xw a # 以16进制格式打印数组a前16个word（4个byte）的值</span><br><span class="line">(gdb) x $rsp # 打印rsp寄存器执行的地址的值</span><br><span class="line">(gdb) x $rsp + 8 # 打印rsp加8后的地址指向的值</span><br><span class="line">(gdb) x 0xc000068fd0 # 打印内存0xc000068fd0指向的值</span><br><span class="line">(gdb) x/5i schedule # 打印函数schedule前5条指令</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改变量或寄存器值"><a href="#修改变量或寄存器值" class="headerlink" title="修改变量或寄存器值"></a>修改变量或寄存器值</h2><p><code>set</code>命令支持修改变量以及寄存器的值：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(gdb) set var var1=123 # 设置变量var1值为123</span><br><span class="line">(gdb) set var $rax=123 # 设置寄存器值为123</span><br><span class="line">(gdb) set environment envname1=123 # 设置环境变量envname1值为123</span><br></pre></td></tr></table></figure>
-
-<h2 id="查看命令帮助信息"><a href="#查看命令帮助信息" class="headerlink" title="查看命令帮助信息"></a>查看命令帮助信息</h2><p><code>help</code>命令支持查看GDB命令帮助信息。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) help status # 查看所有命令使用示例</span><br><span class="line">(gdb) help x # 查看x命令使用帮助</span><br></pre></td></tr></table></figure>
-
-<h2 id="搜索源文件"><a href="#搜索源文件" class="headerlink" title="搜索源文件"></a>搜索源文件</h2><p><code>search</code>命令支持在当前文件中使用正则表达式搜索内容。<code>search</code>等效于<code>forward-search</code>命令，是从当前位置向前搜索，可以简写成<code>fo</code>。<code>reverse-search</code>命令功能跟<code>forward-search</code>恰好相反，其可以简写成<code>rev</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) search func add # 从当前位置向前搜索add方法</span><br><span class="line">(gdb) rev func add # 从当前为向后搜索add方法</span><br></pre></td></tr></table></figure>
-
-<h2 id="执行shell命令"><a href="#执行shell命令" class="headerlink" title="执行shell命令"></a>执行shell命令</h2><p>我们可以通过<code>shell</code>指令来执行shell命令。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) shell cat /proc/27889/maps # 查看进程27889的内存映射。若想查看当前进程id，可以使用info proc命令获取</span><br><span class="line">(gdb) shell ls -alh</span><br></pre></td></tr></table></figure>
-
-<h2 id="GDB对go-runtime支持"><a href="#GDB对go-runtime支持" class="headerlink" title="GDB对go runtime支持"></a>GDB对go runtime支持</h2><ul>
-<li>runtime.Breakpoint()：触发调试器断点。</li>
-<li>runtime&#x2F;debug.PrintStack()：显示调试堆栈。</li>
-<li>log：适合替代 print显示调试信息</li>
-</ul>
-<h2 id="进一步阅读"><a href="#进一步阅读" class="headerlink" title="进一步阅读"></a>进一步阅读</h2><ul>
-<li><a target="_blank" rel="noopener" href="http://beej.us/guide/bggdb/">Beej’s Quick Guide to GDB</a></li>
-<li><a target="_blank" rel="noopener" href="https://wizardforcel.gitbooks.io/100-gdb-tips/content/index.html">100个gdb小技巧</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/9/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/9/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
