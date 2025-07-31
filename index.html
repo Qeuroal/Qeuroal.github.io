@@ -195,7 +195,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2025/06/26/233/">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2025/07/31/233/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -213,7 +213,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/06/26/233/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2025/07/31/233/" class="post-title-link" itemprop="url">233. Python 模块间互相引用</a>
         </h2>
 
         <div class="post-meta-container">
@@ -225,7 +225,16 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-06-26 10:46:21 / 修改时间：10:48:41" itemprop="dateCreated datePublished" datetime="2025-06-26T10:46:21+08:00">2025-06-26</time>
+      <time title="创建时间：2025-07-31 15:31:20 / 修改时间：16:03:13" itemprop="dateCreated datePublished" datetime="2025-07-31T15:31:20+08:00">2025-07-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
     </span>
 
   
@@ -238,151 +247,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>好的！我帮你整理一份从头到尾的 <strong>完整操作步骤</strong>，基于你现有的 <code>ip route</code> 和 <code>icct.nmconnection</code> 配置，确保：</p>
-<ul>
-<li><code>wlo1</code> 作为内网网卡（10.11.2.28）只负责内网访问</li>
-<li>默认路由走 <code>enp3s0</code>（校园网）</li>
-<li>解决内网 SSH 回包走错路由问题</li>
-<li>方案持久化，开机自动生效</li>
-</ul>
-<hr>
-<h1 id="一、修改-nmconnection-文件配置（防止-wifi-抢默认路由）"><a href="#一、修改-nmconnection-文件配置（防止-wifi-抢默认路由）" class="headerlink" title="一、修改 .nmconnection 文件配置（防止 wifi 抢默认路由）"></a>一、修改 <code>.nmconnection</code> 文件配置（防止 wifi 抢默认路由）</h1><ol>
-<li>编辑你的 <code>icct.nmconnection</code>：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/NetworkManager/system-connections/icct.nmconnection</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>找到 <code>[ipv4]</code> 段，确保如下：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[ipv4]</span><br><span class="line">method=manual</span><br><span class="line">address1=10.11.2.28/22,10.11.3.254</span><br><span class="line">dns=10.10.0.1;202.112.13.11;202.112.13.21;223.5.5.5;</span><br><span class="line">ignore-auto-dns=true</span><br><span class="line">never-default=true</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p> <code>never-default=true</code>：阻止 <code>wlo1</code> 成为默认网关。</p>
-</blockquote>
-<ol>
-<li>保存退出，确保权限正确：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 600 /etc/NetworkManager/system-connections/icct.nmconnection</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>重启 NetworkManager 应用配置：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart NetworkManager</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h1 id="二、注册新的路由表"><a href="#二、注册新的路由表" class="headerlink" title="二、注册新的路由表"></a>二、注册新的路由表</h1><ol>
-<li>编辑文件 <code>/etc/iproute2/rt_tables</code>，添加一行：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;100 rt_internal&quot; | sudo tee -a /etc/iproute2/rt_tables</span><br></pre></td></tr></table></figure>
-
-<p>这一步只需执行一次。</p>
-<hr>
-<h1 id="三、添加策略路由规则和路由表（临时测试）"><a href="#三、添加策略路由规则和路由表（临时测试）" class="headerlink" title="三、添加策略路由规则和路由表（临时测试）"></a>三、添加策略路由规则和路由表（临时测试）</h1><ol>
-<li>执行：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo ip rule add from 10.11.2.28/32 table rt_internal</span><br><span class="line">sudo ip route add 10.11.0.0/22 dev wlo1 scope link table rt_internal</span><br><span class="line">sudo ip route add default via 10.11.3.254 dev wlo1 table rt_internal</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>验证：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ip rule show</span><br><span class="line">ip route show table rt_internal</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>测试：</li>
-</ol>
-<p>从你的客户端（内网）：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh &lt;username&gt;@10.11.2.28</span><br></pre></td></tr></table></figure>
-
-<p>应该能正常连接且回包走 <code>wlo1</code>。</p>
-<hr>
-<h1 id="四、持久化：写-systemd-脚本自动添加策略路由"><a href="#四、持久化：写-systemd-脚本自动添加策略路由" class="headerlink" title="四、持久化：写 systemd 脚本自动添加策略路由"></a>四、持久化：写 systemd 脚本自动添加策略路由</h1><ol>
-<li>新建脚本文件：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /usr/local/bin/set-wlo1-policy-route.sh</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>写入内容：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"># 这个脚本在网络启动后设置策略路由</span><br><span class="line"></span><br><span class="line"># 确保路由表已经注册</span><br><span class="line">grep -q &#x27;^100 rt_internal$&#x27; /etc/iproute2/rt_tables || echo &quot;100 rt_internal&quot; | sudo tee -a /etc/iproute2/rt_tables</span><br><span class="line"></span><br><span class="line"># 删除已存在同样规则，防止重复</span><br><span class="line">ip rule del from 10.11.2.28/32 table rt_internal 2&gt;/dev/null</span><br><span class="line"></span><br><span class="line"># 添加规则和路由</span><br><span class="line">ip rule add from 10.11.2.28/32 table rt_internal</span><br><span class="line">ip route add 10.11.0.0/22 dev wlo1 scope link table rt_internal</span><br><span class="line">ip route add default via 10.11.3.254 dev wlo1 table rt_internal</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>赋予执行权限：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod +x /usr/local/bin/set-wlo1-policy-route.sh</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>新建 systemd 服务文件：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/systemd/system/set-wlo1-policy-route.service</span><br></pre></td></tr></table></figure>
-
-<p>写入：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Set policy routing for wlo1 internal network</span><br><span class="line">After=network-online.target</span><br><span class="line">Wants=network-online.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=oneshot</span><br><span class="line">ExecStart=/usr/local/bin/set-wlo1-policy-route.sh</span><br><span class="line">RemainAfterExit=yes</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>启用并启动服务：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl enable set-wlo1-policy-route.service</span><br><span class="line">sudo systemctl start set-wlo1-policy-route.service</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h1 id="五、验证（重启后自动生效）"><a href="#五、验证（重启后自动生效）" class="headerlink" title="五、验证（重启后自动生效）"></a>五、验证（重启后自动生效）</h1><ol>
-<li>查看路由规则：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ip rule show</span><br><span class="line">ip route show table rt_internal</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>再次测试 SSH：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh &lt;username&gt;@10.11.2.28</span><br></pre></td></tr></table></figure>
-
-<p>确认连接正常，回包不会从校园网 <code>enp3s0</code> 出。</p>
-<hr>
-<h1 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h1><table>
-<thead>
-<tr>
-<th>步骤</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>修改 <code>.nmconnection</code> 添加 <code>never-default=true</code></td>
-<td>防止 wifi 连接抢默认路由</td>
-</tr>
-<tr>
-<td>注册路由表 <code>rt_internal</code></td>
-<td>定义专用路由表名称</td>
-</tr>
-<tr>
-<td>添加 <code>ip rule</code> + 路由表</td>
-<td>实现策略路由，确保回包走正确网卡</td>
-</tr>
-<tr>
-<td>systemd 脚本持久化</td>
-<td>保证开机自动设置</td>
-</tr>
-</tbody></table>
-<hr>
-<p>如果你需要，我也可以帮你写一个 <strong>NetworkManager dispatcher 脚本</strong>版本，自动在 <code>wlo1</code> up 时执行策略路由命令。</p>
-<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>这说明你系统确实没有预装 <code>/etc/iproute2/rt_tables</code>，不过你可以<strong>自己新建</strong>，完全没问题，也不会影响系统。</p>
-<hr>
-<h1 id="现在你操作步骤（再简化）："><a href="#现在你操作步骤（再简化）：" class="headerlink" title="现在你操作步骤（再简化）："></a>现在你操作步骤（再简化）：</h1><ol>
-<li>创建目录 <code>/etc/iproute2</code>：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bash</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">复制编辑</span><br><span class="line">sudo mkdir /etc/iproute2</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>创建文件 <code>/etc/iproute2/rt_tables</code>，内容如下：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">bash</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">复制编辑</span><br><span class="line">sudo tee /etc/iproute2/rt_tables &lt;&lt;EOF</span><br><span class="line">#</span><br><span class="line"># reserved values</span><br><span class="line">#</span><br><span class="line">255     local</span><br><span class="line">254     main</span><br><span class="line">253     default</span><br><span class="line">0       unspec</span><br><span class="line">#</span><br><span class="line"># local</span><br><span class="line">#</span><br><span class="line">100     rt_internal</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>确认：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bash</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">复制编辑</span><br><span class="line">cat /etc/iproute2/rt_tables</span><br></pre></td></tr></table></figure>
-
-<p>你应该能看到刚才写入的内容。</p>
-<hr>
-<h1 id="后续你就可以正常使用-ip-rule-和-ip-route-中的-table-rt-internal-了。"><a href="#后续你就可以正常使用-ip-rule-和-ip-route-中的-table-rt-internal-了。" class="headerlink" title="后续你就可以正常使用 ip rule 和 ip route 中的 table rt_internal 了。"></a>后续你就可以正常使用 <code>ip rule</code> 和 <code>ip route</code> 中的 <code>table rt_internal</code> 了。</h1><hr>
-
+          <p>相对路径与绝对路径</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/07/31/233/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
