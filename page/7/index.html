@@ -153,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">182</span>
+          <span class="site-state-item-count">183</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -415,7 +415,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-10-02 07:18:39" itemprop="dateModified" datetime="2025-10-02T07:18:39+08:00">2025-10-02</time>
+      <time title="修改时间：2025-10-11 10:15:57" itemprop="dateModified" datetime="2025-10-11T10:15:57+08:00">2025-10-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1296,6 +1296,232 @@
 </li>
 <li><p>删除论文中作者的上标</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s/[0-9,*†]\+/,/g</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="正则表达式进阶"><a href="#正则表达式进阶" class="headerlink" title="正则表达式进阶"></a>正则表达式进阶</h1><h2 id="4种Magic模式"><a href="#4种Magic模式" class="headerlink" title="4种Magic模式"></a>4种Magic模式</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://yyq123.github.io/learn-vim/learn-vi-86-Magic.html">magic</a>模式，使用<code>\m</code>前缀，其后模式的解释方式为’magic’选项。<code>^</code>，<code>$</code>，<code>.</code>，<code>*</code>和<code>[]</code>等字符含有特殊意义；而<code>+</code>、<code>?</code>、<code>()</code>、和<code>&#123;&#125;</code>等其它字符则按字面意义解释。magic为默认设置，表达式中的\m前缀可以省略</li>
+<li><a target="_blank" rel="noopener" href="http://yyq123.github.io/learn-vim/learn-vi-86-Magic.html">no magic</a>模式，使用<code>\M</code>前缀，其后模式的解释方式为’nomagic’选项。除了<code>^</code>和<code>$</code>之外的特殊字符，都将被视为普通文本</li>
+<li><a target="_blank" rel="noopener" href="http://yyq123.github.io/learn-vim/learn-vim-Regex-VeryMagic.html#regex-very-magic">very magic</a>模式，使用<code>\v</code>前缀，其后模式中除 ‘0’-‘9’，’a’-‘z’，’A’-‘Z’ 和 ‘_’ 之外的字符都当作特殊字符解释</li>
+<li><a target="_blank" rel="noopener" href="http://yyq123.github.io/learn-vim/learn-vim-Regex-VeryMagic.html#regex-very-no-magic">very nomagic</a>模式，使用<code>\V</code>前缀，其后模式中只有反斜杠（<code>\</code>）具有特殊意义</li>
+</ul>
+<p>不同模式之间的区别，在于哪些特殊字符需要使用反斜杠（<code>\</code>）进行转义。例如星号（<code>*</code>），在magic和very magic模式下视为特殊修饰符；而在no magic和very nomagic模式下则被视为普通字符，必须使用 <code>\*</code> 恢复其特殊作用。</p>
+<p>对于简单的正则表达式，使用 <code>\</code> 对特殊字符进行转义，可能并不会造成困扰；但在复杂的正则表达式中，对大量特殊字符的重复转义，将使得表达式过于繁琐且难以阅读。</p>
+<p>例如在默认的magic模式下, 使用以下命令查找十六进制色彩值.<br>其中，使用<code>()</code>构建<a target="_blank" rel="noopener" href="http://yyq123.github.io/learn-vim/learn-vim-Regex-Groups.html">捕获组</a>; 使用<code>&#123;&#125;</code>匹配6位和3位十六进制值。因为有多种特殊字符需要进行转义，造成表达式过于冗长：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/\m#\(\x\&#123;6\&#125;\|\x\&#123;3\&#125;\)</span><br></pre></td></tr></table></figure>
+
+<p>而使用very magic模式，则可以简化表达式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/\v#(\x&#123;6&#125;|\x&#123;3&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>4种Magic模式的差异和用法，可以简单总结如下：</p>
+<img data-src="/2023/10/01/165/image-20251011094442062.png" class="" title="image-20251011094442062">
+
+<p>以下表格，列示了常用特殊字符在不同模式下的应用。其中，黄色高亮表示为无需转义的特殊字符：</p>
+<img data-src="/2023/10/01/165/image-20251011094646701.png" class="" title="image-20251011094646701">
+
+<p>请注意，“{}”也可简写为“{}”；“[]”必须仅保留开头的反斜杠；“()”则需要完整的两个反斜杠。</p>
+<h3 id="magic默认模式"><a href="#magic默认模式" class="headerlink" title="magic默认模式"></a>magic默认模式</h3><p>建议始终将<a target="_blank" rel="noopener" href="https://yyq123.github.io/learn-vim/options.html#'magic'">‘magic’</a>选项保持在缺省值。</p>
+<p>建议在模式之前，通过使用“\v“或“\M“等前缀，来明确激活特定模式。</p>
+<p>如果希望始终使用Very magic模式，那么请在vimrc中定义以下键盘映射，将在查找和替换时自动激活very magic模式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nnoremap / /\v</span><br><span class="line">vnoremap / /\v</span><br><span class="line">cnoremap %s/ %s/\v</span><br><span class="line">nnoremap :g/ :g/\v</span><br></pre></td></tr></table></figure>
+
+<h3 id="模式转换"><a href="#模式转换" class="headerlink" title="模式转换"></a>模式转换</h3><p>你甚至可以在表达式当中改变模式。例如以下命令，开头使用very magic模式，之后转换为magic模式，整体表达式将匹配“foo(bar)”：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/\vfoo\(\mbar)</span><br></pre></td></tr></table></figure>
+
+<p>当然，非常不建议采用此种易引起误解的表达式写法。我们可以将其改写为very nomagic模式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/\Vfoo(bar)</span><br></pre></td></tr></table></figure>
+
+<p>请使用以下命令，查看更多帮助信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:help /magic</span><br></pre></td></tr></table></figure>
+
+<h2 id="转义符（Escaped-Characters）"><a href="#转义符（Escaped-Characters）" class="headerlink" title="转义符（Escaped Characters）"></a>转义符（Escaped Characters）</h2><p>如果需要查找某些特殊符号（比如美元符号），那么可以使用反斜杠backslash（<code>\</code>）进行转义。</p>
+<table>
+<thead>
+<tr>
+<th><code>\.</code></th>
+<th>匹配点（A literal period）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>\\</code></td>
+<td>匹配反斜杠（A literal backslash）</td>
+</tr>
+<tr>
+<td><code>\/</code></td>
+<td>匹配斜杠（A literal forward slash）</td>
+</tr>
+<tr>
+<td><code>\^</code></td>
+<td>匹配脱字符（A literal carat）</td>
+</tr>
+<tr>
+<td><code>\$</code></td>
+<td>匹配美元符号（A literal dollar sign）</td>
+</tr>
+</tbody></table>
+<p>根据对于特殊元字符的不同解释方式，Vim正则表达式可以分为四种模式：magic，no magic，very magic和very nomagic。</p>
+<h2 id="特殊字符元素（Special-Character-Atoms）"><a href="#特殊字符元素（Special-Character-Atoms）" class="headerlink" title="特殊字符元素（Special Character Atoms）"></a>特殊字符元素（Special Character Atoms）</h2><table>
+<thead>
+<tr>
+<th align="center"></th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>\a</code></td>
+<td>大小写字母字符 <code>[a-zA-Z]</code></td>
+</tr>
+<tr>
+<td align="center"><code>\A</code></td>
+<td>除了a-zA-Z以外的字母字符</td>
+</tr>
+<tr>
+<td align="center"><code>\b</code></td>
+<td><code>&lt;BS&gt;</code></td>
+</tr>
+<tr>
+<td align="center"><code>\d</code></td>
+<td>数字字符(digit) <code>[0-9]</code></td>
+</tr>
+<tr>
+<td align="center"><code>\D</code></td>
+<td>非数字字符 <code>[^0-9]</code></td>
+</tr>
+<tr>
+<td align="center"><code>\e</code></td>
+<td><code>&lt;ESC&gt;</code></td>
+</tr>
+<tr>
+<td align="center"><code>\f</code></td>
+<td>由isfname选项定义的文件名字符</td>
+</tr>
+<tr>
+<td align="center"><code>\F</code></td>
+<td>由isfname选项定义的文件名字符,但是不包含数字</td>
+</tr>
+<tr>
+<td align="center"><code>\h</code></td>
+<td>单词的头字符(A-Za-z)</td>
+</tr>
+<tr>
+<td align="center"><code>\H</code></td>
+<td>不是单词的头字符(A-Za-z)</td>
+</tr>
+<tr>
+<td align="center"><code>\i</code></td>
+<td>由isident选项定义的字符</td>
+</tr>
+<tr>
+<td align="center"><code>\I</code></td>
+<td>由isident选项定义的字符,但是不包括数字</td>
+</tr>
+<tr>
+<td align="center"><code>\k</code></td>
+<td>由iskeyword选项定义的关键字字符</td>
+</tr>
+<tr>
+<td align="center"><code>\K</code></td>
+<td>由iskeyword选项定义的关键字字符,但是不包括数字</td>
+</tr>
+<tr>
+<td align="center"><code>\l</code></td>
+<td>小字字符 <code>[a-z]</code></td>
+</tr>
+<tr>
+<td align="center"><code>\L</code></td>
+<td>非小写字符 <code>[^a-z]</code></td>
+</tr>
+<tr>
+<td align="center"><code>\n</code></td>
+<td>行尾符(The end of line character)</td>
+</tr>
+<tr>
+<td align="center"><code>\o</code></td>
+<td>八进制数字</td>
+</tr>
+<tr>
+<td align="center"><code>\O</code></td>
+<td>非八进制数字</td>
+</tr>
+<tr>
+<td align="center"><code>\p</code></td>
+<td>由isprint选项定义的可打印字符</td>
+</tr>
+<tr>
+<td align="center"><code>\P</code></td>
+<td>由isprint选项定义的可打印字符,但是不包括数字</td>
+</tr>
+<tr>
+<td align="center"><code>\r</code></td>
+<td><code>&lt;CR&gt;</code></td>
+</tr>
+<tr>
+<td align="center"><code>\s</code></td>
+<td>空白符 <code>&lt;Space&gt;</code> 和 <code>&lt;Tab&gt;</code> <code>[ ]</code></td>
+</tr>
+<tr>
+<td align="center"><code>\S</code></td>
+<td>非空白符 <code>[^ ]</code></td>
+</tr>
+<tr>
+<td align="center"><code>\t</code></td>
+<td><code>&lt;Tab&gt;</code></td>
+</tr>
+<tr>
+<td align="center"><code>\u</code></td>
+<td>大写字母字符 <code>[A-Z]</code></td>
+</tr>
+<tr>
+<td align="center"><code>\U</code></td>
+<td>非大写字母字符 <code>[^A-Z]</code></td>
+</tr>
+<tr>
+<td align="center"><code>\w</code></td>
+<td>单词字符(0-9A-Za-z)</td>
+</tr>
+<tr>
+<td align="center"><code>\W</code></td>
+<td>非单词字符</td>
+</tr>
+<tr>
+<td align="center"><code>\x</code></td>
+<td>十六进制数字 <code>[0-9a-fA-F]</code></td>
+</tr>
+<tr>
+<td align="center"><code>\X</code></td>
+<td>非十六进制数字 <code>[^0-9a-fA-F]</code></td>
+</tr>
+<tr>
+<td align="center"><code>\~</code></td>
+<td>匹配最后指定的字符串</td>
+</tr>
+</tbody></table>
+<h2 id="或操作（Alternation-Operator）"><a href="#或操作（Alternation-Operator）" class="headerlink" title="或操作（Alternation Operator）"></a>或操作（Alternation Operator）</h2><p><code>|</code>用于查找两个或是多个可能的匹配。例如表达式<code>foo\|bar</code>可以找到foo或是bar。我们可以连接使用多个或操作符。例如表达式<code>Larry\|Moe\|Curly</code>将找到Larry、Moe和Curly。而表达式<code>end\(if\|while\|for\)</code>则可以匹配”endif”, “endwhile” 和 “endfor”几个不同的元素组合。</p>
+<p>如果希望匹配多次，那么可以组合使用加号和括号运算符。例如表达式<code>/\(foo\|bar\)\+</code>可以匹配 “foo”, “foobar”, “foofoo”, “barfoobar”等等。</p>
+<h2 id="捕获组-Regex-Groups"><a href="#捕获组-Regex-Groups" class="headerlink" title="捕获组(Regex-Groups)"></a>捕获组(Regex-Groups)</h2><p><code>()</code>用于保证需要作为整体而组合出现的字符。例如表达式<code>a\(XY\)*b</code>将会匹配ab, aXYb, aXYXYb, aXYXYXYb。</p>
+<p>逆向引用（Back Reference）表达式<code>\n</code>，用于引用之前定义的第n个捕获组。其中n为数字1–9。</p>
+<p>例如对于文本“he fly fly flies”，表达式<code>\(fly\) \1</code>将匹配“fly fly”。因为<code>\1</code>再次引用了第一个捕获组“fly”，所以将匹配2个“fly”。</p>
+<h3 id="捕获组嵌套"><a href="#捕获组嵌套" class="headerlink" title="捕获组嵌套"></a>捕获组嵌套</h3><p>以下文本中包含FIRSTNAME LASTNAME格式的姓名信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Prepared by Tommas Young</span><br><span class="line">Prepared by Tommy Young</span><br></pre></td></tr></table></figure>
+
+<p>使用以下命令，可以将其转换为LASTNAME, FIRSTNAME格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:%s/\(Tom\%(mas\|my\)\) \(Young\)/\2, \1/g</span><br><span class="line">Prepared by Young, Tommas</span><br><span class="line">Prepared by Young, Tommy</span><br></pre></td></tr></table></figure>
+
+<p>从以上命令可以看到，捕获组是可以嵌套的；<code>\%(\)</code> 指定的组将不会被计数，这可以允许我们使用更多的组，并且查找速度也更快。</p>
+<h2 id="帮助信息"><a href="#帮助信息" class="headerlink" title="帮助信息"></a>帮助信息</h2><ul>
+<li>模式转换更多信息: <code>:help /magic</code></li>
+<li>查看关于查找模式的更多帮助信息: <code>:help pattern</code></li>
+<li>教程<ul>
+<li><a target="_blank" rel="noopener" href="http://yyq123.github.io/learn-vim/learn-vim-Regex.html">正则表达式命令-(vimgrep&#x2F;grep)</a><a target="_blank" rel="noopener" href="https://yyq123.blogspot.com/2020/06/vim-grep.html">B</a>&#x2F;<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/148280898">Z</a></li>
+<li><a target="_blank" rel="noopener" href="http://yyq123.blogspot.com/2017/04/vim-regular-expression-basic.html">基础(Basic)</a><a target="_blank" rel="noopener" href="http://yyq123.blogspot.com/2017/04/vim-regular-expression-basic.html">B</a>&#x2F;<a target="_blank" rel="noopener" href="http://zhuanlan.zhihu.com/p/26448230">Z</a></li>
+<li><a target="_blank" rel="noopener" href="http://yyq123.blogspot.com/2017/05/vim-regular-expression-advanced.html">进阶(Advanced)</a><a target="_blank" rel="noopener" href="http://yyq123.blogspot.com/2017/05/vim-regular-expression-advanced.html">B</a>&#x2F;<a target="_blank" rel="noopener" href="http://zhuanlan.zhihu.com/p/26708976">Z</a></li>
+<li><a target="_blank" rel="noopener" href="http://yyq123.github.io/learn-vim/learn-vim-Regex-Groups.html">捕获组(Groups)</a><a target="_blank" rel="noopener" href="https://yyq123.blogspot.com/2020/04/vim-regex-groups.html">B</a>&#x2F;<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/136058417">Z</a></li>
+<li><a target="_blank" rel="noopener" href="http://yyq123.github.io/learn-vim/learn-vim-Regex-Metacharacters.html">替换字符串中的元字符(Metacharacters)</a><a target="_blank" rel="noopener" href="https://yyq123.blogspot.com/2020/04/vim-regex-metacharacters.html">B</a>&#x2F;<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/128111260">Z</a></li>
+<li><a target="_blank" rel="noopener" href="http://yyq123.github.io/learn-vim/learn-vim-substitute-submatch.html">替换字符串中的submatch()</a><a target="_blank" rel="noopener" href="https://yyq123.blogspot.com/2020/05/vim-substitute-submatch.html">B</a>&#x2F;<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/137925649">Z</a></li>
+<li><a target="_blank" rel="noopener" href="http://yyq123.github.io/learn-vim/learn-vim-Regex-4MagicModes.html">4种Magic模式</a><a target="_blank" rel="noopener" href="https://yyq123.blogspot.com/2020/05/vim-4-magic-modes.html">B</a>&#x2F;<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/143260180">Z</a></li>
+<li><a target="_blank" rel="noopener" href="http://yyq123.github.io/learn-vim/learn-vi-86-Magic.html">Magic模式</a><a target="_blank" rel="noopener" href="http://yyq123.blogspot.com/2017/04/vim-magic.html">B</a>&#x2F;<a target="_blank" rel="noopener" href="http://zhuanlan.zhihu.com/p/26535132">Z</a></li>
+<li><a target="_blank" rel="noopener" href="http://yyq123.github.io/learn-vim/learn-vim-Regex-VeryMagic.html">Very magic模式</a><a target="_blank" rel="noopener" href="https://yyq123.blogspot.com/2020/05/vim-regex-verymagic.html">B</a>&#x2F;<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/141466307">Z</a></li>
+<li><a target="_blank" rel="noopener" href="http://yyq123.github.io/learn-vim/learn-vim-Regex-Examples.html">实例(Regex-Examples)</a><a target="_blank" rel="noopener" href="https://yyq123.blogspot.com/2020/06/vim-regex-examples.html">B</a>&#x2F;<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/149675999">Z</a></li>
+</ul>
+</li>
 </ul>
 <h1 id="路径和工作目录"><a href="#路径和工作目录" class="headerlink" title="路径和工作目录"></a>路径和工作目录</h1><h2 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h2><p>path设置的目的是为了查找文件，比如说你使用gf指令打不开文件时，就得看看path是否设置正确了</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">:help path</span><br><span class="line"></span><br><span class="line">//查看path</span><br><span class="line">:set path?</span><br><span class="line"></span><br><span class="line">// 检查头文件加载情况</span><br><span class="line">:checkpath!</span><br><span class="line"></span><br><span class="line">//添加path</span><br><span class="line">:set path+=/sdsd/sdsd</span><br><span class="line"></span><br><span class="line">//添加相对路径,注意要以.开头，否则无效</span><br><span class="line">:set path+=./../core</span><br></pre></td></tr></table></figure>
