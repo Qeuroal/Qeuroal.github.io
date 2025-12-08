@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="第13章 全局命令到目前为止，您已经了解了如何使用点命令(.)重复上一次更改，如何使用宏(q)重复动作以及将文本存储在寄存器中(&quot;)。 在本章中，您将学习如何在全局命令中重复命令行命令。 全局命令概述Vim的全局命令用于同时在多行上运行命令行命令。 顺便说一句，您之前可能已经听说过 “Ex命令” 一词。在本书中，我将它们称为&#x3D;&#x3D;命令行命令&#x3D;&#x3D;，但E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="154. VIM 从放弃到偶尔">
+<meta property="og:url" content="http://qeuroal.top/2023/06/05/154/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Blog">
+<meta property="og:description" content="第13章 全局命令到目前为止，您已经了解了如何使用点命令(.)重复上一次更改，如何使用宏(q)重复动作以及将文本存储在寄存器中(&quot;)。 在本章中，您将学习如何在全局命令中重复命令行命令。 全局命令概述Vim的全局命令用于同时在多行上运行命令行命令。 顺便说一句，您之前可能已经听说过 “Ex命令” 一词。在本书中，我将它们称为&#x3D;&#x3D;命令行命令&#x3D;&#x3D;，但E">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qeuroal.top/2023/06/05/154/images/diffing-basic.png">
+<meta property="og:image" content="http://qeuroal.top/2023/06/05/154/images/diffing-apples.png">
+<meta property="og:image" content="http://qeuroal.top/2023/06/05/154/images/mergetool-initial.png">
+<meta property="og:image" content="http://qeuroal.top/2023/06/05/154/images/fugitive-git.png">
+<meta property="og:image" content="http://qeuroal.top/2023/06/05/154/images/fugitive-git-blame.png">
+<meta property="og:image" content="http://qeuroal.top/2023/06/05/154/images/fugitive-gdiffsplit.png">
+<meta property="og:image" content="http://qeuroal.top/2023/06/05/154/images/fugitive-git-log.png">
+<meta property="og:image" content="http://qeuroal.top/2023/06/05/154/session-layout.png">
+<meta property="article:published_time" content="2023-06-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-08T06:36:58.506Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="software">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="vim">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qeuroal.top/2023/06/05/154/images/diffing-basic.png">
+
+
+<link rel="canonical" href="http://qeuroal.top/2023/06/05/154/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2023/06/05/154/","path":"2023/06/05/154/","title":"154. VIM 从放弃到偶尔"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>154. VIM 从放弃到偶尔 | Qeuroal's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Qeuroal's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">静幽正治</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC13%E7%AB%A0-%E5%85%A8%E5%B1%80%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">第13章 全局命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E5%91%BD%E4%BB%A4%E6%A6%82%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">全局命令概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%86%E5%90%91%E5%8C%B9%E9%85%8D"><span class="nav-number">1.2.</span> <span class="nav-text">逆向匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%BC%8F%E4%B8%B2"><span class="nav-number">1.3.</span> <span class="nav-text">模式串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E9%80%92%E8%8C%83%E5%9B%B4%E5%8F%82%E6%95%B0"><span class="nav-number">1.4.</span> <span class="nav-text">传递范围参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E6%A8%A1%E5%BC%8F%E5%91%BD%E4%BB%A4"><span class="nav-number">1.5.</span> <span class="nav-text">普通模式命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E5%AE%8F"><span class="nav-number">1.6.</span> <span class="nav-text">执行宏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E5%85%A8%E5%B1%80%E5%91%BD%E4%BB%A4"><span class="nav-number">1.7.</span> <span class="nav-text">递归全局命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E5%AE%9A%E7%95%8C%E7%AC%A6"><span class="nav-number">1.8.</span> <span class="nav-text">更改定界符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E5%91%BD%E4%BB%A4"><span class="nav-number">1.9.</span> <span class="nav-text">默认命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8D%E8%BD%AC%E6%95%B4%E4%B8%AA%E7%BC%93%E5%86%B2%E5%8C%BA"><span class="nav-number">1.10.</span> <span class="nav-text">反转整个缓冲区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B1%87%E6%80%BB%E6%89%80%E6%9C%89%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9"><span class="nav-number">1.11.</span> <span class="nav-text">汇总所有待办事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BB%91%E6%B4%9E%E5%88%A0%E9%99%A4"><span class="nav-number">1.12.</span> <span class="nav-text">黑洞删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%86%E5%A4%9A%E6%9D%A1%E7%A9%BA%E8%A1%8C%E5%87%8F%E5%B0%91%E4%B8%BA%E4%B8%80%E6%9D%A1%E7%A9%BA%E8%A1%8C"><span class="nav-number">1.13.</span> <span class="nav-text">将多条空行减少为一条空行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E7%BA%A7%E6%8E%92%E5%BA%8F"><span class="nav-number">1.14.</span> <span class="nav-text">高级排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%AA%E6%98%8E%E5%9C%B0%E5%AD%A6%E4%B9%A0%E5%85%A8%E5%B1%80%E5%91%BD%E4%BB%A4"><span class="nav-number">1.15.</span> <span class="nav-text">聪明地学习全局命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC14%E7%AB%A0-%E5%A4%96%E9%83%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text">第14章 外部命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bang-%E5%91%BD%E4%BB%A4"><span class="nav-number">2.1.</span> <span class="nav-text">Bang 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%86%E5%A4%96%E9%83%A8%E5%91%BD%E4%BB%A4%E7%9A%84%E6%A0%87%E5%87%86%E8%BE%93%E5%87%BASTDOUT%E8%AF%BB%E5%85%A5Vim"><span class="nav-number">2.2.</span> <span class="nav-text">将外部命令的标准输出STDOUT读入Vim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%86%E7%BC%93%E5%86%B2%E5%8C%BA%E5%86%85%E5%AE%B9%E5%86%99%E5%85%A5%E5%A4%96%E9%83%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">2.3.</span> <span class="nav-text">将缓冲区内容写入外部命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E5%A4%96%E9%83%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">2.4.</span> <span class="nav-text">执行外部命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%87%E6%BB%A4%E6%96%87%E6%9C%AC"><span class="nav-number">2.5.</span> <span class="nav-text">过滤文本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E6%A8%A1%E5%BC%8F%E5%91%BD%E4%BB%A4-1"><span class="nav-number">2.6.</span> <span class="nav-text">普通模式命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%AA%E6%98%8E%E5%9C%B0%E5%AD%A6%E4%B9%A0%E5%A4%96%E9%83%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">2.7.</span> <span class="nav-text">聪明地学习外部命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC15%E7%AB%A0-%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">第15章 命令行模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5%E5%92%8C%E9%80%80%E5%87%BA%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text">进入和退出命令行模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E5%A4%8D%E4%B8%8A%E4%B8%80%E4%B8%AA%E5%91%BD%E4%BB%A4"><span class="nav-number">3.2.</span> <span class="nav-text">重复上一个命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%A8%A1%E5%BC%8F%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-number">3.3.</span> <span class="nav-text">命令行模式快捷键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8%E5%92%8C%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8"><span class="nav-number">3.4.</span> <span class="nav-text">寄存器和自动补全</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95%E7%AA%97%E5%8F%A3"><span class="nav-number">3.5.</span> <span class="nav-text">历史记录窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E5%A4%9A%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%8C%87%E4%BB%A4"><span class="nav-number">3.6.</span> <span class="nav-text">更多命令行指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%AA%E6%98%8E%E5%9C%B0%E5%AD%A6%E4%B9%A0%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.7.</span> <span class="nav-text">聪明地学习命令行模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC16%E7%AB%A0-%E6%A0%87%E7%AD%BE"><span class="nav-number">4.</span> <span class="nav-text">第16章 标签</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E7%AD%BE%E6%A6%82%E8%BF%B0"><span class="nav-number">4.1.</span> <span class="nav-text">标签概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E7%AD%BE%E7%94%9F%E6%88%90%E5%99%A8"><span class="nav-number">4.2.</span> <span class="nav-text">标签生成器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%89%96%E6%A0%87%E7%AD%BE%E6%96%87%E4%BB%B6"><span class="nav-number">4.3.</span> <span class="nav-text">解剖标签文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E7%AD%BE%E6%96%87%E4%BB%B6"><span class="nav-number">4.4.</span> <span class="nav-text">标签文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E7%94%9F%E6%88%90%E6%A0%87%E7%AD%BE%EF%BC%9A"><span class="nav-number">4.5.</span> <span class="nav-text">为大型项目生成标签：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E7%AD%BE%E5%AF%BC%E8%88%AA"><span class="nav-number">4.6.</span> <span class="nav-text">标签导航</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E7%AD%BE%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">4.7.</span> <span class="nav-text">标签优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E6%80%A7%E8%B7%B3%E8%BD%AC%E6%A0%87%E7%AD%BE"><span class="nav-number">4.8.</span> <span class="nav-text">选择性跳转标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E7%AD%BE%E7%9A%84%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8"><span class="nav-number">4.9.</span> <span class="nav-text">标签的自动补全</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E7%AD%BE%E5%A0%86%E6%A0%88"><span class="nav-number">4.10.</span> <span class="nav-text">标签堆栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E6%A0%87%E7%AD%BE"><span class="nav-number">4.11.</span> <span class="nav-text">自动生成标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E4%BF%9D%E5%AD%98%E6%97%B6%E7%94%9F%E6%88%90%E6%A0%87%E7%AD%BE"><span class="nav-number">4.12.</span> <span class="nav-text">在保存时生成标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%8F%92%E4%BB%B6"><span class="nav-number">4.13.</span> <span class="nav-text">使用插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ctags-%E4%BB%A5%E5%8F%8A-Git-%E9%92%A9%E5%AD%90"><span class="nav-number">4.14.</span> <span class="nav-text">Ctags 以及 Git 钩子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%AA%E6%98%8E%E5%9C%B0%E5%AD%A6%E4%B9%A0%E6%A0%87%E7%AD%BE"><span class="nav-number">4.15.</span> <span class="nav-text">聪明地学习标签</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC17%E7%AB%A0-%E6%8A%98%E5%8F%A0"><span class="nav-number">5.</span> <span class="nav-text">第17章 折叠</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%8B%E5%8A%A8%E6%8A%98%E5%8F%A0"><span class="nav-number">5.1.</span> <span class="nav-text">手动折叠</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E5%90%8C%E7%9A%84%E6%8A%98%E5%8F%A0%E6%96%B9%E6%B3%95"><span class="nav-number">5.2.</span> <span class="nav-text">不同的折叠方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%A9%E8%BF%9B%E6%8A%98%E5%8F%A0"><span class="nav-number">5.3.</span> <span class="nav-text">缩进折叠</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%8A%98%E5%8F%A0"><span class="nav-number">5.4.</span> <span class="nav-text">表达式折叠</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E6%8A%98%E5%8F%A0"><span class="nav-number">5.5.</span> <span class="nav-text">语法折叠</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%AE%E5%BC%82%E6%8A%98%E5%8F%A0"><span class="nav-number">5.6.</span> <span class="nav-text">差异折叠</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E5%BF%97%E6%8A%98%E5%8F%A0"><span class="nav-number">5.7.</span> <span class="nav-text">标志折叠</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%81%E4%B9%85%E5%8C%96%E6%8A%98%E5%8F%A0"><span class="nav-number">5.8.</span> <span class="nav-text">持久化折叠</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%AA%E6%98%8E%E5%9C%B0%E5%AD%A6%E4%B9%A0%E6%8A%98%E5%8F%A0"><span class="nav-number">5.9.</span> <span class="nav-text">聪明地学习折叠</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC18%E7%AB%A0-Git"><span class="nav-number">6.</span> <span class="nav-text">第18章 Git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%AE%E5%BC%82%E6%AF%94%E8%BE%83"><span class="nav-number">6.1.</span> <span class="nav-text">差异比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-Vim-%E4%BD%9C%E4%B8%BA%E5%90%88%E5%B9%B6%E5%B7%A5%E5%85%B7"><span class="nav-number">6.2.</span> <span class="nav-text">使用 Vim 作为合并工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8-Vim-%E4%B8%AD%E4%BD%BF%E7%94%A8-Git"><span class="nav-number">6.3.</span> <span class="nav-text">在 Vim 中使用 Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6"><span class="nav-number">6.4.</span> <span class="nav-text">插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vim-Fugitive"><span class="nav-number">6.5.</span> <span class="nav-text">Vim-Fugitive</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-Status"><span class="nav-number">6.6.</span> <span class="nav-text">Git Status</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-Blame"><span class="nav-number">6.7.</span> <span class="nav-text">Git Blame</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gdiffsplit"><span class="nav-number">6.8.</span> <span class="nav-text">Gdiffsplit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gwrite-%E5%92%8C-Gread"><span class="nav-number">6.9.</span> <span class="nav-text">Gwrite 和 Gread</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gclog"><span class="nav-number">6.10.</span> <span class="nav-text">Gclog</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vim-Fugitive-%E7%9A%84%E6%9B%B4%E5%A4%9A%E5%8A%9F%E8%83%BD"><span class="nav-number">6.11.</span> <span class="nav-text">Vim-Fugitive 的更多功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%AA%E6%98%8E%E5%9C%B0%E5%AD%A6%E4%B9%A0-Vim-%E5%92%8C-Git"><span class="nav-number">6.12.</span> <span class="nav-text">聪明地学习 Vim 和 Git</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC19%E7%AB%A0-%E7%BC%96%E8%AF%91"><span class="nav-number">7.</span> <span class="nav-text">第19章 编译</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8E%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BC%96%E8%AF%91"><span class="nav-number">7.1.</span> <span class="nav-text">从命令行编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Make%E5%91%BD%E4%BB%A4"><span class="nav-number">7.2.</span> <span class="nav-text">Make命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-Make-%E7%BC%96%E8%AF%91"><span class="nav-number">7.3.</span> <span class="nav-text">使用 Make 编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E5%90%8C%E7%9A%84Make%E7%A8%8B%E5%BA%8F"><span class="nav-number">7.4.</span> <span class="nav-text">不同的Make程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%9D%E5%AD%98%E6%97%B6%E8%87%AA%E5%8A%A8%E7%BC%96%E8%AF%91"><span class="nav-number">7.5.</span> <span class="nav-text">保存时自动编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%87%E6%8D%A2%E7%BC%96%E8%AF%91%E5%99%A8"><span class="nav-number">7.6.</span> <span class="nav-text">切换编译器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BC%96%E8%AF%91%E5%99%A8"><span class="nav-number">7.7.</span> <span class="nav-text">创建自定义编译器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E6%AD%A5%E7%BC%96%E8%AF%91%E5%99%A8"><span class="nav-number">7.8.</span> <span class="nav-text">异步编译器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6%EF%BC%9AVim-dispatch"><span class="nav-number">7.9.</span> <span class="nav-text">插件：Vim-dispatch</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%82%E6%AD%A5Make"><span class="nav-number">7.9.1.</span> <span class="nav-text">异步Make</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%82%E6%AD%A5%E8%B0%83%E5%BA%A6%EF%BC%88Dispatch%EF%BC%89"><span class="nav-number">7.9.2.</span> <span class="nav-text">异步调度（Dispatch）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E8%B0%83%E5%BA%A6"><span class="nav-number">7.9.3.</span> <span class="nav-text">自动调度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%AA%E6%98%8E%E5%9C%B0%E5%AD%A6%E4%B9%A0%E7%BC%96%E8%AF%91"><span class="nav-number">7.10.</span> <span class="nav-text">聪明地学习编译</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC20%E7%AB%A0-%E8%A7%86%E5%9B%BE%E3%80%81%E4%BC%9A%E8%AF%9D%E5%92%8C-Viminfo"><span class="nav-number">8.</span> <span class="nav-text">第20章 视图、会话和 Viminfo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE"><span class="nav-number">8.1.</span> <span class="nav-text">视图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E8%A7%86%E5%9B%BE%E5%B1%9E%E6%80%A7"><span class="nav-number">8.1.1.</span> <span class="nav-text">配置视图属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%9D%E5%AD%98%E8%A7%86%E5%9B%BE"><span class="nav-number">8.1.2.</span> <span class="nav-text">保存视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE%E6%96%87%E4%BB%B6"><span class="nav-number">8.1.3.</span> <span class="nav-text">视图文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E8%BD%BD%E8%A7%86%E5%9B%BE%E6%96%87%E4%BB%B6"><span class="nav-number">8.1.4.</span> <span class="nav-text">加载视图文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E4%B8%AA%E8%A7%86%E5%9B%BE"><span class="nav-number">8.1.5.</span> <span class="nav-text">多个视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%88%9B%E5%BB%BA%E8%A7%86%E5%9B%BE"><span class="nav-number">8.1.6.</span> <span class="nav-text">自动创建视图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%9A%E8%AF%9D"><span class="nav-number">8.2.</span> <span class="nav-text">会话</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E4%BC%9A%E8%AF%9D"><span class="nav-number">8.2.1.</span> <span class="nav-text">创建新会话</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E8%BD%BD%E4%BC%9A%E8%AF%9D"><span class="nav-number">8.2.2.</span> <span class="nav-text">加载会话</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E4%BC%9A%E8%AF%9D%E5%B1%9E%E6%80%A7"><span class="nav-number">8.2.3.</span> <span class="nav-text">配置会话属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Viminfo"><span class="nav-number">8.3.</span> <span class="nav-text">Viminfo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BB%E5%86%99-Viminfo"><span class="nav-number">8.3.1.</span> <span class="nav-text">读写 Viminfo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E4%BD%BF%E7%94%A8-Viminfo-%E5%90%AF%E5%8A%A8-Vim"><span class="nav-number">8.3.2.</span> <span class="nav-text">不使用 Viminfo 启动 Vim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-Viminfo-%E5%B1%9E%E6%80%A7"><span class="nav-number">8.3.3.</span> <span class="nav-text">配置 Viminfo 属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%AA%E6%98%8E%E5%9C%B0%E4%BD%BF%E7%94%A8%E8%A7%86%E5%9B%BE%E3%80%81%E4%BC%9A%E8%AF%9D%E5%92%8C-Viminfo"><span class="nav-number">8.4.</span> <span class="nav-text">聪明地使用视图、会话和 Viminfo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC21%E7%AB%A0-%E5%A4%9A%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="nav-number">9.</span> <span class="nav-text">第21章 多文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6%E4%B8%AD%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="nav-number">9.1.</span> <span class="nav-text">在多个文件中执行命令的几种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E5%88%97%E8%A1%A8"><span class="nav-number">9.2.</span> <span class="nav-text">参数列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%93%E5%86%B2%E5%8C%BA%E5%88%97%E8%A1%A8"><span class="nav-number">9.3.</span> <span class="nav-text">缓冲区列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AA%97%E5%8F%A3%E5%88%97%E8%A1%A8%E5%92%8C%E9%80%89%E9%A1%B9%E5%8D%A1%EF%BC%88Tab%EF%BC%89%E5%88%97%E8%A1%A8"><span class="nav-number">9.4.</span> <span class="nav-text">窗口列表和选项卡（Tab）列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E4%BF%AE%E5%A4%8D%E5%88%97%E8%A1%A8"><span class="nav-number">9.5.</span> <span class="nav-text">快速修复列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%8D%E7%BD%AE%E5%88%97%E8%A1%A8"><span class="nav-number">9.6.</span> <span class="nav-text">位置列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8Vim%E4%B8%AD%E8%BF%90%E8%A1%8C%E5%A4%9A%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="nav-number">9.7.</span> <span class="nav-text">在Vim中运行多文件操作命令</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">大人者，不失其赤子之心</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2023/06/05/154/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="154. VIM 从放弃到偶尔 | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          154. VIM 从放弃到偶尔
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-05 00:00:00" itemprop="dateCreated datePublished" datetime="2023-06-05T00:00:00+08:00">2023-06-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-08 14:36:58" itemprop="dateModified" datetime="2025-12-08T14:36:58+08:00">2025-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/software/" itemprop="url" rel="index"><span itemprop="name">software</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="第13章-全局命令"><a href="#第13章-全局命令" class="headerlink" title="第13章 全局命令"></a>第13章 全局命令</h1><p>到目前为止，您已经了解了如何使用点命令(<code>.</code>)重复上一次更改，如何使用宏(<code>q</code>)重复动作以及将文本存储在寄存器中(<code>&quot;</code>)。</p>
+<p>在本章中，您将学习如何在全局命令中重复命令行命令。</p>
+<h2 id="全局命令概述"><a href="#全局命令概述" class="headerlink" title="全局命令概述"></a>全局命令概述</h2><p>Vim的全局命令用于同时在多行上运行命令行命令。</p>
+<p>顺便说一句，您之前可能已经听说过 “Ex命令” 一词。在本书中，我将它们称为&#x3D;&#x3D;命令行命令&#x3D;&#x3D;，但Ex命令和命令行命令是相同的。它们是以冒号（<code>:</code>）开头的命令。在上一章中，您了解了替代命令。这是一个Ex命令的示例。它们之所以称为Ex，是因为它们最初来自Ex文本编辑器。在本书中，我将继续将它们称为命令行命令。有关Ex命令的完整列表，请查看<code>:h ex-cmd-index</code>。</p>
+<p>全局命令具有以下语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:g/pattern/command</span><br></pre></td></tr></table></figure>
+
+<p><code>pattern</code>匹配包含该模式串的所有行，类似于替代命令中的模式串。<code>command</code>可以是任何命令行命令。全局命令通过对与<code>pattern</code>匹配的每一行执行<code>command</code>来工作。</p>
+<p>如果您具有以下表达式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const one = 1;</span><br><span class="line">console.log(&quot;one: &quot;, one);</span><br><span class="line"></span><br><span class="line">const two = 2;</span><br><span class="line">console.log(&quot;two: &quot;, two);</span><br><span class="line"></span><br><span class="line">const three = 3;</span><br><span class="line">console.log(&quot;three: &quot;, three);</span><br></pre></td></tr></table></figure>
+
+<p>要删除所有包含”console”的行，可以运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:g/console/d</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const one = 1;</span><br><span class="line"></span><br><span class="line">const two = 2;</span><br><span class="line"></span><br><span class="line">const three = 3;</span><br></pre></td></tr></table></figure>
+
+<p>全局命令在与”console”模式串匹配的所有行上执行删除命令(<code>d</code>)。</p>
+<p>运行<code>g</code>命令时，Vim对文件进行两次扫描。在第一次运行时，它将扫描每行并标记与<code>/console/</code>模式传教匹配的行。一旦所有匹配的行都被标记，它将进行第二次运行，并在标记的行上执行d命令。</p>
+<p>如果要删除所有包含”const”的行，请运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:g/const/d</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">console.log(&quot;one: &quot;, one);</span><br><span class="line"></span><br><span class="line">console.log(&quot;two: &quot;, two);</span><br><span class="line"></span><br><span class="line">console.log(&quot;three: &quot;, three);</span><br></pre></td></tr></table></figure>
+
+<h2 id="逆向匹配"><a href="#逆向匹配" class="headerlink" title="逆向匹配"></a>逆向匹配</h2><p>要在不匹配的行上运行全局命令，可以运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:g!/&#123;pattern&#125;/&#123;command&#125;</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:v/&#123;pattern&#125;/&#123;command&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果运行<code>:v/console/d</code>，它将删除 <strong>不</strong> 包含”console”的所有行。</p>
+<h2 id="模式串"><a href="#模式串" class="headerlink" title="模式串"></a>模式串</h2><p>全局命令使用与替代命令相同的模式串系统，因此本节将作为更新。随意跳到下一部分或继续阅读！</p>
+<p>如果您具有以下表达式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const one = 1;</span><br><span class="line">console.log(&quot;one: &quot;, one);</span><br><span class="line"></span><br><span class="line">const two = 2;</span><br><span class="line">console.log(&quot;two: &quot;, two);</span><br><span class="line"></span><br><span class="line">const three = 3;</span><br><span class="line">console.log(&quot;three: &quot;, three);</span><br></pre></td></tr></table></figure>
+
+<p>要删除包含”one”或”two”的行，请运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:g/one\|two/d</span><br></pre></td></tr></table></figure>
+
+<p>要删除包含任何一位数字的行，请运行以下任一命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:g/[0-9]/d</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:g/\d/d</span><br></pre></td></tr></table></figure>
+
+<p>如果您有表达式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const oneMillion = 1000000;</span><br><span class="line">const oneThousand = 1000;</span><br><span class="line">const one = 1;</span><br></pre></td></tr></table></figure>
+
+<p>要匹配包含三到六个零的行，请运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:g/0\&#123;3,6\&#125;/d</span><br></pre></td></tr></table></figure>
+
+<h2 id="传递范围参数"><a href="#传递范围参数" class="headerlink" title="传递范围参数"></a>传递范围参数</h2><p>您可以在<code>g</code>命令之前传递一个范围。您可以通过以下几种方法来做到这一点：</p>
+<ul>
+<li><code>:1,5g/console/d</code>  删除第1行和第5行之间匹配字符串”console”的行。</li>
+<li><code>:,5g/console/d</code> 如果逗号前没有地址，则从当前行开始。它在当前行和第5行之间寻找字符串”console”并将该行删除。</li>
+<li><code>:3,g/console/d</code> 如果逗号后没有地址，则在当前行结束。它在第3行和当前行之间寻找字符串”console”并将该行删除。</li>
+<li><code>:3g/console/d</code> 如果只传递一个地址而不带逗号，则仅在第3行执行命令。在第3行查找，如果包含字符串”console”，则将其删除。</li>
+</ul>
+<p>除了数字，您还可以将这些符号用作范围：</p>
+<ul>
+<li><code>.</code> 表示当前行。范围<code>.,3</code>表示当前行和第3行之间。</li>
+<li><code>$</code> 表示文件的最后一行。 <code>3,$</code>范围表示在第3行和最后一行之间。</li>
+<li><code>+n</code> 表示当前行之后的n行。您可以将其与<code>.</code>结合使用，也可以不结合使用。  <code>3,+1</code>或<code>3,.+1</code>表示在第3行和当前行之后的行之间。</li>
+</ul>
+<p>如果您不给它任何范围，默认情况下它将影响整个文件。这实际上不是常态。如果您不传递任何范围，Vim的大多数命令行命令仅在当前行上运行(两个值得注意的例外是：这里介绍的全局命令(<code>:g</code>)和save(<code>:w</code>)命令)。</p>
+<h2 id="普通模式命令"><a href="#普通模式命令" class="headerlink" title="普通模式命令"></a>普通模式命令</h2><p>您可以将全局命令和<code>:normal</code>命令行命令一起运行。</p>
+<p>如果您有以下文字：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const one = 1</span><br><span class="line">console.log(&quot;one: &quot;, one)</span><br><span class="line"></span><br><span class="line">const two = 2</span><br><span class="line">console.log(&quot;two: &quot;, two)</span><br><span class="line"></span><br><span class="line">const three = 3</span><br><span class="line">console.log(&quot;three: &quot;, three)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>要添加”;”运行到每一行的末尾：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:g/./normal A;</span><br></pre></td></tr></table></figure>
+
+<p>让我们分解一下：</p>
+<ul>
+<li><code>:g</code> 是全局命令。</li>
+<li><code>/./</code> 是“非空行”的模式。它匹配至少包含1个字符的行。因此将与包含“const”和“console”的行匹配。它不匹配空行。</li>
+<li><code>normal A;</code> 运行<code>:normal</code>命令行命令。 <code>A;</code> 是普通模式命令，用于在该行的末尾插入”;”。</li>
+</ul>
+<h2 id="执行宏"><a href="#执行宏" class="headerlink" title="执行宏"></a>执行宏</h2><p>您也可以使用全局命令执行宏。宏只是普通模式下的操作，因此可以使用<code>:normal</code>来执行宏。如果您有以下表达式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const one = 1</span><br><span class="line">console.log(&quot;one: &quot;, one);</span><br><span class="line"></span><br><span class="line">const two = 2</span><br><span class="line">console.log(&quot;two: &quot;, two);</span><br><span class="line"></span><br><span class="line">const three = 3</span><br><span class="line">console.log(&quot;three: &quot;, three);</span><br></pre></td></tr></table></figure>
+
+<p>请注意，带有”const”的行没有分号。让我们创建一个宏，以在寄存器”a”的这些行的末尾添加逗号：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qa0A;&lt;esc&gt;q</span><br></pre></td></tr></table></figure>
+
+<p>如果您需要复习，请查看有关宏的章节。现在运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:g/const/normal @a</span><br></pre></td></tr></table></figure>
+
+<p>现在，所有带有”const”的行的末尾将带有”;”。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const one = 1;</span><br><span class="line">console.log(&quot;one: &quot;, one);</span><br><span class="line"></span><br><span class="line">const two = 2;</span><br><span class="line">console.log(&quot;two: &quot;, two);</span><br><span class="line"></span><br><span class="line">const three = 3;</span><br><span class="line">console.log(&quot;three: &quot;, three);</span><br></pre></td></tr></table></figure>
+
+<p>如果您一步一步按照示例做，您将会在第一行末尾看到两个分号。为避免这种情况，使用全局命令时，给一个范围参数，从第2行到最后一行, <code>:2,$g/const/normal @a</code>。</p>
+<h2 id="递归全局命令"><a href="#递归全局命令" class="headerlink" title="递归全局命令"></a>递归全局命令</h2><p>全局命令本身是命令行命令的一种，因此您可以从技术上在全局命令中运行全局命令。</p>
+<p>给定表达式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const one = 1;</span><br><span class="line">console.log(&quot;one: &quot;, one);</span><br><span class="line"></span><br><span class="line">const two = 2;</span><br><span class="line">console.log(&quot;two: &quot;, two);</span><br><span class="line"></span><br><span class="line">const three = 3;</span><br><span class="line">console.log(&quot;three: &quot;, three);</span><br></pre></td></tr></table></figure>
+
+<p>如果您运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:g/console/g/two/d</span><br></pre></td></tr></table></figure>
+
+<p>首先，<code>g</code>将查找包含模式”console”的行，并找到3个匹配项。然后，第二个”g”将从那三个匹配项中查找包含模式”two”的行。最后，它将删除该匹配项。</p>
+<p>您也可以将<code>g</code>与<code>v</code>结合使用以找到正负模式。例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:g/console/v/two/d</span><br></pre></td></tr></table></figure>
+
+<p>与前面的命令不同，它将查找 <strong>不</strong> 包含”two”的行。</p>
+<h2 id="更改定界符"><a href="#更改定界符" class="headerlink" title="更改定界符"></a>更改定界符</h2><p>您可以像替代命令一样更改全局命令的定界符。规则是相同的：您可以使用任何单字节字符，但字母，数字，<code>&quot;</code>, <code>|</code>, 和 <code>\</code>除外。</p>
+<p>要删除包含”console”的行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:g@console@d</span><br></pre></td></tr></table></figure>
+
+<p>如果在全局命令中使用替代命令，则可以有两个不同的定界符：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g@one@s+const+let+g</span><br></pre></td></tr></table></figure>
+
+<p>此处，全局命令将查找包含”one”的所有行。 替换命令将从这些匹配项中将字符串”const”替换为”let”。</p>
+<h2 id="默认命令"><a href="#默认命令" class="headerlink" title="默认命令"></a>默认命令</h2><p>如果在全局命令中未指定任何命令行命令，会发生什么？</p>
+<p>全局命令将使用打印(<code>:p</code>)命令来打印当前行的文本。如果您运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:g/console</span><br></pre></td></tr></table></figure>
+
+<p>它将在屏幕底部打印所有包含”console”的行。</p>
+<p>顺便说一下，这是一个有趣的事实。因为全局命令使用的默认命令是<code>p</code>，所以这使<code>g</code>语法为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:g/re/p</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>g</code> &#x3D; 全局命令</li>
+<li><code>re</code> &#x3D; 正则表达式模式</li>
+<li><code>p</code> &#x3D; 打印命令</li>
+</ul>
+<p>这三个元素连起来拼写为 **”grep”**，与命令行中的<code>grep</code> 相同。但这 <strong>不</strong> 是巧合。 <code>g/re/p</code>命令最初来自Ed编辑器（一个行文本编辑器）。 <code>grep</code>命令的名称来自Ed。</p>
+<p>您的计算机可能仍具有Ed编辑器。从终端运行<code>ed</code>（提示：要退出，请键入<code>q</code>）。</p>
+<h2 id="反转整个缓冲区"><a href="#反转整个缓冲区" class="headerlink" title="反转整个缓冲区"></a>反转整个缓冲区</h2><p>要翻转整个文件，请运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:g/^/m 0 </span><br></pre></td></tr></table></figure>
+
+<p><code>^</code>表示行的开始。使用<code>^</code>匹配所有行，包括空行。</p>
+<p>如果只需要反转几行，请将其传递一个范围。要将第5行到第10行之间的行反转，请运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:5,10g/^/m 0</span><br></pre></td></tr></table></figure>
+
+<p>要了解有关move命令的更多信息，请查看<code>:h :move</code>。</p>
+<h2 id="汇总所有待办事项"><a href="#汇总所有待办事项" class="headerlink" title="汇总所有待办事项"></a>汇总所有待办事项</h2><p>当我编码时，有时我会想到一个随机的绝妙主意。不想失去专注，我通常将它们写在我正在编辑的文件中，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const one = 1;</span><br><span class="line">console.log(&quot;one: &quot;, one);</span><br><span class="line">// TODO: 喂小狗</span><br><span class="line"></span><br><span class="line">const two = 2;</span><br><span class="line">// TODO：自动喂小狗</span><br><span class="line">console.log(&quot;two: &quot;, two);</span><br><span class="line"></span><br><span class="line">const three = 3;</span><br><span class="line">console.log(&quot;three: &quot;, three);</span><br><span class="line">// TODO：创建一家销售自动小狗喂食器的初创公司</span><br></pre></td></tr></table></figure>
+
+<p>跟踪所有已创建的TODO可能很困难。 Vim有一个<code>:t</code>（copy）方法来将所有匹配项复制到一个地址。要了解有关复制方法的更多信息，请查看<code>:h :copy</code>。</p>
+<p>要将所有TODO复制到文件末尾以便于自省，请运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:g/TODO/t $</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">const one = 1;</span><br><span class="line">console.log(&quot;one: &quot;, one);</span><br><span class="line">// TODO：喂小狗</span><br><span class="line"></span><br><span class="line">const two = 2;</span><br><span class="line">// TODO：自动喂小狗</span><br><span class="line">console.log(&quot;two: &quot;, two);</span><br><span class="line"></span><br><span class="line">const three = 3;</span><br><span class="line">console.log(&quot;three: &quot;, three);</span><br><span class="line">// TODO：创建一家销售自动小狗喂食器的初创公司</span><br><span class="line"></span><br><span class="line">// TODO：喂小狗</span><br><span class="line">// TODO：自动喂小狗</span><br><span class="line">// TODO：创建一家销售自动小狗喂食器的初创公司</span><br></pre></td></tr></table></figure>
+
+<p>现在，我可以查看我创建的所有TODO，另外找个时间来完成它们，或将它们委托给其他人，然后继续执行下一个任务。</p>
+<p>如果不想复制，而是将所有的 TODO 移动到末尾，可以使用移动命令 <code>m</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:g/TODO/m $</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const one = 1;</span><br><span class="line">console.log(&quot;one: &quot;, one);</span><br><span class="line"></span><br><span class="line">const two = 2;</span><br><span class="line">console.log(&quot;two: &quot;, two);</span><br><span class="line"></span><br><span class="line">const three = 3;</span><br><span class="line">console.log(&quot;three: &quot;, three);</span><br><span class="line"></span><br><span class="line">// TODO：喂小狗</span><br><span class="line">// TODO：自动喂小狗</span><br><span class="line">// TODO：创建一家销售自动小狗喂食器的初创公司</span><br></pre></td></tr></table></figure>
+
+<h2 id="黑洞删除"><a href="#黑洞删除" class="headerlink" title="黑洞删除"></a>黑洞删除</h2><p>回想一下寄存器那一章，已删除的文本存储在编号寄存器中（允许它们足够大）。每当运行<code>:g/console/d</code>时，Vim都会将删除的行存储在编号寄存器中。如果删除多行，所有编号的寄存器将很快被填满。为了避免这种情况，您可以使用黑洞寄存器（<code>&quot;_</code>） <strong>不</strong> 将删除的行存储到寄存器中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:g/console/d _</span><br></pre></td></tr></table></figure>
+
+<p>通过在<code>d</code>之后传递<code>_</code>，Vim不会将删除的行保存到任何寄存器中。</p>
+<h2 id="将多条空行减少为一条空行"><a href="#将多条空行减少为一条空行" class="headerlink" title="将多条空行减少为一条空行"></a>将多条空行减少为一条空行</h2><p>如果您的文件带有多个空行，如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const one = 1;</span><br><span class="line">console.log(&quot;one: &quot;, one);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const two = 2;</span><br><span class="line">console.log(&quot;two: &quot;, two);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const three = 3;</span><br><span class="line">console.log(&quot;three: &quot;, three);</span><br></pre></td></tr></table></figure>
+
+<p>您可以快速将多个空行减少为一条空行。运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:g/^$/,/./-1j</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const one = 1;</span><br><span class="line">console.log(&quot;one: &quot;, one);</span><br><span class="line"></span><br><span class="line">const two = 2;</span><br><span class="line">console.log(&quot;two: &quot;, two);</span><br><span class="line"></span><br><span class="line">const three = 3;</span><br><span class="line">console.log(&quot;three: &quot;, three);</span><br></pre></td></tr></table></figure>
+
+<p>一般情况下全局命令遵循下列格式：<code>:g/pattern/command</code>。但是，您也可以使用下面的格式：<code>:g/pattern1/,/pattern2/command</code>。用这种格式，Vim将会使<code>command</code>作用在<code>pattern1</code>和<code>pattern2</code>上。</p>
+<p>记住上面说的格式，让我们根据<code>:g/pattern1/,/pattern2/command</code>这个格式分解一下命令<code>:g/^$/,/./-1j</code>：</p>
+<ul>
+<li><code>/pattern1/</code> 就是 <code>/^$/</code> 。它表示一个空行（一个没有任何字符的行）。</li>
+<li><code>/pattern2/</code> 就是 <code>/./</code>（用-1作为行修正）。<code>/./</code>表示一个非空行（一个含有至少1个字符的行）。这里的 <code>-1</code> 意思是向上偏移1行。</li>
+<li><code>command</code> 就是 <code>j</code>，一个联接命令(<code>:j</code>)。在这个示例中，该全局命令联接所有给定的行。</li>
+</ul>
+<p>顺便说一句，如果您想要将多个空行全部删去，运行下面的命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:g/^$/,/./j</span><br></pre></td></tr></table></figure>
+
+<p>或者：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:g/^$/-j</span><br></pre></td></tr></table></figure>
+
+<p>您的文本将会减少为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const one = 1;</span><br><span class="line">console.log(&quot;one: &quot;, one);</span><br><span class="line">const two = 2;</span><br><span class="line">console.log(&quot;two: &quot;, two);</span><br><span class="line">const three = 3;</span><br><span class="line">console.log(&quot;three: &quot;, three);</span><br></pre></td></tr></table></figure>
+
+<p>（译者补充：<code>j</code>连接命令的格式是：<code>:[range]j</code>。比如：<code>:1,5j</code>将连接第1至5行。在前面的命令中<code>:g/pattern1/,/pattern2/-1j</code>，<code>/pattern1/</code>和<code>/pattern2</code>都是<code>j</code>命令的范围参数，表示连接空行至非空行上方一行，这样就会保留1个空行。在早前的英文版本中有关于<code>j</code>命令的介绍，不知为何在后面的更新中，原作者删除了关于<code>j</code>命令的介绍）</p>
+<h2 id="高级排序"><a href="#高级排序" class="headerlink" title="高级排序"></a>高级排序</h2><p>Vim有一个<code>:sort</code>命令来对一个范围内的行进行排序。例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">d</span><br><span class="line">b</span><br><span class="line">a</span><br><span class="line">e</span><br><span class="line">c</span><br></pre></td></tr></table></figure>
+
+<p>您可以通过运行<code>:sort</code>对它们进行排序。如果给它一个范围，它将只对该范围内的行进行排序。例如，<code>:3,5sort</code>仅在第三和第五行之间排序。</p>
+<p>如果您具有以下表达式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">const arrayB = [</span><br><span class="line">  &quot;i&quot;,</span><br><span class="line">  &quot;g&quot;,</span><br><span class="line">  &quot;h&quot;,</span><br><span class="line">  &quot;b&quot;,</span><br><span class="line">  &quot;f&quot;,</span><br><span class="line">  &quot;d&quot;,</span><br><span class="line">  &quot;e&quot;,</span><br><span class="line">  &quot;c&quot;,</span><br><span class="line">  &quot;a&quot;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">const arrayA = [</span><br><span class="line">  &quot;h&quot;,</span><br><span class="line">  &quot;b&quot;,</span><br><span class="line">  &quot;f&quot;,</span><br><span class="line">  &quot;d&quot;,</span><br><span class="line">  &quot;e&quot;,</span><br><span class="line">  &quot;a&quot;,</span><br><span class="line">  &quot;c&quot;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>如果需要排序数组中的元素，而不是数组本身，可以运行以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:g/\[/+1,/\]/-1sort</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">const arrayB = [</span><br><span class="line">  &quot;a&quot;,</span><br><span class="line">  &quot;b&quot;,</span><br><span class="line">  &quot;c&quot;,</span><br><span class="line">  &quot;d&quot;,</span><br><span class="line">  &quot;e&quot;,</span><br><span class="line">  &quot;f&quot;,</span><br><span class="line">  &quot;g&quot;,</span><br><span class="line">  &quot;h&quot;,</span><br><span class="line">  &quot;i&quot;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">const arrayA = [</span><br><span class="line">  &quot;a&quot;</span><br><span class="line">  &quot;b&quot;,</span><br><span class="line">  &quot;c&quot;,</span><br><span class="line">  &quot;d&quot;,</span><br><span class="line">  &quot;e&quot;,</span><br><span class="line">  &quot;f&quot;,</span><br><span class="line">  &quot;h&quot;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>这很棒！但是命令看起来很复杂。让我们分解一下。该命令依然遵循 <code>:g/pattern1/,/pattern2/command</code>这个格式。</p>
+<ul>
+<li><code>:g</code> 是全局命令</li>
+<li><code>/\[/+1</code> 是第一个模式串，它匹配左方括号”[“。<code>+1</code>表示匹配行的下面1行。</li>
+<li><code>/\]/-1</code> 是第二个模式串，它匹配右方括号”]”。<code>-1</code>表示匹配行的上面1行。</li>
+<li><code>/\[/+1,/\]/-1</code> 表示在”[“和”]”之间的行。</li>
+<li><code>sort</code> 是命令行命令：排序。</li>
+</ul>
+<h2 id="聪明地学习全局命令"><a href="#聪明地学习全局命令" class="headerlink" title="聪明地学习全局命令"></a>聪明地学习全局命令</h2><p>全局命令针对所有匹配的行执行命令行命令。有了它，您只需要运行一次命令，Vim就会为您完成其余的工作。要精通全局命令，需要做两件事：良好的命令行命令词汇表和正则表达式知识。随着您花费更多的时间使用Vim，您自然会学到更多的命令行命令。正则表达式知识需要更多的实际操作。但是一旦您适应了使用正则表达式，您将领先于很多其他人。</p>
+<p>这里的一些例子很复杂。不要被吓到。真正花时间了解它们。认真阅读每个模式串，不要放弃。</p>
+<p>每当需要在多个位置应用命令时，请暂停并查看是否可以使用<code>g</code>命令。寻找最适合工作的命令，并编写一个模式串以同时定位多个目标。</p>
+<p>既然您已经知道全局命令的功能强大，那么让我们学习如何使用外部命令来增加工具库。</p>
+<h1 id="第14章-外部命令"><a href="#第14章-外部命令" class="headerlink" title="第14章 外部命令"></a>第14章 外部命令</h1><p>在Unix系统内部，您会发现许多小型的，超专业化命令，每个命令只做一件事（而且能很好地完成）。您可以将这些命令链接在一起以共同解决一个复杂的问题。如果可以从Vim内部使用这些命令，那不是很好吗？</p>
+<p>答案是肯定的!在本章中，您将学习如何扩展Vim以使其与外部命令无缝协作。</p>
+<h2 id="Bang-命令"><a href="#Bang-命令" class="headerlink" title="Bang 命令"></a>Bang 命令</h2><p>Vim有一个Bang(<code>!</code>)命令，可以执行三件事：</p>
+<p>1.将外部命令的STDOUT读入当前缓冲区。<br>2.将缓冲区的内容作为STDIN写入外部命令。<br>3.从Vim内部执行外部命令。</p>
+<p>让我们一个个认真看一下。</p>
+<h2 id="将外部命令的标准输出STDOUT读入Vim"><a href="#将外部命令的标准输出STDOUT读入Vim" class="headerlink" title="将外部命令的标准输出STDOUT读入Vim"></a>将外部命令的标准输出STDOUT读入Vim</h2><p>将外部命令的STDOUT读入当前缓冲区的语法为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:r !&#123;cmd&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>:r</code>是Vim的读命令。如果不带<code>!</code>使用它，则可以使用它来获取文件的内容。如果当前目录中有文件<code>file1.txt</code>，运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:r file1.txt</span><br></pre></td></tr></table></figure>
+
+<p>Vim会将<code>file1.txt</code>的内容放入当前缓冲区。</p>
+<p>如果您运行的<code>:r</code>命令后面跟一个<code>!</code>和外部命令，则该命令的输出将插入到当前缓冲区中。要获取<code>ls</code>命令的结果，请运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:r !ls</span><br></pre></td></tr></table></figure>
+
+<p>它返回类似下列的文本：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">file1.txt</span><br><span class="line">file2.txt</span><br><span class="line">file3.txt</span><br></pre></td></tr></table></figure>
+
+<p>您可以从<code>curl</code>命令读取数据：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:r !curl -s &#x27;https://jsonplaceholder.typicode.com/todos/1&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>r命令也接受一个地址：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:10r !cat file1.txt</span><br></pre></td></tr></table></figure>
+
+<p>现在，将在第10行之后插入来自运行<code>cat file.txt</code>的STDOUT。</p>
+<h2 id="将缓冲区内容写入外部命令"><a href="#将缓冲区内容写入外部命令" class="headerlink" title="将缓冲区内容写入外部命令"></a>将缓冲区内容写入外部命令</h2><p><code>:w</code>命令除了保存文件，还可以用来将当前缓冲区中的文本作为作为STDIN传递给外部命令。语法为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:w !cmd</span><br></pre></td></tr></table></figure>
+
+<p>如果您具有以下表达式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(&quot;Hello Vim&quot;);</span><br><span class="line">console.log(&quot;Vim is awesome&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>确保在计算机中安装了<a target="_blank" rel="noopener" href="https://nodejs.org/en/">node</a>，然后运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:w !node</span><br></pre></td></tr></table></figure>
+
+<p>Vim将使用<code>node</code>执行Javascript表达式来打印”Hello Vim”和”Vim is awesome”。</p>
+<p>当使用<code>：w</code>命令时，Vim使用当前缓冲区中的所有文本，与global命令类似（大多数命令行命令，如果不给它传递范围，则仅对当前行执行该命令）。如果您通过<code>：w</code>来指定地址：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:2w !node</span><br></pre></td></tr></table></figure>
+
+<p>“Vim”只使用第二行中的文本到<code>node</code>解释器中。</p>
+<p><code>:w !node</code>和<code>:w! node</code>形式上区别很小，但功能上相隔千里。使用<code>:w !node</code>，您是将当前缓冲区中的文本”写入”到外部命令<code>node</code>中。用<code>:w! node</code>，则您将强制保存文件并将其命名为”node”。</p>
+<h2 id="执行外部命令"><a href="#执行外部命令" class="headerlink" title="执行外部命令"></a>执行外部命令</h2><p>您可以使用bang命令从Vim内部执行外部命令。语法为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:!cmd</span><br></pre></td></tr></table></figure>
+
+<p>要以长格式查看当前目录的内容，请运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:!ls -ls</span><br></pre></td></tr></table></figure>
+
+<p>要终止在PID 3456上运行的进程，可以运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:!kill -9 3456</span><br></pre></td></tr></table></figure>
+
+<p>您可以在不离开Vim的情况下运行任何外部命令，因此您可以专注于自己的任务。</p>
+<h2 id="过滤文本"><a href="#过滤文本" class="headerlink" title="过滤文本"></a>过滤文本</h2><p>如果给<code>!</code>范围，则可用于过滤文本。假设您有：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hello vim</span><br><span class="line">hello vim</span><br></pre></td></tr></table></figure>
+
+<p>让我们使用<code>tr</code> (translate)命令将当前行大写。运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:.!tr &#x27;[:lower:]&#x27; &#x27;[:upper:]&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HELLO VIM</span><br><span class="line">hello vim</span><br></pre></td></tr></table></figure>
+
+<p>命令分解：</p>
+<ul>
+<li><code>.!</code> 在当前行执行filter命令。</li>
+<li><code>!tr &#39;[:lower:]&#39; &#39;[:upper:]&#39;</code> 调用<code>tr</code>外部命令将所有小写字符替换为大写字符。</li>
+</ul>
+<p>&#x3D;&#x3D;必须传递范围以运行外部命令作为过滤器。&#x3D;&#x3D;如果您尝试在没有<code>.</code>的情况下运行上述命令(<code>:!tr &#39;[:lower:]&#39; &#39;[:upper:]&#39;</code>)，则会看到错误。</p>
+<p>假设您需要使用awk命令删除两行的第二列：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:%!awk &quot;&#123;print $1&#125;&quot;</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hello</span><br><span class="line">hello</span><br></pre></td></tr></table></figure>
+
+<p>命令分解：</p>
+<ul>
+<li><code>:%!</code>  在所有行(<code>%</code>)上执行filter命令。</li>
+<li><code>awk &quot;&#123;print $1&#125;&quot;</code> 仅打印匹配项的第一列。</li>
+</ul>
+<p>您可以使用管道运算符（<code>|</code>）链接多个命令，就像在终端中一样。假设您有一个包含这些美味早餐的文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name price</span><br><span class="line">chocolate pancake 10</span><br><span class="line">buttermilk pancake 9</span><br><span class="line">blueberry pancake 12</span><br></pre></td></tr></table></figure>
+
+<p>如果您需要根据价格对它们进行排序，并且仅以均匀的间距显示菜单，则可以运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:%!awk &#x27;NR &gt; 1&#x27; | sort -nk 3 | column -t</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">buttermilk pancake 9</span><br><span class="line">chocolate pancake 10</span><br><span class="line">blueberry pancake 12</span><br></pre></td></tr></table></figure>
+
+<p>命令分解：</p>
+<ul>
+<li><code>:%!</code> 将过滤器应用于所有行(<code>%</code>)。</li>
+<li><code>awk &#39;NR &gt; 1&#39;</code> 仅从第二行开始显示文本。</li>
+<li><code>|</code>链接下一个命令。</li>
+<li><code>sort -nk 3</code>使用列3（<code>k 3</code>）中的值对数字进行排序（<code>n</code>）。</li>
+<li><code>column -t</code>以均匀的间距组织文本。</li>
+</ul>
+<h2 id="普通模式命令-1"><a href="#普通模式命令-1" class="headerlink" title="普通模式命令"></a>普通模式命令</h2><p>在普通模式下，Vim有一个过滤运算符（<code>!</code>）。如果您有以下问候：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hello vim</span><br><span class="line">hola vim</span><br><span class="line">bonjour vim</span><br><span class="line">salve vim</span><br></pre></td></tr></table></figure>
+
+<p>要大写当前行和下面的行，可以运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!jtr &#x27;[a-z]&#x27; &#x27;[A-Z]&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>命令分解：</p>
+<ul>
+<li><code>!j</code> 运行常规命令过滤器运算符（<code>!</code>），目标是当前行及其下方的行。回想一下，因为它是普通模式运算符，所以适用语法规则”动词+名词”。</li>
+<li><code>tr &#39;[a-z]&#39; &#39;[A-Z]&#39;</code>将小写字母替换为大写字母。</li>
+</ul>
+<p>filter normal命令仅适用于至少一行以上的motion或至少一行以上的文本对象。如果您尝试运行<code>!iwtr&#39;[az]&#39;&#39;[AZ]&#39;</code>（在内部单词上执行<code>tr</code>），您会发现它在整个行上都应用了tr命令，而不是光标所在的单词。</p>
+<h2 id="聪明地学习外部命令"><a href="#聪明地学习外部命令" class="headerlink" title="聪明地学习外部命令"></a>聪明地学习外部命令</h2><p>Vim不是IDE。它是一种轻量级的模式编辑器，通过设计可以高度扩展。由于这种可扩展性，您可以轻松访问系统中的任何外部命令。这样，Vim离成为IDE仅一步之遥。有人说Unix系统是有史以来的第一个IDE。</p>
+<p>Bang 命令的有用程度与您知道多少个外部命令相关。如果您的外部命令知识有限，请不要担心。我还有很多东西要学。以此作为持续学习的动力。每当您需要过滤文本时，请查看是否存在可以解决问题的外部命令。不必担心掌握所有的命令。只需学习完成当前任务所需的内容即可。</p>
+<h1 id="第15章-命令行模式"><a href="#第15章-命令行模式" class="headerlink" title="第15章 命令行模式"></a>第15章 命令行模式</h1><p>在前三章中，您已经学习了如何使用搜索命令(<code>/</code>, <code>?</code>)、替换命令(<code>:s</code>)、全局命令(<code>:g</code>)，以及外部命令(<code>!</code>)。这些都是命令行模式命令的一些例子。</p>
+<p>在本章中，您将学习命令行模式的更多技巧。</p>
+<h2 id="进入和退出命令行模式"><a href="#进入和退出命令行模式" class="headerlink" title="进入和退出命令行模式"></a>进入和退出命令行模式</h2><p>命令行模式本身也是一种模式，就像普通模式、输入模式、可视模式一样。在这种模式中，光标将转到屏幕底部，此时您可以输入不同的命令。</p>
+<p>有 4 种进入命令行模式的方式：</p>
+<ul>
+<li>搜索命令 (<code>/</code>, <code>?</code>)</li>
+<li>命令行指令 (<code>:</code>)</li>
+<li>外部命令 (<code>!</code>)</li>
+</ul>
+<p>您可以从正常模式或可视模式进入命令行模式。</p>
+<p>若要离开命令行模式，您可以使用 <code>&lt;esc&gt;</code>、<code>Ctrl-c</code>、<code>Ctrl-[</code>。</p>
+<p><strong>有时其他资料可能会将”命令行指令”称为”Ex 命令”，将”外部命令”称为”过滤命令”或者”叹号运算符”。</strong></p>
+<h2 id="重复上一个命令"><a href="#重复上一个命令" class="headerlink" title="重复上一个命令"></a>重复上一个命令</h2><p>您可以用 <code>@:</code> 来重复上一个命令行指令或外部命令。</p>
+<p>如果您刚运行 <code>:s/foo/bar/g</code>，执行 <code>@:</code> 将重复该替换。如果您刚运行 <code>:.!tr &#39;[a-z]&#39; &#39;[A-Z]&#39;</code>，执行 <code>@:</code> 将重复上一次外部命令转换过滤。</p>
+<h2 id="命令行模式快捷键"><a href="#命令行模式快捷键" class="headerlink" title="命令行模式快捷键"></a>命令行模式快捷键</h2><p>在命令行模式中，您可以使用 <code>Left</code> 或 <code>Right</code> 方向键，来左右移动一个字符。</p>
+<p>如果需要移动一个单词，使用 <code>Shift-Left</code> 或 <code>Shift-Right</code> (在某些操作系统中，您需要使用 <code>Ctrl</code> 而不是 <code>Shift</code>)。</p>
+<p>使用 <code>Ctrl-b</code>移动到该行的开始，使用 <code>Ctrl-e</code>移动到该行的结束。</p>
+<p>和输入模式类似，在命令行模式中，有三种方法可以删除字符：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ctrl-h    删除一个字符</span><br><span class="line">Ctrl-w    删除一个单词</span><br><span class="line">Ctrl-u    删除一整行</span><br></pre></td></tr></table></figure>
+<p>最后，如果您想像编辑文本文件一样来编辑命令，可以使用 <code>Ctrl-f</code>。</p>
+<p>这样还可以查看过往的命令，并在这种”命令行编辑的普通模式”中编辑它们，同时还能按下 <code>Enter</code> 来运行它们。</p>
+<h2 id="寄存器和自动补全"><a href="#寄存器和自动补全" class="headerlink" title="寄存器和自动补全"></a>寄存器和自动补全</h2><p>当处于命令行模式时，您可以像在插入模式中一样使用 <code>Ctrl-r</code> 从Vim寄存器中插入文本。如果您在寄存器 a 中存储了字符串 “foo” ，您可以执行 <code>Ctrl-r a</code> 从寄存器a中插入该文本。任何在插入模式中您可以从寄存器中获取的内容，在命令行模式中您也可以获取。</p>
+<p>另外，您也可以按 <code>Ctrl-r Ctrl-w</code> 获取当前光标下的单词（按 <code>Ctrl-r Ctrl-A</code> 获取当前光标下的词组）。还可以按 <code>Ctrl-r Ctlr-l</code> 获取当前光标所在行。按 <code>Ctrl-r Ctrl-f</code> 获取光标下的文件名。</p>
+<p>您也可以对已存在的命令使用自动补全。要自动补全 <code>echo</code> 命令，当处于命令行模式时，首先输入 “ec”，接着按下 <code>&lt;Tab&gt;</code>，此时您应该能在左下角看到一些 “ec” 开头的 Vim 命令（例如：<code>echo echoerr echohl echomsg econ</code>）。按下 <code>&lt;Tab&gt;</code> 或 <code>Ctrl-n</code> 可以跳到下一个选项。按下 <code>&lt;Shift-Tab&gt;</code> 或 <code>Ctrl-p</code> 可以回到上一个选项。</p>
+<p>一些命令行指令接受文件名作为参数。<code>edit</code> 就是一个例子，这时候您也可以使用自动补全。当输入 <code>:e </code> 后（不要忘记空格了），按下 <code>&lt;Tab&gt;</code>，Vim 将列出所有相关的文件名，这样您就可以进行选择而不必完整的输入它们。</p>
+<h2 id="历史记录窗口"><a href="#历史记录窗口" class="headerlink" title="历史记录窗口"></a>历史记录窗口</h2><p>您可以查看命令行指令和搜索项的历史记录（要确保在运行 <code>vim --version</code> 时，Vim 的编译选项中含有<code>+cmdline_hist</code>）。</p>
+<p>运行 <code>:his :</code> 来查看命令行指令的历史记录：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">##  cmd History</span><br><span class="line">2  e file1.txt</span><br><span class="line">3  g/foo/d</span><br><span class="line">4  s/foo/bar/g</span><br></pre></td></tr></table></figure>
+
+<p>Vim 列出了您运行的所有 <code>:</code> 命令。默认情况下，Vim 存储最后 50 个命令。运行 <code>:set history=100</code> 可以将 Vim 记住的条目总数更改为 100。</p>
+<p>一个更有用的做法是使用命令行历史记录窗口，按<code>q:</code>将会打开一个可搜索、可编辑的历史记录窗口。假设按下<code>q:</code>后您有如下的表达式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">51  s/verylongsubstitutionpattern/pancake/g</span><br><span class="line">52  his :</span><br><span class="line">53  wq</span><br></pre></td></tr></table></figure>
+
+<p>如果您当前任务是执行 <code>s/verylongsubstitutionpattern/donut/g</code>（”pancake”换成了”donut”），为什么不复用 <code>s/verylongsubstitutionpattern/pancake/g</code> 呢？毕竟，两条命令唯一不同的是替换的单词，”donut” vs “pancake” ，所有其他的内容都是相同的。</p>
+<p>当您运行 <code>q:</code>后，在历史记录中找到 <code>s/verylongsubstitutionpattern/pancake/g</code>（在这个环境中，您可以使用Vim导航），然后直接编辑它！ 在历史记录窗口中将 “pancake” 改为 “donut” ，然后按 <code>&lt;Enter</code>。Vim立刻执行 <code>s/verylongsubstitutionpattern/donut/g</code> 命令，超级方便！</p>
+<p>类似地，运行 <code>:his /</code> 或 <code>:his ?</code> 可以查看搜索记录。要想打开您可以直接搜索和编辑的搜索历史记录窗口，您可以运行 <code>q/</code> 和 <code>q?</code>。</p>
+<p>要退出这个窗口，按 <code>Ctrl-c</code>, <code>Ctrl-w c</code>, 或输入 <code>:quit</code>。</p>
+<h2 id="更多命令行指令"><a href="#更多命令行指令" class="headerlink" title="更多命令行指令"></a>更多命令行指令</h2><p>Vim有几百个内置指令，要查看Vim的所有指令，执行 <code>:h ex-cmd-index</code> 或 <code>:h :index</code>。</p>
+<h2 id="聪明地学习命令行模式"><a href="#聪明地学习命令行模式" class="headerlink" title="聪明地学习命令行模式"></a>聪明地学习命令行模式</h2><p>对比其他三种模式，命令行模式就像是文本编辑中的瑞士军刀。寥举几例，您可以编辑文本、修改文件和执行命令。本章是命令行模式的零碎知识的集合。同时，Vim 模式的介绍也走向尾声。现在，您已经知道如何使用普通、输入、可视以及命令行模式，您可以比以往更快地使用 Vim 来编辑文本了。</p>
+<p>是时候离开 Vim 模式，来了解如何使用 Vim 标记进行更快的导航了。</p>
+<h1 id="第16章-标签"><a href="#第16章-标签" class="headerlink" title="第16章 标签"></a>第16章 标签</h1><p>快速转到任意定义处，是文本编辑中一个非常有用的特性。在本章中，您将学习如何使用 Vim 标签来做到这一点。</p>
+<h2 id="标签概述"><a href="#标签概述" class="headerlink" title="标签概述"></a>标签概述</h2><p>假设有人给了您一个新的代码库：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">one = One.new</span><br><span class="line">one.donut</span><br></pre></td></tr></table></figure>
+
+<p><code>One</code>？<code>donut</code>？呃，对于当时编写代码的开发者而言，这些代码的含义可能显而易见。问题是当时的开发者已经不在了，现在要由您来理解这些费解的代码。而跟随有<code>One</code> 和 <code>donut</code>定义的源代码，是帮助您理解的一个有效方法。</p>
+<p>您可以使用<code>fzf</code> 或 <code>grep</code>来搜索它们，但这种情况下，但使用标签将更快。</p>
+<p>把标签想象成地址簿：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Name    Address</span><br><span class="line">Iggy1   1234 Cool St, 11111</span><br><span class="line">Iggy2   9876 Awesome Ave, 2222</span><br></pre></td></tr></table></figure>
+
+<p>当然，标签可不是存储着“姓名-地址”对，而是“定义-地址”对。</p>
+<p>假设您在一个目录中有两个 Ruby 文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">## one.rb</span><br><span class="line">class One</span><br><span class="line">  def initialize</span><br><span class="line">    puts &quot;Initialized&quot;</span><br><span class="line">  end</span><br><span class="line"></span><br><span class="line">  def donut</span><br><span class="line">    puts &quot;Bar&quot;</span><br><span class="line">  end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p>以及</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">## two.rb</span><br><span class="line">require &#x27;./one&#x27;</span><br><span class="line"></span><br><span class="line">one = One.new</span><br><span class="line">one.donut</span><br></pre></td></tr></table></figure>
+
+<p>在普通模式下，您可以使用<code>Ctrl-]</code>跳转到定义。在<code>two.rb</code>中，转到<code>one.donut</code>所在行，将光标移到<code>donut</code>处，按下<code>Ctrl-]</code>。</p>
+<p>哦豁，Vim 找不到标签文件，您需要先生成它。</p>
+<h2 id="标签生成器"><a href="#标签生成器" class="headerlink" title="标签生成器"></a>标签生成器</h2><p>现代 Vim 不自带标签生成器，您需要额外下载它。有几个选项可供选择：</p>
+<ul>
+<li>ctags &#x3D; 仅用于 C，基本随处可见。</li>
+<li>exuberant ctags &#x3D; 最流行的标签生成器之一，支持许多语言。</li>
+<li>universal ctags &#x3D; 和 exuberant ctags 类似，但比它更新。</li>
+<li>etags &#x3D; 用于 Emacs，嗯……</li>
+<li>JTags &#x3D; Java</li>
+<li>ptags.py &#x3D; Python</li>
+<li>ptags &#x3D; Perl</li>
+<li>gnatxref &#x3D; Ada</li>
+</ul>
+<p>如果您查看 Vim 在线教程，您会发现许多都会推荐 <a target="_blank" rel="noopener" href="http://ctags.sourceforge.net/">exuberant ctags</a>，它支持 <a target="_blank" rel="noopener" href="http://ctags.sourceforge.net/languages.html">41 种编程语言</a>，我用过它，挺不错的。但自2009年以来一直没有维护，因此 Universal ctags 更好些，它和 exuberant ctags 相似，并仍在维护。</p>
+<p>我不打算详细介绍如何安装 Universal ctags，您可以在 <a target="_blank" rel="noopener" href="https://github.com/universal-ctags/ctags">universal ctags</a> 仓库了解更多说明。</p>
+<p>假设您已经安装好了ctags，接下来，生成一个基本的标签文件。运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctags -R .</span><br></pre></td></tr></table></figure>
+
+<p> <code>R</code> 选项告诉 <code>ctags</code> 从当前位置 (<code>.</code>) 递归扫描文件。稍后，您应该在当前文件夹看到一个<code>tags</code> 文件，里面您将看到类似这样的内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;&quot; to lines/</span><br><span class="line">!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/</span><br><span class="line">!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/</span><br><span class="line">!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/</span><br><span class="line">!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/</span><br><span class="line">!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//</span><br><span class="line">!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/</span><br><span class="line">!_TAG_PROGRAM_URL	&lt;https://ctags.io/&gt;	/official site/</span><br><span class="line">!_TAG_PROGRAM_VERSION	0.0.0	/b43eb39/</span><br><span class="line">One	one.rb	/^class One$/;&quot;	c</span><br><span class="line">donut	one.rb	/^  def donut$/;&quot;	f	class:One</span><br><span class="line">initialize	one.rb	/^  def initialize$/;&quot;	f	class:One</span><br></pre></td></tr></table></figure>
+
+<p>根据 Vim 设置和 ctag 生成器的不同，您的<code>tags</code> 文件可能会有些不同。一个标签文件由两部分组成：标签元数据和标签列表。那些标签元数据 (<code>!TAG_FILE...</code>) 通常由 ctags 生成器控制。这里我不打算介绍它们，您可以随意查阅文档。标签列表是一个由所有定义组成的列表，由ctags建立索引。</p>
+<p>现在回到 <code>two.rb</code>，将光标移至 <code>donut</code>，再输入<code>Ctrl-]</code>，Vim 将带您转到 <code>one.rb</code> 文件里<code>def donut</code> 所在的行上。成功啦！但 Vim 怎么做到的呢？</p>
+<h2 id="解剖标签文件"><a href="#解剖标签文件" class="headerlink" title="解剖标签文件"></a>解剖标签文件</h2><p>来看看<code>donut</code> 标签项：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">donut	one.rb	/^  def donut$/;&quot;	f	class:One</span><br></pre></td></tr></table></figure>
+
+<p>上面的标签项由四个部分组成：一个<code>tagname</code>、一个<code>tagfile</code>、一个<code>tagaddress</code>，以及标签选项。</p>
+<ul>
+<li><code>donut</code> 是 <code>tagname</code>。当光标在 “donut” 时，Vim 搜索标签文件里含有 “donut” 字符串的一行。</li>
+<li><code>one.rb</code> 是 <code>tagfile</code>。Vim 会搜寻 <code>one.rb</code> 文件。</li>
+<li><code>/^ def donut$/</code> 是 <code>tagaddress</code>。<code>/.../</code> 是模式指示器。<code>^</code> 代表一行中第一个元素，后面跟着两个空格，然后是<code>def donut</code>字符串，最后 <code>$</code> 代表一行中最后一个元素。</li>
+<li><code>f class:One</code> 是标签选项，它告诉 Vim，<code>donut</code> 是一种函数 (<code>f</code>)，并且是 <code>One</code> 类的一部分。</li>
+</ul>
+<p>再看看另一个标签项：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">One	one.rb	/^class One$/;&quot;	c</span><br></pre></td></tr></table></figure>
+
+<p>这一行和 <code>donut</code>也是一样的：</p>
+<ul>
+<li><code>One</code> 是 <code>tagname</code>。注意，对于标签，第一次扫描区分大小写。如果列表中有 <code>One</code> 和 <code>one</code>， Vim 会优先考虑 <code>One</code> 而不是 <code>one</code>。</li>
+<li><code>one.rb</code> 是 <code>tagfile</code>。Vim 会搜寻 <code>one.rb</code> 文件。</li>
+<li><code>/^class One$/</code> 是 <code>tagaddress</code> 。Vim 会查找以 <code>class</code> 开头 (<code>^</code>) 、以 <code>One</code> 结尾 (<code>$</code>) 的行。</li>
+<li><code>c</code> 是可用标签选项之一。由于 <code>One</code> 是一个 ruby 类而不是过程，因此被标签为 <code>c</code>。</li>
+</ul>
+<p>标签文件的内容可能不尽相同，根据您使用的标签生成器而定。但至少，标签文件必须具有以下格式之一：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.  &#123;tagname&#125; &#123;TAB&#125; &#123;tagfile&#125; &#123;TAB&#125; &#123;tagaddress&#125;</span><br><span class="line">2.  &#123;tagname&#125; &#123;TAB&#125; &#123;tagfile&#125; &#123;TAB&#125; &#123;tagaddress&#125; &#123;term&#125; &#123;field&#125; ..</span><br></pre></td></tr></table></figure>
+
+<h2 id="标签文件"><a href="#标签文件" class="headerlink" title="标签文件"></a>标签文件</h2><p>您知道，在运行 <code>ctags -R .</code> 后，一个新 <code>tags</code> 文件会被创建。但是，Vim 是如何知道在哪儿查找标签文件的呢？</p>
+<p>如果运行 <code>:set tags?</code>，您可能会看见 <code>tags=./tags,tags</code>（根据您的 Vim 设置，内容可能有所不同）。对于 <code>./tags</code>，Vim 会在当前文件所在路径查找所有标签；对于 <code>tags</code>，Vim 会在当前目录（您的项目根路径）中查找。</p>
+<p>此外，对于 <code>./tags</code>，Vim 会在当前文件所在路径内查找一个标签文件，无论它被嵌套得有多深。接下来，Vim 会在当前目录（项目根路径）查找。Vim 在找到第一个匹配项后会停止搜索。</p>
+<p>如果您的 <code>&#39;tags&#39;</code> 文件是 <code>tags=./tags,tags,/user/iggy/mytags/tags</code>，那么 Vim 在搜索完 <code>./tags</code> 和 <code>tags</code> 目录后，还会在 <code>/user/iggy/mytags</code> 目录内查找。所以您可以分开存放标签文件，不必将它们置于项目文件夹中。</p>
+<p>要添加标签文件位置，只需要运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:set tags+=path/to/my/tags/file</span><br></pre></td></tr></table></figure>
+
+<h2 id="为大型项目生成标签："><a href="#为大型项目生成标签：" class="headerlink" title="为大型项目生成标签："></a>为大型项目生成标签：</h2><p>如果您尝试在大型项目中运行 ctag，则可能需要很长时间，因为 Vim 也会查看每个嵌套目录。如果您是 Javascript 开发者，您会知道 <code>node_modules</code> 非常大。假设您有五个子项目，每个都包含自己的 <code>node_modules</code> 目录。一旦运行 <code>ctags -R .</code>，ctags 将尝试扫描这5个 <code>node_modules</code>。但您可能不需要为 <code>node_modules</code> 运行 ctag。</p>
+<p>如果要排除 <code>node_modules</code> 后执行 ctags，可以运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctags -R --exclude=node_modules .</span><br></pre></td></tr></table></figure>
+
+<p>这次应该只需要不到一秒钟的时间。另外，您还可以多次使用 <code>exclude</code> 选项：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctags -R --exclude=.git --exclude=vendor --exclude=node_modules --exclude=db --exclude=log .</span><br></pre></td></tr></table></figure>
+
+<h2 id="标签导航"><a href="#标签导航" class="headerlink" title="标签导航"></a>标签导航</h2><p>仅使用 <code>Ctrl-]</code> 也挺好，但我们还可以多学几个技巧。其实，标签跳转键 <code>Ctrl-]</code> 还有命令行模式：<code>:tag my-tag</code>。如果您运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:tag donut</span><br></pre></td></tr></table></figure>
+
+<p>Vim 就会跳转至 <code>donut</code> 方法，就像在 “donut” 字符串上按 <code>Ctrl-]</code> 一样。您还可以使用 <code>&lt;Tab&gt;</code> 来自动补全参数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:tag d&lt;Tab&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Vim 会列出所有以 “d” 开头的标签。对于上面的命令，结果则是 “donut”。</p>
+<p>在实际项目中，您可能会遇到多个同名的方法。我们来更新下这两个文件。先是 <code>one.rb</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">## one.rb</span><br><span class="line">class One</span><br><span class="line">  def initialize</span><br><span class="line">    puts &quot;Initialized&quot;</span><br><span class="line">  end</span><br><span class="line"></span><br><span class="line">  def donut</span><br><span class="line">    puts &quot;one donut&quot;</span><br><span class="line">  end</span><br><span class="line"></span><br><span class="line">  def pancake</span><br><span class="line">    puts &quot;one pancake&quot;</span><br><span class="line">  end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p>然后 <code>two.rb</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">## two.rb</span><br><span class="line">require &#x27;./one.rb&#x27;</span><br><span class="line"></span><br><span class="line">def pancake</span><br><span class="line">  &quot;Two pancakes&quot;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">one = One.new</span><br><span class="line">one.donut</span><br><span class="line">puts pancake</span><br></pre></td></tr></table></figure>
+
+<p>由于新添加了一些过程，因此编写完代码后，&#x3D;&#x3D;不要忘记运行 <code>ctags -R .</code>&#x3D;&#x3D;。现在，您有了两个 <code>pancake</code> 过程。如果您在 <code>two.rb</code> 内按下 <code>Ctrl-]</code>，会发生什么呢？</p>
+<p>Vim 会跳转到 <code>two.rb</code> 内的 <code>def pancake</code>，而不是 <code>one.rb</code> 的 <code>def pancake</code>。这是因为 Vim 认为 <code>two.rb</code> 内部的 <code>pancake</code> 过程比其他的<code>pancake</code> 过程具有更高优先级。</p>
+<h2 id="标签优先级"><a href="#标签优先级" class="headerlink" title="标签优先级"></a>标签优先级</h2><p>并非所有的标签都有着相同的地位。一些标签有着更高的优先级。如果有重复的标签项，Vim 会检查关键词的优先级。顺序是：</p>
+<ol>
+<li>当前文件中完全匹配的静态标签。</li>
+<li>当前文件中完全匹配的全局标签。</li>
+<li>其他文件中完全匹配的全局标签。</li>
+<li>其他文件中完全匹配的静态标签。</li>
+<li>当前文件中不区分大小写匹配的静态标签。</li>
+<li>当前文件中不区分大小写匹配的全局标签。</li>
+<li>其他文件中区分大小写匹配的全局标签。</li>
+<li>当前文件中不区分大小写匹配的静态标签。</li>
+</ol>
+<p>根据优先级列表，Vim 会对在同一个文件上找到的精确匹配项进行优先级排序。这就是为什么 Vim 会选择 <code>two.rb</code> 里的 <code>pancake</code> 过程而不是 <code>one.rb</code> 里的。但是，上述优先级列表有些例外，取决于您的<code>&#39;tagcase&#39;</code>、<code>&#39;ignorecase&#39;</code>、<code>&#39;smartcase&#39;</code> 设置。我不打算介绍它们，您可以自行查阅 <code>:h tag-priority</code>。</p>
+<h2 id="选择性跳转标签"><a href="#选择性跳转标签" class="headerlink" title="选择性跳转标签"></a>选择性跳转标签</h2><p>如果可以选择要跳转到哪个标签，而不是始终转到优先级最高的，那就太好了。因为您可能想跳转到 <code>one.rb</code> 里的 <code>pancake</code> 方法，而不是 <code>two.rb</code> 里的。现在您可以使用 <code>:tselect</code> 做到它！运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:tselect pancake</span><br></pre></td></tr></table></figure>
+
+<p>您可以在屏幕底部看到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">## pri kind tag               file</span><br><span class="line">1 F C f    pancake           two.rb</span><br><span class="line">             def pancake</span><br><span class="line">2 F   f    pancake           one.rb</span><br><span class="line">             class:One</span><br><span class="line">             def pancake</span><br></pre></td></tr></table></figure>
+
+<p>如果输入<code>2</code> 后再 <code>&lt;Return&gt;</code>，Vim 将跳转到 <code>one.rb</code> 里的<code>pancake</code> 过程。如果输入<code>1</code> 后再 <code>&lt;Return&gt;</code>，Vim 将跳转到 <code>two.rb</code> 里的。</p>
+<p>注意<code>pri</code> 列，第一个匹配中该列是<code>F C</code>，第二个匹配中则是<code>F</code>。这就是 Vim 用来确定标签优先级的凭据。<code>F C</code>表示在当前 (<code>C</code>) 文件中完全匹配 (<code>F</code>) 的全局标签。<code>F</code> 表示仅完全匹配 (<code>F</code>) 的全局标签。<code>F C</code> 的优先级永远比 <code>F</code> 高。<em>（译注：<code>F</code>是<code>Fully-matched</code>，<code>C</code>是<code>Current file</code>）</em></p>
+<p>如果运行<code>:tselect donut</code>，即使只有一个标签可选，Vim 也会提示您选择跳转到哪一个。有没有什么方法可以让 Vim 仅在有多个匹配项时才提示标签列表，而只找到一个标签时就立即跳转呢？</p>
+<p>当然！Vim 有一个 <code>:tjump</code> 方法。运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:tjump donut</span><br></pre></td></tr></table></figure>
+
+<p>Vim 将立即跳转到 <code>one.rb</code> 里的<code>donut</code> 过程，就像在运行 <code>:tag donut</code> 一样。现在试试：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:tjump pancake</span><br></pre></td></tr></table></figure>
+
+<p>Vim 将提示您从标签选项中选择一个，就像在运行<code>:tselect pancake</code>。<code>tjump</code> 能两全其美。</p>
+<p><code>tjump</code> 在普通模式下有一个快捷键：<code>g Ctrl-]</code>。我个人喜欢<code>g Ctrl-]</code>胜过 <code>Ctrl-]</code>。</p>
+<h2 id="标签的自动补全"><a href="#标签的自动补全" class="headerlink" title="标签的自动补全"></a>标签的自动补全</h2><p>标签能有助于自动补全。回想下第6章“插入模式”，您可以使用 <code>Ctrl-x</code> 子模式来进行各式自动补全。其中有一个我没有提到过的自动补全子模式便是 <code>Ctrl-]</code>。如果您在插入模式中输入<code>Ctrl-x Ctrl-]</code>，Vim 将使用标签文件来自动补全。</p>
+<p>在插入模式下输入<code>Ctrl-x Ctrl-]</code>，您会看到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">One</span><br><span class="line">donut</span><br><span class="line">initialize</span><br><span class="line">pancake</span><br></pre></td></tr></table></figure>
+
+<h2 id="标签堆栈"><a href="#标签堆栈" class="headerlink" title="标签堆栈"></a>标签堆栈</h2><p>Vim 维持着一个标签堆栈，上面记录着所有您从哪儿来、跳哪儿去的标签列表。使用 <code>:tags</code> 可以看到这个堆栈。如果您首先跳转到<code>pancake</code>，紧接着是<code>donut</code>，此时运行<code>:tags</code>，您将看到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  # TO tag         FROM line  in file/text</span><br><span class="line">  1  1 pancake            10  ch16_tags/two.rb</span><br><span class="line">  2  1 donut               9  ch16_tags/two.rb</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+
+<p>注意上面的 <code>&gt;</code> 符号，它代表着您当前在堆栈中的位置。要“弹出”堆栈，从而回到上一次的状态，您可以运行<code>:pop</code>。试试它，再运行<code>:tags</code>看看：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  # TO tag         FROM line  in file/text</span><br><span class="line">  1  1 pancake            10  puts pancake</span><br><span class="line">&gt; 2  1 donut               9  one.donut</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>注意现在 <code>&gt;</code> 符号位于 <code>donut</code> 所在的第二行了。再 <code>pop</code> 一次，然后运行<code>:tags</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  # TO tag         FROM line  in file/text</span><br><span class="line">&gt; 1  1 pancake            10  puts pancake</span><br><span class="line">  2  1 donut               9  one.donut</span><br></pre></td></tr></table></figure>
+
+<p>在普通模式下，您可以按下 <code>Ctrl-t</code> 来达到和 <code>:pop</code> 一样的效果。</p>
+<h2 id="自动生成标签"><a href="#自动生成标签" class="headerlink" title="自动生成标签"></a>自动生成标签</h2><p>Vim 标签最大的缺点之一是，每当进行重大改变时，您需要重新生成标签文件。如果您将<code>pancake</code> 过程重命名为 <code>waffle</code>，标签文件不知道 <code>pancake</code> 被重命名了，标签列表仍旧存储着 <code>pancake</code> 过程。运行<code>ctags -R .</code> 可以创建更新的标签文件，但这可能会很缓慢。</p>
+<p>幸运的是，有几种可以自动生成标签的方法。这一小节不打算介绍一个简单明了的过程，而是提出一些想法，以便您可以扩展它们。</p>
+<h2 id="在保存时生成标签"><a href="#在保存时生成标签" class="headerlink" title="在保存时生成标签"></a>在保存时生成标签</h2><p>Vim 有一个自动命令 (<code>autocmd</code>) 方法，可以在触发事件时执行任意命令。您可以使用这个方法，以便在每次保存时生成标签。运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:autocmd BufWritePost *.rb silent !ctags -R .</span><br></pre></td></tr></table></figure>
+
+<p>上面命令的分解如下：</p>
+<ul>
+<li><code>autocmd</code> 是 Vim 的自动命令方法，它接受一个事件名称、文件和一个命令。</li>
+<li><code>BufWritePost</code> 是保存缓冲区时的一个事件。每次保存文件时将触发一次 <code>BufWritePost</code> 事件。</li>
+<li><code>.rb</code> 是 ruby (<code>rb</code>) 文件的一种文件模式。</li>
+<li>&#x3D;&#x3D;<code>silent</code> 是您传递的命令的一部分。如果不输入它，每次触发自动命令时，Vim 都会提示  <code>press ENTER or type command to continue</code>。&#x3D;&#x3D;</li>
+<li><code>!ctags -R .</code> 是要执行的命令。回想一下，<code>!cmd</code> 从 Vim 内部执行终端命令。</li>
+</ul>
+<p>现在，每次您保存一个 ruby 文件时，Vim 都会运行<code>ctags -R .</code>。</p>
+<h2 id="使用插件"><a href="#使用插件" class="headerlink" title="使用插件"></a>使用插件</h2><p>有几种插件可以自动生成 ctags：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/ludovicchabant/vim-gutentags">vim-gutentags</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/szw/vim-tags">vim-tags</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/xolox/vim-easytags">vim-easytags</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/craigemery/vim-autotag">vim-autotag</a></li>
+</ul>
+<p>我使用 &#x3D;&#x3D;vim-gutentags&#x3D;&#x3D;。它的使用方法很简单，而且装上就可以直接使用。</p>
+<h2 id="Ctags-以及-Git-钩子"><a href="#Ctags-以及-Git-钩子" class="headerlink" title="Ctags 以及 Git 钩子"></a>Ctags 以及 Git 钩子</h2><p>Tim Pope 是一个写了很多非常棒的 Vim 插件的作者，他写了一篇博客，建议使用 git 钩子。<a target="_blank" rel="noopener" href="https://tbaggery.com/2011/08/08/effortless-ctags-with-git.html">可以看一看</a>。</p>
+<h2 id="聪明地学习标签"><a href="#聪明地学习标签" class="headerlink" title="聪明地学习标签"></a>聪明地学习标签</h2><p>只要配置得当，标签是非常有用的。假设在一个新的代码库中，您想要搞清楚 <code>functionFood</code> 干了什么，您可以通过跳转到它的定义来搞懂它们。在那儿可以看到，它又调用了 <code>functionBreakfast</code>。继续跟踪，发现还调用了 <code>functionPancake</code>。现在您明白了，函数调用路径图长这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">functionFood -&gt; functionBreakfast -&gt; functionPancake</span><br></pre></td></tr></table></figure>
+
+<p>进一步可以知道，这段代码和早餐吃煎饼有关。</p>
+<p>现在您已经知道如何使用标签，通过 <code>:h tags</code> 可以学习更多有关标签的知识。接下来让我们一起来探索另一个功能：折叠。</p>
+<h1 id="第17章-折叠"><a href="#第17章-折叠" class="headerlink" title="第17章 折叠"></a>第17章 折叠</h1><p>在阅读文件时，经常会有一些不相关的文本会妨碍您理解。使用 Vim 折叠可以隐藏这些不必要的信息。</p>
+<p>本章中，您将学习如何使用不同的折叠方法。</p>
+<h2 id="手动折叠"><a href="#手动折叠" class="headerlink" title="手动折叠"></a>手动折叠</h2><p>想象您正在折叠一张纸来覆盖一些文本，实际的文本不会消失，它仍在那儿。Vim 折叠的工作方式与此相同，它<em>折叠</em>一段文本，在显示时会隐藏起来，但实际上并不会真的删除它。</p>
+<p>折叠操作符是<code>z</code>。（折叠纸张时，它看起来也像字母 “z”）。</p>
+<p>假设有如下文本：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Fold me</span><br><span class="line">Hold me</span><br></pre></td></tr></table></figure>
+
+<p>把光标放在第一行，输入 <code>zfj</code>。Vim 将这两行折叠成一行，同时会看到类似消息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+-- 2 lines: Fold me -----</span><br></pre></td></tr></table></figure>
+
+<p>上面的命令分解如下：</p>
+<ul>
+<li><code>zf</code> 是折叠操作符。</li>
+<li><code>j</code> 是用于折叠操作符的动作。</li>
+</ul>
+<p>您可以使用 <code>zo</code> 打开&#x2F;展开已折叠文本，使用 <code>zc</code> 关闭&#x2F;收缩文本。</p>
+<p>折叠是一个操作符，所以它遵循语法规则（<code>动词+名词</code>）。您可以在折叠运算符后，加上一个动作(motion)或文本对象。例如，使用 <code>zfip</code> 可以折叠内部段落；使用 <code>zfG</code> 可以折叠至文件末尾；使用 <code>zfa&#123;</code> 可以折叠 <code>&#123;</code> 和 <code>&#125;</code> 之间的文本。</p>
+<p>您可以在可视模式下进行折叠。高亮您想要折叠的区域后 (<code>v</code>, <code>V</code>, 或 <code>Ctrl-v</code>)，再输入 <code>zf</code> 即可。</p>
+<p>您也可以在命令行模式下，使用 <code>:fold</code> 命令执行一次折叠。若要折叠当前行及紧随其后的第二行，可以运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:,+1fold</span><br></pre></td></tr></table></figure>
+
+<p><code>,+1</code> 是要折叠的范围。如果不传递范围参数，默认当前行。<code>+1</code> 是代表下一行的范围指示器。运行 <code>:5,10fold</code> 可以折叠第5至10行。运行 <code>:,$fold</code> 可以折叠当前行至文件末尾。</p>
+<p>还有许多其他折叠和展开的命令。我发现他们实在太多，以至于在刚起步时很难记住。最有用的一些命令是：</p>
+<ul>
+<li><code>zR</code> 展开所有折叠。</li>
+<li><code>zM</code> 收缩所有折叠。</li>
+<li><code>za</code> 切换折叠状态。</li>
+</ul>
+<p><code>zR</code> 和 <code>zM</code> 可用于任意行上，但 <code>za</code> 仅能用于已折叠&#x2F;未折叠的行上。输入 <code>:h fold-commands</code> 可查阅更多有关折叠的指令。</p>
+<h2 id="不同的折叠方法"><a href="#不同的折叠方法" class="headerlink" title="不同的折叠方法"></a>不同的折叠方法</h2><p>以上部分涵盖了 Vim 手动折叠的内容。实际上，Vim 有六种不同的折叠方法：</p>
+<ol>
+<li>手动折叠</li>
+<li>缩进折叠</li>
+<li>表达式折叠</li>
+<li>语法折叠</li>
+<li>差异折叠</li>
+<li>标志折叠</li>
+</ol>
+<p>运行 <code>:set foldmethod?</code> 可查看您当前正在使用哪一种折叠方式。默认情况下，Vim 使用手动方式。</p>
+<p>在本章的剩余部分，您将学习其他五种折叠方法。让我们从缩进折叠开始。</p>
+<h2 id="缩进折叠"><a href="#缩进折叠" class="headerlink" title="缩进折叠"></a>缩进折叠</h2><p>要使用缩进折叠，需要将 <code>&#39;foldmethod&#39;</code> 选项更改为缩进：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:set foldmethod=indent</span><br></pre></td></tr></table></figure>
+
+<p>假设有如下文本：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">One</span><br><span class="line">  Two</span><br><span class="line">  Two again</span><br></pre></td></tr></table></figure>
+
+<p>运行 <code>:set foldmethod=indent</code> 后将看到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">One</span><br><span class="line">+-- 2 lines: Two -----</span><br></pre></td></tr></table></figure>
+
+<p>使用缩进折叠后，Vim 将会查看每行的开头有多少空格，并将它与 <code>&#39;shiftwidth&#39;</code> 选项进行比较，以此来决定该行可折叠性。<code>&#39;shiftwidth&#39;</code> 返回每次缩进所需的空格数。如果运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:set shiftwidth?</span><br></pre></td></tr></table></figure>
+
+<p>Vim 的默认 <code>&#39;shiftwidth&#39;</code> 值为2。对于上面的文本而言，”Two” 和 “Two again” 的开头都有两个空格。当 Vim 看到了空格数 <em>且</em> <code>&#39;shiftwidth&#39;</code>值都为2时，Vim 认为该行的缩进折叠级别为1。</p>
+<p>假设这次文本开头只有一个空格：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">One</span><br><span class="line"> Two</span><br><span class="line"> Two again</span><br></pre></td></tr></table></figure>
+
+<p>运行 <code>:set foldmethod=indent</code> 后，Vim 不再折叠已缩进的行了，因为这些行没有足够的空格。1个空格不会被视作一个缩进。然而，当您改变 <code>&#39;shiftwidth&#39; </code> 的值为1后：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:set shiftwidth=1</span><br></pre></td></tr></table></figure>
+
+<p>文本现在可以折叠了！现在一个空格将被视为一个缩进。</p>
+<p>现在，我们将 <code>&#39;shiftwidth&#39; </code> 以及文本开头的空格数都重新恢复为2后，另外添加一些内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">One</span><br><span class="line">  Two</span><br><span class="line">  Two again</span><br><span class="line">    Three</span><br><span class="line">    Three again</span><br></pre></td></tr></table></figure>
+
+<p>运行折叠命令 (<code>zM</code>) 后可以看到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">One</span><br><span class="line">+-- 4 lines: Two -----</span><br></pre></td></tr></table></figure>
+
+<p>展开已折叠的行 (<code>zR</code>)，接着移动光标至 “Three”，然后切换文本的折叠状态 (<code>za</code>)：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">One</span><br><span class="line">  Two</span><br><span class="line">  Two again</span><br><span class="line">+-- 2 lines: Three -----</span><br></pre></td></tr></table></figure>
+
+<p>这是啥？叠中叠？</p>
+<p>是的，您可以嵌套折叠。文本 “Two” 和 “Two again” 的折叠级别都为1，文本 “Three” 和 “Three again” 的折叠级别都为2。如果在一段可折叠文本中，具有另一段折叠级别更高的可折叠文本，则可以具有多个折叠层。</p>
+<h2 id="表达式折叠"><a href="#表达式折叠" class="headerlink" title="表达式折叠"></a>表达式折叠</h2><p>表达式折叠允许您定义要匹配折叠的表达式。定义折叠表达式后，Vim 会计算每行的 <code>&#39;foldexpr&#39;</code> 值。这是必须配置的变量，它要返回适当的值。如果返回 0，则不折叠行。如果它返回 1，则该行的折叠级别为 1。如果它返回 2，则该线的折叠级别为 2。除了整数外还有其他的值，但我不打算介绍它们。如果你好奇，可以查阅<code>:h fold-expr</code>。</p>
+<p>首先，更改折叠方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:set foldmethod=expr</span><br></pre></td></tr></table></figure>
+
+<p>假设您有一份早餐食品列表，并且想要折叠所有以 “p” 开头的早餐项：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">donut</span><br><span class="line">pancake</span><br><span class="line">pop-tarts</span><br><span class="line">protein bar</span><br><span class="line">salmon</span><br><span class="line">scrambled eggs</span><br></pre></td></tr></table></figure>
+
+<p>其次，更改 <code>foldexpr</code> 为捕获以 “p” 开头的表达式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:set foldexpr=getline(v:lnum)[0]==\\&quot;p\\&quot;</span><br></pre></td></tr></table></figure>
+
+<p>这表达式看起来有点吓人。我们来分解下：</p>
+<ul>
+<li><code>:set foldexpr</code> 设置 <code>&#39;foldexpr&#39;</code> 为自定义表达式。</li>
+<li><code>getline()</code> 是 Vim 脚本的一个函数，它返回指定行的内容。如运行 <code>:echo getline(5)</code> 可以获取第5行的内容。</li>
+<li><code>v:lnum</code> 是 Vim <code>&#39;foldexpr&#39;</code> 表达式的特殊变量。Vim 在扫描每一行时，都会将行号存储至 <code>v:lnum</code> 变量。在第5行，<code>v:lnum</code> 值为5。在第10行，<code>v:lnum</code>值为10。</li>
+<li><code>[0]</code> 处于 <code>getline(v:lnum)[0]</code> 语境时，代表每一行的第一个字符。Vim 在扫描某一行时，<code>getline(v:lnum)</code> 返回该行的内容，而 <code>getline(v:lnum)[0]</code> 则返回这一行的第一个字符。例如，我们早餐食品列表的第一行是 “donut”，则 <code>getline(v:lnum)[0]</code> 返回 “d”；列表的第二行是 “pancake”，则 <code>getline(v:lnum)[0]</code> 返回 “p”。</li>
+<li><code>==\\&quot;p\\&quot;</code> 是等式表达式的后半部分，它检查刚才表达式的计算结果是否等于 “p”。如果是，则返回1，否则返回0。在 Vim 的世界里，1代表真，0代表假。所以，那些以 “p” 开头的行，表达式都会返回1。回想一下本节的开始，如果 <code>&#39;foldexpr&#39;</code> 的值为1，则折叠级别为1。</li>
+</ul>
+<p>在运行这个表达式后，您将看到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">donut</span><br><span class="line">+-- 3 lines: pancake -----</span><br><span class="line">salmon</span><br><span class="line">scrambled eggs</span><br></pre></td></tr></table></figure>
+
+<h2 id="语法折叠"><a href="#语法折叠" class="headerlink" title="语法折叠"></a>语法折叠</h2><p>语法折叠是由Vim的语法高亮决定的。如果您使用了语法高亮插件，比如<a target="_blank" rel="noopener" href="https://github.com/sheerun/vim-polyglot">vim-polyglot</a>，那么装上插件就可以直接使用语法折叠。仅仅需要将<code>foldmethod</code>选项改为 <code>syntax</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:set foldmethod=syntax</span><br></pre></td></tr></table></figure>
+
+<p>假设您正在编辑一个JavaScript文件，而且您已经装好了 vim-polyglot 插件。如果您有以下文本：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const nums = [</span><br><span class="line">  one,</span><br><span class="line">  two,</span><br><span class="line">  three,</span><br><span class="line">  four</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>上述文本将会使用语法折叠折起来。当您为某个特定语言（位于 <code>syntax/</code> 目录中的语言即是典型例子）定义了语法高亮，您可以添加一个 <code>fold</code> 属性，使它支持折叠。下面是 vim-polyglot 中JavaScript语法文件中的一个片段。注意最后的 <code>fold</code> 关键字。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">syntax region  jsBracket                      matchgroup=jsBrackets            start=/\[/ end=/\]/ contains=@jsExpression,jsSpreadExpression extend fold</span><br></pre></td></tr></table></figure>
+
+<p>本书不会详细介绍 <code>syntax</code> 功能。如果您感兴趣，可以查阅 <code>:h syntax.txt</code>。</p>
+<h2 id="差异折叠"><a href="#差异折叠" class="headerlink" title="差异折叠"></a>差异折叠</h2><p>Vim 可以对多个文件进行差异比较。</p>
+<p>如果您有 <code>file1.txt</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vim is awesome</span><br><span class="line">vim is awesome</span><br><span class="line">vim is awesome</span><br><span class="line">vim is awesome</span><br><span class="line">vim is awesome</span><br><span class="line">vim is awesome</span><br><span class="line">vim is awesome</span><br><span class="line">vim is awesome</span><br><span class="line">vim is awesome</span><br><span class="line">vim is awesome</span><br></pre></td></tr></table></figure>
+
+<p>以及 <code>file2.txt</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vim is awesome</span><br><span class="line">vim is awesome</span><br><span class="line">vim is awesome</span><br><span class="line">vim is awesome</span><br><span class="line">vim is awesome</span><br><span class="line">vim is awesome</span><br><span class="line">vim is awesome</span><br><span class="line">vim is awesome</span><br><span class="line">vim is awesome</span><br><span class="line">emacs is ok</span><br></pre></td></tr></table></figure>
+
+<p>运行 <code>vimdiff file1.txt file2.txt</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+-- 3 lines: vim is awesome -----</span><br><span class="line">vim is awesome</span><br><span class="line">vim is awesome</span><br><span class="line">vim is awesome</span><br><span class="line">vim is awesome</span><br><span class="line">vim is awesome</span><br><span class="line">vim is awesome</span><br><span class="line">[vim is awesome] / [emacs is ok]</span><br></pre></td></tr></table></figure>
+
+<p>Vim 会自动折叠一些相同的行。运行 <code>vimdiff</code> 命令时，Vim 会自动使用 <code>foldmethod=diff</code>。此时如果运行 <code>:set foldmethod?</code>，它将返回 <code>diff</code>。</p>
+<h2 id="标志折叠"><a href="#标志折叠" class="headerlink" title="标志折叠"></a>标志折叠</h2><p>要使用标志折叠，请运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:set foldmethod=marker</span><br></pre></td></tr></table></figure>
+
+<p>假设有如下文本：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Hello</span><br><span class="line"></span><br><span class="line">&#123;&#123;&#123;</span><br><span class="line">world</span><br><span class="line">vim</span><br><span class="line">&#125;&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输入 <code>zM</code> 后会看到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hello</span><br><span class="line"></span><br><span class="line">+-- 4 lines: -----</span><br></pre></td></tr></table></figure>
+
+<p>Vim 将 <code>&#123;&#123;&#123;` 和 `&#125;&#125;&#125;</code> 视为折叠指示器，并折叠其中的内容。使用标志折叠时，Vim 会寻找由 <code>&#39;foldmarker&#39;</code> 选项定义的特殊标志，并标记折叠区域。要查看 Vim 使用的标志，请运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:set foldmarker?</span><br></pre></td></tr></table></figure>
+
+<p>默认情况下，Vim 把 <code>&#123;&#123;&#123;` 和 `&#125;&#125;&#125;</code> 作为指示器。如果您想将指示器更改为其他诸如 “coffee1” 和 “coffee2” 的字符串，可以运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:set foldmarker=coffee1,coffee2</span><br></pre></td></tr></table></figure>
+
+<p>假设有如下文本：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hello</span><br><span class="line"></span><br><span class="line">coffee1</span><br><span class="line">world</span><br><span class="line">vim</span><br><span class="line">coffee2</span><br></pre></td></tr></table></figure>
+
+<p>现在，Vim 将使用 <code>coffee1</code> 和 <code>coffee2</code> 作为新折叠标志。注意，指示器必须是文本字符串，不能是正则表达式。</p>
+<h2 id="持久化折叠"><a href="#持久化折叠" class="headerlink" title="持久化折叠"></a>持久化折叠</h2><p>当关闭 Vim 会话后，您将失去所有的折叠信息。假设您有 <code>count.txt</code> 文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">one</span><br><span class="line">two</span><br><span class="line">three</span><br><span class="line">four</span><br><span class="line">five</span><br></pre></td></tr></table></figure>
+
+<p>手动从第三行开始往下折叠 (<code>:3,$fold</code>)：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">one</span><br><span class="line">two</span><br><span class="line">+-- 3 lines: three ---</span><br></pre></td></tr></table></figure>
+
+<p>当您退出 Vim 再重新打开 <code>count.txt</code> 后，这些折叠都不见了！</p>
+<p>要在折叠后保留它们，可以运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:mkview</span><br></pre></td></tr></table></figure>
+
+<p>当打开 <code>count.txt</code> 后，运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:loadview</span><br></pre></td></tr></table></figure>
+
+<p>您的折叠信息都被保留下来了。然而，您需要手动运行 <code>mkview</code> 和 <code>loadview</code>。我知道，终有一日，我会忘记运行 <code>mkview</code> 就关闭文件了，接着便会丢失所有折叠信息。能不能自动实现这个呢？</p>
+<p>当然能！要在关闭 <code>.txt</code> 文件时自动运行 <code>mkview</code>，以及在打开 <code>.txt</code> 文件后自动运行 <code>loadview</code>，将下列内容添加至您的 vimrc：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">autocmd BufWinLeave *.txt mkview</span><br><span class="line">autocmd BufWinEnter *.txt silent loadview</span><br></pre></td></tr></table></figure>
+
+<p>在上一章您已经见过 <code>autocmd</code> 了，它用于在事件触发时执行一条命令。这里的两个事件是：</p>
+<ul>
+<li><code>BufWinLeave</code> 从窗口中删除缓冲时。</li>
+<li><code>BufWinEnter</code> 在窗口中加载缓冲时。</li>
+</ul>
+<p>现在，即使您在 <code>.txt</code> 文件内折叠内容后直接退出 Vim，下次再打开该文件时，您的折叠信息都能自动恢复。</p>
+<p>默认情况下，当运行 <code>mkview</code> 时，Vim将折叠信息保存在<code>~/.vim/view</code> (Unix 系统)。您可以查阅 <code>:h &#39;viewdir&#39;</code> 来了解更多信息。</p>
+<h2 id="聪明地学习折叠"><a href="#聪明地学习折叠" class="headerlink" title="聪明地学习折叠"></a>聪明地学习折叠</h2><p>当我刚开始使用 Vim 时， 我会跳过学习 Vim 折叠，因为我觉得它不太实用。然而，随着我码龄的增长，我越发觉得折叠功能大有用处。得当地使用折叠功能，文本结构可以更加清晰，犹如一本书籍的目录。</p>
+<p>当您学习折叠时，请从手动折叠开始，因为它可以随学随用。然后逐渐学习不同的技巧来使用缩进和标志折叠。最后，学习如何使用语法和表达式折叠。您甚至可以使用后两个来编写您自己的 Vim 插件。</p>
+<h1 id="第18章-Git"><a href="#第18章-Git" class="headerlink" title="第18章 Git"></a>第18章 Git</h1><p>Vim 和 Git 是两种实现不同功能的伟大工具。Vim 用于文本编辑，Git 用于版本控制。</p>
+<p>在本章中，您将学习如何将 Vim 和 Git 集成在一起。</p>
+<h2 id="差异比较"><a href="#差异比较" class="headerlink" title="差异比较"></a>差异比较</h2><p>在上一章中，您看到了如何运行 <code>vimdiff</code> 命令以显示多个文件之间的差异。</p>
+<p>假设您有两个文件，<code>file1.txt</code> 和 <code>file2.txt</code>。</p>
+<p><code>file1.txt</code> 的内容如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pancakes</span><br><span class="line">waffles</span><br><span class="line">apples</span><br><span class="line"></span><br><span class="line">milk</span><br><span class="line">apple juice</span><br><span class="line"></span><br><span class="line">yogurt</span><br></pre></td></tr></table></figure>
+
+<p><code>file2.txt</code> 的内容如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pancakes</span><br><span class="line">waffles</span><br><span class="line">oranges</span><br><span class="line"></span><br><span class="line">milk</span><br><span class="line">orange juice</span><br><span class="line"></span><br><span class="line">yogurt</span><br></pre></td></tr></table></figure>
+
+<p>若要查看两个文件之间的差异，请运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vimdiff file1.txt file2.txt</span><br></pre></td></tr></table></figure>
+
+<p>或者也可以运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim -d file1.txt file2.txt</span><br></pre></td></tr></table></figure>
+
+<p align="center">
+  <img alt="Basic diffing with Vim" width="900" height="auto" data-src="images/diffing-basic.png">
+</p>
+
+<p><code>vimdiff</code> 并排显示两个缓冲区。左边是 <code>file1.txt</code>，右边是 <code>file2.txt</code>。不同的两行（apples 和 oranges）会被高亮显示。</p>
+<p>假设您要使第二个缓冲区相应位置变成 apples，而不是 oranges。若想从 <code>file1.txt</code> 传输您当前位置（当前您在 <code>file1.txt</code>）的内容到 <code>file2.txt</code>，首先使用 <code>]c</code> 跳转到下一处差异（使用 <code>[c</code> 可跳回上一处差异），现在光标应该在 apples 上了。接着运行 <code>:diffput</code>。此时，这两个文件都是 apples 了。</p>
+<p align="center">
+  <img alt="Finding files in FZF" width="900" height="auto" data-src="images/diffing-apples.png">
+</p>
+
+<p>如果您想从另一个缓冲区（orange juice，<code>file2.txt</code>）传输文本来替代当前缓冲区（apple juice，<code>file1.txt</code>），让您的光标仍然位于 <code>file1.txt</code> 的窗口中，首先使用 <code>]c</code> 跳转至下一处差异，此时光标应该在 apple juice 上。接着运行 <code>:diffget</code> 获取另一个缓冲区的 orange juice 来替代当前缓冲区中的 apple juice。</p>
+<p><code>:diffput</code> 将文本从当前缓冲区 <em>输出</em> 到另一个缓冲区。<code>:diffget</code> 从另一个缓冲区 <em>获取</em> 文本到当前缓冲区。</p>
+<p>如果有多个缓冲区，可以运行 <code>:diffput fileN.txt</code> 和 <code>:diffget fileN.txt</code> 来指定目标缓冲区 fileN。</p>
+<h2 id="使用-Vim-作为合并工具"><a href="#使用-Vim-作为合并工具" class="headerlink" title="使用 Vim 作为合并工具"></a>使用 Vim 作为合并工具</h2><blockquote>
+<p>“我非常喜欢解决合并冲突。” ——佚名</p>
+</blockquote>
+<p>我不知道有谁喜欢解决合并冲突，但总之，合并冲突是无法避免的。在本节中，您将学习如何利用 Vim 作为解决合并冲突的工具。</p>
+<p>首先，运行下列命令来将默认合并工具更改为 <code>vimdiff</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config merge.tool vimdiff</span><br><span class="line">git config merge.conflictstyle diff3</span><br><span class="line">git config mergetool.prompt false</span><br></pre></td></tr></table></figure>
+
+<p>或者您也可以直接修改 <code>~/.gitconfig</code>（默认情况下，它应该处于根目录中，但您的可能在不同的位置）。上面的命令应该会将您的 <code>gitconfig</code> 改成如下设置的样子，如果您还没有运行上面的命令，您也可以手动更改您的 gitconfig。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[core]</span><br><span class="line">  editor = vim</span><br><span class="line">[merge]</span><br><span class="line">  tool = vimdiff</span><br><span class="line">  conflictstyle = diff3</span><br><span class="line">[difftool]</span><br><span class="line">  prompt = false</span><br></pre></td></tr></table></figure>
+
+<p>让我们创建一个假的合并冲突来测试一下。首先创建一个目录 <code>/food</code>，并初始化 git 仓库：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<p>添加 <code>breakfast.txt</code> 文件，内容为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pancakes</span><br><span class="line">waffles</span><br><span class="line">oranges</span><br></pre></td></tr></table></figure>
+
+<p>添加文件并提交它：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;Initial breakfast commit&quot;</span><br></pre></td></tr></table></figure>
+
+<p>接着，创建一个新分支 apples：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b apples</span><br></pre></td></tr></table></figure>
+
+<p>更改 <code>breakfast.txt</code> 文件为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pancakes</span><br><span class="line">waffles</span><br><span class="line">apples</span><br></pre></td></tr></table></figure>
+
+<p>保存文件，添加并提交更改：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;Apples not oranges&quot;</span><br></pre></td></tr></table></figure>
+
+<p>真棒！现在 master 分支有 oranges，而 apples 分支有 apples。接着回到 master 分支：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>breakfast.txt</code> 文件中，您应该能看到原来的文本 oranges。接着将它改成 grapes，因为它是现在的应季水果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pancakes</span><br><span class="line">waffles</span><br><span class="line">grapes</span><br></pre></td></tr></table></figure>
+
+<p>保存、添加、提交：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;Grapes not oranges&quot;</span><br></pre></td></tr></table></figure>
+
+<p>嚯！这么多步骤！现在准备要将 apples 分支合并进 master 分支了：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge apples</span><br></pre></td></tr></table></figure>
+
+<p>您应该会看到如下错误：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Auto-merging breakfast.txt</span><br><span class="line">CONFLICT (content): Merge conflict in breakfast.txt</span><br><span class="line">Automatic merge failed; fix conflicts and then commit the result.</span><br></pre></td></tr></table></figure>
+
+<p>没错，一个冲突！现在一起来用一下新配置的 <code>mergetool</code> 来解决冲突吧！运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git mergetool</span><br></pre></td></tr></table></figure>
+
+<p align="center">
+  <img alt="Three-way mergetool with Vim" width="900" height="auto" data-src="images/mergetool-initial.png">
+</p>
+
+<p>Vim 显示了四个窗口。注意一下顶部三个：</p>
+<ul>
+<li><code>LOCAL</code> 包含了 <code>grapes</code>。这是“本地”中的变化，也是您要合并的内容。</li>
+<li><code>BASE</code> 包含了 <code>oranges</code>。这是 <code>LOCAL</code> 和 <code>REMOTE</code> 的共同祖先，用于比较它们之间的分歧。</li>
+<li><code>REMOTE</code> 包含了 <code>apples</code>。这是要被合并的内容。</li>
+</ul>
+<p>底部窗口（也即第四个窗口），您能看到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pancakes</span><br><span class="line">waffles</span><br><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span><br><span class="line">grapes</span><br><span class="line">||||||| db63958</span><br><span class="line">oranges</span><br><span class="line">=======</span><br><span class="line">apples</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; apples</span><br></pre></td></tr></table></figure>
+
+<p>第四个窗口包含了合并冲突文本。有了这步设置，就能更轻松看到哪个环境发生了什么变化。您可以同时查看 <code>LOCAL</code>、<code>BASE</code> 和 <code>REMOTE</code> 的内容。</p>
+<p>您的光标应该在第四个窗口的高亮区域。再运行 <code>:diffget LOCAL</code>，就可以<em>获取</em>来自 <code>LOCAL</code> 的改变（grapes）。同样，运行 <code>:diffget BASE</code> 可以获取来自 <code>BASE</code> 的改变（oranges），而运行 <code>:diffget REMOTE</code> 可以获取来自 <code>REMOTE</code> 的改变（apples）。</p>
+<p>在这个例子中，我们试着获取来自 <code>LOCAL</code> 的改变。运行 <code>:diffget LO</code>（<code>LOCAL</code> 的简写），第四个窗口变成了 grapes。完成后，就可以保存并退出所有文件（<code>:wqall</code>）了。还不错吧？</p>
+<p>稍加留意您会发现，现在多了一个 <code>breakfast.txt.orig</code> 文件。这是 Git 防止事与愿违而创建的备份文件。如果您不希望 Git 在合并期间创建备份文件，可以运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global mergetool.keepBackup false</span><br></pre></td></tr></table></figure>
+
+<h2 id="在-Vim-中使用-Git"><a href="#在-Vim-中使用-Git" class="headerlink" title="在 Vim 中使用 Git"></a>在 Vim 中使用 Git</h2><p>Vim 本身没有集成 Git，要在 Vim 中执行 Git 命令，一种方法是在命令行模式中使用 <code>!</code> 叹号运算符。</p>
+<p>使用 <code>!</code> 可以运行任何 Git 命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:!git status</span><br><span class="line">:!git commit</span><br><span class="line">:!git diff</span><br><span class="line">:!git push origin master</span><br></pre></td></tr></table></figure>
+
+<p>您还可以使用 Vim 的特殊字符 <code>%</code> (当前缓冲区) 或 <code>#</code> (其他缓冲区)：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:!git add %         &quot; git add current file</span><br><span class="line">:!git checkout #    &quot; git checkout the other file</span><br></pre></td></tr></table></figure>
+
+<p>这里有一个Vim技巧，您可以用来添加不同Vim窗口中的多个文件，运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">windo !git add %</span><br></pre></td></tr></table></figure>
+
+<p>然后提交：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:!git commit &quot;添加了Vim窗口中的所有文件，酷&quot;</span><br></pre></td></tr></table></figure>
+
+<p><code>windo</code>命令是VIm的 “do” 命令其中之一，类似于您前面看到的 <code>argdo</code> 。<code>windo</code> 将命令执行在每一个窗口中。</p>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><p>这里有很多提供git支持的Vim插件。以下是 Vim 中较流行的 Git 相关插件列表（您读到这篇文章时可能又有更多）：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/airblade/vim-gitgutter">vim-gitgutter</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mhinz/vim-signify">vim-signify</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/tpope/vim-fugitive">vim-fugitive</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/junegunn/gv.vim">gv.vim</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/jreybert/vimagit">vimagit</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/sodapopcan/vim-twiggy">vim-twiggy</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/tpope/vim-rhubarb">rhubarb</a></li>
+</ul>
+<p>其中最流行的是 vim-fugitive。本章的剩余部分，我将使用此插件来介绍几个 git 工作流。</p>
+<h2 id="Vim-Fugitive"><a href="#Vim-Fugitive" class="headerlink" title="Vim-Fugitive"></a>Vim-Fugitive</h2><p>vim-fugitive 插件允许您在不离开 Vim 编辑器的情况下运行 git 命令行界面。您会发现，有些命令在 Vim 内部执行时会更好。</p>
+<p>开始前，请先使用 Vim 插件管理器（<a target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug">vim-plug</a>、<a target="_blank" rel="noopener" href="https://github.com/VundleVim/Vundle.vim">vundle</a>、<a target="_blank" rel="noopener" href="https://github.com/Shougo/dein.vim">dein.vim</a> 等）安装 vim-fugitive。</p>
+<h2 id="Git-Status"><a href="#Git-Status" class="headerlink" title="Git Status"></a>Git Status</h2><p>当您不带参数地运行 <code>:Git</code> 命令时，vim-fugitive 将显示一个 git 概要窗口，它显示了未跟踪、未暂存和已暂存的文件。在此 “<code>git status</code>” 模式下，您可以做一些操作：</p>
+<ul>
+<li><code>Ctrl-n</code> &#x2F; <code>Ctrl-p</code> 转到下一个 &#x2F; 上一个文件。</li>
+<li><code>-</code> 暂存或取消暂存光标处的文件。</li>
+<li><code>s</code> 暂存光标处的文件。</li>
+<li><code>u</code> 取消暂存光标处的文件。</li>
+<li><code>&gt;</code> &#x2F; <code>&lt;</code> 内联显示或隐藏光标处文件的差异变化。</li>
+</ul>
+<p align="center">
+  <img alt="Finding files in FZF" width="900" height="auto" data-src="images/fugitive-git.png">
+</p>
+
+<p>查阅 <code>:h fugitive-staging-maps</code> 可获得更多信息。</p>
+<h2 id="Git-Blame"><a href="#Git-Blame" class="headerlink" title="Git Blame"></a>Git Blame</h2><p>在当前文件运行 <code>:Git blame</code> 命令，vim-fugitive 可以显示一个拆分的问责窗口。这有助于追踪那些 BUG 是谁写的，接着就可以冲他&#x2F;她怒吼（开个玩笑）。</p>
+<p>在  <code>&quot;git blame&quot;</code> 模式下您可以做：</p>
+<ul>
+<li><code>q</code> 关闭问责窗口。</li>
+<li><code>A</code> 调整作者列大小。</li>
+<li><code>C</code> 调整提交列大小。</li>
+<li><code>D</code> 调整日期&#x2F;时间列大小。</li>
+</ul>
+<p>查阅 <code>:h :Git_blame</code> 可获得更多信息。</p>
+<p align="center">
+  <img alt="Finding files in FZF" width="900" height="auto" data-src="images/fugitive-git-blame.png">
+</p>
+
+<h2 id="Gdiffsplit"><a href="#Gdiffsplit" class="headerlink" title="Gdiffsplit"></a>Gdiffsplit</h2><p>当您运行 <code>:Gdiffsplit</code> 命令后，vim-fugitive 会执行 <code>vimdiff</code>，比对索引或工作树中的版本与当前文件最新更改的区别。如果运行 <code>:Gdiffsplit &lt;commit&gt;</code>，vim-fugitive 则会根据 <code>&lt;commit&gt;</code> 中的版本来执行 <code>vimdiff</code>。</p>
+<p align="center">
+  <img alt="Finding files in FZF" width="900" height="auto" data-src="images/fugitive-gdiffsplit.png">
+</p>
+
+<p>由于您处于 <code>vimdiff</code> 模式中，因此您可以使用 <code>:diffput</code> 和 <code>:diffget</code> 来 <em>获取</em> 或 <em>输出</em> 差异。</p>
+<h2 id="Gwrite-和-Gread"><a href="#Gwrite-和-Gread" class="headerlink" title="Gwrite 和 Gread"></a>Gwrite 和 Gread</h2><p>当您在更改文件后运行 <code>:Gwrite</code> 命令，vim-fugitive 将暂存更改，就像运行 <code>git add &lt;current-file&gt;</code> 一样。</p>
+<p>当您在更改文件后运行 <code>:Gread</code> 命令，vim-fugitive 会将文件还原至更改前的状态，就像运行 <code>git checkout &lt;current-file&gt;</code> 一样。使用 <code>:Gread</code> 还有一个好处是操作可撤销。如果在运行 <code>:Gread</code> 后您改变主意，想要保留原来的更改，您只需要撤消（<code>u</code>），Vim 将撤回 <code>:Gread</code> 操作。要换作是在命令行中运行 <code>git checkout &lt;current-file&gt;</code>，就完成不了这种操作了。</p>
+<h2 id="Gclog"><a href="#Gclog" class="headerlink" title="Gclog"></a>Gclog</h2><p>当您运行 <code>:Gclog</code> 命令时，vim-fugitive 将显示提交历史记录，就像运行 <code>git log</code> 命令一样。Vim-fugitive 使用 Vim 的 quickfix 来完成此任务，因此您可以使用 <code>:cnext</code> 和 <code>:cprevious</code> 来遍历下一个或上一个日志信息。您还可以使用 <code>:copen</code> 和 <code>:cclose</code> 打开或关闭日志列表。</p>
+<p align="center">
+  <img alt="Finding files in FZF" width="900" height="auto" data-src="images/fugitive-git-log.png">
+</p>
+
+<p>在 <code>&quot;git log&quot;</code> 模式中，您可以做两件事：</p>
+<ul>
+<li>查看树。</li>
+<li>访问父级（上一个提交）。</li>
+</ul>
+<p>您可以像 <code>git log</code> 命令一样，传递参数给 <code>:Gclog</code> 命令。如果您项目的提交历史记录很长，只想看最后三个提交，则可以运行 <code>:Gclog -3</code>。如果需要根据提交日期来筛选记录，可以运行类似 <code>:Gclog --after=&quot;January 1&quot; --before=&quot;March 14&quot;</code> 的命令。</p>
+<h2 id="Vim-Fugitive-的更多功能"><a href="#Vim-Fugitive-的更多功能" class="headerlink" title="Vim-Fugitive 的更多功能"></a>Vim-Fugitive 的更多功能</h2><p>以上只是寥寥几个 vim-fugitive 功能的例子，您可以查阅 <code>:h fugitive.txt</code> 来了解更多有关 vim-fugitive 的信息。大多数流行的 git 命令可能都有 vim-fugitive 的优化版本，您只需在文档中查找它们。</p>
+<p>如果您处于 vim-fugitive 的“特殊模式”（如 <code>:Git</code> 或 <code>:Git blame</code> 模式）中，按下 <code>g?</code> 可以了解当前有哪些可用的快捷键，Vim-fugitive 将为您所处的模式显示相应的 <code>:help</code> 窗口。棒极了！</p>
+<h2 id="聪明地学习-Vim-和-Git"><a href="#聪明地学习-Vim-和-Git" class="headerlink" title="聪明地学习 Vim 和 Git"></a>聪明地学习 Vim 和 Git</h2><p>每个人都有不同的 git 工作流，可能 vim-fugitive 非常合适您的工作流（也可能不适合）。总之，我强烈建议您试试上面列出的所有插件。可能还有一些其他的我没有列出来，都可以去试一试。</p>
+<p>要让Vim-git的集成工作得更好，一个显而易见的办法就是去深入了解git。Git 本身是一个很庞大的主题，我只向您展示了它其中很小的一部分。好了，接下来谈谈如何使用 Vim 编译您的代码。</p>
+<h1 id="第19章-编译"><a href="#第19章-编译" class="headerlink" title="第19章 编译"></a>第19章 编译</h1><p>编译是许多编程语言的重要主题。在本章中，您将学习如何在 Vim 中编译。此外，您将看到如何利用好 Vim 的 <code>:make</code> 命令。</p>
+<h2 id="从命令行编译"><a href="#从命令行编译" class="headerlink" title="从命令行编译"></a>从命令行编译</h2><p>您可以使用叹号运算符（<code>!</code>）进行编译。如果您需要使用 <code>g++</code> 来编译 <code>.cpp</code> 文件，可以运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:!g++ hello.cpp -o hello</span><br></pre></td></tr></table></figure>
+
+<p>但要每次手动指定文件名和输出文件名会非常繁琐和容易出错。而 makefile 是条可行之路。</p>
+<h2 id="Make命令"><a href="#Make命令" class="headerlink" title="Make命令"></a>Make命令</h2><p>Vim 有运行 makefile 的 <code>:make</code> 命令。当您运行它时，Vim 会在当前目录查找 makefile 并执行它。</p>
+<p>在当前目录创建一个文件名为 <code>makefile</code> ，然后添加下列内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">all:</span><br><span class="line">	echo &quot;Hello all&quot;</span><br><span class="line">foo:</span><br><span class="line">	echo &quot;Hello foo&quot;</span><br><span class="line">list_pls:</span><br><span class="line">	ls</span><br></pre></td></tr></table></figure>
+
+<p>在 Vim 中运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:make</span><br></pre></td></tr></table></figure>
+
+<p>Vim 执行它的方式与从终端运行它的方式相同。<code>:make</code> 命令也接受终端中 <code>make</code> 命令的参数。运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">:make foo</span><br><span class="line">&quot; Outputs &quot;Hello foo&quot;</span><br><span class="line"></span><br><span class="line">:make list_pls</span><br><span class="line">&quot; Outputs the ls command result</span><br></pre></td></tr></table></figure>
+
+<p>如果命令执行异常，<code>:make</code> 命令将使用 Vim 的 <code>quickfix</code> 来存储这些错误。现在试着运行一个不存在的目标：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:make dontexist</span><br></pre></td></tr></table></figure>
+
+<p>您应该会看到该命令执行错误。运行 <code>quickfix</code> 命令 <code>:copen</code> 可以打开 <code>quickfix</code> 窗口来查看该错误：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">|| make: *** No rule to make target `dontexist&#x27;.  Stop.</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-Make-编译"><a href="#使用-Make-编译" class="headerlink" title="使用 Make 编译"></a>使用 Make 编译</h2><p>让我们使用 makefile 来编译一个基本的 <code>.cpp</code> 程序。首先创建一个 <code>hello.cpp</code> 文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    std::cout &lt;&lt; &quot;Hello!\n&quot;;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后，更新 <code>makefile</code> 来编译和运行 <code>.cpp</code> 文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">all:</span><br><span class="line">	echo &quot;build, run&quot;</span><br><span class="line">build:</span><br><span class="line">	g++ hello.cpp -o hello</span><br><span class="line">run:</span><br><span class="line">	./hello</span><br></pre></td></tr></table></figure>
+
+<p>现在运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:make build</span><br></pre></td></tr></table></figure>
+
+<p><code>g++</code> 将编译 <code>./hello.cpp</code> 并且生成 <code>./hello</code>。接着运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:make run</span><br></pre></td></tr></table></figure>
+
+<p>您应该会看到终端上打印出了 <code>&quot;Hello!&quot;</code>。</p>
+<h2 id="不同的Make程序"><a href="#不同的Make程序" class="headerlink" title="不同的Make程序"></a>不同的Make程序</h2><p>当您运行 <code>:make</code> 时，Vim 实际上会执行 <code>makeprg</code> 选项所设置的任何命令，您可以运行 <code>:set makeprg?</code> 来查看它：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">makeprg=make</span><br></pre></td></tr></table></figure>
+
+<p><code>:make</code> 的默认命令是外部的 <code>make</code> 命令。若想修改 <code>:make</code> 命令，使每次运行它时执行 <code>g++ &lt;your-file-name&gt;</code>，请运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:set makeprg=g++\ %</span><br></pre></td></tr></table></figure>
+
+<p><code>\</code> 用于转义 <code>g++</code> 后的空格。Vim 中 <code>%</code> 符号代表当前文件。因此，<code>g++\ %</code> 命令等于运行 <code>g++ hello.cpp</code>。</p>
+<p>转到 <code>./hello.cpp</code> 然后运行 <code>:make</code>，Vim 将编译 <code>hello.cpp</code> 并输出 <code>a.out</code>（因为您没有指定输出）。让我们重构一下，使用去掉扩展名的原始文件名来命名编译后的输出。运行下面的命令（或将它们添加到vimrc）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:set makeprg=g++\ %\ -o\ %&lt;</span><br></pre></td></tr></table></figure>
+
+<p>上面的命令分解如下：</p>
+<ul>
+<li><code>g++\\ %</code> 如上所述，等同于运行 <code>g++ &lt;your-file&gt;</code>。</li>
+<li><code>-o</code> 输出选项。</li>
+<li><code>%&lt;</code> 在 Vim 中代表了没有扩展名的当前文件名（如 <code>hello.cpp</code> 变成 <code>hello</code>）。</li>
+</ul>
+<p>当您在 <code>./hello.cpp</code> 中运行 <code>:make</code> 时，它将编译为 <code>./hello</code>。要在 <code>./hello.cpp</code> 中快速地执行 <code>./hello</code>，可以运行 <code>:!./%&lt;</code>。同样，它等同于运行 <code>:!./&lt;无后缀的当前文件名&gt;</code>。</p>
+<p>查阅 <code>:h :compiler</code> 和 <code>:h write-compiler-plugin</code> 可以了解更多信息。</p>
+<h2 id="保存时自动编译"><a href="#保存时自动编译" class="headerlink" title="保存时自动编译"></a>保存时自动编译</h2><p>有了自动化编译，您可以让生活更加轻松。回想一下，您可以使用 Vim 的 <code>autocmd</code> 来根据某些事件自动执行操作。例如，要自动在每次保存后编译 <code>.cpp</code> 文件，您可以将下面内容添加到vimrc：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:autocmd BufWritePost *.cpp make</span><br></pre></td></tr></table></figure>
+
+<p>现在您每次保存 <code>.cpp</code> 文件后，Vim 都将自动执行 <code>make</code> 命令。</p>
+<h2 id="切换编译器"><a href="#切换编译器" class="headerlink" title="切换编译器"></a>切换编译器</h2><p>Vim 有一个 <code>:compiler</code> 命令可以快速切换编译器。您的 Vim 可能附带了一些预构建的编译配置。要检查您拥有哪些编译器，请运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:e $VIMRUNTIME/compilers/&lt;tab&gt;</span><br></pre></td></tr></table></figure>
+
+<p>您应该会看到一个不同编程语言的编译器列表。</p>
+<p>若要使用 <code>:compiler</code> 命令，假设您有一个 ruby 文件 <code>hello.rb</code>，内容是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">puts &quot;Hello ruby&quot;</span><br></pre></td></tr></table></figure>
+
+<p>回想一下，如果运行 <code>:make</code>，Vim 将执行赋值给 <code>makeprg</code> 的任何命令（默认是 <code>make</code>）。如果您运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:compiler ruby</span><br></pre></td></tr></table></figure>
+
+<p>Vim 执行 <code>$VIMRUNTIME/compiler/ruby.vim</code> 脚本，并将 <code>makeprg</code> 更改为使用 <code>ruby</code> 命令。现在如果您运行 <code>:set makeprg?</code>，它会显示 <code>makeprg=ruby</code>（这取决于您 <code>$VIMRUNTIME/compiler/ruby.vim</code> 里的内容，如果您有其他自定义的 ruby 编译器，您的结果可能会有不同）。<code>:compiler &lt;your-lang&gt;</code> 命令允许您快速切换至其他编译器。如果您的项目使用多种语言，这会非常有用。</p>
+<p>您不必使用 <code>:compiler</code> 或 <code>makeprg</code> 来编译程序。您可以运行测试脚本、分析文件、发送信号或任何您想要的内容。</p>
+<h2 id="创建自定义编译器"><a href="#创建自定义编译器" class="headerlink" title="创建自定义编译器"></a>创建自定义编译器</h2><p>让我们来创建一个简单的 Typescript 编译器。先在您的设备上安装 Typescript（<code>npm install -g typescript</code>），安装完后您将有 <code>tsc</code> 命令。如果您之前没有尝试过 typescript，<code>tsc</code> 将 Typescript 文件编译成 Javascript 文件。假设您有一个 <code>hello.ts</code> 文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const hello = &quot;hello&quot;;</span><br><span class="line">console.log(hello);</span><br></pre></td></tr></table></figure>
+
+<p>运行 <code>tsc hello.ts</code> 后，它将被编译成 <code>hello.js</code>。然而，如果您的 <code>hello.ts</code> 文件中有如下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const hello = &quot;hello&quot;;</span><br><span class="line">hello = &quot;hello again&quot;;</span><br><span class="line">console.log(hello);</span><br></pre></td></tr></table></figure>
+
+<p>这会抛出错误，因为不能更改一个 <code>const</code> 变量。运行 <code>tsc hello.ts</code> 的错误如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hello.ts:2:1 - error TS2588: Cannot assign to &#x27;person&#x27; because it is a constant.</span><br><span class="line"></span><br><span class="line">2 person = &quot;hello again&quot;;</span><br><span class="line">  ~~~~~~</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Found 1 error.</span><br></pre></td></tr></table></figure>
+
+<p>要创建一个简单的 Typescript 编译器，请在您的 <code>~/.vim/</code> 目录中新添加一个 <code>compiler</code> 目录（即 <code>~/.vim/compiler/</code>），接着创建 <code>typescript.vim</code> 文件（即 <code>~/.vim/compiler/typescript.vim</code>），并添加如下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CompilerSet makeprg=tsc</span><br><span class="line">CompilerSet errorformat=%f:\ %m</span><br></pre></td></tr></table></figure>
+
+<p>第一行将 <code>makeprg</code> 设置为运行 <code>tsc</code> 命令。第二行将错误格式设置为显示文件（<code>%f</code>），后跟冒号（<code>:</code>）和转义的空格（<code>\ </code>），最后是错误消息（<code>%m</code>）。查阅 <code>:h errorformat</code> 可了解更多关于错误格式的信息。</p>
+<p>您还可以阅读一些预制的编译器，看看它们是如何实现的。输入 <code>:e $VIMRUNTIME/compiler/&lt;some-language&gt;.vim</code> 查看。</p>
+<p>有些插件可能会干扰 Typescript 文件，可以使用 <code>--noplugin</code> 标志以零插件的形式打开<code>hello.ts</code> 文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim --noplugin hello.ts</span><br></pre></td></tr></table></figure>
+
+<p>检查 <code>makeprg</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:set makeprg?</span><br></pre></td></tr></table></figure>
+
+<p>它应该会显示默认的 <code>make</code> 程序。要使用新的 Typescript 编译器，请运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:compiler typescript</span><br></pre></td></tr></table></figure>
+
+<p>当您运行 <code>:set makeprg?</code> 时，它应该会显示 <code>tsc</code> 了。我们来测试一下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:make %</span><br></pre></td></tr></table></figure>
+
+<p>回想一下，<code>%</code> 代表当前文件。看看您的 Typescript 编译器是否如预期一样工作。运行 <code>:copen</code> 可以查看错误列表。</p>
+<h2 id="异步编译器"><a href="#异步编译器" class="headerlink" title="异步编译器"></a>异步编译器</h2><p>有时编译可能需要很长时间。在等待编译时，您不会想眼睁睁盯着已冻结的 Vim 的。如果可以异步编译，就可以在编译期间继续使用 Vim 了，岂不美哉？</p>
+<p>幸运的是，有插件来运行异步进程。有两个比较好的是：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/tpope/vim-dispatch">vim-dispatch</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/skywind3000/asyncrun.vim">asyncrun.vim</a></li>
+</ul>
+<p>在这一章中，我将介绍 vim-dispatch，但我强烈建议您尝试上述列表中所有插件。</p>
+<p><em>Vim 和 NeoVim 实际上都支持异步作业，但它们超出了本章的范围。如果您好奇，可以查阅 <code>:h job-channel-overview.txt</code>。</em></p>
+<h2 id="插件：Vim-dispatch"><a href="#插件：Vim-dispatch" class="headerlink" title="插件：Vim-dispatch"></a>插件：Vim-dispatch</h2><p>Vim-dispatch 有几个命令，最主要的两个是 <code>:Make</code> 和 <code>:Dispatch</code>。</p>
+<h3 id="异步Make"><a href="#异步Make" class="headerlink" title="异步Make"></a>异步Make</h3><p>Vim-dispatch 的 <code>:Make</code> 命令与 Vim 的 <code>:make</code> 相似，但它以异步方式运行。如果您正处于 Javascript 项目中，并且需要运行 <code>npm t</code>，可以将 <code>makeprg</code> 设置为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:set makeprg=npm\\ t</span><br></pre></td></tr></table></figure>
+
+<p>如果运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:make</span><br></pre></td></tr></table></figure>
+
+<p>Vim 将执行 <code>npm t</code>。但同时，您只能盯着冻结了的屏幕。有了 vim-dispatch，您只需要运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:Make</span><br></pre></td></tr></table></figure>
+
+<p>Vim 将启用后台进程异步运行 <code>npm t</code>，同时您还能在 Vim 中继续编辑您的文本。棒极了！</p>
+<h3 id="异步调度（Dispatch）"><a href="#异步调度（Dispatch）" class="headerlink" title="异步调度（Dispatch）"></a>异步调度（Dispatch）</h3><p><code>:Dispatch</code> 命令的工作方式和 <code>:compiler</code> 及 <code>:!</code> 类似，它可以在Vim中运行任意外部命令。</p>
+<p>假设您在 ruby spec 文件中，需要执行测试，可以运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:Dispatch rspec %</span><br></pre></td></tr></table></figure>
+
+<p>Vim 将对当前文件异步运行 <code>rspec</code> 命令。</p>
+<h3 id="自动调度"><a href="#自动调度" class="headerlink" title="自动调度"></a>自动调度</h3><p>Vim-dispatch 有一个缓冲区变量<code>b:dispatch</code>，您可以配置它来自动执行特定命令，您可以利用 <code>autocmd</code>和它一起工作。如果在您的 vimrc 中添加如下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autocmd BufEnter *_spec.rb let b:dispatch = &#x27;bundle exec rspec %&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>现在每当您进入（<code>BufEnter</code>）一个以 <code>_spec.rb</code> 结尾的文件，运行<code>:Dispatch</code> 将自动执行 <code>bundle exec rspec &lt;your-current-ruby-spec-file&gt;</code>。</p>
+<h2 id="聪明地学习编译"><a href="#聪明地学习编译" class="headerlink" title="聪明地学习编译"></a>聪明地学习编译</h2><p>在本章中，您了解到可以使用 <code>make</code> 和 <code>compiler</code> 命令从Vim内部异步运行 <em>任何</em> 进程，以完善您的编程工作流程。Vim 拥有通过其他程序来扩展自身的能力，这使其变得强大。</p>
+<h1 id="第20章-视图、会话和-Viminfo"><a href="#第20章-视图、会话和-Viminfo" class="headerlink" title="第20章 视图、会话和 Viminfo"></a>第20章 视图、会话和 Viminfo</h1><p>当您做了一段时间的项目后，您可能会发现这个项目逐渐形了成自己的设置、折叠、缓冲区、布局等，就像住了一段时间公寓后，精心装饰了它一样。问题是，关闭 Vim 后，所有的这些更改都会丢失。如果能保留这些更改，等到下次打开 Vim 时，一切恢复如初，岂不美哉？</p>
+<p>本章中，您将学习如何使用 视图、会话 和 Viminfo 来保存项目的“快照”。</p>
+<h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><p>视图是这三个部分（视图、会话、Viminfo）中的最小子集，它是单个窗口相关设置的集合。如果您长时间在一个窗口上工作，并且想要保留其映射和折叠，您可以使用视图。</p>
+<p>我们来创建一个 <code>foo.txt</code> 文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">foo1</span><br><span class="line">foo2</span><br><span class="line">foo3</span><br><span class="line">foo4</span><br><span class="line">foo5</span><br><span class="line">foo6</span><br><span class="line">foo7</span><br><span class="line">foo8</span><br><span class="line">foo9</span><br><span class="line">foo10</span><br></pre></td></tr></table></figure>
+
+<p>在这个文件中，做三次修改：</p>
+<ol>
+<li>在第 1 行，创建一个手动折叠 <code>zf4j</code>（折叠接下来 4 行）。</li>
+<li>更改 <code>number</code> 设置：<code>setlocal nonumber norelativenumber</code>。这会移除窗口左侧的数字指示器。</li>
+<li>创建本地映射，每当按一次 <code>j</code> 时，向下两行：<code>:nnoremap &lt;buffer&gt; j jj</code>。</li>
+</ol>
+<p>您的文件看起来应该像：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">+-- 5 lines: foo1 -----</span><br><span class="line">foo6</span><br><span class="line">foo7</span><br><span class="line">foo8</span><br><span class="line">foo9</span><br><span class="line">foo10</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置视图属性"><a href="#配置视图属性" class="headerlink" title="配置视图属性"></a>配置视图属性</h3><p>运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:set viewoptions?</span><br></pre></td></tr></table></figure>
+
+<p>默认情况下会显示（根据您的 vimrc 可能会有所不同）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">viewoptions=folds,cursor,curdir</span><br></pre></td></tr></table></figure>
+
+<p>我们来配置 <code>viewoptions</code>。要保留的三个属性分别是折叠、映射和本地设置选项。如果您的设置和我的相似，那么您已经有了 <code>folds</code> 选项。运行下列命令使视图记住 <code>localoptions</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:set viewoptions+=localoptions</span><br></pre></td></tr></table></figure>
+
+<p>查阅 <code>:h viewoptions</code> 可了解 <code>viewoptions</code> 的其他可用选项。现在运行 <code>:set viewoptions?</code>，您将看到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">viewoptions=folds,cursor,curdir,localoptions</span><br></pre></td></tr></table></figure>
+
+<h3 id="保存视图"><a href="#保存视图" class="headerlink" title="保存视图"></a>保存视图</h3><p>在 <code>foo.txt</code> 窗口经过适当折叠并设置了 <code>nonumber norelativenumber</code> 选项后，现在我们来保存视图。运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:mkview</span><br></pre></td></tr></table></figure>
+
+<p>Vim 创建了一个视图文件。</p>
+<h3 id="视图文件"><a href="#视图文件" class="headerlink" title="视图文件"></a>视图文件</h3><p>您可能会想“Vim 将这个视图文件保存到哪儿了呢？”，运行下列命令就可以看到答案了：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:set viewdir?</span><br></pre></td></tr></table></figure>
+
+<p>默认情况下会显示 <code>~/.vim/view</code>（根据您的操作系统，可能会有不同的路径。查阅 <code>:h viewdir</code> 获得更多信息）。如果您运行的是基于Unix的操作系统，想修改该路径，可以在您的 vimrc 中添加下列内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set viewdir=$HOME/else/where</span><br></pre></td></tr></table></figure>
+
+<h3 id="加载视图文件"><a href="#加载视图文件" class="headerlink" title="加载视图文件"></a>加载视图文件</h3><p>关闭并重新打开 <code>foo.txt</code>，您会看到原来的文本，没有任何改变。这是预期行为。运行下列命令可以加载视图文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:loadview</span><br></pre></td></tr></table></figure>
+
+<p>现在您将看到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">+-- 5 lines: foo1 -----</span><br><span class="line">foo6</span><br><span class="line">foo7</span><br><span class="line">foo8</span><br><span class="line">foo9</span><br><span class="line">foo10</span><br></pre></td></tr></table></figure>
+
+<p>那些折叠、本地设置以及映射都恢复了。如果您细心还可以发现，光标位于上一次您运行 <code>:mkview</code> 时所处的行上。只要您有 <code>cursor</code> 选项，视图将记住光标位置。</p>
+<h3 id="多个视图"><a href="#多个视图" class="headerlink" title="多个视图"></a>多个视图</h3><p>Vim 允许您保存 9 个编号的视图（1-9）。</p>
+<p>假设您想用 <code>:9,10 fold</code> 来额外折叠最后两行，我们把这存为视图 1。运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:mkview 1</span><br></pre></td></tr></table></figure>
+
+<p>如果您又想用 <code>:6,7 fold</code> 再折叠一次，并存为不同的视图，运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:mkview 2</span><br></pre></td></tr></table></figure>
+
+<p>关闭并重新打开 <code>foo.txt</code> 文件，运行下列命令可以加载视图 1：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:loadview 1</span><br></pre></td></tr></table></figure>
+
+<p>要加载视图 2，运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:loadview 2</span><br></pre></td></tr></table></figure>
+
+<p>要加载原始视图，运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:loadview</span><br></pre></td></tr></table></figure>
+
+<h3 id="自动创建视图"><a href="#自动创建视图" class="headerlink" title="自动创建视图"></a>自动创建视图</h3><p>有一件可能会发生的很倒霉的事情是，您花了很长时间在一个大文件中进行折叠，一不小心关闭了窗口，接着丢失了所有折叠信息。您可以在 vimrc 中添加下列内容，使得在关闭缓冲区后 Vim 能自动创建视图，防止此类灾难发生：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autocmd BufWinLeave *.txt mkview</span><br></pre></td></tr></table></figure>
+
+<p>另外也能在打开缓冲区后自动加载视图：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autocmd BufWinEnter *.txt silent loadview</span><br></pre></td></tr></table></figure>
+
+<p>现在，当您编辑 <code>txt</code> 文件时，不用再担心创建和加载视图了。但也注意，&#x3D;&#x3D;随着时间的推移，视图文件会不断积累，记得每隔几个月清理一次。&#x3D;&#x3D;</p>
+<h2 id="会话"><a href="#会话" class="headerlink" title="会话"></a>会话</h2><p>如果说视图保存了某个窗口的设置，那么会话则保存了所有窗口（包括布局）的信息。</p>
+<h3 id="创建新会话"><a href="#创建新会话" class="headerlink" title="创建新会话"></a>创建新会话</h3><p>假设您在 <code>foobarbaz</code> 工程中编辑着 3 个文件：</p>
+<p><code>foo.txt</code> 的内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">foo1</span><br><span class="line">foo2</span><br><span class="line">foo3</span><br><span class="line">foo4</span><br><span class="line">foo5</span><br><span class="line">foo6</span><br><span class="line">foo7</span><br><span class="line">foo8</span><br><span class="line">foo9</span><br><span class="line">foo10</span><br></pre></td></tr></table></figure>
+
+<p><code>bar.txt</code> 的内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">bar1</span><br><span class="line">bar2</span><br><span class="line">bar3</span><br><span class="line">bar4</span><br><span class="line">bar5</span><br><span class="line">bar6</span><br><span class="line">bar7</span><br><span class="line">bar8</span><br><span class="line">bar9</span><br><span class="line">bar10</span><br></pre></td></tr></table></figure>
+
+<p><code>baz.txt</code> 的内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">baz1</span><br><span class="line">baz2</span><br><span class="line">baz3</span><br><span class="line">baz4</span><br><span class="line">baz5</span><br><span class="line">baz6</span><br><span class="line">baz7</span><br><span class="line">baz8</span><br><span class="line">baz9</span><br><span class="line">baz10</span><br></pre></td></tr></table></figure>
+
+<p>假设您的窗口布局如下所示（适当地使用 <code>split</code> 和 <code>vsplit</code> 来放置）：</p>
+<img data-src="/2023/06/05/154/session-layout.png" class="" title="Session Layout">
+
+<p>要保留这个外观，您需要保存会话。运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:mksession</span><br></pre></td></tr></table></figure>
+
+<p>与默认存储在 <code>~/.vim/view</code> 的 <code>mkview</code> 不同，<code>mksession</code> 在当前目录存储会话文件（<code>Session.vim</code>）。如果好奇，您可以看看文件。</p>
+<p>如果您想将会话文件另存他处，可以将参数传递给 <code>mksession</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:mksession ~/some/where/else.vim</span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>!</code> 来调用命令可以覆盖一个已存在的会话文件（<code>:mksession! ~/some/where/else.vim</code>）。</p>
+<h3 id="加载会话"><a href="#加载会话" class="headerlink" title="加载会话"></a>加载会话</h3><p>运行下列命令可以加载会话：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:source Session.vim</span><br></pre></td></tr></table></figure>
+
+<p>现在 Vim 看起来就像您离开它时的样子！或者，您也可以从终端加载会话文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim -S Session.vim</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置会话属性"><a href="#配置会话属性" class="headerlink" title="配置会话属性"></a>配置会话属性</h3><p>您可以配置会话要保存的属性。若要查看当前哪些属性正被保存，请运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:set sessionoptions?</span><br></pre></td></tr></table></figure>
+
+<p>我的显示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">blank,buffers,curdir,folds,help,tabpages,winsize,terminal</span><br></pre></td></tr></table></figure>
+
+<p>如果在保存会话时不想存储 <code>terminal</code>，可以运行下列命令将其从会话选项中删除：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:set sessionoptions-=terminal</span><br></pre></td></tr></table></figure>
+
+<p>如果要在保存会话时存储 <code>options</code>，请运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:set sessionoptions+=options</span><br></pre></td></tr></table></figure>
+
+<p>下面是一些 <code>sessionoptions</code> 可以存储的属性：</p>
+<ul>
+<li><code>blank</code> 存储空窗口</li>
+<li><code>buffers</code> 存储缓冲区</li>
+<li><code>folds</code> 存储折叠</li>
+<li><code>globals</code> 存储全局变量（必须以大写字母开头，并且至少包含一个小写字母）</li>
+<li><code>options</code> 存储选项和映射</li>
+<li><code>resize</code> 存储窗口行列</li>
+<li><code>winpos</code> 存储窗口位置</li>
+<li><code>winsize</code> 存储窗口大小</li>
+<li><code>tabpages</code> 存储选项卡</li>
+<li><code>unix</code> 以 Unix 格式存储文件</li>
+</ul>
+<p>查阅 <code>:h &#39;sessionoptions&#39;</code> 来获取完整列表。</p>
+<p>会话是保存项目外部属性的好工具。但是，一些内部属性不存储在会话中，如本地标记、寄存器、历史记录等。要保存它们，您需要使用 Viminfo！</p>
+<h2 id="Viminfo"><a href="#Viminfo" class="headerlink" title="Viminfo"></a>Viminfo</h2><p>如果您留意，在复制一个单词进寄存器 a，再退出并重新打开 Vim 后，您仍然可以看到存储在寄存器中的文本。这就是 Viminfo 的功劳。没有它，在您关闭 Vim 后，Vim 会忘记这些寄存器。</p>
+<p>如果您使用 Vim 8 或更高版本，Vim 会默认启用 Viminfo。因此您可能一直在使用 Viminfo，而您对它毫不知情！</p>
+<p>您可能会问：Viminfo 存储了什么？与会话有何不同？</p>
+<p>要使用 Viminfo，您必须启用了 <code>+viminfo</code> 特性（<code>:version</code>）。Viminfo 存储着：</p>
+<ul>
+<li>命令行历史记录。</li>
+<li>字符串搜索历史记录。</li>
+<li>输入行历史记录。</li>
+<li>非空寄存器的内容。</li>
+<li>多个文件的标记。</li>
+<li>文件标记，它指向文件中的位置。</li>
+<li>上次搜索 &#x2F; 替换模式（用于 “n” 和 “&amp;”）。</li>
+<li>缓冲区列表。</li>
+<li>全局变量。</li>
+</ul>
+<p>通常，会话存储“外部”属性，Viminfo 存储“内部”属性。</p>
+<p>每个项目可以有一个会话文件，而 Viminfo 与会话不同，通常每台计算机只使用一个 Viminfo。Viminfo 是项目无关的。</p>
+<p>对于 Unix，Viminfo 的默认位置是 <code>$HOME/.viminfo</code>（<code>~/.viminfo</code>）。如果您用其他操作系统，Viminfo 位置可能会有所不同。可以查阅 <code>:h viminfo-file-name</code>。每一次您做出的“内部”更改，如将文本复制进一个寄存器，Vim 都会自动更新 Viminfo 文件。</p>
+<p><em>请确保您设置了 <code>nocompatible</code> 选项（<code>set nocompatible</code>），否则您的 Viminfo 将不起作用。</em></p>
+<h3 id="读写-Viminfo"><a href="#读写-Viminfo" class="headerlink" title="读写 Viminfo"></a>读写 Viminfo</h3><p>尽管只使用一个 Viminfo 文件，但您还是可以创建多个 Viminfo 文件。使用 <code>:wviminfo</code> 命令（缩写为 <code>:wv</code>）来创建多个 Viminfo 文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:wv ~/.viminfo_extra</span><br></pre></td></tr></table></figure>
+
+<p>要覆盖现有的 Viminfo 文件，向 <code>wv</code> 命令多添加一个叹号：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:wv! ~/.viminfo_extra</span><br></pre></td></tr></table></figure>
+
+<p>Vim 默认情况下会读取 <code>~/.viminfo</code> 文件。运行 <code>:rviminfo</code>（缩写为 <code>:rv</code>）可以读取不同的 Vimfile 文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:rv ~/.viminfo_extra</span><br></pre></td></tr></table></figure>
+
+<p>要在终端使用不同的 Viminfo 文件来启动 Vim，请使用 “i” 标志：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim -i viminfo_extra</span><br></pre></td></tr></table></figure>
+
+<p>如果您要将 Vim 用于不同的任务，比如写代码和写作，您可以创建两个 Viminfo，一个针对写作优化，另一个为写代码优化。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim -i viminfo_writing</span><br><span class="line"></span><br><span class="line">vim -i viminfo_coding</span><br></pre></td></tr></table></figure>
+
+<h3 id="不使用-Viminfo-启动-Vim"><a href="#不使用-Viminfo-启动-Vim" class="headerlink" title="不使用 Viminfo 启动 Vim"></a>不使用 Viminfo 启动 Vim</h3><p>要不使用 Viminfo 启动 Vim，可以在终端运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim -i NONE</span><br></pre></td></tr></table></figure>
+
+<p>要永不使用 Viminfo，可以在您的 vimrc 文件添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set viminfo=&quot;NONE&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置-Viminfo-属性"><a href="#配置-Viminfo-属性" class="headerlink" title="配置 Viminfo 属性"></a>配置 Viminfo 属性</h3><p>和 <code>viewoptions</code> 以及 <code>sessionoptions</code> 类似，您可以用 <code>viminfo</code> 选项指定要存储的属性。请运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:set viminfo?</span><br></pre></td></tr></table></figure>
+
+<p>您会得到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!,&#x27;100,&lt;50,s10,h</span><br></pre></td></tr></table></figure>
+
+<p>看起来有点晦涩难懂。命令分解如下：</p>
+<ul>
+<li><code>!</code> 保存以大写字母开头、却不包含小写字母的全局变量。回想一下 <code>g:</code> 代表了一个全局变量。例如，假设您写了赋值语句 <code>let g:FOO = &quot;foo&quot;</code>，Viminfo 将存储全局变量 <code>FOO</code>。然而如果您写了 <code>let g:Foo = &quot;foo&quot;</code>，Viminfo 将不存储它，因为它包含了小写字母。没有 <code>!</code>，Vim 不会存储这些全局变量。</li>
+<li><code>&#39;100</code> 代表标记。在这个例子中，Viminfo 将保存最近 100 个文件的本地标记（a-z）。注意，如果存储的文件过多，Vim 会变得很慢，1000 左右就可以了。</li>
+<li><code>&lt;50</code> 告诉 Viminfo 每个寄存器最多保存多少行（这个例子中是 50 行）。如果我复制 100 行文本进寄存器 a（<code>&quot;ay99j</code>）后关闭 Vim，下次打开 Vim 并从寄存器 a（<code>&quot;ap</code>）粘贴时，Vim 最多只粘贴 50 行；如果不指定最大行号， <em>所有</em> 行都将被保存；如果指定 0，什么都不保存了。</li>
+<li><code>s10</code> 为寄存器设置大小限制（kb）。在这个例子中，任何大于 10kb 的寄存器都会被排除。</li>
+<li><code>h</code> 禁用高亮显示（<code>hlsearch</code> 时）。</li>
+</ul>
+<p>可以查阅 <code>:h &#39;viminfo&#39;</code> 来了解其他更多选项。</p>
+<h2 id="聪明地使用视图、会话和-Viminfo"><a href="#聪明地使用视图、会话和-Viminfo" class="headerlink" title="聪明地使用视图、会话和 Viminfo"></a>聪明地使用视图、会话和 Viminfo</h2><p>Vim 能使用视图、会话和 Viminfo 来保存不同级别的 Vim 环境快照。对于微型项目，可以使用视图；对于大型项目，可以使用会话。您应该花些时间来查阅视图、会话和 Viminfo 提供的所有选项。</p>
+<p>为您的编辑风格创建属于您自己的视图、会话和 Viminfo。如果您要换台计算机使用 Vim，只需加载您的设置，立刻就会感到就像在家里的工作环境一样！</p>
+<h1 id="第21章-多文件操作"><a href="#第21章-多文件操作" class="headerlink" title="第21章 多文件操作"></a>第21章 多文件操作</h1><p>多文件编辑更新是一个值得掌握、非常有用的编辑工具。前面您已经学会了如何使用 <code>cfdo</code> 命令在多个文本中进行更新。本章，您将学到如何在Vim中进行多文件编辑的更多不同方法。</p>
+<h2 id="在多个文件中执行命令的几种方法"><a href="#在多个文件中执行命令的几种方法" class="headerlink" title="在多个文件中执行命令的几种方法"></a>在多个文件中执行命令的几种方法</h2><p>要在多个文件中执行命令，Vim有8种方法：</p>
+<ul>
+<li>参数列表 (<code>argdo</code>)</li>
+<li>缓冲区列表 (<code>bufdo</code>)</li>
+<li>窗口列表 (<code>windo</code>)</li>
+<li>tab 列表(<code>tabdo</code>)</li>
+<li>快速修复列表 (<code>cdo</code>)</li>
+<li>文件方式的快速修复列表 (<code>cfdo</code>)</li>
+<li>位置列表 (<code>ldo</code>)</li>
+<li>文件方式的位置列表 (<code>lfdo</code>)</li>
+</ul>
+<p>实际上，大部分时间您可能只会用到1种或2种（就我个人而言，我使用 <code>cdo</code> 和 <code>argdo</code>比其他的多得多），但了解所有可行方法还是很有用的，这样您就可以选择一个最符合您个人编辑风格的方法。</p>
+<p>学习所有8个命令可能听起来让人有点打退堂鼓。但实际上，这些命令工作方式很相似。学习了其中一个后，再学习剩余的将容易的多。它们的运行方式都大体相同：分别创建一个列表(列表中的元素根据命令有所不同)，然后向列表传递一个您想执行的命令。</p>
+<h2 id="参数列表"><a href="#参数列表" class="headerlink" title="参数列表"></a>参数列表</h2><p>参数列表是最基础的列表。它创建一个文件列表。要想为 file1, file2, file3创建文件列表，您可以执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:args file1 file2 file3</span><br></pre></td></tr></table></figure>
+
+<p>您也可以传递一个通配符（<code>*</code>），所以如果您想为当前目录下所有的 <code>.js</code> 文件创建一个列表，运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:args *.js</span><br></pre></td></tr></table></figure>
+
+<p>如果您想为当前目录下所有以 “a” 开头的Javascript文件创建列表，运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:args a*.js</span><br></pre></td></tr></table></figure>
+
+<p>（<code>*</code>）通配符匹配当前目录下的1个或多个任意文件名中的字符。但如果您想在某个目录下进行递归搜索怎么办呢？您可以使用双通配符（<code>**</code>）。要得到您当前位置下所有子目录中的Javascript文件，运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:args **/*.js</span><br></pre></td></tr></table></figure>
+
+<p>您运行了 <code>args</code> 命令后，您的当前buffer将会切换到列表中的第一个文件。运行 <code>:args</code>可以查看您刚才创建的文件列表。当您创建好了您的列表后，您就可以遍历它们了。<code>:first</code> 将让您跳至列表中的第一个文件。<code>:last</code> 将跳到最后一个文件。运行<code>:next</code>可以在列表中一次向前移动一个文件。运行 <code>:prev</code>可以在列表中一次向后移动一个文件。运行<code>:wnext</code> 和 <code>:wprev</code>命令，在向前&#x2F;向后移动文件的同时还会保存修改。查阅 <code>: arglist</code> 了解更多导航命令。</p>
+<p>参数列表在定位某个特定类型的文件或少量文件时特别有用。假如您需要将所有 <code>yml</code> 文件中的<code>donut</code> 更新为 <code>pancake</code>。运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:args **/*.yml</span><br><span class="line">:argdo %s/donut/pancake/g | update</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>注意如果您再次执行 <code>args</code> 命令，它将覆盖先前的列表。比如，如果您先前运行了：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:args file1 file2 file3</span><br></pre></td></tr></table></figure>
+
+<p>假设这些文件都是存在的，那么现在您的列表为 <code>file1</code>, <code>file2</code>,以及 <code>file3</code>。然后再运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:args file4 file5</span><br></pre></td></tr></table></figure>
+
+<p>您的初始列表 <code>file1</code>, <code>file2</code>, <code>file3</code>将被覆盖为 <code>file4</code>, <code>file5</code>。如果您的参数列表中已经有了 <code>file1</code>, <code>file2</code>, <code>file3</code> ，而您想将 <code>file4</code>, <code>file5</code> 添加到初始列表中，请使用 <code>:arga</code>命令。运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:arga file4 file5</span><br></pre></td></tr></table></figure>
+
+<p>现在您的列表为<code>file1</code>, <code>file2</code>, <code>file3</code>, <code>file4</code>, <code>file5</code>。</p>
+<p>如果您运行 <code>:arga</code> 时没有给任何参数，Vim会添加当前buffer到参数列表中。例如，如果您的参数列表中已经有了 <code>file1</code>, <code>file2</code>, <code>file3</code>，而您当前buffer是 <code>file5</code>，运行 <code>:arga</code> 将添加 <code>file5</code> 到您的列表中。</p>
+<p>在前面的命令（<code>:argdo %s/donut/pancake/g</code>）中您已经看到过了，当您创建好列表后就可以向它传递任意命令行命令。其他的一些示例：</p>
+<ul>
+<li>删除参数列表所有文件内包含 “dessert” 的行, 运行 <code>:argdo g/dessert/d</code>.</li>
+<li>在参数列表每个文件中执行宏a(假设您已经在a中录好了一个宏)，运行 <code>:argdo norm @a</code>.</li>
+<li>向参数列表所有文件的第一行插入”hello “+文件名 ，运行 <code>:argdo 0put=&#39;hello &#39; . @%</code>（译者注：在英文版中，原作者给出的命令是 <code>:argdo 0put=&#39;hello &#39; .. @:</code>，貌似这个命令有问题）。</li>
+</ul>
+<p>把所有工作完成后，别忘了使用 <code>:update</code> 命令保存(<code>:update</code>只会保存当前buffer，要保存列表所有文件的修改，请用 <code>:argdo update</code>)。</p>
+<p>有时候您仅仅需要在参数列表的前n个文件执行某条命令。如果是这种情况，只需要向 <code>argdo</code> 命令传递一个地址就可以了。比如，要在列表的前3个文件执行替换命令，运行：<code>:1,3argdo %s/donut/pancake/g</code>。</p>
+<h2 id="缓冲区列表"><a href="#缓冲区列表" class="headerlink" title="缓冲区列表"></a>缓冲区列表</h2><p>因为每次您创建新文件或打开文件时，Vim将它保存在一个buffer中（除非您显式地删除它），所以当您编辑新文件时，缓冲区列表就有组织地被创建了。如果您已经打开了3个文件：<code>file1.rb file2.rb file3.rb</code>，您的缓冲区列表就已经有了3个元素。运行 <code>:buffers</code>（或者<code>:ls</code>、或<code>:files</code>）可以显示缓冲区列表。要想向前或向后遍历缓冲区列表，可以使用 <code>:bnext</code> <code>:bprev</code>。要想跳至列表中第一个或最后一个buffer，可使用 <code>:bfirst</code> 和 <code>:blast</code>。</p>
+<p>另外，这里有一个和本章内容不相关，但是很酷的缓冲区技巧：如果您的缓冲区有大量的文件，您可以使用 <code>:ball</code> 显示所有缓冲区。<code>:ball</code> 命令默认使用水平分割窗口进行显示，如果想使用垂直分割的窗口显示，运行：<code>:vertical ball</code></p>
+<p>回到本章主题。在缓冲区列表中执行某个操作的方法与参数列表操作非常相似。当您创建好缓冲区列表后，您只需要在您想执行的命令前用 <code>:bufdo</code> 代替 <code>:argdo</code>就可以了。例如，如果您想将缓冲区列表内每个文件中所有的 “donut” 替换为 “pancake”并保存修改，可以运行：<code>:bufdo %s/donut/pancake/g | update</code>。</p>
+<h2 id="窗口列表和选项卡（Tab）列表"><a href="#窗口列表和选项卡（Tab）列表" class="headerlink" title="窗口列表和选项卡（Tab）列表"></a>窗口列表和选项卡（Tab）列表</h2><p>窗口列表、选项卡列表的操作和参数列表、缓冲区列表同样非常相似。唯一的区别在于它们的内容和语法。</p>
+<p>窗口操作作用在每一个打开的窗口上，使用的命令是 <code>:windo</code>。选项卡（Tab）操作作用在每一个打开的选项卡上，使用的命令是 <code>:tabdo</code>。可以查询 <code>:h list-repeat</code>, <code>:h :windo</code>和<code>:h :tabdo</code>，了解更多信息。</p>
+<p>比如，如果您打开了4个窗口（您可以使用 <code>Ctrl-w v</code>打开一个垂直分割的窗口，也可以使用 <code>Ctrl-w s</code>打开一个水平分割的窗口），然后您运行 <code>:windo 0put = &#39;hello&#39; . @%</code>，Vim将在所有打开的窗口的第一行输出 “hello”+文件名。</p>
+<h2 id="快速修复列表"><a href="#快速修复列表" class="headerlink" title="快速修复列表"></a>快速修复列表</h2><p>在前面的章节中（第3章和第19章），我曾提到过快速修复（quickfix）。快速修复有很多作用，很多流行的插件都在使用快速修复提供的功能，因此值得花时间去理解它。</p>
+<p>如果您是Vim新手，快速修复对于您可能是个新概念。回想以前您执行代码编译的时候，编译期间您可能遇到过错误，而这些错误都显示在一个特殊的窗口。这就是快速修复(quickfix)的由来。当您编译您的代码的时候，Vim会在快速修复窗口显示错误信息，您可以稍后去解决。许多现代语言已经不再需要进行显式地编译，但快速修复并没有被淘汰。现在，人们使用快速修复来做各种各样的事，比如显示虚拟终端的输入、存储搜索结果等。我们重点研究后者，存储搜索结果。</p>
+<p>除编译命令外，某些特定的Vim命令也依赖快速修复接口。其中一种就是搜索命令，其使用过程中大量的使用了快速修复窗口，<code>:vimgrep</code> 和 <code>:grep</code> 都默认使用快速修复。</p>
+<p>比如，如果您需要在所有的Javascript文件中递归地搜索 “donut”，您可以运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:vimgrep /donut/ **/*.js</span><br></pre></td></tr></table></figure>
+
+<p>“donut”的搜索结果存储在快速修复窗口中。要查看快速修复窗口的结果，运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:copen</span><br></pre></td></tr></table></figure>
+
+<p>要关闭快速修复窗口，运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:cclose</span><br></pre></td></tr></table></figure>
+
+<p>在快速修复列表中向前或向后遍历，运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:cnext</span><br><span class="line">:cprev</span><br></pre></td></tr></table></figure>
+
+<p>跳至第一个或最后一个匹配的元素，运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:cfirst</span><br><span class="line">:clast</span><br></pre></td></tr></table></figure>
+
+<p>在前面我提到过，有两种快速修复命令：<code>cdo</code> 和 <code>cfdo</code> 。它们有什么区别？<code>cdo</code> 在修复列表中的每一个元素上执行命令，而 <code>cfdo</code> 在修复列表中的每一个文件上执行命令。</p>
+<p>让我讲清楚一点，假设运行完上面的 <code>vimgrep</code> 命令后，您找到以下结果：</p>
+<ul>
+<li>1 result in <code>file1.js</code></li>
+<li>10 results in <code>file2.js</code></li>
+</ul>
+<p>如果您运行 <code>:cfdo %s/donut/pancake/g</code>, 这个命令将会在 <code>file1.js</code> 和 <code>file2.js</code> 上分别有效地运行一次<code>%s/donut/pancake/g</code>. 它执行的次数与 <em>匹配结果中文件的数量</em> 相同。因为搜索结果中有2个文件，因此Vim在 <code>file1.js</code> 上运行一次替换命令，在 <code>file2.js</code> 上再运行一次替换命令。 尽管在第二个文件中有10个搜索结果，但 <code>cfdo</code> 只关注快速修复列表中有多少个文件。</p>
+<p>而如果您运行 <code>:cdo %s/donut/pancake/g</code> ，这个命令将会在 <code>file1.js</code> 上有效运行一次，然后在 <code>file2.js</code> 上运行10次。它执行的次数与 <em>快速修复列表中元素的数量</em> 相同。因为在 <code>file1.js</code> 上找到1个匹配结果，在 <code>file2.js</code> 上找到10个匹配结果，因此它执行的总次数是11次。</p>
+<p>由于您要在列表中运行的命令是 <code>%s/donut/pancake/g</code> ，所以使用 <code>cfdo</code>命令是比较合理的。而使用 <code>cdo</code> 是不合理的，因为它将在 <code>file2.js</code> 中运行10次 <code>%s/donut/pancake/g</code>命令（<code>%s</code>已经是一个针对整个文件的替换操作）。一个文件运行一次 <code>%s</code> 就足够了。如果您使用 <code>cdo</code>，则传给它的命令应当改为 <code>s/donut/pancake/g</code> 才是合理的。</p>
+<p>那到底什么时候该用 <code>cfdo</code>？什么时候该用 <code>cdo</code>？	这应当想一想您要传递的命令的作用域，要看命令作用域是整个文件（比如 <code>:%s</code> 或 <code>:g</code>）？还是某一行（比如 <code>:s</code> 或 <code>:!</code>）？</p>
+<h2 id="位置列表"><a href="#位置列表" class="headerlink" title="位置列表"></a>位置列表</h2><p>位置列表在某种意义上和快速修复列表很像。Vim也使用一个特殊的窗口来显示位置列表的信息。区别在于：您&#x3D;&#x3D;任何时候都只能有1个快速修复列表，而位置列表则是，有多少个窗口就可以有多少个位置列表。&#x3D;&#x3D;</p>
+<p>假设您打开了两个窗口，其中一个窗口显示 <code>food.txt</code> ，而另一个显示 <code>drinks.txt</code>。在 <code>food.txt</code>里面，运行一个位置列表搜索命令 <code>:lvimgrep</code> （<code>:vimgrep</code>命令关于位置列表的一个变体）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:lvim /bagel/ **/*.md</span><br></pre></td></tr></table></figure>
+
+<p>Vim将为 <code>food.txt</code>所在 <em>窗口</em>创建一个位置列表，用于存储所有的bagel搜索结果。用 <code>:lopen</code>命令可以查看位置列表。现在转到另一个窗口 <code>drinks.txt</code>，运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:lvimgrep /milk/ **/*.md</span><br></pre></td></tr></table></figure>
+
+<p>Vim将为 <code>drinks.txt</code>所在 <em>窗口</em>再创建一个 <em>单独</em>的位置列表，用于存储所有关于milk的搜索结果。</p>
+<p>对于每个不同的窗口中您运行的位置命令，Vim都会单独创建一个位置列表。如果您有10个不同的窗口，您就可以有最多10个不同的位置列表。对比前面介绍的快速修复列表，快速修复列表任何时候都只能有1个。就算您有10个不同的窗口，您也只能有1个快速修复列表。</p>
+<p>大多数位置列表命令都和快速修复列表命令相似，唯一不同就是位置列表命令有一个 <code>l-</code>前缀，比如： <code>:lvimgrep</code>, <code>:lgrep</code>, 还有 <code>:lmake</code>。在快速修复列表命令中与之对应的是: <code>:vimgrep</code>, <code>:grep</code>, 以及 <code>:make</code>。操作位置列表窗口的方式和快速修复窗口也很相似：<code>:lopen</code>, <code>:lclose</code>, <code>:lfirst</code>, <code>:llast</code>, <code>:lnext</code>, 还有<code>:lprev</code>，与之对应快速修复版本是：<code>:copen</code>, <code>:cclose</code>, <code>:cfirst</code>, <code>:clast</code>, <code>:cnext</code>, and <code>:cprev</code>。</p>
+<p>两个位置列表参数的多文件操作命令也和快速修复列表的多文件操作命令也很类似：<code>:ldo</code> 和 <code>:lfdo</code>。<code>:ldo</code> 对位置列表中每一个元素执行命令，而 <code>:lfdo</code> 对位置列表中每一个文件执行命令。可以查阅 <code>:h location-list</code>了解更多信息。</p>
+<h2 id="在Vim中运行多文件操作命令"><a href="#在Vim中运行多文件操作命令" class="headerlink" title="在Vim中运行多文件操作命令"></a>在Vim中运行多文件操作命令</h2><p>在编辑工作中，知道如何进行多文件操作是一个非常有用的技能。当您需要在多个文件中改变一个变量名字的时候，您肯定想一个操作就全部搞定。Vim有8种不同的方法支持你完成这个事。</p>
+<p>事实上，您可能并不会用到所有8种方法。您会慢慢倾向于其中1中或2种。当您刚开始时，选择其中1个（我个人建议从参数列表开始 <code>:argdo</code>）并掌握它。当您习惯了其中1个，然后再学下一个。您将会发现，学习第二个、第三个、第四个时要容易多了。记得要创造性的使用，即将它和其他各种不同命令组合起来使用。坚持练习直到您可以不经思考地高效的使用它。让它成为您的肌肉记忆。</p>
+<p>就像前面已经说过的，您现在已经掌握了Vim的编辑功能。恭喜您！</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://qeuroal.top/2023/06/05/154/" title="154. VIM 从放弃到偶尔">http://qeuroal.top/2023/06/05/154/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/software/" rel="tag"><i class="fa fa-tag"></i> software</a>
+              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+              <a href="/tags/vim/" rel="tag"><i class="fa fa-tag"></i> vim</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/06/04/153/" rel="prev" title="153. VIM 从入门到放弃">
+                  <i class="fa fa-angle-left"></i> 153. VIM 从入门到放弃
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/06/08/155/" rel="next" title="155. VIM 从偶尔到日常">
+                  155. VIM 从偶尔到日常 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Qeuroal" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

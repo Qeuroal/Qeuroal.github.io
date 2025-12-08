@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="下载工具:curl和wget">
+<meta property="og:type" content="article">
+<meta property="og:title" content="193. Linux中的命令之下载">
+<meta property="og:url" content="http://qeuroal.top/2024/01/01/193/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Blog">
+<meta property="og:description" content="下载工具:curl和wget">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/193/image-153.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/193/image-154.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/193/640-20240102082117636.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/193/640-20240102082117565.png">
+<meta property="article:published_time" content="2024-01-01T11:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-08T06:36:58.638Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qeuroal.top/2024/01/01/193/image-153.png">
+
+
+<link rel="canonical" href="http://qeuroal.top/2024/01/01/193/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2024/01/01/193/","path":"2024/01/01/193/","title":"193. Linux中的命令之下载"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>193. Linux中的命令之下载 | Qeuroal's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Qeuroal's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">静幽正治</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#wget"><span class="nav-number">1.</span> <span class="nav-text">wget</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8wget%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6"><span class="nav-number">1.1.</span> <span class="nav-text">使用wget下载文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%AD%E7%82%B9%E7%BB%AD%E4%BC%A0"><span class="nav-number">1.2.</span> <span class="nav-text">断点续传</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E9%9B%86"><span class="nav-number">1.3.</span> <span class="nav-text">下载文件集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%95%9C%E5%83%8F%EF%BC%88%E4%B8%8B%E8%BD%BD%EF%BC%89%E6%95%B4%E4%B8%AA%E7%AB%99%E7%82%B9"><span class="nav-number">1.4.</span> <span class="nav-text">镜像（下载）整个站点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9HTML%E5%A4%B4"><span class="nav-number">1.5.</span> <span class="nav-text">修改HTML头</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%93%8D%E5%BA%94%E5%A4%B4"><span class="nav-number">1.6.</span> <span class="nav-text">查看响应头</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%93%8D%E5%BA%94301"><span class="nav-number">1.7.</span> <span class="nav-text">响应301</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%95%E5%BC%80%E7%BC%A9%E7%9F%AD%E7%9A%84URL"><span class="nav-number">1.8.</span> <span class="nav-text">展开缩短的URL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">1.9.</span> <span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%901%EF%BC%9A%E4%BD%BF%E7%94%A8wget%E4%B8%8B%E8%BD%BD%E5%8D%95%E4%B8%AA%E6%96%87%E4%BB%B6"><span class="nav-number">1.9.1.</span> <span class="nav-text">例子1：使用wget下载单个文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%902%EF%BC%9A%E4%BD%BF%E7%94%A8-wget-O-%E4%B8%8B%E8%BD%BD%E5%B9%B6%E4%BB%A5%E4%B8%8D%E5%90%8C%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D%E4%BF%9D%E5%AD%98"><span class="nav-number">1.9.2.</span> <span class="nav-text">例子2：使用 wget -O 下载并以不同的文件名保存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%903%EF%BC%9A%E4%BD%BF%E7%94%A8wget-limit-rate%E9%99%90%E9%80%9F%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.9.3.</span> <span class="nav-text">例子3：使用wget --limit-rate限速下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%904%EF%BC%9A%E6%96%AD%E7%82%B9%E7%BB%AD%E4%BC%A0"><span class="nav-number">1.9.4.</span> <span class="nav-text">例子4：断点续传</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%905%EF%BC%9A%E4%BD%BF%E7%94%A8wget-b-%E5%90%8E%E5%8F%B0%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.9.5.</span> <span class="nav-text">例子5：使用wget -b 后台下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%906%EF%BC%9A%E4%BC%AA%E8%A3%85%E4%BB%A3%E7%90%86%E5%90%8D%E7%A7%B0%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.9.6.</span> <span class="nav-text">例子6：伪装代理名称下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%907%EF%BC%9A%E6%B5%8B%E8%AF%95%E4%B8%8B%E8%BD%BD%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.9.7.</span> <span class="nav-text">例子7：测试下载连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%908%EF%BC%9A%E4%BD%BF%E7%94%A8wget-tries%E5%A2%9E%E5%8A%A0%E9%87%8D%E8%AF%95%E6%AC%A1%E6%95%B0"><span class="nav-number">1.9.8.</span> <span class="nav-text">例子8：使用wget --tries增加重试次数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%909%EF%BC%9A%E4%BD%BF%E7%94%A8-wget-i-%E4%B8%8B%E8%BD%BD%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6"><span class="nav-number">1.9.9.</span> <span class="nav-text">例子9：使用 wget -i 下载多个文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%909%EF%BC%9A%E4%BD%BF%E7%94%A8wget%E5%81%9A%E7%BD%91%E7%AB%99%E9%95%9C%E5%83%8F"><span class="nav-number">1.9.10.</span> <span class="nav-text">例子9：使用wget做网站镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%9010%EF%BC%9A%E8%BF%87%E6%BB%A4%E6%8C%87%E5%AE%9A%E6%A0%BC%E5%BC%8F%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.9.11.</span> <span class="nav-text">例子10：过滤指定格式下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%9011%EF%BC%9A%E4%BD%BF%E7%94%A8-wget-o-%E6%8A%8A%E4%B8%8B%E8%BD%BD%E4%BF%A1%E6%81%AF%E5%AD%98%E5%85%A5%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6"><span class="nav-number">1.9.12.</span> <span class="nav-text">例子11：使用 wget -o 把下载信息存入日志文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%9012%EF%BC%9A%E4%BD%BF%E7%94%A8-wget-Q-%E9%99%90%E5%88%B6%E6%80%BB%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F"><span class="nav-number">1.9.13.</span> <span class="nav-text">例子12：使用 wget -Q 限制总下载文件大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%9013%EF%BC%9A%E4%B8%8B%E8%BD%BD%E6%8C%87%E5%AE%9A%E6%A0%BC%E5%BC%8F%E6%96%87%E4%BB%B6"><span class="nav-number">1.9.14.</span> <span class="nav-text">例子13：下载指定格式文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%9014%EF%BC%9A%E4%BD%BF%E7%94%A8wget-ftp%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.9.15.</span> <span class="nav-text">例子14：使用wget ftp下载</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#curl"><span class="nav-number">2.</span> <span class="nav-text">curl</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-curl"><span class="nav-number">2.1.</span> <span class="nav-text">什么是 curl</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#curl-%E8%83%BD%E5%81%9A%E4%BB%80%E4%B9%88"><span class="nav-number">2.2.</span> <span class="nav-text">curl 能做什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#curl-%E5%91%BD%E4%BB%A4%E5%AE%9E%E4%BE%8B"><span class="nav-number">2.3.</span> <span class="nav-text">curl 命令实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%8E%B7%E5%8F%96%E5%93%8D%E5%BA%94"><span class="nav-number">2.3.1.</span> <span class="nav-text">从服务器获取响应</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E9%BB%98%E8%AE%A4%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D%E4%BF%9D%E5%AD%98%E6%96%87%E4%BB%B6"><span class="nav-number">2.3.2.</span> <span class="nav-text">使用默认的文件名保存文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E5%90%8D%E7%A7%B0%E4%BF%9D%E5%AD%98%E6%96%87%E4%BB%B6"><span class="nav-number">2.3.3.</span> <span class="nav-text">使用自定义名称保存文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6"><span class="nav-number">2.3.4.</span> <span class="nav-text">下载多个文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E4%B8%80%E7%B3%BB%E5%88%97%E6%96%87%E4%BB%B6"><span class="nav-number">2.3.5.</span> <span class="nav-text">下载一系列文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AA%E4%B8%8B%E8%BD%BD%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC"><span class="nav-number">2.3.6.</span> <span class="nav-text">只下载最新版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%A7%E7%BB%AD%E4%B8%8B%E8%BD%BD"><span class="nav-number">2.3.7.</span> <span class="nav-text">继续下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6"><span class="nav-number">2.3.8.</span> <span class="nav-text">上传文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6"><span class="nav-number">2.3.9.</span> <span class="nav-text">删除文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%BF%E5%85%8D%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-number">2.3.10.</span> <span class="nav-text">避免重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81"><span class="nav-number">2.3.11.</span> <span class="nav-text">身份验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E9%99%90%E5%88%B6"><span class="nav-number">2.3.12.</span> <span class="nav-text">数据传输限制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA-%E9%9A%90%E8%97%8F%E4%BC%A0%E8%BE%93%E7%8A%B6%E6%80%81"><span class="nav-number">2.3.13.</span> <span class="nav-text">显示&#x2F;隐藏传输状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF%E5%A4%B4"><span class="nav-number">2.3.14.</span> <span class="nav-text">获取信息头</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AA%E6%98%BE%E7%A4%BA%E4%BF%A1%E6%81%AF%E5%A4%B4"><span class="nav-number">2.3.15.</span> <span class="nav-text">只显示信息头</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E7%94%A8%E6%88%B7%E4%BB%A3%E7%90%86"><span class="nav-number">2.3.16.</span> <span class="nav-text">更改用户代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE"><span class="nav-number">2.3.17.</span> <span class="nav-text">向服务器发送数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%86-Cookie-%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6"><span class="nav-number">2.3.18.</span> <span class="nav-text">将 Cookie 写入文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E6%96%87%E4%BB%B6%E4%B8%AD%E8%AF%BB%E5%8F%96Cookie"><span class="nav-number">2.3.19.</span> <span class="nav-text">从文件中读取Cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%96%B0%E4%BC%9A%E8%AF%9D"><span class="nav-number">2.3.20.</span> <span class="nav-text">启动新会话</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E7%8A%B6%E6%80%81%E7%A0%81"><span class="nav-number">2.3.21.</span> <span class="nav-text">返回状态码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-I-%E6%88%96-i-%E9%80%89%E9%A1%B9"><span class="nav-number">2.3.21.1.</span> <span class="nav-text">使用 -I 或 -i 选项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-o-dev-null-%E5%92%8C-w-%E2%80%9C-http-code-%E2%80%9D"><span class="nav-number">2.3.21.2.</span> <span class="nav-text">使用 -o &#x2F;dev&#x2F;null 和 -w “%{http_code}”</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QAs"><span class="nav-number">2.4.</span> <span class="nav-text">QAs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8curl%E4%B8%8B%E8%BD%BD%E5%8E%8B%E7%BC%A9%E5%8C%85%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E5%BE%97%E5%88%B0%E7%9A%84%E5%8D%B4%E6%98%AF%E4%B8%80%E4%B8%AAhtml%E6%96%87%E4%BB%B6"><span class="nav-number">2.4.1.</span> <span class="nav-text">使用curl下载压缩包的时候，得到的却是一个html文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-curl-%E6%AD%A3%E7%A1%AE%E4%B8%8B%E8%BD%BD%E5%BD%92%E6%A1%A3%E6%96%87%E4%BB%B6"><span class="nav-number">2.5.</span> <span class="nav-text">使用 curl 正确下载归档文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E9%9C%80%E8%A6%81%E7%99%BB%E5%BD%95%E6%80%8E%E4%B9%88%E5%8A%9E%E5%91%A2%EF%BC%9F"><span class="nav-number">2.6.</span> <span class="nav-text">如需要登录怎么办呢？</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">大人者，不失其赤子之心</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2024/01/01/193/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="193. Linux中的命令之下载 | Qeuroal's Blog">
+      <meta itemprop="description" content="下载工具:curl和wget">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          193. Linux中的命令之下载
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-01-01 19:00:00" itemprop="dateCreated datePublished" datetime="2024-01-01T19:00:00+08:00">2024-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-08 14:36:58" itemprop="dateModified" datetime="2025-12-08T14:36:58+08:00">2025-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">下载工具:curl和wget</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="wget"><a href="#wget" class="headerlink" title="wget"></a>wget</h1><p>Linux wget是一个下载文件的工具，它用在命令行下，对于Linux用户是必不可少的工具，尤其对于网络管理员，经常要下载一些软件或从远程服务器恢复备份到本地服务器。</p>
+<p>wget工具体积小但功能完善，它支持断点续传功能，同时支持ftp和http下载方式，支持代理服务器，设置起来方便简单。</p>
+<h2 id="使用wget下载文件"><a href="#使用wget下载文件" class="headerlink" title="使用wget下载文件"></a>使用wget下载文件</h2><p>你可以通过给定一个地址来使用wget下载文件，如果你提供的地址默认指向index.html, 那么这个index页面将会被下载。默认情况下，该文件会以相同的命名下载到当前工作目录中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://example.com</span><br><span class="line">--2021-09-20 17:23:47-- http://example.com/</span><br><span class="line">Resolving example.com... 93.184.216.34, 2606:2800:220:1:248:1893:25c8:1946</span><br><span class="line">Connecting to example.com|93.184.216.34|:80... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: 1256 (1.2K) [text/html]</span><br><span class="line">Saving to: <span class="string">&#x27;index.html&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>你可以使用 <code>--output-document</code> 和一个破折号 <code>-</code> 让wget将数据输出到标准输出（stdout):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://example.com --output-document - | <span class="built_in">head</span> -n4</span><br><span class="line">&lt;!doctype html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;<span class="built_in">head</span>&gt;</span><br><span class="line">   &lt;title&gt;Example Domain&lt;/title&gt;</span><br></pre></td></tr></table></figure>
+
+<p>你可以使用 <code>--output-document</code>（简写为 <code>-O</code>）重新命名你下载的文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://example.com --output-document foo.html</span><br></pre></td></tr></table></figure>
+
+<h2 id="断点续传"><a href="#断点续传" class="headerlink" title="断点续传"></a>断点续传</h2><p>如果你正在下载一个非常大的文件，而你不得不中断下载，那么可以使用 <code>--continue</code> (简写为 <code>-c</code>) 命令, wget可以确定下载停止的位置并在这个位置上继续下载。这意味着下次下载4GB的 Linux ISO文件时，如果出现问题，就不必从头开始。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget --<span class="built_in">continue</span> https://example.com/linux-distro.iso</span><br></pre></td></tr></table></figure>
+
+<h2 id="下载文件集"><a href="#下载文件集" class="headerlink" title="下载文件集"></a>下载文件集</h2><p>如果你需要下载的不是一个大文件而是几个文件，wget可以帮助你。假设你知道要下载的文件的位置和文件名模式，可以使用Bash语法指定一系列整数之间的起点和终点，以表示一系列文件名：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://example.com/file_&#123;1..4&#125;.webp</span><br></pre></td></tr></table></figure>
+
+<h2 id="镜像（下载）整个站点"><a href="#镜像（下载）整个站点" class="headerlink" title="镜像（下载）整个站点"></a>镜像（下载）整个站点</h2><p>你可以使用 <code>--mirror</code> 选项下载整个站点，包括其目录结构。这个选项与运行 <code>--recursive</code> <code>--level inf</code> <code>--timestamping</code> <code>--no-remove-listing</code> 相同，这意味着它是无限递归的，因此你可以获得指定站点上的所有内容。</p>
+<p>如果你使用 wget 来下载一个站点，那么选项 <code>--no-cookies</code> <code>--page-requisites</code> <code>--convert-links</code> 可以确保每个页面都是完整的，并且站点副本或多或少都是独立的。</p>
+<h2 id="修改HTML头"><a href="#修改HTML头" class="headerlink" title="修改HTML头"></a>修改HTML头</h2><p>用于数据交换的协议在计算机发送用于通信的数据包中嵌入了大量元数据。HTTP 头是数据初始部分的组件。浏览网站时，浏览器会发送 HTTP 请求头。使用 <code>--debug</code> 选项查看 wget 随每个请求发送的标头信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ wget --debug example.com</span><br><span class="line">---request begin---</span><br><span class="line">GET / HTTP/1.1</span><br><span class="line">User-Agent: Wget/1.19.5 (linux-gnu)</span><br><span class="line">Accept: */*</span><br><span class="line">Accept-Encoding: identity</span><br><span class="line">Host: example.com</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line"></span><br><span class="line">---request end---</span><br></pre></td></tr></table></figure>
+
+<p>你可以使用 <code>--header</code> 选项修改请求头。比如，在模拟特定浏览器的时候很非常有用，无论是用于测试，还是用于只对于特定的代理用户能访问的站点。</p>
+<p>要标识为在Windows上运行的Microsoft Edge，请执行以下操作：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget --debug --header=<span class="string">&quot;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.59&quot;</span> http://example.com</span><br></pre></td></tr></table></figure>
+
+<p>你还可以伪装成特定的移动设备：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ wget --debug \</span><br><span class="line">--header=<span class="string">&quot;User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/604.1&quot;</span> \</span><br><span class="line">http://example.com</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看响应头"><a href="#查看响应头" class="headerlink" title="查看响应头"></a>查看响应头</h2><p>与浏览器请求头的方式相同，头信息也包含在响应中。可以使用 –debug 查看响应头：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ wget --debug example.com</span><br><span class="line">[...]</span><br><span class="line">---response begin---</span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Accept-Ranges: bytes</span><br><span class="line">Age: 188102</span><br><span class="line">Cache-Control: max-age=604800</span><br><span class="line">Content-Type: text/html; charset=UTF-8</span><br><span class="line">Etag: <span class="string">&quot;3147526947&quot;</span></span><br><span class="line">Server: ECS (sab/574F)</span><br><span class="line">Vary: Accept-Encoding</span><br><span class="line">X-Cache: HIT</span><br><span class="line">Content-Length: 1256</span><br><span class="line">---response end---</span><br><span class="line">200 OK</span><br><span class="line">Registered socket 3 <span class="keyword">for</span> persistent reuse.</span><br><span class="line">URI content encoding = <span class="string">&#x27;UTF-8&#x27;</span></span><br><span class="line">Length: 1256 (1.2K) [text/html]</span><br><span class="line">Saving to: <span class="string">&#x27;index.html&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="响应301"><a href="#响应301" class="headerlink" title="响应301"></a>响应301</h2><p>响应代码200意味着一切都按预期进行，代码301表示所访问的地址已经移动到了其他位置。网站管理员通常会留下“线索”的同时重新定位内容，以便访问旧位置的人仍然可以找到它。默认情况下，wget 遵循重定向，这也是我们所希望的。</p>
+<p>但是，你可以控制 wget 在遇到301响应的时候，不执行重定向，通过使用 <code>--max-redirect</code> 选项来实现（将其设置为0）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ wget --max-redirect 0 http://iana.org</span><br><span class="line">--2021-09-21 11:01:35-- http://iana.org/</span><br><span class="line">Resolving iana.org... 192.0.43.8, 2001:500:88:200::8</span><br><span class="line">Connecting to iana.org|192.0.43.8|:80... connected.</span><br><span class="line">HTTP request sent, awaiting response... 301 Moved Permanently</span><br><span class="line">Location: https://www.iana.org/ [following]</span><br><span class="line">0 redirections exceeded.</span><br></pre></td></tr></table></figure>
+
+<p>或者，你可以将其设置为其他数字，以控制wget接下来的重定向数量。</p>
+<h2 id="展开缩短的URL"><a href="#展开缩短的URL" class="headerlink" title="展开缩短的URL"></a>展开缩短的URL</h2><p><code>--max-redirect</code> 选项在实际访问一个缩短的URL之前查看它们非常有用。缩短的URL对于印刷媒体很有用，在印刷媒体中，或者在有字符限制的社交网络上（这在像Mastodon这样的现代开源社交网络上并不是一个问题），用户不能只复制和粘贴一个长的URL。然而，它们也可能有点危险，因为它们的目的地（实际地址）是隐蔽的。结合<code>--head</code> 选项查看HTTP头信息，以及<code>--location</code> 选项解开一个URL的最终地址，你可以在不加载完整资源的情况下查看缩短的URL：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ wget --max-redirect 0 <span class="string">&quot;https://bit.ly/2yDyS4T&quot;</span></span><br><span class="line">--2021-09-21 11:32:04-- https://bit.ly/2yDyS4T</span><br><span class="line">Resolving bit.ly... 67.199.248.10, 67.199.248.11</span><br><span class="line">Connecting to bit.ly|67.199.248.10|:443... connected.</span><br><span class="line">HTTP request sent, awaiting response... 301 Moved Permanently</span><br><span class="line">Location: http://example.com/ [following]</span><br><span class="line">0 redirections exceeded.</span><br></pre></td></tr></table></figure>
+
+<p>倒数第二行的输出，从Location开始，显示真实的地址。</p>
+<p>当你开始练习将浏览web的过程作为一个命令进行思考，wget就成为了一种快速有效的方法，可以从Internet中提取你需要的信息，而无需使用图形界面。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h3 id="例子1：使用wget下载单个文件"><a href="#例子1：使用wget下载单个文件" class="headerlink" title="例子1：使用wget下载单个文件"></a>例子1：使用wget下载单个文件</h3><p>以下代码从网络下载一个文件并保存在当前目录中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /opt$ wget http://mirrors.sohu.com/centos/7.4.1708/isos/x86_64/CentOS-7-x86_64-Minimal01708.iso</span><br></pre></td></tr></table></figure>
+
+<p>在下载过程中会显示进度条，包含（下载完成百分比、已经下载的字节、当前下载速度、剩余下载时间）。</p>
+<h3 id="例子2：使用-wget-O-下载并以不同的文件名保存"><a href="#例子2：使用-wget-O-下载并以不同的文件名保存" class="headerlink" title="例子2：使用 wget -O 下载并以不同的文件名保存"></a>例子2：使用 wget -O 下载并以不同的文件名保存</h3><p>下面的例子会下载一个文件并以名称CentOS-7-x86_64-Minimal-1708.iso保存</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://mirrors.sohu.com/centos/7.4.1708/isos/x86_64/CentOS-7-x86_64-Minimal-1708.iso</span><br></pre></td></tr></table></figure>
+
+<p>文件名称太长不方便运维人员操作，可以自定义文件名称。为了解决此问题，可以使用 <code>-O</code> 来指定一个文件名，如下代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget -O CentOS7_4_mini.iso http://mirrors.sohu.com/centos/7.4.1708/isos/x86_64/CentOS-7-x86_64-Minimal-1708.iso</span><br></pre></td></tr></table></figure>
+
+<h3 id="例子3：使用wget-limit-rate限速下载"><a href="#例子3：使用wget-limit-rate限速下载" class="headerlink" title="例子3：使用wget --limit-rate限速下载"></a>例子3：使用wget --limit-rate限速下载</h3><p>运行wget指令下载文件时，默认会占用全部可能的带宽进行下载操作，当准备下载一个大文件时，可以根据需要进行限速控制。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget -O CentOS7_4_mini.iso --limit-rate=600k http://mirrors.sohu.com/centos/7.4.1708/isos/x86_64/CentOS-7-x86_64-Minimal-1708.iso</span><br></pre></td></tr></table></figure>
+
+<h3 id="例子4：断点续传"><a href="#例子4：断点续传" class="headerlink" title="例子4：断点续传"></a>例子4：断点续传</h3><p>使用<code>wget -c</code>指令可以重新启动下载过程中断的文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -c http://mirrors.sohu.com/centos/7.4.1708/isos/x86_64/CentOS-7-x86_64-Minimal01708.iso</span><br></pre></td></tr></table></figure>
+
+<p>下载大文件时，如果突然由于网络等原因终端，断点续传会非常有帮助，可以继续接着下载而不是重新下载一个文件，需要继续终端的下载可以使用 <code>-c</code> 选项。</p>
+<h3 id="例子5：使用wget-b-后台下载"><a href="#例子5：使用wget-b-后台下载" class="headerlink" title="例子5：使用wget -b 后台下载"></a>例子5：使用wget -b 后台下载</h3><p>在下载非常大的文件时，可以使用选项 <code>-b</code> 后台下载。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$wget</span> -b http://mirrors.sohu.com/centos/7.4.1708/isos/x86_64/CentOS-7-x86_64-Minimal01708.iso</span><br></pre></td></tr></table></figure>
+
+<h3 id="例子6：伪装代理名称下载"><a href="#例子6：伪装代理名称下载" class="headerlink" title="例子6：伪装代理名称下载"></a>例子6：伪装代理名称下载</h3><p>有些网站能通过根据判断代理名称不是浏览器而拒绝你的下载请求，可以通过<code>--user-agent</code>选项伪装。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$wget</span> --user-agent=<span class="string">&quot;Mozilla/5.0(Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.204 Safari/534.16&quot;</span> http://mirrors.sohu.com/centos/7.4.1708/isos/x86_64/CentOS-7-x86_64-Minimal01708.iso</span><br></pre></td></tr></table></figure>
+
+<h3 id="例子7：测试下载连接"><a href="#例子7：测试下载连接" class="headerlink" title="例子7：测试下载连接"></a>例子7：测试下载连接</h3><p>有定时下载任务时，应在预定时间测试下载连接是否有效，可以增加 <code>--spider</code> 选项进行检查。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget --spider URL</span><br></pre></td></tr></table></figure>
+
+<p>如果下载连接正确，会有”Remote file exists.”信息提示。</p>
+<p>大家可以在以下几种情况下使用spider选项：</p>
+<p>1）定时下载之前进行检查；</p>
+<p>2）间隔检测网站是否可用；</p>
+<p>3）检查网站页面的死链接。</p>
+<h3 id="例子8：使用wget-tries增加重试次数"><a href="#例子8：使用wget-tries增加重试次数" class="headerlink" title="例子8：使用wget --tries增加重试次数"></a>例子8：使用wget --tries增加重试次数</h3><p>如果网络有问题或下载一个大文件，也有可能失败。wget默认重试20次连接下载文件。如果需要，可以使用<code>--tries</code>增加重试次数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget --tries=30 URL</span><br></pre></td></tr></table></figure>
+
+<h3 id="例子9：使用-wget-i-下载多个文件"><a href="#例子9：使用-wget-i-下载多个文件" class="headerlink" title="例子9：使用 wget -i 下载多个文件"></a>例子9：使用 wget -i 下载多个文件</h3><p>首先，保存一份下载链接文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt;iso_list.txt&lt;&lt;<span class="string">a</span></span><br><span class="line"><span class="string">URL1</span></span><br><span class="line"><span class="string">URL2</span></span><br><span class="line"><span class="string">URL3</span></span><br><span class="line"><span class="string">a</span></span><br></pre></td></tr></table></figure>
+
+<p>接着使用这个文件和选项-i下载：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget -i iso_list.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="例子9：使用wget做网站镜像"><a href="#例子9：使用wget做网站镜像" class="headerlink" title="例子9：使用wget做网站镜像"></a>例子9：使用wget做网站镜像</h3><p>如下示例为下载整个网站到本地：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget --mirror -p --convert-links -p ./LOCAL URL</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>--mirror</code>: 设置这个参数来建立本地镜像；</li>
+<li><code>-p</code>: 下载所有html文件适合显示的元素；</li>
+<li><code>--convert-links</code>: 下载完成后，将文档连接都转换成本地的；</li>
+<li><code>-P ./LOCAL-DIR</code>: 保存所有的文件和目录到指定文件夹下。</li>
+</ul>
+<h3 id="例子10：过滤指定格式下载"><a href="#例子10：过滤指定格式下载" class="headerlink" title="例子10：过滤指定格式下载"></a>例子10：过滤指定格式下载</h3><p>下载站点时，不下载gif动画图片：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget --reject-gif URL</span><br></pre></td></tr></table></figure>
+
+<h3 id="例子11：使用-wget-o-把下载信息存入日志文件"><a href="#例子11：使用-wget-o-把下载信息存入日志文件" class="headerlink" title="例子11：使用 wget -o 把下载信息存入日志文件"></a>例子11：使用 wget -o 把下载信息存入日志文件</h3><p>下载信息不直接显示在终端，而是在一个日志文件中，使用小写字母o，如下代码所示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget -o download.log URL</span><br></pre></td></tr></table></figure>
+
+<h3 id="例子12：使用-wget-Q-限制总下载文件大小"><a href="#例子12：使用-wget-Q-限制总下载文件大小" class="headerlink" title="例子12：使用 wget -Q 限制总下载文件大小"></a>例子12：使用 wget -Q 限制总下载文件大小</h3><p>下载的文件超过10MB而退出下载，可以使用如下指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget -Q10m -i iso_list.txt</span><br></pre></td></tr></table></figure>
+
+<p>注意：此选项对单个文件下载不起作用，只能递归下载时才有效。</p>
+<h3 id="例子13：下载指定格式文件"><a href="#例子13：下载指定格式文件" class="headerlink" title="例子13：下载指定格式文件"></a>例子13：下载指定格式文件</h3><p>可以在以下场景使用该功能：</p>
+<p>1）下载一个网站的所有图片；</p>
+<p>2）下载一个网站的所有视频；</p>
+<p>3）下载一个网站的所有pdf文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget -r -A.pdf URL</span><br></pre></td></tr></table></figure>
+
+<p>从一个网站下载所有pdf文件。</p>
+<h3 id="例子14：使用wget-ftp下载"><a href="#例子14：使用wget-ftp下载" class="headerlink" title="例子14：使用wget ftp下载"></a>例子14：使用wget ftp下载</h3><p>可以使用wget完成ftp链接的下载，匿名ftp下载类似于http下载。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget ftp-url</span><br></pre></td></tr></table></figure>
+
+<p>如果要输入用户名和密码，则使用wget用户名和密码认证的ftp下载：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget --ftp-user=USERNAME --ftp-password=PASSWORD URL</span><br></pre></td></tr></table></figure>
+
+<h1 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h1><h2 id="什么是-curl"><a href="#什么是-curl" class="headerlink" title="什么是 curl"></a>什么是 curl</h2><p>curl 是一种数据传输工具。它可以作为开发库和基于终端的 cli 来使用，两者都有相同的引擎（事实是，cli 工具只是在开发库下的一个程序）。</p>
+<p>curl 适用于你可能使用的每个协议。</p>
+<h2 id="curl-能做什么"><a href="#curl-能做什么" class="headerlink" title="curl 能做什么"></a>curl 能做什么</h2><p>与数据传输有关的所有事情（都可以用curl）。每个人都用过浏览器（比如你正在使用浏览器阅读本文），浏览器所做的就是请求一个页面，并得到响应，它可以写入和读取cookie，然后渲染（显示内容、图像和执行js脚本）。</p>
+<p>除了最后一步渲染以外（因为它与数据传输无关），curl 可以做所有浏览器所做的工作。</p>
+<p>总之，<strong>curl 可以下载html页面，可以填充并且提交 html 表单，可以从 FTP&#x2F;HTTP 服务器下载、上传文件，还可以读写 cookie</strong>。</p>
+<p>这使得它成为脚本编写、调试和取证分析等方面的优秀工具。</p>
+<h2 id="curl-命令实例"><a href="#curl-命令实例" class="headerlink" title="curl 命令实例"></a>curl 命令实例</h2><p>我们来看看可以用 curl 做什么</p>
+<p>参数概览, 可通过 <code>curl --help all</code> 或 <code>man curl</code>  获取当前终端版本支持的参数. 下面是先在 MacOS 系统的参数:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br></pre></td><td class="code"><pre><span class="line">Usage: curl [options...] &lt;url&gt;</span><br><span class="line">     --abstract-unix-socket &lt;path&gt;   Connect via abstract Unix domain socket</span><br><span class="line">     --alt-svc &lt;filename&gt;            Enable alt-svc with this cache file</span><br><span class="line">     --anyauth                       Pick any authentication method</span><br><span class="line"> -a, --append                        Append to target file when uploading</span><br><span class="line">     --aws-sigv4 &lt;provider1[:prvdr2[:reg[:srv]]]&gt;  AWS V4 signature auth</span><br><span class="line">     --basic                         HTTP Basic Authentication</span><br><span class="line">     --ca-native                     Load CA certs from the OS</span><br><span class="line">     --cacert &lt;file&gt;                 CA certificate to verify peer against</span><br><span class="line">     --capath &lt;dir&gt;                  CA directory to verify peer against</span><br><span class="line"> -E, --cert &lt;certificate[:password]&gt;  Client certificate file and password</span><br><span class="line">     --cert-status                   Verify server cert status OCSP-staple</span><br><span class="line">     --cert-type &lt;type&gt;              Certificate type (DER/PEM/ENG/P12)</span><br><span class="line">     --ciphers &lt;list of ciphers&gt;     SSL ciphers to use</span><br><span class="line">     --compressed                    Request compressed response</span><br><span class="line">     --compressed-ssh                Enable SSH compression</span><br><span class="line"> -K, --config &lt;file&gt;                 Read config from a file</span><br><span class="line">     --connect-timeout &lt;seconds&gt;     Maximum time allowed to connect</span><br><span class="line">     --connect-to &lt;HOST1:PORT1:HOST2:PORT2&gt;  Connect to host</span><br><span class="line"> -C, --continue-at &lt;offset&gt;          Resumed transfer offset</span><br><span class="line"> -b, --cookie &lt;data|filename&gt;        Send cookies from string/load from file</span><br><span class="line"> -c, --cookie-jar &lt;filename&gt;         Save cookies to &lt;filename&gt; after operation</span><br><span class="line">     --create-dirs                   Create necessary local directory hierarchy</span><br><span class="line">     --create-file-mode &lt;mode&gt;       File mode for created files</span><br><span class="line">     --crlf                          Convert LF to CRLF in upload</span><br><span class="line">     --crlfile &lt;file&gt;                Certificate Revocation list</span><br><span class="line">     --curves &lt;list&gt;                 (EC) TLS key exchange algorithms to request</span><br><span class="line"> -d, --data &lt;data&gt;                   HTTP POST data</span><br><span class="line">     --data-ascii &lt;data&gt;             HTTP POST ASCII data</span><br><span class="line">     --data-binary &lt;data&gt;            HTTP POST binary data</span><br><span class="line">     --data-raw &lt;data&gt;               HTTP POST data, &#x27;@&#x27; allowed</span><br><span class="line">     --data-urlencode &lt;data&gt;         HTTP POST data URL encoded</span><br><span class="line">     --delegation &lt;LEVEL&gt;            GSS-API delegation permission</span><br><span class="line">     --digest                        HTTP Digest Authentication</span><br><span class="line"> -q, --disable                       Disable .curlrc</span><br><span class="line">     --disable-eprt                  Inhibit using EPRT or LPRT</span><br><span class="line">     --disable-epsv                  Inhibit using EPSV</span><br><span class="line">     --disallow-username-in-url      Disallow username in URL</span><br><span class="line">     --dns-interface &lt;interface&gt;     Interface to use for DNS requests</span><br><span class="line">     --dns-ipv4-addr &lt;address&gt;       IPv4 address to use for DNS requests</span><br><span class="line">     --dns-ipv6-addr &lt;address&gt;       IPv6 address to use for DNS requests</span><br><span class="line">     --dns-servers &lt;addresses&gt;       DNS server addrs to use</span><br><span class="line">     --doh-cert-status               Verify DoH server cert status OCSP-staple</span><br><span class="line">     --doh-insecure                  Allow insecure DoH server connections</span><br><span class="line">     --doh-url &lt;URL&gt;                 Resolve hostnames over DoH</span><br><span class="line"> -D, --dump-header &lt;filename&gt;        Write the received headers to &lt;filename&gt;</span><br><span class="line">     --egd-file &lt;file&gt;               EGD socket path for random data</span><br><span class="line">     --engine &lt;name&gt;                 Crypto engine to use</span><br><span class="line">     --etag-compare &lt;file&gt;           Load ETag from file</span><br><span class="line">     --etag-save &lt;file&gt;              Parse incoming ETag and save to a file</span><br><span class="line">     --expect100-timeout &lt;seconds&gt;   How long to wait for 100-continue</span><br><span class="line"> -f, --fail                          Fail fast with no output on HTTP errors</span><br><span class="line">     --fail-early                    Fail on first transfer error</span><br><span class="line">     --fail-with-body                Fail on HTTP errors but save the body</span><br><span class="line">     --false-start                   Enable TLS False Start</span><br><span class="line"> -F, --form &lt;name=content&gt;           Specify multipart MIME data</span><br><span class="line">     --form-escape                   Escape form fields using backslash</span><br><span class="line">     --form-string &lt;name=string&gt;     Specify multipart MIME data</span><br><span class="line">     --ftp-account &lt;data&gt;            Account data string</span><br><span class="line">     --ftp-alternative-to-user &lt;command&gt;  String to replace USER [name]</span><br><span class="line">     --ftp-create-dirs               Create the remote dirs if not present</span><br><span class="line">     --ftp-method &lt;method&gt;           Control CWD usage</span><br><span class="line">     --ftp-pasv                      Send PASV/EPSV instead of PORT</span><br><span class="line"> -P, --ftp-port &lt;address&gt;            Send PORT instead of PASV</span><br><span class="line">     --ftp-pret                      Send PRET before PASV</span><br><span class="line">     --ftp-skip-pasv-ip              Skip the IP address for PASV</span><br><span class="line">     --ftp-ssl-ccc                   Send CCC after authenticating</span><br><span class="line">     --ftp-ssl-ccc-mode &lt;active/passive&gt;  Set CCC mode</span><br><span class="line">     --ftp-ssl-control               Require TLS for login, clear for transfer</span><br><span class="line"> -G, --get                           Put the post data in the URL and use GET</span><br><span class="line"> -g, --globoff                       Disable URL globbing with &#123;&#125; and []</span><br><span class="line">     --happy-eyeballs-timeout-ms &lt;ms&gt;  Time for IPv6 before IPv4</span><br><span class="line">     --haproxy-clientip &lt;ip&gt;         Set address in HAProxy PROXY</span><br><span class="line">     --haproxy-protocol              Send HAProxy PROXY protocol v1 header</span><br><span class="line"> -I, --head                          Show document info only</span><br><span class="line"> -H, --header &lt;header/@file&gt;         Pass custom header(s) to server</span><br><span class="line"> -h, --help &lt;category&gt;               Get help for commands</span><br><span class="line">     --hostpubmd5 &lt;md5&gt;              Acceptable MD5 hash of host public key</span><br><span class="line">     --hostpubsha256 &lt;sha256&gt;        Acceptable SHA256 hash of host public key</span><br><span class="line">     --hsts &lt;filename&gt;               Enable HSTS with this cache file</span><br><span class="line">     --http0.9                       Allow HTTP 0.9 responses</span><br><span class="line"> -0, --http1.0                       Use HTTP 1.0</span><br><span class="line">     --http1.1                       Use HTTP 1.1</span><br><span class="line">     --http2                         Use HTTP/2</span><br><span class="line">     --http2-prior-knowledge         Use HTTP 2 without HTTP/1.1 Upgrade</span><br><span class="line">     --http3                         Use HTTP v3</span><br><span class="line">     --http3-only                    Use HTTP v3 only</span><br><span class="line">     --ignore-content-length         Ignore the size of the remote resource</span><br><span class="line"> -i, --include                       Include response headers in output</span><br><span class="line"> -k, --insecure                      Allow insecure server connections</span><br><span class="line">     --interface &lt;name&gt;              Use network INTERFACE (or address)</span><br><span class="line">     --ipfs-gateway &lt;URL&gt;            Gateway for IPFS</span><br><span class="line"> -4, --ipv4                          Resolve names to IPv4 addresses</span><br><span class="line"> -6, --ipv6                          Resolve names to IPv6 addresses</span><br><span class="line">     --json &lt;data&gt;                   HTTP POST JSON</span><br><span class="line"> -j, --junk-session-cookies          Ignore session cookies read from file</span><br><span class="line">     --keepalive-time &lt;seconds&gt;      Interval time for keepalive probes</span><br><span class="line">     --key &lt;key&gt;                     Private key filename</span><br><span class="line">     --key-type &lt;type&gt;               Private key file type (DER/PEM/ENG)</span><br><span class="line">     --krb &lt;level&gt;                   Enable Kerberos with security &lt;level&gt;</span><br><span class="line">     --libcurl &lt;file&gt;                Generate libcurl code for this command line</span><br><span class="line">     --limit-rate &lt;speed&gt;            Limit transfer speed to RATE</span><br><span class="line"> -l, --list-only                     List only mode</span><br><span class="line">     --local-port &lt;range&gt;            Use a local port number within RANGE</span><br><span class="line"> -L, --location                      Follow redirects</span><br><span class="line">     --location-trusted            Like --location, but send auth to other hosts</span><br><span class="line">     --login-options &lt;options&gt;       Server login options</span><br><span class="line">     --mail-auth &lt;address&gt;           Originator address of the original email</span><br><span class="line">     --mail-from &lt;address&gt;           Mail from this address</span><br><span class="line">     --mail-rcpt &lt;address&gt;           Mail to this address</span><br><span class="line">     --mail-rcpt-allowfails          Allow RCPT TO command to fail</span><br><span class="line"> -M, --manual                        Display the full manual</span><br><span class="line">     --max-filesize &lt;bytes&gt;          Maximum file size to download</span><br><span class="line">     --max-redirs &lt;num&gt;              Maximum number of redirects allowed</span><br><span class="line"> -m, --max-time &lt;seconds&gt;            Maximum time allowed for transfer</span><br><span class="line">     --metalink                      Process given URLs as metalink XML file</span><br><span class="line">     --negotiate                     Use HTTP Negotiate (SPNEGO) authentication</span><br><span class="line"> -n, --netrc                         Must read .netrc for username and password</span><br><span class="line">     --netrc-file &lt;filename&gt;         Specify FILE for netrc</span><br><span class="line">     --netrc-optional                Use either .netrc or URL</span><br><span class="line"> -:, --next                        Make next URL use its separate set of options</span><br><span class="line">     --no-alpn                       Disable the ALPN TLS extension</span><br><span class="line"> -N, --no-buffer                     Disable buffering of the output stream</span><br><span class="line">     --no-clobber                    Do not overwrite files that already exist</span><br><span class="line">     --no-keepalive                  Disable TCP keepalive on the connection</span><br><span class="line">     --no-npn                        Disable the NPN TLS extension</span><br><span class="line">     --no-progress-meter             Do not show the progress meter</span><br><span class="line">     --no-sessionid                  Disable SSL session-ID reusing</span><br><span class="line">     --noproxy &lt;no-proxy-list&gt;       List of hosts which do not use proxy</span><br><span class="line">     --ntlm                          HTTP NTLM authentication</span><br><span class="line">     --ntlm-wb                       HTTP NTLM authentication with winbind</span><br><span class="line">     --oauth2-bearer &lt;token&gt;         OAuth 2 Bearer Token</span><br><span class="line"> -o, --output &lt;file&gt;                 Write to file instead of stdout</span><br><span class="line">     --output-dir &lt;dir&gt;              Directory to save files in</span><br><span class="line"> -Z, --parallel                      Perform transfers in parallel</span><br><span class="line">     --parallel-immediate         Do not wait for multiplexing (with --parallel)</span><br><span class="line">     --parallel-max &lt;num&gt;            Maximum concurrency for parallel transfers</span><br><span class="line">     --pass &lt;phrase&gt;                 Pass phrase for the private key</span><br><span class="line">     --path-as-is                    Do not squash .. sequences in URL path</span><br><span class="line">     --pinnedpubkey &lt;hashes&gt;       FILE/HASHES Public key to verify peer against</span><br><span class="line">     --post301                       Do not switch to GET after a 301 redirect</span><br><span class="line">     --post302                       Do not switch to GET after a 302 redirect</span><br><span class="line">     --post303                       Do not switch to GET after a 303 redirect</span><br><span class="line">     --preproxy [protocol://]host[:port]  Use this proxy first</span><br><span class="line"> -#, --progress-bar                  Display transfer progress as a bar</span><br><span class="line">     --proto &lt;protocols&gt;             Enable/disable PROTOCOLS</span><br><span class="line">     --proto-default &lt;protocol&gt;      Use PROTOCOL for any URL missing a scheme</span><br><span class="line">     --proto-redir &lt;protocols&gt;       Enable/disable PROTOCOLS on redirect</span><br><span class="line"> -x, --proxy [protocol://]host[:port]  Use this proxy</span><br><span class="line">     --proxy-anyauth                 Pick any proxy authentication method</span><br><span class="line">     --proxy-basic                   Use Basic authentication on the proxy</span><br><span class="line">     --proxy-ca-native               Load CA certs from the OS to verify proxy</span><br><span class="line">     --proxy-cacert &lt;file&gt;           CA certificates to verify proxy against</span><br><span class="line">     --proxy-capath &lt;dir&gt;            CA directory to verify proxy against</span><br><span class="line">     --proxy-cert &lt;cert[:passwd]&gt;    Set client certificate for proxy</span><br><span class="line">     --proxy-cert-type &lt;type&gt;        Client certificate type for HTTPS proxy</span><br><span class="line">     --proxy-ciphers &lt;list&gt;          SSL ciphers to use for proxy</span><br><span class="line">     --proxy-crlfile &lt;file&gt;          Set a CRL list for proxy</span><br><span class="line">     --proxy-digest                  Digest auth with the proxy</span><br><span class="line">     --proxy-header &lt;header/@file&gt;   Pass custom header(s) to proxy</span><br><span class="line">     --proxy-http2                   Use HTTP/2 with HTTPS proxy</span><br><span class="line">     --proxy-insecure                Skip HTTPS proxy cert verification</span><br><span class="line">     --proxy-key &lt;key&gt;               Private key for HTTPS proxy</span><br><span class="line">     --proxy-key-type &lt;type&gt;         Private key file type for proxy</span><br><span class="line">     --proxy-negotiate               HTTP Negotiate (SPNEGO) auth with the proxy</span><br><span class="line">     --proxy-ntlm                    NTLM authentication with the proxy</span><br><span class="line">     --proxy-pass &lt;phrase&gt;       Pass phrase for the private key for HTTPS proxy</span><br><span class="line">     --proxy-pinnedpubkey &lt;hashes&gt;   FILE/HASHES public key to verify proxy with</span><br><span class="line">     --proxy-service-name &lt;name&gt;     SPNEGO proxy service name</span><br><span class="line">     --proxy-ssl-allow-beast     Allow security flaw for interop for HTTPS proxy</span><br><span class="line">     --proxy-ssl-auto-client-cert    Auto client certificate for proxy</span><br><span class="line">     --proxy-tls13-ciphers &lt;ciphersuite list&gt;  TLS 1.3 proxy cipher suites</span><br><span class="line">     --proxy-tlsauthtype &lt;type&gt;      TLS authentication type for HTTPS proxy</span><br><span class="line">     --proxy-tlspassword &lt;string&gt;    TLS password for HTTPS proxy</span><br><span class="line">     --proxy-tlsuser &lt;name&gt;          TLS username for HTTPS proxy</span><br><span class="line">     --proxy-tlsv1                   TLSv1 for HTTPS proxy</span><br><span class="line"> -U, --proxy-user &lt;user:password&gt;    Proxy user and password</span><br><span class="line">     --proxy1.0 &lt;host[:port]&gt;        Use HTTP/1.0 proxy on given port</span><br><span class="line"> -p, --proxytunnel                   HTTP proxy tunnel (using CONNECT)</span><br><span class="line">     --pubkey &lt;key&gt;                  SSH Public key filename</span><br><span class="line"> -Q, --quote &lt;command&gt;               Send command(s) to server before transfer</span><br><span class="line">     --random-file &lt;file&gt;            File for reading random data from</span><br><span class="line"> -r, --range &lt;range&gt;                 Retrieve only the bytes within RANGE</span><br><span class="line">     --rate &lt;max request rate&gt;       Request rate for serial transfers</span><br><span class="line">     --raw                           Do HTTP raw; no transfer decoding</span><br><span class="line"> -e, --referer &lt;URL&gt;                 Referrer URL</span><br><span class="line"> -J, --remote-header-name            Use the header-provided filename</span><br><span class="line"> -O, --remote-name                   Write output to file named as remote file</span><br><span class="line">     --remote-name-all               Use the remote filename for all URLs</span><br><span class="line"> -R, --remote-time                   Set remote file&#x27;s time on local output</span><br><span class="line">     --remove-on-error               Remove output file on errors</span><br><span class="line"> -X, --request &lt;method&gt;              Specify request method to use</span><br><span class="line">     --request-target &lt;path&gt;         Specify the target for this request</span><br><span class="line">     --resolve &lt;[+]host:port:addr[,addr]...&gt;  Resolve host+port to address</span><br><span class="line">     --retry &lt;num&gt;                   Retry request if transient problems occur</span><br><span class="line">     --retry-all-errors              Retry all errors (with --retry)</span><br><span class="line">     --retry-connrefused             Retry on connection refused (with --retry)</span><br><span class="line">     --retry-delay &lt;seconds&gt;         Wait time between retries</span><br><span class="line">     --retry-max-time &lt;seconds&gt;      Retry only within this period</span><br><span class="line">     --sasl-authzid &lt;identity&gt;       Identity for SASL PLAIN authentication</span><br><span class="line">     --sasl-ir                       Initial response in SASL authentication</span><br><span class="line">     --service-name &lt;name&gt;           SPNEGO service name</span><br><span class="line"> -S, --show-error                    Show error even when -s is used</span><br><span class="line"> -s, --silent                        Silent mode</span><br><span class="line">     --socks4 &lt;host[:port]&gt;          SOCKS4 proxy on given host + port</span><br><span class="line">     --socks4a &lt;host[:port]&gt;         SOCKS4a proxy on given host + port</span><br><span class="line">     --socks5 &lt;host[:port]&gt;          SOCKS5 proxy on given host + port</span><br><span class="line">     --socks5-basic                  Username/password auth for SOCKS5 proxies</span><br><span class="line">     --socks5-gssapi                 Enable GSS-API auth for SOCKS5 proxies</span><br><span class="line">     --socks5-gssapi-nec             Compatibility with NEC SOCKS5 server</span><br><span class="line">     --socks5-gssapi-service &lt;name&gt;  SOCKS5 proxy service name for GSS-API</span><br><span class="line">     --socks5-hostname &lt;host[:port]&gt;  SOCKS5 proxy, pass hostname to proxy</span><br><span class="line"> -Y, --speed-limit &lt;speed&gt;           Stop transfers slower than this</span><br><span class="line"> -y, --speed-time &lt;seconds&gt;          Trigger &#x27;speed-limit&#x27; abort after this time</span><br><span class="line">     --ssl                           Try enabling TLS</span><br><span class="line">     --ssl-allow-beast               Allow security flaw to improve interop</span><br><span class="line">     --ssl-auto-client-cert          Use auto client certificate (Schannel)</span><br><span class="line">     --ssl-no-revoke                 Disable cert revocation checks (Schannel)</span><br><span class="line">     --ssl-reqd                      Require SSL/TLS</span><br><span class="line">     --ssl-revoke-best-effort        Ignore missing cert CRL dist points</span><br><span class="line"> -2, --sslv2                         SSLv2</span><br><span class="line"> -3, --sslv3                         SSLv3</span><br><span class="line">     --stderr &lt;file&gt;                 Where to redirect stderr</span><br><span class="line">     --styled-output                 Enable styled output for HTTP headers</span><br><span class="line">     --suppress-connect-headers      Suppress proxy CONNECT response headers</span><br><span class="line">     --tcp-fastopen                  Use TCP Fast Open</span><br><span class="line">     --tcp-nodelay                   Set TCP_NODELAY</span><br><span class="line"> -t, --telnet-option &lt;opt=val&gt;       Set telnet option</span><br><span class="line">     --tftp-blksize &lt;value&gt;          Set TFTP BLKSIZE option</span><br><span class="line">     --tftp-no-options               Do not send any TFTP options</span><br><span class="line"> -z, --time-cond &lt;time&gt;              Transfer based on a time condition</span><br><span class="line">     --tls-max &lt;VERSION&gt;             Maximum allowed TLS version</span><br><span class="line">     --tls13-ciphers &lt;list&gt;          TLS 1.3 cipher suites to use</span><br><span class="line">     --tlsauthtype &lt;type&gt;            TLS authentication type</span><br><span class="line">     --tlspassword &lt;string&gt;          TLS password</span><br><span class="line">     --tlsuser &lt;name&gt;                TLS username</span><br><span class="line"> -1, --tlsv1                         TLSv1.0 or greater</span><br><span class="line">     --tlsv1.0                       TLSv1.0 or greater</span><br><span class="line">     --tlsv1.1                       TLSv1.1 or greater</span><br><span class="line">     --tlsv1.2                       TLSv1.2 or greater</span><br><span class="line">     --tlsv1.3                       TLSv1.3 or greater</span><br><span class="line">     --tr-encoding                   Request compressed transfer encoding</span><br><span class="line">     --trace &lt;file&gt;                  Write a debug trace to FILE</span><br><span class="line">     --trace-ascii &lt;file&gt;            Like --trace, but without hex output</span><br><span class="line">     --trace-config &lt;string&gt;         Details to log in trace/verbose output</span><br><span class="line">     --trace-ids                     Transfer + connection ids in verbose output</span><br><span class="line">     --trace-time                    Add time stamps to trace/verbose output</span><br><span class="line">     --unix-socket &lt;path&gt;            Connect through this Unix domain socket</span><br><span class="line"> -T, --upload-file &lt;file&gt;            Transfer local FILE to destination</span><br><span class="line">     --url &lt;url&gt;                     URL to work with</span><br><span class="line">     --url-query &lt;data&gt;              Add a URL query part</span><br><span class="line"> -B, --use-ascii                     Use ASCII/text transfer</span><br><span class="line"> -u, --user &lt;user:password&gt;          Server user and password</span><br><span class="line"> -A, --user-agent &lt;name&gt;             Send User-Agent &lt;name&gt; to server</span><br><span class="line">     --variable &lt;[%]name=text/@file&gt;  Set variable</span><br><span class="line"> -v, --verbose                       Make the operation more talkative</span><br><span class="line"> -V, --version                       Show version number and quit</span><br><span class="line"> -w, --write-out &lt;format&gt;            Output FORMAT after completion</span><br><span class="line">     --xattr                         Store metadata in extended file attributes</span><br></pre></td></tr></table></figure>
+
+<h3 id="从服务器获取响应"><a href="#从服务器获取响应" class="headerlink" title="从服务器获取响应"></a>从服务器获取响应</h3><p>服务器上返回的所有内容都是对请求的响应。因此，获取HTML页面与下载文件是一样的。</p>
+<p>比如，从一个网址中获取html响应：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://info.cern.ch/</span><br></pre></td></tr></table></figure>
+
+<p>从服务器中获取文章的列表：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://jsonplaceholder.typicode.com/posts</span><br></pre></td></tr></table></figure>
+
+<p>我们知道了如何从服务器获取响应，那么就可以下载文件 (比如 google 的logo) :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png</span><br></pre></td></tr></table></figure>
+
+<p>上述命令将转储你无法在终端中查看的二进制图像数据，首先需要保存它们，然后使用照片查看器查看（国内访问google需FQ）。</p>
+<p>注：选项在命令中的位置是没有严格顺序的，所以如果你将选项放在了最后，而例子中将其放在了开始，则不需要担心。</p>
+<h3 id="使用默认的文件名保存文件"><a href="#使用默认的文件名保存文件" class="headerlink" title="使用默认的文件名保存文件"></a>使用默认的文件名保存文件</h3><p>互联网上的每个文件都会有一个文件名，要使用其原名称保存下载的文件，可以使用 <code>-O</code> 选项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -O http://www.google.com/robots.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用自定义名称保存文件"><a href="#使用自定义名称保存文件" class="headerlink" title="使用自定义名称保存文件"></a>使用自定义名称保存文件</h3><p>要使用自定义的名称保存文件，使用 <code>-o</code> 选项，后跟（严格的）自定义名称：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o http://www.google.com/robots.txt googleRobots.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="下载多个文件"><a href="#下载多个文件" class="headerlink" title="下载多个文件"></a>下载多个文件</h3><p>要下载多个文件，可使用空格分开：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl url1 url2 url3</span><br></pre></td></tr></table></figure>
+
+<p>如果你要对所有 url 都使用 <code>-O</code> 选项，可以这样：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl url1 url2 url3 -O -O -O</span><br></pre></td></tr></table></figure>
+
+<p>应对任何选项都可以执行相同的方法。第一个选项针对的是第一个url，第二个选项针对第二个url，以此类推。</p>
+<h3 id="下载一系列文件"><a href="#下载一系列文件" class="headerlink" title="下载一系列文件"></a>下载一系列文件</h3><p>curl 具有从服务器下载一系列文件的功能，看下面的例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://www.google.com/logo/logo[1-9].png</span><br></pre></td></tr></table></figure>
+
+<p>上面的命令下载logo1,png, logo2.png, logo3.png, 一直到 logo9.png。</p>
+<h3 id="只下载最新版本"><a href="#只下载最新版本" class="headerlink" title="只下载最新版本"></a>只下载最新版本</h3><p>仅当文件的修改时间晚于给定时间时才下载文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl url -z <span class="string">&quot;DD MMM YY MM:HH:SS&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="继续下载"><a href="#继续下载" class="headerlink" title="继续下载"></a>继续下载</h3><p>如果已经部分传输了文件，可以使用 <code>-C</code> 选项恢复传输。需要继续传输的偏移量应作为参数传递给 <code>-C</code> 标志。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -C 1024 http://seeni.linuxhandbook.org/files/largeFile.mpv -O</span><br></pre></td></tr></table></figure>
+
+<h3 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h3><p>要将文件上传到服务器，需要使用 <code>-T</code> 选项，后跟本地的文件路径：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -T uploadFile.txt http://upload.linuxhandbook.org/files</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><p>要删除名为 deleteFile.txt 的文件，可以使用 <code>-X</code> 选项，这个选项可以用于任何 HTTP 方法 (比如 GET, POST, PUT, DELETE, PATCH)。如果没有 HTTP 方法，大多数 FTP 服务器都会配置 DELETE 方法。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -X DELETE http://upload.linuxhandbook.org/files/deleteFile.txt</span><br></pre></td></tr></table></figure>
+
+<p>你还可以修改上述命令来为任何 HTTP 方法执行相应的任务。例如，如果你的服务器允许 TRUNCATE 方法（一个创建的方法，不是标准的），只删除文件中的内容，而不删除文件本身，则可以使用类似如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -X  TRUNCATE http://upload.linuxhandbook.org/files/mysql.dump</span><br></pre></td></tr></table></figure>
+
+<p>上面提到的是 curl 的主要用途。（在使用的过程中）可能会遇到一些困难，比如重定向、用户身份校验、SSL证书等，我们称它们为附加项，因为它们是可选的，但对于某些操作来说仍然是很重要的。在下面的章节中，我们将讨论这些附加项，以及如何使用 curl 来处理这些附加项。</p>
+<h3 id="避免重定向"><a href="#避免重定向" class="headerlink" title="避免重定向"></a>避免重定向</h3><p>当你请求地址 <a target="_blank" rel="noopener" href="http://www.google.com,你得到的可能是/">http://www.google.com，你得到的可能是</a> <a target="_blank" rel="noopener" href="http://www.google.co.in/">www.google.co.in</a>, 这是因为地址的重定向（状态代码在300-399范围内的HTTP数据包）。</p>
+<p>你可以使用 <code>-L</code> 选项来避免重定向：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L  http://www.google.com</span><br></pre></td></tr></table></figure>
+
+<h3 id="身份验证"><a href="#身份验证" class="headerlink" title="身份验证"></a>身份验证</h3><p>当服务器配置为仅为具有凭据的特定个人服务时，会为他们提供用户名和密码（即需要登录才能访问）。可以使用 <code>-u</code> 选项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -u username:password http://seeni.linuxhandbook.org/files/tasks.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据传输限制"><a href="#数据传输限制" class="headerlink" title="数据传输限制"></a>数据传输限制</h3><p>如果要施加数据传输限制，可以使用 <code>--limit-rate</code> 选项。以下命令尝试将下载速率限制到10k：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl --limit-rate 10K http://seeni.linuxhandbook.org/files/logoDetails.tgz</span><br></pre></td></tr></table></figure>
+
+<h3 id="显示-隐藏传输状态"><a href="#显示-隐藏传输状态" class="headerlink" title="显示&#x2F;隐藏传输状态"></a>显示&#x2F;隐藏传输状态</h3><p>如果响应是从终端执行的，比如上传，下载，那么curl会自动显示传输的状态（进度条）。如果不想看到进度条，只需要在命令后面加上 <code>-s</code> 选项即可，这样在终端上就不会显示进度了。</p>
+<p><strong>14. 忽略 SSL 证书</strong></p>
+<p>还记得有些网站访问时，需要授予安全证书的情况吗？如果你信任该地址并希望进行数据传输，则可以使用 <code>-k</code> 选项来忽略 SSL 证书验证：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -k https://notSoSecure.org/files/logoDetails.tgz</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取信息头"><a href="#获取信息头" class="headerlink" title="获取信息头"></a>获取信息头</h3><p>在进行数据传输的时候显示信息头，可使用 <code>-i</code> 选项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -i http://www.google.com/robots.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="只显示信息头"><a href="#只显示信息头" class="headerlink" title="只显示信息头"></a>只显示信息头</h3><p>如果只想要信息头，而不想要数据，则使用 <code>-I</code> 选项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -I http://www.google.com/robots.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="更改用户代理"><a href="#更改用户代理" class="headerlink" title="更改用户代理"></a>更改用户代理</h3><p>一些网站或服务器不允许某些特定的设备访问系统。但是他们怎么知道我们使用什么设备呢？这是由 User-Agent HTTP 的头信息来告诉对方的。我们可以使用 <code>-A</code> 选项来更改 User Agent:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -A <span class="string">&quot;Mozilla FireFox(42.0)&quot;</span> http://notAllowedForCLI.sites.org/randomFile.png</span><br></pre></td></tr></table></figure>
+
+<h3 id="向服务器发送数据"><a href="#向服务器发送数据" class="headerlink" title="向服务器发送数据"></a>向服务器发送数据</h3><p>如果服务器需要一些参数数据，比如 token 或者 API密钥，可使用 <code>-d</code> 选项发送数据。在命令行中，发送的数据需要跟在 -d 选项后面，可以使用 &amp; 来组合多个数据。这通常是在浏览器中通过 GET 或 POST 请求来完成的，这是你发送表单信息的方式之一。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -d <span class="string">&quot;token=34343abvfgh&amp;name=&#x27;seeni&#x27;&quot;</span> http://api.restful.org/getcontent</span><br></pre></td></tr></table></figure>
+
+<h3 id="将-Cookie-写入文件"><a href="#将-Cookie-写入文件" class="headerlink" title="将 Cookie 写入文件"></a>将 Cookie 写入文件</h3><p>Cookie 是一些小的信息，允许在无状态的 HTTP 协议中保持会话。如果想了解更多cookie的信息，可以访问  <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies">Using HTTP cookies</a>。</p>
+<p>要将cookie下入文件，可以使用 <code>-c</code> 选项，后跟 cookie 文件名：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -c googleCookie.txt http://www.google.com/files</span><br></pre></td></tr></table></figure>
+
+<h3 id="从文件中读取Cookie"><a href="#从文件中读取Cookie" class="headerlink" title="从文件中读取Cookie"></a>从文件中读取Cookie</h3><p>要从文件中读取 cookie, 可使用 <code>-b</code> 选项，后跟cookie文件名：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -b googleCookie.txt http://www.google.com/files</span><br></pre></td></tr></table></figure>
+
+<p>请注意，<code>-b</code> 选项仅从文件中读取 cookie，如果服务器重新发送了另一个cookie，你需要使用 -c 选项来重写它们。</p>
+<h3 id="启动新会话"><a href="#启动新会话" class="headerlink" title="启动新会话"></a>启动新会话</h3><p>如果想要丢弃cookie来启动一个新会话，可使用 <code>-j</code> 选项。使用该选项后，即便你通过 <code>-b</code> 读取到了cookie，它也会启动一个新的会话。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -b googleCookie.txt http://www.google.com/files -j</span><br></pre></td></tr></table></figure>
+
+<h3 id="返回状态码"><a href="#返回状态码" class="headerlink" title="返回状态码"></a>返回状态码</h3><p>当你使用 <code>curl</code> 命令请求一个网页或者服务器时，服务器会返回一个 HTTP 状态码。这个状态码是一个三位数字，它表示了请求的结果。HTTP 状态码主要分为五类：</p>
+<p><strong>1xx （信息性状态码）</strong> - 表示接收的请求正在处理。</p>
+<p>例子： 100 （继续）</p>
+<p><strong>2xx （成功状态码）</strong> - 表示请求正常处理完毕。</p>
+<p>例子： 200 （成功）， 201 （已创建）， 204 （无内容）</p>
+<p><strong>3xx （重定向状态码）</strong> - 表示需要后续操作才能完成这一请求。</p>
+<p>例子： 301 （永久移动）， 302 （临时重定向）， 304 （未修改）</p>
+<p><strong>4xx （请求错误状态码）</strong> - 表示请求可能出错，妨碍了服务器的处理。</p>
+<p>例子： 400 （错误请求）， 401 （未授权）， 403 （禁止）， 404 （未找到）</p>
+<p><strong>5xx （服务器错误状态码）</strong> - 表示服务器处理请求出错。</p>
+<p>例子： 500 （内部服务器错误）， 502 （错误网关）， 503 （服务不可用）<br>在使用 <code>curl</code> 命令时，可以查看返回的 HTTP 状态码，这对于调试和分析网站请求很有帮助，下文是一些常见的方法来获取 <code>curl</code> 命令返回的状态码。</p>
+<h4 id="使用-I-或-i-选项"><a href="#使用-I-或-i-选项" class="headerlink" title="使用 -I 或 -i 选项"></a>使用 -I 或 -i 选项</h4><p>最简单的方法就是在 <code>curl</code> 命令后加上 <code>-I</code> 或 <code>-i</code> 选项。这样可以在响应结果中看到完整的 HTTP 头信息，包括状态码。<br>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -I https://apifox.com</span><br></pre></td></tr></table></figure>
+
+<p>这会显示类似这样的输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Server: openresty/1.21.4.1</span><br><span class="line">Date: Fri, 26 Apr 2024 03:35:31 GMT</span><br><span class="line">Content-Type: text/html</span><br><span class="line">Content-Length: 242152</span><br><span class="line">Last-Modified: Fri, 19 Apr 2024 23:08:54 GMT</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Vary: Accept-Encoding</span><br><span class="line">Set-Cookie: abflag=1714102531; domain=.apifox.com ;path=/; Expires=Tue, 19-Jan-2038 03:14:07 GMT</span><br><span class="line">ETag: &quot;6622f986-3b1e8&quot;</span><br><span class="line">Cache-Control: max-age=300</span><br><span class="line">Accept-Ranges: bytes</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2024/01/01/193/image-153.png" class="" title="cURL 中如何返回状态码">
+
+<p>可以看到状态码是 <code>200 OK</code>，表示请求成功。</p>
+<h4 id="使用-o-dev-null-和-w-“-http-code-”"><a href="#使用-o-dev-null-和-w-“-http-code-”" class="headerlink" title="使用 -o &#x2F;dev&#x2F;null 和 -w “%{http_code}”"></a>使用 -o &#x2F;dev&#x2F;null 和 -w “%{http_code}”</h4><p>如果你只想看到状态码，不需要其他信息，Linux 系统可以使用 <code>-o /dev/null</code> 和 <code>-s -w &quot;%&#123;http_code&#125;&quot;</code> 选项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o /dev/null -s -w <span class="string">&quot;%&#123;http_code&#125;&quot;</span> https://apifox.com</span><br></pre></td></tr></table></figure>
+
+<p>这样，<code>curl</code> 会将访问的网站响应结果中除状态码之外的所有输出重定向到<code>/dev/null</code>（即不显示），只在命令行中输出 HTTP 状态码。<br>Windows 使用 <code>NUL</code> 来提供类似的功能。所以，当你尝试在 Windows 使用类似于 UNIX 的命令时，你应该将 <code>/dev/null</code> 改为 <code>NUL</code>。</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o <span class="built_in">NUL</span> -s -w &quot;%&#123;http_code&#125;&quot; https://apifox.com</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2024/01/01/193/image-154.png" class="" title="cURL 中如何返回状态码">
+
+<h2 id="QAs"><a href="#QAs" class="headerlink" title="QAs"></a>QAs</h2><h3 id="使用curl下载压缩包的时候，得到的却是一个html文件"><a href="#使用curl下载压缩包的时候，得到的却是一个html文件" class="headerlink" title="使用curl下载压缩包的时候，得到的却是一个html文件"></a>使用curl下载压缩包的时候，得到的却是一个html文件</h3><p>curl 是在 Linux 命令行下载文件的一个很好用的工具。使用的方法也很简单：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -O &lt;url_of_the_file&gt;</span><br></pre></td></tr></table></figure>
+
+<p>上述命令使用了一个 <code>-O</code> 选项，会将给定的地址中的文件下载到本地，文件命名与源文件相同。</p>
+<p>这在大多数情况下是能正常运行的，但是有时候，从 GitHub 或者 SourceForge 下载文件的时候，下载到的往往不是我们想要的文件。</p>
+<p>比如，我要在 GitHub 上下载 tar.gz 格式的 archinstall 脚本，其位于 git 的发布页面上(地址为 <a target="_blank" rel="noopener" href="https://github.com/archlinux/archinstall/releases/">https://github.com/archlinux/archinstall/releases/</a>)。</p>
+<p>当我在浏览器上打开这个地址的时候，我会在页面上看到位于tar.gz归档文件中的源代码；但是如果我使用 curl 命令在终端上下载同一个地址中的文件，得到的是一个很小的文件，是一个格式不正确的归档文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf v2.4.2.tar.gz </span><br><span class="line"></span><br><span class="line">gzip: stdin: not <span class="keyword">in</span> gzip format</span><br><span class="line">tar: Child returned status 1</span><br><span class="line">tar: Error is not recoverable: exiting now</span><br></pre></td></tr></table></figure>
+
+<p>当我使用 <code>file</code> 命令来查看该文件的类型时，它告诉我这是一个html文档：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">file v2.4.2.tar.gz </span><br><span class="line">v2.4.2.tar.gz: HTML document, ASCII text, with no line terminators</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2024/01/01/193/640-20240102082117636.png" class="" title="图片">
+
+<p>我原本是要下载一个 tar 包，得到的却是一个html文档，为什么呢？下面我们来看看如何解决这个问题。</p>
+<h2 id="使用-curl-正确下载归档文件"><a href="#使用-curl-正确下载归档文件" class="headerlink" title="使用 curl 正确下载归档文件"></a>使用 curl 正确下载归档文件</h2><p>要下载归档文件（比如tar.gz文件），我们需要使用其他选项，以便指定的url重定向到实际的归档文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -JLO URL_of_the_file</span><br></pre></td></tr></table></figure>
+
+<p>上述命令用到的 <code>-JLO</code> 选项顺序是<strong>无序</strong>的，我们分别看一下每个选项的含义：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-J</code></td>
+<td>此选项告诉 <code>-O</code>，<code>--remote-name</code> 选项使用服务器指定的内容处理文件名，而不是从 URL 提取文件名；</td>
+</tr>
+<tr>
+<td><code>-L</code></td>
+<td>如果服务器报告请求的页面已经移动到其他位置（3开头的响应码），此选项将使curl重新请求新位置；</td>
+</tr>
+<tr>
+<td><code>-O</code></td>
+<td>使用此选项，不需要为下载指定输出的文件名。</td>
+</tr>
+</tbody></table>
+<p>如下图所示，我们使用 <code>curl -JLO</code> 选项下载后，可以得到正确的文件：</p>
+<img data-src="/2024/01/01/193/640-20240102082117565.png" class="" title="图片">
+
+<h2 id="如需要登录怎么办呢？"><a href="#如需要登录怎么办呢？" class="headerlink" title="如需要登录怎么办呢？"></a>如需要登录怎么办呢？</h2><p>上述命令在公共页面中是可以的。但是如果我们想要从私有库或者 GitLab 下载文件（需要登录），那么使用curl可能会看到一条关于重定向到登录页面的提示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;&lt;body&gt;You are being &lt;a href=<span class="string">&quot;https://gitlab.com/users/sign_in&quot;</span>&gt;redirected&lt;/a&gt;.&lt;/body&gt;&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这种情况下，需要使用 -H 选项携带 API 令牌（token）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -H &lt;token&gt; -JLO &lt;url_of_the_file&gt;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://qeuroal.top/2024/01/01/193/" title="193. Linux中的命令之下载">http://qeuroal.top/2024/01/01/193/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/01/01/192/" rel="prev" title="192. Linux中的命令之文本处理">
+                  <i class="fa fa-angle-left"></i> 192. Linux中的命令之文本处理
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/01/04/215/" rel="next" title="215. sytemctl">
+                  215. sytemctl <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Qeuroal" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

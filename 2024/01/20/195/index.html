@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="diff是Unix系统的一个很重要的工具程序。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="195. 读懂diff">
+<meta property="og:url" content="http://qeuroal.top/2024/01/20/195/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Blog">
+<meta property="og:description" content="diff是Unix系统的一个很重要的工具程序。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qeuroal.top/2024/01/20/195/bg2012082901.png">
+<meta property="article:published_time" content="2024-01-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-08T06:36:58.647Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qeuroal.top/2024/01/20/195/bg2012082901.png">
+
+
+<link rel="canonical" href="http://qeuroal.top/2024/01/20/195/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2024/01/20/195/","path":"2024/01/20/195/","title":"195. 读懂diff"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>195. 读懂diff | Qeuroal's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Qeuroal's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">静幽正治</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">大人者，不失其赤子之心</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2024/01/20/195/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="195. 读懂diff | Qeuroal's Blog">
+      <meta itemprop="description" content="diff是Unix系统的一个很重要的工具程序。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          195. 读懂diff
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-01-20 00:00:00" itemprop="dateCreated datePublished" datetime="2024-01-20T00:00:00+08:00">2024-01-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-08 14:36:58" itemprop="dateModified" datetime="2025-12-08T14:36:58+08:00">2025-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">diff是Unix系统的一个很重要的工具程序。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>diff是Unix系统的一个很重要的工具程序。</p>
+<p>它用来比较两个文本文件的差异，是代码版本管理的基石之一。你在命令行下，输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ diff &lt;变动前的文件&gt; &lt;变动后的文件&gt;</span><br></pre></td></tr></table></figure>
+
+<p>diff就会告诉你，这两个文件有何差异。它的显示结果不太好懂，下面我就来说明，如何读懂diff。</p>
+<img data-src="/2024/01/20/195/bg2012082901.png" class="" title="img">
+
+<p><strong>一、diff的三种格式</strong></p>
+<p>由于历史原因，diff有三种格式：</p>
+<ul>
+<li><p>正常格式（normal diff）</p>
+</li>
+<li><p>上下文格式（context diff）</p>
+</li>
+<li><p>合并格式（unified diff）</p>
+</li>
+</ul>
+<p>我们依次来看。</p>
+<p><strong>二、示例文件</strong></p>
+<p>为了便于讲解，先新建两个示例文件。</p>
+<p>第一个文件叫做f1，内容是每行一个a，一共7行。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a</span><br><span class="line">a</span><br><span class="line">a</span><br><span class="line">a</span><br><span class="line">a</span><br><span class="line">a</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
+
+<p>第二个文件叫做f2，修改f1而成，第4行变成b，其他不变。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a</span><br><span class="line">a</span><br><span class="line">a</span><br><span class="line">**b**</span><br><span class="line">a</span><br><span class="line">a</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
+
+<p><strong>三、正常格式的diff</strong></p>
+<p>现在对f1和f2进行比较：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ diff f1 f2</span><br></pre></td></tr></table></figure>
+
+<p>这时，diff就会显示正常格式的结果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">4c4</span><br><span class="line">&lt; a</span><br><span class="line">---</span><br><span class="line">&gt; b</span><br></pre></td></tr></table></figure>
+
+<p>第一行是一个提示，用来说明变动位置。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4c4</span><br></pre></td></tr></table></figure>
+
+<p>它分成三个部分：前面的”4”，表示f1的第4行有变化；中间的”c”表示变动的模式是内容改变（change），其他模式还有”增加”（a，代表addition）和”删除”（d，代表deletion）；后面的”4”，表示变动后变成f2的第4行。</p>
+<p>第二行分成两个部分。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt; a</span><br></pre></td></tr></table></figure>
+
+<p>前面的小于号，表示要从f1当中去除该行（也就是第4行），后面的”a”表示该行的内容。</p>
+<p>第三行用来分割f1和f2。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>第四行，类似于第二行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; b</span><br></pre></td></tr></table></figure>
+
+<p>前面的大于号表示f2增加了该行，后面的”b”表示该行的内容。</p>
+<p>最早的<a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2010/03/unix_copyright_history.html">Unix</a>（即AT&amp;T版本的Unix），使用的就是这种格式的diff。</p>
+<p><strong>四、上下文格式的diff</strong></p>
+<p>上个世纪80年代初，加州大学伯克利分校推出BSD版本的Unix时，觉得diff的显示结果太简单，最好加入上下文，便于了解发生的变动。因此，推出了上下文格式的diff。</p>
+<p>它的使用方法是加入c参数（代表context）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ diff -c f1 f2</span><br></pre></td></tr></table></figure>
+
+<p>显示结果如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">*** f1 2012-08-29 16:45:41.000000000 +0800</span><br><span class="line">--- f2 2012-08-29 16:45:51.000000000 +0800</span><br><span class="line">***************</span><br><span class="line">*** 1,7 ****</span><br><span class="line"> a</span><br><span class="line"> a</span><br><span class="line"> a</span><br><span class="line">!a</span><br><span class="line"> a</span><br><span class="line"> a</span><br><span class="line"> a</span><br><span class="line">--- 1,7 ----</span><br><span class="line"> a</span><br><span class="line"> a</span><br><span class="line"> a</span><br><span class="line">!b</span><br><span class="line"> a</span><br><span class="line"> a</span><br><span class="line"> a</span><br></pre></td></tr></table></figure>
+
+<p>这个结果分成四个部分。</p>
+<p>第一部分的两行，显示两个文件的基本情况：文件名和时间信息。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*** f1 2012-08-29 16:45:41.000000000 +0800</span><br><span class="line">--- f2 2012-08-29 16:45:51.000000000 +0800</span><br></pre></td></tr></table></figure>
+
+<p>“<code>***</code>“表示变动前的文件，”<code>---</code>“表示变动后的文件。</p>
+<p>第二部分是15个星号，将文件的基本情况与变动内容分割开。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">***************</span><br></pre></td></tr></table></figure>
+
+<p>第三部分显示变动前的文件，即f1。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">*** 1,7 ****</span><br><span class="line"> a</span><br><span class="line"> a</span><br><span class="line"> a</span><br><span class="line">!a</span><br><span class="line"> a</span><br><span class="line"> a</span><br><span class="line"> a</span><br></pre></td></tr></table></figure>
+
+<p>这时不仅显示发生变化的第4行，还显示第4行的前面三行和后面三行，因此一共显示7行。所以，前面的”<code>*** 1,7 ****</code>“就表示，从第1行开始连续7行。</p>
+<p>另外，文件内容的每一行最前面，还有一个标记位。如果为空，表示该行无变化；如果是感叹号（<code>!</code>），表示该行有改动；如果是减号（<code>-</code>），表示该行被删除；如果是加号（<code>+</code>），表示该行为新增。</p>
+<p>第四部分显示变动后的文件，即f2。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">--- 1,7 ----</span><br><span class="line"> a</span><br><span class="line"> a</span><br><span class="line"> a</span><br><span class="line">!b</span><br><span class="line"> a</span><br><span class="line"> a</span><br><span class="line"> a</span><br></pre></td></tr></table></figure>
+
+<p>除了变动行（第4行）以外，也是上下文各显示三行，总共显示7行。</p>
+<p><strong>五、合并格式的diff</strong></p>
+<p>如果两个文件相似度很高，那么上下文格式的diff，将显示大量重复的内容，很浪费空间。1990年，GNU diff率先推出了”合并格式”的diff，将f1和f2的上下文合并在一起显示。</p>
+<p>它的使用方法是加入u参数（代表<code>unified</code>）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ diff -u f1 f2</span><br></pre></td></tr></table></figure>
+
+<p>显示结果如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">--- f1 2012-08-29 16:45:41.000000000 +0800</span><br><span class="line">+++ f2 2012-08-29 16:45:51.000000000 +0800</span><br><span class="line">@@ -1,7 +1,7 @@</span><br><span class="line"> a</span><br><span class="line"> a</span><br><span class="line"> a</span><br><span class="line">-a</span><br><span class="line">+b</span><br><span class="line"> a</span><br><span class="line"> a</span><br><span class="line"> a</span><br></pre></td></tr></table></figure>
+
+<p>它的第一部分，也是文件的基本信息。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--- f1 2012-08-29 16:45:41.000000000 +0800</span><br><span class="line">+++ f2 2012-08-29 16:45:51.000000000 +0800</span><br></pre></td></tr></table></figure>
+
+<p>“<code>---</code>“表示变动前的文件，”<code>+++</code>“表示变动后的文件。</p>
+<p>第二部分，变动的位置用两个@作为起首和结束。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@@ -1,7 +1,7 @@</span><br></pre></td></tr></table></figure>
+
+<p>前面的”-1,7”分成三个部分：减号表示第一个文件（即f1），”1”表示第1行，”7”表示连续7行。合在一起，就表示下面是第一个文件从第1行开始的连续7行。同样的，”+1,7”表示变动后，成为第二个文件从第1行开始的连续7行。</p>
+<p>第三部分是变动的具体内容。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> a</span><br><span class="line"> a</span><br><span class="line"> a</span><br><span class="line">-a</span><br><span class="line">+b</span><br><span class="line"> a</span><br><span class="line"> a</span><br><span class="line"> a</span><br></pre></td></tr></table></figure>
+
+<p>除了有变动的那些行以外，也是上下文各显示3行。它将两个文件的上下文，合并显示在一起，所以叫做”合并格式”。每一行最前面的标志位，空表示无变动，减号表示第一个文件删除的行，加号表示第二个文件新增的行。</p>
+<p><strong>六、git格式的diff</strong></p>
+<p>版本管理系统git，使用的是合并格式diff的变体。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git diff</span><br></pre></td></tr></table></figure>
+
+<p>显示结果如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">diff --git a/f1 b/f1</span><br><span class="line">index 6f8a38c..449b072 100644</span><br><span class="line">--- a/f1</span><br><span class="line">+++ b/f1</span><br><span class="line">@@ -1,7 +1,7 @@</span><br><span class="line"> a</span><br><span class="line"> a</span><br><span class="line"> a</span><br><span class="line">-a</span><br><span class="line">+b</span><br><span class="line"> a</span><br><span class="line"> a</span><br><span class="line"> a</span><br></pre></td></tr></table></figure>
+
+<p>第一行表示结果为git格式的diff。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diff --git a/f1 b/f1</span><br></pre></td></tr></table></figure>
+
+<p>进行比较的是，a版本的f1（即变动前）和b版本的f1（即变动后）。</p>
+<p>第二行表示两个版本的git哈希值（index区域的6f8a38c对象，与工作目录区域的449b072对象进行比较），最后的六位数字是对象的模式（普通文件，644权限）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">index 6f8a38c..449b072 100644</span><br></pre></td></tr></table></figure>
+
+<p>第三行表示进行比较的两个文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--- a/f1</span><br><span class="line">+++ b/f1</span><br></pre></td></tr></table></figure>
+
+<p>“<code>---</code>“表示变动前的版本，”<code>+++</code>“表示变动后的版本。</p>
+<p>后面的行都与官方的合并格式diff相同。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@@ -1,7 +1,7 @@</span><br><span class="line"> a</span><br><span class="line"> a</span><br><span class="line"> a</span><br><span class="line">-a</span><br><span class="line">+b</span><br><span class="line"> a</span><br><span class="line"> a</span><br><span class="line"> a</span><br></pre></td></tr></table></figure>
+
+<p><strong>七、阅读材料</strong></p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Diff">diff - Wikipedia</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.markusbe.com/2009/12/how-to-read-a-patch-or-diff-and-understand-its-structure-to-apply-it-manually/">How to read a patch or diff</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/2529441/how-to-work-with-diff-representation-in-git">How to work with diff representation in git</a></p>
+</li>
+</ul>
+<p>转载自<a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2012/08/how_to_read_diff.html">读懂diff</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://qeuroal.top/2024/01/20/195/" title="195. 读懂diff">http://qeuroal.top/2024/01/20/195/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/01/04/194/" rel="prev" title="194. Linux中的命令之进程与程序">
+                  <i class="fa fa-angle-left"></i> 194. Linux中的命令之进程与程序
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/02/19/196/" rel="next" title="196. Linux之系统信息">
+                  196. Linux之系统信息 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Qeuroal" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

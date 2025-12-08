@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="查看C&#x2F;C++程序内存泄露的工具">
+<meta property="og:type" content="article">
+<meta property="og:title" content="168. valgrind">
+<meta property="og:url" content="http://qeuroal.top/2023/10/27/168/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Blog">
+<meta property="og:description" content="查看C&#x2F;C++程序内存泄露的工具">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qeuroal.top/2023/10/27/168/image-20231027101812977.png">
+<meta property="og:image" content="http://qeuroal.top/2023/10/27/168/image-20231027102958446.png">
+<meta property="og:image" content="http://qeuroal.top/2023/10/27/168/640-20231027103343362.png">
+<meta property="article:published_time" content="2023-10-27T02:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-08T06:36:58.534Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="software">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qeuroal.top/2023/10/27/168/image-20231027101812977.png">
+
+
+<link rel="canonical" href="http://qeuroal.top/2023/10/27/168/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2023/10/27/168/","path":"2023/10/27/168/","title":"168. valgrind"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>168. valgrind | Qeuroal's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Qeuroal's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">静幽正治</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-number">2.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E9%80%89%E9%A1%B9"><span class="nav-number">3.</span> <span class="nav-text">基本选项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D"><span class="nav-number">3.1.</span> <span class="nav-text">基本工具介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9"><span class="nav-number">3.2.</span> <span class="nav-text">常用选项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F"><span class="nav-number">3.2.1.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9%E7%A4%BA%E4%BE%8B"><span class="nav-number">3.2.2.</span> <span class="nav-text">常用选项示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memcheck-%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D"><span class="nav-number">3.3.</span> <span class="nav-text">Memcheck 工具介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memcheck-%E6%97%A5%E5%BF%97%E6%8A%A5%E5%91%8A"><span class="nav-number">3.4.</span> <span class="nav-text">Memcheck 日志报告</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F"><span class="nav-number">3.4.1.</span> <span class="nav-text">基本格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#memcheck%E5%8C%85%E5%90%AB%E7%9A%847%E7%B1%BB%E9%94%99%E8%AF%AF"><span class="nav-number">3.4.2.</span> <span class="nav-text">memcheck包含的7类错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">3.4.3.</span> <span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B1"><span class="nav-number">3.4.3.1.</span> <span class="nav-text">示例1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B2"><span class="nav-number">3.4.3.2.</span> <span class="nav-text">示例2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#memcheck-%E5%B7%A5%E5%85%B7%E5%8E%9F%E7%90%86"><span class="nav-number">3.5.</span> <span class="nav-text">memcheck 工具原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-number">4.</span> <span class="nav-text">reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">大人者，不失其赤子之心</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2023/10/27/168/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="168. valgrind | Qeuroal's Blog">
+      <meta itemprop="description" content="查看C/C++程序内存泄露的工具">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          168. valgrind
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-10-27 10:00:00" itemprop="dateCreated datePublished" datetime="2023-10-27T10:00:00+08:00">2023-10-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-08 14:36:58" itemprop="dateModified" datetime="2025-12-08T14:36:58+08:00">2025-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">查看C/C++程序内存泄露的工具</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Valgrind是一套Linux下，开放源代码（GPL V2）的仿真调试工具的集合。</p>
+<p>Valgrind由内核（core）以及基于内核的其他调试工具组成。内核类似于一个框架（framework），它模拟了一个CPU环境，并提供服务给其他工具；而其他工具则类似于插件 (plug-in)，利用内核提供的服务完成各种特定的内存调试任务。</p>
+<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>见<a target="_blank" rel="noopener" href="https://github.com/Qeuroal/toolbox.git">这里</a></p>
+<h1 id="基本选项"><a href="#基本选项" class="headerlink" title="基本选项"></a>基本选项</h1><h2 id="基本工具介绍"><a href="#基本工具介绍" class="headerlink" title="基本工具介绍"></a>基本工具介绍</h2><table>
+<thead>
+<tr>
+<th>选项</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Memcheck</td>
+<td>这是valgrind应用最广泛的工具，一个重量级的内存检查器，能够发现开发中绝大多数内存错误使用情况，比如：使用未初始化的内存，使用已经释放了的内存，内存访问越界等</td>
+</tr>
+<tr>
+<td>Callgrind</td>
+<td>它主要用来检查程序中函数调用过程中出现的问题</td>
+</tr>
+<tr>
+<td>Cachegrind</td>
+<td>它主要用来检查程序中缓存使用出现的问题</td>
+</tr>
+<tr>
+<td>Helgrind</td>
+<td>它主要用来检查多线程程序中出现的竞争问题</td>
+</tr>
+<tr>
+<td>Massif</td>
+<td>它主要用来检查程序中堆栈使用中出现的问题</td>
+</tr>
+<tr>
+<td>Extension</td>
+<td>可以利用core提供的功能，自己编写特定的内存调试工具</td>
+</tr>
+</tbody></table>
+<h2 id="常用选项"><a href="#常用选项" class="headerlink" title="常用选项"></a>常用选项</h2><ol>
+<li><p>适用于所有Valgrind工具</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">–tool=&lt; name &gt; 最常用的选项。运行 valgrind中名为toolname的工具。默认memcheck。</span><br><span class="line">-h --<span class="built_in">help</span> 显示帮助信息。</span><br><span class="line">–version 显示valgrind内核的版本，每个工具都有各自的版本。</span><br><span class="line">-q --quiet 安静地运行，只打印错误信息。</span><br><span class="line">-v --verbose 更详细的信息, 增加错误数统计。</span><br><span class="line">–trace-children=no|<span class="built_in">yes</span> 跟踪子线程? [no]</span><br><span class="line">–track-fds=no|<span class="built_in">yes</span> 跟踪打开的文件描述？[no]</span><br><span class="line">–time-stamp=no|<span class="built_in">yes</span> 增加时间戳到LOG信息? [no]</span><br><span class="line">–log-fd=&lt; number &gt; 输出LOG到描述符文件 [2=stderr]</span><br><span class="line">–log-file=&lt; file &gt; 将输出的信息写入到filename.PID的文件里，PID是运行程序的进行ID</span><br><span class="line">–log-file-exactly=&lt; file &gt; 输出LOG信息到 file</span><br><span class="line">–log-file-qualifier=&lt; VAR &gt; 取得环境变量的值来做为输出信息的文件名。 [none]</span><br><span class="line">–log-socket=ipaddr:port 输出LOG到socket ，ipaddr:port</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>LOG信息输出</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">–xml=<span class="built_in">yes</span> 将信息以xml格式输出，只有memcheck可用</span><br><span class="line">–num-callers=&lt; number &gt; show &lt; numbe r&gt; callers <span class="keyword">in</span> stack traces [12]</span><br><span class="line">–error-limit=no|<span class="built_in">yes</span> 如果太多错误，则停止显示新错误? [<span class="built_in">yes</span>]</span><br><span class="line">–error-exitcode=&lt; number &gt; 如果发现错误则返回错误代码 [0=<span class="built_in">disable</span>]</span><br><span class="line">–db-attach=no|<span class="built_in">yes</span> 当出现错误，valgrind会自动启动调试器gdb。[no]</span><br><span class="line">–db-command=&lt; <span class="built_in">command</span> &gt; 启动调试器的命令行选项[gdb -nw %f %p]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>适用于Memcheck工具的相关选项：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">–leak-check=no|summary|full 要求对leak给出详细信息? [summary]</span><br><span class="line">–leak-resolution=low|med|high how much bt merging <span class="keyword">in</span> leak check [low]</span><br><span class="line">–show-reachable=no|<span class="built_in">yes</span> show reachable blocks <span class="keyword">in</span> leak check? [no]</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>更详细的使用信息详见<a target="_blank" rel="noopener" href="http://valgrind.org/docs/manual/manual-core.html">帮助文件、man手册或官网</a>：</p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ol>
+<li>valgrind不会自动的检查程序的每一行代码，只会检查运行到的代码分支，所以单元测试或功能测试用例很重要；</li>
+<li>可以把valgrind看成是一个sandbox，通过valgrind运行的程序实际上是运行在valgrind的sandbox中的，所以，不要测试性能，会让你失望的，建议只做功能测试</li>
+<li>编译代码时，建议增加 <code>-g</code>, <code>-o0</code> 选项，不要使用 <code>-o1</code>, <code>-o2</code>选项</li>
+</ol>
+<h3 id="常用选项示例"><a href="#常用选项示例" class="headerlink" title="常用选项示例"></a>常用选项示例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">valgrind --tool=memcheck --log-file=log.txt --leak-check=full  ./test</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>说明：使用memcheck工具对test程序进行包含内存泄漏的检查，并将日志保存到log.txt</p>
+</blockquote>
+<h2 id="Memcheck-工具介绍"><a href="#Memcheck-工具介绍" class="headerlink" title="Memcheck 工具介绍"></a>Memcheck 工具介绍</h2><p>Memcheck是valgrind应用最广泛的工具，能够发现开发中绝大多数内存错误使用情况。此工具主要可检查以下错误</p>
+<ul>
+<li>使用未初始化的内存(Use of uninitialised memory)</li>
+<li>使用已经释放了的内存(Reading&#x2F;writing memory after it has been free’d)</li>
+<li>使用超过malloc分配的内存空间(Reading&#x2F;writing off the end of malloc’d blocks)</li>
+<li>对堆栈的非法访问(Reading&#x2F;writing inappropriate areas on the stack)</li>
+<li>申请的空间是否有释放(Memory leaks – where pointers to malloc’d blocks are lost forever)</li>
+<li>malloc&#x2F;free&#x2F;new&#x2F;delete申请和释放内存的匹配(Mismatched use of malloc&#x2F;new&#x2F;new [] vs free&#x2F;delete&#x2F;delete [])</li>
+<li>src和dst的重叠(Overlapping src and dst pointers in memcpy() and related functions)</li>
+</ul>
+<blockquote>
+<p>注意:</p>
+<ul>
+<li>程序有时会申请很多常驻节点，这些未释放的节点不应视为问题；</li>
+<li>一般随着程序的运行，导致节点单向增加的malloc或new操作，视为内存泄漏</li>
+</ul>
+</blockquote>
+<h2 id="Memcheck-日志报告"><a href="#Memcheck-日志报告" class="headerlink" title="Memcheck 日志报告"></a>Memcheck 日志报告</h2><h3 id="基本格式"><a href="#基本格式" class="headerlink" title="基本格式"></a>基本格式</h3><img data-src="/2023/10/27/168/image-20231027101812977.png" class="" title="image-20231027101812977">
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;问题描述&#125;</span><br><span class="line">    at &#123;地址、函数名、模块或代码行&#125;</span><br><span class="line">    by &#123;地址、函数名、代码行&#125;</span><br><span class="line">    by …&#123;逐层依次显示调用堆栈&#125;</span><br><span class="line">  Address 0x??? &#123;描述地址的相对关系&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="memcheck包含的7类错误"><a href="#memcheck包含的7类错误" class="headerlink" title="memcheck包含的7类错误"></a>memcheck包含的7类错误</h3><ol>
+<li><p>illegal read&#x2F;illegal write errors 提示信息：[invalid read of size 4]</p>
+</li>
+<li><p>use of uninitialised values 提示信息：[Conditional jump or move depends on uninitialised value]</p>
+</li>
+<li><p>use of uninitialised or unaddressable values in system calls 提示信息：[syscall param write(buf) points to uninitilaised bytes]</p>
+</li>
+<li><p>illegal frees 提示信息：[invalid free()]</p>
+</li>
+<li><p>when a heap block is freed with an inappropriate deallocation function 提示信息：[Mismatched free()&#x2F;delete&#x2F;delete[]]</p>
+</li>
+<li><p>overlapping source and destination blocks 提示信息：[source and destination overlap in memcpy(,)]</p>
+</li>
+<li><p>memory leak detection </p>
+<p> ① still reachable 内存指针还在还有机会使用或释放，指针指向的动态内存还没有被释放就退出了</p>
+<p> ② definitely lost 确定的内存泄露，已经不能访问这块内存</p>
+<p> ③ indirectly lost 指向该内存的指针都位于内存泄露处</p>
+<p> ④ possibly lost 可能的内存泄露，仍然存在某个指针能够快速访问某块内存，但该指针指向的已经不是内存首位置</p>
+</li>
+</ol>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h4><img data-src="/2023/10/27/168/image-20231027102958446.png" class="" title="image-20231027102958446">
+
+<ol>
+<li>当前程序（.&#x2F;test1_g)的进程号</li>
+<li>valgrind memcheck工具的license说明</li>
+<li>加载程序的运行方式</li>
+<li>父进程号，当前终端的进程</li>
+<li>检测到的错误信息</li>
+<li>堆栈摘要、小结，该例子中总共两次alloc、两次free，没有内存泄漏</li>
+<li>检测到的错误数量，这里提示1个</li>
+</ol>
+<h4 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h4><ol>
+<li>异常读写报告<ol>
+<li>主线程异常读写</li>
+<li>线程A异常读写报告</li>
+<li>线程B异常读写报告</li>
+</ol>
+</li>
+<li>堆内存泄露报告<ol>
+<li>堆内存使用情况概述(HEAP SUMMARY)</li>
+<li>确信的内存泄露报告(definitely lost)</li>
+<li>可疑内存操作报告 (show-reachable&#x3D;no关闭，打开：–show-reachable&#x3D;yes)</li>
+<li>泄露情况概述(LEAK SUMMARY)</li>
+</ol>
+</li>
+</ol>
+<h2 id="memcheck-工具原理"><a href="#memcheck-工具原理" class="headerlink" title="memcheck 工具原理"></a>memcheck 工具原理</h2><p>Memcheck实现了一个仿真的CPU，被监控的程序被这个仿真CPU解释执行，该仿真CPU可以在所有的内存读写指令发生时，检测地址的合法性和读操作的合法性。</p>
+<img data-src="/2023/10/27/168/640-20231027103343362.png" class="" title="图片">
+
+<p>Memcheck 能够检测出内存问题，关键在于其建立了两个全局表。</p>
+<ol>
+<li><p>Valid-Value 表：</p>
+<p> 对于进程的整个地址空间中的每一个字节(byte)，都有与之对应的8 个bits；对于CPU 的每个寄存器，也有一个与之对应的bit 向量。这些bits 负责记录该字节或者寄存器值是否具有有效的、已初始化的值。</p>
+</li>
+<li><p>Valid-Address 表</p>
+<p> 对于进程整个地址空间中的每一个字节(byte)，还有与之对应的1 个bit，负责记录该地址是否能够被读写。</p>
+<p> 检测原理：</p>
+<p> 当要读写内存中某个字节时，首先检查这个字节对应的A bit。如果该A bit显示该位置是无效位置，memcheck 则报告读写错误。</p>
+<p> 内核（core)类似于一个虚拟的CPU 环境，这样当内存中的某个字节被加载到真实的CPU 中时，该字节对应的V bit 也被加载到虚拟的</p>
+<p> CPU 环境中。一旦寄存器中的值，被用来产生内存地址，或者该值能够影响程序输出，则memcheck 会检查对应的V bits，如果该值</p>
+<p> 尚未初始化，则会报告使用未初始化内存错误。</p>
+</li>
+</ol>
+<p>简单来说</p>
+<ol>
+<li><p>如何知道那些地址是合法的（内存已分配）？ 维护一张合法地址表（Valid-address (A) bits），当前所有可以合法读写（已分配）的地址在其中有对应的表项。该表通过以下措施维护：</p>
+<p> ① 全局数据(data, bss section)–在程序启动的时候标记为合法地址</p>
+<p> ② 局部变量–监控sp(stack pointer)的变化，动态维护</p>
+<p> ③动态分配的内存–截获 分配&#x2F;释放 内存的调用：malloc, calloc, realloc, valloc, memalign, free, new, new[], delete and delete[]</p>
+<p> ④ 系统调用–截获mmap映射的地址</p>
+<p> ⑤ 其他–可以显示知会memcheck某地字段是合法的</p>
+</li>
+<li><p>如何知道某内存是否已经被赋值？</p>
+<p> ①维护一张合法值表（Valid-value (V) bits），指示对应的bit是否已经被赋值。因为虚拟CPU可以捕获所有对内存的写指令，所以这张表很容易维护。</p>
+</li>
+</ol>
+<h1 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.cprogramming.com/debugging/valgrind.html">https://www.cprogramming.com/debugging/valgrind.html</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.it.uc3m.es/pbasanta/asng/course_notes/memory_profiler_en.html#memcheck_tool">http://www.it.uc3m.es/pbasanta/asng/course_notes/memory_profiler_en.html#memcheck_tool</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://qeuroal.top/2023/10/27/168/" title="168. valgrind">http://qeuroal.top/2023/10/27/168/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/software/" rel="tag"><i class="fa fa-tag"></i> software</a>
+              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/10/27/167/" rel="prev" title="167. wget">
+                  <i class="fa fa-angle-left"></i> 167. wget
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/10/27/169/" rel="next" title="169. linux 学习网站汇总">
+                  169. linux 学习网站汇总 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Qeuroal" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

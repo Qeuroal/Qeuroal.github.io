@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="文本处理三剑客:sed,awk和grep">
+<meta property="og:type" content="article">
+<meta property="og:title" content="192. Linux中的命令之文本处理">
+<meta property="og:url" content="http://qeuroal.top/2024/01/01/192/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Blog">
+<meta property="og:description" content="文本处理三剑客:sed,awk和grep">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/192/640-20240117075331736.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/192/640-20240117075332037.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/192/640-20240117075332099.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/192/640-20240117075332029.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/192/640-20240117075332032.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/192/640-20240117075332033.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/192/640-20240117075332092-5449212.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/192/640-20240117075332176.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/192/640-20240117075332183.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/192/640-20240117080238997.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/192/640-20240117075332198.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/192/640-20240117075332179.png">
+<meta property="article:published_time" content="2024-01-01T10:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-08T06:36:58.631Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qeuroal.top/2024/01/01/192/640-20240117075331736.png">
+
+
+<link rel="canonical" href="http://qeuroal.top/2024/01/01/192/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2024/01/01/192/","path":"2024/01/01/192/","title":"192. Linux中的命令之文本处理"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>192. Linux中的命令之文本处理 | Qeuroal's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Qeuroal's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">静幽正治</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sed"><span class="nav-number">1.</span> <span class="nav-text">sed</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E"><span class="nav-number">1.2.</span> <span class="nav-text">参数说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E8%AF%B4%E6%98%8E"><span class="nav-number">1.3.</span> <span class="nav-text">操作说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sed%E8%84%9A%E6%9C%AC%E5%91%BD%E4%BB%A4"><span class="nav-number">1.4.</span> <span class="nav-text">sed脚本命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sed-s-%E6%9B%BF%E6%8D%A2%E8%84%9A%E6%9C%AC%E5%91%BD%E4%BB%A4"><span class="nav-number">1.4.1.</span> <span class="nav-text">sed s 替换脚本命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">基本格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84-flags-%E6%A0%87%E8%AE%B0"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">常用的 flags 标记</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F"><span class="nav-number">1.4.1.3.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sed-d-%E6%9B%BF%E6%8D%A2%E8%84%9A%E6%9C%AC%E5%91%BD%E4%BB%A4"><span class="nav-number">1.4.2.</span> <span class="nav-text">sed d 替换脚本命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F-1"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">基本格式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sed-a-%E5%92%8C-i-%E8%84%9A%E6%9C%AC%E5%91%BD%E4%BB%A4"><span class="nav-number">1.4.3.</span> <span class="nav-text">sed a 和 i 脚本命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F-2"><span class="nav-number">1.4.3.1.</span> <span class="nav-text">基本格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E8%A1%8C"><span class="nav-number">1.4.3.2.</span> <span class="nav-text">多行</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sed-c-%E6%9B%BF%E6%8D%A2%E8%84%9A%E6%9C%AC%E5%91%BD%E4%BB%A4"><span class="nav-number">1.4.4.</span> <span class="nav-text">sed c 替换脚本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sed-y-%E8%BD%AC%E6%8D%A2%E8%84%9A%E6%9C%AC%E5%91%BD%E4%BB%A4"><span class="nav-number">1.4.5.</span> <span class="nav-text">sed y 转换脚本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sed-p-%E6%89%93%E5%8D%B0%E8%84%9A%E6%9C%AC%E5%91%BD%E4%BB%A4"><span class="nav-number">1.4.6.</span> <span class="nav-text">sed p 打印脚本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sed-w-%E8%84%9A%E6%9C%AC%E5%91%BD%E4%BB%A4"><span class="nav-number">1.4.7.</span> <span class="nav-text">sed w 脚本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sed-r-%E8%84%9A%E6%9C%AC%E5%91%BD%E4%BB%A4"><span class="nav-number">1.4.8.</span> <span class="nav-text">sed r 脚本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sed-q-%E9%80%80%E5%87%BA%E8%84%9A%E6%9C%AC%E5%91%BD%E4%BB%A4"><span class="nav-number">1.4.9.</span> <span class="nav-text">sed q 退出脚本命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sed-%E8%84%9A%E6%9C%AC%E5%91%BD%E4%BB%A4%E7%9A%84%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F"><span class="nav-number">1.5.</span> <span class="nav-text">sed 脚本命令的寻址方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5%E6%95%B0%E5%AD%97%E5%BD%A2%E5%BC%8F%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8C%BA%E9%97%B4"><span class="nav-number">1.5.1.</span> <span class="nav-text">以数字形式指定行区间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%96%87%E6%9C%AC%E6%A8%A1%E5%BC%8F%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%8C%BA%E9%97%B4"><span class="nav-number">1.5.2.</span> <span class="nav-text">用文本模式指定行区间</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sed-%E5%A4%9A%E8%A1%8C%E5%91%BD%E4%BB%A4"><span class="nav-number">1.6.</span> <span class="nav-text">sed 多行命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-number">1.7.</span> <span class="nav-text">例子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5%E8%A1%8C%E4%B8%BA%E5%8D%95%E4%BD%8D%E7%9A%84%E6%96%B0%E5%A2%9E-%E5%88%A0%E9%99%A4"><span class="nav-number">1.7.1.</span> <span class="nav-text">以行为单位的新增&#x2F;删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5%E8%A1%8C%E4%B8%BA%E5%8D%95%E4%BD%8D%E7%9A%84%E6%9B%BF%E6%8D%A2%E4%B8%8E%E6%98%BE%E7%A4%BA"><span class="nav-number">1.7.2.</span> <span class="nav-text">以行为单位的替换与显示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E6%90%9C%E5%AF%BB%E5%B9%B6%E6%98%BE%E7%A4%BA"><span class="nav-number">1.7.3.</span> <span class="nav-text">数据的搜寻并显示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E6%90%9C%E5%AF%BB%E5%B9%B6%E5%88%A0%E9%99%A4"><span class="nav-number">1.7.4.</span> <span class="nav-text">数据的搜寻并删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E6%90%9C%E5%AF%BB%E5%B9%B6%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4"><span class="nav-number">1.7.5.</span> <span class="nav-text">数据的搜寻并执行命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E6%90%9C%E5%AF%BB%E5%B9%B6%E6%9B%BF%E6%8D%A2"><span class="nav-number">1.7.6.</span> <span class="nav-text">数据的搜寻并替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%82%B9%E7%BC%96%E8%BE%91"><span class="nav-number">1.7.7.</span> <span class="nav-text">多点编辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9-%E5%8D%B1%E9%99%A9%E5%8A%A8%E4%BD%9C"><span class="nav-number">1.7.8.</span> <span class="nav-text">直接修改文件内容(危险动作)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QA"><span class="nav-number">1.8.</span> <span class="nav-text">QA</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#awk"><span class="nav-number">2.</span> <span class="nav-text">awk</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F-3"><span class="nav-number">2.1.</span> <span class="nav-text">基本格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E9%80%89%E9%A1%B9%E4%BB%A5%E5%8F%8A%E5%90%AB%E4%B9%89"><span class="nav-number">2.2.</span> <span class="nav-text">命令选项以及含义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%84%9A%E6%9C%AC%E5%91%BD%E4%BB%A4"><span class="nav-number">2.3.</span> <span class="nav-text">脚本命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%B9%E9%85%8D%E8%A7%84%E5%88%99"><span class="nav-number">2.3.1.</span> <span class="nav-text">匹配规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk-%E4%BD%BF%E7%94%A8%E6%95%B0%E6%8D%AE%E5%AD%97%E6%AE%B5%E5%8F%98%E9%87%8F"><span class="nav-number">2.4.</span> <span class="nav-text">awk 使用数据字段变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk-%E8%84%9A%E6%9C%AC%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E5%91%BD%E4%BB%A4"><span class="nav-number">2.5.</span> <span class="nav-text">awk 脚本命令使用多个命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%951"><span class="nav-number">2.5.1.</span> <span class="nav-text">方法1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%952"><span class="nav-number">2.5.2.</span> <span class="nav-text">方法2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk%E4%BB%8E%E6%96%87%E4%BB%B6%E4%B8%AD%E8%AF%BB%E5%8F%96%E7%A8%8B%E5%BA%8F"><span class="nav-number">2.6.</span> <span class="nav-text">awk从文件中读取程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk-BEGIN%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">2.7.</span> <span class="nav-text">awk BEGIN关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk-END%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">2.8.</span> <span class="nav-text">awk END关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk-%E4%BD%BF%E7%94%A8%E5%8F%98%E9%87%8F"><span class="nav-number">2.9.</span> <span class="nav-text">awk 使用变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%BB%BA%E5%8F%98%E9%87%8F"><span class="nav-number">2.9.1.</span> <span class="nav-text">内建变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F"><span class="nav-number">2.9.2.</span> <span class="nav-text">自定义变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk%E4%BD%BF%E7%94%A8%E6%95%B0%E7%BB%84"><span class="nav-number">2.10.</span> <span class="nav-text">awk使用数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk%E4%BD%BF%E7%94%A8%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84"><span class="nav-number">2.11.</span> <span class="nav-text">awk使用分支结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk%E4%BD%BF%E7%94%A8%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84"><span class="nav-number">2.12.</span> <span class="nav-text">awk使用循环结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0"><span class="nav-number">2.13.</span> <span class="nav-text">awk使用函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#grep"><span class="nav-number">3.</span> <span class="nav-text">grep</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F-4"><span class="nav-number">3.1.</span> <span class="nav-text">基本格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%8F%82%E6%95%B0"><span class="nav-number">3.2.</span> <span class="nav-text">常用参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E4%B8%ADgrep%E5%91%BD%E4%BB%A4%E7%9A%84%E5%AE%9E%E7%94%A8%E7%A4%BA%E4%BE%8B"><span class="nav-number">3.3.</span> <span class="nav-text">Linux中grep命令的实用示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95%EF%BC%9A%E6%9F%A5%E6%89%BE%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E6%89%80%E6%9C%89%E7%9A%84%E5%8C%B9%E9%85%8D%E9%A1%B9"><span class="nav-number">3.3.1.</span> <span class="nav-text">基本用法：查找字符串中所有的匹配项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E5%88%97%E8%A1%A8%E4%B8%AD%E4%B8%8D%E5%8C%BA%E5%88%86%E5%A4%A7%E5%B0%8F%E5%86%99%E7%9A%84%E6%90%9C%E7%B4%A2"><span class="nav-number">3.3.2.</span> <span class="nav-text">在一个文件列表中不区分大小写的搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E6%89%80%E6%9C%89%E4%B8%8D%E5%8C%B9%E9%85%8D%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-number">3.3.3.</span> <span class="nav-text">查找所有不匹配的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E9%9A%90%E8%97%8F%E6%96%87%E4%BB%B6%E5%92%8C%E5%AD%90%E7%9B%AE%E5%BD%95%E4%B8%AD%E6%9F%A5%E6%89%BE"><span class="nav-number">3.3.4.</span> <span class="nav-text">在隐藏文件和子目录中查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E6%96%87%E4%BB%B6%E5%90%8D%E7%AD%9B%E9%80%89%E6%96%87%E4%BB%B6%EF%BC%88%E4%BD%BF%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%89"><span class="nav-number">3.3.5.</span> <span class="nav-text">按文件名筛选文件（使用正则表达式）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8grep%E6%8C%89%E6%96%87%E4%BB%B6%E5%90%8D%E7%AD%9B%E9%80%89%E6%96%87%E4%BB%B6"><span class="nav-number">3.3.6.</span> <span class="nav-text">使用grep按文件名筛选文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E5%8D%95%E8%AF%8D"><span class="nav-number">3.3.7.</span> <span class="nav-text">查找单词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E8%BE%93%E5%87%BA%E7%9D%80%E8%89%B2"><span class="nav-number">3.3.8.</span> <span class="nav-text">为输出着色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E5%8C%B9%E9%85%8D%E8%A1%8C%E6%88%96%E5%8C%B9%E9%85%8D%E6%96%87%E4%BB%B6"><span class="nav-number">3.3.9.</span> <span class="nav-text">计算匹配行或匹配文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E5%8C%B9%E9%85%8D%E9%9B%86%E4%B9%8B%E9%97%B4%E7%9A%84%E5%B7%AE%E5%BC%82"><span class="nav-number">3.3.10.</span> <span class="nav-text">寻找两个匹配集之间的差异</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">3.4.</span> <span class="nav-text">结语</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ripgrep"><span class="nav-number">4.</span> <span class="nav-text">ripgrep</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-ripgrep"><span class="nav-number">4.1.</span> <span class="nav-text">什么是 ripgrep</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-ripgrep"><span class="nav-number">4.2.</span> <span class="nav-text">安装 ripgrep</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-ripgrep-%E5%91%BD%E4%BB%A4"><span class="nav-number">4.3.</span> <span class="nav-text">使用 ripgrep 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%90%9C%E7%B4%A2"><span class="nav-number">4.4.</span> <span class="nav-text">基本搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E5%90%8E%E6%96%87%E6%90%9C%E7%B4%A2"><span class="nav-number">4.5.</span> <span class="nav-text">前后文搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%97%E9%80%89%E9%A1%B9"><span class="nav-number">4.6.</span> <span class="nav-text">列选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E9%80%89%E9%A1%B9"><span class="nav-number">4.7.</span> <span class="nav-text">其他选项</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">大人者，不失其赤子之心</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2024/01/01/192/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="192. Linux中的命令之文本处理 | Qeuroal's Blog">
+      <meta itemprop="description" content="文本处理三剑客:sed,awk和grep">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          192. Linux中的命令之文本处理
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-01-01 18:00:00" itemprop="dateCreated datePublished" datetime="2024-01-01T18:00:00+08:00">2024-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-08 14:36:58" itemprop="dateModified" datetime="2025-12-08T14:36:58+08:00">2025-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">文本处理三剑客:sed,awk和grep</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h1><p>Linux sed 命令是利用脚本来处理文本文件，它可依照脚本的指令来处理、编辑文本文件。</p>
+<p>Sed 主要用来自动编辑一个或多个文件、简化对文件的反复操作、编写转换程序等。</p>
+<p>sed 会根据脚本命令来处理文本文件中的数据，这些命令要么从命令行中输入，要么存储在一个文本文件中，此命令执行数据的顺序如下：</p>
+<ol>
+<li>每次 <strong>仅读取一行</strong> 内容；</li>
+<li>根据提供的规则命令匹配并修改数据。注意，sed <strong>默认不会直接修改源文件数据</strong>，而是会将数据复制到缓冲区中，修改也仅限于缓冲区中的数据；</li>
+<li>将执行结果输出。</li>
+</ol>
+<p>当一行数据匹配完成后，它会继续读取下一行数据，并重复这个过程，直到将文件中所有数据处理完毕。</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed [-hnV][-e&lt;script&gt;][-f&lt;script文件&gt;][文本文件]</span><br></pre></td></tr></table></figure>
+
+<h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-e&lt;script&gt;</code>或<code>--expression=&lt;script&gt;</code></td>
+<td>以选项中指定的script来处理输入的文本文件。</td>
+</tr>
+<tr>
+<td><code>-f&lt;script文件&gt;</code>或<code>--file=&lt;script文件&gt;</code></td>
+<td>以选项中指定的script文件来处理输入的文本文件。</td>
+</tr>
+<tr>
+<td><code>-h</code>或<code>--help</code></td>
+<td>显示帮助。</td>
+</tr>
+<tr>
+<td><code>-n</code>或<code>--quiet</code>或<code>--silent</code></td>
+<td>仅显示script处理后的结果。<br/>默认情况下，sed 会在所有的脚本指定执行完毕后，会自动输出处理后的内容，而该选项会屏蔽启动输出，需使用 <code>print</code> 命令来完成输出。</td>
+</tr>
+<tr>
+<td><code>--quiet</code></td>
+<td>仅显示脚本处理后的结果</td>
+</tr>
+<tr>
+<td><code>--silent</code></td>
+<td>仅显示脚本处理后的结果</td>
+</tr>
+<tr>
+<td><code>-r</code></td>
+<td>支持扩展正则表达式</td>
+</tr>
+<tr>
+<td><code>-V</code>或<code>--version</code></td>
+<td>显示版本信息。</td>
+</tr>
+</tbody></table>
+<h2 id="操作说明"><a href="#操作说明" class="headerlink" title="操作说明"></a>操作说明</h2><ul>
+<li><code>a</code> ：新增， <code>a</code> 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)</li>
+<li><code>c</code> ：取代， <code>c</code> 的后面可以接字串，这些字串可以取代 <code>n1,n2</code> 之间的行</li>
+<li><code>d</code> ：删除，因为是删除，所以 <code>d</code> 后面通常不接任何内容</li>
+<li><code>i</code> ：插入， <code>i</code> 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)</li>
+<li><code>p</code> ：打印，亦即将某个选择的数据印出。通常 <code>p</code> 会与参数 <code>sed -n</code> 一起运行</li>
+<li><code>s</code> ：取代，可以直接进行取代的工作哩！通常这个 s 的动作可以搭配正规表示法！例如 <code>1,20s/old/new/g</code></li>
+</ul>
+<h2 id="sed脚本命令"><a href="#sed脚本命令" class="headerlink" title="sed脚本命令"></a>sed脚本命令</h2><h3 id="sed-s-替换脚本命令"><a href="#sed-s-替换脚本命令" class="headerlink" title="sed s 替换脚本命令"></a>sed s 替换脚本命令</h3><h4 id="基本格式"><a href="#基本格式" class="headerlink" title="基本格式"></a>基本格式</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[address]s/pattern/replacement/flags</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>address 表示指定要操作的具体行</li>
+<li>pattern 指的是需要替换的内容</li>
+<li>replacement 指的是要替换的新内容</li>
+</ul>
+<h4 id="常用的-flags-标记"><a href="#常用的-flags-标记" class="headerlink" title="常用的 flags 标记"></a>常用的 flags 标记</h4><table>
+<thead>
+<tr>
+<th>flags 标记</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>n</code></td>
+<td>1~512 之间的数字，表示指定要替换的字符串出现第几次时才进行替换.<br>例如，一行中有 3 个 A，但用户只想替换第二个 A，这是就用到这个标记；</td>
+</tr>
+<tr>
+<td><code>g</code></td>
+<td>对数据中所有匹配到的内容进行替换，如果没有 g，则只会在第一次匹配成功时做替换操作。<br>例如，一行数据中有 3 个 A，则只会替换第一个 A；</td>
+</tr>
+<tr>
+<td><code>p</code></td>
+<td>会打印与替换命令中指定的模式匹配的行。此标记通常与 -n 选项一起使用。</td>
+</tr>
+<tr>
+<td><code>w file</code></td>
+<td>将缓冲区中的内容写到指定的 file 文件中；</td>
+</tr>
+<tr>
+<td><code>&amp;</code></td>
+<td>用正则表达式匹配的内容进行替换；</td>
+</tr>
+<tr>
+<td><code>\n</code></td>
+<td>匹配第 n 个子串，该子串之前在 pattern 中用 () 指定。</td>
+</tr>
+<tr>
+<td><code>\</code></td>
+<td>转义（转义替换部分包含：&amp;、\ 等）。</td>
+</tr>
+</tbody></table>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>替换类似文件路径的字符串会比较麻烦，需要将路径中的正斜线进行转义，如：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed <span class="string">&#x27;s/\/bin\/bash/\/bin\/csh/&#x27;</span> /etc/passwd</span><br></pre></td></tr></table></figure>
+
+<h3 id="sed-d-替换脚本命令"><a href="#sed-d-替换脚本命令" class="headerlink" title="sed d 替换脚本命令"></a>sed d 替换脚本命令</h3><h4 id="基本格式-1"><a href="#基本格式-1" class="headerlink" title="基本格式"></a>基本格式</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[address]d</span><br></pre></td></tr></table></figure>
+
+<h3 id="sed-a-和-i-脚本命令"><a href="#sed-a-和-i-脚本命令" class="headerlink" title="sed a 和 i 脚本命令"></a>sed a 和 i 脚本命令</h3><ul>
+<li>a 命令表示在指定行的后面附加一行</li>
+<li>i 命令表示在指定行的前面插入一行</li>
+</ul>
+<h4 id="基本格式-2"><a href="#基本格式-2" class="headerlink" title="基本格式"></a>基本格式</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[address]a \新文本内容</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[address]i \新文本内容</span><br></pre></td></tr></table></figure>
+
+<h4 id="多行"><a href="#多行" class="headerlink" title="多行"></a>多行</h4><p>如果你想将一个多行数据添加到数据流中，只需对要插入或附加的文本中的每一行末尾（除最后一行）添加反斜线即可</p>
+<h3 id="sed-c-替换脚本命令"><a href="#sed-c-替换脚本命令" class="headerlink" title="sed c 替换脚本命令"></a>sed c 替换脚本命令</h3><p>c 命令表示将指定行中的所有内容，替换成该选项后面的字符串。该命令的基本格式为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[address]c\用于替换的新文本</span><br></pre></td></tr></table></figure>
+
+<h3 id="sed-y-转换脚本命令"><a href="#sed-y-转换脚本命令" class="headerlink" title="sed y 转换脚本命令"></a>sed y 转换脚本命令</h3><p>y 转换命令是唯一可以处理单个字符的 sed 脚本命令，其基本格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[address]y/inchars/outchars/</span><br></pre></td></tr></table></figure>
+
+<p>转换命令会对 inchars 和 outchars 值进行一对一的映射，即 inchars 中的第一个字符会被转换为 outchars 中的第一个字符，第二个字符会被转换成 outchars 中的第二个字符…这个映射过程会一直持续到处理完指定字符。如果 inchars 和 outchars 的长度不同，则 sed 会产生一条错误消息。</p>
+<h3 id="sed-p-打印脚本命令"><a href="#sed-p-打印脚本命令" class="headerlink" title="sed p 打印脚本命令"></a>sed p 打印脚本命令</h3><p>p 命令表示搜索符号条件的行，并输出该行的内容，此命令的基本格式为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[address]p</span><br></pre></td></tr></table></figure>
+
+<h3 id="sed-w-脚本命令"><a href="#sed-w-脚本命令" class="headerlink" title="sed w 脚本命令"></a>sed w 脚本命令</h3><p>w 命令用来将文本中指定行的内容写入文件中，此命令的基本格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[address]w filename</span><br></pre></td></tr></table></figure>
+
+<p>这里的 filename 表示文件名，可以使用相对路径或绝对路径，但不管是哪种，运行 sed 命令的用户都必须有文件的写权限。</p>
+<h3 id="sed-r-脚本命令"><a href="#sed-r-脚本命令" class="headerlink" title="sed r 脚本命令"></a>sed r 脚本命令</h3><p>r 命令用于将一个独立文件的数据插入到当前数据流的指定位置，该命令的基本格式为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[address]r filename</span><br></pre></td></tr></table></figure>
+
+<p>sed 命令会将 filename 文件中的内容插入到 address 指定行的后面</p>
+<h3 id="sed-q-退出脚本命令"><a href="#sed-q-退出脚本命令" class="headerlink" title="sed q 退出脚本命令"></a>sed q 退出脚本命令</h3><p>q 命令的作用是使 sed 命令在第一次匹配任务结束后，退出 sed 程序，不再进行对后续数据的处理。</p>
+<h2 id="sed-脚本命令的寻址方式"><a href="#sed-脚本命令的寻址方式" class="headerlink" title="sed 脚本命令的寻址方式"></a>sed 脚本命令的寻址方式</h2><p>对各个脚本命令来说，address 用来表明该脚本命令作用到文本中的具体行</p>
+<p>默认情况下，sed 命令会作用于文本数据的所有行。如果只想将命令作用于特定行或某些行，则必须写明 address 部分，表示的方法有以下 2 种：</p>
+<ol>
+<li>以数字形式指定行区间；</li>
+<li>用文本模式指定具体行区间。</li>
+</ol>
+<p>以上两种形式<strong>都可以使用如下这 2 种格式</strong>，分别是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[address]脚本命令</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">address &#123;</span><br><span class="line">	多个脚本命令</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sed -n <span class="string">&#x27;/3/&#123;</span></span><br><span class="line"><span class="string">&gt; p</span></span><br><span class="line"><span class="string">&gt; s/line/test/p</span></span><br><span class="line"><span class="string">&gt; &#125;&#x27;</span> data6.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="以数字形式指定行区间"><a href="#以数字形式指定行区间" class="headerlink" title="以数字形式指定行区间"></a>以数字形式指定行区间</h3><p>当使用数字方式的行寻址时，可以用行在文本流中的行位置来引用。sed 会将文本流中的第一行编号为 1，然后继续按顺序为接下来的行分配行号。</p>
+<p>在脚本命令中，指定的地址可以是 <u>单个行号</u>，或是 <u>用起始行号、逗号以及结尾行号指定的一定区间范围内的行</u></p>
+<h3 id="用文本模式指定行区间"><a href="#用文本模式指定行区间" class="headerlink" title="用文本模式指定行区间"></a>用文本模式指定行区间</h3><p>sed 允许指定文本模式来过滤出命令要作用的行，格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/pattern/command</span><br></pre></td></tr></table></figure>
+
+<p>注意，必须用正斜线将要指定的 pattern 封起来，sed 会将该命令作用到包含指定文本模式的行上。</p>
+<p>sed 允许在文本模式&#x3D;&#x3D;使用正则表达式指明作用的具体行&#x3D;&#x3D;</p>
+<h2 id="sed-多行命令"><a href="#sed-多行命令" class="headerlink" title="sed 多行命令"></a>sed 多行命令</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Next 命令（N）</code></td>
+<td>将数据流中的下一行加进来创建一个多行组来处理。</td>
+</tr>
+<tr>
+<td><code>Delete（D）</code></td>
+<td>删除多行组中的一行。</td>
+</tr>
+<tr>
+<td><code>Print（P）</code></td>
+<td>打印多行组中的一行。</td>
+</tr>
+</tbody></table>
+<p><strong>注意</strong>，以上命令的缩写，都为大写。</p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>在testfile文件的第四行后添加一行，并将结果输出到标准输出，在命令行提示符下输入如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -e 4a\newLine testfile</span><br></pre></td></tr></table></figure>
+
+<p>首先查看testfile中的内容如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看testfile 中的内容</span></span><br><span class="line">$ <span class="built_in">cat</span> testfile  </span><br><span class="line">HELLO LINUX!</span><br><span class="line">Linux is a free unix-type opterating system.  </span><br><span class="line">This is a linux testfile!  </span><br><span class="line">Linux <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+
+<p>使用sed命令后，输出结果如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用sed 在第四行后添加新字符串</span></span><br><span class="line">$ sed -e 4a\newline testfile</span><br><span class="line">HELLO LINUX!</span><br><span class="line">Linux is a free unix-type opterating system.  </span><br><span class="line">This is a linux testfile!  </span><br><span class="line">Linux <span class="built_in">test</span>  </span><br><span class="line">newline </span><br></pre></td></tr></table></figure>
+
+<h3 id="以行为单位的新增-删除"><a href="#以行为单位的新增-删除" class="headerlink" title="以行为单位的新增&#x2F;删除"></a>以行为单位的新增&#x2F;删除</h3><p>将 <code>/etc/passwd</code> 的内容列出并且列印行号，同时，请将第 2~5 行删除！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~]<span class="comment"># nl /etc/passwd | sed &#x27;2,5d&#x27;</span></span><br><span class="line">1 root:x:0:0:root:/root:/bin/bash</span><br><span class="line">6 <span class="built_in">sync</span>:x:5:0:<span class="built_in">sync</span>:/sbin:/bin/sync</span><br><span class="line">7 shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown</span><br><span class="line">.....(后面省略).....</span><br></pre></td></tr></table></figure>
+
+<p>sed 的动作为 ‘<code>2,5d</code>‘ ，那个 <code>d</code> 就是删除！因为 <code>2-5</code> 行给他删除了，所以显示的数据就没有 <code>2-5</code> 了. 另外，注意一下，原本应该是要下达 <code>sed -e</code> 才对，没有 <code>-e</code> 也行啦！同时也要注意的是， sed 后面接的动作，请务必以 <code>&#39;&#39;</code> 两个单引号！</p>
+<p>只要删除第 2 行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">nl</span> /etc/passwd | sed <span class="string">&#x27;2d&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>要删除第 3 到最后一行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">nl</span> /etc/passwd | sed <span class="string">&#x27;3,$d&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>在第二行后(亦即是加在第三行)加上『drink tea?』字样！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~]<span class="comment"># nl /etc/passwd | sed &#x27;2a drink tea&#x27;</span></span><br><span class="line">1 root:x:0:0:root:/root:/bin/bash</span><br><span class="line">2 bin:x:1:1:bin:/bin:/sbin/nologin</span><br><span class="line">drink tea</span><br><span class="line">3 daemon:x:2:2:daemon:/sbin:/sbin/nologin</span><br><span class="line">.....(后面省略).....</span><br></pre></td></tr></table></figure>
+
+<p>那如果是要在第二行前</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">nl</span> /etc/passwd | sed <span class="string">&#x27;2i drink tea&#x27;</span> </span><br></pre></td></tr></table></figure>
+
+<p>如果是要增加两行以上，在第二行后面加入两行字，例如 Drink tea or ….. 与 drink beer?</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~]<span class="comment"># nl /etc/passwd | sed &#x27;2a Drink tea or ......\</span></span><br><span class="line">&gt; drink beer ?<span class="string">&#x27;</span></span><br><span class="line"><span class="string">1 root:x:0:0:root:/root:/bin/bash</span></span><br><span class="line"><span class="string">2 bin:x:1:1:bin:/bin:/sbin/nologin</span></span><br><span class="line"><span class="string">Drink tea or ......</span></span><br><span class="line"><span class="string">drink beer ?</span></span><br><span class="line"><span class="string">3 daemon:x:2:2:daemon:/sbin:/sbin/nologin</span></span><br><span class="line"><span class="string">.....(后面省略).....</span></span><br></pre></td></tr></table></figure>
+
+<p>每一行之间都必须要以反斜杠『 <code>\</code> 』来进行新行的添加喔！所以，上面的例子中，我们可以发现在第一行的最后面就有 <code>\</code> 存在。</p>
+<h3 id="以行为单位的替换与显示"><a href="#以行为单位的替换与显示" class="headerlink" title="以行为单位的替换与显示"></a>以行为单位的替换与显示</h3><p>将第2-5行的内容取代成为『No 2-5 number』呢？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~]<span class="comment"># nl /etc/passwd | sed &#x27;2,5c No 2-5 number&#x27;</span></span><br><span class="line">1 root:x:0:0:root:/root:/bin/bash</span><br><span class="line">No 2-5 number</span><br><span class="line">6 <span class="built_in">sync</span>:x:5:0:<span class="built_in">sync</span>:/sbin:/bin/sync</span><br><span class="line">.....(后面省略).....</span><br></pre></td></tr></table></figure>
+
+<p>透过这个方法我们就能够将数据整行取代了！</p>
+<p>仅列出 <code>/etc/passwd</code> 文件内的第 5-7 行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~]<span class="comment"># nl /etc/passwd | sed -n &#x27;5,7p&#x27;</span></span><br><span class="line">5 lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin</span><br><span class="line">6 <span class="built_in">sync</span>:x:5:0:<span class="built_in">sync</span>:/sbin:/bin/sync</span><br><span class="line">7 shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown</span><br></pre></td></tr></table></figure>
+
+<p>可以透过这个 sed 的以行为单位的显示功能， 就能够将某一个文件内的某些行号选择出来显示。</p>
+<h3 id="数据的搜寻并显示"><a href="#数据的搜寻并显示" class="headerlink" title="数据的搜寻并显示"></a>数据的搜寻并显示</h3><p>搜索 <code>/etc/passwd</code>有root关键字的行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">nl</span> /etc/passwd | sed <span class="string">&#x27;/root/p&#x27;</span></span><br><span class="line">1  root:x:0:0:root:/root:/bin/bash</span><br><span class="line">1  root:x:0:0:root:/root:/bin/bash</span><br><span class="line">2  daemon:x:1:1:daemon:/usr/sbin:/bin/sh</span><br><span class="line">3  bin:x:2:2:bin:/bin:/bin/sh</span><br><span class="line">4  sys:x:3:3:sys:/dev:/bin/sh</span><br><span class="line">5  <span class="built_in">sync</span>:x:4:65534:<span class="built_in">sync</span>:/bin:/bin/sync</span><br><span class="line">....下面忽略 </span><br></pre></td></tr></table></figure>
+
+<p>如果root找到，除了输出所有行，还会输出匹配行。</p>
+<p>使用<code>-n</code>的时候将只打印包含模板的行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">nl</span> /etc/passwd | sed -n <span class="string">&#x27;/root/p&#x27;</span></span><br><span class="line">1  root:x:0:0:root:/root:/bin/bash</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据的搜寻并删除"><a href="#数据的搜寻并删除" class="headerlink" title="数据的搜寻并删除"></a>数据的搜寻并删除</h3><p>删除<code>/etc/passwd</code>所有包含root的行，其他行输出</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">nl</span> /etc/passwd | sed  <span class="string">&#x27;/root/d&#x27;</span></span><br><span class="line">2  daemon:x:1:1:daemon:/usr/sbin:/bin/sh</span><br><span class="line">3  bin:x:2:2:bin:/bin:/bin/sh</span><br><span class="line">....下面忽略</span><br><span class="line"><span class="comment">#第一行的匹配root已经删除了</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="数据的搜寻并执行命令"><a href="#数据的搜寻并执行命令" class="headerlink" title="数据的搜寻并执行命令"></a>数据的搜寻并执行命令</h3><p>搜索<code>/etc/passwd</code>,找到root对应的行，执行后面花括号中的一组命令，每个命令之间用分号分隔，这里把bash替换为blueshell，再输出这行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">nl</span> /etc/passwd | sed -n <span class="string">&#x27;/root/&#123;s/bash/blueshell/;p;q&#125;&#x27;</span></span><br><span class="line">1  root:x:0:0:root:/root:/bin/blueshell</span><br></pre></td></tr></table></figure>
+
+<p>最后的q是退出。</p>
+<h3 id="数据的搜寻并替换"><a href="#数据的搜寻并替换" class="headerlink" title="数据的搜寻并替换"></a>数据的搜寻并替换</h3><p>除了整行的处理模式之外， sed 还可以用行为单位进行部分数据的搜寻并取代。基本上 sed 的搜寻与替代的与 vi 相当的类似！他有点像这样：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed <span class="string">&#x27;s/要被取代的字串/新的字串/g&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>先观察原始信息，利用 <code>/sbin/ifconfig</code> 查询 IP</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~]<span class="comment"># /sbin/ifconfig eth0</span></span><br><span class="line">eth0 Link encap:Ethernet HWaddr 00:90:CC:A6:34:84</span><br><span class="line">inet addr:192.168.1.100 Bcast:192.168.1.255 Mask:255.255.255.0</span><br><span class="line">inet6 addr: fe80::290:ccff:fea6:3484/64 Scope:Link</span><br><span class="line">UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1</span><br><span class="line">.....(以下省略).....</span><br></pre></td></tr></table></figure>
+
+<p>本机的ip是192.168.1.100。</p>
+<p>将 IP 前面的部分予以删除</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~]<span class="comment"># /sbin/ifconfig eth0 | grep &#x27;inet addr&#x27; | sed &#x27;s/^.*addr://g&#x27;</span></span><br><span class="line">192.168.1.100 Bcast:192.168.1.255 Mask:255.255.255.0</span><br></pre></td></tr></table></figure>
+
+<p>接下来则是删除后续的部分，亦即：192.168.1.100 Bcast:192.168.1.255 Mask:255.255.255.0</p>
+<p>将 IP 后面的部分予以删除</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~]<span class="comment"># /sbin/ifconfig eth0 | grep &#x27;inet addr&#x27; | sed &#x27;s/^.*addr://g&#x27; | sed &#x27;s/Bcast.*$//g&#x27;</span></span><br><span class="line">192.168.1.100</span><br></pre></td></tr></table></figure>
+
+<h3 id="多点编辑"><a href="#多点编辑" class="headerlink" title="多点编辑"></a>多点编辑</h3><p>一条sed命令，删除<code>/etc/passwd</code>第三行到末尾的数据，并把bash替换为blueshell</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">nl</span> /etc/passwd | sed -e <span class="string">&#x27;3,$d&#x27;</span> -e <span class="string">&#x27;s/bash/blueshell/&#x27;</span></span><br><span class="line">1  root:x:0:0:root:/root:/bin/blueshell</span><br><span class="line">2  daemon:x:1:1:daemon:/usr/sbin:/bin/sh</span><br></pre></td></tr></table></figure>
+
+<p><code>-e</code>表示多点编辑，第一个编辑命令删除<code>/etc/passwd</code>第三行到末尾的数据，第二条命令搜索bash替换为blueshell。</p>
+<h3 id="直接修改文件内容-危险动作"><a href="#直接修改文件内容-危险动作" class="headerlink" title="直接修改文件内容(危险动作)"></a>直接修改文件内容(危险动作)</h3><p>sed 可以直接修改文件的内容，不必使用管道命令或数据流重导向！不过，由於这个动作会直接修改到原始的文件，所以请你千万不要随便拿系统配置来测试！我们还是使用文件 regular_express.txt 文件来测试看看吧！</p>
+<p>regular_express.txt 文件内容如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~]<span class="comment"># cat regular_express.txt </span></span><br><span class="line">runoob.</span><br><span class="line">google.</span><br><span class="line">taobao.</span><br><span class="line">facebook.</span><br><span class="line">zhihu-</span><br><span class="line">weibo-</span><br></pre></td></tr></table></figure>
+
+<p>利用 sed 将 regular_express.txt 内每一行结尾若为 . 则换成 !</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~]<span class="comment"># sed -i &#x27;s/\.$/\!/g&#x27; regular_express.txt</span></span><br><span class="line">[root@www ~]<span class="comment"># cat regular_express.txt </span></span><br><span class="line">runoob!</span><br><span class="line">google!</span><br><span class="line">taobao!</span><br><span class="line">facebook!</span><br><span class="line">zhihu-</span><br><span class="line">weibo-:q:q</span><br></pre></td></tr></table></figure>
+
+<p>利用 sed 直接在 regular_express.txt 最后一行加入 # This is a test:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~]<span class="comment"># sed -i &#x27;$a # This is a test&#x27; regular_express.txt</span></span><br><span class="line">[root@www ~]<span class="comment"># cat regular_express.txt </span></span><br><span class="line">runoob!</span><br><span class="line">google!</span><br><span class="line">taobao!</span><br><span class="line">facebook!</span><br><span class="line">zhihu-</span><br><span class="line">weibo-</span><br><span class="line"><span class="comment"># This is a test</span></span><br></pre></td></tr></table></figure>
+
+<p>由于 <code>$</code> 代表的是最后一行，而 <code>a</code> 的动作是新增，因此该文件最后新增 <code># This is a test！</code></p>
+<p>sed 的 <code>-i</code> 选项可以直接修改文件内容，这功能非常有帮助！举例来说，如果你有一个 100 万行的文件，你要在第 100 行加某些文字，此时使用 vim 可能会疯掉！因为文件太大了！这个时候就可以使用 sed ，通过 sed 直接修改&#x2F;取代的功能，你甚至不需要使用 vim 去修订！</p>
+<h2 id="QA"><a href="#QA" class="headerlink" title="QA"></a>QA</h2><p><u><strong>Q: <code>sed &#39;s/\.$/\!/g&#39; text</code>和 <code>sed -e s/\.$/\!/g text</code> 区别</strong></u></p>
+<ul>
+<li><p>前者是将text中每行行尾的.(如果有)换成!</p>
+<p> 使用 <code>-e</code> 应当是这个命令: <code>sed -e s/\\.$/\!/g text</code></p>
+</li>
+<li><p>后者是将text中每行行尾的字符换成!</p>
+<p> 原因: 在命令行中 <code>\.</code> 被转移成了 <code>.</code></p>
+</li>
+</ul>
+<h1 id="awk"><a href="#awk" class="headerlink" title="awk"></a>awk</h1><p>和 sed 命令类似，awk 命令也是逐行扫描文件（从第 1 行到最后一行），寻找含有目标文本的行，如果匹配成功，则会在该行上执行用户想要的操作；反之，则不对行做任何处理。</p>
+<h2 id="基本格式-3"><a href="#基本格式-3" class="headerlink" title="基本格式"></a>基本格式</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk [选项] <span class="string">&#x27;脚本命令&#x27;</span> 文件名</span><br></pre></td></tr></table></figure>
+
+<h2 id="命令选项以及含义"><a href="#命令选项以及含义" class="headerlink" title="命令选项以及含义"></a>命令选项以及含义</h2><table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-F fs</code></td>
+<td>指定以 <code>fs</code> 作为输入行的分隔符，<code>awk</code> 命令默认分隔符为空格或制表符。</td>
+</tr>
+<tr>
+<td><code>-f file</code></td>
+<td>从脚本文件中读取 <code>awk</code> 脚本指令，以取代直接在命令行中输入指令。</td>
+</tr>
+<tr>
+<td><code>-v var=val</code></td>
+<td>在执行处理过程之前，设置一个变量 <code>var</code>，并给其设备初始值为 <code>val</code>。</td>
+</tr>
+<tr>
+<td><code>-mf nnn and -mr nnn</code></td>
+<td>对nnn值设置内在限制<br><code>-mf</code>选项限制分配给<code>nnn</code>的最大块数目；<br><code>-mr</code>选项限制记录的最大数目。<br>这两个功能是Bell实验室版awk的扩展功能，<strong>在标准awk中不适用</strong>。</td>
+</tr>
+<tr>
+<td><code>-W compact or --compat, -W traditional or --traditional</code></td>
+<td>在兼容模式下运行awk。所以gawk的行为和标准的awk完全一样，所有的awk扩展都被忽略。</td>
+</tr>
+<tr>
+<td><code>-W copyleft or --copyleft, -W copyright or --copyright</code></td>
+<td>打印简短的版权信息。</td>
+</tr>
+<tr>
+<td><code>-W help or --help</code>,</td>
+<td>打印全部awk选项</td>
+</tr>
+<tr>
+<td><code>-W usage or --usage</code></td>
+<td>打印每个选项的简短说明</td>
+</tr>
+<tr>
+<td><code>-W lint or --lint</code></td>
+<td>打印不能向传统unix平台移植的结构的警告。</td>
+</tr>
+<tr>
+<td><code>-W lint-old or --lint-old</code></td>
+<td>打印关于不能向传统unix平台移植的结构的警告。</td>
+</tr>
+<tr>
+<td><code>-W posix</code></td>
+<td>打开兼容模式。但有以下限制，不识别：<code>/x</code>、函数关键字、<code>func</code>、换码序列以及当fs是一个空格时，将新行作为一个域分隔符；操作符<code>**</code>和<code>**=</code>不能代替<code>^</code>和<code>^=</code>；fflush无效。</td>
+</tr>
+<tr>
+<td><code>-W re-interval or --re-inerval</code></td>
+<td>允许间隔正则表达式的使用，参考(grep中的Posix字符类)，如括号表达式<code>[[:alpha:]]</code>。</td>
+</tr>
+<tr>
+<td><code>-W source program-text or --source program-text</code></td>
+<td>使用<code>program-text</code>作为源代码，可与<code>-f</code>命令混用。</td>
+</tr>
+<tr>
+<td><code>-W version or --version</code></td>
+<td>打印bug报告信息的版本。</td>
+</tr>
+</tbody></table>
+<h2 id="脚本命令"><a href="#脚本命令" class="headerlink" title="脚本命令"></a>脚本命令</h2><p>awk 的强大之处在于脚本命令，它由 2 部分组成，分别为匹配规则和执行命令，如下所示</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;匹配规则&#123;执行命令&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="匹配规则"><a href="#匹配规则" class="headerlink" title="匹配规则"></a>匹配规则</h3><p>和 sed 命令中的 <code>address</code> 部分作用相同：用来指定脚本命令可以作用到文本内容中的具体行，可以使用字符串（比如 <code>/demo/</code>，表示查看含有 demo 字符串的行）或者正则表达式指定</p>
+<blockquote>
+<p>注意</p>
+</blockquote>
+<ul>
+<li>整个<strong>脚本命令是用单引号（’’）括起</strong>，而其中的<strong>执行命令部分需要用大括号（<code>&#123;&#125;</code>）括起来</strong></li>
+<li>在 awk 程序执行时，如果没有指定执行命令，则<strong>默认会把匹配的行输出</strong>；如果不指定匹配规则，则<strong>默认匹配文本中所有的行</strong></li>
+</ul>
+<h2 id="awk-使用数据字段变量"><a href="#awk-使用数据字段变量" class="headerlink" title="awk 使用数据字段变量"></a>awk 使用数据字段变量</h2><p>awk 的主要特性之一是其处理文本文件中数据的能力，它会自动给一行中的每个数据元素分配一个变量。</p>
+<p>默认情况下，awk 会将如下变量分配给它在文本行中发现的数据字段：</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>数据字段</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>$0</code></td>
+<td>代表整个文本行；</td>
+</tr>
+<tr>
+<td><code>$1</code></td>
+<td>代表文本行中的第 1 个数据字段；</td>
+</tr>
+<tr>
+<td><code>$2</code></td>
+<td>代表文本行中的第 2 个数据字段；</td>
+</tr>
+<tr>
+<td><code>$n</code></td>
+<td>代表文本行中的第 n 个数据字段。</td>
+</tr>
+</tbody></table>
+<p>在 awk 中，<strong>默认的字段分隔符是任意的空白字符</strong>（例如空格或制表符）。 在文本行中，每个数据字段都是通过字段分隔符划分的。awk 在读取一行文本时，会用预定义的字段分隔符划分每个数据字段。</p>
+<h2 id="awk-脚本命令使用多个命令"><a href="#awk-脚本命令使用多个命令" class="headerlink" title="awk 脚本命令使用多个命令"></a>awk 脚本命令使用多个命令</h2><h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><p>awk 允许将多条命令组合成一个正常的程序。要在命令行上的程序脚本中使用多条命令，只要在命令之间放个分号即可，例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;My name is Rich&quot;</span> | awk <span class="string">&#x27;&#123;$4=&quot;Christine&quot;; print $0&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>第一条命令会给字段变量 <code>$4</code> 赋值。第二条命令会打印整个数据字段。</p>
+<h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><p>可以一次一行地输入程序脚本命令，比如说：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;My name is Rich&quot; | awk &#x27;&#123;</span><br><span class="line">&gt; $4=&quot;Christine&quot;</span><br><span class="line">&gt; print $0&#125;&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>在你用了表示起始的单引号后，bash shell 会使用 <code>&gt;</code> 来提示输入更多数据，我们可以每次在每行加一条命令，直到输入了结尾的单引号。</p>
+<h2 id="awk从文件中读取程序"><a href="#awk从文件中读取程序" class="headerlink" title="awk从文件中读取程序"></a>awk从文件中读取程序</h2><p>跟 sed 一样，awk 允许将脚本命令存储到文件中，然后再在命令行中引用，比如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F : -f awk.sh /etc/passwd</span><br></pre></td></tr></table></figure>
+
+<p>注意，在程序文件中，也可以指定多条命令，<strong>只要一条命令放一行即可，之间不需要用分号</strong>。</p>
+<h2 id="awk-BEGIN关键字"><a href="#awk-BEGIN关键字" class="headerlink" title="awk BEGIN关键字"></a>awk BEGIN关键字</h2><p>awk 中还可以指定脚本命令的运行时机。默认情况下，awk 会从输入中读取一行文本，然后针对该行的数据执行程序脚本，但有时可能需要<strong>在处理数据前运行一些脚本命令</strong>，这就需要使用 BEGIN 关键字。</p>
+<p>BEGIN 会强制 awk 在读取数据前执行该关键字后指定的脚本命令</p>
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">&#x27;BEGIN &#123;print &quot;The data3 File Contents:&quot;&#125;</span></span><br><span class="line"><span class="string">&gt; &#123;print $0&#125;&#x27;</span> data3.txt</span><br></pre></td></tr></table></figure>
+
+<p>BEGIN 部分的脚本指令会在 awk 命令处理数据前运行，而真正用来处理数据的是第二段脚本命令。</p>
+<h2 id="awk-END关键字"><a href="#awk-END关键字" class="headerlink" title="awk END关键字"></a>awk END关键字</h2><p>和 BEGIN 关键字相对应，END 关键字允许我们指定一些脚本命令，awk 会在<strong>读完数据后执行它们</strong>，例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">&#x27;BEGIN &#123;print &quot;The data3 File Contents:&quot;&#125;</span></span><br><span class="line"><span class="string">&gt; &#123;print $0&#125;</span></span><br><span class="line"><span class="string">&gt; END &#123;print &quot;End of File&quot;&#125;&#x27;</span> data3.txt</span><br></pre></td></tr></table></figure>
+
+<p>当 awk 程序打印完文件内容后，才会执行 END 中的脚本命令。</p>
+<h2 id="awk-使用变量"><a href="#awk-使用变量" class="headerlink" title="awk 使用变量"></a>awk 使用变量</h2><p>在 awk 的脚本程序中，支持使用变量来存取值。awk 支持两种不同类型的变量：</p>
+<ul>
+<li>内建变量：awk 本身就创建好，用户可以直接拿来用的变量，这些变量用来存放处理数据文件中的某些字段和记录的信息。</li>
+<li>自定义变量：awk 支持用户自己创建变量。</li>
+</ul>
+<h3 id="内建变量"><a href="#内建变量" class="headerlink" title="内建变量"></a>内建变量</h3><p>awk 程序使用内建变量来引用程序数据里的一些特殊功能</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>$0</code></td>
+<td>代表整个文本行；</td>
+</tr>
+<tr>
+<td><code>$1</code></td>
+<td>代表文本行中的第 1 个数据字段；</td>
+</tr>
+<tr>
+<td><code>$2</code></td>
+<td>代表文本行中的第 2 个数据字段；</td>
+</tr>
+<tr>
+<td><code>$n</code></td>
+<td>代表文本行中的第 n 个数据字段。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>FIELDWIDTHS</code></td>
+<td>由空格分隔的一列数字，定义了每个数据字段的确切宽度。<br/>一旦设定了 FIELDWIDTHS 变量的值，就不能再改变了，因此，这种方法并&#x3D;&#x3D;不适用于变长的字段&#x3D;&#x3D;</td>
+</tr>
+<tr>
+<td><code>FNR</code></td>
+<td>当前输入文档的记录编号，常在有多个输入文档时使用。</td>
+</tr>
+<tr>
+<td><code>NR</code></td>
+<td>输入流的当前记录编号。</td>
+</tr>
+<tr>
+<td><code>FS</code></td>
+<td>输入字段分隔符</td>
+</tr>
+<tr>
+<td><code>RS</code></td>
+<td>输入记录分隔符，默认为换行符 \n。</td>
+</tr>
+<tr>
+<td><code>OFS</code></td>
+<td>输出字段分隔符，默认为空格。<br/>print 命令会自动将 OFS 变量的值放置在输出中的每个字段间</td>
+</tr>
+<tr>
+<td><code>ORS</code></td>
+<td>输出记录分隔符，默认为换行符 \n。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ARGC</code></td>
+<td>命令行参数个数。</td>
+</tr>
+<tr>
+<td><code>ARGIND</code></td>
+<td>当前文件在 ARGC 中的位置。</td>
+</tr>
+<tr>
+<td><code>ARGV</code></td>
+<td>包含命令行参数的数组。</td>
+</tr>
+<tr>
+<td><code>CONVFMT</code></td>
+<td>数字的转换格式，默认值为 %.6g。</td>
+</tr>
+<tr>
+<td><code>ENVIRON</code></td>
+<td>当前 shell 环境变量及其值组成的关联数组。</td>
+</tr>
+<tr>
+<td><code>ERRNO</code></td>
+<td>当读取或关闭输入文件发生错误时的系统错误号。</td>
+</tr>
+<tr>
+<td><code>FILENAME</code></td>
+<td>当前输入文档的名称。</td>
+</tr>
+<tr>
+<td><code>FNR</code></td>
+<td>&#x3D;&#x3D;当前数据文件&#x3D;&#x3D;中的数据行数。</td>
+</tr>
+<tr>
+<td><code>IGNORECASE</code></td>
+<td>设成非 0 值时，忽略 awk 命令中出现的字符串的字符大小写。</td>
+</tr>
+<tr>
+<td><code>NF</code></td>
+<td>数据文件中的字段总数。</td>
+</tr>
+<tr>
+<td><code>NR</code></td>
+<td>已处理的输入记录&#x3D;&#x3D;总数&#x3D;&#x3D;。会持续计数直到处理完所有的数据文件</td>
+</tr>
+<tr>
+<td><code>OFMT</code></td>
+<td>数字的输出格式，默认值为 %.6g。</td>
+</tr>
+<tr>
+<td><code>RLENGTH</code></td>
+<td>由 match 函数所匹配的子字符串的长度。</td>
+</tr>
+<tr>
+<td><code>TSTART</code></td>
+<td>由 match 函数所匹配的子字符串的起始位置。</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>理解</p>
+</blockquote>
+<ul>
+<li>字段分隔符：作用于 awk 每次处理的一个单元</li>
+<li>记录分隔符：用于区分 awk 每次要处理的一个单元</li>
+</ul>
+<h3 id="自定义变量"><a href="#自定义变量" class="headerlink" title="自定义变量"></a>自定义变量</h3><p>awk 允许用户定义自己的变量在脚本程序中使用。awk 自定义变量名可以是任意数目的字母、数字和下划线，但不能以数字开头。更重要的是，awk 变量名<strong>区分大小写</strong></p>
+<p>也可以用 awk 命令行来给程序中的变量赋值，这允许我们在正常的代码之外赋值，即时改变变量的值，比如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># awk &#x27;</span></span><br><span class="line">\&gt; BEGIN&#123;</span><br><span class="line">\&gt; testing=<span class="string">&quot;This is a test&quot;</span></span><br><span class="line">\&gt; <span class="built_in">print</span> testing</span><br><span class="line">\&gt; testing=45</span><br><span class="line">\&gt; <span class="built_in">print</span> testing</span><br><span class="line">\&gt; &#125;<span class="string">&#x27;</span></span><br><span class="line"><span class="string">This is a test</span></span><br><span class="line"><span class="string">45</span></span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，使用命令行参数来定义变量值会有一个问题，即设置了变量后，这个值在代码的 <code>BEGIN</code> 部分不可用，如下所示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]$ <span class="built_in">cat</span> script2</span><br><span class="line">BEGIN&#123;<span class="built_in">print</span> <span class="string">&quot;The starting value is&quot;</span>,n; FS=<span class="string">&quot;,&quot;</span>&#125;</span><br><span class="line">&#123;<span class="built_in">print</span> <span class="variable">$n</span>&#125;</span><br><span class="line">[root@localhost ~]$ awk -f script2 n=3 data1</span><br><span class="line">The starting value is</span><br><span class="line">data13</span><br><span class="line">data23</span><br><span class="line">data33</span><br></pre></td></tr></table></figure>
+
+<p>解决这个问题，可以用 <code>-v</code> 命令行参数，它可以实现在 BEGIN 代码之前设定变量。在命令行上，<code>-v</code> 命令行参数必须放在脚本代码之前，如下所示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]$ awk -v n=3 -f script2 data1</span><br><span class="line">The starting value is 3</span><br><span class="line">data13</span><br><span class="line">data23</span><br><span class="line">data33</span><br></pre></td></tr></table></figure>
+
+<h2 id="awk使用数组"><a href="#awk使用数组" class="headerlink" title="awk使用数组"></a>awk使用数组</h2><h2 id="awk使用分支结构"><a href="#awk使用分支结构" class="headerlink" title="awk使用分支结构"></a>awk使用分支结构</h2><h2 id="awk使用循环结构"><a href="#awk使用循环结构" class="headerlink" title="awk使用循环结构"></a>awk使用循环结构</h2><h2 id="awk使用函数"><a href="#awk使用函数" class="headerlink" title="awk使用函数"></a>awk使用函数</h2><h1 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h1><h2 id="基本格式-4"><a href="#基本格式-4" class="headerlink" title="基本格式"></a>基本格式</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep [option] pattern file</span><br></pre></td></tr></table></figure>
+
+<h2 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>-a</code></td>
+<td align="left">在二进制文件中搜索</td>
+</tr>
+<tr>
+<td align="center"><code>-b</code></td>
+<td align="left">显示匹配行距文件头部的偏移量</td>
+</tr>
+<tr>
+<td align="center"><code>-c</code></td>
+<td align="left">只显示匹配的行数</td>
+</tr>
+<tr>
+<td align="center"><code>-e</code></td>
+<td align="left">实现多个选项间的逻辑 or 关系</td>
+</tr>
+<tr>
+<td align="center"><code>-E</code></td>
+<td align="left">支持扩展正则表达式</td>
+</tr>
+<tr>
+<td align="center"><code>-f</code></td>
+<td align="left">从文件获取 <code>PATTERN</code> 匹配</td>
+</tr>
+<tr>
+<td align="center"><code>-F</code></td>
+<td align="left">匹配固定字符串的内容</td>
+</tr>
+<tr>
+<td align="center"><code>-h</code></td>
+<td align="left">搜索多文件时不显示文件名</td>
+</tr>
+<tr>
+<td align="center"><code>-i</code></td>
+<td align="left">忽略关键词大小写</td>
+</tr>
+<tr>
+<td align="center"><code>-l</code></td>
+<td align="left">只显示符合匹配条件的文件名</td>
+</tr>
+<tr>
+<td align="center"><code>-n</code></td>
+<td align="left">显示所有匹配行及其行号</td>
+</tr>
+<tr>
+<td align="center"><code>-o</code></td>
+<td align="left">显示匹配词距文件头部的偏移量</td>
+</tr>
+<tr>
+<td align="center"><code>-q</code></td>
+<td align="left">静默执行模式</td>
+</tr>
+<tr>
+<td align="center"><code>-r</code></td>
+<td align="left">递归搜索模式</td>
+</tr>
+<tr>
+<td align="center"><code>-s</code></td>
+<td align="left">不显示没有匹配文本的错误信息</td>
+</tr>
+<tr>
+<td align="center"><code>-v</code></td>
+<td align="left">显示不包含匹配文本的所有行，<strong>相当于<code>[^]</code> 反向匹配</strong></td>
+</tr>
+<tr>
+<td align="center"><code>-w</code></td>
+<td align="left">精准匹配整词</td>
+</tr>
+<tr>
+<td align="center"><code>-x</code></td>
+<td align="left">精准匹配整行</td>
+</tr>
+<tr>
+<td align="center"><code>-A &lt;行数 x&gt;</code></td>
+<td align="left">除了显示符合范本样式的那一列之外，并显示该行之后的 x 行内容。</td>
+</tr>
+<tr>
+<td align="center"><code>-B &lt;行数 x&gt;</code></td>
+<td align="left">除了显示符合样式的那一行之外，并显示该行之前的 x 行内容</td>
+</tr>
+<tr>
+<td align="center"><code>-C &lt;行数 x&gt;</code></td>
+<td align="left">除了显示符合样式的那一行之外，并显示该行之前后的 x 行内容</td>
+</tr>
+</tbody></table>
+<h2 id="Linux中grep命令的实用示例"><a href="#Linux中grep命令的实用示例" class="headerlink" title="Linux中grep命令的实用示例"></a>Linux中grep命令的实用示例</h2><p>如果你查看man手册，你会看到grep工具的简短描述：“打印与模式匹配的行。”</p>
+<p>但是，不要被这样一个简单的定义所误导：grep是Unix工具箱中最有用的工具之一，而且一旦您处理文本文件，就有无数次机会使用它。</p>
+<p>最好有真实的例子来学习事物是如何工作的。因此，我将使用asciidector.js源代码树来说明一些grep功能。</p>
+<p>你可以从GitHub下载源代码树，如果需要，甚至可以查看我在撰写本文时使用的相同变更集。这将确保获得与本文其余部分所述完全相同的结果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/asciidoctor/asciidoctor.js</span><br><span class="line"><span class="built_in">cd</span> asciidoctor.js</span><br><span class="line">git checkout v1.5.6-rc.1</span><br></pre></td></tr></table></figure>
+
+<h3 id="基本用法：查找字符串中所有的匹配项"><a href="#基本用法：查找字符串中所有的匹配项" class="headerlink" title="基本用法：查找字符串中所有的匹配项"></a>基本用法：查找字符串中所有的匹配项</h3><p>Asciidoctor.js支持Java平台的Nashorn JavaScript引擎。我不了解Nashorn，所以我可以借此机会通过探索引用JavaScript引擎的项目部分来了解更多关于它的信息。</p>
+<p>首先，我检查了package.json文件中是否有与Nashorn相关的设置，这些设置描述了项目依赖关系：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ grep nashorn package.json</span><br><span class="line">    <span class="string">&quot;test&quot;</span>: <span class="string">&quot;node npm/test/builder.js &amp;&amp; node npm/test/unsupported-features.js &amp;&amp; node npm/test/jasmine-browser.js &amp;&amp; node npm/test/jasmine-browser-min.js &amp;&amp; node npm/test/jasmine-node.js &amp;&amp; node npm/test/jasmine-webpack.js &amp;&amp; npm run test:karmaBrowserify &amp;&amp; npm run test:karmaRequirejs &amp;&amp; node npm/test/nashorn.js&quot;</span>,</span><br></pre></td></tr></table></figure>
+
+<p>是的，显然有一些 Nashorn-specific 测试。所以让我们再试一下。</p>
+<h3 id="在一个文件列表中不区分大小写的搜索"><a href="#在一个文件列表中不区分大小写的搜索" class="headerlink" title="在一个文件列表中不区分大小写的搜索"></a>在一个文件列表中不区分大小写的搜索</h3><p>现在，我想仔细看看 .&#x2F;npm&#x2F;test&#x2F; 目录中的文件。</p>
+<p>不区分大小写的搜索（<code>-i</code>选项）可能更好用，因为我需要同时查找对nashorn和nashorn的引用（或任何其他大小写字符的组合）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ grep -i nashorn npm/test/*.js</span><br><span class="line">npm/test/nashorn.js:const nashornModule = require(<span class="string">&#x27;../module/nashorn&#x27;</span>);</span><br><span class="line">npm/test/nashorn.js:log.task(<span class="string">&#x27;Nashorn&#x27;</span>);</span><br><span class="line">npm/test/nashorn.js:nashornModule.nashornRun(<span class="string">&#x27;jdk1.8.0&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>事实上，不区分大小写是很有用的，否则我将错过<code>require（&#39;../module/nashorn&#39;）</code>这一行。</p>
+<h3 id="查找所有不匹配的文件"><a href="#查找所有不匹配的文件" class="headerlink" title="查找所有不匹配的文件"></a>查找所有不匹配的文件</h3><p>另外，npm&#x2F;test&#x2F; 目录中是否有一些非 Nashorm 特定的文件？为了回答这个问题，我们可以使用 <code>grep</code> 的“打印不匹配文件”选项（<code>-L</code>选项）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ grep -iL nashorn npm/test/*</span><br><span class="line">npm/test/builder.js</span><br><span class="line">npm/test/jasmine-browser-min.js</span><br><span class="line">npm/test/jasmine-browser.js</span><br><span class="line">npm/test/jasmine-node.js</span><br><span class="line">npm/test/jasmine-webpack.js</span><br><span class="line">npm/test/unsupported-features.js</span><br></pre></td></tr></table></figure>
+
+<p>注意使用<code>-L</code>选项<code>grep</code>的输出是如何变为只显示文件名的。因此，上面的文件都不包含字符串“nashorn”（不管大小写）。这并不意味着它们与这项技术毫无关联，但至少，字母“n-a-s-h-o-r-n”并不存在。</p>
+<h3 id="在隐藏文件和子目录中查找"><a href="#在隐藏文件和子目录中查找" class="headerlink" title="在隐藏文件和子目录中查找"></a>在隐藏文件和子目录中查找</h3><p>上面两个命令使用shell glob模式将要检查的文件列表传递给<code>grep</code>命令。但是，这有一些固有的限制：星号（*）将不匹配隐藏的文件。两者都不会匹配子目录中包含的文件（最终）。</p>
+<p>解决方案是将<code>grep</code>与<code>find</code>命令结合起来，而不是依赖shell glob模式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This is not efficient as it will spawn a new grep process for each file</span></span><br><span class="line">linux@handbook:~$ find npm/test/ -<span class="built_in">type</span> f -<span class="built_in">exec</span> grep -iL nashorn \&#123;&#125; \;</span><br><span class="line"><span class="comment"># This may have issues with filenames containing space-like characters</span></span><br><span class="line">linux@handbook:~$ grep -iL nashorn $(find npm/test/ -<span class="built_in">type</span> f)</span><br></pre></td></tr></table></figure>
+
+<p>正如我在上面的代码块中提到的，这些解决方案都有缺点。</p>
+<p>关于包含空格字符的文件名，大家可以研究一下 <code>grep -z</code> 选项，它与<code>find</code>命令的 <code>-print0</code> 选项结合，可以解决这个问题。</p>
+<p>然而，更好的解决方案是使用<code>grep</code>的“<code>recursive</code>”（<code>-r</code>）选项。使用该选项，你可以在命令行上指定搜索树的根目录（起始目录），而不是要检查的文件名的显式列表。</p>
+<p>使用<code>-r</code>选项，grep将检查搜索目录中的所有文件，包括隐藏的文件，然后它将递归地遍历到所有子目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ grep -irL nashorn npm/test/npm/</span><br><span class="line">npm/test/builder.js</span><br><span class="line">npm/test/jasmine-browser-min.js</span><br><span class="line">npm/test/jasmine-browser.js</span><br><span class="line">npm/test/jasmine-node.js</span><br><span class="line">npm/test/jasmine-webpack.js</span><br><span class="line">npm/test/unsupported-features.js</span><br></pre></td></tr></table></figure>
+
+<p>事实上，有了这个选项，我们可以尝试上一个例子，查找与Nashnorn不匹配的：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ grep -irL nashorn npm/</span><br></pre></td></tr></table></figure>
+
+<p>大家可以自己尝试一下，看看结果是怎样的。</p>
+<h3 id="按文件名筛选文件（使用正则表达式）"><a href="#按文件名筛选文件（使用正则表达式）" class="headerlink" title="按文件名筛选文件（使用正则表达式）"></a>按文件名筛选文件（使用正则表达式）</h3><p>所以，在这个项目中有一些关于Nashorn的测试，既然Nashorn是Java的，那么另一个问题是“项目中是否有一些Java源文件明确提到了Nashorn？”</p>
+<p>根据你使用的grep版本，至少有两种解决方案可以回答这个问题。</p>
+<p>第一个是使用grep查找包含模式“nashorn”的所有文件，然后将第一个命令的输出通过管道传输到第二个grep实例，过滤掉非java源文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ grep -ir nashorn ./ | grep <span class="string">&quot;^[^:]*\.java&quot;</span></span><br><span class="line">./spec/nashorn/AsciidoctorConvertWithNashorn.java:public class AsciidoctorConvertWithNashorn &#123;</span><br><span class="line">./spec/nashorn/AsciidoctorConvertWithNashorn.java:    ScriptEngine engine = engineManager.getEngineByName(<span class="string">&quot;nashorn&quot;</span>);</span><br><span class="line">./spec/nashorn/AsciidoctorConvertWithNashorn.java:    engine.eval(new FileReader(<span class="string">&quot;./spec/nashorn/asciidoctor-convert.js&quot;</span>));</span><br><span class="line">./spec/nashorn/BasicJavascriptWithNashorn.java:public class BasicJavascriptWithNashorn &#123;</span><br><span class="line">./spec/nashorn/BasicJavascriptWithNashorn.java:    ScriptEngine engine = engineManager.getEngineByName(<span class="string">&quot;nashorn&quot;</span>);</span><br><span class="line">./spec/nashorn/BasicJavascriptWithNashorn.java:    engine.eval(new FileReader(<span class="string">&quot;./spec/nashorn/basic.js&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<p>这条命令的上半部分很好理解，那么后半部分的 “<code>^[\^:]*\.java</code>” 是什么意思呢？</p>
+<p>除非指定<code>-F</code>选项，否则grep将假定搜索模式是正则表达式。这意味着，除了与逐字匹配的普通字符外，您还可以访问一组元字符来描述更复杂的模式。我上面使用的模式将只匹配：</p>
+<ul>
+<li><code>^</code> 表示文本的开始；</li>
+<li><code>[^:]*</code> 后跟除冒号以外的任何字符序列；</li>
+<li><code>\.</code> 后跟一个点（点在<code>regex</code>中有特殊的含义，所以我必须用反斜杠来保护它，以表示我想要一个文字匹配）；</li>
+<li><code>java</code> 接着是四个字母“java”。</li>
+</ul>
+<p>实际上，由于grep将使用冒号将文件名与上下文分开，因此我只保留文件名部分中包含<code>.java</code>的行。值得一提的是，它还将匹配<code>.javascript</code>文件名。这个大家可以自己尝试一下。</p>
+<h3 id="使用grep按文件名筛选文件"><a href="#使用grep按文件名筛选文件" class="headerlink" title="使用grep按文件名筛选文件"></a>使用grep按文件名筛选文件</h3><p>正则表达式功能非常强大。然而，在这种特殊情况下，这似乎是杀伤力过大。更不用说上面的解决方案了，我们花时间检查所有文件以搜索“nashorn”模式—大多数结果都被管道的第二步丢弃。</p>
+<p>如果您使用的是grep的GNU版本（如果您使用的是Linux，则很可能是这样），那么您还有另一个带有<code>--include</code>选项的解决方案。这指示grep只搜索名称与给定glob模式匹配的文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ grep -ir nashorn ./ --include=<span class="string">&#x27;*.java&#x27;</span></span><br><span class="line">./spec/nashorn/AsciidoctorConvertWithNashorn.java:public class AsciidoctorConvertWithNashorn &#123;</span><br><span class="line">./spec/nashorn/AsciidoctorConvertWithNashorn.java:    ScriptEngine engine = engineManager.getEngineByName(<span class="string">&quot;nashorn&quot;</span>);</span><br><span class="line">./spec/nashorn/AsciidoctorConvertWithNashorn.java:    engine.eval(new FileReader(<span class="string">&quot;./spec/nashorn/asciidoctor-convert.js&quot;</span>));</span><br><span class="line">./spec/nashorn/BasicJavascriptWithNashorn.java:public class BasicJavascriptWithNashorn &#123;</span><br><span class="line">./spec/nashorn/BasicJavascriptWithNashorn.java:    ScriptEngine engine = engineManager.getEngineByName(<span class="string">&quot;nashorn&quot;</span>);</span><br><span class="line">./spec/nashorn/BasicJavascriptWithNashorn.java:    engine.eval(new FileReader(<span class="string">&quot;./spec/nashorn/basic.js&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="查找单词"><a href="#查找单词" class="headerlink" title="查找单词"></a>查找单词</h3><p>Asciidector.js项目的有趣之处在于它是一个多语言项目。asciidector的核心代码是用Ruby编写的，因此，为了在JavaScript世界中可用，它必须使用Opal（一种Ruby-to-JavaScript源代码到源代码的编译器）进行“传输”。另一项我以前不知道的技术。</p>
+<p>因此，在研究了Nashorn的特性之后，我需要更好地理解opal api。作为这个任务的第一步，我在项目的JavaScript文件中搜索了所有提到的Opal全局对象。它可能出现在（<code>Opal=</code>）、成员访问（<code>Opal.</code>）中，甚至可能出现在其他上下文中。正则表达式就可以了。然而，grep再一次有了一些更轻量级的解决方案来解决这个常见的用例。使用<code>-w</code>选项，它将只匹配单词，即前面和后面都是非单词字符的模式。非单词字符是行首、行尾或既非字母、数字也非下划线的任何字符：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ grep -irw --include=<span class="string">&#x27;*.js&#x27;</span> Opal .</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h3 id="为输出着色"><a href="#为输出着色" class="headerlink" title="为输出着色"></a>为输出着色</h3><p>我将上一个命令的输出粘贴在这里，因为有许多匹配项。当输出像那样密集时，您可能希望添加一点颜色以增加可读性。如果系统默认情况下尚未配置此功能，则可以使用GNU<code>--color</code>选项激活该功能：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ grep -irw --color=auto --include=<span class="string">&#x27;*.js&#x27;</span> Opal .</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>您应该获得与以前相同的长结果，但是这次搜索字符串应该以彩色显示。</p>
+<h3 id="计算匹配行或匹配文件"><a href="#计算匹配行或匹配文件" class="headerlink" title="计算匹配行或匹配文件"></a>计算匹配行或匹配文件</h3><p>我曾两次提到，前面命令的输出非常长。到底多长呢？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ grep -irw --include=<span class="string">&#x27;*.js&#x27;</span> Opal . | <span class="built_in">wc</span> -l</span><br><span class="line">86</span><br></pre></td></tr></table></figure>
+
+<p>这意味着我们在所有检查过的文件中总共有86行匹配的行。但是，有多少文件是匹配的呢？使用<code>-l</code>选项可以限制grep输出匹配文件，而不是显示匹配行。因此，简单的更改将显示匹配的文件数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ grep -irwl --include=<span class="string">&#x27;*.js&#x27;</span> Opal . | <span class="built_in">wc</span> -l</span><br><span class="line">20</span><br></pre></td></tr></table></figure>
+
+<p>如果这让您想起 <code>-L</code> 选项，那就不足为奇了，因为它比较常见，所以使用小写&#x2F;大写来区分互补选项 <code>-l</code> 显示匹配的文件名 <code>-L</code> 显示不匹配的文件名。作为另外一个例子，你可以查看手册中的 <code>-h/-H</code> 选项。</p>
+<p>让我们结束题外话，回到刚才的结果：86条匹配行，20个匹配的文件。但是，匹配文件中的匹配行是如何分布的？我们可以知道，使用grep的<code>-c</code>选项将计算每个已检查文件（包括零匹配的文件）的匹配行数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ grep -irwc --include=<span class="string">&#x27;*.js&#x27;</span> Opal .</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>通常，这还需要做一些事后处理工作。因为它按照检查文件的顺序显示其结果，并且还包括不匹配的文件—这通常是我们不感兴趣的。后者很容易解决：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ grep -irwc --include=<span class="string">&#x27;*.js&#x27;</span> Opal . | grep -v <span class="string">&#x27;:0$&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>关于排序，可以在管道末尾添加 sort 命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ grep -irwc --include=<span class="string">&#x27;*.js&#x27;</span> Opal . | grep -v <span class="string">&#x27;:0$&#x27;</span> | <span class="built_in">sort</span> -t: -k2n</span><br></pre></td></tr></table></figure>
+
+<p>大家可以自己查看关于 sort 的手册，来看一下上面的结果。</p>
+<h3 id="寻找两个匹配集之间的差异"><a href="#寻找两个匹配集之间的差异" class="headerlink" title="寻找两个匹配集之间的差异"></a>寻找两个匹配集之间的差异</h3><p>在前几个命令中，我搜索过单词“Opal”。但是，如果我在同一个文件集中搜索所有出现的字符串“Opal”，我会得到大约20个以上的答案：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ grep -irw --include=<span class="string">&#x27;*.js&#x27;</span> Opal . | <span class="built_in">wc</span> -l86$ grep -ir --include=<span class="string">&#x27;*.js&#x27;</span> Opal . | <span class="built_in">wc</span> -l105</span><br></pre></td></tr></table></figure>
+
+<p>找出这两组之间的差异将是有趣的。那么，包含四个字母“opal”的行是什么，但这四个字母不构成一个完整的单词呢？</p>
+<p>回答这个问题没那么容易。因为同一行既可以包含Opal这个词，也可以包含包含这四个字母的更大的词。但作为第一个近似值，您可以使用该管道：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ grep -ir --include=<span class="string">&#x27;*.js&#x27;</span> Opal . | grep -ivw Opal</span><br><span class="line">./npm/examples.js:  const opalBuilder = OpalBuilder.create();</span><br><span class="line">./npm/examples.js:  opalBuilder.appendPaths(<span class="string">&#x27;build/asciidoctor/lib&#x27;</span>);</span><br><span class="line">./npm/examples.js:  opalBuilder.appendPaths(<span class="string">&#x27;lib&#x27;</span>);</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>当然，仅仅通过发出几个grep命令，您将无法理解项目组织，更不用说代码体系结构了！</p>
+<p>然而，我发现在探索新的代码库时，识别基准和起点的命令是不可避免的。</p>
+<p>因此，希望能帮助您理解grep命令的强大功能，并将其添加到工具箱中。</p>
+<h1 id="ripgrep"><a href="#ripgrep" class="headerlink" title="ripgrep"></a>ripgrep</h1><p>ripgrep(rg) 是开源社区正在进行的 RIIR（re-write in Rust）工作的一个优秀成果。它旨在成为经典 grep 命令的高级替代工具。</p>
+<p>它的语法如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rg &lt;pattern&gt; [files/directories]</span><br></pre></td></tr></table></figure>
+
+<p>使用 ripgrep，可以不提供待搜索的文件名。<strong>如果没有提供文件名，那么就会搜索所有的文件</strong>。如果你不知道搜索的关键词在哪个文件中，那这种情况下是非常有用的。</p>
+<p>当然，我们也可以使用 grep 搜索所有的文件，但是 ripgrep 不需要提供额外的参数。</p>
+<h2 id="什么是-ripgrep"><a href="#什么是-ripgrep" class="headerlink" title="什么是 ripgrep"></a>什么是 ripgrep</h2><p>ripgrep 是一个递归正则表达式模式匹配工具，它考虑了 <strong>gitignore</strong>。如果你的 gitignore 中有排除的文件或目录，那么 ripgrep 将会忽略它们，从而加快搜索的执行时间。</p>
+<p>ripgrep 几个比较突出的特点如下：</p>
+<ul>
+<li>在目录中递归搜索；</li>
+<li>输出中不同颜色高亮显示；</li>
+<li>支持多种编码格式，比如 UTF-8，SHIFT_JIS等；</li>
+<li>可以在压缩文件的zip文件中搜索；</li>
+<li>默认情况下会忽略隐藏文件</li>
+<li>另外也会忽略 gitignore 文件中的过滤设置。</li>
+</ul>
+<p>你可以将其视同为 grep，但 <strong>ripgrep 搜索的是文件和文件内容，而不是 grep 所处理的原始字节流</strong>。</p>
+<h2 id="安装-ripgrep"><a href="#安装-ripgrep" class="headerlink" title="安装 ripgrep"></a>安装 ripgrep</h2><p>大多数 Linux 系统中都预装了 grep，但是 ripgrep 并没有这样的特权，所有我们需要手动安装它。</p>
+<p>ripgrep 在所有主流 Linux 发行版的存储库中都可用，所以我们可以使用包管理器来安装。</p>
+<p>如果你是 Arch Linux 用户，可以使用如下命令安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S ripgrep</span><br></pre></td></tr></table></figure>
+
+<p>Gentoo 用户使用如下命令安装 ripgrep：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">emerge sys-apps/ripgrep</span><br></pre></td></tr></table></figure>
+
+<p>Fedoras 或者 Red Hat 使用如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install ripgrep</span><br></pre></td></tr></table></figure>
+
+<p>openSUSE（15.1及更新版本）用户使用如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo zypper install ripgrep</span><br></pre></td></tr></table></figure>
+
+<p>Debian Buster（v10）或更高版本的用户，可使用 apt；Ubuntu Cosmic Cutlefish（18.10）或更高级版本也可以使用发行版的官方存储库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install ripgrep</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-ripgrep-命令"><a href="#使用-ripgrep-命令" class="headerlink" title="使用 ripgrep 命令"></a>使用 ripgrep 命令</h2><p>如果你熟悉 grep 命令，就会发现 ripgrep 与其工作原理类似。它<strong>接受一个字符串和文件名作为参数</strong>，运行时会搜索文件，并显示输入字符串与文件内容匹配的位置。</p>
+<h2 id="基本搜索"><a href="#基本搜索" class="headerlink" title="基本搜索"></a>基本搜索</h2><p>如下例子，我们在 Cargo.html 中搜索单词 description:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ rg description Cargo.toml</span><br><span class="line">3:description = <span class="string">&quot;A more intuitive version of du&quot;</span></span><br><span class="line">53:extended-description = <span class="string">&quot;&quot;</span><span class="string">&quot;\</span></span><br></pre></td></tr></table></figure>
+
+<p>ripgrep 将在指定的文件中搜索，结果将显示<strong>匹配的文本和行号</strong>：</p>
+<img data-src="/2024/01/01/192/640-20240117075331736.png" class="" title="图片">
+
+<p>如果搜索的是多个文件（如果不指定任何文件，它将搜索所有文件），那么ripgrep在搜索结果中还会显示文件名：</p>
+<img data-src="/2024/01/01/192/640-20240117075332037.png" class="" title="图片">
+
+<p>或者，可以使用 <code>--file</code> 选项，其中包含要搜索的关键词（表达式）。当你要搜索一组关键词时，可以将其放在一个文件中，然后使用 <code>--file </code>选项指定：</p>
+<img data-src="/2024/01/01/192/640-20240117075332099.png" class="" title="图片">
+
+<h2 id="前后文搜索"><a href="#前后文搜索" class="headerlink" title="前后文搜索"></a>前后文搜索</h2><p>有时候，有匹配的前后文是很好的显示方式，特别是在代码库中搜索时。使用前后文搜索，可以使用 <code>-C</code> 或者 <code>--context</code> 选项，该选项接受一个数值，并显示匹配值的前一行和后一行：</p>
+<img data-src="/2024/01/01/192/640-20240117075332029.png" class="" title="图片">
+
+<p>有时，我们只希望看到上面的几行，包括匹配的行；还有时候，我们只需要下面的行，包括匹配的行。使用选项 <code>-A</code>，或者 <code>--after-context</code>，后跟一个数值，将显示每个匹配行后的几行：</p>
+<img data-src="/2024/01/01/192/640-20240117075332032.png" class="" title="图片">
+
+<p>至于显示匹配行前面的几行，可以使用 <code>-B</code> 或者 <code>--before-context</code>，再提供一个数值（即行数）：</p>
+<img data-src="/2024/01/01/192/640-20240117075332033.png" class="" title="图片">
+
+<h2 id="列选项"><a href="#列选项" class="headerlink" title="列选项"></a>列选项</h2><p>关于 ripgrep 提供的列，有几个选项。</p>
+<p>如果你使用的是 vim，可以使用 <code>--column</code> 选项，这样将在结果中显示匹配文本在哪一列，以”<strong>行:列</strong>“的方式显示：</p>
+<img data-src="/2024/01/01/192/640-20240117075332092-5449212.png" class="" title="图片">
+
+<p>与列相关的另一个选项是 <code>-M</code> 或 <code>--max-columns</code>，它取最大列数的值。如果匹配行的列超过最大值，它会告诉你某一特定行在输出到终端时被忽略：</p>
+<img data-src="/2024/01/01/192/640-20240117075332176.png" class="" title="图片">
+
+<h2 id="其他选项"><a href="#其他选项" class="headerlink" title="其他选项"></a>其他选项</h2><p>除了上文中提到的，ripgrep 中还有其他几个选项。比如：可以使用 <code>-s</code> 或 <code>--case-sensitive</code> 选项来区分大小写：</p>
+<img data-src="/2024/01/01/192/640-20240117075332183.png" class="" title="图片">
+
+<p>如果不想区分大小写，可以使用 <code>-i</code> 或 <code>--ignore-case</code> ：</p>
+<img data-src="/2024/01/01/192/640-20240117080238997.png" class="" title="图片">
+
+<p>另外，如果你要搜索的目标文件特别大，可以启用多线程进行搜索。使用 <code>-j</code> 或 <code>--threads</code> 选项，后跟一个数值：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rg -j 4 TODO</span><br></pre></td></tr></table></figure>
+
+<p>在搜索中要<strong>排除</strong>某个关键词或表达式，可以使用 <code>-v</code> 或 <code>--invert-match</code> 选项：</p>
+<img data-src="/2024/01/01/192/640-20240117075332198.png" class="" title="图片">
+
+<p>ripgrep 可以实现在压缩文件（如果压缩文件是文本文件）中进行搜索，使用 <code>-z</code> 或 <code>--search-zip</code> 选项。其通常与 <code>-a</code> 选项一起使用，<code>-a</code> 选项会将二进制文件也当作文本文件。</p>
+<img data-src="/2024/01/01/192/640-20240117075332179.png" class="" title="图片">
+
+<p>ripgrep 是一个非常好用的工具，虽然它暗指要替代 grep，但实际上并不会取代 grep，因为它们的搜索目标是不同的。我们可以在日常工作中按需求来使用。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://qeuroal.top/2024/01/01/192/" title="192. Linux中的命令之文本处理">http://qeuroal.top/2024/01/01/192/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/01/01/191/" rel="prev" title="191. Linux的shell脚本及用法">
+                  <i class="fa fa-angle-left"></i> 191. Linux的shell脚本及用法
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/01/01/193/" rel="next" title="193. Linux中的命令之下载">
+                  193. Linux中的命令之下载 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Qeuroal" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

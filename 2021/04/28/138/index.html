@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="VIM 从0到1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="138. VIM&#39;s World">
+<meta property="og:url" content="http://qeuroal.top/2021/04/28/138/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Blog">
+<meta property="og:description" content="VIM 从0到1">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qeuroal.top/2021/04/28/138/NeatReader-1705542249273.png">
+<meta property="og:image" content="http://qeuroal.top/2021/04/28/138/image-20240118094351102.png">
+<meta property="og:image" content="http://qeuroal.top/2021/04/28/138/NeatReader-1705543467708.png">
+<meta property="og:image" content="http://qeuroal.top/2021/04/28/138/NeatReader-1705543957589.png">
+<meta property="og:image" content="http://qeuroal.top/2021/04/28/138/NeatReader-1705620750983.png">
+<meta property="og:image" content="http://qeuroal.top/2021/04/28/138/image-20240119075546368.png">
+<meta property="og:image" content="http://qeuroal.top/2021/04/28/138/image-20240119075619925.png">
+<meta property="og:image" content="http://qeuroal.top/2021/04/28/138/image-20240119075736499.png">
+<meta property="og:image" content="http://qeuroal.top/2021/04/28/138/vi-vim-cheat-sheet.gif">
+<meta property="og:image" content="http://qeuroal.top/2021/04/28/138/vi-vim-cheat-sheet-sch-zh.gif">
+<meta property="og:image" content="http://qeuroal.top/2021/04/28/138/entry.png">
+<meta property="og:image" content="http://qeuroal.top/2021/04/28/138/vim_cheat_sheet_for_programmers_print.png">
+<meta property="og:image" content="http://qeuroal.top/2021/04/28/138/modern.png">
+<meta property="og:image" content="http://qeuroal.top/2021/04/28/138/vimqrc.pdf">
+<meta property="article:published_time" content="2021-04-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-08T06:36:58.355Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="software">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="vim">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qeuroal.top/2021/04/28/138/NeatReader-1705542249273.png">
+
+
+<link rel="canonical" href="http://qeuroal.top/2021/04/28/138/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2021/04/28/138/","path":"2021/04/28/138/","title":"138. VIM's World"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>138. VIM's World | Qeuroal's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Qeuroal's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">静幽正治</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%84%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">各系统下安装方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Red-Hat-%E5%92%8C-CentOS-%E7%B3%BB%E5%88%97"><span class="nav-number">1.1.</span> <span class="nav-text">Red Hat 和 CentOS 系列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debian-%E5%92%8C-Ubuntu-%E7%B3%BB%E5%88%97"><span class="nav-number">1.2.</span> <span class="nav-text">Debian 和 Ubuntu 系列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%8B%E5%B7%A5%E7%BC%96%E8%AF%91"><span class="nav-number">1.3.</span> <span class="nav-text">手工编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#macOS-%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">1.4.</span> <span class="nav-text">macOS 下的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-Homebrew-%E5%AE%89%E8%A3%85-MacVim"><span class="nav-number">1.4.1.</span> <span class="nav-text">使用 Homebrew 安装 MacVim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%AE%89%E8%A3%85%E5%8C%85%E5%AE%89%E8%A3%85-MacVim"><span class="nav-number">1.4.2.</span> <span class="nav-text">使用安装包安装 MacVim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QA"><span class="nav-number">1.4.3.</span> <span class="nav-text">QA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows-%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">1.5.</span> <span class="nav-text">Windows 下的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cygwin-MSYS2"><span class="nav-number">1.5.1.</span> <span class="nav-text">Cygwin&#x2F;MSYS2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E4%BD%BF%E7%94%A8-Vim"><span class="nav-number">1.6.</span> <span class="nav-text">远程使用 Vim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0-Vim"><span class="nav-number">1.7.</span> <span class="nav-text">学习 Vim</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E6%96%87%E5%B8%AE%E5%8A%A9%E6%96%87%E4%BB%B6"><span class="nav-number">1.7.1.</span> <span class="nav-text">中文帮助文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vim-%E6%95%99%E7%A8%8B"><span class="nav-number">1.7.2.</span> <span class="nav-text">Vim 教程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%AE%E7%9B%98%E9%87%8D%E9%85%8D%E7%BD%AE"><span class="nav-number">1.8.</span> <span class="nav-text">键盘重配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text">基本概念与基础命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%AE%E7%9B%98%E5%9B%BE"><span class="nav-number">2.1.</span> <span class="nav-text">键盘图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vim-%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%91%BD%E4%BB%A4"><span class="nav-number">2.1.1.</span> <span class="nav-text">Vim 的命令行命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vim%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.2.</span> <span class="nav-text">Vim模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vim-%E7%9A%84%E9%94%AE%E6%8F%8F%E8%BF%B0%E4%BD%93%E4%BE%8B"><span class="nav-number">2.3.</span> <span class="nav-text">Vim 的键描述体例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vim-%E7%9A%84%E9%80%89%E9%A1%B9%E5%92%8C%E9%85%8D%E7%BD%AE"><span class="nav-number">2.4.</span> <span class="nav-text">Vim 的选项和配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%87%E4%BB%BD%E5%92%8C%E6%92%A4%E9%94%80%E6%96%87%E4%BB%B6"><span class="nav-number">2.4.1.</span> <span class="nav-text">备份和撤销文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BC%A0%E6%A0%87%E6%94%AF%E6%8C%81-not-recommend"><span class="nav-number">2.4.2.</span> <span class="nav-text">鼠标支持 (not recommend)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E6%96%87%E6%94%AF%E6%8C%81"><span class="nav-number">2.4.3.</span> <span class="nav-text">中文支持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E7%9A%84%E5%AD%97%E4%BD%93%E9%85%8D%E7%BD%AE"><span class="nav-number">2.4.4.</span> <span class="nav-text">图形界面的字体配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">3.</span> <span class="nav-text">移动命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E8%AE%A1%E6%95%B0"><span class="nav-number">3.1.</span> <span class="nav-text">移动计数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E5%AF%BC%E8%88%AA"><span class="nav-number">3.2.</span> <span class="nav-text">字符导航</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E8%AF%8D%E5%AF%BC%E8%88%AA"><span class="nav-number">3.3.</span> <span class="nav-text">单词导航</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%93%E5%89%8D%E8%A1%8C%E5%AF%BC%E8%88%AA"><span class="nav-number">3.4.</span> <span class="nav-text">当前行导航</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%A5%E5%AD%90%E5%92%8C%E6%AE%B5%E8%90%BD%E5%AF%BC%E8%88%AA"><span class="nav-number">3.5.</span> <span class="nav-text">句子和段落导航</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%A5%E5%AD%90"><span class="nav-number">3.5.1.</span> <span class="nav-text">句子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AE%B5%E8%90%BD"><span class="nav-number">3.5.2.</span> <span class="nav-text">段落</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%B9%E9%85%8D%E5%AF%BC%E8%88%AA"><span class="nav-number">3.6.</span> <span class="nav-text">匹配导航</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%8C%E5%8F%B7%E5%AF%BC%E8%88%AA"><span class="nav-number">3.7.</span> <span class="nav-text">行号导航</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AA%97%E6%A0%BC%E5%AF%BC%E8%88%AA"><span class="nav-number">3.8.</span> <span class="nav-text">窗格导航</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BB%9A%E5%8A%A8"><span class="nav-number">3.9.</span> <span class="nav-text">滚动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E5%AF%BC%E8%88%AA"><span class="nav-number">3.10.</span> <span class="nav-text">搜索导航</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%8D%E7%BD%AE%E6%A0%87%E8%AE%B0"><span class="nav-number">3.11.</span> <span class="nav-text">位置标记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%B3%E8%BD%AC"><span class="nav-number">3.12.</span> <span class="nav-text">跳转</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">文本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E4%BF%AE%E6%94%B9"><span class="nav-number">4.1.</span> <span class="nav-text">文本修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E9%80%89%E6%8B%A9"><span class="nav-number">4.2.</span> <span class="nav-text">文本选择</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%82%B9%E5%91%BD%E4%BB%A4"><span class="nav-number">5.</span> <span class="nav-text">点命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vim%E5%AE%9A%E5%88%B6"><span class="nav-number">6.</span> <span class="nav-text">vim定制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="nav-number">6.1.</span> <span class="nav-text">目录结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E8%BF%90%E8%A1%8C%E6%94%AF%E6%8C%81%E6%96%87%E4%BB%B6"><span class="nav-number">6.1.1.</span> <span class="nav-text">安装目录下的运行支持文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%9A%84-Vim-%E9%85%8D%E7%BD%AE%E7%9B%AE%E5%BD%95"><span class="nav-number">6.1.2.</span> <span class="nav-text">用户的 Vim 配置目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vim-8-%E6%96%B0%E5%8A%9F%E8%83%BD"><span class="nav-number">6.2.</span> <span class="nav-text">Vim 8 新功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vim-%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="nav-number">6.2.1.</span> <span class="nav-text">Vim 软件包</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8A%98%E5%8F%A0"><span class="nav-number">7.</span> <span class="nav-text">折叠</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Folds-%E6%8A%98%E5%8F%A0%E5%91%BD%E4%BB%A4"><span class="nav-number">7.1.</span> <span class="nav-text">Folds 折叠命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#diff"><span class="nav-number">8.</span> <span class="nav-text">diff</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#vimdiff-mode-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5%E8%A1%A8-cheat-sheet"><span class="nav-number">8.1.</span> <span class="nav-text">vimdiff mode 常用命令速查表(cheat sheet)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vimdiff%E5%90%88%E5%B9%B6git%E5%86%B2%E7%AA%81"><span class="nav-number">8.2.</span> <span class="nav-text">vimdiff合并git冲突</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEvimdiff"><span class="nav-number">8.2.1.</span> <span class="nav-text">设置vimdiff</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%88%E5%B9%B6%E5%86%B2%E7%AA%81"><span class="nav-number">8.2.2.</span> <span class="nav-text">合并冲突</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vim%E5%9B%BE%E8%A7%A3"><span class="nav-number">9.</span> <span class="nav-text">vim图解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%8F%E5%85%B8%E7%89%88"><span class="nav-number">9.1.</span> <span class="nav-text">经典版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A5%E9%97%A8%E7%89%88"><span class="nav-number">9.2.</span> <span class="nav-text">入门版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6%E7%89%88"><span class="nav-number">9.3.</span> <span class="nav-text">进阶版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A2%9E%E5%BC%BA%E7%89%88"><span class="nav-number">9.4.</span> <span class="nav-text">增强版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E5%AD%97%E7%89%88"><span class="nav-number">9.5.</span> <span class="nav-text">文字版</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">大人者，不失其赤子之心</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2021/04/28/138/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="138. VIM's World | Qeuroal's Blog">
+      <meta itemprop="description" content="VIM 从0到1">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          138. VIM's World
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-04-28 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-28T00:00:00+08:00">2021-04-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-08 14:36:58" itemprop="dateModified" datetime="2025-12-08T14:36:58+08:00">2025-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/software/" itemprop="url" rel="index"><span itemprop="name">software</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">VIM 从0到1</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="各系统下安装方法"><a href="#各系统下安装方法" class="headerlink" title="各系统下安装方法"></a>各系统下安装方法</h1><p>安装这个主题让这篇文章看起来更客观. 方法: google一下!</p>
+<h2 id="Red-Hat-和-CentOS-系列"><a href="#Red-Hat-和-CentOS-系列" class="headerlink" title="Red Hat 和 CentOS 系列"></a>Red Hat 和 CentOS 系列</h2><p>在 Red Hat Linux 和 CentOS Linux 上，默认安装的 Vim 可能是一个最小功能的版本。虽然这个版本启动速度很快，但它缺少了很多对开发有用的功能，如语法加亮、Python 集成和图形界面。一般情况下，应至少安装更全功能版本的 Vim；如果能使用 X Window 的话，则应安装图形界面版本。</p>
+<p>你可以通过下面的命令来查看已经安装的 Vim 版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list installed | grep vim</span><br></pre></td></tr></table></figure>
+
+<p>如果输出只有下面这样的内容的话，就说明安装的 Vim 版本只有基本功能：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim-minimal.x86_64 2:8.0.1763-13.el8 @System</span><br></pre></td></tr></table></figure>
+
+<p>建议使用 <code>sudo yum install vim-X11</code> 来安装图形界面的 Vim，或至少使用 <code>sudo yum install vim-enhanced</code> 来安装增强版本的 Vim（如果你不在这台机器上进行图形界面登录的话）。</p>
+<p>只要你使用图形界面，一般而言，你都应该安装有图形界面支持的 Vim。总体而言，图形界面 Vim 的功能更丰富，并且即使你只在终端里使用 Vim，含图形界面支持的 Vim 会带剪贴板支持，跟整个图形环境的交互也就比较容易。当然，如果你只是远程通过 SSH 使用 Vim 的话，那确实图形界面支持就没有意义了。</p>
+<h2 id="Debian-和-Ubuntu-系列"><a href="#Debian-和-Ubuntu-系列" class="headerlink" title="Debian 和 Ubuntu 系列"></a>Debian 和 Ubuntu 系列</h2><p>在 Debian、Ubuntu 等使用 apt 的 Linux 发行版上，Vim 同样有着不同功能版本的区别，而且选择更多。我们可能会看到：</p>
+<ul>
+<li>vim</li>
+<li>vim-athena</li>
+<li>vim-gnome</li>
+<li>vim-gtk</li>
+<li>vim-gtk3</li>
+<li>vim-nox</li>
+<li>vim-tiny</li>
+</ul>
+<p>它们中有编译进最小功能的 Vim 包（vim-tiny），有较全功能的文本界面 Vim 包（vim-nox），有适用于老的 X-Window 界面的版本（vim-athena），有适用于 KDE 环境的 GTK2 版本（vim-gtk），等等。</p>
+<p>如果你不确定要装什么版本的话，那可以遵循我下面的建议：</p>
+<ul>
+<li>如果你使用标准的 GNOME 桌面环境的话（大部分的情况），安装 vim-gtk3 或 vim-gnome。</li>
+<li>如果你使用 KDE 桌面的话，安装 vim-gtk。</li>
+<li>如果你只使用文本界面的话，安装 vim-nox。</li>
+<li>都不是？那你是个爱自己定制的家伙，也就不需要我告诉你该安装什么了。</li>
+</ul>
+<p>你可以通过下面的命令来查看已经安装的 Vim 版本：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt list --installed | grep vim</span><br></pre></td></tr></table></figure>
+
+<p>我们先执行 <code>sudo apt update</code> 来确保更新环境，然后使用 <code>sudo apt install vim-gtk3</code> 安装 GTK3 版本的 Vim（或者其他你需要的版本）。如果你安装了图形界面的版本，不必单独再另外安装其他版本的 Vim，因为图形版本的 Vim 也是可以纯文本启动的。事实上，在 Ubuntu 上，<code>vim</code> 和 <code>gvim</code> 都是指向同一个应用程序的符号链接，且 <code>gvim</code> 的执行效果和 <code>vim -g</code> 相同。</p>
+<img data-src="/2021/04/28/138/NeatReader-1705542249273.png" class="" title="NeatReader-1705542249273">
+
+<h2 id="手工编译"><a href="#手工编译" class="headerlink" title="手工编译"></a>手工编译</h2><p>如果你用的 Linux 发行版较老的话，你可能会希望手工编译 Vim 来得到最新的版本。此时需要注意的是，Vim 有很多的编译配置选项，有些缺省是不打开的。对于这个课程来讲，我们会希望至少加上 Python 支持和图形界面支持。</p>
+<p>你首先需要确保自己已经安装了所需的开发包（可以参考<a target="_blank" rel="noopener" href="https://superuser.com/a/749760/270697">这个网上的回答</a>）。然后，我们可以使用下面的命令来配置 Vim 和编译（根据需要，“auto”也可以替换成“gtk3”等其他需要的数值）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">./configure --enable-pythoninterp \</span><br><span class="line">			--enable-python3interp \</span><br><span class="line">			--enable-gui=auto</span><br><span class="line">make -j</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+
+<p>如果上述步骤正常没有出错，Vim就被成功安装到 &#x2F;usr&#x2F;local 下了。你可以用 <code>which vim</code> 来检查系统是否会自动优先选择你的 vim：如果不是的话，你可能需要调整 PATH 里的顺序，或者设置别名来优先启动 &#x2F;usr&#x2F;local&#x2F;bin&#x2F;vim）。然后，你可以使用 <code>vim --version</code> 命令来输出 vim 的版本信息。我们希望能在输出里看到：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Huge version with … GUI</span><br><span class="line">+python/dyn</span><br><span class="line">+python3/dyn</span><br></pre></td></tr></table></figure>
+
+<p>目前 Python 2 已经停止支持，所以你最好可以确保上面的输出中包含“+python3”（很多 Vim 的插件已经开始要求 Python 3、不再支持 Python 2 了）；没有“+python”（即 Python 2）则没什么关系（有没有“dyn”关系也不大）。 </p>
+<img data-src="/2021/04/28/138/image-20240118094351102.png" class="" title="image-20240118094351102">
+
+<h2 id="macOS-下的安装"><a href="#macOS-下的安装" class="headerlink" title="macOS 下的安装"></a>macOS 下的安装</h2><p>在 macOS 中一般已经内置了 vim，并提供了除图形界面外的较完整功能集。如果你希望使用图形界面，则需要自行安装 MacVim，一个跟现代 macOS 融合较好的独立 Vim 版本。安装 MacVim 有两种常用方式：</p>
+<ul>
+<li>使用 Homebrew。我推荐你使用这种方式，这样的话，以后升级也会比较容易。</li>
+<li>使用 MacVim 的独立安装包。如果你之前没有在用 Homebrew 的话，或处于不方便使用 Homebrew 的网络环境中，这种方式也可以。</li>
+</ul>
+<p>由于使用 Homebrew 已经足够简单，日后升级也非常方便，个人觉得我们没必要自己去编译 MacVim。</p>
+<h3 id="使用-Homebrew-安装-MacVim"><a href="#使用-Homebrew-安装-MacVim" class="headerlink" title="使用 Homebrew 安装 MacVim"></a>使用 Homebrew 安装 MacVim</h3><p>首先，如果你没有 Homebrew，那你需要先安装 Homebrew。安装信息可以在 <a target="_blank" rel="noopener" href="https://brew.sh/">Homebrew 的主页</a> 上找到（这个网站是支持中文的）。</p>
+<p>在安装了 Homebrew 之后，一般情况下，你需要修改你的 <code>.bash_profile</code>（如果使用 Bash 的话）、<code>.zprofile</code>（如果使用 Zsh 的话）或是相应的 shell 的配置文件，<strong>调整 PATH，把 <code>/usr/local/bin</code> 放到 <code>/usr/bin</code> 前面</strong>。我个人在 <code>.bash_profile</code> 里是这样配置的：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [[ <span class="variable">$PATH</span> != <span class="string">&quot;<span class="variable">$HOME</span>/bin&quot;</span>* ]]; <span class="keyword">then</span></span><br><span class="line">	PATH=~/bin:/usr/local/bin:/usr/local/sbin:`<span class="built_in">echo</span> <span class="variable">$PATH</span>|sed -e <span class="string">&quot;s!:<span class="variable">$HOME</span>/bin!!&quot;</span> -e <span class="string">&#x27;s!:/usr/local/bin!!&#x27;</span>`</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+<p>这样，可以<strong>确保个人的路径优先于 <code>/usr/local</code>，而 <code>/usr/local</code> 下的路径又优先于系统的路径。</strong></p>
+<p>如果你这样配置的话，那只要执行 <code>brew install macvim</code>，然后在等待安装完成之后，你用 <code>vim</code> 启动的就是 MacVim 了。缺省用 <code>vim</code> 运行的仍然是纯文本界面的 Vim，但跟 Linux 一样，你可以用 <code>vim -g</code> 或 <code>gvim</code>（还有仅用在 Mac 上的 <code>mvim</code>）来启动 Vim 的图形界面。</p>
+<p>跟 Homebrew 里的其他软件一样，你以后要升级 MacVim 的话，只需要输入命令 <code>brew upgrade macvim</code> 即可。是不是很简单？这就是为什么我比较推荐这种安装方式，后期升级真的更容易。</p>
+<h3 id="使用安装包安装-MacVim"><a href="#使用安装包安装-MacVim" class="headerlink" title="使用安装包安装 MacVim"></a>使用安装包安装 MacVim</h3><p>跟大部分的 Mac 软件一样，你也可以直接使用 DMG 安装包来安装 MacVim。目前可从以下网址下载 MacVim 的安装包：<a target="_blank" rel="noopener" href="https://github.com/macvim-dev/macvim/releases">下载地址</a></p>
+<p>等待下载完成后，双击下载的文件，然后会打开一个访达（Finder）窗口。你只需要把 MacVim 拖拽复制到应用程序文件夹即可。</p>
+<p>在这种安装方式下，手工键入 <code>vim</code>、<code>gvim</code> 或 <code>mvim</code> 命令是无法启动 MacVim 的。你需要手工创建这些命令的符号链接（symlink）或别名（alias）才行。假设你的 MacVim 是直接安装在应用程序文件夹里的话，这些命令本身可以在 &#x2F;Applications&#x2F;MacVim.app&#x2F;Contents&#x2F;bin 文件夹里找到；使用下面的命令可以在你自己的 bin 目录下创建这些命令的符号链接：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[ -d ~/bin ] || mkdir ~/bin</span><br><span class="line">ln -s /Applications/MacVim.app/Contents/bin/* ~/bin/</span><br></pre></td></tr></table></figure>
+
+<h3 id="QA"><a href="#QA" class="headerlink" title="QA"></a>QA</h3><blockquote>
+<p>brew 安装报错不支持pre-release version</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles&#x27;</span> &gt;&gt; ~/.zshrc</span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br><span class="line">brew update</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Windows-下的安装"><a href="#Windows-下的安装" class="headerlink" title="Windows 下的安装"></a>Windows 下的安装</h2><p>最后，我们来看在 Windows 下怎么安装。课程开头我提到了，Windows 上缺省是没有 Vim 的。我们可以从 Vim 的网站下载 Windows 下的安装包：<a target="_blank" rel="noopener" href="https://www.vim.org/download.php#pc">下载地址</a></p>
+<p>在 Linux 和 macOS 上，64 位应用程序已经成为主流。而与此不同的是，在 64 位Windows上，32 位应用程序仍然很常见。默认的 Vim 8 的安装包安装的仍然是一个 32 位的应用程序。不过，32 位的 Vim 也足够满足一般需求了，除非你需要编辑 2 GB 以上的大文件。</p>
+<p>安装界面会有一个选择组件的步骤，如下图所示：</p>
+<img data-src="/2021/04/28/138/NeatReader-1705543467708.png" class="" title="NeatReader-1705543467708">
+
+<p>这个界面中，下面几项我们可以关注一下：</p>
+<ul>
+<li>“安装批处理文件”（Create .bat files）：对于用 Vim 的开发者来说，通常命令行是刚需，所以我们一般需要勾上这项。</li>
+<li>“创建图标”（Create icons for Vim）：根据你自己的需要进行选择，通常我会去掉展开子项里的“桌面图标”（On the Desktop），不在桌面上创建 Vim 的图标。</li>
+<li>“创建默认配置文件”（Create Default Config）：去掉这项——我们马上会创建配置文件。</li>
+<li>“安装多语言支持”（Native Language Support）：这项功能使得 Vim 的菜单可以显示中文的命令，但实际上还是有点鸡肋，因为 Vim 的主要功能不是靠菜单驱动的，安装程序安装的帮助文件也只有英文版。所以，这项选和不选关系不大，你可以自由选择。</li>
+</ul>
+<p>然后我们点“下一步”（Next），不需要修改安装目标文件夹，完成安装即可。</p>
+<p>完成安装后，Vim 会缺省打开一个 README 文件。在这个窗口中，我们应当键入“<code>:e ~\_vimrc</code>”，回车键，然后把下面的内容粘贴进去（这些配置项的意义我们以后会讨论）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set enc=utf-8</span><br><span class="line">set nocompatible</span><br><span class="line">source $VIMRUNTIME/vimrc_example.vim</span><br></pre></td></tr></table></figure>
+
+<p>然后键入“<code>ZZ</code>”（大写）存盘退出即可。</p>
+<blockquote>
+<p><strong>注意</strong></p>
+<p>由于历史上的文件系统限制，在 Windows 下 Vim 的配置文件名称是 <code>_vimrc</code> 而不是 <code>.vimrc</code>（虽然 Windows 命令行不支持像 Unix 一样用“<code>~</code>”代表用户的主目录，在 Vim 里我们仍然可以使用“<code>~\_vimrc</code>”或“<code>~/_vimrc</code>”这样的写法）。这是 Unix 和 Windows 下的 Vim 配置的区别之一。其他的主要区别是以下两点：</p>
+<ul>
+<li>点打头的 Vim 文件都成了“<code>_</code>”打头，如 <code>.viminfo</code> 也成了 <code>_viminfo</code></li>
+<li>点打头的 Vim 配置目录 <code>.vim</code> 在 Windows 下则成了 <code>vimfiles</code></li>
+</ul>
+</blockquote>
+<p>除此之外，Vim 的配置在 Windows 下和 Unix 下（如 Linux 和 macOS）并没有根本不同。Windows 上的主要麻烦在于，由于 Vim 的生态主要在 Unix 上，某些 Vim 的插件在 Windows 上安装配置需要花费更大的力气。但就一般的文本和程序编辑而言，Vim 在 Windows 下和 Linux 下没有本质的不同。甚至 Windows 下还有一个小小的优势：Unix 下虽然 Vim 可以编译成支持 Python 2 和 Python 3，但在 Vim 里一旦执行了 Python 2 的代码，就不能再执行 Python 3 的代码了；反之亦然。Windows 下则没有这个限制。</p>
+<p>有没有注意到我只在 Windows 的安装部分讨论了配置？这是因为 <strong>Unix 下主流的缺省编码已经是 UTF-8</strong> 了，而 Vim 只能在内码是 UTF-8 的情况下才能处理多语言的文本。而我们有自己的配置文件，是为了确保启用一些最为基本的配置选项，来保证基本行为的一致性。</p>
+<p>Windows 上可以把 Vim 配置成跟普通的编辑器行为差不多，包括支持 <code>Ctrl-A</code> 全选，选择内容后输入任何内容替换选择的内容，等等。但是，这种行为跟 Vim 的标准行为是冲突的。我们要学习 Vim，还是忘了这些 Windows 特有的功能为好，去学习掌握 Vim 的跨平台标准功能。上面的配置文件也同样没有启用 Windows 下的特有行为。</p>
+<h3 id="Cygwin-MSYS2"><a href="#Cygwin-MSYS2" class="headerlink" title="Cygwin&#x2F;MSYS2"></a>Cygwin&#x2F;MSYS2</h3><p>Windows 有 <a target="_blank" rel="noopener" href="http://cygwin.org/">Cygwin</a> 和 <a target="_blank" rel="noopener" href="https://www.msys2.org/">MSYS2</a>，可以提供类似于 Linux 的 POSIX shell。在这些环境里，Vim 都是标准组件，按这些环境的标准方式来安装 Vim 就行。如果你使用 <a target="_blank" rel="noopener" href="https://gitforwindows.org/">Git Bash</a> 的话，里面就直接包含了 MSYS2 的终端、Bash 和 Vim。</p>
+<p>唯一需要提一句的是，这些类 POSIX 环境里面的 Vim 配置应当参照 Linux 终端来，而不是 Windows 下的标准方式（也就是说，个人配置目录和配置文件是 <code>.vim</code> 和 <code>.vimrc</code>，而非 <code>vimfiles</code> 和 <code>_vimrc</code>）。我以后对这种情况就不再单独描述了。</p>
+<h2 id="远程使用-Vim"><a href="#远程使用-Vim" class="headerlink" title="远程使用 Vim"></a>远程使用 Vim</h2><p>还有一种常用的环境恐怕是使用 mintty、PuTTY、SecureCRT 之类的软件在 Windows 上远程连接到 Linux 机器上。在这种情况下，需要特别注意的，是<strong>远程终端软件的远程字符集（如 PuTTY 中的“Windows &gt; Translation &gt; Remote character set”）应当设置成 UTF-8</strong>。这个设定跟具体的软件及其版本有关，我就不详细说明了；请自行查看你所使用的远程终端软件的设定和相关文档。</p>
+<h2 id="学习-Vim"><a href="#学习-Vim" class="headerlink" title="学习 Vim"></a>学习 Vim</h2><p>一些 Vim 的学习资料，帮助你进入 Vim 的世界。你应该仔细看一下你所使用的平台上的 Vim 安装信息（其他平台的可以略过），并且应该自己打开 Vim 教程练习一遍（除非这些基础知识你都了解了）。键盘配置相关信息属于可选，可以根据自己的兴趣和需要决定是否了解一下。</p>
+<h3 id="中文帮助文件"><a href="#中文帮助文件" class="headerlink" title="中文帮助文件"></a>中文帮助文件</h3><p>Vim 内置了完整的英文帮助文件。如果你想要中文帮助文件的话，有个好消息是，有网友同步翻译了最新的帮助文件，而且安装过程在 Vim 8 （或将来的版本）里是非常简单的。以 Unix 下为例（Windows 下类似，但路径 <code>.vim</code> 需要修改为 <code>vimfiles</code>）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.vim</span><br><span class="line"><span class="built_in">mkdir</span> -p pack/my/start</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/yianwillis/vimcdoc.git pack/my/start/vimcdoc</span><br></pre></td></tr></table></figure>
+
+<p>如果你不需要以后利用 Git 来快速升级文档的话， 也可以在这个 <a target="_blank" rel="noopener" href="https://github.com/yianwillis/vimcdoc">Vim 中文文档计划</a>的<a target="_blank" rel="noopener" href="https://github.com/yianwillis/vimcdoc/releases">下载页面</a>下载 tar 包，然后自行解压到 <code>~/.vim/pack/my/start</code> 目录下（或 Windows 用户目录下的 <code>vimfiles\pack\my\start</code> 目录下）。</p>
+<p>Windows 用户有一个简单的安装程序（当前为 <a target="_blank" rel="noopener" href="https://github.com/yianwillis/vimcdoc/releases/download/v2.3.0/vimcdoc-2.3.0-setup-unicode.exe">vimcdoc-2.3.0-setup-unicode.exe</a>），可以自动帮你完成中文帮助文件的安装任务。如果你的机器上没有 <code>git</code> 和 <code>tar</code> 可执行程序的话，那这个方式最简单。</p>
+<img data-src="/2021/04/28/138/NeatReader-1705543957589.png" class="" title="NeatReader-1705543957589">
+
+<h3 id="Vim-教程"><a href="#Vim-教程" class="headerlink" title="Vim 教程"></a>Vim 教程</h3><p>Vim 在安装中自带了一个教程，可供快速入手使用。如果你对 Vim 的基本操作不熟的话，建议你完整学习一下，我也就不必多费笔墨介绍一些最基础的用法了。</p>
+<p>Vim 教程支持多语言，可使用命令 <code>vimtutor</code> 来启动。如果启动的教程的语言不是你希望的，你可以使用环境变量 LANG 来设定希望的语言。比如，下面的命令可以在 Unix 环境中启动一个中文的 Vim 教程：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LANG=zh_CN.UTF-8 vimtutor</span><br></pre></td></tr></table></figure>
+
+<p>Windows 下你可以在开始菜单里找到 Vim tutor。但我测试下来<a target="_blank" rel="noopener" href="https://github.com/vim/vim/issues/5756">它有一个问题</a>。虽然我提交的解决方法已经作为补丁（8.2.0412）合并，但目前（Vim 8.2）安装程序安装的文件多半仍然是有问题的，你会无法成功地创建一个 tutor 文件的副本供编辑使用。我建议手工创建一个这个教程的副本。可以在命令提示符下输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim --clean -c <span class="string">&quot;e <span class="variable">$VIMRUNTIME</span>/tutor/tutor.zh_cn.utf-8&quot;</span> -c <span class="string">&quot;w! TUTORCOPY&quot;</span> -c <span class="string">&quot;q&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>这样即可在当前目录下创建一个教程的副本。然后我们可以用 <code>gvim TUTORCOPY</code> 来打开这个副本进行学习。</p>
+<h2 id="键盘重配置"><a href="#键盘重配置" class="headerlink" title="键盘重配置"></a>键盘重配置</h2><p>最后，有些重度的 Vim 用户会重新配置键盘，把使用频度较低的大写锁定键（Caps Lock）重新映射成 Esc 或 Ctrl 键。对于这个问题，如果你需要的话，网上很容易就能找到攻略，如：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/daerzei/article/details/89414610">Linux下将大写锁定键(CapsLock)键映射为Ctrl键(Ubuntu, Manjaro，CentOS)</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/tbestcc/article/details/52287622">mac book更改caps lock键为esc键&#x2F;ctrl键</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/P_LarT/article/details/72829425">windows交换大写锁定键与ESC键（注册表修改）</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.kutu66.com/Mac/article_11233">在任何操作系统上，如何禁用或者重新分配 Caps Lock键</a></li>
+</ul>
+<p>这当然是一件非常个人化的事情，而且有一个风险，你一旦跑到别人的机器上操作，你的“肌肉记忆”可能会让你常常按错键。鉴于你目前可能只是个 Vim 的初学者，现在不一定需要这么去做。等到你觉得按 <code>Esc</code> 太麻烦了，再想起这个可能性去修改键盘配置也来得及。</p>
+<h1 id="基本概念与基础命令"><a href="#基本概念与基础命令" class="headerlink" title="基本概念与基础命令"></a>基本概念与基础命令</h1><h2 id="键盘图"><a href="#键盘图" class="headerlink" title="键盘图"></a>键盘图</h2><img data-src="/2021/04/28/138/NeatReader-1705620750983.png" class="" title="NeatReader-1705620750983">
+
+<p>图中的“•”表示，单个字母不是完整的命令，必须再有进一步的输入。比如，单个“g”没有意义，而“gg”表示跳转到文件开头。（对于命令后面明确跟一个动作的，如“c”，我们不使用“•”。）一个键最多有三排内容：最底下是直接按键的结果，中间是按下 Shift 的结果（变大写），上面偏右的小字是按下 Ctrl 的结果。我们还用了一些特殊符号来表示操作的位置，如果你已经了解了这些命令的功能，你也自然就明白它们的意义了。</p>
+<h3 id="Vim-的命令行命令"><a href="#Vim-的命令行命令" class="headerlink" title="Vim 的命令行命令"></a>Vim 的命令行命令</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>:q!</code></td>
+<td>退出 Vim</td>
+</tr>
+<tr>
+<td><code>:wq</code></td>
+<td>存盘退出</td>
+</tr>
+<tr>
+<td><code>:s</code></td>
+<td>执行替换</td>
+</tr>
+<tr>
+<td><code>:!</code></td>
+<td>执行外部命令</td>
+</tr>
+<tr>
+<td><code>:edit（一般缩写为 “:e）</code></td>
+<td>编辑文件</td>
+</tr>
+<tr>
+<td><code>:w</code></td>
+<td>写文件</td>
+</tr>
+<tr>
+<td><code>:r</code></td>
+<td>读文件</td>
+</tr>
+<tr>
+<td><code>:help</code></td>
+<td>查看帮助</td>
+</tr>
+<tr>
+<td><code>Ctrl-D 和 Tab </code></td>
+<td>进行命令行补全</td>
+</tr>
+</tbody></table>
+<h2 id="Vim模式"><a href="#Vim模式" class="headerlink" title="Vim模式"></a>Vim模式</h2><ul>
+<li><p>普通模式：Vim 启动后的默认模式，用来移动光标、删除文本、覆盖输入文本、恢复操作、粘贴文本等等。</p>
+</li>
+<li><p>插入模式：输入 i 或 a 进入插入模式，在这个模式下敲击键盘会往文字缓冲区增加文字，相当于普通编辑器的编辑模式。</p>
+</li>
+<li><p>可视模式：选择文本，可以行选、块选和依次选择，选择后可以进行复制、删除、排序等操作。</p>
+</li>
+<li><p>命令模式： 执行内部和外部命令。通过 <code>:</code> <code>/</code> <code>?</code> <code>:!</code> 可以进入命令模式, 分别对应的是: </p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>:</code></td>
+<td>执行内部命令</td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>向下搜索</td>
+</tr>
+<tr>
+<td><code>?</code></td>
+<td>向上搜索</td>
+</tr>
+<tr>
+<td><code>:!</code></td>
+<td>执行外部命令</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p>Vim 最特别的地方就是它的模式了。与其他大部分编辑器不同，进入 Vim 后，缺省状态下键入的字符并不会插入到所编辑的文件之中。 Vim 的模式（mode，可以简单地理解为“状态”）是它的麻烦所在，但同时也是它的威力所在。</p>
+<p>我们需要知道，Vim 有以下四种主要模式:</p>
+<ul>
+<li><p>正常（normal）模式（也称为普通模式），缺省的编辑模式；如果不加特殊说明，一般提到的命令都直接在正常模式下输入；在任何其他模式中，都可以通过键盘上的 Esc 键回到正常模式。用来移动光标、删除文本、覆盖输入文本、恢复操作、粘贴文本等等。</p>
+</li>
+<li><p>插入（insert）模式，输入文本时使用；比如在正常模式下键入 i（insert）或 a（append）即可进入插入模式。</p>
+</li>
+<li><p>可视（visual）模式，用于选定文本块；教程中已经提到可以用键 v（小写）来按字符选定，Vim 里也提供其他不同的选定方法，包括按行和按列块，选择后可以进行复制、删除、排序等操作。。</p>
+</li>
+<li><p>命令行（command-line）模式，用于执行较长、较复杂的命令；在正常模式下键入冒号（:）即可进入该模式；使用斜杠（&#x2F;）和问号（?）开始搜索也算作命令行模式。命令行模式下的命令要输入回车键（Enter）才算完成。</p>
+<p> 通过 <code>:</code> <code>/</code> <code>?</code> <code>:!</code> 可以进入命令模式, 分别对应的是: </p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>:</code></td>
+<td>执行内部命令</td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>向下搜索</td>
+</tr>
+<tr>
+<td><code>?</code></td>
+<td>向上搜索</td>
+</tr>
+<tr>
+<td><code>:!</code></td>
+<td>执行外部命令</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p>此外，Vim 也有个选择（select）模式，与普通的 Windows 编辑器行为较为接近，选择内容后再输入任何内容，将会替换选择的内容。在以可视模式和选择模式之一选定文本块之后，可以使用 Ctrl-G 切换到另一模式。这个模式主要是为了模拟 Windows 编辑器的行为，并不是 Vim 的主要用法，使用它反而会给 Vim 里的自动化带来麻烦，所以我们也就不多作介绍了。</p>
+<p>关于 Vim 的模式，我们重点掌握正常模式就可以了，刚刚也说过，Vim 里的大部分操作会在正常模式下完成。如果你做编辑工作时有超过几秒的停顿，就应当考虑按下 Esc 键，回到正常模式。记住，<strong>正常模式就是正常情况下你应当处于的模式。</strong></p>
+<h2 id="Vim-的键描述体例"><a href="#Vim-的键描述体例" class="headerlink" title="Vim 的键描述体例"></a>Vim 的键描述体例</h2><p>清楚了 Vim 模式之后，我们来对 Vim 里的按键作一下清晰的体例描述，毕竟，Vim 里的键真的有点多。</p>
+<p>从现在开始，会使用 Vim 里的标准键描述方式来讲解。根据 Vim 的一般习惯，我们使用尖括号来描述特殊的输入序列。下面我会提供一个列表，给出常用键的表示方式及在动图中的显示方式。这部分内容不需要记住，你用的时候作为参考就行。</p>
+<table>
+<thead>
+<tr>
+<th>键</th>
+<th>说明</th>
+<th>显示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;Esc&gt;</code></td>
+<td>表示 Esc 键；</td>
+<td>显示为<code>⎋</code></td>
+</tr>
+<tr>
+<td><code>&lt;CR&gt;</code></td>
+<td>表示回车键；</td>
+<td>显示为<code>↩</code></td>
+</tr>
+<tr>
+<td><code>&lt;Space&gt;</code></td>
+<td>表示空格键；</td>
+<td>显示为<code>␣</code></td>
+</tr>
+<tr>
+<td><code>&lt;Tab&gt;</code></td>
+<td>表示 Tab 键；</td>
+<td>显示为<code>⇥</code></td>
+</tr>
+<tr>
+<td><code>&lt;BS&gt;</code></td>
+<td>表示退格键；</td>
+<td>显示为<code>⌫</code></td>
+</tr>
+<tr>
+<td><code>&lt;Del&gt;</code></td>
+<td>表示删除键；</td>
+<td>显示为<code>⌦</code></td>
+</tr>
+<tr>
+<td><code>&lt;lt&gt;</code></td>
+<td>表示 <code>&lt;</code> 键；</td>
+<td>显示为<code>&lt;</code></td>
+</tr>
+<tr>
+<td><code>&lt;Up&gt;</code></td>
+<td>表示光标上移键；</td>
+<td>显示为<code>⇡</code></td>
+</tr>
+<tr>
+<td><code>&lt;Down&gt;</code></td>
+<td>表示光标下移键；</td>
+<td>显示为<code>⇣</code></td>
+</tr>
+<tr>
+<td><code>&lt;Left&gt;</code></td>
+<td>表示光标左移键；</td>
+<td>显示为<code>⇠</code></td>
+</tr>
+<tr>
+<td><code>&lt;Right&gt;</code></td>
+<td>表示光标右移键；</td>
+<td>显示为<code>⇢</code></td>
+</tr>
+<tr>
+<td><code>&lt;PageUp&gt;</code></td>
+<td>表示 Page Up 键；</td>
+<td>显示为<code>⇞</code></td>
+</tr>
+<tr>
+<td><code>&lt;PageDown&gt;</code></td>
+<td>表示 Page Down 键；</td>
+<td>显示为<code>⇟</code></td>
+</tr>
+<tr>
+<td><code>&lt;Home&gt;</code></td>
+<td>表示 Home 键；</td>
+<td>显示为<code>↖</code></td>
+</tr>
+<tr>
+<td><code>&lt;End&gt;</code></td>
+<td>表示 End 键；</td>
+<td>显示为<code>↘</code></td>
+</tr>
+<tr>
+<td><code>&lt;F1&gt;- &lt;F12&gt;</code></td>
+<td>表示功能键 1 到 12；</td>
+<td>显示为<code>F1</code>到“<code>F12</code>”</td>
+</tr>
+<tr>
+<td><code>&lt;S-…&gt;</code></td>
+<td>Shift 组合键；</td>
+<td>显示为<code>⇧</code>（较少使用，因为我们需要写 <code>!</code> 而不是 <code>&lt;S-1&gt;</code>；和特殊键组合时仍然有用）</td>
+</tr>
+<tr>
+<td><code>&lt;C-…&gt;</code></td>
+<td>Control 组合键；</td>
+<td>显示为<code>⌃</code></td>
+</tr>
+<tr>
+<td><code>&lt;M-…&gt;</code></td>
+<td>Alt 组合键；</td>
+<td>显示为<code>⌥</code>（对于大部分用户，它的原始键名 Meta 应该只具有历史意义）</td>
+</tr>
+<tr>
+<td><code>&lt;D-…&gt;</code></td>
+<td>Command 组合键；</td>
+<td>显示为<code>⌘</code>（Mac 键盘）</td>
+</tr>
+</tbody></table>
+<p>现在回到前面的模式部分，我们提到的 <code>Esc</code>、<code>Enter</code>、<code>v</code>、<code>V</code> 和 <code>Ctrl-V</code>，按我们现在的描述惯例，以后就会写成 <code>&lt;Esc&gt;</code>、<code>&lt;CR&gt;</code>、<code>v</code>、<code>V</code> 和 <code>&lt;C-V&gt;</code>。这也是以后在 Vim 里对键进行重映射的写法。</p>
+<p>强调一下，对“<code>&lt;</code>”的特殊解释仅在描述输入时生效。在描述命令行和代码时，我们写“<code>&lt;CR&gt;</code>”仍表示四个字符，而非回车键。特别是，如果我们描述的命令行首是“<code>:</code>”，表示这是一个输入 <code>:</code> 开始的 Vim 命令行模式命令（以回车键结束）；如果行首是“&#x2F;”或“?”，表示这是一个输入 <code>/</code> 或 <code>?</code> 开始的搜索命令（以回车键结束）；如果行首是“<code>$</code>”，表示这是一个在 shell 命令行上输入的命令（以回车键结束），“<code>$</code>”（和后面的空格）不是命令的一部分，通常后续行也不是命令的一部分，除非行尾有“<code>\</code>”或“<code>^</code>”字符，或行首有“<code>$</code>”字符。</p>
+<p>也就是说，下面的命令是在 Vim 里输入“<code>:set ft?&lt;CR&gt;</code>”（用来显示当前编辑文件的文件类型）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:set ft?</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2021/04/28/138/image-20240119075546368.png" class="" title="image-20240119075546368">
+
+<p>下面的命令则是在 shell 里输入“<code>which vim&lt;CR&gt;</code>”（用来检查 <code>vim</code> 命令的位置）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">which</span> vim</span><br><span class="line">/usr/bin/vim</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2021/04/28/138/image-20240119075619925.png" class="" title="image-20240119075619925">
+
+<p>此外，当我用“<a target="_blank" rel="noopener" href="https://yianwillis.github.io/vimcdoc/doc/help.html"><code>:help</code></a>”描述帮助命令时，你不仅可以在 Vim 里输入这个命令来得到帮助，也可以点击这个帮助的链接，直接在线查看相应的中文帮助页面。</p>
+<img data-src="/2021/04/28/138/image-20240119075736499.png" class="" title="image-20240119075736499">
+
+<p>这节内容不需要死记。建议使用“收藏”功能，这样，你可以在以后碰到不认识的符号标记的时候，返回来查看这一节的内容。</p>
+<h2 id="Vim-的选项和配置"><a href="#Vim-的选项和配置" class="headerlink" title="Vim 的选项和配置"></a>Vim 的选项和配置</h2><p>要想更好地使用 Vim，下一个关键点就是配置了，接下来我就带你看看 Vim 配置都有哪些需要注意的点。</p>
+<p>作为一个可以越用越顺手的应用程序，Vim 是需要配置的。我们才刚开始学习，所以目前我们的配置文件是相当简单的，但随着课程的进展和你使用 Vim 越来越多，你的 Vim 配置文件必然会越变越复杂。我们今天就先来做一些初步的讨论，看看能实际使用的一个最基本 Vim 配置文件是什么样子。</p>
+<p>我们上节课已经讨论过，根据 Unix 下的惯例，Vim 的配置文件放在用户的主目录下，文件名通常是 <code>.vimrc</code>；而它在 Windows 下名字是 <code>_vimrc</code>。我们前面给出最基本的配置文件是这个样子的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set enc=utf-8</span><br><span class="line">set nocompatible</span><br><span class="line">source $VIMRUNTIME/vimrc_example.vim</span><br></pre></td></tr></table></figure>
+
+<p>如果你熟悉 shell 语法，你肯定能看到不少熟悉的影子在里面。这三行完成了下列功能：</p>
+<ul>
+<li><p>设置编辑文件的内码是 UTF-8（非所有平台缺省，但为编辑多语言文件所必需）</p>
+</li>
+<li><p>设置 Vim 不需要和 vi 兼容（仅为万一起见，目前大部分情况下这是缺省情况）</p>
+</li>
+<li><p>导入 Vim 的示例配置（这会打开一些有用的选项，如语法加亮、搜索加亮、命令历史、记住上次的文件位置，等等）</p>
+<p> 如果有问题, 就删除掉 <code>source $VIMRUNTIME/vimrc_example.vim</code></p>
+</li>
+</ul>
+<p>对于现代 Unix 系统上的 Vim 8，实际上只需要最后一句就足够了。对于现代 Windows 系统上的 Vim 8，中间的这句 <code>set nocompatible</code> 也可以删除。如果你在较老的 Vim 版本上进行配置，那么把这三行全放进去会比较安全。</p>
+<h3 id="备份和撤销文件"><a href="#备份和撤销文件" class="headerlink" title="备份和撤销文件"></a>备份和撤销文件</h3><p>上面的基本设置会产生一个有人喜欢、但也有很多人感到困惑的结果：你修改文件时会出现结尾为“<code>~</code>”的文件，有文件名后面直接加“<code>~</code>”的，还有前面加“<code>.</code>”后面加“<code>.un~</code>”的。这是因为在示例配置里，Vim 自动设置了下面两个选项：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set backup</span><br><span class="line">set undofile</span><br></pre></td></tr></table></figure>
+
+<p>前一个选项使得我们每次编辑会保留上一次的备份文件，后一个选项使得 Vim 在重新打开一个文件时，仍然能够撤销之前的编辑（undo），这就会产生一个保留编辑历史的“撤销文件”（undofile）了。</p>
+<p>我的通常做法是，不产生备份文件，但保留跨会话撤销编辑的能力；因为有了撤销文件，备份其实也就没有必要了。同时，把撤销文件放在用户个人的特定目录下，既保证了安全，又免去了其他目录下出现不必要文件的麻烦。</p>
+<p>要达到这个目的，我在 Linux&#x2F;macOS 下会这么写：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set nobackup</span><br><span class="line">set undodir=~/.vim/undodir</span><br></pre></td></tr></table></figure>
+
+<p>在 Windows 下这么写：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set nobackup</span><br><span class="line">set undodir=~\vimfiles\undodir</span><br></pre></td></tr></table></figure>
+
+<p>无论哪种环境，你都需要创建这个目录。我们可以用下面的命令来让 Vim 在启动时自动创建这个目录：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if !isdirectory(&amp;undodir)</span><br><span class="line">  call mkdir(&amp;undodir, &#x27;p&#x27;, 0700)</span><br><span class="line">endif</span><br></pre></td></tr></table></figure>
+
+<p>如果我告诉你， <code>&amp;undodir</code> 代表 <code>undodir</code> 这个选项的值，那么其他代码的基本作用，相信你也一定能看出来了吧？我们暂时就不做进一步分析了。如果你好奇的话，可以提前看一下下面各项的 Vim 帮助文档：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://yianwillis.github.io/vimcdoc/doc/eval.html#isdirectory()"><code>:help isdirectory()</code></a></li>
+<li><a target="_blank" rel="noopener" href="https://yianwillis.github.io/vimcdoc/doc/eval.html#mkdir()"><code>:help mkdir()</code></a></li>
+<li><a target="_blank" rel="noopener" href="https://yianwillis.github.io/vimcdoc/doc/eval.html#:call"><code>:help :call</code></a></li>
+</ul>
+<p>这个跨会话撤销的能力，我还真不知道其他哪个编辑器也有。更妙的是，Vim 还有撤销树的概念，可以帮助你回到任一历史状态。</p>
+<h3 id="鼠标支持-not-recommend"><a href="#鼠标支持-not-recommend" class="headerlink" title="鼠标支持 (not recommend)"></a>鼠标支持 (not recommend)</h3><p>我不知道你会不会像某些资深 Vim 用户一样，只用键盘不用鼠标。我反正是做不到的，也没有动力去那样做——毕竟，浪费计算机界一项伟大的发明并不那么有必要😂。手一直在键盘上的本位排（home row）打字当然会更快，但一个程序员看代码的时间比写代码的时间要多得多，而在非线性的跳转任务上，鼠标比键盘更加快，也更加有效。</p>
+<p>在 Vim 的终端使用场景下，鼠标的选择有一定的歧义：你希望是使用 Vim 的可视模式选择内容，并且只能在 Vim 里使用呢，还是产生 Vim 外的操作系统的文本选择，用于跟其他应用程序的交互呢？这是一个基本的使用问题，两种情况都可能发生，都需要照顾。</p>
+<p>如果你使用 xterm 兼容终端的话，通常的建议是：</p>
+<ul>
+<li>在不按下修饰键时，鼠标选择产生 Vim 内部的可视选择。</li>
+<li>在按下 Shift 时，鼠标选择产生操作系统的文本选择。</li>
+</ul>
+<p>对于不兼容 xterm、不支持对 Shift 键做这样特殊处理的终端，我们一般会采用一种“绕过”方式，让 Vim 在某种情况下暂时不接管鼠标事件。通常的选择是在命令行模式下不使用鼠标。下面，我们就分这两种情况来配置。</p>
+<p>虽然最新的 Vim 缺省配置文件（示例配置文件会包含缺省配置），在大部分情况下已经可以自动设置合适的鼠标选项了，不过为照顾我们课程的三种不同平台，我们还是手工设置一下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if has(&#x27;mouse&#x27;)</span><br><span class="line">  if has(&#x27;gui_running&#x27;) || (&amp;term =~ &#x27;xterm&#x27; &amp;&amp; !has(&#x27;mac&#x27;))</span><br><span class="line">    set mouse=a</span><br><span class="line">  else</span><br><span class="line">    set mouse=nvi</span><br><span class="line">  endif</span><br><span class="line">endif</span><br></pre></td></tr></table></figure>
+
+<p>上面代码说的是，如果 Vim 有鼠标支持的话，那在以下任一条件满足时：</p>
+<ul>
+<li>图形界面正在运行</li>
+<li>终端是 xterm 兼容，并且不是 Mac（Mac 上的终端声称自己是 xterm，但行为并不完全相同）</li>
+</ul>
+<p>我们将启用完全的鼠标支持（mouse&#x3D;a）。特别是，此时鼠标拖拽就会在 Vim 里使用可视模式选择内容（只能在 Vim 里使用）。而当用户按下 Shift 键时，窗口系统接管鼠标事件，用户可以使用鼠标复制 Vim 窗口里的内容供其他应用程序使用。</p>
+<p>否则（非图形界面的的终端，且终端类型不是 xterm），就只在正常模式（n）、可视模式（v）、插入模式（i）中使用鼠标。这意味着，当用户按下 <code>:</code> 键进入命令行模式时，Vim 将不对鼠标进行响应，这时，用户就可以使用鼠标复制 Vim 窗口里的内容到其他应用程序里去了。</p>
+<p>非 xterm 的鼠标支持在 macOS 和 Windows 下都有效。但在 Windows 下需要注意的一点是，如果使用非图形界面的 Vim 的话，应当在命令提示符（Command Prompt）的属性里关闭“快速编辑模式”（QuickEdit Mode），否则 Vim 在运行时将无法对鼠标事件进行响应。</p>
+<p>鉴于命令提示符的行为有很多怪异和不一致之处，强烈建议你在 Windows 下，要么使用图形界面的 Vim，要么使用 Cygwin&#x2F;MSYS2 里、运行在 mintty 下的 Vim。</p>
+<h3 id="中文支持"><a href="#中文支持" class="headerlink" title="中文支持"></a>中文支持</h3><p>接下来我和你讲讲中文支持的问题。如果你一直在 UTF-8 下使用中文的话，那这一小节的内容可以跳过。对于大部分在 Unix 下工作的人员，应该是这样的情况。而如果你在 Windows 上工作，或者有需要跟别人交换 GB2312、GBK、GB18030 编码的文本文件，那这部分的内容还是需要看一下的。</p>
+<p>完整的 Unicode 历史和原理可以讲上整整一讲，但从实用的角度，我们就简化成下面几条吧：</p>
+<ul>
+<li>整个世界基本上在向 UTF-8 编码靠拢。</li>
+<li>微软由于历史原因，内部使用 UTF-16；UTF-16 可以跟 UTF-8 无损转换。</li>
+<li>GB2312、GBK、GB18030 是一系列向后兼容的中文标准编码方式，GB2312 编码的文件是合法的 GBK 文件，GBK 编码的文件是合法的 GB18030 文件。但除了 GB18030，都不能做到跟 UTF-8 无损转换；目前非 UTF-8 的简体中文文本基本上都用 GBK&#x2F;GB18030 编码（繁体中文文本则以 Big5 居多）。鉴于 GB18030 是国家标准，其他两种编码也和 GB18030 兼容，我们就重点讲如何在 Vim 中支持 GB18030 了。</li>
+</ul>
+<p>举一个具体的例子，“你好😄”这个字符串，在 UTF-8 编码下是下面 10 个字节（我按字符进行了分组）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">e4bda0 e5a5bd f09f9884</span><br></pre></td></tr></table></figure>
+
+<p>如果使用 GB18030 编码（GB2312&#x2F;GBK 不能支持表情字符）的话，会编码成 8 个字节：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c4e3 bac3 9439fd30</span><br></pre></td></tr></table></figure>
+
+<p>这么看起来，GB18030 处理中文在存储效率上是优势的。但它也有缺点：</p>
+<ul>
+<li>GBK 外的 Unicode 字符一般需要四字节编码（非中文情况会劣化）</li>
+<li>GBK 外的 Unicode 字符跟 Unicode 码点需要查表才能转换（UTF-8 则可以用非常简单的条件判断、移位、与、或操作来转换）</li>
+<li>一旦出现文件中有单字节发生损毁，后续的所有中文字符都可能发生紊乱（而 UTF-8 可以在一个字符之后恢复）</li>
+</ul>
+<p>因此，GB18030 在国际化的软件中不会作为内码来使用，只会是读取&#x2F;写入文件时使用的转换编码。我们要让 Vim 支持 GB18030 也同样是如此。由于 UTF-8 编码是有明显规律的，并非任意文件都能成功地当成 UTF-8 来解码，我们一般使用的解码顺序是：</p>
+<ul>
+<li>首先，检查文件是不是有 Unicode 的 BOM（字节顺序标记）字符，有的话按照 BOM 字符来转换文件内容。</li>
+<li>其次，检查文件能不能当作 UTF-8 来解码；如果可以，就当作 UTF-8 来解释。</li>
+<li>否则，尝试用 GB18030 来解码；如果能成功，就当作 GB18030 来转换文件内容。</li>
+<li>最后，如果上面的解码都不成功，就按 Latin1 字符集来解码；由于这是单字节的编码，转换必定成功。</li>
+</ul>
+<p>事实上，Vim 缺省差不多就是按这样的顺序，但第三步使用何种编码跟系统配置有关。如果你明确需要处理中文，那在配置文件里最好明确写下下面的选项设定：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set fileencodings=ucs-bom,utf-8,gb18030,latin1</span><br></pre></td></tr></table></figure>
+
+<h3 id="图形界面的字体配置"><a href="#图形界面的字体配置" class="headerlink" title="图形界面的字体配置"></a>图形界面的字体配置</h3><p>图形界面的 Vim 可以自行配置使用的字体，但在大部分环境里，这只是起到美化作用，而非必需项。不过，对于高分辨率屏幕的 Windows，这是一个必需项：Vim 在 Windows 下缺省使用的不是 TrueType 字体，不进行配置的话，字体会小得没法看。</p>
+<p>在 Windows 的缺省字体里，一般而言，Consolas 和 Courier New 还比较合适。以 Courier New 为例，在 <code>_vimrc</code> 里可以这样配置（Windows 上的基本写法是<strong>字体名称加冒号</strong>、“<code>h</code>”加字号；用“<code>_</code>”取代空格，否则空格需要用“\”转义）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if has(&#x27;gui_running&#x27;)</span><br><span class="line">  set guifont=Courier_New:h10</span><br><span class="line">endif</span><br></pre></td></tr></table></figure>
+
+<p>字体名称如何写是件平台相关的事（可参见帮助文档“<a target="_blank" rel="noopener" href="https://yianwillis.github.io/vimcdoc/doc/gui.html#gui-font"><code>:help gui-font</code></a>”）。如果你不确定怎么写出你需要的字体配置，或者你怎么写都写不对的话，可以先使用图形界面的菜单来选择（通常是“编辑 &gt; 选择字体”；在 MacVim 里是“Edit &gt; Font &gt; Show Fonts”），然后使用命令“<code>:set guifont?</code>”来查看。</p>
+<p>注意，Vim 在设置选项时，空格需要用“<code>\</code>”进行转义。比如，如果我们要在 Ubuntu 下把字体设成 10 磅的 DejaVu Sans Mono，就需要写：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot; Linux 和 Windows 不同，不能用 &#x27;_&#x27; 取代空格</span><br><span class="line">set guifont=DejaVu\ Sans\ Mono\ 10</span><br></pre></td></tr></table></figure>
+
+<p>此外，宽字符字体（对我们来讲，就是中文字体了）是可以单独配置的。这可能就更是一件仁者见仁、智者见智的事了。对于纯中文的操作系统，这一般反而是不需要配置的；但如果你的语言设定里，中文不是第一选择的话，就有可能在显示中文时出现操作系统误用日文字体的情况。这时你会想要手工选择一个中文字体，比如在 Ubuntu 下，可以用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set guifontwide=Noto\ Sans\ Mono\ CJK\ SC\ 11</span><br></pre></td></tr></table></figure>
+
+<p>注意，在不同的中英文字体搭配时，并不需要字号相同。事实上，在 Windows 和 Linux 上我通常都是使用不同字号的中英文字体的。</p>
+<p>在上面的动图中，你可以观察到设了中文字体之后，不仅中文字变大，更美观了，“将”、“适”、“关”、“复”、“启”等字的字形也同时发生了变化。</p>
+<p>由于字体在各平台上差异较大，字体配置我就不写到 Vim 的参考配置中去了，只把如何选择和配置的方法写出来供你参考。</p>
+<h1 id="移动命令"><a href="#移动命令" class="headerlink" title="移动命令"></a>移动命令</h1><h2 id="移动计数"><a href="#移动计数" class="headerlink" title="移动计数"></a>移动计数</h2><p>一个移动(motion)可以接受一个数字前缀作为参数，上面我提到的你可以通过<code>12j</code>向下移动12行，其中<code>12j</code>中的<code>12</code>就是计数数字。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[计数] + 移动</span><br></pre></td></tr></table></figure>
+
+<p>你可以把这个应用到所有移动上，如果你想向右移动9个字符，你可以使用<code>9l</code>来代替按9次<code>l</code>。 当你学到了更多的动作时，你都可以试试给定计数参数。</p>
+<h2 id="字符导航"><a href="#字符导航" class="headerlink" title="字符导航"></a>字符导航</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>h</td>
+<td>左</td>
+</tr>
+<tr>
+<td>j</td>
+<td>下</td>
+</tr>
+<tr>
+<td>k</td>
+<td>上</td>
+</tr>
+<tr>
+<td>l</td>
+<td>右</td>
+</tr>
+</tbody></table>
+<h2 id="单词导航"><a href="#单词导航" class="headerlink" title="单词导航"></a>单词导航</h2><p>我们现在移动一个更长的单元：单词(word)。 你可以通过<code>w</code>移动到下一个单词的开始，通过<code>e</code>移动到下一个单词的结尾，通过<code>b</code>移动到上一个单词的开始，通过<code>ge</code>移动到前一个单词的结尾。</p>
+<p>另外，为了和上面说的单词(word)做个区分，还有一种移动的单元：词组(WORD)。 你可以通过<code>W</code>移动到下一个词组的开始，通过<code>E</code>移动到下一个词组的结尾，通过<code>B</code>移动到前一个词组的开头，通过<code>gE</code>移动到前一个词组的结尾。 为了方便记忆，所以我们选择了词组和单词这两个词，相似但有些区分。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>w</td>
+<td>移动到下一个单词的开头</td>
+</tr>
+<tr>
+<td>W</td>
+<td>移动到下一个词组的开头</td>
+</tr>
+<tr>
+<td>e</td>
+<td>移动到下一个单词的结尾</td>
+</tr>
+<tr>
+<td>E</td>
+<td>移动到下一个词组的结尾</td>
+</tr>
+<tr>
+<td>b</td>
+<td>移动到前一个单词的开头</td>
+</tr>
+<tr>
+<td>B</td>
+<td>移动到前一个词组的开头</td>
+</tr>
+<tr>
+<td>ge</td>
+<td>移动到前一个单词的结尾</td>
+</tr>
+<tr>
+<td>gE</td>
+<td>移动到前一个词组的结尾</td>
+</tr>
+</tbody></table>
+<p>词组和单词到底有什么相同和不同呢？单词和词组都按照非空字符被分割，一个单词指的是一个只包含<code>a-zA-Z0-9</code>字符串，一个词组指的是一个包含除了空字符(包括空格，tab，EOL)以外的字符的字符串。 你可以通过<code>:h word</code>和<code>:h WORD</code>了解更多。</p>
+<h2 id="当前行导航"><a href="#当前行导航" class="headerlink" title="当前行导航"></a>当前行导航</h2><p>当你在进行编辑的时候，你经常需要水平地在一行中移动，你可以通过<code>0</code>跳到本行第一个字符，通过<code>$</code>跳到本行最后一个字符。 另外，你可以使用<code>^</code>跳到本行第一个非空字符，通过<code>g_</code>跳到本行最后一个非空字符。 如果你想去当前行的第n列，你可以使用<code>n|</code>。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>跳到本行第一个字符</td>
+</tr>
+<tr>
+<td>^</td>
+<td>跳到本行第一个非空字符</td>
+</tr>
+<tr>
+<td>g_</td>
+<td>跳到本行最后一个非空字符</td>
+</tr>
+<tr>
+<td>$</td>
+<td>跳到本行最后一个字符</td>
+</tr>
+<tr>
+<td>n|</td>
+<td>跳到本行第n列</td>
+</tr>
+</tbody></table>
+<p>你也可以在本行通过<code>f</code>和<code>t</code>进行行内搜索，<code>f</code>和<code>t</code>的区别在于<code>f</code>会停在第一个匹配的字母上，<code>t</code>会停在第一个匹配的字母前。 因此如果你想要搜索并停留在”h”上，使用<code>fh</code>。 如果你想搜索第一个”h”并停留在它的前一个字母上，可以使用<code>th</code>。 如果你想去下一个行内匹配的位置，使用<code>;</code>，如果你想去前一个行内匹配的位置，使用<code>,</code>。</p>
+<p><code>F</code>和<code>T</code>是<code>f</code>和<code>t</code>对应的向后搜索版本。如果想向前搜索”h”，可以使用<code>Fh</code>，使用<code>;</code>，保持相同的搜索方向搜索下一个匹配的字母。 注意，<code>;</code>不是总是向后搜索，<code>;</code>表示的是上一次搜索的方向，因此如果你使用的<code>F</code>，那么使用<code>;</code>时将会向前搜索使用<code>,</code>时向后搜索。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>f</td>
+<td>在同一行向后搜索第一个匹配</td>
+</tr>
+<tr>
+<td>F</td>
+<td>在同一行向前搜索第一个匹配</td>
+</tr>
+<tr>
+<td>t</td>
+<td>在同一行向后搜索第一个匹配，并停在匹配前</td>
+</tr>
+<tr>
+<td>T</td>
+<td>在同一行向前搜索第一个匹配，并停在匹配前</td>
+</tr>
+<tr>
+<td>;</td>
+<td>在同一行重复最近一次搜索</td>
+</tr>
+<tr>
+<td>,</td>
+<td>在同一行向相反方向重复最近一次搜索</td>
+</tr>
+</tbody></table>
+<h2 id="句子和段落导航"><a href="#句子和段落导航" class="headerlink" title="句子和段落导航"></a>句子和段落导航</h2><h3 id="句子"><a href="#句子" class="headerlink" title="句子"></a>句子</h3><p>一个句子的定义是以<code>.!?</code>和跟着的一个换行符或空格，tab结尾的。 你可以通过<code>)</code>和<code>(</code>跳到下一个和上一个句子。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>(</td>
+<td>跳到前一个句子</td>
+</tr>
+<tr>
+<td>)</td>
+<td>跳到下一个句子</td>
+</tr>
+</tbody></table>
+<p>如果你的Vim中遇到了无法将一个以<code>.</code>结尾的字段并且后面跟着一个空行的这种情况判断为一个句子的问题，你可能处于<code>compatible</code>的模式。 运行<code>:set nocompatible</code>可以修复。 在Vi中，一个句子是以<strong>两个</strong>空格结尾的，你应该总是保持的<code>nocompatible</code>的设置。</p>
+<h3 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h3><p>一个段落可以从一个空行之后开始，也可以从段落选项(<code>paragraphs</code>)中”字符对”所指定的段落宏的每个集合开始。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>{</td>
+<td>跳转到上一个段落</td>
+</tr>
+<tr>
+<td>}</td>
+<td>跳转到下一个段落</td>
+</tr>
+</tbody></table>
+<p>如果你不知道什么是段落宏，不用担心，重要的是一个段落总是以一个空行开始和结尾， 在大多数时候总是对的。</p>
+<h2 id="匹配导航"><a href="#匹配导航" class="headerlink" title="匹配导航"></a>匹配导航</h2><p>程序员经常编辑含有代码的文件，这种文件内容会包含大量的小括号，中括号和大括号，并且可能会把你搞迷糊你当前到底在哪对括号里。 许多编程语言都用到了小括号，中括号和大括号，你可能会迷失于其中。 如果你在它们中的某一对括号中，你可以通过<code>%</code>跳到其中一个括号或另一个上(如果存在)。 你也可以通过这种方法弄清你是否各个括号都成对匹配了。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%</td>
+<td>Navigate to another match, usually works for (), [], {}</td>
+</tr>
+</tbody></table>
+<h2 id="行号导航"><a href="#行号导航" class="headerlink" title="行号导航"></a>行号导航</h2><p>你可以通过<code>nG</code>调到行号为<code>n</code>的行，例如如果你想跳到第7行，你可以使用<code>7G</code>，跳到第一行使用<code>gg</code>或<code>1G</code>，跳到最后一行使用<code>G</code>。</p>
+<p>有时你不知道你想去的位置的具体行号，但是知道它大概在整个文件的70%左右的位置，你可以使用<code>70%</code>跳过去，可以使用<code>50%</code>跳到文件的中间。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>gg</td>
+<td>跳转到第一行</td>
+</tr>
+<tr>
+<td>G</td>
+<td>跳转到最后一行</td>
+</tr>
+<tr>
+<td>nG</td>
+<td>跳转到第n行</td>
+</tr>
+<tr>
+<td>n%</td>
+<td>跳到文件的n%<br />eg: 70% - 跳转到文件的70%的位置</td>
+</tr>
+</tbody></table>
+<p>如果你想看文件总行数，可以用<code>CTRL-g</code>查看。</p>
+<h2 id="窗格导航"><a href="#窗格导航" class="headerlink" title="窗格导航"></a>窗格导航</h2><p>为了移动到当前窗格的顶部，中间，底部，你可以使用<code>H</code>(high)，<code>M</code>(middle)和<code>L</code>(low)。</p>
+<p>你也可以给<code>H</code>和<code>L</code>传一个数字前缀。 如果你输入<code>10H</code>你会跳转到窗格顶部往下数10行的位置，如果你输入<code>3L</code>，你会跳转到距离当前窗格的底部一行向上数3行的位置。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>H</td>
+<td>跳转到屏幕的顶部</td>
+</tr>
+<tr>
+<td>M</td>
+<td>跳转到屏幕的中间</td>
+</tr>
+<tr>
+<td>L</td>
+<td>跳转到屏幕的底部</td>
+</tr>
+<tr>
+<td>nH</td>
+<td>跳转到距离顶部n行的位置</td>
+</tr>
+<tr>
+<td>nL</td>
+<td>跳转到距离底部n行的位置</td>
+</tr>
+</tbody></table>
+<h2 id="滚动"><a href="#滚动" class="headerlink" title="滚动"></a>滚动</h2><p>在文件中滚动，你有三种速度可以选择： 滚动一整页(<code>CTRL-F</code>&#x2F;<code>CTRL-B</code>)，滚动半页(<code>CTRL-D</code>&#x2F;<code>CTRL-U</code>)，滚动一行<code>CTRL-E</code>&#x2F;<code>CTRL-Y</code>)。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ctrl-e</td>
+<td>向下滚动一行</td>
+</tr>
+<tr>
+<td>Ctrl-d</td>
+<td>向下滚动半屏</td>
+</tr>
+<tr>
+<td>Ctrl-f</td>
+<td>向下滚动一屏</td>
+</tr>
+<tr>
+<td>Ctrl-y</td>
+<td>向上滚动一行</td>
+</tr>
+<tr>
+<td>Ctrl-u</td>
+<td>向上滚动半屏</td>
+</tr>
+<tr>
+<td>Ctrl-b</td>
+<td>向上滚动一屏</td>
+</tr>
+</tbody></table>
+<p>你也可以相对当前行进行滚动</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>zt</td>
+<td>将当前行置于屏幕顶部附近</td>
+</tr>
+<tr>
+<td>zz</td>
+<td>将当前行置于屏幕中央</td>
+</tr>
+<tr>
+<td>zb</td>
+<td>将当前行置于屏幕底部</td>
+</tr>
+</tbody></table>
+<h2 id="搜索导航"><a href="#搜索导航" class="headerlink" title="搜索导航"></a>搜索导航</h2><p>通常，你已经知道这个文件中有一个字段，你可以通过搜索导航非常快速的定位你的目标。 你可以通过<code>/</code>向下搜索，也可以通过<code>?</code>向上搜索一个字段。 你可以通过<code>n</code>重复最近一次搜索，<code>N</code>向反方向重复最近一次搜索。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x2F;</td>
+<td>向后搜索一个匹配</td>
+</tr>
+<tr>
+<td>?</td>
+<td>向前搜素一个匹配</td>
+</tr>
+<tr>
+<td>n</td>
+<td>重复上一次搜索(和上一次方向相同)</td>
+</tr>
+<tr>
+<td>N</td>
+<td>重复上一次搜索(和上一次方向相反)</td>
+</tr>
+</tbody></table>
+<p>你可以通过<code>:set hlsearch</code>设置搜索高亮。 这样，当你搜索<code>/let</code>，它将高亮文件中所有匹配的字段。 另外，如果你通过<code>:set incsearch</code>设置了增量搜索，它将在你输入时不断匹配的输入的内容。 默认情况下，匹配的字段会一直高亮到你搜索另一个字段，这有时候很烦人，如果你希望取消高亮，可以使用<code>:nohlsearch</code>。 因为我经常使用这个功能，所以我会设置一个映射：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nnoremap &lt;esc&gt;&lt;esc&gt; :noh&lt;return&gt;&lt;esc&gt;</span><br></pre></td></tr></table></figure>
+
+<p>你可以通过<code>*</code>快速的<strong>向前搜索</strong>光标下的文本，通过<code>#</code>快速<strong>向后搜索</strong>光标下的文本。 如果你的光标位于一个字符串”one”上，按下<code>*</code>相当于<code>/\&lt;one\&gt;</code>。 <code>/\&lt;one\&gt;</code>中的<code>\&lt;</code>和<code>\&gt;</code>表示<strong>整词匹配</strong>，使得一个更长的包含”one”的单词不会被匹配上，也就是说它会匹配”one”，但不会匹配”onetwo”。 如果你的光标在”one”上并且你想向后搜索完全或部分匹配的单词，例如”one”和”onetwo”，你可以用<code>g*</code>替代<code>*</code>。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*</td>
+<td>向后查找光标所在的完整单词</td>
+</tr>
+<tr>
+<td>#</td>
+<td>向前查找光标所在的完整单词</td>
+</tr>
+<tr>
+<td>g*</td>
+<td>向后搜索光标所在的单词</td>
+</tr>
+<tr>
+<td>g#</td>
+<td>向前搜索光标所在的单词</td>
+</tr>
+</tbody></table>
+<h2 id="位置标记"><a href="#位置标记" class="headerlink" title="位置标记"></a>位置标记</h2><p>你可以通过标记保存当前位置并在之后回到这个位置，就像文本编辑中的书签。 你可以通过<code>mx</code>设置一个标记，其中<code>x</code>可以是<code>a-zA-Z</code>。 有两种办法能回到标记的位置： 用 `x 精确回到(行和列)，或者用 <code>&#39;x</code> 回到行级位置。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ma</td>
+<td>用a标签标记一个位置</td>
+</tr>
+<tr>
+<td>`a</td>
+<td>精确回到a标签的位置(行和列)</td>
+</tr>
+<tr>
+<td>‘a</td>
+<td>跳转到a标签的行</td>
+</tr>
+</tbody></table>
+<p><code>a-z</code>的标签和<code>A-Z</code>的标签存在一个区别，小写字母是局部标签，大写字母是全局标签(也称文件标记)。</p>
+<p>我们首先说说局部标记。 每个buffer可以有自己的一套局部标记，如果打开了两个文件，我可以在第一个文件中设置标记”a”(<code>ma</code>)，然后在另一个文件中设置另一个标记”a”(<code>ma</code>)。</p>
+<p>不像你可以在每个buffer中设置一套局部标签，你只能设置一套全局标签。 如果你在<code>myFile.txt</code>中设置了标签<code>mA</code>，下一次你在另一个文件中设置<code>mA</code>时，A标签的位置会被覆盖。 全局标签有一个好处就是，即使你在不同的项目中，你也可以跳转到任何一个全局标签上，全局标签可以帮助你在文件间切换。</p>
+<p>使用<code>:marks</code>查看所有标签，你也许会注意到除了<code>a-zA-Z</code>以外还有别的标签，其中有一些例如：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>‘’</td>
+<td>在当前buffer中跳转回到上一次跳转前的最后一行</td>
+</tr>
+<tr>
+<td>``</td>
+<td>在当前buffer中跳转回到上一次跳转前的最后一个位置</td>
+</tr>
+<tr>
+<td>`[</td>
+<td>跳转到上一次修改或拷贝的文本的开头</td>
+</tr>
+<tr>
+<td>`]</td>
+<td>跳转到上一次修改或拷贝的文本的结尾</td>
+</tr>
+<tr>
+<td>`&lt;</td>
+<td>跳转到最近一次可视模式下选择的部分的开头</td>
+</tr>
+<tr>
+<td>`&gt;</td>
+<td>跳转到最近一次可视模式下选择的部分的结尾</td>
+</tr>
+<tr>
+<td>`0</td>
+<td>跳转到退出Vim前编辑的最后一个文件</td>
+</tr>
+</tbody></table>
+<p>除了上面列举的，还有更多标记，你可以通过<code>: marks</code>查看。</p>
+<h2 id="跳转"><a href="#跳转" class="headerlink" title="跳转"></a>跳转</h2><p>最后，我们聊聊Vim中的跳转你通过任意的移动可以在不同文件中或者同一个的文件的不同部分间跳转。 然而并不是所有的移动都被认为是一个跳转。 使用<code>j</code>向下移动一行就不被看做一个跳转，即使你使用<code>10j</code>向下移动10行，也不是一个跳转。 但是你通过<code>10G</code>去往第10行被算作一个跳转。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>‘</td>
+<td>跳转到标记的行</td>
+</tr>
+<tr>
+<td>`</td>
+<td>跳转到标记的位置(行和列)</td>
+</tr>
+<tr>
+<td>G</td>
+<td>跳转到行</td>
+</tr>
+<tr>
+<td>&#x2F;</td>
+<td>向后搜索</td>
+</tr>
+<tr>
+<td>?</td>
+<td>向前搜索</td>
+</tr>
+<tr>
+<td>n</td>
+<td>重复上一次搜索，相同方向</td>
+</tr>
+<tr>
+<td>N</td>
+<td>重复上一次搜索，相反方向</td>
+</tr>
+<tr>
+<td>%</td>
+<td>查找匹配</td>
+</tr>
+<tr>
+<td>(</td>
+<td>跳转上一个句子</td>
+</tr>
+<tr>
+<td>)</td>
+<td>跳转下一个句子</td>
+</tr>
+<tr>
+<td>{</td>
+<td>跳转上一个段落</td>
+</tr>
+<tr>
+<td>}</td>
+<td>跳转下一个段落</td>
+</tr>
+<tr>
+<td>L</td>
+<td>跳转到当前屏幕的最后一行</td>
+</tr>
+<tr>
+<td>M</td>
+<td>跳转到当前屏幕的中间</td>
+</tr>
+<tr>
+<td>H</td>
+<td>跳转到当前屏幕的第一行</td>
+</tr>
+<tr>
+<td>[[</td>
+<td>跳转到上一个小节</td>
+</tr>
+<tr>
+<td>]]</td>
+<td>跳转到下一个小节</td>
+</tr>
+<tr>
+<td>:s</td>
+<td>替换</td>
+</tr>
+<tr>
+<td>:tag</td>
+<td>跳转到tag定义</td>
+</tr>
+</tbody></table>
+<p>我不建议你把上面这个列表记下来，一个大致的规则是，<strong>任何大于一个单词或超过当前行导航的移动都可能是一个跳转</strong>。 Vim保留了你移动前位置的记录，你可以通过<code>:jumps</code>查看这个列表，如果想了解更多，可以查看<code>:h jump-motions</code>。</p>
+<p>为什么跳转有用呢? 因为你可以在跳转列表中通过<code>Ctrl-o</code>和<code>Ctrl-i</code>在记录之间向上或向下跳转到对应位置。 你可以在不同文件中进行跳转.</p>
+<h1 id="文本操作"><a href="#文本操作" class="headerlink" title="文本操作"></a>文本操作</h1><h2 id="文本修改"><a href="#文本修改" class="headerlink" title="文本修改"></a>文本修改</h2><table>
+<thead>
+<tr>
+<th>小写字母命令</th>
+<th>大写字母命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>d</code> 加动作来进行删除（<code>dd</code> 删除整行）</td>
+<td><code>D</code> 则相当于 <code>d$</code>，删除到行尾</td>
+</tr>
+<tr>
+<td><code>c</code> 加动作来进行修改（<code>cc</code> 修改整行）</td>
+<td><code>C</code> 则相当于 <code>c$</code>，删除到行尾然后进入插入模式</td>
+</tr>
+<tr>
+<td><code>s</code> 相当于 <code>cl</code>，删除一个字符然后进入插入模式</td>
+<td><code>S</code> 相当于 <code>cc</code>，替换整行的内容</td>
+</tr>
+<tr>
+<td><code>i</code> 在当前字符前面进入插入模式</td>
+<td><code>I</code> 则相当于 <code>^i</code>，把光标移到行首非空白字符上然后进入插入模式</td>
+</tr>
+<tr>
+<td><code>a</code> 在当前字符后面进入插入模式</td>
+<td><code>A</code> 相当于 <code>$a</code>，把光标移到行尾然后进入插入模式</td>
+</tr>
+<tr>
+<td><code>o</code> 在当前行下方插入一个新行，然后在这行进入插入模式</td>
+<td><code>O</code> 在当前行上方插入一个新行，然后在这行进入插入模式</td>
+</tr>
+<tr>
+<td><code>r</code> 替换光标下的字符</td>
+<td><code>R</code> 则进入替换模式，每次按键（直到 <code>&lt;Esc&gt;</code>）替换一个字符</td>
+</tr>
+<tr>
+<td><code>u</code> 撤销最近的一个修改动作</td>
+<td><code>U</code> 撤销当前行上的所有修改</td>
+</tr>
+</tbody></table>
+<h2 id="文本选择"><a href="#文本选择" class="headerlink" title="文本选择"></a>文本选择</h2><p>选择动作的基本附加键是 <code>a</code> 和 <code>i</code></p>
+<ul>
+<li>‘<code>dw</code>’（理解为 delete word）会删除“<code>ame␣</code>”，结果是“<code>if (message == &quot;sesopen&quot;)</code>”</li>
+<li>‘<code>diw</code>’（理解为 delete inside word）会删除“<code>sesame</code>”，结果是“<code>if (message == &quot; open&quot;)</code>”</li>
+<li>‘<code>daw</code>’（理解为 delete a word）会删除“<code>sesame␣</code>”，结果是“<code>if (message == &quot;open&quot;)</code>”</li>
+<li>‘<code>diW</code>’会删除“<code>&quot;sesame</code>”，结果是“<code>if (message == open&quot;)</code>”</li>
+<li>‘<code>daW</code>’会删除“<code>&quot;sesame␣</code>”，结果是“<code>if (message == open&quot;)</code>”</li>
+<li>‘<code>di&quot;</code>’会删除“<code>sesame open</code>”，结果是“<code>if (message == &quot;&quot;)</code>”</li>
+<li>‘<code>da&quot;</code>’会删除“<code>&quot;sesame open&quot;</code>”，结果是“<code>if (message ==)</code>”</li>
+<li>‘<code>di(</code>’或‘<code>di)</code>’会删除“<code>message == &quot;sesame open&quot;</code>”，结果是“<code>if ()</code>”</li>
+<li>‘<code>da(</code>’或‘<code>da)</code>’会删除“<code>(message == &quot;sesame open&quot;)</code>”，结果是“<code>if␣</code>”</li>
+</ul>
+<p>上面演示了 <code>a</code>、<code>i</code> 和 <code>w</code>、双引号、圆括号搭配使用，这些对于任何语言的代码编辑都是非常有用的。实际上，可以搭配的还有更多：</p>
+<ul>
+<li>搭配 <code>s</code>（sentence）对句子进行操作——适合西文文本编辑</li>
+<li>搭配 <code>p</code>（paragraph)对段落进行操作——适合西文文本编辑，及带空行的代码编辑</li>
+<li>搭配 <code>t</code>（tag）对 HTML&#x2F;XML 标签进行操作——适合 HTML、XML 等语言的代码编辑</li>
+<li>搭配 ` 和 <code>&#39;</code> 对这两种引号里的内容进行操作——适合使用这些引号的代码，如 shell 和 Python</li>
+<li>搭配方括号（“[”和“]”）对方括号里的内容进行操作——适合各种语言（大部分都会用到方括号吧）</li>
+<li>搭配花括号（“{”和“}”）对花括号里的内容进行操作——适合类 C 的语言</li>
+<li>搭配角括号（“&lt;”和“&gt;”）对角括号里的内容进行操作——适合 C++ 的模板代码</li>
+</ul>
+<p>再进一步，在 <code>a</code> 和 <code>i</code> 前可以加上数字，对多个（层）文本对象进行操作。</p>
+<h1 id="点命令"><a href="#点命令" class="headerlink" title="点命令"></a>点命令</h1><p>用点命令来<strong>重放上一个修改操作</strong>。点命令是最简单的命令，然而又是减少重复操作最为有用的命令。</p>
+<p>当你使用普通模式下的命令来更新（添加，修改或者删除）当前缓冲区中的内容时，你就是在执行一个修改操作了。其中的例外是使用命令行命令进行的修改（以<code>：</code>开头的命令），这些命令不算作修改操作。</p>
+<h1 id="vim定制"><a href="#vim定制" class="headerlink" title="vim定制"></a>vim定制</h1><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p>Vim 的工作环境是由运行支持文件来设定的。如果你想要定制 Vim，就要熟知 Vim 有哪些不同类型的运行支持文件，分别存放在哪里，怎样能快捷地找到它们。</p>
+<p>Vim 比较有意思的一点的是，虽然运行支持文件是在 Vim 的安装目录下，但用户自己是可以“克隆”这个目录结构的。也就是说，你自己目录下的用户配置，到你深度定制的时候，也有相似的目录结构。</p>
+<h3 id="安装目录下的运行支持文件"><a href="#安装目录下的运行支持文件" class="headerlink" title="安装目录下的运行支持文件"></a>安装目录下的运行支持文件</h3><p>Vim 的运行支持文件在不同的平台上有着相似的目录结构。以 Vim 8.2 为例，它们的标准安装位置分别在：</p>
+<ul>
+<li>大部分 Unix 下面：<code>/usr/share/vim/vim82</code></li>
+<li>macOS Homebrew 下：<code>/usr/local/opt/macvim/MacVim.app/Contents/Resources/vim/runtime</code></li>
+<li>Windows 下：<code>C:\Program Files (x86)\Vim\vim82</code></li>
+</ul>
+<p>在这个目录下面，你可以看到很多子目录，如 autoload、colors、doc、pack、plugin、syntax 等等。这些子目录下面就是分类放置的 Vim 支持文件。最常用的子目录应该是下面这几个：</p>
+<ul>
+<li>syntax：Vim 的语法加亮文件</li>
+<li>doc：Vim 的帮助文件</li>
+<li>colors：Vim 的配色方案</li>
+<li>plugin：Vim 的“插件”，即用来增强 Vim 功能的工具</li>
+</ul>
+<p>以 syntax 目录为例，当前我在下面看到有 617 个文件，也就是说，Vim 对 617 种不同的文件类型提供了语法加亮支持！这里面的文件去掉“.vim”后缀后，就是文件类型的名字，你可以用类似 <code>:setfiletype java</code> 这样的命令来设置文件的类型，从而进行语法加亮。</p>
+<p>在菜单中显示文件类型这个额外的步骤，可能是因为很久很久以前，加载所有文件类型的菜单是一个耗时的操作吧。在 menu.vim 里，目前有这样的代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&quot; Skip setting up the individual syntax selection menus unless</span><br><span class="line">&quot; do_syntax_sel_menu is defined (it takes quite a bit of time).</span><br><span class="line">if exists(&quot;do_syntax_sel_menu&quot;)</span><br><span class="line">  runtime! synmenu.vim</span><br><span class="line">else</span><br><span class="line">  …</span><br><span class="line">endif</span><br></pre></td></tr></table></figure>
+
+<p>不知道这段注释是什么年代加上的……但显然，我们的电脑已经不会再在乎加载几百个菜单项所占的时间了。即使我不怎么用菜单，我也找不出不直接展示这个菜单的理由；我可不想在需要使用的时候再多点一次鼠标。</p>
+<p>所以，我会在我的 vimrc 文件里写上：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let do_syntax_sel_menu = 1</span><br></pre></td></tr></table></figure>
+
+<p>同理，我会加载其他一些可能会被 Vim 延迟加载的菜单，减少需要在菜单上点击的次数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let do_no_lazyload_menus = 1</span><br></pre></td></tr></table></figure>
+
+<p>上面两个设置在我的机器上会让我打开 Vim 的速度下降大概 20 毫秒。我想我不在乎这点时间差异……</p>
+<p>我们用“<code>:help</code>”命令查看的帮助文件就放在 doc 目录下。我们可以用菜单“编辑 &gt; 配色方案”（“Edit &gt; Color Scheme”）浏览配色方案，相应的文件就在 colors 目录下。</p>
+<p>在 plugin 目录下的系统内置插件不多，我们下面就快速讲解一下：</p>
+<ul>
+<li>getscriptPlugin：获得最新的 Vim 脚本的插件（在目前广泛使用 Git 的年代，这个插件过时了，我们不讲）</li>
+<li>gzip：编辑 .gz 压缩文件（能在编辑后缀为 .gz 的文件时自动解压和压缩，你会感觉不到这个文件是压缩的）</li>
+<li>logiPat：模式匹配的逻辑运算符（允许以逻辑运算、而非标准正则表达式的方式来写模式匹配表达式）</li>
+<li>manpager：使用 Vim 来查看 man 帮助（强烈建议试一下，记得使用 Vim 的跳转键 <code>C-]</code> 和 <code>C-T</code>）</li>
+<li>matchparen：对括号进行高亮匹配（现代编辑器基本都有类似的功能）</li>
+<li>netrwPlugin：从网络上编辑文件和浏览（远程）目录（支持多种常见协议如 ftp 和 scp，可直接打开目录来选择文件）</li>
+<li>rrhelper：用于支持 <code>--remote-wait</code> 编辑（Vim 的多服务器会用到这一功能）</li>
+<li>spellfile：在拼写文件缺失时自动下载（Vim 一般只安装了英文的拼写文件）</li>
+<li>tarPlugin：编辑（压缩的）tar 文件（注意，和 gzip 情况不同，这儿不支持写入）</li>
+<li>tohtml：把语法加亮的结果转成 HTML（自己打开个文件，输入命令“<code>:TOhtml</code>”就知道效果了）</li>
+<li>vimballPlugin：创建和解开 .vba 文件（这个目前也略过时了，我们不讲）</li>
+<li>zipPlugin：编辑 zip 文件（和 tar 文件不同，zip 文件可支持写入）</li>
+</ul>
+<p>除了 rrhelper 和 spellfile 属于功能支持插件，没有自己的帮助页面，其他功能都可以使用“<code>:help</code>”命令来查看帮助。查看帮助时，插件名称中的“Plugin”后缀需要去掉：查看 zip 文件编辑的帮助时，应当使用“<a target="_blank" rel="noopener" href="https://yianwillis.github.io/vimcdoc/doc/pi_zip.html#zip"><code>:help zip</code></a>”而不是“<code>:help zipPlugin</code>”。</p>
+<h3 id="用户的-Vim-配置目录"><a href="#用户的-Vim-配置目录" class="headerlink" title="用户的 Vim 配置目录"></a>用户的 Vim 配置目录</h3><p>Vim 的安装目录你是不应该去修改的。首先，你可能没有权限去修改这个目录；其次，即使你有修改权限，这个目录会在 Vim 升级时被覆盖，你做的修改也会丢失。用户自己的配置应当放在自己的目录下，这也就是用户自己的主目录下的 Vim 配置目录（Unix 下的 .vim，Windows 下的 vimfiles）。这个目录应和 Vim 安装目录下的运行支持文件目录有相同的结构，但下面的子目录在你需要修改 Vim 的相关行为时才有必要创建。**<u>如果一个同名文件出现用户自己的 Vim 配置目录里和 Vim 的安装目录里，用户的文件优先。</u>**</p>
+<p>换句话说，修改 Vim 行为最简单的一种方式，就是把一个系统的运行支持文件复制到自己的 Vim 配置目录下的相同位置，然后修改其内容。我自己常常用这种方式来精调 Vim 的语法加亮。</p>
+<p>显然，这种方式的缺点（在适当的时候也是优点）是，如果 Vim 的运行支持文件后来被修改&#x2F;更新了，你也会继续使用你自己目录下的老版本修改版。如果你的修改不只是你自己的临时方案、同时也适合他人的话，最佳做法还是给 Vim 项目提交补丁，让其他所有人都能用上你的修改，这样才是开源的最佳使用方式。</p>
+<p>关于 Vim 的公用脚本，这儿再多说几句。Vim 的网站过去是用来集中获取各种脚本——如插件和配色方案——的地方，而 getscriptPlugin 可以帮助简化这个过程。今天你仍然可以使用这个方法，但 Git 和 GitHub 的广泛使用已经改变了人们获取和更新脚本的方式。现在，最主流的分发 Vim 脚本的方式是利用 GitHub，而用户则使用包管理器来调用 Git 从 GitHub（或类似的 Git 库）获取和更新脚本，下面我们很快就会讲到。</p>
+<h2 id="Vim-8-新功能"><a href="#Vim-8-新功能" class="headerlink" title="Vim 8 新功能"></a>Vim 8 新功能</h2><p>站在我个人的角度看，从 Vim 7.4 到 Vim 8.2，最大的新功能是：</p>
+<ul>
+<li>Vim 软件包的支持（“<a target="_blank" rel="noopener" href="https://yianwillis.github.io/vimcdoc/doc/repeat.html#packages"><code>:help packages</code></a>”）</li>
+<li>异步任务支持（“<a target="_blank" rel="noopener" href="https://yianwillis.github.io/vimcdoc/doc/channel.html"><code>:help channel</code></a>”、“<a target="_blank" rel="noopener" href="https://yianwillis.github.io/vimcdoc/doc/channel.html#job"><code>:help job</code></a>”和“<a target="_blank" rel="noopener" href="https://yianwillis.github.io/vimcdoc/doc/eval.html#timers"><code>:help timers</code></a>”）</li>
+<li>终端支持（“<a target="_blank" rel="noopener" href="https://yianwillis.github.io/vimcdoc/doc/terminal.html"><code>:help terminal</code></a>”）</li>
+</ul>
+<h3 id="Vim-软件包"><a href="#Vim-软件包" class="headerlink" title="Vim 软件包"></a>Vim 软件包</h3><p>Vim 的目录结构有点传统 Unix 式：一个功能用到的文件可能会分散在多个目录下。就像传统 Unix 上 Vim 的文件可能分散在 &#x2F;usr&#x2F;bin、&#x2F;usr&#x2F;share&#x2F;man、&#x2F;usr&#x2F;share&#x2F;vim 等目录下一样，一个 Vim 的插件（严格来讲，应该叫包）通常也会分散在多个目录下：</p>
+<ul>
+<li>插件的主体通常在 plugin 目录下</li>
+<li>插件的帮助文件在 doc 目录下</li>
+<li>有些插件只对某些文件类型有效，会有文件放在 ftplugin 目录下</li>
+<li>有些插件有自己的文件类型检测规则，会有文件放在 ftdetect 目录下</li>
+<li>有些插件有特殊的语法加亮，会有文件放在 syntax 目录下</li>
+<li>……</li>
+</ul>
+<p>以前我们安装插件，一般是一次性安装后就不管了。安装过程基本上就是到 .vim 目录（Windows 上是 vimfiles 目录）下，解出压缩包的内容，然后执行 <code>vim -c &#39;helptags doc|q&#39;</code> 生成帮助文件的索引。到了“互联网式更新”的年代，这种方式就显得落伍了。尤其糟糕的地方在于，它是按文件类型来组织目录的，而不是按相关性，这就没法用 Git 来管理了。</p>
+<p>Vim 上后来就出现了一些包管理器，它们的基本模式都是相通的：每个包有自己的目录，然后这些目录会被加到 Vim 的运行时路径（<code>runtimepath</code>）选项里。最早的 <code>runtimepath</code> 较为简单，在 Unix 上缺省为：</p>
+<ul>
+<li><code>$HOME/.vim,</code></li>
+<li><code>$VIM/vimfiles,</code></li>
+<li><code>$VIMRUNTIME,</code></li>
+<li><code>$VIM/vimfiles/after,</code></li>
+<li><code>$HOME/.vim/after</code></li>
+</ul>
+<p>而在有了包管理器之后，<code>runtimepath</code> 就会非常复杂，每个包都会增加一个自己的目录进去。但是，好处也是非常明显的，包的管理变得非常方便。从 Vim 8 开始，Vim 官方也采用了类似的体系。Vim 会在用户的配置目录（Unix 下是 <code>$HOME/.vim</code> ，Windows 下是 <code>$HOME/vimfiles</code> ）下识别名字叫 pack 的目录，并在这个目录的子目录的 start 和 opt 目录下寻找包的目录。</p>
+<p>一个实际的 Vim 配置目录的结构: </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── colors</span><br><span class="line">├── doc</span><br><span class="line">├── pack</span><br><span class="line">│   ├── minpac</span><br><span class="line">│   │   ├── opt</span><br><span class="line">│   │   │   ├── minpac</span><br><span class="line">│   │   │   ├── vim-airline</span><br><span class="line">│   │   │   └── vimcdoc</span><br><span class="line">│   │   └── start</span><br><span class="line">│   │       ├── VimExplorer</span><br><span class="line">│   │       ├── asyncrun.vim</span><br><span class="line">│   │       ├── fzf.vim</span><br><span class="line">│   │       ├── gruvbox</span><br><span class="line">│   │       ├── killersheep</span><br><span class="line">│   │       ├── nerdcommenter</span><br><span class="line">│   │       ├── nerdtree</span><br><span class="line">│   │       ├── tagbar</span><br><span class="line">│   │       ├── undotree</span><br><span class="line">│   │       ├── vim-fugitive</span><br><span class="line">│   │       ├── vim-matrix-screensaver</span><br><span class="line">│   │       ├── vim-rainbow</span><br><span class="line">│   │       ├── vim-repeat</span><br><span class="line">│   │       ├── vim-rhubarb</span><br><span class="line">│   │       └── vim-surround</span><br><span class="line">│   └── my</span><br><span class="line">│       ├── opt</span><br><span class="line">│       │   ├── YouCompleteMe</span><br><span class="line">│       │   ├── ale</span><br><span class="line">│       │   ├── clang_complete</span><br><span class="line">│       │   ├── cvsmenu</span><br><span class="line">│       │   └── syntastic</span><br><span class="line">│       └── start</span><br><span class="line">│           ├── vim-gitgutter</span><br><span class="line">│           └── ycmconf</span><br><span class="line">├── plugin</span><br><span class="line">├── syntax</span><br><span class="line">└── undodir</span><br></pre></td></tr></table></figure>
+
+<p>有了这样的目录结构，用户要自己安装、管理包就方便多了。不过，我们还是推荐使用一个包管理器。包管理器可以带来下面的好处：</p>
+<ul>
+<li>根据文本的配置（一般写在 vimrc 配置文件里）决定要安装哪些包</li>
+<li>自动化安装、升级和卸载，包括帮助文件的索引生成</li>
+</ul>
+<h1 id="折叠"><a href="#折叠" class="headerlink" title="折叠"></a>折叠</h1><h2 id="Folds-折叠命令"><a href="#Folds-折叠命令" class="headerlink" title="Folds 折叠命令"></a>Folds 折叠命令</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>zo/zO</code></td>
+<td>Open 打开折叠</td>
+</tr>
+<tr>
+<td><code>zc/zC</code></td>
+<td>Close 关闭折叠</td>
+</tr>
+<tr>
+<td><code>za/zA</code></td>
+<td>Toggle 在打开折叠和关闭折叠之间进行切换</td>
+</tr>
+<tr>
+<td><code>zv</code></td>
+<td>Open folds for this line 为当前行打开折叠</td>
+</tr>
+<tr>
+<td><code>zM</code></td>
+<td>Close all 关闭所有折叠</td>
+</tr>
+<tr>
+<td><code>zm</code></td>
+<td>Fold more (foldlevel +&#x3D; 1) 更多地折叠</td>
+</tr>
+<tr>
+<td><code>zR</code></td>
+<td>Open all 打开所有折叠</td>
+</tr>
+<tr>
+<td><code>zr</code></td>
+<td>Fold less (foldlevel -&#x3D; 1) 更少地折叠</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>注：通过命令 <code>:h fold-commands</code> 查看更多关于折叠命令的帮助信息。</p>
+</blockquote>
+<h1 id="diff"><a href="#diff" class="headerlink" title="diff"></a>diff</h1><h2 id="vimdiff-mode-常用命令速查表-cheat-sheet"><a href="#vimdiff-mode-常用命令速查表-cheat-sheet" class="headerlink" title="vimdiff mode 常用命令速查表(cheat sheet)"></a>vimdiff mode 常用命令速查表(cheat sheet)</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>[c</code></td>
+<td>Jump to the previous diff 跳到前一个不同之处</td>
+</tr>
+<tr>
+<td><code>]c</code></td>
+<td>Jump to the next diff 调到下一个不同之处</td>
+</tr>
+<tr>
+<td><code>do</code>&#x2F;<code>:diffget</code></td>
+<td>Pull the changes to the current file 将所有的不同之处拉到当前文件，使之与另一个文件内容相同</td>
+</tr>
+<tr>
+<td><code>dp</code>&#x2F;<code>:diffput</code></td>
+<td>Push the changes to the other file 将所有的不同之处推到另一个文件</td>
+</tr>
+<tr>
+<td><code>:diffupdate</code></td>
+<td>rescan files for differences 重新扫描文件之间的不同之处</td>
+</tr>
+</tbody></table>
+<h2 id="vimdiff合并git冲突"><a href="#vimdiff合并git冲突" class="headerlink" title="vimdiff合并git冲突"></a>vimdiff合并git冲突</h2><h3 id="设置vimdiff"><a href="#设置vimdiff" class="headerlink" title="设置vimdiff"></a>设置vimdiff</h3><ul>
+<li><p>局部: 在git文件夹内运行</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config merge.tool vimdiff</span><br><span class="line">git config merge.conflictstyle diff3</span><br><span class="line">git config mergetool.prompt <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>全局</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global merge.tool vimdiff</span><br><span class="line">git config --global merge.conflictstyle diff3</span><br><span class="line">git config --global mergetool.prompt <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改配置文件<code>cat ~/.gitconfig</code></p>
+ <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[core]</span><br><span class="line">  editor = vim</span><br><span class="line">[merge]</span><br><span class="line">  tool = vimdiff</span><br><span class="line">  conflictstyle = diff3</span><br><span class="line">[difftool]</span><br><span class="line">  prompt = false</span><br></pre></td></tr></table></figure></li>
+</ul>
+<blockquote>
+<p>设置不生成backup文件</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#让git mergetool不再生成备份文件(*.orig)</span></span><br><span class="line">git config --global mergetool.keepBackup <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="合并冲突"><a href="#合并冲突" class="headerlink" title="合并冲突"></a>合并冲突</h3><ol>
+<li><p>启动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git mergetool</span><br></pre></td></tr></table></figure>
+
+<p>对于每个需要merge的文件，会弹出 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+——————————–+ | LOCAL | BASE | REMOTE | +——————————–+ | MERGED | +——————————–+</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>LOCAL</code> buffer: 当前分支</li>
+<li><code>BASE</code> buffer: 两个分支共同祖先，代表两个分支修改前</li>
+<li><code>REMOTE</code> buffer: 需要合并到当前分支的分支</li>
+<li><code>MERGED</code> buffer: 合并后的，即有冲突的</li>
+</ul>
+</li>
+<li><p>vimdiff使用</p>
+<p>鼠标移动到<code>MERGED</code>窗口，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:diffget RE    <span class="comment"># 获取REMOTE的修改到MERGED文件, 忽略大小写</span></span><br><span class="line">:diffg ba      <span class="comment"># get from base</span></span><br><span class="line">:diffg lo      <span class="comment"># get from local</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>注意</strong>：通过<code>diffget</code>只能选取local, base, remote三种的一种，要想都需要3种或者两种，只能通过修改<code>MERGED</code>文件</p>
+</blockquote>
+</li>
+<li><p>修改完成后， 保存 <code>:wqa</code></p>
+</li>
+<li><p>冲突解决完，commit</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$git</span> commit -m <span class="string">&quot;&lt;your_commit_instructions&gt;&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除orig文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -name <span class="string">&quot;*.orig&quot;</span> | xargs <span class="built_in">rm</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="vim图解"><a href="#vim图解" class="headerlink" title="vim图解"></a>vim图解</h1><h2 id="经典版"><a href="#经典版" class="headerlink" title="经典版"></a>经典版</h2><p>   一系列的入门教程键位图的组合结果。要查看不同编辑模式下的键位图, 可以再all下得原文地址中下载.</p>
+<ul>
+<li><p>en</p>
+ <img data-src="/2021/04/28/138/vi-vim-cheat-sheet.gif" class="">
+
+<p> <a target="_blank" rel="noopener" href="http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html">原文地址</a></p>
+</li>
+<li><p>zh</p>
+ <img data-src="/2021/04/28/138/vi-vim-cheat-sheet-sch-zh.gif" class="">
+
+<p> <a target="_blank" rel="noopener" href="http://blog.ngedit.com/vi-vim-cheat-sheet-sch.gif">原文地址</a></p>
+</li>
+<li><p>all</p>
+<p> <a target="_blank" rel="noopener" href="http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html">原文地址</a></p>
+</li>
+</ul>
+<h2 id="入门版"><a href="#入门版" class="headerlink" title="入门版"></a>入门版</h2><p>   基本操作的入门版. 原版出处还有keynote版本可供DIY以及其他相关有用的cheatsheet, <a target="_blank" rel="noopener" href="https://github.com/ahrencode/Miscellaneous">原文地址</a>.</p>
+   <img data-src="/2021/04/28/138/entry.png" class="">
+
+<h2 id="进阶版"><a href="#进阶版" class="headerlink" title="进阶版"></a>进阶版</h2>   <img data-src="/2021/04/28/138/vim_cheat_sheet_for_programmers_print.png" class="">
+
+<p>   <a target="_blank" rel="noopener" href="https://michael.peopleofhonoronly.com/vim/">原文地址</a></p>
+<h2 id="增强版"><a href="#增强版" class="headerlink" title="增强版"></a>增强版</h2><p>   更新时间较新的现代版，含有的信息也更丰富。</p>
+   <img data-src="/2021/04/28/138/modern.png" class="">
+
+<p>   <a target="_blank" rel="noopener" href="https://thingsfittogether.com/">原文地址</a></p>
+<h2 id="文字版"><a href="#文字版" class="headerlink" title="文字版"></a>文字版</h2>   <img data-src="/2021/04/28/138/vimqrc.pdf" class="" title="点击查看pdf文件">
+
+<p>   <a target="_blank" rel="noopener" href="http://tnerual.eriogerg.free.fr/vimqrc.pdf">原文地址</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://qeuroal.top/2021/04/28/138/" title="138. VIM&#39;s World">http://qeuroal.top/2021/04/28/138/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/software/" rel="tag"><i class="fa fa-tag"></i> software</a>
+              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+              <a href="/tags/vim/" rel="tag"><i class="fa fa-tag"></i> vim</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/04/05/137/" rel="prev" title="137. Flask">
+                  <i class="fa fa-angle-left"></i> 137. Flask
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/04/29/139/" rel="next" title="139. HTML5">
+                  139. HTML5 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Qeuroal" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

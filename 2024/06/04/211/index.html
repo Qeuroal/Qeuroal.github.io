@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="防止忘记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="211. 分段管理机制">
+<meta property="og:url" content="http://qeuroal.top/2024/06/04/211/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Blog">
+<meta property="og:description" content="防止忘记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qeuroal.top/2024/06/04/211/image-20240604154842113.png">
+<meta property="og:image" content="http://qeuroal.top/2024/06/04/211/image-20240604162429525.png">
+<meta property="og:image" content="http://qeuroal.top/2024/06/04/211/v2-a767a6be0c4f851a01c13b93b0f4fcf2_720w.webp">
+<meta property="og:image" content="http://qeuroal.top/2024/06/04/211/image-20240605080115552.png">
+<meta property="article:published_time" content="2024-06-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-08T06:36:58.678Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qeuroal.top/2024/06/04/211/image-20240604154842113.png">
+
+
+<link rel="canonical" href="http://qeuroal.top/2024/06/04/211/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2024/06/04/211/","path":"2024/06/04/211/","title":"211. 分段管理机制"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>211. 分段管理机制 | Qeuroal's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Qeuroal's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">静幽正治</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%A4%A7%E5%B0%8F"><span class="nav-number">1.1.</span> <span class="nav-text">数据类型大小</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%981-%E6%8C%87%E9%92%88%E5%8F%98%E9%87%8F%E5%AD%98%E5%82%A8%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">2.</span> <span class="nav-text">问题1:指针变量存储的是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">2.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8C%9C%E6%83%B3"><span class="nav-number">2.2.</span> <span class="nav-text">猜想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E9%A1%BE%E2%80%9D%E5%9C%B0%E5%9D%80%E2%80%9D"><span class="nav-number">2.3.</span> <span class="nav-text">回顾”地址”</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E4%B8%AD"><span class="nav-number">2.3.1.</span> <span class="nav-text">汇编语言中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-number">2.3.2.</span> <span class="nav-text">高级计算机体系结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A8%E7%90%86"><span class="nav-number">2.4.</span> <span class="nav-text">推理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E8%AF%81"><span class="nav-number">2.5.</span> <span class="nav-text">实证</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C1"><span class="nav-number">2.5.1.</span> <span class="nav-text">实验1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1"><span class="nav-number">2.5.1.1.</span> <span class="nav-text">实验设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90"><span class="nav-number">2.5.1.2.</span> <span class="nav-text">结果分析</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E6%A0%B8%E7%AE%A1%E7%90%86gdt%E8%A1%A8"><span class="nav-number">3.</span> <span class="nav-text">内核管理gdt表</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">大人者，不失其赤子之心</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2024/06/04/211/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="211. 分段管理机制 | Qeuroal's Blog">
+      <meta itemprop="description" content="防止忘记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          211. 分段管理机制
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-04 00:00:00" itemprop="dateCreated datePublished" datetime="2024-06-04T00:00:00+08:00">2024-06-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-08 14:36:58" itemprop="dateModified" datetime="2025-12-08T14:36:58+08:00">2025-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">防止忘记</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><h2 id="数据类型大小"><a href="#数据类型大小" class="headerlink" title="数据类型大小"></a>数据类型大小</h2><table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>16位操作系统(byte)</th>
+<th>32位操作系统(byte)</th>
+<th>64位操作系统(byte)</th>
+<th>取值范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>char</code></td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>-128 ~ 127</td>
+</tr>
+<tr>
+<td><code>unsigned char</code></td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0 ~ 255</td>
+</tr>
+<tr>
+<td><code>short int</code> &#x2F; <code>short</code></td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>-32768~32767</td>
+</tr>
+<tr>
+<td><code>unsigned short</code></td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>0 ~ 65535</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td>2</td>
+<td>4</td>
+<td>4</td>
+<td>-2147483648~2157483647</td>
+</tr>
+<tr>
+<td><code>unsigned int</code></td>
+<td>2</td>
+<td>4</td>
+<td>4</td>
+<td>0~4294967295</td>
+</tr>
+<tr>
+<td><code>long int</code> &#x2F; <code>long</code></td>
+<td>4</td>
+<td>4</td>
+<td>8</td>
+<td>-2147483648~2147483647</td>
+</tr>
+<tr>
+<td><code>unsigned long</code></td>
+<td>4</td>
+<td>4</td>
+<td>8</td>
+<td>0~42294967295</td>
+</tr>
+<tr>
+<td><code>long long int</code> &#x2F; <code>long long</code></td>
+<td>8</td>
+<td>8</td>
+<td>8</td>
+<td>-9223372036854775808 ~9223372036854775807</td>
+</tr>
+<tr>
+<td><code>double</code></td>
+<td>8</td>
+<td>8</td>
+<td>8</td>
+<td>1.7E+10的负308次⽅~1.7E+10的正308次⽅</td>
+</tr>
+<tr>
+<td><code>float</code></td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>3.4E+10的负38次⽅~3.4E+10的38次⽅</td>
+</tr>
+<tr>
+<td><code>long double</code></td>
+<td></td>
+<td>10&#x2F;12</td>
+<td>10&#x2F;16</td>
+<td>有效位10字节。<br>32位为了对齐实际分配12字节；64位分配16字节</td>
+</tr>
+<tr>
+<td><code>指针</code></td>
+<td>2</td>
+<td>4</td>
+<td>8</td>
+<td>&#x2F;</td>
+</tr>
+</tbody></table>
+<h1 id="问题1-指针变量存储的是什么"><a href="#问题1-指针变量存储的是什么" class="headerlink" title="问题1:指针变量存储的是什么"></a>问题1:指针变量存储的是什么</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> test;</span><br><span class="line"><span class="type">int</span> *ptr = &amp;test;</span><br></pre></td></tr></table></figure>
+
+<p>指针变量ptr中存储的到底是什么</p>
+<h2 id="猜想"><a href="#猜想" class="headerlink" title="猜想"></a>猜想</h2><ul>
+<li><p>是变量test的地址吗?</p>
+</li>
+<li><p>除了变量test的地址, 再外加它的类型int吗?</p>
+<p>实证:</p>
+<img data-src="/2024/06/04/211/image-20240604154842113.png" class="" title="image-20240604154842113">
+
+<blockquote>
+<p>注意: 只有在访存时才有效果</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="回顾”地址”"><a href="#回顾”地址”" class="headerlink" title="回顾”地址”"></a>回顾”地址”</h2><h3 id="汇编语言中"><a href="#汇编语言中" class="headerlink" title="汇编语言中"></a>汇编语言中</h3><p>常使用什么地址? 逻辑地址.</p>
+<ul>
+<li>$逻辑地址 &#x3D; 段基址:偏移量$</li>
+<li>$物理地址 &#x3D; 段基址 \times 10H + 偏移量$</li>
+</ul>
+<h3 id="高级计算机体系结构"><a href="#高级计算机体系结构" class="headerlink" title="高级计算机体系结构"></a>高级计算机体系结构</h3><p>x86的地址转换机制: 分段+分页</p>
+<img data-src="/2024/06/04/211/image-20240604162429525.png" class="" title="image-20240604162429525">
+
+<ul>
+<li>虚拟地址包括逻辑地址和线性地址</li>
+<li>分页机制可以绕开, 但分段机制绕不开</li>
+<li>程序员能使用的只能是逻辑地址</li>
+</ul>
+<h2 id="推理"><a href="#推理" class="headerlink" title="推理"></a>推理</h2><p>ptr存储的内容只能与test的逻辑地址有关, 那么段基址只能存放在寄存器, ptr只能存储偏移量</p>
+<h2 id="实证"><a href="#实证" class="headerlink" title="实证"></a>实证</h2><h3 id="实验1"><a href="#实验1" class="headerlink" title="实验1"></a>实验1</h3><h4 id="实验设计"><a href="#实验设计" class="headerlink" title="实验设计"></a>实验设计</h4><ol>
+<li>获取GDTR寄存器的值, 从而获取GDT的基地址</li>
+<li>基于step1中的GDT基地址, 获得GDT表的内容, 进而找出各个段寄存器对应的表项, 即段描述符, 进一步获得段描述符的基地址、段界限等信息</li>
+<li>编写用户程序, 获得其CS、DS和SS, 从而弄清使用的是GDT还是LDT, 以及其对应的index</li>
+</ol>
+<h4 id="结果分析"><a href="#结果分析" class="headerlink" title="结果分析"></a>结果分析</h4><ul>
+<li><p>内核模块输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu16-32:/home/qeuroal/kernel_module_practice/3/1_read_gdtr/PrintingDriver# dmesg</span><br><span class="line">[36345.598974] msg_printer Initialize</span><br><span class="line">[36350.026692] msg_printer: open invoked, do nothing</span><br><span class="line">[36350.026721] msg_printer: write invoked, do nothing</span><br><span class="line">[36350.026724] msg_printer: cs=60</span><br><span class="line">[36350.026727] msg_printer: ds=7b</span><br><span class="line">[36350.026729] msg_printer: ss=68</span><br><span class="line">[36350.026730] msg_printer gdtr:</span><br><span class="line">[36350.026735] eecc9f12:        FF 00 00 10 A0 FF</span><br><span class="line">[36350.026736] msg_printer gdt:</span><br><span class="line">[36350.026778] ffa01000:        00 00 00 00 00 00 00 00</span><br><span class="line">[36350.026784] ffa01008:        00 00 00 00 00 00 00 00</span><br><span class="line">[36350.026788] ffa01010:        00 00 00 00 00 00 00 00</span><br><span class="line">[36350.026791] ffa01018:        00 00 00 00 00 00 00 00</span><br><span class="line">[36350.026795] ffa01020:        00 00 00 00 00 00 00 00</span><br><span class="line">[36350.026798] ffa01028:        00 00 00 00 00 00 00 00</span><br><span class="line">[36350.026801] ffa01030:        FF FF 00 B7 BB F3 DF B7</span><br><span class="line">[36350.026805] ffa01038:        00 00 00 00 00 00 00 00</span><br><span class="line">[36350.026808] ffa01040:        00 00 00 00 00 00 00 00</span><br><span class="line">[36350.026811] ffa01048:        00 00 00 00 00 00 00 00</span><br><span class="line">[36350.026815] ffa01050:        00 00 00 00 00 00 00 00</span><br><span class="line">[36350.026818] ffa01058:        00 00 00 00 00 00 00 00</span><br><span class="line">[36350.026821] ffa01060:        FF FF 00 00 00 9B CF 00</span><br><span class="line">[36350.026824] ffa01068:        FF FF 00 00 00 93 CF 00</span><br><span class="line">[36350.026827] ffa01070:        FF FF 00 00 00 FB CF 00</span><br><span class="line">[36350.026830] ffa01078:        FF FF 00 00 00 F3 CF 00</span><br><span class="line">[36350.026833] ffa01080:        6B 20 00 30 A0 8B 00 FF</span><br><span class="line">[36350.026837] ffa01088:        00 00 00 00 00 00 00 00</span><br><span class="line">[36350.026840] ffa01090:        FF FF 00 00 00 9A 40 00</span><br><span class="line">[36350.026843] ffa01098:        FF FF 00 00 00 9A 00 00</span><br><span class="line">[36350.026846] ffa010a0:        FF FF 00 00 00 92 00 00</span><br><span class="line">[36350.026849] ffa010a8:        00 00 00 00 00 92 00 00</span><br><span class="line">[36350.026852] ffa010b0:        00 00 00 00 00 92 00 00</span><br><span class="line">[36350.026855] ffa010b8:        FF FF 00 00 00 9A 40 00</span><br><span class="line">[36350.026858] ffa010c0:        FF FF 00 00 00 9A 00 00</span><br><span class="line">[36350.026861] ffa010c8:        FF FF 00 00 00 92 40 00</span><br><span class="line">[36350.026864] ffa010d0:        FF FF 00 00 00 92 CF 00</span><br><span class="line">[36350.026867] ffa010d8:        FF FF 00 B0 F6 93 8F 26</span><br><span class="line">[36350.026870] ffa010e0:        18 00 00 DB D7 91 40 F1</span><br><span class="line">[36350.026873] ffa010e8:        00 00 00 00 00 00 00 00</span><br><span class="line">[36350.026877] ffa010f0:        00 00 00 00 00 00 00 00</span><br><span class="line">[36350.026880] ffa010f8:        6B 20 00 60 C1 89 00 CA</span><br><span class="line">[36350.026886] msg_printer: close invoked, do nothing</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p> <strong>说明</strong></p>
+<ol>
+<li><p><code>MEM_PRINT</code>宏打印的结果: 左边是低地址, 右边是高地址; 上面是低地址, 下面是高地址</p>
+</li>
+<li><p>x86平台的字节序(小端序, 即数据的<em>高字节</em>保存在内存的<em>高地址</em>): 高高低低</p>
+<img data-src="/2024/06/04/211/v2-a767a6be0c4f851a01c13b93b0f4fcf2_720w.webp" class="" title="img">
+</li>
+<li><p>人类阅读的习惯: 左边是高字节, 右边是低字节</p>
+</li>
+</ol>
+</blockquote>
+<ul>
+<li>GDTR寄存器的值: <code>FF A0 10 00 00 FF</code>, 可得:<ul>
+<li>GDT的基地址: <code>0xffa010000</code></li>
+<li>GDT范围: $[0, \text{0xff}]$, 即$[0,256)$ (单位: Byte). 由于一个段描述符占8B, 从而共 $256 \div 8&#x3D;32$ 项</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>用户程序输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cs: 0x73</span><br><span class="line">ds: 0x7b</span><br><span class="line">ss: 0x7b</span><br></pre></td></tr></table></figure>
+
+<p>以CS寄存器为例, CS的值为0x73, 其对应的二进制为 <code>0111 0011</code>, 可得:</p>
+<ul>
+<li>index: <code>01110b=14</code></li>
+<li>判断是LDT还是GDT表: <code>0b</code>, 即GDT表</li>
+<li>运行级别: <code>11b = 3</code>, 即用户态</li>
+</ul>
+</li>
+</ul>
+<p>根据上述的分析结果, 可得CS段寄存器对应的段描述符信息如下:</p>
+<ul>
+<li>段描述符所在地址: $base_{GDT} + index \times 8 &#x3D; \text{0xffa01000} + 14 \times 8 &#x3D; \text{0xffa01070}$ &#x3D;&#x3D;&gt; <code>ffa01070:        FF FF 00 00 00 FB CF 00</code></li>
+<li>段描述符的值: <code>00 CF FB 00 00 00 FF FF</code></li>
+</ul>
+<p>段描述符的字段信息如下:</p>
+<img data-src="/2024/06/04/211/image-20240605080115552.png" class="" title="image-20240605080115552">
+
+<p>对段描述符进行解析:(值为16进制)</p>
+<ul>
+<li>段limit[0, 16): FF FF</li>
+<li>段基址[0, 16): 00 00</li>
+<li>段基址[16, 24): 00</li>
+<li>段limit[16, 20): F</li>
+<li>段粒度(G位, 位于高4字节的第23位): 1, 可知段粒度为4KB</li>
+<li>段基址[24, 32): 00</li>
+</ul>
+<p>整理结果:</p>
+<ul>
+<li><p>段基址: 00 00 00 00</p>
+</li>
+<li><p>段界限(段limit): F FF FF</p>
+<p>由于段粒度为4KB, 而段界限为0xFFFFF, 段最大为 $\text{0xFFFFF} \times 4KB &#x3D; 2^{20} \times 2 ^ 2 KB &#x3D; 2^{22}KB &#x3D; 4GB$​, 故段界限为4GB. 因此, 正好可以寻址完32位的地址空间(4GB).</p>
+</li>
+</ul>
+<p>分析结果:</p>
+<ul>
+<li><p>32位机中, Linux将应用程序的代码段范围设为了 $[0, \text{0xff ff ff ff}]$(单位为字节)</p>
+<blockquote>
+<p> 注意: 用户态DS和SS, 内核态CS、DS和SS同样也是如此</p>
+</blockquote>
+</li>
+<li><p>32位机寻址范围通常也是 $[0, \text{0xff ff ff ff}]$(单位为字节), 因此全局只有一个段, 等同于没有分段</p>
+</li>
+<li><p>由于 $线性地址&#x3D;段基址+偏移量$; $段基址&#x3D;0$, 从而 $偏移量&#x3D;线性地址$​</p>
+<p>偏移量等于线性地址</p>
+<ul>
+<li>只是数值上相等</li>
+<li>物理意义(语义)上是不一样的: 偏移量归属于逻辑地址, 而线性地址归属于线性地址</li>
+<li>由于$段基址&#x3D;0$, 相当与直接使用线性地址, 但是在概念上仍使用逻辑地址(线性地址是用不了的), 只是数值上等同于线性地址</li>
+</ul>
+</li>
+<li><p><code>int *ptr = &amp;test;</code>中, ptr在数值上既存储了偏移量, 也存储了线性地址</p>
+</li>
+</ul>
+<h1 id="内核管理gdt表"><a href="#内核管理gdt表" class="headerlink" title="内核管理gdt表"></a>内核管理gdt表</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line"></span><br><span class="line">view1[view 1] --&gt; model1[model 1]</span><br><span class="line">view2[view 2] --&gt; model2[model 2]</span><br><span class="line">view3[...] --&gt; model3[...]</span><br><span class="line">view_n[view n] --&gt; model4[model n]</span><br><span class="line"></span><br><span class="line">model1 --&gt; ensemble[ensemble althorithm] --&gt; output</span><br><span class="line">model2 --&gt; ensemble[ensemble althorithm]</span><br><span class="line">model3 --&gt; ensemble[ensemble althorithm]</span><br><span class="line">model4 --&gt; ensemble[ensemble althorithm]</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">f:load_direct_gdt --&gt; f:load_gdt --&gt; f:pv_cpu_ops.load_gdt --&gt; f:native_load_gdt --&gt; s:lgdt</span><br><span class="line"></span><br><span class="line">f:load_direct_gdt --&gt; f:get_cpu_gdt_rw --&gt; f:per_cpu</span><br><span class="line">f:get_cpu_gdt_rw --&gt; v:gdt_page --&gt; a:gdt</span><br><span class="line">v:gdt_page --&gt; m:GDT_ENTRIES</span><br><span class="line"></span><br><span class="line">st:gdt_page --&gt; v:gdt_page</span><br><span class="line">st:gdt_page --&gt; st:desc_struct --&gt; a:gdt</span><br><span class="line"></span><br><span class="line">m:DEFINE_PER_CPU_PAGE_ALIGNED --&gt; v:gdt_page</span><br><span class="line">m:DEFINE_PER_CPU_PAGE_ALIGNED --&gt; m:GDT_ENTRY_DEFAULT_USER_CS </span><br><span class="line">m:DEFINE_PER_CPU_PAGE_ALIGNED --&gt; m:GDT_ENTRY_INIT</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>说明<br>f: 函数<br>s: 汇编<br>a: 数组<br>p: 指针<br>v: 变量<br>st: 结构体<br>m: 宏</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://qeuroal.top/2024/06/04/211/" title="211. 分段管理机制">http://qeuroal.top/2024/06/04/211/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/06/02/210/" rel="prev" title="210. Linux的理解">
+                  <i class="fa fa-angle-left"></i> 210. Linux的理解
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/06/14/212/" rel="next" title="212. 迭代器">
+                  212. 迭代器 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Qeuroal" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

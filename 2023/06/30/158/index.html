@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Secure Shell (SSH) 是一个网络协议，它主要被用来加密客户端和服务端之间的连接。 在客户端和服务端的每一次交互都被加密。 这个教程解释了如何在 Ubuntu 机器上启用 SSH。 启用  SSH 将会允许你远程连接到你的系统，并且执行管理员任务。你将能够通过 scp和sftp安全传输文件。 在 Ubuntu 上启用 SSH默认情况下，当 Ubuntu 最初被安装的时候，通过 SSH">
+<meta property="og:type" content="article">
+<meta property="og:title" content="158. SSH">
+<meta property="og:url" content="http://qeuroal.top/2023/06/30/158/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Blog">
+<meta property="og:description" content="Secure Shell (SSH) 是一个网络协议，它主要被用来加密客户端和服务端之间的连接。 在客户端和服务端的每一次交互都被加密。 这个教程解释了如何在 Ubuntu 机器上启用 SSH。 启用  SSH 将会允许你远程连接到你的系统，并且执行管理员任务。你将能够通过 scp和sftp安全传输文件。 在 Ubuntu 上启用 SSH默认情况下，当 Ubuntu 最初被安装的时候，通过 SSH">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qeuroal.top/2023/06/30/158/1200-20230630145454221">
+<meta property="og:image" content="http://qeuroal.top/2023/06/30/158/1200">
+<meta property="og:image" content="http://qeuroal.top/2023/06/30/158/image-20250309151616839.jpg">
+<meta property="og:image" content="http://qeuroal.top/2023/06/30/158/20170519-0-1.jpg">
+<meta property="og:image" content="http://qeuroal.top/2023/06/30/158/20170519-0-2.jpg">
+<meta property="og:image" content="http://qeuroal.top/2023/06/30/158/20170726161546339.png">
+<meta property="article:published_time" content="2023-06-29T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-08T06:36:58.513Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="software">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qeuroal.top/2023/06/30/158/1200-20230630145454221">
+
+
+<link rel="canonical" href="http://qeuroal.top/2023/06/30/158/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2023/06/30/158/","path":"2023/06/30/158/","title":"158. SSH"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>158. SSH | Qeuroal's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Qeuroal's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">静幽正治</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%A8-Ubuntu-%E4%B8%8A%E5%90%AF%E7%94%A8-SSH"><span class="nav-number">1.</span> <span class="nav-text">在 Ubuntu 上启用 SSH</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E5%88%B0-SSH-%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">连接到 SSH 服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E5%88%B0-NAT-%E5%90%8E%E9%9D%A2%E7%9A%84-SSH"><span class="nav-number">3.</span> <span class="nav-text">连接到 NAT 后面的 SSH</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%A8-Ubuntu-%E4%B8%8A%E7%A6%81%E7%94%A8-SSH"><span class="nav-number">4.</span> <span class="nav-text">在 Ubuntu 上禁用 SSH</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SSH%E7%99%BB%E5%BD%95"><span class="nav-number">5.</span> <span class="nav-text">SSH登录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH-%E6%97%A0%E5%AF%86%E7%99%BB%E5%BD%95"><span class="nav-number">5.1.</span> <span class="nav-text">SSH 无密登录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#step1-%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%94%9F%E6%88%90%E5%85%AC%E7%A7%81%E9%92%A5"><span class="nav-number">5.1.1.</span> <span class="nav-text">step1 客户端生成公私钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step2-%E4%B8%8A%E4%BC%A0%E5%85%AC%E9%92%A5%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">5.1.2.</span> <span class="nav-text">step2 上传公钥到服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%951"><span class="nav-number">5.1.2.1.</span> <span class="nav-text">方法1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%952"><span class="nav-number">5.1.2.2.</span> <span class="nav-text">方法2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%953"><span class="nav-number">5.1.2.3.</span> <span class="nav-text">方法3</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step3-%E6%B5%8B%E8%AF%95%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95"><span class="nav-number">5.1.3.</span> <span class="nav-text">step3 测试免密登录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E6%8C%87%E5%AE%9A%E7%94%A8%E6%88%B7"><span class="nav-number">5.2.</span> <span class="nav-text">设置指定用户</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#step1-%E9%85%8D%E7%BD%AESSH%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">5.2.1.</span> <span class="nav-text">step1 配置SSH服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step2-%E8%AE%BE%E7%BD%AEMatch%E5%9D%97"><span class="nav-number">5.2.2.</span> <span class="nav-text">step2 设置Match块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step3-%E9%87%8D%E5%90%AFSSH%E6%9C%8D%E5%8A%A1"><span class="nav-number">5.2.3.</span> <span class="nav-text">step3 重启SSH服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">5.3.</span> <span class="nav-text">SSH设置环境变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%951-1"><span class="nav-number">5.3.1.</span> <span class="nav-text">方法1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%952-1"><span class="nav-number">5.3.2.</span> <span class="nav-text">方法2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SSH-%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD"><span class="nav-number">6.</span> <span class="nav-text">SSH 上传下载</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0"><span class="nav-number">6.1.</span> <span class="nav-text">上传</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">6.1.1.</span> <span class="nav-text">上传本地文件到服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E7%9B%AE%E5%BD%95%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">6.1.2.</span> <span class="nav-text">上传目录到服务器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-number">6.2.</span> <span class="nav-text">下载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6"><span class="nav-number">6.2.1.</span> <span class="nav-text">从服务器上下载文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8B%E8%BD%BD%E6%95%B4%E4%B8%AA%E7%9B%AE%E5%BD%95"><span class="nav-number">6.2.2.</span> <span class="nav-text">从服务器下载整个目录</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84-127-0-0-1-port"><span class="nav-number">7.</span> <span class="nav-text">访问服务器的 127.0.0.1:port</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8-port-%E5%85%81%E8%AE%B8%E5%A4%96%E9%83%A8-IP-%E8%AE%BF%E9%97%AE%E6%97%B6"><span class="nav-number">7.1.</span> <span class="nav-text">服务器 port 允许外部 IP 访问时</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8-port-%E4%B8%8D%E5%85%81%E8%AE%B8%E5%A4%96%E9%83%A8-IP-%E8%AE%BF%E9%97%AE%E6%97%B6"><span class="nav-number">7.2.</span> <span class="nav-text">服务器 port 不允许外部 IP 访问时</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%89%B9%E5%AE%9A%E7%94%A8%E6%88%B7%E7%9A%84sshd-config"><span class="nav-number">8.</span> <span class="nav-text">设置特定用户的sshd_config</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%8F%E8%BF%87%E8%B7%B3%E6%9D%BF%E6%9C%BA%E8%AE%BF%E9%97%AE%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">9.</span> <span class="nav-text">透过跳板机访问服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%951-%E7%AE%80%E5%8D%95%E5%8D%B4%E6%9A%B4%E5%8A%9B"><span class="nav-number">9.1.</span> <span class="nav-text">方法1 (简单却暴力)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%952-%E4%BD%BF%E7%94%A8%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91"><span class="nav-number">9.2.</span> <span class="nav-text">方法2 (使用端口转发)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%953-%E4%BD%BF%E7%94%A8-ProxyCommand"><span class="nav-number">9.3.</span> <span class="nav-text">方法3 (使用 ProxyCommand)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86%E6%9C%BA%E5%88%B6"><span class="nav-number">9.3.1.</span> <span class="nav-text">常使用代理机制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%90%86%E6%9C%BA%E5%88%B61"><span class="nav-number">9.3.1.1.</span> <span class="nav-text">代理机制1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%90%86%E6%9C%BA%E5%88%B62"><span class="nav-number">9.3.1.2.</span> <span class="nav-text">代理机制2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh%E5%91%BD%E4%BB%A4%E2%80%9D%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91%E2%80%9D%E5%92%8C%E2%80%9DProxyCommand%E2%80%9D%E9%80%89%E9%A1%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">9.4.</span> <span class="nav-text">ssh命令”端口转发”和”ProxyCommand”选项之间的关系</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FAQ"><span class="nav-number">10.</span> <span class="nav-text">FAQ</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh-%E8%BF%9E%E6%8E%A5-remote-host-identification-has-changed"><span class="nav-number">10.1.</span> <span class="nav-text">ssh 连接 remote host identification has changed</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Double-and-random-letters-when-typing-on-a-SSH-MacOS-Ubuntu-connection"><span class="nav-number">10.2.</span> <span class="nav-text">Double and random letters when typing on a SSH MacOS -&gt; Ubuntu connection</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">大人者，不失其赤子之心</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2023/06/30/158/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="158. SSH | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          158. SSH
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-30 00:00:00" itemprop="dateCreated datePublished" datetime="2023-06-30T00:00:00+08:00">2023-06-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-08 14:36:58" itemprop="dateModified" datetime="2025-12-08T14:36:58+08:00">2025-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/software/" itemprop="url" rel="index"><span itemprop="name">software</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>Secure Shell (SSH) 是一个网络协议，它主要被用来加密客户端和服务端之间的连接。 在客户端和服务端的每一次交互都被加密。</p>
+<p>这个教程解释了如何在 Ubuntu 机器上启用 SSH。</p>
+<p>启用  SSH 将会允许你远程连接到你的系统，并且执行管理员任务。你将能够通过 <code>scp</code>和<code>sftp</code>安全传输文件。</p>
+<h1 id="在-Ubuntu-上启用-SSH"><a href="#在-Ubuntu-上启用-SSH" class="headerlink" title="在 Ubuntu 上启用 SSH"></a>在 Ubuntu 上启用 SSH</h1><p>默认情况下，当 Ubuntu 最初被安装的时候，通过 SSH 进行远程访问是不被允许的。在 Ubuntu 上启用 SSH 非常的简单直接。</p>
+<p>以 root 或者其他 sudo 用户身份执行下面的步骤，在你的 Ubuntu 系统上安装并且启用 SSH。</p>
+<p>01.使用<code>Ctrl+Alt+T</code>打开终端，并且安装<code>openssh-server</code>软件包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install openssh-server</span><br></pre></td></tr></table></figure>
+
+<p>当被提示时，输入你的密码并且按 Enter，继续安装。</p>
+<img data-src="/2023/06/30/158/1200-20230630145454221" class="" title="img">
+
+<p>02.一旦安装完成，SSH 服务将会被自动启动。你可以验证 SSH 是否正在运行，输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status ssh</span><br></pre></td></tr></table></figure>
+
+<p>输出将会告诉你服务正在运行，并且启用开机启动：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">● ssh.service - OpenBSD Secure Shell server</span><br><span class="line">    Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)</span><br><span class="line">    Active: active (running) since Mon 2020-06-01 12:34:00 CEST; 9h ago</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>按<code>q</code>返回命令行。</p>
+<p>03.Ubuntu 自带一个配置防火墙配置工具，称为 UFW。如果防火墙在你的系统上被启用，请确保打开了 SSH 端口：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow ssh</span><br></pre></td></tr></table></figure>
+
+<p>就这些。现在你可以从任何远程机器上通过 SSH 连接到你的 Ubuntu 系统。Linux 和 macOS 系统默认都安装了 SSH 客户端。想要从一个 Window 机器上连接，使用一个 SSH 客户端，例如:<a target="_blank" rel="noopener" href="https://www.putty.org/">PUTTY</a>。</p>
+<h1 id="连接到-SSH-服务器"><a href="#连接到-SSH-服务器" class="headerlink" title="连接到 SSH 服务器"></a>连接到 SSH 服务器</h1><p>想要在局域网内连接到你的 Ubuntu 机器，以下面的格式输入 ssh 命令，加上用户名和 IP 地址。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh username@ip_address</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">确保你将`username`修改成你自己的用户名，`ip_address`修改成你安装了 SSH 的 Ubuntu 机器的 IP 地址。</span><br></pre></td></tr></table></figure>
+
+<p>如果你不知道你的 IP 地址，你可以使用<code>ip</code>命令轻易地找到它：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip a</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2023/06/30/158/1200" class="" title="img">
+
+<p>你可以从输出中看到，系统 IP 地址是<code>10.0.2.15</code>。</p>
+<p>一旦你找到 IP 地址，通过运行下面的ssh 命令登录远程机器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh linuxize@10.0.2.15</span><br></pre></td></tr></table></figure>
+
+<p>当你第一次连接时，你将看到下面的信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The authenticity of host <span class="string">&#x27;10.0.2.15 (10.0.2.15)&#x27;</span> can<span class="string">&#x27;t be established.</span></span><br><span class="line"><span class="string">ECDSA key fingerprint is SHA256:Vybt22mVXuNuB5unE++yowF7lgA/9/2bLSiO3qmYWBY.</span></span><br><span class="line"><span class="string">Are you sure you want to continue connecting (yes/no)?</span></span><br></pre></td></tr></table></figure>
+
+<p>输入<code>yes</code>并且你将会被提示输入你的密码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Warning: Permanently added <span class="string">&#x27;10.0.2.15&#x27;</span> (ECDSA) to the list of known hosts.</span><br><span class="line">linuxize@10.0.2.15<span class="string">&#x27;s password:</span></span><br></pre></td></tr></table></figure>
+
+<p>一旦你输入密码，你将会看到默认的 Ubuntu 消息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Welcome to Ubuntu 20.04 LTS (GNU/Linux 5.4.0-26-generic x86_64)</span><br><span class="line"></span><br><span class="line"> * Documentation:  https://help.ubuntu.com</span><br><span class="line"> * Management:     https://landscape.canonical.com</span><br><span class="line"> * Support:        https://ubuntu.com/advantage</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>现在你可以登录到你的 Ubuntu 机器上。</p>
+<h1 id="连接到-NAT-后面的-SSH"><a href="#连接到-NAT-后面的-SSH" class="headerlink" title="连接到 NAT 后面的 SSH"></a>连接到 NAT 后面的 SSH</h1><p>想要通过互联网连接到你的 Ubuntu 机器，你需要知道你的公网 IP 地址，并且配置你的路由器接收端口22的数据，并且发送它到正在运行 SSH 的 Ubuntu 机器。</p>
+<p>想要获取你尝试通过 SSH 连接的机器的公网 IP，在这个机器上访问 URL 地址：<code>https://api.ipify.org</code>。</p>
+<p>当设置端口转发时，每一个路由器都有不同的方式来设置端口转发。你应该参考你的路由器文档，关于如何设置端口转发的信息。简单来讲，你应该输入之前设置的 SSH 端口号 22，以及之前<a target="_blank" rel="noopener" href="https://cloud.tencent.com/product/cvm?from=20065&from_column=20065">服务器</a>的私有 IP 地址。</p>
+<p>一旦你找到 IP 地址，配置你的路由器，输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh username@public_ip_address</span><br></pre></td></tr></table></figure>
+
+<p>如果你将你的机器暴露在互联网中，你最好采取一些安全措施。最基础的一个措施就是配置你的路由器接受一个非标准端口的 SSH 流量，并且转发到你运行 SSH 服务的机器的端口22。</p>
+<p>你也可以<a target="_blank" rel="noopener" href="https://linuxize.com/post/how-to-setup-passwordless-ssh-login/">设置 SSH 密钥公钥验证方式</a>，之后你就可以不使用密码就可以连接到你的 Ubuntu 机器上了。</p>
+<h1 id="在-Ubuntu-上禁用-SSH"><a href="#在-Ubuntu-上禁用-SSH" class="headerlink" title="在 Ubuntu 上禁用 SSH"></a>在 Ubuntu 上禁用 SSH</h1><p>想要在你的 Ubuntu 系统上禁用 SSH 服务器，简单停止 SSH 即可，输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">disable</span> --now ssh</span><br></pre></td></tr></table></figure>
+
+<p>稍后，你可以重新启用，输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> --now ssh</span><br></pre></td></tr></table></figure>
+
+<h1 id="SSH登录"><a href="#SSH登录" class="headerlink" title="SSH登录"></a>SSH登录</h1><h2 id="SSH-无密登录"><a href="#SSH-无密登录" class="headerlink" title="SSH 无密登录"></a>SSH 无密登录</h2><h3 id="step1-客户端生成公私钥"><a href="#step1-客户端生成公私钥" class="headerlink" title="step1 客户端生成公私钥"></a>step1 客户端生成公私钥</h3><p>本地客户端生成公私钥：（一路回车默认即可）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen</span><br></pre></td></tr></table></figure>
+
+<p>生成之后会在用户的根目录生成一个 “<code>.ssh</code>“的文件夹，进入”<code>.ssh</code>“会生成如下几个文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br></pre></td></tr></table></figure>
+
+<p>下创建两个密钥：</p>
+<ol>
+<li><code>authorized_keys</code>: 存放远程免密登录的公钥,主要通过这个文件记录多台机器的公钥</li>
+<li><code>id_rsa</code> : 生成的私钥文件</li>
+<li><code>id_rsa.pub</code> ： 生成的公钥文件</li>
+<li><code>know_hosts</code> : 已知的主机公钥清单</li>
+</ol>
+<blockquote>
+<p><strong>ps</strong></p>
+</blockquote>
+<p>ssh公钥生效需满足至少下面两个条件：</p>
+<ul>
+<li><code>.ssh</code> 目录的权限必须是700</li>
+<li><code>.ssh/authorized_keys</code> 文件权限必须是600</li>
+</ul>
+<h3 id="step2-上传公钥到服务器"><a href="#step2-上传公钥到服务器" class="headerlink" title="step2 上传公钥到服务器"></a>step2 上传公钥到服务器</h3><p>这里测试用的服务器地址为：<code>192.168.32.32</code></p>
+<p>用户为：<code>root</code></p>
+<h4 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id -i ~/.ssh/id_rsa.pub &lt;remote_ip&gt;</span><br></pre></td></tr></table></figure>
+
+<p>上面这条命令是写到服务器上的ssh目录下去了</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br><span class="line">vim authorized_keys</span><br></pre></td></tr></table></figure>
+
+<p>可以看到客户端写入到服务器的 <code>id_rsa.pub</code> （公钥）内容。</p>
+<h4 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h4><p>使用命令<code>ssh-copy-id &lt;remote_ip&gt;</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id root@192.168.32.32</span><br></pre></td></tr></table></figure>
+
+<h4 id="方法3"><a href="#方法3" class="headerlink" title="方法3"></a>方法3</h4><p>通过<code>scp</code>将内容写到对方的<code>authorized_keys</code>文件中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -p ~/.ssh/id_rsa.pub root@&lt;remote_ip&gt;:/root/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+
+<h3 id="step3-测试免密登录"><a href="#step3-测试免密登录" class="headerlink" title="step3 测试免密登录"></a>step3 测试免密登录</h3><p>客户端通过ssh连接远程服务器，就可以免密登录了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.32.32</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置指定用户"><a href="#设置指定用户" class="headerlink" title="设置指定用户"></a>设置指定用户</h2><h3 id="step1-配置SSH服务器"><a href="#step1-配置SSH服务器" class="headerlink" title="step1 配置SSH服务器"></a>step1 配置SSH服务器</h3><p>编辑SSH服务器配置文件（通常位于<code>/etc/ssh/sshd_config</code>）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+
+<p>确保以下行未注释（没有<code>#</code>）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PubkeyAuthentication yes</span><br><span class="line">PasswordAuthentication yes</span><br></pre></td></tr></table></figure>
+
+<p>这允许使用SSH密钥和密码进行身份验证。</p>
+<h3 id="step2-设置Match块"><a href="#step2-设置Match块" class="headerlink" title="step2 设置Match块"></a>step2 设置<code>Match</code>块</h3><p>在配置文件的末尾添加<code>Match</code>块，限制只允许用户<code>user1, user2, user3</code>使用密钥登录。您可以这样做：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Match User user1,user2,user3</span><br><span class="line">    PasswordAuthentication no</span><br></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Match User user1</span><br><span class="line">    PasswordAuthentication no</span><br><span class="line"></span><br><span class="line">Match User user2</span><br><span class="line">    PasswordAuthentication no</span><br><span class="line"></span><br><span class="line">Match User user3</span><br><span class="line">    PasswordAuthentication no</span><br></pre></td></tr></table></figure>
+
+<p>这将禁用<code>user1,user2,user3</code>用户的密码登录。其他用户将按照默认设置进行身份验证，允许密码登录。</p>
+<blockquote>
+<p>多个用户也可以单独</p>
+</blockquote>
+<h3 id="step3-重启SSH服务"><a href="#step3-重启SSH服务" class="headerlink" title="step3 重启SSH服务"></a>step3 重启SSH服务</h3><p>保存配置文件并重启SSH服务，以使更改生效：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo systemctl restart ssh</span><br></pre></td></tr></table></figure>
+
+<p>现在，<code>user1,user2,user3</code>用户只能使用其SSH密钥进行身份验证，而其他用户仍然可以使用密码进行身份验证。</p>
+<p>请确保在执行此操作之前，您已经测试过SSH密钥对的工作方式，并且确保您至少有一种方法可以访问服务器，以防止自身被锁定。</p>
+<h2 id="SSH设置环境变量"><a href="#SSH设置环境变量" class="headerlink" title="SSH设置环境变量"></a>SSH设置环境变量</h2><h3 id="方法1-1"><a href="#方法1-1" class="headerlink" title="方法1"></a>方法1</h3><p>在 <code>~/.ssh/config</code> 中设置如下内容:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Host *</span><br><span class="line">   SetEnv TERM=xterm-256color</span><br></pre></td></tr></table></figure>
+
+<p>它的作用是为所有主机（Host * 表示匹配所有主机）设置一个环境变量 TERM, 其值为 <code>xterm-256color</code>, 具体含义如下：</p>
+<ul>
+<li><code>Host *</code>: 这是一个通配符规则，表示该配置适用于所有远程主机。 如果你只想针对特定主机应用配置，可以将 <code>*</code> 替换为主机名或 IP 地址。</li>
+<li><code>SetEnv TERM=xterm-256color</code> : SetEnv 是 SSH 配置指令, 用于在连接到远程主机时传递环境变量. <code>TERM=xterm-256color</code> 设置了终端类型为 <code>xterm-256color</code>, 这是一种支持 256 色的终端模拟器类型。这对于需要彩色输出的程序（如 vim、tmux 等）非常重要。</li>
+</ul>
+<p><code>TERM=xterm-256color</code> 的是为了解决远程连接用户时, 键入字符错乱的问题</p>
+<img data-src="/2023/06/30/158/image-20250309151616839.jpg" class="" title="image-20250309151616839">
+
+<h3 id="方法2-1"><a href="#方法2-1" class="headerlink" title="方法2"></a>方法2</h3><p>ssh 连接时, 使用命令行 <code>-o</code> 选项设置环境变量: <code>ssh -o SetEnv=&quot;TERM=xterm-256color&quot; user@hostname</code></p>
+<h1 id="SSH-上传下载"><a href="#SSH-上传下载" class="headerlink" title="SSH 上传下载"></a>SSH 上传下载</h1><h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><h3 id="上传本地文件到服务器"><a href="#上传本地文件到服务器" class="headerlink" title="上传本地文件到服务器"></a>上传本地文件到服务器</h3><p>格式：<code>scp 要上传的文件路径 用户名@服务器地址:服务器保存路径</code></p>
+<p>例如：把本机 <code>/home/test.txt</code> 文件上传到 <code>192.168.0.101</code> 这台服务器上的 <code>/data/</code> 目录中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp /home/test.txt root@192.168.0.101:/data/</span><br></pre></td></tr></table></figure>
+
+<h3 id="上传目录到服务器"><a href="#上传目录到服务器" class="headerlink" title="上传目录到服务器"></a>上传目录到服务器</h3><p>格式：<code>scp -r 要上传的目录 用户名@服务器地址:服务器的保存目录</code></p>
+<p>例如：把 <code>/home</code> 目录上传到服务器的 <code>/data/</code> 目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r /home root@192.168.0.101:/data/</span><br></pre></td></tr></table></figure>
+
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><h3 id="从服务器上下载文件"><a href="#从服务器上下载文件" class="headerlink" title="从服务器上下载文件"></a>从服务器上下载文件</h3><p>格式：<code>scp 用户名@服务器地址:要下载的文件路径 保存文件的文件夹路径</code></p>
+<p>例如：把 <code>192.168.0.101</code> 上的 <code>/data/test.txt</code> 的文件下载到 <code>/home</code>（本地目录）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp root@192.168.0.101:/data/test.txt /home</span><br></pre></td></tr></table></figure>
+
+<h3 id="从服务器下载整个目录"><a href="#从服务器下载整个目录" class="headerlink" title="从服务器下载整个目录"></a>从服务器下载整个目录</h3><p>格式：<code>scp -r 用户名@服务器地址:要下载的服务器目录 保存下载的目录</code></p>
+<p>例如：把 <code>192.168.0.101</code> 上的 <code>/data</code> 目录下载到 <code>/home</code>（本地目录）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r root@192.168.0.101:/data  /home/</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注：目标服务器要开启写入权限。</p>
+</blockquote>
+<h1 id="访问服务器的-127-0-0-1-port"><a href="#访问服务器的-127-0-0-1-port" class="headerlink" title="访问服务器的 127.0.0.1:port"></a>访问服务器的 127.0.0.1:port</h1><h2 id="服务器-port-允许外部-IP-访问时"><a href="#服务器-port-允许外部-IP-访问时" class="headerlink" title="服务器 port 允许外部 IP 访问时"></a>服务器 port 允许外部 IP 访问时</h2><p>假设目标服务器的 ip 地址为: <code>192.168.32.32</code>, port 为 <code>8080</code></p>
+<p>则在本地的浏览器地址栏输入: <code>&lt;ip&gt;:&lt;port&gt;</code>, 这里输入: <code>192.168.32.32:8080</code></p>
+<h2 id="服务器-port-不允许外部-IP-访问时"><a href="#服务器-port-不允许外部-IP-访问时" class="headerlink" title="服务器 port 不允许外部 IP 访问时"></a>服务器 port 不允许外部 IP 访问时</h2><ol>
+<li><p>将服务器 port 端口转发到本地 port</p>
+<p>如将服务器 9090 端口转发到本地 19090.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -L 19090:127.0.0.1:9090 &lt;ip&gt;:&lt;port&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>地址栏输入: <code>localhost:19090</code> 或 <code>127.0.0.1:19090</code></p>
+</li>
+</ol>
+<h1 id="设置特定用户的sshd-config"><a href="#设置特定用户的sshd-config" class="headerlink" title="设置特定用户的sshd_config"></a>设置特定用户的sshd_config</h1><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Match User &lt;用户名&gt;</span><br><span class="line">	PasswordAuthentication yes</span><br></pre></td></tr></table></figure>
+
+<h1 id="透过跳板机访问服务器"><a href="#透过跳板机访问服务器" class="headerlink" title="透过跳板机访问服务器"></a>透过跳板机访问服务器</h1><h2 id="方法1-简单却暴力"><a href="#方法1-简单却暴力" class="headerlink" title="方法1 (简单却暴力)"></a>方法1 (简单却暴力)</h2><p>很多环境都有一台统一登录跳板机,我们需要先登录跳板机,然后再登录自己的目标机器.登录流程如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh root@跳板机ip </span><br><span class="line">ssh root@自己的目标机器ip</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法2-使用端口转发"><a href="#方法2-使用端口转发" class="headerlink" title="方法2 (使用端口转发)"></a>方法2 (使用端口转发)</h2><ol>
+<li><p>首先通过 ssh 连接跳板机, 并设置端口转发, 如将本地端口 2222 通过跳板机 (132.60.171.142) 转发到服务器 (192.168.2.28) 的 22 端口, <code>~/.ssh/config</code> 配置如下:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host linkrm</span><br><span class="line">   HostName 132.60.171.142</span><br><span class="line">   User qeuroal</span><br><span class="line">   Port 15220</span><br><span class="line">   LocalForward 2222 192.168.2.28:22</span><br></pre></td></tr></table></figure>
+
+<p>在本地运行命令: <code>ssh linkrm</code></p>
+</li>
+<li><p>通过 ssh 连接本地端口 2222, 访问服务器 (192.168.2.28), <code>~/.ssh/config</code> 配置如下:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host rm</span><br><span class="line">   HostName localhost</span><br><span class="line">   User qeuroal</span><br><span class="line">   Port 2222</span><br><span class="line">   LocalForward 16006 127.0.0.1:6006</span><br></pre></td></tr></table></figure>
+
+<p>在本地另开一个终端, 并运行命令 <code>ssh rm</code></p>
+</li>
+</ol>
+<h2 id="方法3-使用-ProxyCommand"><a href="#方法3-使用-ProxyCommand" class="headerlink" title="方法3 (使用 ProxyCommand)"></a>方法3 (使用 ProxyCommand)</h2><p>有一台机器A，欲与机器C建立SSH连接，但由于隔离限制（比如”存在防火墙”）该SSH连接不能直接建立。ssh命令的”ProxyCommand”选项被设计用来解决以上问题。</p>
+<p>通过“ProxyCommand”选项，机器A能够灵活使用任意代理机制与机器C上的SSH Server端口建立连接，接着机器A上的SSH Client再与该连接进行数据交互，从而机器A上的SSH Client与机器C上的SSH Server之间建立了与一般“直接SSH连接”不太一样的“间接SSH连接”。不过由于“间接SSH连接”的透明性，逻辑上可认为机器A上的SSH Client与机器C上的SSH Server建立了“直接SSH连接”。<br>“直接SSH连接”示意图如图1，“间接SSH连接”示意图如图2。</p>
+<img data-src="/2023/06/30/158/20170519-0-1.jpg" class="" title="直接SSH连接">
+
+<img data-src="/2023/06/30/158/20170519-0-2.jpg" class="" title="间接SSH连接">
+
+<p>常使用代理机制有两种，接下来进行介绍。</p>
+<h3 id="常使用代理机制"><a href="#常使用代理机制" class="headerlink" title="常使用代理机制"></a>常使用代理机制</h3><h4 id="代理机制1"><a href="#代理机制1" class="headerlink" title="代理机制1"></a>代理机制1</h4><p>ProxyCommand 选项值形式为 <code>ssh -W C:CPort -l USER -i PRIVATE_KEY -p BPort B</code>. 原理是 ssh 命令自提供的代理机制，在机器A上另外单独建立与B的SSH连接（使用<code>-l USER -i PRIVATE_KEY -p BPort B</code>这些参数），该SSH连接的B端侧与机器C上的SSH Server端口（即<code>C:CPort</code>）建立连接，该SSH连接的A端侧与机器A上的SSH Client（即w最终欲建立’间接SSH连接’在机器A上的SSH Client”）建立连接。</p>
+<p>假定A上ssh_config配置文件内容如下：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Host B</span><br><span class="line">    HostName 132.60.171.142</span><br><span class="line">    User qeuroal</span><br><span class="line">    Port 15220</span><br><span class="line">    IdentityFile ~/.ssh/id_dsa</span><br><span class="line"></span><br><span class="line">Host C</span><br><span class="line">    HostName 192.168.2.28</span><br><span class="line">    User qeuroal</span><br><span class="line">    Port 22</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa</span><br><span class="line">    ProxyCommand ssh -W %h:%p B</span><br></pre></td></tr></table></figure>
+
+<p>在A上执行 <code>ssh C</code> 命令，发现A与C成功建立SSH连接。根据以上所述，此时在A上应该有两个SSH进程，一个对应于”A与B的SSH连接”，另外一个对应于”A与C的SSH连接”。在A上执行 <code>ps -ef | grep &#39;ssh&#39;</code> 命令，得到如下结果，得证。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">7851  7689 15:55 S pts/10   ssh C</span><br><span class="line">7852  7851 15:55 S pts/10   ssh -W C:1046 B</span><br></pre></td></tr></table></figure>
+
+<h4 id="代理机制2"><a href="#代理机制2" class="headerlink" title="代理机制2"></a>代理机制2</h4><p>“ProxyCommand”选项值形式为”nc -X 5 -x B:BPort C CPort”，原理：利用”nc”命令，在机器A上使用”nc”命令与代理服务器（即”-x B:BPort”，通过”-X 5”参数来指定与代理服务器的通信协议为”SOCKS4&#x2F;SOCKS5&#x2F;HTTPS”）建立代理连接，该代理连接的B端侧与机器C上的SSH Server端口（即”C CPort”）建立连接，该代理连接的A端侧与机器A上的SSH Client（即”最终欲建立‘间接SSH连接’在机器A上的SSH Client”）建立连接。<br>假定A上ssh_config配置文件内容如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Host C</span><br><span class="line">    HostName %h</span><br><span class="line">    User dsl </span><br><span class="line">    Port 1046</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa</span><br><span class="line">    ProxyCommand nc -X 5 -x B:8989 %h %p </span><br></pre></td></tr></table></figure>
+
+<p>在A上执行<code>ssh C</code>命令，发现A与C成功建立SSH连接。根据以上所述，此时在A上应该有一个NC进程和一个SSH进程，前者对应于”A与B的代理连接”，后者对应于”A与C的SSH连接”。在A上执行<code>ps -ef | grep -e &#39;ssh&#39; -e &#39;nc&#39;</code>命令，得到如下结果，得证。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ps -ef | grep -e <span class="string">&#x27;ssh&#x27;</span> -e <span class="string">&#x27;nc&#x27;</span></span><br><span class="line">8816  8089 16:08 S pts/10   ssh C</span><br><span class="line">8817  8816 16:08 S pts/10   nc -X 5 -x B:8989 C 1046</span><br></pre></td></tr></table></figure>
+
+<h2 id="ssh命令”端口转发”和”ProxyCommand”选项之间的关系"><a href="#ssh命令”端口转发”和”ProxyCommand”选项之间的关系" class="headerlink" title="ssh命令”端口转发”和”ProxyCommand”选项之间的关系"></a>ssh命令”端口转发”和”ProxyCommand”选项之间的关系</h2><p>端口转发包括：本地转发，远端转发和动态转发。其中”本地转发”和”远端转发”属于”静态转发”（因为转发目标端口是固定的）。<br>ProxyCommand选项能够使用基于”动态转发”的代理机制（在外面封装<code>nc</code>命令层），而不能使用基于”静态转发”的代理机制。</p>
+<p>参考文献：</p>
+<ul>
+<li>man ssh_config</li>
+<li>man ssh</li>
+<li><a target="_blank" rel="noopener" href="https://serverfault.com/questions/337120/ssh-via-3rd-machine">https://serverfault.com/questions/337120/ssh-via-3rd-machine</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.lainme.com/doku.php/blog/2011/01/%E9%80%8F%E8%BF%87%E4%BB%A3%E7%90%86%E8%BF%9E%E6%8E%A5ssh">https://www.lainme.com/doku.php/blog/2011/01/%E9%80%8F%E8%BF%87%E4%BB%A3%E7%90%86%E8%BF%9E%E6%8E%A5ssh</a></li>
+<li><a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/22635613/what-is-the-difference-between-ssh-proxycommand-w-nc-exec-nc">what-is-the-difference-between-ssh-proxycommand-w-nc-exec-nc
+</a></li>
+</ul>
+<h1 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h1><h2 id="ssh-连接-remote-host-identification-has-changed"><a href="#ssh-连接-remote-host-identification-has-changed" class="headerlink" title="ssh 连接 remote host identification has changed"></a>ssh 连接 remote host identification has changed</h2><img data-src="/2023/06/30/158/20170726161546339.png" class="" title="img">
+
+<p>找到<code>.ssh</code>目录，下面有一个<code>known_hosts</code>文件，删除 <code>~/.ssh/known_hosts</code> 文件，或者如果你可以判断出<code>known_hosts</code>中原ssh服务器的公钥，删去那部分，</p>
+<h2 id="Double-and-random-letters-when-typing-on-a-SSH-MacOS-Ubuntu-connection"><a href="#Double-and-random-letters-when-typing-on-a-SSH-MacOS-Ubuntu-connection" class="headerlink" title="Double and random letters when typing on a SSH MacOS -&gt; Ubuntu connection"></a>Double and random letters when typing on a SSH MacOS -&gt; Ubuntu connection</h2><p>见<a href="#SSH%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">这里</a>, 设置远程机器的 <code>TERM</code> 变量为 <code>xterm-256color</code>.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://qeuroal.top/2023/06/30/158/" title="158. SSH">http://qeuroal.top/2023/06/30/158/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/software/" rel="tag"><i class="fa fa-tag"></i> software</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/06/23/157/" rel="prev" title="157. win10 相关">
+                  <i class="fa fa-angle-left"></i> 157. win10 相关
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/08/15/159/" rel="next" title="159. Makefile">
+                  159. Makefile <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Qeuroal" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,2572 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Linux中文件相关">
+<meta property="og:type" content="article">
+<meta property="og:title" content="187. Linux文件">
+<meta property="og:url" content="http://qeuroal.top/2023/12/30/187/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Blog">
+<meta property="og:description" content="Linux中文件相关">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qeuroal.top/2023/12/30/187/file-llls22.jpg">
+<meta property="og:image" content="http://qeuroal.top/2023/12/30/187/640-20240108080722799.png">
+<meta property="og:image" content="http://qeuroal.top/2023/12/30/187/640-20240108080722653.png">
+<meta property="og:image" content="http://qeuroal.top/2023/12/30/187/640-20240107172319431.png">
+<meta property="og:image" content="http://qeuroal.top/2023/12/30/187/640-20240107172319454.png">
+<meta property="og:image" content="http://qeuroal.top/2023/12/30/187/640.png">
+<meta property="og:image" content="http://qeuroal.top/2023/12/30/187/640-20240107172319271.png">
+<meta property="og:image" content="http://qeuroal.top/2023/12/30/187/640-20240107172319343.png">
+<meta property="og:image" content="http://qeuroal.top/2023/12/30/187/640-20240107172319284.png">
+<meta property="og:image" content="http://qeuroal.top/2023/12/30/187/640-20240107172319392.png">
+<meta property="og:image" content="http://qeuroal.top/2023/12/30/187/152804Oc3.jpg">
+<meta property="og:image" content="http://qeuroal.top/2023/12/30/187/640-20240101173938829.png">
+<meta property="og:image" content="http://qeuroal.top/2023/12/30/187/640-20240101173939027.png">
+<meta property="og:image" content="http://qeuroal.top/2023/12/30/187/640-20240101170701825.png">
+<meta property="og:image" content="http://qeuroal.top/2023/12/30/187/640-20240101171331191.png">
+<meta property="og:image" content="http://qeuroal.top/2023/12/30/187/640-20240101170701839.png">
+<meta property="og:image" content="http://qeuroal.top/2023/12/30/187/640-20240101170701854.png">
+<meta property="og:image" content="http://qeuroal.top/2023/12/30/187/640-20240101171350058.png">
+<meta property="og:image" content="http://qeuroal.top/2023/12/30/187/640-20240101171557990.png">
+<meta property="og:image" content="http://qeuroal.top/2023/12/30/187/640-20240115073950184.png">
+<meta property="og:image" content="http://qeuroal.top/2023/12/30/187/640-20240115073950264.png">
+<meta property="og:image" content="http://qeuroal.top/2023/12/30/187/640-20240116073411013.png">
+<meta property="og:image" content="http://qeuroal.top/2023/12/30/187/640-20240116073411219.png">
+<meta property="og:image" content="http://qeuroal.top/2023/12/30/187/640-20240116073411221.png">
+<meta property="og:image" content="http://qeuroal.top/2023/12/30/187/640-20240116073411246.png">
+<meta property="article:published_time" content="2023-12-29T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-08T06:36:58.566Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qeuroal.top/2023/12/30/187/file-llls22.jpg">
+
+
+<link rel="canonical" href="http://qeuroal.top/2023/12/30/187/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2023/12/30/187/","path":"2023/12/30/187/","title":"187. Linux文件"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>187. Linux文件 | Qeuroal's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Qeuroal's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">静幽正治</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90"><span class="nav-number">1.</span> <span class="nav-text">文件权限</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%83%E9%99%90%E8%AF%B4%E6%98%8E"><span class="nav-number">1.1.</span> <span class="nav-text">权限说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%83%E9%99%90%E5%AF%B9%E6%96%87%E4%BB%B6%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-number">1.1.1.</span> <span class="nav-text">权限对文件的影响</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%83%E9%99%90%E5%AF%B9%E7%9B%AE%E5%BD%95%EF%BC%88%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%89%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-number">1.1.2.</span> <span class="nav-text">权限对目录（文件夹）的影响</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E9%A2%9C%E8%89%B2%E6%89%80%E4%BB%A3%E8%A1%A8%E7%9A%84%E5%90%AB%E4%B9%89"><span class="nav-number">1.1.3.</span> <span class="nav-text">文件颜色所代表的含义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#chmod"><span class="nav-number">1.2.</span> <span class="nav-text">chmod</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4"><span class="nav-number">1.2.1.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%A6%E5%8F%B7%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.2.2.</span> <span class="nav-text">符号模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.2.3.</span> <span class="nav-text">数字模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%8F%82%E8%80%83%E6%96%87%E4%BB%B6"><span class="nav-number">1.2.4.</span> <span class="nav-text">使用参考文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90"><span class="nav-number">1.2.5.</span> <span class="nav-text">递归修改文件权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%A6%E5%8F%B7%E9%93%BE%E6%8E%A5%E6%9D%83%E9%99%90"><span class="nav-number">1.2.6.</span> <span class="nav-text">符号链接权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%B9%E9%87%8F%E6%9B%B4%E6%94%B9%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90"><span class="nav-number">1.2.7.</span> <span class="nav-text">批量更改文件权限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#chgrp"><span class="nav-number">1.3.</span> <span class="nav-text">chgrp</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%BB%84%E7%9A%84%E6%89%80%E6%9C%89%E8%80%85"><span class="nav-number">1.3.2.</span> <span class="nav-text">修改文件目录组的所有者</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E8%BD%AF%E9%93%BE%E6%8E%A5%E6%89%80%E5%B1%9E%E7%BB%84"><span class="nav-number">1.3.3.</span> <span class="nav-text">修改软链接所属组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E6%89%80%E5%B1%9E%E7%BB%84"><span class="nav-number">1.3.4.</span> <span class="nav-text">递归修改文件目录所属组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#chown"><span class="nav-number">1.4.</span> <span class="nav-text">chown</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4-2"><span class="nav-number">1.4.1.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E7%9A%84%E6%89%80%E6%9C%89%E8%80%85"><span class="nav-number">1.4.2.</span> <span class="nav-text">如何修改文件的所有者</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E7%9A%84%E6%89%80%E6%9C%89%E8%80%85%E5%92%8C%E7%BB%84"><span class="nav-number">1.4.3.</span> <span class="nav-text">如何修改文件的所有者和组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E6%89%80%E6%9C%89%E7%BB%84"><span class="nav-number">1.4.4.</span> <span class="nav-text">如何修改文件所有组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E7%AC%A6%E5%8F%B7%E9%93%BE%E6%8E%A5%E7%9A%84%E6%89%80%E6%9C%89%E6%9D%83"><span class="nav-number">1.4.5.</span> <span class="nav-text">如何修改符号链接的所有权</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%80%92%E5%BD%92%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E6%89%80%E6%9C%89%E6%9D%83"><span class="nav-number">1.4.6.</span> <span class="nav-text">如何递归修改文件所有权</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%8F%82%E8%80%83%E6%96%87%E4%BB%B6-1"><span class="nav-number">1.4.7.</span> <span class="nav-text">使用参考文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.</span> <span class="nav-text">虚拟文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">2.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%EF%BC%88virtual-filesystem%EF%BC%89"><span class="nav-number">2.2.</span> <span class="nav-text">虚拟文件系统（virtual filesystem）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E6%A0%91"><span class="nav-number">2.3.</span> <span class="nav-text">目录树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E9%93%BE%E6%8E%A5-vs-%E7%A1%AC%E9%93%BE%E6%8E%A5"><span class="nav-number">2.4.</span> <span class="nav-text">软链接 vs 硬链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E4%B8%8E%E6%95%B0%E6%8D%AE"><span class="nav-number">2.5.</span> <span class="nav-text">索引与数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%93%E5%AD%98%E7%AD%96%E7%95%A5"><span class="nav-number">2.6.</span> <span class="nav-text">缓存策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-lsof"><span class="nav-number">2.7.</span> <span class="nav-text">Why lsof ?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-lsof-%E5%8F%AF%E4%BB%A5%E6%89%BE%E5%88%B0%E5%B7%B2%E5%88%A0%E9%99%A4%E6%9C%AA%E9%87%8A%E6%94%BE%E7%9A%84%E6%96%87%E4%BB%B6%E5%91%A2%EF%BC%9F"><span class="nav-number">2.8.</span> <span class="nav-text">为什么 lsof 可以找到已删除未释放的文件呢？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#du-%E6%9F%A5%E7%9C%8B%E7%B3%BB%E7%BB%9F%E7%9B%AE%E5%BD%95%E7%9A%84%E5%A4%A7%E5%B0%8F"><span class="nav-number">3.</span> <span class="nav-text">du(查看系统目录的大小)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%96%87%E4%BB%B6%E7%9A%84%E6%80%BB%E5%A4%A7%E5%B0%8F"><span class="nav-number">3.1.</span> <span class="nav-text">1. 查看当前目录下文件的总大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E8%B7%AF%E5%BE%84%E4%B8%8B%E6%AF%8F%E4%B8%AA%E7%9B%AE%E5%BD%95%EF%BC%88%E5%8C%85%E6%8B%AC%E5%AD%90%E7%9B%AE%E5%BD%95%EF%BC%89%E7%9A%84%E5%A4%A7%E5%B0%8F"><span class="nav-number">3.2.</span> <span class="nav-text">2. 查看当前路径下每个目录（包括子目录）的大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E4%BD%BF%E7%94%A8-%E9%80%9A%E9%85%8D%E7%AC%A6%EF%BC%8C%E5%8F%AF%E4%BB%A5%E6%9F%A5%E7%9C%8B%E8%B7%AF%E5%BE%84%E4%B8%8B%E7%9B%AE%E5%BD%95-%E6%96%87%E4%BB%B6%E7%9A%84%E5%A4%A7%E5%B0%8F"><span class="nav-number">3.3.</span> <span class="nav-text">3. 使用 * 通配符，可以查看路径下目录 + 文件的大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%A6%82%E6%9E%9C%E5%8F%AA%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E8%B7%AF%E5%BE%84%E4%B8%8B%E7%9A%84%E7%9B%AE%E5%BD%95%E5%A4%A7%E5%B0%8F%EF%BC%8C%E6%8E%92%E9%99%A4%E5%AD%90%E7%9B%AE%E5%BD%95%EF%BC%8C%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8-S-%E9%80%89%E9%A1%B9"><span class="nav-number">3.4.</span> <span class="nav-text">4. 如果只查看当前路径下的目录大小，排除子目录，可以使用 -S 选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E8%B7%AF%E5%BE%84%E4%B8%8B%E4%B8%80%E7%BA%A7%E5%AD%90%E7%9B%AE%E5%BD%95%E7%9A%84%E5%A4%A7%E5%B0%8F%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%B0%86-max-depth-%E8%AE%BE%E5%AE%9A%E4%B8%BA1%E5%B0%B1%E5%8F%AF%E4%BB%A5%E4%BA%86"><span class="nav-number">3.5.</span> <span class="nav-text">5. 查看当前路径下一级子目录的大小，可以将 max-depth 设定为1就可以了</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E7%9A%84%E5%A4%A7%E5%B0%8F%EF%BC%8C%E5%B9%B6%E4%B8%94%E7%BB%9F%E8%AE%A1%E6%80%BB%E5%A4%A7%E5%B0%8F%EF%BC%8C%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8-c-%E9%80%89%E9%A1%B9"><span class="nav-number">3.6.</span> <span class="nav-text">6. 查看当前目录的大小，并且统计总大小，可以使用 -c 选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E6%9F%A5%E7%9C%8B%E5%85%B6%E4%BB%96%E8%B7%AF%E5%BE%84%E7%9A%84%E7%9B%AE%E5%BD%95%E5%A4%A7%E5%B0%8F"><span class="nav-number">3.7.</span> <span class="nav-text">7. 查看其他路径的目录大小</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#df-%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4"><span class="nav-number">4.</span> <span class="nav-text">df(查看磁盘空间)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-df-%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E4%BF%A1%E6%81%AF"><span class="nav-number">4.1.</span> <span class="nav-text">1. df 查看磁盘信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%8F%AF%E8%AF%BB%E9%80%89%E9%A1%B9-df-h"><span class="nav-number">4.2.</span> <span class="nav-text">2. 可读选项 df -h</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%88%97%E5%87%BA%E6%AF%8F%E4%B8%AA%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">4.3.</span> <span class="nav-text">3. 列出每个文件系统的类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E6%9F%A5%E7%9C%8BLinux%E4%B8%AD%E7%9A%84%E5%8F%AF%E7%94%A8%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4"><span class="nav-number">4.4.</span> <span class="nav-text">4. 查看Linux中的可用磁盘空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%8E%92%E9%99%A4%E7%89%B9%E5%AE%9A%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">4.5.</span> <span class="nav-text">5. 排除特定类型的文件系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E4%BB%85%E5%88%97%E5%87%BA%E7%89%B9%E5%AE%9A%E7%9A%84%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">4.6.</span> <span class="nav-text">6. 仅列出特定的文件系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E5%A4%A7%E5%B0%8F"><span class="nav-number">4.7.</span> <span class="nav-text">7. 查看当前文件夹中的文件和文件夹的大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">4.8.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="nav-number">5.</span> <span class="nav-text">系统目录结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="nav-number">5.1.</span> <span class="nav-text">Linux目录结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B9%E8%B7%AF%E5%BE%84"><span class="nav-number">5.1.1.</span> <span class="nav-text">&#x2F; - 根路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bin-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6"><span class="nav-number">5.1.2.</span> <span class="nav-text">&#x2F;bin - 二进制文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dev-%E8%AE%BE%E5%A4%87%E6%96%87%E4%BB%B6"><span class="nav-number">5.1.3.</span> <span class="nav-text">&#x2F;dev - 设备文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#etc-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">5.1.4.</span> <span class="nav-text">&#x2F;etc - 配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#usr-%E7%94%A8%E6%88%B7%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E5%92%8C%E7%A8%8B%E5%BA%8F%E6%95%B0%E6%8D%AE"><span class="nav-number">5.1.5.</span> <span class="nav-text">&#x2F;usr - 用户二进制文件和程序数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#home-%E7%94%A8%E6%88%B7%E4%B8%AA%E4%BA%BA%E6%95%B0%E6%8D%AE"><span class="nav-number">5.1.6.</span> <span class="nav-text">&#x2F;home - 用户个人数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lib-%E5%85%B1%E4%BA%AB%E7%9A%84%E5%BA%93%E6%96%87%E4%BB%B6"><span class="nav-number">5.1.7.</span> <span class="nav-text">&#x2F;lib - 共享的库文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sbin-%E7%B3%BB%E7%BB%9F%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6"><span class="nav-number">5.1.8.</span> <span class="nav-text">&#x2F;sbin - 系统二进制文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tmp-%E4%B8%B4%E6%97%B6%E6%96%87%E4%BB%B6"><span class="nav-number">5.1.9.</span> <span class="nav-text">&#x2F;tmp - 临时文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#var-%E5%8F%AF%E5%8F%98%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6"><span class="nav-number">5.1.10.</span> <span class="nav-text">&#x2F;var - 可变数据文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#boot-%E5%90%AF%E5%8A%A8%E6%96%87%E4%BB%B6"><span class="nav-number">5.1.11.</span> <span class="nav-text">&#x2F;boot - 启动文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#proc-%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%86%85%E6%A0%B8%E6%96%87%E4%BB%B6"><span class="nav-number">5.1.12.</span> <span class="nav-text">&#x2F;proc - 进程和内核文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#opt-%E5%8F%AF%E9%80%89%E8%BD%AF%E4%BB%B6"><span class="nav-number">5.1.13.</span> <span class="nav-text">&#x2F;opt - 可选软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#root-root%E7%94%A8%E6%88%B7%E7%9A%84%E4%B8%BB%E7%9B%AE%E5%BD%95"><span class="nav-number">5.1.14.</span> <span class="nav-text">&#x2F;root - root用户的主目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#media-%E5%8F%AF%E7%A7%BB%E9%99%A4%E5%AA%92%E4%BD%93%E7%9A%84%E8%A3%85%E5%85%A5%E7%82%B9"><span class="nav-number">5.1.15.</span> <span class="nav-text">&#x2F;media - 可移除媒体的装入点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mnt-%E8%A3%85%E8%BD%BD%E7%9B%AE%E5%BD%95"><span class="nav-number">5.1.16.</span> <span class="nav-text">&#x2F;mnt - 装载目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#srv-%E6%9C%8D%E5%8A%A1%E6%95%B0%E6%8D%AE"><span class="nav-number">5.1.17.</span> <span class="nav-text">&#x2F;srv - 服务数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%84%E8%B7%AF%E5%BE%84%E8%A7%A3%E9%87%8A"><span class="nav-number">5.2.</span> <span class="nav-text">各路径解释</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6"><span class="nav-number">6.</span> <span class="nav-text">查看文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cat"><span class="nav-number">6.1.</span> <span class="nav-text">cat</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">6.1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-number">6.1.2.</span> <span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#more"><span class="nav-number">6.2.</span> <span class="nav-text">more</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-1"><span class="nav-number">6.2.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E"><span class="nav-number">6.2.2.</span> <span class="nav-text">参数说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90-1"><span class="nav-number">6.2.3.</span> <span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#less"><span class="nav-number">6.3.</span> <span class="nav-text">less</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-2"><span class="nav-number">6.3.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E-1"><span class="nav-number">6.3.2.</span> <span class="nav-text">参数说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90-2"><span class="nav-number">6.3.3.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="nav-number">6.3.4.</span> <span class="nav-text">说明：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%87%E6%B3%A8"><span class="nav-number">6.3.5.</span> <span class="nav-text">备注</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tail"><span class="nav-number">6.4.</span> <span class="nav-text">tail</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-3"><span class="nav-number">6.4.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0"><span class="nav-number">6.4.2.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90-3"><span class="nav-number">6.4.3.</span> <span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%BF%97"><span class="nav-number">6.5.</span> <span class="nav-text">查看日志</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%BF%97%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">6.5.1.</span> <span class="nav-text">查看日志常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#tail-1"><span class="nav-number">6.5.1.1.</span> <span class="nav-text">tail</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#head"><span class="nav-number">6.5.1.2.</span> <span class="nav-text">head</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cat-1"><span class="nav-number">6.5.1.3.</span> <span class="nav-text">cat</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">6.5.2.</span> <span class="nav-text">应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B8%80"><span class="nav-number">6.5.2.1.</span> <span class="nav-text">应用场景一</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E4%BA%8C"><span class="nav-number">6.5.2.2.</span> <span class="nav-text">应用场景二</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B8%89"><span class="nav-number">6.5.2.3.</span> <span class="nav-text">应用场景三</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-number">7.</span> <span class="nav-text">文件基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cp"><span class="nav-number">7.1.</span> <span class="nav-text">cp</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-4"><span class="nav-number">7.1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E-2"><span class="nav-number">7.1.2.</span> <span class="nav-text">参数说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90-4"><span class="nav-number">7.1.3.</span> <span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mv"><span class="nav-number">7.2.</span> <span class="nav-text">mv</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-5"><span class="nav-number">7.2.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E-3"><span class="nav-number">7.2.2.</span> <span class="nav-text">参数说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90-5"><span class="nav-number">7.2.3.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E9%9A%90%E8%97%8F%E6%96%87%E4%BB%B6"><span class="nav-number">7.2.4.</span> <span class="nav-text">移动隐藏文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rm"><span class="nav-number">7.3.</span> <span class="nav-text">rm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-6"><span class="nav-number">7.3.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0-1"><span class="nav-number">7.3.2.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90-6"><span class="nav-number">7.3.3.</span> <span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rmdir"><span class="nav-number">7.4.</span> <span class="nav-text">rmdir</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-7"><span class="nav-number">7.4.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0-2"><span class="nav-number">7.4.2.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90-7"><span class="nav-number">7.4.3.</span> <span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#touch"><span class="nav-number">7.5.</span> <span class="nav-text">touch</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-8"><span class="nav-number">7.5.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E-4"><span class="nav-number">7.5.2.</span> <span class="nav-text">参数说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90-8"><span class="nav-number">7.5.3.</span> <span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mkdir"><span class="nav-number">7.6.</span> <span class="nav-text">mkdir</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9B%AE%E5%BD%95"><span class="nav-number">7.6.1.</span> <span class="nav-text">创建新目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%A4%9A%E4%B8%AA%E7%9B%AE%E5%BD%95"><span class="nav-number">7.6.2.</span> <span class="nav-text">创建多个目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%B5%8C%E5%A5%97%E7%9B%AE%E5%BD%95"><span class="nav-number">7.6.3.</span> <span class="nav-text">创建嵌套目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%85%B7%E6%9C%89%E7%89%B9%E5%AE%9A%E6%9D%83%E9%99%90%E7%9A%84%E7%9B%AE%E5%BD%95"><span class="nav-number">7.6.4.</span> <span class="nav-text">创建具有特定权限的目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pwd"><span class="nav-number">7.7.</span> <span class="nav-text">pwd</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C"><span class="nav-number">8.</span> <span class="nav-text">文件进阶操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ln"><span class="nav-number">8.1.</span> <span class="nav-text">ln</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ln-%E5%91%BD%E4%BB%A4%E7%A4%BA%E4%BE%8B"><span class="nav-number">8.1.1.</span> <span class="nav-text">ln 命令示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%8C%87%E5%90%91%E6%96%87%E4%BB%B6%E7%9A%84%E7%A1%AC%E9%93%BE%E6%8E%A5"><span class="nav-number">8.1.2.</span> <span class="nav-text">创建指向文件的硬链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%8C%87%E5%90%91%E6%96%87%E4%BB%B6%E7%9A%84%E8%BD%AF%E8%BF%9E%E6%8E%A5"><span class="nav-number">8.1.3.</span> <span class="nav-text">创建指向文件的软连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%8C%87%E5%90%91%E7%9B%AE%E5%BD%95%E7%9A%84%E8%BD%AF%E9%93%BE%E6%8E%A5"><span class="nav-number">8.1.4.</span> <span class="nav-text">创建指向目录的软链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E5%B7%B2%E6%9C%89%E7%9A%84%E8%BD%AF%E9%93%BE%E6%8E%A5%EF%BC%88%E6%88%96%E7%A1%AC%E9%93%BE%E6%8E%A5%EF%BC%89"><span class="nav-number">8.1.5.</span> <span class="nav-text">更新已有的软链接（或硬链接）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E9%93%BE%E6%8E%A5%E9%93%BE%E8%8E%B7%E5%8F%96%E5%8E%9F%E5%A7%8B%E6%96%87%E4%BB%B6"><span class="nav-number">8.1.6.</span> <span class="nav-text">通过链接链获取原始文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E9%9C%80%E8%A6%81%E9%93%BE%E6%8E%A5"><span class="nav-number">8.1.7.</span> <span class="nav-text">为什么会需要链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#split"><span class="nav-number">8.2.</span> <span class="nav-text">split</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-9"><span class="nav-number">8.2.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E-5"><span class="nav-number">8.2.2.</span> <span class="nav-text">参数说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90-9"><span class="nav-number">8.2.3.</span> <span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unlink"><span class="nav-number">8.3.</span> <span class="nav-text">unlink</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#unlink-%E5%91%BD%E4%BB%A4"><span class="nav-number">8.3.1.</span> <span class="nav-text">unlink 命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unlink-%E4%B8%8D%E8%83%BD%E5%90%8C%E6%97%B6%E5%88%A0%E9%99%A4%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6%E5%92%8C%E9%93%BE%E6%8E%A5"><span class="nav-number">8.3.2.</span> <span class="nav-text">unlink 不能同时删除多个文件和链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-unlink-%E4%B8%8D%E8%83%BD%E5%88%A0%E9%99%A4%E7%9B%AE%E5%BD%95"><span class="nav-number">8.3.3.</span> <span class="nav-text">使用 unlink 不能删除目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rm-%E5%92%8C-unlink-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">8.3.4.</span> <span class="nav-text">rm 和 unlink 的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stat"><span class="nav-number">8.4.</span> <span class="nav-text">stat</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8Linux%E4%B8%AD%E5%AE%89%E8%A3%85stat"><span class="nav-number">8.4.1.</span> <span class="nav-text">在Linux中安装stat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E6%96%87%E4%BB%B6%E7%9A%84%E7%8A%B6%E6%80%81"><span class="nav-number">8.4.2.</span> <span class="nav-text">获取文件的状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E6%B4%81%E8%BE%93%E5%87%BA"><span class="nav-number">8.4.3.</span> <span class="nav-text">简洁输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E8%87%AA%E5%B7%B1%E7%9A%84%E6%A0%BC%E5%BC%8F"><span class="nav-number">8.4.4.</span> <span class="nav-text">选择自己的格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF"><span class="nav-number">8.4.5.</span> <span class="nav-text">文件信息</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#blkid"><span class="nav-number">9.</span> <span class="nav-text">blkid</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-10"><span class="nav-number">9.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E9%A1%B9"><span class="nav-number">9.2.</span> <span class="nav-text">选项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Low-level-probing-options"><span class="nav-number">9.2.1.</span> <span class="nav-text">Low-level probing options</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B"><span class="nav-number">9.3.</span> <span class="nav-text">实例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mount%E5%92%8Cumount"><span class="nav-number">10.</span> <span class="nav-text">mount和umount</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mount"><span class="nav-number">10.1.</span> <span class="nav-text">mount</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E8%AE%B2%E8%A7%A3"><span class="nav-number">10.1.1.</span> <span class="nav-text">参数讲解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%B8%E8%BD%BD%E7%A3%81%E7%9B%98%E6%97%B6%E6%8A%A5%E9%94%99%EF%BC%9A%E2%80%99Umount-Target-is-Busy%E2%80%99"><span class="nav-number">10.2.</span> <span class="nav-text">卸载磁盘时报错：’Umount Target is Busy’</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%82%A3%E4%B9%88%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E8%BF%99%E4%B8%AA%E9%97%AE%E9%A2%98%E5%91%A2%EF%BC%9F"><span class="nav-number">10.2.1.</span> <span class="nav-text">那么怎么解决这个问题呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%951%EF%BC%9A%E9%80%9A%E8%BF%87%E6%9D%80%E6%8E%89%E8%BF%9B%E7%A8%8B%E6%9D%A5%E5%BC%BA%E5%88%B6%E5%8D%B8%E8%BD%BD%E9%A9%B1%E5%8A%A8%E5%99%A8"><span class="nav-number">10.2.2.</span> <span class="nav-text">方法1：通过杀掉进程来强制卸载驱动器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%952%EF%BC%9A%E5%BC%BA%E5%88%B6%E5%8D%B8%E8%BD%BD%EF%BC%88%E9%80%82%E7%94%A8%E4%BA%8E%E7%BD%91%E7%BB%9C%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-Network-file-systems%EF%BC%89"><span class="nav-number">10.2.3.</span> <span class="nav-text">方法2：强制卸载（适用于网络文件系统 Network file systems）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%953%EF%BC%9A%E4%BD%BF%E7%94%A8%E5%BB%B6%E8%BF%9F%E5%8D%B8%E8%BD%BD%EF%BC%88lazy-unmount%EF%BC%89"><span class="nav-number">10.2.4.</span> <span class="nav-text">方法3：使用延迟卸载（lazy unmount）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#grub"><span class="nav-number">11.</span> <span class="nav-text">grub</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E6%98%BE%E7%A4%BAgrub%E5%90%AF%E5%8A%A8%E9%A1%B9"><span class="nav-number">11.1.</span> <span class="nav-text">不显示grub启动项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%951"><span class="nav-number">11.1.1.</span> <span class="nav-text">方法1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%952"><span class="nav-number">11.1.2.</span> <span class="nav-text">方法2</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">大人者，不失其赤子之心</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2023/12/30/187/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="187. Linux文件 | Qeuroal's Blog">
+      <meta itemprop="description" content="Linux中文件相关">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          187. Linux文件
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-12-30 00:00:00" itemprop="dateCreated datePublished" datetime="2023-12-30T00:00:00+08:00">2023-12-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-08 14:36:58" itemprop="dateModified" datetime="2025-12-08T14:36:58+08:00">2025-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">Linux中文件相关</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h1><p>在 Linux ，对文件的访问是通过文件权限、属性和所有权来验证。这确保只有授权的用户和进程才能访问文件和目录。</p>
+<h2 id="权限说明"><a href="#权限说明" class="headerlink" title="权限说明"></a>权限说明</h2><p>在继续之前，让我们解释一下基本的 Linux 权限模型。在 Linux 每个文件都与一个所有者和一个组相关联，并为三类不同的用户分配访问权限：</p>
+<ul>
+<li>文件所有者。</li>
+<li>组成员。</li>
+<li>其他人。</li>
+</ul>
+<p>可以使用 <code>chown</code> 和 <code>chgrp</code> 命令更改文件所有权。</p>
+<p>每个文件都有的三种权限类型：</p>
+<ul>
+<li>读取权限。</li>
+<li>写权限。</li>
+<li>执行权限。</li>
+</ul>
+<p>此概念允许您指定允许哪些用户读取文件、写入文件或者执行文件。你可以使用 <code>ls</code> 命令查看文件权限 ：</p>
+<img data-src="/2023/12/30/187/file-llls22.jpg" class="" title="img">
+
+<p>更详细地说明</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">ls</span> -l filename.txt</span><br><span class="line">-rw-r--r-- 12 myfreax <span class="built_in">users</span> 12.0K Apr  8 20:51 filename.txt</span><br><span class="line">|[-][-][-]-   [------] [---]</span><br><span class="line">| |  |  | |      |       |</span><br><span class="line">| |  |  | |      |       +-----------&gt; 7. 组Group</span><br><span class="line">| |  |  | |      +-------------------&gt; 6. 所有者Owner</span><br><span class="line">| |  |  | +--------------------------&gt; 5. 访问方法 Access Method</span><br><span class="line">| |  |  +----------------------------&gt; 4. 其它人权限 Others Permissions</span><br><span class="line">| |  +-------------------------------&gt; 3. 组权限 Group Permissions</span><br><span class="line">| +----------------------------------&gt; 2. 所有者 Owner Permissions</span><br><span class="line">+------------------------------------&gt; 1. 文件类型 File Type</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>第一个字符显示文件类型。它可以是普通文件 <code>-</code>、目录 <code>d</code>、<a target="_blank" rel="noopener" href="https://linuxize.com/post/how-to-create-symbolic-links-in-linux-using-the-ln-command/">符号链接</a> <code>l</code> 或任何其他特殊类型的文件。</p>
+</li>
+<li><p>接下来的九个字符代表文件权限，三个三元组，每个元组包含三个字符。第一个三元组显示所有者权限。</p>
+<ul>
+<li>第二个三元组显示组权限</li>
+<li>最后一个三元组显示其他人权限。根据文件类型的不同，权限可能具有不同的含义。</li>
+</ul>
+</li>
+</ul>
+<p>上面示例例中的 <code>rw-r--r--</code> 表示文件拥有有读写权限 <code>rw-</code>，组和其他人只有读权限 <code>r--</code> 。</p>
+<p>三个权限三元组中的每一个都可以由以下字符构成，并且具有不同的效果，具体取决于它们是为文件还是目录设置。</p>
+<h3 id="权限对文件的影响"><a href="#权限对文件的影响" class="headerlink" title="权限对文件的影响"></a>权限对文件的影响</h3><table>
+<thead>
+<tr>
+<th>权限</th>
+<th>字符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>读</strong></td>
+<td><code>-</code></td>
+<td>这个文件不可读，也意味着不能够查看文件内容</td>
+</tr>
+<tr>
+<td></td>
+<td><code>r</code></td>
+<td>文件可读。</td>
+</tr>
+<tr>
+<td><strong>写</strong></td>
+<td><code>-</code></td>
+<td>文件不可写，也不能修改</td>
+</tr>
+<tr>
+<td></td>
+<td><code>w</code></td>
+<td>文件可以被修改或者写入</td>
+</tr>
+<tr>
+<td><strong>执行</strong></td>
+<td><code>-</code></td>
+<td>文件不可以被执行</td>
+</tr>
+<tr>
+<td></td>
+<td><code>x</code></td>
+<td>文件可以被执行</td>
+</tr>
+<tr>
+<td></td>
+<td><code>s</code></td>
+<td>如果在 user（用户） 三元组中找到 s 表示文件已设置 setuid 位。如果在 group（Linux 组） 三元组中找到 s，则表示文件已设置 setgid 位。这也意味着可执行权限已设置。当在可执行文件设置 setuid 或 setgid 标志时，文件将以文件的所有者或组权限执行。</td>
+</tr>
+<tr>
+<td></td>
+<td><code>S</code></td>
+<td>和 s 一样，但可执行权限没有被设置，这个标志很少使用在文件上</td>
+</tr>
+<tr>
+<td></td>
+<td><code>t</code></td>
+<td>如果在 others（其它人） 三元组中找到它设置 t ，也就是已设置 sticky 位。 这也意味着已设置文件的可执行权限。此标志对文件无用。</td>
+</tr>
+<tr>
+<td></td>
+<td><code>T</code></td>
+<td>与 t 相同，但未设置可执行权限。此标志对文件无用。</td>
+</tr>
+</tbody></table>
+<h3 id="权限对目录（文件夹）的影响"><a href="#权限对目录（文件夹）的影响" class="headerlink" title="权限对目录（文件夹）的影响"></a>权限对目录（文件夹）的影响</h3><p>在 Linux 中，目录是包含其他文件和目录的特殊类型的文件。</p>
+<table>
+<thead>
+<tr>
+<th>权限</th>
+<th>字符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>读</strong></td>
+<td><code>-</code></td>
+<td>目录的内容不可见</td>
+</tr>
+<tr>
+<td></td>
+<td><code>r</code></td>
+<td>目录内容可见。 例如你可以在目录内部使用 <a target="_blank" rel="noopener" href="https://www.myfreax.com/how-to-list-files-in-linux-using-the-ls-command/">ls</a> 命令列出文件的内容</td>
+</tr>
+<tr>
+<td><strong>写</strong></td>
+<td><code>-</code></td>
+<td>无法修改目录内容</td>
+</tr>
+<tr>
+<td></td>
+<td><code>w</code></td>
+<td>目录的内容可以更改。 例如 <a target="_blank" rel="noopener" href="https://www.myfreax.com/create-a-file-in-linux/">创建文件</a> 或者删除文件 <a target="_blank" rel="noopener" href="https://www.myfreax.com/how-to-remove-files-and-directories-using-linux-command-line/">删除文件</a> 等等</td>
+</tr>
+<tr>
+<td><strong>执行</strong></td>
+<td><code>-</code></td>
+<td>不能使用 cd 命令切换目录</td>
+</tr>
+<tr>
+<td></td>
+<td><code>x</code></td>
+<td>可以使用 <a target="_blank" rel="noopener" href="https://www.myfreax.com/linux-cd-command/">cd</a> 命令切换到目录</td>
+</tr>
+<tr>
+<td></td>
+<td><code>s</code></td>
+<td>如果在 user 三元组中找到 s，则目录已设置 setuid 位。如果在 group 三元组中找到 s 则表示已设置 setgid 位。这也意味着可执行权限已设置。当在目录设置 setgid 标志时，在目录创建的文件将继承目录组 GID，而不是创建文件的用户主要组 ID。setuid 对目录没有影响。</td>
+</tr>
+<tr>
+<td></td>
+<td><code>S</code></td>
+<td>与 s 相同，但未设置可执行权限。此标志在目录上没有用。</td>
+</tr>
+<tr>
+<td></td>
+<td><code>t</code></td>
+<td>如果在其他人三元组中找到，它会设置粘性位。这也意味着设置可执行权限。当在目录设置粘性位时，只有文件所有者、目录所有者或管理用户可以删除或重命名目录中的文件。</td>
+</tr>
+<tr>
+<td></td>
+<td><code>T</code></td>
+<td>与 t 相同，但未设置可执行权限。此标志在目录上没用。</td>
+</tr>
+</tbody></table>
+<h3 id="文件颜色所代表的含义"><a href="#文件颜色所代表的含义" class="headerlink" title="文件颜色所代表的含义"></a>文件颜色所代表的含义</h3><table>
+<thead>
+<tr>
+<th><strong>颜色</strong></th>
+<th><strong>文件类型标识</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>浅蓝色</td>
+<td><code>[l]</code></td>
+<td>软链接</td>
+</tr>
+<tr>
+<td>白色</td>
+<td><code>[-]</code></td>
+<td>普通文件&#x2F;硬链接</td>
+</tr>
+<tr>
+<td>蓝色</td>
+<td><code>[d]</code></td>
+<td>目录</td>
+</tr>
+<tr>
+<td>红色</td>
+<td><code>[l]</code></td>
+<td>某文件被删除后，链接到该文件的软链接的颜色</td>
+</tr>
+<tr>
+<td>红色闪烁</td>
+<td>无</td>
+<td>表示该文件已被删除，但还存在该文件的软链接</td>
+</tr>
+<tr>
+<td>红色</td>
+<td><code>[-]</code></td>
+<td>压缩包</td>
+</tr>
+<tr>
+<td>黄色</td>
+<td><code>[c]</code></td>
+<td>字符设备文件，如键盘鼠标</td>
+</tr>
+<tr>
+<td>绿色</td>
+<td><code>[-]</code></td>
+<td>可执行文件，可执行的程序</td>
+</tr>
+<tr>
+<td>桃红色</td>
+<td><code>[s]</code></td>
+<td>套接字文件</td>
+</tr>
+<tr>
+<td>土黄色</td>
+<td><code>[p]</code></td>
+<td>管道文件</td>
+</tr>
+<tr>
+<td>灰色文件</td>
+<td>无</td>
+<td>表示其它文件</td>
+</tr>
+</tbody></table>
+<h2 id="chmod"><a href="#chmod" class="headerlink" title="chmod"></a>chmod</h2><h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><p><code>chmod</code>命令的语法形式 <code>chmod [OPTIONS] MODE FILE...</code> 。</p>
+<ul>
+<li><code>MODE</code> 是权限的模式</li>
+<li><code>FILE...</code> 可以是一个或者多个文件与目录</li>
+<li><code>[OPTIONS]</code> chmod 命令的选项，是可选参数。</li>
+</ul>
+<p>chmod 命令允许您使用符号或数字模式或参考文件修改改文件的权限。我们将在本文后面更详细地解释这些模式。当使用 chmod 命令修改多个文件与目录时 请使用空格分隔多个文件与目录。</p>
+<p>只有 root、文件所有者或具有 sudo 权限的用户才能更修改文件的权限。使用 <code>chmod</code> 时要格外小心，尤其在递归修改权限时。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> [OPTIONS] MODE FILE...</span><br></pre></td></tr></table></figure>
+
+<h3 id="符号模式"><a href="#符号模式" class="headerlink" title="符号模式"></a>符号模式</h3><p>使用符号模式时 <code>chmod</code> 命令的语言法式如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> [OPTIONS] [ugoa…][-+=]perms…[,…] FILE...</span><br></pre></td></tr></table></figure>
+
+<p>第一组参数 <code>[ugoa…]</code>，即用户类型的参数，确定修改文件权限的用户类别，<code>[]</code> 中括号表示参数是可选的。</p>
+<ul>
+<li><code>u</code>- 文件所有者。</li>
+<li><code>g</code>- 组。</li>
+<li><code>o</code>- 其它人。</li>
+<li><code>a</code>- 所有用户，与同时指定 <code>ugo</code> 一样。</li>
+</ul>
+<p>如果省略<code>[ugoa…]</code> 参数，则默认为所有用户并且由 <a target="_blank" rel="noopener" href="https://www.myfreax.com/umask-command-in-linux/">umask</a> 设置的权限不受影响。</p>
+<p>第二组参数 <code>[-+=]</code>，操作权限的参数，定义是否要删除、添加或设置权限，<code>[]</code> 中括号表示参数是可选的：</p>
+<ul>
+<li><code>-</code> 删除指定的权限。</li>
+<li><code>+</code> 添加指定的权限。</li>
+<li><code>=</code> 将当前权限改为指定权限。如果在符号后没有指定权限<code>=</code>，则删除指定用户类的所有权限。</li>
+</ul>
+<p>可以使用字母 r、w、x、X、s 和 t 中的零个，一个或多个来设置权限 <code>perms...</code> 参数。使用单个字母 u、g 和 o 为指定类别的用户设置权限。</p>
+<p>当为多个种用户类型设置权限时，请使用逗号分隔多个符号模式。下面的一些示例展示如何在符号模式下使用 <code>chmod</code> 命令。</p>
+<p>授予组成员读取文件的权限，但不能写入和执行它：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> g=r filename</span><br></pre></td></tr></table></figure>
+
+<p>删除所有用户的执行权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> a-x filename</span><br></pre></td></tr></table></figure>
+
+<p>递归删除其他用户的写权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> -R o-w <span class="built_in">dirname</span></span><br></pre></td></tr></table></figure>
+
+<p>删除除文件所有者之外的所有用户的读、写和执行权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> og-rwx filename</span><br></pre></td></tr></table></figure>
+
+<p>同样的事情也可以通过使用下面的命令来完成：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> og= filename</span><br></pre></td></tr></table></figure>
+
+<p>授予文件所有者读取、写入和执行权限，授予文件组读取权限，不授予其他用户权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> u=rwx,g=r,o= filename</span><br></pre></td></tr></table></figure>
+
+<p>将文件的所有者权限添加到文件组成员权限中：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> g+u filename</span><br></pre></td></tr></table></figure>
+
+<p>向指定目录添加粘性位：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> o+t <span class="built_in">dirname</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="数字模式"><a href="#数字模式" class="headerlink" title="数字模式"></a>数字模式</h3><p>使用数字模式时 <code>chmod</code> 命令的语言法式如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> [OPTIONS] NUMBER FILE...</span><br></pre></td></tr></table></figure>
+
+<p>使用数字模式时，您可以同时设置所有者、组和所有其他人的权限。参数 <code>NUMBER</code> 可以是 3 位或 4 位数字。</p>
+<p>当使用 3 位数字时，第一位代表文件所有者的权限，第二位代表文件的组，最后一位代表所有其他用户。</p>
+<p>指定用户类型的权限都可以使用权限值的总和表示。写入、读取和执行权限都可以使用数值表示：</p>
+<ul>
+<li><code>r</code>（读）&#x3D; 4</li>
+<li><code>w</code>（写）&#x3D; 2</li>
+<li><code>x</code>（执行）&#x3D; 1</li>
+<li>无权限 &#x3D; 0</li>
+</ul>
+<p>要以数字模式设置文件的权限，只需计算指定用户类别的总数即可。例如，要授予文件所有者读取、写入和执行权限，授予组的读取和执行权限，而只授予其他用户读取权限，您可以执行以下操作：</p>
+<ul>
+<li>所有者：rwx&#x3D;4+2+1&#x3D;7</li>
+<li>组：rx&#x3D;4+0+1&#x3D;5</li>
+<li>其他人：rx&#x3D;4+0+0&#x3D;4</li>
+</ul>
+<p>使用上面的方法，我们得出数值是 <code>754</code>，它代表要设置的权限。</p>
+<p>要设置 <code>setuid</code>、<code>setgid</code> 和 <code>sticky bit</code> 粘性位，请使用四位数字。当使用 4 位数字时，第一位数字的含义如下：</p>
+<ul>
+<li>setuid &#x3D;4</li>
+<li>setgid &#x3D;2</li>
+<li>sticky &#x3D;1</li>
+<li>没有变化 &#x3D; 0</li>
+</ul>
+<p>接下来的三个数字与使用 3 位数字时的含义相同。如果首位是 0 则可以省略，模式可以用 3 位表示。数字模式 <code>0755</code> 与 <code>755</code> 相同。</p>
+<p>要计算数字模式，您还可以使用另一种二进制方法，但它稍微复杂一些。对于大多数用户来说，知道如何使用 4、2 和 1 计算数值模式就足够。</p>
+<p>您可以使用 <code>stat</code> 命令以数字或者符号模式查看文件的权限 ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">stat</span> -c <span class="string">&quot;%a&quot;</span> filename</span><br><span class="line">644</span><br></pre></td></tr></table></figure>
+
+<p>以下是如何在数字模式下使用 <code>chmod</code> 命令的一些示例：</p>
+<p>授予文件所有者读写权限，仅授予组成员和其他用户读取权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 644 <span class="built_in">dirname</span></span><br></pre></td></tr></table></figure>
+
+<p>授予文件所有者读、写和执行权限，授予组成员读取和执行权限，不授予其他用户权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 750 <span class="built_in">dirname</span></span><br></pre></td></tr></table></figure>
+
+<p>为指定目录设置读、写和执行权限，以及粘性位：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 1777 <span class="built_in">dirname</span></span><br></pre></td></tr></table></figure>
+
+<p>递归修改文件所有者读取、写入和执行权限，而不为目录的其他用户和组设置权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> -R 700 <span class="built_in">dirname</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="使用参考文件"><a href="#使用参考文件" class="headerlink" title="使用参考文件"></a>使用参考文件</h3><p><code>--reference=ref_file</code> 选项允许您将文件的权限设置为与指定参考文件 <code>ref_file</code> 的权限相同。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> --reference=REF_FILE FILE</span><br></pre></td></tr></table></figure>
+
+<p>例如，以下 chmod 命令将权限分配 <code>file1</code> 给 <code>file2</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> --reference=file1 file2</span><br></pre></td></tr></table></figure>
+
+<h3 id="递归修改文件权限"><a href="#递归修改文件权限" class="headerlink" title="递归修改文件权限"></a>递归修改文件权限</h3><p>要对指定目录下所有文件和目录进行递归操作，请使用chmod 命令的 <code>-R</code>( <code>--recursive</code>) 选项：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> -R MODE DIRECTORY</span><br></pre></td></tr></table></figure>
+
+<p>例如，要修改 <code>/var/www</code> 目录下所有文件和子目录的权限为 <code>755</code>，您可以运行以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod -R 755 /var/www</span><br></pre></td></tr></table></figure>
+
+<h3 id="符号链接权限"><a href="#符号链接权限" class="headerlink" title="符号链接权限"></a>符号链接权限</h3><p><a target="_blank" rel="noopener" href="https://www.myfreax.com/how-to-create-symbolic-links-in-linux-using-the-ln-command/">符号链接</a>始终具有 <code>777</code> 权限。默认情况下，当修改符号链接的权限时，<code>chmod</code> 将更改链接指向的文件的权限。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 755 symlink</span><br></pre></td></tr></table></figure>
+
+<p>很有可能您不能够修改目标文件的所有权，而是会收到 cannot access ‘symlink’: Permission denied 的错误。不能够访问软链接，权限拒绝。</p>
+<p>出现此错误是因为在大多数 Linux 发行版中默认情况下符号链接是受保护的，您无法对目标文件进行操作。</p>
+<p>此选项在 <code>/proc/sys/fs/protected_symlinks</code> 中指定。<code>1</code> 表示启用和 <code>0</code> 禁用。建议不要禁用符号链接的保护。</p>
+<h3 id="批量更改文件权限"><a href="#批量更改文件权限" class="headerlink" title="批量更改文件权限"></a>批量更改文件权限</h3><p>有时，在某些情况下，您需要批量修改文件和目录权限。<strong>最常见的场景是递归修改网站文件的权限为 <code>644</code> 和目录的权限为 <code>755</code>。</strong></p>
+<p>使用数值方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find /var/www/my_website -<span class="built_in">type</span> d -<span class="built_in">exec</span> <span class="built_in">chmod</span> 755 &#123;&#125; \;</span><br></pre></td></tr></table></figure>
+
+<p>使用符号方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find /var/www/my_website -<span class="built_in">type</span> d -<span class="built_in">exec</span> <span class="built_in">chmod</span> u=rwx,go=rx &#123;&#125; \;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.myfreax.com/how-to-find-files-in-linux-using-the-command-line/"><code>find</code></a> 命令将搜索 <code>/var/www/my_website</code> 的文件和目录，并将找到的每个文件和目录传递给 <code>chmod</code> 命令设置权限。</p>
+<h2 id="chgrp"><a href="#chgrp" class="headerlink" title="chgrp"></a>chgrp</h2><p>修改文件与目录（文件夹）所属组.</p>
+<p>修改文件组的所有权，符号链接组的所有权，递归修改组所有权以及使用 GID 或者组名来修改组的所有权。</p>
+<h3 id="命令-1"><a href="#命令-1" class="headerlink" title="命令"></a>命令</h3><p><code>chgrp</code> 命令的语法形式是 <code>chgrp [OPTIONS] GROUP FILE..</code>。<code>GROUP</code> 可以是组的名称或组 ID 也就是 GID，GID 必须以 <code>+</code> 符号作为前缀。</p>
+<p><code>FILE..</code> 可以是一个或多个文件与目录的名称，当指定多个文件或者目录，请使用多个空格进行分隔。</p>
+<p>与 <a target="_blank" rel="noopener" href="https://www.myfreax.com/linux-chown-command/">chown 命令</a>不同的是，<code>chown</code> 命令允许您修改文件目录的所有者，<code>chgrp</code> 修改文件或者目录组的所有权。</p>
+<p>要找出文件的所属组，请运行命令 <a target="_blank" rel="noopener" href="https://www.myfreax.com/how-to-list-files-in-linux-using-the-ls-command/"><code>ls -al</code></a>。只有 root 用户或具有 <a target="_blank" rel="noopener" href="https://www.myfreax.com/sudo-command-in-linux/">sudo</a> 权限的用户才能修改文件目录的所属组。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chgrp</span> [OPTIONS] GROUP FILE..</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改文件目录组的所有者"><a href="#修改文件目录组的所有者" class="headerlink" title="修改文件目录组的所有者"></a>修改文件目录组的所有者</h3><p>要修改文件目录的所属组，请运行 <code>chgrp</code> 命令，后跟组的名称，最后是目标文件或者目录作为参数。</p>
+<p>例如 <code>sudo chgrp www-data filename</code> 命令修改 <code>filename</code> 文件的所属组为 <code>www-data</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chgrp</span> www-data filename</span><br></pre></td></tr></table></figure>
+
+<p>如果您以没有 sudo 权限的用户运行命令，则会收到操作不允许的错误消息 Operation not permitted 。</p>
+<p>默认情况下，chgrp 命令不产生任何输出，成功时返回退出代码 0。要验证是否成功修改，请运行命令 <code>ls -al</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chgrp</span> www-data filename</span><br><span class="line"><span class="built_in">ls</span> -al filename</span><br></pre></td></tr></table></figure>
+
+<p>您还可以将多个文件或者目录作为参数传递给 chgrp 命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chgrp</span> www-data file1 file2 dir1</span><br></pre></td></tr></table></figure>
+
+<p>使用chgrp 命令的 <code>-v</code> 选项获取正在处理的文件信息。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chgrp</span> -v www-data file1 file2</span><br></pre></td></tr></table></figure>
+
+<p>也可以使用 GID 代替组名。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chgrp</span> +1000 filename</span><br><span class="line">changed group of <span class="string">&#x27;file1&#x27;</span> from nginx to www-data</span><br><span class="line">group of <span class="string">&#x27;file2&#x27;</span> retained as www-data</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改软链接所属组"><a href="#修改软链接所属组" class="headerlink" title="修改软链接所属组"></a>修改软链接所属组</h3><p>在不进行递归修改文件目录所属组时，chgrp 命令的默认行为是修改软链接的目标文件所属组，而不是<a target="_blank" rel="noopener" href="https://www.myfreax.com/how-to-create-symbolic-links-in-linux-using-the-ln-command/">软链接</a>本身。</p>
+<p>例如命令 <code>sudo chgrp www-data symlink1</code> 修改软链接 <code>symlink1</code> 的目标文件所属组，软链接文件本身的所属组不会被修改。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chgrp</span> www-data symlink1</span><br></pre></td></tr></table></figure>
+
+<p>在修改软链接文件目录所属组时，你很有可能您会看到错误消息 cannot dereference ‘symlink1’: Permission denied。</p>
+<p>发生错误是因为在大多数 Linux 发行版的软链接都受到保护并且您无法对目标文件进行操作。</p>
+<p>要启用或者禁用软链接的保护，可以在 <code>/proc/sys/fs/protected_symlinks</code> 文件指定。<code>1</code> 表示启用，<code>0</code> 表示禁用。我们建议不要禁用软链接保护。</p>
+<p>当遇到受保护符号链接时，可以尝试使用 chagrp 命令的 <code>-h</code> 选项，该选项将会尝试 修改符号链接文件的所有权，然后再修改目标的所属组。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chgrp</span> -h www-data symlink1</span><br></pre></td></tr></table></figure>
+
+<h3 id="递归修改文件目录所属组"><a href="#递归修改文件目录所属组" class="headerlink" title="递归修改文件目录所属组"></a>递归修改文件目录所属组</h3><p>要递归更改所有文件和目录组的所有权，请使用chgrp 命令的 <code>-R</code> 选项。如果仅指定 <code>-R</code> 选项 <code>chgrp</code> 命令不会遍历软链接，即不会修软链接指向的目标文件。</p>
+<p>但你可以使用 <code>chgrp</code> 命令的 <code>-h</code> 选项修改软链接指向的目标文件所属组。如果软链接的目标文件是一个目录，你还需要指定 <code>-H</code> 选项遍历目录。</p>
+<p>除此之外你还需要使用 <code>-L</code> 选项遍历链接到目录的每个符号链接，在大多数情况，不建议使用 <code>-L</code> 和 <code>-H</code> 选项，因为这可能会导致系统混乱或带来安全风险。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chgrp</span> -R www-data /var/www</span><br><span class="line"><span class="built_in">chgrp</span> -hR www-data /var/www <span class="comment">#include symlinks</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="chown"><a href="#chown" class="headerlink" title="chown"></a>chown</h2><p>在 Linux ，所有文件都与一个所有者以及一个组相关联，并为文件所有者、组成员和其他人分配访问权限。</p>
+<h3 id="命令-2"><a href="#命令-2" class="headerlink" title="命令"></a>命令</h3><p>在介绍如何使用该<code>chown</code>命令之前，让我们先回顾一下基本语法。<code>chown</code> 命令表达式采用以下形式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chown</span> [OPTIONS] USER[:GROUP] FILE(s)</span><br></pre></td></tr></table></figure>
+
+<p><code>USER</code> 是所有者的用户名或用户 ID (UID)。<code>GROUP</code> 是组的名称或组 ID (GID)。<code>FILE(s)</code> 是一个或多个文件、目录（文件夹）或链接的名称。数字 ID 应以 <code>+</code> 符号为前缀。</p>
+<ul>
+<li><code>USER</code> 如果只指定用户，指定的用户将成为指定文件的所有者，组所有权不变。</li>
+<li><code>USER:</code> 当用户名后跟一个冒号<code>:</code>，并且没有给出组名时，用户将成为文件的所有者，文件组所有权更改为用户的登录组。</li>
+<li><code>USER:GROUP</code> 如果同时指定了用户和组（它们之间没有空格），则文件的用户所有权将更改为指定的用户，组所有权更改为指定的组。</li>
+<li><code>:GROUP</code> 如果省略 User 并且组以 <code>:</code> 冒号为前缀，则只有文件的组所有权更改为指定的组。</li>
+<li>如果只给出一个 <code>:</code> 冒号，而不指定用户和组，则不会进行任何修改。</li>
+</ul>
+<p>默认情况下，成功时。<code>chown</code> 命令不产生任何输出并返回零。可以使用 <code>ls -l</code> 命令找出谁拥有文件或文件属于哪个组：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ls -l filename.txt</span><br><span class="line">-rw-r--r-- 12 linuxize users 12.0K Apr  8 20:51 filename.txt</span><br><span class="line">|[-][-][-]-   [------] [---]</span><br><span class="line">                |       |</span><br><span class="line">                |       +-----------&gt; Group</span><br><span class="line">                +-------------------&gt; Owner</span><br></pre></td></tr></table></figure>
+
+<p>普通用户只有在拥有文件时才能修改文件的组，并且只能修改为他们所属的组。管理用户可以修改所有文件的所有权。</p>
+<h3 id="如何修改文件的所有者"><a href="#如何修改文件的所有者" class="headerlink" title="如何修改文件的所有者"></a>如何修改文件的所有者</h3><p>要修改文件的所有者，请使用以下 <code>chown</code> 命令，后跟新所有者的用户名和目标文件作为参数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chown</span> USER FILE</span><br></pre></td></tr></table></figure>
+
+<p>例如，以下命令会将名为 <code>file1</code> 文件的所有权修改为所有者  <code>myfreax</code> ：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown myfreax file1</span><br></pre></td></tr></table></figure>
+
+<p>要修多个文件或目录的所有权，请将多个文件名使用空格分隔。下面的命令将文件 <code>file1</code> 和目录 <code>dir1</code> 的所有权更改为 <code>myfreax</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown myfreax file1 dir1</span><br></pre></td></tr></table></figure>
+
+<p>可以使用数字用户 ID (UID) 代替用户名。以下示例将会修改文件 file2 的所有权为UID 1000 的用户：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown 1000 file2</span><br></pre></td></tr></table></figure>
+
+<p>如果数字就是所有者的用户名，则所有权将转移到该用户名。为避免这种情况，可以使用 <code>+</code> 作为 UID 的前缀，这样就可以避免将UID解释为用户名 ：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown 1000 file2</span><br></pre></td></tr></table></figure>
+
+<h3 id="如何修改文件的所有者和组"><a href="#如何修改文件的所有者和组" class="headerlink" title="如何修改文件的所有者和组"></a>如何修改文件的所有者和组</h3><p>要同时修改文件的所有者和组，请使用 <code>chown</code> 命令，后跟所有者和组，中间用冒号  <code>:</code> 分隔，中间没有空格，然后是目标文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chown</span> USER:GROUP FILE</span><br></pre></td></tr></table></figure>
+
+<p>以下命令会将名为的文件 <code>file1</code> 的所有权更改为 <code>myfreax</code> 用户，组的所有权为 <code>user</code> 组：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown myfreax:users file1</span><br></pre></td></tr></table></figure>
+
+<p>如果在冒号 <code>:</code> 后省略组名，文件的组将更改为指定用户，组的所有权是指定用户的主要组：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown myfreax: file1</span><br></pre></td></tr></table></figure>
+
+<h3 id="如何修改文件所有组"><a href="#如何修改文件所有组" class="headerlink" title="如何修改文件所有组"></a>如何修改文件所有组</h3><p>要仅修改文件组的所有权，请使用 <code>chown</code> 命令后跟冒号 <code>:</code> 和组名（它们之间没有空格）以及目标文件作为参数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chown</span> :GROUP FILE</span><br></pre></td></tr></table></figure>
+
+<p>以下命令将 <code>file1</code> 文件的所属组更改为 <code>www-data</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown :www-data file1</span><br></pre></td></tr></table></figure>
+
+<p>另一个可用于修改文件组所有权的命令是 <a target="_blank" rel="noopener" href="https://www.myfreax.com/chgrp-command-in-linux/"><code>chgrp</code></a> .</p>
+<h3 id="如何修改符号链接的所有权"><a href="#如何修改符号链接的所有权" class="headerlink" title="如何修改符号链接的所有权"></a>如何修改符号链接的所有权</h3><p>当不使用递归选项时，<code>chown</code> 命令修改符号链接指向的文件组的所有权，而不是<a target="_blank" rel="noopener" href="https://linuxize.com/post/how-to-create-symbolic-links-in-linux-using-the-ln-command/">符号链接</a>本身。</p>
+<p>例如，如果您尝试修改符号链接 <code>symlink1</code> 指向的文件 <code>/var/www/file1</code> 用户和组的所有权：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown www-data: symlink1</span><br></pre></td></tr></table></figure>
+
+<p>很有可能您不会修改目标文件目录的所有权，而是会收到 “cannot dereference ‘symlink1’: Permission denied” 无法取消引用 symlink1 权限被拒绝的错误。</p>
+<p>出现该错误是因为在大多数 Linux 发行版，默认情况下符号链接是受保护的，您无法对目标文件进行操作。</p>
+<p>此选项在 <code>/proc/sys/fs/protected_symlinks</code> 中指定。<code>1</code>表示启用， <code>0</code> 禁用。我们建议不要禁用符号链接保护。</p>
+<p>要修改符号链接本身组所有权，请使用 chown 命令的 <code>-h</code>选项：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -h www-data symlink1</span><br></pre></td></tr></table></figure>
+
+<h3 id="如何递归修改文件所有权"><a href="#如何递归修改文件所有权" class="headerlink" title="如何递归修改文件所有权"></a>如何递归修改文件所有权</h3><p>要对指定目录的所有文件和目录进行递归操作，请使用 chown 命令的 <code>-R</code>&#x2F;<code>--recursive</code> 选项：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chown</span> -R USER:GROUP DIRECTORY</span><br></pre></td></tr></table></figure>
+
+<p>以下示例将 <code>/var/www</code> 目录下的所有文件和子目录的所有权更改为为 <code>www-data</code> 所有者和组：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R www-data: /var/www</span><br></pre></td></tr></table></figure>
+
+<p>如果目录包含符号链接指定 <code>-h</code> 选项 ：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -hR www-data: /var/www</span><br></pre></td></tr></table></figure>
+
+<p>递归修改目录所有权时可以使用选项是  <code>-H</code> 和 <code>-L</code>。</p>
+<p>如果传递给 <code>chown</code> 命令的参数是指向目录的符号链接，则 <code>-H</code> 选项将使命令遍历它。</p>
+<p><code>-L</code> 指示 <code>chown</code> 遍历每个符号链接到遇到的目录。通常，您不应使用这些选项，因为这可能会弄乱系统或产生安全风险。</p>
+<h3 id="使用参考文件-1"><a href="#使用参考文件-1" class="headerlink" title="使用参考文件"></a>使用参考文件</h3><p><code>--reference=ref_file</code> 选项允许您将指定文件的用户和组所有权更改为与指定参考文件相同的权限。如果引用文件是符号链接，<code>chown</code> 将使用目标文件的用户和组。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chown</span> --reference=REF_FILE FILE</span><br></pre></td></tr></table></figure>
+
+<p>例如，以下命令将 <code>file1</code> 的用户和组所有权分配给 <code>file2</code> ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chown</span> --reference=file1 file2</span><br></pre></td></tr></table></figure>
+
+<h1 id="虚拟文件系统"><a href="#虚拟文件系统" class="headerlink" title="虚拟文件系统"></a>虚拟文件系统</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>有时会出现这样的情况，磁盘空间显示已经被占满，但是在查看磁盘的具体文件占用情况时，发现磁盘仍然有很大的空余空间。</p>
+<p><strong>执行df命令查看磁盘使用情况，发现磁盘已经满了。</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">df</span> -Th</span><br><span class="line">Filesystem     Type      Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/vda1      ext4       30G    30G 0      100% /</span><br><span class="line">devtmpfs       devtmpfs  489M     0  489M   0% /dev</span><br><span class="line">tmpfs          tmpfs     497M     0  497M   0% /dev/shm</span><br><span class="line">tmpfs          tmpfs     497M   50M  447M  11% /run</span><br><span class="line">tmpfs          tmpfs     497M     0  497M   0% /sys/fs/cgroup</span><br></pre></td></tr></table></figure>
+
+<p><strong>执行<code>du</code>命令查看各个目录的磁盘占用情况，把各个目录文件的大小相加，发现并没有占满磁盘，有10多G空间莫名失踪。</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">du</span> -h –max-depth=1 /home</span><br><span class="line">16M /home/logs</span><br><span class="line">11G /home/serverdog</span><br><span class="line">11G /home</span><br></pre></td></tr></table></figure>
+
+<p><strong>为何会出现这样的情况呢？</strong></p>
+<p>因为虽然文件已被删除，但是一些进程仍然打开这些文件，因此其占用的磁盘空间并没有被释放。执行<code>lsof</code>命令显示打开已删除的文件。将有问题的进程重启（或，清空），磁盘空间就会得到释放。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ lsof | grep delete</span><br><span class="line">mysqld     2470         mysql    4u      REG              253,1           0     523577 /var/tmp/ibfTeQFn (deleted)</span><br><span class="line">mysqld     2470         mysql    5u      REG              253,1           0     523579 /var/tmp/ibaHcIdW (deleted)</span><br><span class="line">mysqld     2470         mysql    6u      REG              253,1           0     523581 /var/tmp/ibLjiALu (deleted)</span><br><span class="line">mysqld     2470         mysql    7u      REG              253,1           0     523585 /var/tmp/ibCFnzTB (deleted)</span><br><span class="line">mysqld     2470         mysql   11u      REG              253,1           0     523587 /var/tmp/ibCjuqva (deleted)</span><br></pre></td></tr></table></figure>
+
+<p>那么，Linux的文件系统，到底为什么这么设计呢？要了解这些，就要先弄清楚并不容易，下面将从一些基本概念入手，一步步将这些梳理清楚：</p>
+
+
+<h2 id="虚拟文件系统（virtual-filesystem）"><a href="#虚拟文件系统（virtual-filesystem）" class="headerlink" title="虚拟文件系统（virtual filesystem）"></a>虚拟文件系统（virtual filesystem）</h2><p>下图显示了Linux操作系统中负责文件管理的基本组件。上半区域为用户模式，下半区域为内核模式。应用程序使用标准库libc来访问文件，库将请求映射到系统调用，以便进入内核模式。</p>
+<img data-src="/2023/12/30/187/640-20240108080722799.png" class="" title="图片">
+
+<p>所有与文件相关的操作的入口都是虚拟文件系统（VFS），而非特定的额文件系统（如Ext3、ReiserFS和NFS）。VFS 提供了系统库和特定文件系统之间的接口。因此，VFS 不仅充当抽象层，而且实际上它提供了一个文件系统的基本实现，可以由不同的实现来使用和扩展。因此，要了解文件系统是如何工作的，就要先了解VFS 。</p>
+<h2 id="目录树"><a href="#目录树" class="headerlink" title="目录树"></a>目录树</h2><p>综合来说，Linux 的根文件系统(system’s root filessystem) 是内核启动mount的第一个文件系统。内核代码映像文件保存在根文件系统中，而系统引导启动程序会在根文件系统挂载之后，从中把一些基本的初始化脚本和服务等加载到内存中去运行（文件系统和内核是完全独立的两个部分）。其他文件系统，则后续通过脚本或命令作为子文件系统安装在已安装文件系统的目录上，最终形成整个目录树。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tart_kernel</span><br><span class="line">　　vfs_caches_init</span><br><span class="line">　　　　mnt_init</span><br><span class="line">　　　　　　init_rootfs     // 注册rootfs文件系统</span><br><span class="line">　　　　　　init_mount_tree // 挂载rootfs文件系统</span><br><span class="line">　　…</span><br><span class="line">　　rest_init</span><br><span class="line">　　kernel_thread(kernel_init, NULL, CLONE_FS);</span><br></pre></td></tr></table></figure>
+
+<p>就单个文件系统而言，在文件系统安装时，创建超级块对象；沿树查找文件时，总是首先从初识目录的中查找匹配的目录项，以便获取相应的索引节点，然后读取索引节点的目录文件，转化为dentry对象，再检查匹配的目录项，反复执行以上过程，直至找到对应的文件的索引节点，并创建索引节点对象。</p>
+<h2 id="软链接-vs-硬链接"><a href="#软链接-vs-硬链接" class="headerlink" title="软链接 vs 硬链接"></a>软链接 vs 硬链接</h2><p>软链接是一个普通的文件，其中存放的是另外一个文件的路径名。硬链接则指向同一个索引节点，硬链接数记录在索引节点对象的<code>i_nlink</code>字段。当<code>i_nlink</code>字段为零时，说明没有硬链接指向该文件。</p>
+<h2 id="索引与数据"><a href="#索引与数据" class="headerlink" title="索引与数据"></a>索引与数据</h2><p>文件系统与文件、磁盘管理与文件、进程管理与文件，最核心的都是文件的索引，而不是文件的数据。把数据和索引分开是理解文件系统的关键。</p>
+<img data-src="/2023/12/30/187/640-20240108080722653.png" class="" title="图片">
+
+<p>一个数据构建了各式各样的索引，只有索引全部失效，此时数据才失去意义，此时才能释放</p>
+<h2 id="缓存策略"><a href="#缓存策略" class="headerlink" title="缓存策略"></a>缓存策略</h2><p>由于操作系统使用 Write back 的策略，意味着只有先释放内存，才有可能释放磁盘。</p>
+<h2 id="Why-lsof"><a href="#Why-lsof" class="headerlink" title="Why lsof ?"></a>Why lsof ?</h2><p>从上面的模型可以很清楚的理解，因为目录已经没有索引到文件了，但是打开文件还有索引到文件，所以不能立刻释放磁盘空间。</p>
+<h2 id="为什么-lsof-可以找到已删除未释放的文件呢？"><a href="#为什么-lsof-可以找到已删除未释放的文件呢？" class="headerlink" title="为什么 lsof 可以找到已删除未释放的文件呢？"></a>为什么 lsof 可以找到已删除未释放的文件呢？</h2><p>lsof，顾名思义：list open files，该命令的原理就是查找打开文件的列表，因此可以找到已删除未释放的文件。</p>
+<h1 id="du-查看系统目录的大小"><a href="#du-查看系统目录的大小" class="headerlink" title="du(查看系统目录的大小)"></a>du(查看系统目录的大小)</h1><p>在linux系统中，我们通常使用ls命令来查看文件列表，或者使用ll命令来查看文件列表中的详细信息，包括权限，创建时间，大小等等。</p>
+<p>有个问题不知道大家有没有注意过，就是不管是用 <code>ls -lh</code> 还是<code>ll</code>，所显示出来的目录的大小只有<code>4kb</code>（<code>ll</code>显示的是<code>4096b</code>），这是为什么？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@xxx /]# ll</span><br><span class="line">总用量 40600</span><br><span class="line">dr-xr-xr-x.   2 root root    4096 12月  9 17:57 bin</span><br><span class="line">dr-xr-xr-x.   4 root root    4096 7月   7 2015 boot</span><br><span class="line">drwxr-xr-x.   2 root root    4096 2月  27 2014 cgroup</span><br><span class="line">drwxr-xr-x   18 root root    3740 5月   5 17:07 dev</span><br><span class="line">drwxr-xr-x. 147 root root   12288 5月  27 03:36 etc</span><br><span class="line">drwxr-xr-x.   3 root root    4096 7月   7 2015 home</span><br><span class="line">dr-xr-xr-x.  13 root root    4096 12月  7 2017 lib</span><br><span class="line">dr-xr-xr-x.  10 root root   12288 12月  7 2017 lib64</span><br><span class="line">drwx------.   2 root root   16384 7月   7 2015 lost+found</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@xxx /]# ls -lh</span><br><span class="line">总用量 40M</span><br><span class="line">dr-xr-xr-x.   2 root root 4.0K 12月  9 17:57 bin</span><br><span class="line">dr-xr-xr-x.   4 root root 4.0K 7月   7 2015 boot</span><br><span class="line">drwxr-xr-x.   2 root root 4.0K 2月  27 2014 cgroup</span><br><span class="line">drwxr-xr-x   18 root root 3.7K 5月   5 17:07 dev</span><br><span class="line">drwxr-xr-x. 147 root root  12K 5月  27 03:36 etc</span><br><span class="line">drwxr-xr-x.   3 root root 4.0K 7月   7 2015 home</span><br><span class="line">dr-xr-xr-x.  13 root root 4.0K 12月  7 2017 lib</span><br></pre></td></tr></table></figure>
+
+<p>其实linux系统中并没有单独的目录这个概念，所有的目录或者文件，都视为文件，所以我们看到的4kb只是用于存储目录元信息的文件大小，并不是我们通常理解的目录（包括子文件）的大小。那么，我们怎么样获取到目录文件的实际大小呢？可以使用<code>du</code>命令。</p>
+<p><code>du</code> 是 disk usage 的缩写，表示磁盘的使用率，这是一个标准的unix程序，用于估算当前工作目录中文件空间的使用情况。</p>
+<p>本文我们来介绍一下 <code>du</code> 命令的使用。</p>
+<h2 id="1-查看当前目录下文件的总大小"><a href="#1-查看当前目录下文件的总大小" class="headerlink" title="1. 查看当前目录下文件的总大小"></a>1. 查看当前目录下文件的总大小</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@xxx opt]# du -sh</span><br><span class="line">7.7G    .</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@xxx opt]# du -h --max-depth=0</span><br><span class="line">7.7G    .</span><br></pre></td></tr></table></figure>
+
+<p>上面两种方式都可以算出目标目录的总大小，其中：</p>
+<p><code>-h</code> 表示显示成 K、M、G 等大小格式</p>
+<p><code>-s</code> 表示显示总和</p>
+<p><code>--max-depth=N</code> 表示目录级别为 N</p>
+<h2 id="2-查看当前路径下每个目录（包括子目录）的大小"><a href="#2-查看当前路径下每个目录（包括子目录）的大小" class="headerlink" title="2. 查看当前路径下每个目录（包括子目录）的大小"></a>2. 查看当前路径下每个目录（包括子目录）的大小</h2><p>上面命令中，将 -s 选项去掉，也就是不进行总和的统计，就能显示每个子目录的大小了。但是如果当前路径下的目录较多，最好带上一个 head 加一个数字的参数，表示只显示前多少条，要不然会一直滚屏下去，直到显示完所有子目录。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@xxx opt]# du -h | sort -rh | head -5</span><br><span class="line">7.7G    .</span><br><span class="line">1.4G    ./apps</span><br><span class="line">1.3G    ./cobra/icinga/var/archives</span><br><span class="line">1.3G    ./cobra/icinga/var</span><br><span class="line">1.3G    ./cobra/icinga</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-使用-通配符，可以查看路径下目录-文件的大小"><a href="#3-使用-通配符，可以查看路径下目录-文件的大小" class="headerlink" title="3. 使用 * 通配符，可以查看路径下目录 + 文件的大小"></a>3. 使用 * 通配符，可以查看路径下目录 + 文件的大小</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@xxx opt]# du -h * | sort -rh | head -5</span><br><span class="line">1.4G    apps</span><br><span class="line">1.3G    cobra/icinga/var/archives</span><br><span class="line">1.3G    cobra/icinga/var</span><br><span class="line">1.3G    cobra/icinga</span><br><span class="line">1.3G    cobra</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-如果只查看当前路径下的目录大小，排除子目录，可以使用-S-选项"><a href="#4-如果只查看当前路径下的目录大小，排除子目录，可以使用-S-选项" class="headerlink" title="4. 如果只查看当前路径下的目录大小，排除子目录，可以使用 -S 选项"></a>4. 如果只查看当前路径下的目录大小，排除子目录，可以使用 -S 选项</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@xxx opt]# du -Sh | sort -rh | head -5</span><br><span class="line">1.4G    .</span><br><span class="line">1.3G    ./cobra/icinga/var/archives</span><br><span class="line">876M    ./apps/solr-tomcat/logs</span><br><span class="line">641M    ./solr_home/data-for-1.3.3/data/model/dependency</span><br><span class="line">641M    ./data-for-1.3.3/data/model/dependency</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-查看当前路径下一级子目录的大小，可以将-max-depth-设定为1就可以了"><a href="#5-查看当前路径下一级子目录的大小，可以将-max-depth-设定为1就可以了" class="headerlink" title="5. 查看当前路径下一级子目录的大小，可以将 max-depth 设定为1就可以了"></a>5. 查看当前路径下一级子目录的大小，可以将 max-depth 设定为1就可以了</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[root@xxx opt]# du -h --max-depth=1</span><br><span class="line">1.1G    ./solr_home</span><br><span class="line">126M    ./openssl-1.1.1g</span><br><span class="line">8.0K    ./LinuxKPC</span><br><span class="line">639M    ./nportal-tomcat</span><br><span class="line">15M     ./ksar</span><br><span class="line">533M    ./tomcat-ma</span><br><span class="line">5.9M    ./mirror_client_for_webmin</span><br><span class="line">1.2M    ./mirror_storage_for_webmin</span><br><span class="line">37M     ./openssh-8.3p1</span><br><span class="line">337M    ./tomcat-gis</span><br><span class="line">1018M   ./data-for-1.3.3</span><br><span class="line">57M     ./systemcenter2.0</span><br><span class="line">14M     ./backup_client</span><br><span class="line">1.2M    ./backup_server</span><br><span class="line">37M     ./logs</span><br><span class="line">1.4G    ./apps</span><br><span class="line">88K     ./incron_sys_manage</span><br><span class="line">1.3G    ./cobra</span><br><span class="line">7.7G    .</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-查看当前目录的大小，并且统计总大小，可以使用-c-选项"><a href="#6-查看当前目录的大小，并且统计总大小，可以使用-c-选项" class="headerlink" title="6. 查看当前目录的大小，并且统计总大小，可以使用 -c 选项"></a>6. 查看当前目录的大小，并且统计总大小，可以使用 -c 选项</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@xxx opt]# du -shc * | sort -rh | head -5</span><br><span class="line">7.7G    总用量</span><br><span class="line">1.4G    apps</span><br><span class="line">1.3G    cobra</span><br><span class="line">1.1G    solr_home</span><br><span class="line">1018M   data-for-1.3.3</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-查看其他路径的目录大小"><a href="#7-查看其他路径的目录大小" class="headerlink" title="7. 查看其他路径的目录大小"></a>7. 查看其他路径的目录大小</h2><p>另外，对于 du 命令，如果后面跟了一个路径，则表示查询指定路径的大小。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@xxx home]# du -sh /home</span><br><span class="line">40K     /home</span><br></pre></td></tr></table></figure>
+
+<h1 id="df-查看磁盘空间"><a href="#df-查看磁盘空间" class="headerlink" title="df(查看磁盘空间)"></a>df(查看磁盘空间)</h1><p>不管你是系统管理员，还是普通的用户，都需要知道你有多少可用的磁盘空间，这样才能更好的使用系统。</p>
+<p>如果你使用桌面Linux，这可以通过常规的文件管理器来完成，但是Linux用户应该知道命令行的使用，这就是为什么您需要更多地了解“disk format”或“<code>df</code>”命令的原因。</p>
+<p>本文我们了解下在Linux中如何使用<code>df</code>命令查看磁盘空间。</p>
+<h2 id="1-df-查看磁盘信息"><a href="#1-df-查看磁盘信息" class="headerlink" title="1. df 查看磁盘信息"></a>1. df 查看磁盘信息</h2><p>主命令和普通命令’<code>df</code>‘将输出Linux安装程序中文件系统的整个列表。为了解释什么是文件系统，我们可能需要一整篇文章，但是现在让我们假设它是系统中一些文件的排列方式。</p>
+<img data-src="/2023/12/30/187/640-20240107172319431.png" class="" title="图片">
+
+<p>这些信息在可读性方面可能不是最好的，所以让我们来探索一个更好的方式。</p>
+<h2 id="2-可读选项-df-h"><a href="#2-可读选项-df-h" class="headerlink" title="2. 可读选项 df -h"></a>2. 可读选项 df -h</h2><p>为了获得输出的“可读”版本（这就是“<code>h</code>”的含义），你需要执行:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">df</span> -h</span><br></pre></td></tr></table></figure>
+
+<p>执行这个命令你会看到如下内容：</p>
+<img data-src="/2023/12/30/187/640-20240107172319454.png" class="" title="图片">
+
+<p>如上图所示，它将列出文件系统，并使用千兆字节和兆字节单位来表示空间，这更易于理解和使用。</p>
+<h2 id="3-列出每个文件系统的类型"><a href="#3-列出每个文件系统的类型" class="headerlink" title="3. 列出每个文件系统的类型"></a>3. 列出每个文件系统的类型</h2><p>列出文件系统及其对应的文件系统类型可能很有用。为此，可以使用“<code>-T</code>”选项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">df</span> -T</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2023/12/30/187/640.png" class="" title="图片">
+
+<h2 id="4-查看Linux中的可用磁盘空间"><a href="#4-查看Linux中的可用磁盘空间" class="headerlink" title="4. 查看Linux中的可用磁盘空间"></a>4. 查看Linux中的可用磁盘空间</h2><p>有时候你可能需要知道某个文件夹还有多少磁盘空间可用，可以使用<code>df</code>命令后面跟上文件夹的名称就可以：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">df</span> -h directory_name</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2023/12/30/187/640-20240107172319271.png" class="" title="图片">
+
+<p>不要与此文件夹实际从系统中占用多少空间相混淆，因为此信息不是由“<code>df</code>”命令提供的，而是由“<code>du</code>”（磁盘使用）命令提供的。不过，这个<code>df</code>选项实际上会让您知道该特定文件夹有多少可用空间，以及该文件夹所在的文件系统。</p>
+<h2 id="5-排除特定类型的文件系统"><a href="#5-排除特定类型的文件系统" class="headerlink" title="5. 排除特定类型的文件系统"></a>5. 排除特定类型的文件系统</h2><p>我们已经看到’<code>df</code>‘会给您提供大量的信息，但是，有时你可能希望排除一些文件系统类型，以便只获取特定的数据。</p>
+<p>在我前面的示例中，你可以看到我安装了许多“快照”，每个快照都是单独列出的。它们都具有“<code>squashfs</code>”文件系统类型，因此如果我过滤那些不包括在内的文件系统，将得到一个更为有限的信息：</p>
+<img data-src="/2023/12/30/187/640-20240107172319343.png" class="" title="图片">
+
+<p>通过使用“<code>x</code>”选项（排除），我可以从输出中删除文件系统类型，以获得更具体的信息。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">df</span> -x filesystem_type</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-仅列出特定的文件系统"><a href="#6-仅列出特定的文件系统" class="headerlink" title="6. 仅列出特定的文件系统"></a>6. 仅列出特定的文件系统</h2><p>另一方面，假设您只想列出某些类型的文件系统，所以您只需列出您需要的特定文件系统，而不是排除所有不需要的文件系统。</p>
+<p>有一个非常简单的选项：只需添加’<code>-t</code>‘和要列出的文件系统类型:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">df</span> -t filesystem_type</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2023/12/30/187/640-20240107172319284.png" class="" title="图片">
+
+<h2 id="7-查看当前文件夹中的文件和文件夹的大小"><a href="#7-查看当前文件夹中的文件和文件夹的大小" class="headerlink" title="7. 查看当前文件夹中的文件和文件夹的大小"></a>7. 查看当前文件夹中的文件和文件夹的大小</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">df</span> -sh *</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><code>df</code>命令是一个非常有用的命令，对此你应该知道，以便能够获得有关磁盘空间的更多信息。这不仅仅是简单地知道可用的磁盘空间的问题，而且它还提供了许多了解特定文件系统和以不同格式显示信息的选项。</p>
+<p>当然，与任何其他命令一样，只需在其中运行一个“<code>-help</code>”选项，您就可以看到它的其他一些选项：</p>
+<img data-src="/2023/12/30/187/640-20240107172319392.png" class="" title="图片">
+
+<h1 id="系统目录结构"><a href="#系统目录结构" class="headerlink" title="系统目录结构"></a>系统目录结构</h1><p>介绍 Linux 系统目录结构，以及各个目录文件的用途。</p>
+<p>如果你使用过Linux系统，那么你就会听说过root, lib, bin 等术语，这些目录在所有Linux系统中都会存在。</p>
+<p>事实上，Linux 基金会维护文件系统层次标准（FHS）。FHS定义了Linux发行版中的目录结构和目录的内容&#x2F;用途。正是因为有了FHS，所以你可以在几乎所有Linux发行版中找到相同的目录结构。</p>
+<p>让我们详细看一下。</p>
+<h2 id="Linux目录结构"><a href="#Linux目录结构" class="headerlink" title="Linux目录结构"></a>Linux目录结构</h2><p>Linux 系统是基于 Unix的，因此它使用了 Unix 的文件系统层次结构。在类似 Unix的操作系统（如BSD和macOS)中，你可以使用类似的目录结构。</p>
+<p>树状目录结构：</p>
+ <img data-src="/2023/12/30/187/152804Oc3.jpg" class="" title="003vPl7Rty6E8kZRlAEdc&amp;690"> 
+
+<p>以下是对这些目录的解释：</p>
+<ul>
+<li><p><strong>&#x2F;bin</strong></p>
+<p> bin是Binary的缩写, 这个目录存放着最经常使用的命令。</p>
+</li>
+<li><p><strong>&#x2F;boot</strong></p>
+<p> 这里存放的是启动Linux时使用的一些核心文件，包括一些连接文件以及镜像文件。</p>
+</li>
+<li><p><strong>&#x2F;dev</strong></p>
+<p> dev是Device(设备)的缩写, 该目录下存放的是Linux的外部设备，在Linux中访问设备的方式和访问文件的方式是相同的。</p>
+</li>
+<li><p><strong>&#x2F;etc</strong></p>
+<p> 这个目录用来存放所有的系统管理所需要的配置文件和子目录。</p>
+</li>
+<li><p><strong>&#x2F;home</strong></p>
+<p> 用户的主目录，在Linux中，每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的。</p>
+</li>
+<li><p><strong>&#x2F;lib</strong></p>
+<p> 这个目录里存放着系统最基本的动态连接共享库，其作用类似于Windows里的DLL文件。几乎所有的应用程序都需要用到这些共享库。</p>
+</li>
+<li><p><strong>&#x2F;lost+found</strong></p>
+<p> 这个目录一般情况下是空的，当系统非法关机后，这里就存放了一些文件。</p>
+</li>
+<li><p><strong>&#x2F;media</strong></p>
+<p> linux系统会自动识别一些设备，例如U盘、光驱等等，当识别后，linux会把识别的设备挂载到这个目录下。</p>
+</li>
+<li><p><strong>&#x2F;mnt</strong></p>
+<p> 系统提供该目录是为了让用户临时挂载别的文件系统的，我们可以将光驱挂载在&#x2F;mnt&#x2F;上，然后进入该目录就可以查看光驱里的内容了。</p>
+</li>
+<li><p><strong>&#x2F;opt</strong></p>
+<p> 这是给主机额外安装软件所摆放的目录。比如你安装一个ORACLE数据库则就可以放到这个目录下。默认是空的。</p>
+</li>
+<li><p><strong>&#x2F;proc</strong></p>
+<p> 这个目录是一个虚拟的目录，它是系统内存的映射，我们可以通过直接访问这个目录来获取系统信息。 这个目录的内容不在硬盘上而是在内存里，我们也可以直接修改里面的某些文件，比如可以通过下面的命令来屏蔽主机的ping命令，使别人无法ping你的机器</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> 1 &gt; /proc/sys/net/ipv4/icmp_echo_ignore_all</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>&#x2F;root</strong></p>
+<p> 该目录为系统管理员，也称作超级权限者的用户主目录。</p>
+</li>
+<li><p><strong>&#x2F;sbin</strong></p>
+<p> s就是Super User的意思，这里存放的是系统管理员使用的系统管理程序。</p>
+</li>
+<li><p><strong>&#x2F;selinux</strong></p>
+<p> 这个目录是Redhat&#x2F;CentOS所特有的目录，Selinux是一个安全机制，类似于windows的防火墙，但是这套机制比较复杂，这个目录就是存放selinux相关的文件的。</p>
+</li>
+<li><p><strong>&#x2F;srv</strong></p>
+<p> 该目录存放一些服务启动之后需要提取的数据。</p>
+</li>
+<li><p><strong>&#x2F;sys</strong></p>
+<p> 这是linux2.6内核的一个很大的变化。该目录下安装了2.6内核中新出现的一个文件系统 sysfs 。 sysfs文件系统集成了下面3种文件系统的信息：针对进程信息的proc文件系统、针对设备的devfs文件系统以及针对伪终端的devpts文件系统。该文件系统是内核设备树的一个直观反映。 当一个内核对象被创建的时候，对应的文件和目录也在内核对象子系统中被创建。</p>
+</li>
+<li><p><strong>&#x2F;tmp</strong></p>
+<p> 这个目录是用来存放一些临时文件的。</p>
+</li>
+<li><p><strong>&#x2F;usr</strong></p>
+<p> 这是一个非常重要的目录，用户的很多应用程序和文件都放在这个目录下，类似于windows下的program files目录。</p>
+</li>
+<li><p><strong>&#x2F;usr&#x2F;bin</strong></p>
+<p> 系统用户使用的应用程序。</p>
+</li>
+<li><p><strong>&#x2F;usr&#x2F;sbin</strong></p>
+<p> 超级用户使用的比较高级的管理程序和系统守护程序。</p>
+</li>
+<li><p><strong>&#x2F;usr&#x2F;src</strong></p>
+<p> 内核源代码默认的放置目录。</p>
+</li>
+<li><p><strong>&#x2F;var</strong></p>
+<p> 这个目录中存放着在不断扩充着的东西，我们习惯将那些经常被修改的目录放在这个目录下。包括各种日志文件。</p>
+</li>
+</ul>
+<blockquote>
+<p>在linux系统中，有几个目录是比较重要的，平时需要注意不要误删除或者随意更改内部文件。 </p>
+<ul>
+<li><p>&#x2F;etc 是系统中的配置文件，如果你更改了该目录下的某个文件可能会导致系统不能启动</p>
+</li>
+<li><p>&#x2F;bin, &#x2F;sbin, &#x2F;usr&#x2F;bin, &#x2F;usr&#x2F;sbin: 这是系统预设的执行文件的放置目录，比如 ls 就是在&#x2F;bin&#x2F;ls 目录下的。 值得提出的是，&#x2F;bin, &#x2F;usr&#x2F;bin 是给系统用户使用的指令（除root外的通用户），而&#x2F;sbin, &#x2F;usr&#x2F;sbin 则是给root使用的指令</p>
+</li>
+<li><p>&#x2F;var： 这是一个非常重要的目录，系统上跑了很多程序，那么每个程序都会有相应的日志产生，而这些日志就被记录到这个目录下，具体在&#x2F;var&#x2F;log 目录下，另外mail的预设放置也是在这里。</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="根路径"><a href="#根路径" class="headerlink" title="&#x2F; - 根路径"></a>&#x2F; - 根路径</h3><p>Linux 中所有的内容，所有的文件&#x2F;目录，都位于由”<code>/</code>“ 表示的“根”下。如果你看一下目录结构，会发现它类似于植物的根。</p>
+<img data-src="/2023/12/30/187/640-20240101173938829.png" class="" title="图片">
+
+<p>由于所有其他目录或文件都是根目录的子目录，所以任何文件的绝对路径都会通过根遍历。例如，如果在<code>/home/user/documents</code>中有文件，则可以猜测其目录结构为 <code>/-&gt;home-&gt;user-&gt;documents</code>.</p>
+<blockquote>
+<p>残酷的 <code>rm -rf /</code> 段子</p>
+<p>你可能在网上遇到过一些关于 “<code>rm -rf /</code>“ 的段子。rm命令用于删除Linux中的文件和目录。</p>
+<p>使用<code>rm -rf /</code>，您可以要求系统强制地、递归地删除根目录的内容。因为根目录下有所有的内容，所以最终删除了所有内容，Linux系统就消失了（理论上）。</p>
+<p>大多数Linux发行版都不会运行这个命令，除非执行 <code>-no preserve root</code>。所以任何时候都不要执行这个命令。</p>
+</blockquote>
+<h3 id="bin-二进制文件"><a href="#bin-二进制文件" class="headerlink" title="&#x2F;bin - 二进制文件"></a>&#x2F;bin - 二进制文件</h3><p><code>/bin</code> 目录中包含许多基本的shell命令（如<code>ls</code>,<code>cp</code>,<code>cd</code>等）的可执行文件。大多数程序都是二进制的。Linux系统中的所有用户都可以访问。</p>
+<h3 id="dev-设备文件"><a href="#dev-设备文件" class="headerlink" title="&#x2F;dev - 设备文件"></a>&#x2F;dev - 设备文件</h3><p>此目录仅包含特殊文件，包括与设备相关的文件。这些是虚拟文件，而不是磁盘上的物理文件。</p>
+<p>关于该目录中文件的一些有意思的例子：</p>
+<ul>
+<li><code>/dev/null</code>：可以发送来销毁任何文件或字符串;</li>
+<li><code>/dev/zero</code>：包含0的无限序列;</li>
+<li><code>/dev/random</code>：包含无限个随机值序列.</li>
+</ul>
+<h3 id="etc-配置文件"><a href="#etc-配置文件" class="headerlink" title="&#x2F;etc - 配置文件"></a>&#x2F;etc - 配置文件</h3><p><code>/etc</code>目录包含系统的<strong>核心配置文件</strong>，主要由管理员和服务使用，如密码文件和网络文件。</p>
+<p>如果您需要更改<strong>系统配置（例如更改主机名）</strong>，您可以在这里找到相应的文件。</p>
+<h3 id="usr-用户二进制文件和程序数据"><a href="#usr-用户二进制文件和程序数据" class="headerlink" title="&#x2F;usr - 用户二进制文件和程序数据"></a>&#x2F;usr - 用户二进制文件和程序数据</h3><p>在 <code>/usr</code> 目录中保存所有<strong>可执行文件、库和大多数系统程序的源代码</strong>。因此，对于普通用户来讲，其中的大多数文件都是只读的。</p>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/bin</code></td>
+<td>存放所有用户皆可用的系统程序，即普通的基本命令，如：<code>touch</code>, <code>ls</code>等</td>
+</tr>
+<tr>
+<td><code>/sbin</code></td>
+<td>存放超级用户才能使用的系统程序，即基本的系统命令，如：<code>sreboot</code>等</td>
+</tr>
+<tr>
+<td><code>/usr/bin</code></td>
+<td>存放所有用户都可用的应用程序或命令，一般是已安装软件的运行脚本<br>如：<code>free</code>、<code>make</code>、wget等</td>
+</tr>
+<tr>
+<td><code>/usr/sbin</code></td>
+<td>存放超级用户才能使用的应用程序或命令， 一般是与服务器软件程序命令相关的<br>如：<code>dhcpd</code>、 <code>httpd</code>、<code>samba</code>等</td>
+</tr>
+<tr>
+<td><code>/usr/local/sbin</code></td>
+<td>存放超级用户才能使用的第三方软件, 如 nginx</td>
+</tr>
+<tr>
+<td><code>/usr/local/bin</code></td>
+<td>存放所有用户都可用的第三方软件程序, 如 mysql</td>
+</tr>
+<tr>
+<td><code>/usr/lib</code></td>
+<td>包含系统库;</td>
+</tr>
+<tr>
+<td><code>/usr/share</code></td>
+<td>包含所有库通用的文档，例如 <code>/usr/share/man</code> 包含手册页的文本.</td>
+</tr>
+<tr>
+<td><code>/usr/src</code></td>
+<td>内核源代码默认的放置目录</td>
+</tr>
+</tbody></table>
+<h3 id="home-用户个人数据"><a href="#home-用户个人数据" class="headerlink" title="&#x2F;home - 用户个人数据"></a>&#x2F;home - 用户个人数据</h3><p>home目录是用户的个人目录，包含用户数据和用户特定的配置文件。作为一个系统用户，你需要把个人文件，笔记，程序等都放到你的个人主目录中。</p>
+<p>在Linux系统上创建用户时，通常会为用户创建主目录。假设您的Linux系统有两个用户，Alice和Bob。他们将在 <code>/home/alice</code>和<code>/home/bob</code> 有自己的主目录。</p>
+<p>注意，Bob不能访问 <code>/home/alice</code>，反之亦然。这是有意义的，因为只有用户才能访问他&#x2F;她的家。您可以阅读 Linux 系统文件权限相关内容，以了解有关此主题的更多信息。</p>
+<h3 id="lib-共享的库文件"><a href="#lib-共享的库文件" class="headerlink" title="&#x2F;lib - 共享的库文件"></a>&#x2F;lib - 共享的库文件</h3><p>库基本上是可执行二进制文件可以使用的代码。<code>/lib</code> 目录保存了<code>/bin</code>和<code>/sbin</code> 目录中二进制文件所需的库。</p>
+<p><code>/usr/bin</code>和<code>/usr/sbin</code> 中的二进制文件所需的库位于 <code>/usr/lib</code> 目录中。</p>
+<h3 id="sbin-系统二进制文件"><a href="#sbin-系统二进制文件" class="headerlink" title="&#x2F;sbin - 系统二进制文件"></a>&#x2F;sbin - 系统二进制文件</h3><p>这类似于<code>/bin</code>目录。唯一的区别是，它包含只能由root或sudo用户运行的二进制文件。你可以把“sbin”中的“s”想象成super或sudo。</p>
+<h3 id="tmp-临时文件"><a href="#tmp-临时文件" class="headerlink" title="&#x2F;tmp - 临时文件"></a>&#x2F;tmp - 临时文件</h3><p>顾名思义，这个目录保存临时文件。许多应用程序使用此目录存储临时文件。甚至可以使用目录来存储临时文件。</p>
+<p>但请注意，当系统重新启动时，<code>/tmp</code>目录的包含内容将被删除。有些Linux系统也会自动删除旧文件，所以不要在这里存储任何重要的文件。</p>
+<h3 id="var-可变数据文件"><a href="#var-可变数据文件" class="headerlink" title="&#x2F;var - 可变数据文件"></a>&#x2F;var - 可变数据文件</h3><p>Var，variable的缩写，是程序存储运行时信息的地方，比如系统日志、用户跟踪、缓存以及系统程序创建和管理的其他文件。</p>
+<p>存储在这里的文件不会自动清理，因此它为系统管理员提供了一个查找有关其系统行为的信息的好地方。例如，如果要检查Linux系统中的登录历史，只需检查 <code>/var/log/wtmp</code> 中文件的内容。</p>
+<h3 id="boot-启动文件"><a href="#boot-启动文件" class="headerlink" title="&#x2F;boot - 启动文件"></a>&#x2F;boot - 启动文件</h3><p><code>/boot</code> 目录包含内核和启动映像的文件，以及LILO和Grub。通常建议将该目录放在磁盘开头的分区中。</p>
+<h3 id="proc-进程和内核文件"><a href="#proc-进程和内核文件" class="headerlink" title="&#x2F;proc - 进程和内核文件"></a>&#x2F;proc - 进程和内核文件</h3><p><code>/proc</code> 目录包含有关当前正在运行的进程和内核参数的信息。proc目录的内容被许多工具用来获取运行时系统信息。</p>
+<p>例如，如果您想检查Linux中的处理器信息，只需参考<code>/proc/cpuinfo</code>文件即可。要检查Linux系统的内存使用情况，只需查看<code>/proc/meminfo</code>文件的内容即可。</p>
+<h3 id="opt-可选软件"><a href="#opt-可选软件" class="headerlink" title="&#x2F;opt - 可选软件"></a>&#x2F;opt - 可选软件</h3><p>传统上，<code>/opt</code> 目录用来安装或存储发行版系统中不存在的第三方应用。通常的做法是将软件代码保存在opt中，然后将二进制文件链接到<code>/bin</code>目录中，以便所有用户都可以运行它。</p>
+<h3 id="root-root用户的主目录"><a href="#root-root用户的主目录" class="headerlink" title="&#x2F;root - root用户的主目录"></a>&#x2F;root - root用户的主目录</h3><p>还有<code>/root</code>目录，它作为root用户的主目录。因此，root用户的主目录在<code>/root</code>，而不是<code>/home/root</code>。不要将它与根目录(<code>/</code>)混淆。</p>
+<h3 id="media-可移除媒体的装入点"><a href="#media-可移除媒体的装入点" class="headerlink" title="&#x2F;media - 可移除媒体的装入点"></a>&#x2F;media - 可移除媒体的装入点</h3><p>连接可移动媒体（如U盘、SD卡或DVD）时，会在<code>/media</code>目录下为它们自动创建一个目录。您可以从此目录访问可移动媒体的内容。</p>
+<h3 id="mnt-装载目录"><a href="#mnt-装载目录" class="headerlink" title="&#x2F;mnt - 装载目录"></a>&#x2F;mnt - 装载目录</h3><p>这与<code>/media</code>目录类似，但mnt<strong>不是自动</strong>挂在可移动介质，而是系统管理员手动挂载文件系统。</p>
+<h3 id="srv-服务数据"><a href="#srv-服务数据" class="headerlink" title="&#x2F;srv - 服务数据"></a>&#x2F;srv - 服务数据</h3><p><code>/srv</code>目录包含系统提供的服务的数据。例如：如果你运行一个http服务器，那么最好将网站数据存储在&#x2F;srv目录中。</p>
+<p>以上可以让大家对Linux系统的目录结构有个大致的了解。下图作为备忘：</p>
+<img data-src="/2023/12/30/187/640-20240101173939027.png" class="" title="图片">
+
+<h2 id="各路径解释"><a href="#各路径解释" class="headerlink" title="各路径解释"></a>各路径解释</h2><ul>
+<li><p><code>.</code> ：当前目录，也可以用 <code>./</code> 表示；</p>
+</li>
+<li><p><code>..</code> ：上一级目录，也可以用 <code>../</code> 表示；</p>
+</li>
+<li><p><code>~</code> ： 用户自己的宿主目录；</p>
+</li>
+<li><p><code>/</code>：根目录</p>
+<ul>
+<li>Linux文件系统树形结构的最顶端，称为 Linux 文件系统的 root，它是 Linux 文件系统的入口。所有的目录、文件、设备都在 <code>/</code> 之下，它是 Linux 文件系统最顶层的唯一的目录;</li>
+<li>一般建议在根目录下面只有目录，不直接存放文件；</li>
+<li>根目录是 linux 系统启动时系统第一个载入的分区，所以启动过程中用到的文件应该都放在这个分区中，其中 <code>/etc</code>、<code>/bin</code>、<code>/dev</code>、<code>/lib</code>、<code>/sbin</code> 这 5 个子目录都应该要与根目录连在一起，不可独立成为某个分区；</li>
+</ul>
+</li>
+<li><p><code>/bin</code>：含了引导启动所需的命令或普通用户可能用的命令(可能在引导启动后)。这些命令都是二进制文件的可执行程序(bin是binary的简称)，多是系统中重要的系统文件</p>
+</li>
+<li><p><code>/sbin</code>：类似 <code>/bin</code> ，也用于存储二进制文件。因为其中的大部分文件多是系统管理员使用的基本的系统程序，所以虽然普通用户必要且允许时可以使用，但一般不给普通用户使用，多数管理命令默认只有管理员可以使用</p>
+</li>
+<li><p><code>/etc</code> ：存放着各种系统的管理和配置文件</p>
+</li>
+<li><p><code>/root</code>：超级用户 root 的家目录</p>
+</li>
+<li><p><code>/lib</code>：根文件系统上的程序所需的共享库，存放了根文件系统程序运行所需的共享文件。 这些文件包含了可被许多程序共享的代码，以避免每个程序都包含有相同的子程序的副本，故可以使得可执行文件变得更小，节省空间。</p>
+<ul>
+<li><code>/lib/modules</code> ：包含系统核心可加载各种模块，尤其是那些在恢复损坏的系统时重新引导系统所需的模块(例如网络和文件系统驱动)。</li>
+</ul>
+</li>
+<li><p><code>/boot</code>：目录存放引导加载器(bootstrap loader)使用的文件，包括开机启动加载程序的核心文件；(如kernel和grub)</p>
+</li>
+<li><p><code>/mnt</code> ：临时挂载用的设备挂载点；(如磁盘分区，网络共享)</p>
+</li>
+<li><p><code>/media</code>：移动存储设备默认挂载点；(如光盘)</p>
+</li>
+<li><p><code>/opt</code>：额外所安装的应用程序目录,有些软件包我们可以将它安装在该目录中；(一般为空，某些应用软件安装需要这个目录)</p>
+</li>
+<li><p><code>/tmp</code>：临时文件存放区域，默认被设置了粘滞位，存放程序在运行时产生的信息和数据</p>
+</li>
+<li><p><code>/dev</code>：设备文件目录，即设备驱动程序，用户通过这些文件访问外部设备。比如，用户可 以通过访问&#x2F;dev&#x2F;mouse来访问鼠标的输入，就像访问其他文件一样，设备文件分为 2 种类型：字符设备文件和块设备文件</p>
+<ul>
+<li><code>/dev/console</code>：系统控制台，也就是直接和系统连接的监视器；</li>
+<li><code>/dev/hd</code>：IDE设备文件</li>
+<li><code>/dev/sd</code>：sata、usb、scsi等设备文件</li>
+<li><code>/dev/fd</code>：软驱设备文件</li>
+<li><code>/dev/tty</code>：虚拟控制台设备文件</li>
+<li><code>/dev/pty</code>：提供远程虚拟控制台设备文件</li>
+<li><code>/dev/null</code>：数据”黑洞”，所有写入该设备的信息都将消失，如当想要将屏幕上的输出信息隐藏起来时，只要将输出信息输入到 <code>/dev/null</code> 中即可；</li>
+</ul>
+</li>
+<li><p><code>/home</code>：默认存放用户的宿主目录(除了 root 用户)</p>
+<ul>
+<li><code>/home/~/.bashrc</code>：提供 bash 环境中所需使用的别名；</li>
+<li><code>/home/~/.bash_profile</code>：提供 bash 环境所需的变量；</li>
+<li>一般先执行 <code>.bashrc</code> 后，才会再执行 <code>.bash_profile</code>；</li>
+<li><code>/home/~/.bash_history</code>：用户历史命令文件，记录用户曾经输入过的所有命令；(默认为1000条，可以通过 <code>HISTSIZE</code> 变量更改)</li>
+<li><code>/home/~/.bash_logout</code>：当用户注销的同时，系统会自动执行 <code>.bash_logout</code> 文件，如果管理员需要记录用户注销的一些额外记录、动作或其他信息，就可以利用这个机制去完成；</li>
+</ul>
+</li>
+<li><p><code>/lost+found</code>：当系统在运行时，有时会无法避免宕机、断电或不正常重启动，在这样的情况下，当系统重新启动时，发现某些文件写入未完成或其他问题产生，一般会使用 fsck 进行文件修复，而这些被修复或救回的文件，就会被放在这个目录下，只要是一个文件系统，系统就会自动在该文件系统所在的目录下建立 <code>lost+found</code> 目录</p>
+</li>
+<li><p><code>/sys</code>：虚拟文件系统，被建立在内存中，是在2.6版的kernel之后才被加入到正式的文件系统中，以分类的方式将系统的信息存放在这个目录中，以方便linux用户通过不同的分类找出系统相关的信息；</p>
+</li>
+<li><p><code>/proc</code>：虚拟文件系统，此目录是 kernel 加载后，在内存里面建立的一个虚拟目录，有专属的文件系统，主要提供系统一些实时的信息，此目录下不能建立和删除文件；(某些文件可以修改)；<code>/proc</code> 主要作用可以整理为：</p>
+<ul>
+<li><p>整理系统内部的信息；</p>
+</li>
+<li><p>存放主机硬件信息；</p>
+</li>
+<li><p>调整系统执行时的参数；</p>
+</li>
+<li><p>检查及修改网络和主机的参数；</p>
+</li>
+<li><p>检查及调整系统的内存和性能；</p>
+</li>
+<li><p><code>/proc</code> 下常用的信息文件有：</p>
+<ul>
+<li><code>/proc/cpuinfo</code>：cpu的硬件信息，如类型、厂家、型号和性能等</li>
+<li><code>/proc/devices</code>：记录所有在 <code>/dev</code> 目录中相关的设备文件分类方式</li>
+<li><code>/proc/filesystems</code>：当前运行内核所配置的文件系统</li>
+<li><code>/proc/interrupts</code>：可以查看每一个IRQ的编号对应到哪一个硬件设备</li>
+<li><code>/proc/loadavg</code>：系统”平均负载”，3个数据指出系统当前的工作负载</li>
+<li><code>/proc/dma</code>：当前正在使用的DMA通道</li>
+<li><code>/proc/ioports</code>：将目前系统上所有可看到的硬件对应到内存位置的分配表的详细信息呈现出来</li>
+<li><code>/proc/kcore</code>：系统上可以检测到的物理内存，主机内存多大，这个文件就有多大</li>
+<li><code>/proc/kmsg</code>：在系统尚未进入操作系统阶段，把加载 kernel 和 initrd 的信息先记录到该文件中，后续会将日志信息写入<code>/var/log/message</code>文件中</li>
+<li><code>/proc/meminfo</code>：记录系统的内存信息</li>
+<li><code>/proc/modules</code>：与lsmod命令查看到的模块信息完全一致</li>
+<li><code>/proc/mtrr</code>：负责内存配置的机制</li>
+<li><code>/proc/iomem</code>：主要用于储存配置后所有内存储存的明细信息</li>
+<li><code>/proc/partitions</code>：这个文件可以实时呈现系统目前看到的分区</li>
+<li><code>/proc/数字目录</code>：数字目录很多，它们代表所有目前正在系统中运行的所有程序</li>
+<li><code>/proc/bus</code>：有关该主机上现有总线的所有信息，如输入设备、PCI接口、PCMCIA扩展卡及USB接口信息</li>
+<li><code>/proc/net</code>：存放的都是一些网络相关的虚拟配置文件，都是ASCII文件，可以查看(与ifconfig、arp、netstat等有关)</li>
+<li><code>/proc/scsi</code>：保存系统上所有的scsi设备信息(包括sata和usb设备的信息)</li>
+<li><code>/proc/sys</code> ：存放系统核心所使用的一些变量，根据不同性质的文件而存放在不同的子目录中，可以通过&#x2F;etc&#x2F;sysctl.conf文件设置和更改其默认值；变量时实时的变更，有很多设置很象是开关，设置后马上生效；</li>
+<li><code>/proc/tty</code>：存放有关目前可用的正在使用的tty设备的信息</li>
+<li><code>/proc/self</code>：存放到查看&#x2F;proc的程序的进程目录的符号连接，当2个进程查看proc时，这将会是不同的连接；主要便于程序得到它自己的进程目录；</li>
+<li><code>/proc/stat</code>：系统的不同状态信息；</li>
+<li><code>/proc/uptime</code>：系统启动的时间长度；</li>
+<li><code>/proc/version</code>：系统核心版本；</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>/usr</code>：安装除操作系统本身外的一些应用程序或组件，一般可以认为linux系统上安装的应用程序默认都安装在此目录中</p>
+<ul>
+<li><p><code>/usr/bin</code>：一般用户有机会使用到的程序，或者该软件默认就是要让所有用户使用才会放在该目录中</p>
+</li>
+<li><p><code>/usr/sbin</code>：一些系统有可能会用到的系统命令，与 <code>/sbin</code> 比起来，都是一些较次要的文件；</p>
+</li>
+<li><p><code>/usr/etc</code>：自行安装或非系统主要的配置文件目录；</p>
+</li>
+<li><p><code>/usr/games</code>：只要是电脑游戏相关的软件，就都安装到这个目录；</p>
+</li>
+<li><p><code>/usr/include</code>：存放的文件都是一些系统中用户所会使用到的C语言header文件，保存的都是”.h”的文件；</p>
+</li>
+<li><p><code>/usr/lib</code>：存放一些函数库、执行文件及连接文件，特别的是，存放在这里面的文件都是不希望直接被用户或shell脚本所使用的文件，在&#x2F;usr&#x2F;lib中有非常多的子目录，每一个软件都有其各自所需的函数库；</p>
+</li>
+<li><p><code>/usr/libexec</code>：这个目录下的文件及文件夹应该都可以放置在<code>/usr/lib</code>下；</p>
+</li>
+<li><p><code>/usr/local</code> ：linux系统中安装的共享软件程序最好的方式是安装在</p>
+<p><code>/usr/local</code> 下，按照linux标准目录结构，新建立的软件都应该放在&#x2F;usr&#x2F;local下；</p>
+<ul>
+<li><code>/usr/local/bin</code>：存放软件执行文件的目录；</li>
+<li><code>/usr/local/sbin</code>：同样存放软件执行文件的目录，但此目录专门针对系统所使用的文件；</li>
+<li><code>/usr/local/lib</code>：软件相关的函数库；</li>
+<li><code>/usr/local/share</code>：当文件性质不好归属时就会放在此，man手册就放在这个目录下；</li>
+<li><code>/usr/local/src</code>：所安装软件的源代码放置在此；</li>
+</ul>
+</li>
+<li><p><code>/usr/share</code> ：此目录都是一些共享信息，最常被用到的就是</p>
+<p><code>/usr/share/man</code> 这个目录， <code>/usr/share</code> 里的信息时跨平台的；</p>
+<ul>
+<li><code>/usr/share/doc</code>：放置一些系统帮助文件的地方；</li>
+<li><code>/usr/share/man</code>：manpage的文件存放目录，也是使用man查看手册页时查询的路径；</li>
+</ul>
+</li>
+<li><p><code>/usr/src</code>：主要储存内核源代码的文件；</p>
+</li>
+<li><p><code>/usr/X11R6</code>：存放一些X windows系统的相关文件；</p>
+</li>
+</ul>
+</li>
+<li><p><code>/var</code>：动态文件或数据存放目录，默认日志文件都存放在这个目录下，一般建议把此目录单独划分一个分区；</p>
+<ul>
+<li><code>/var/empty</code>：默认是sshd程序用到的这个目录，当建立ssh连接，ssh服务器必须使用该目录下的sshd子目录</li>
+<li><code>/var/ftp</code>：ftp服务器软件一般默认会将匿名登陆的用户的宿主目录；</li>
+<li><code>/var/lib</code>：该目录下存放很多与应用程序名称同名的子目录，每个子目录下都是应用执行的状态信息；</li>
+<li><code>/var/lock</code>：每个服务一开始都会在这个目录下产生一个该服务的空文件，主要是避免服务启动冲突；</li>
+<li><code>/var/log</code>：常用目录，专门用来存放所有日志文件的目录，里面存放很多系统、软件、用户等相关的日志信息；里面有一些文件是比较常用的；<ul>
+<li><code>lastlog</code>：记录用户最后一次登录的信息，使用lastlog命令读取；</li>
+<li><code>message</code>：记录系统的几乎所有信息，主要包括启动信息，syslogd服务记录的信息等；</li>
+<li><code>wtmp</code>：记录所有用户登陆及注销的信息，使用last命令读取；</li>
+<li><code>secure</code>：记录登录系统访问数据的文件，如ssh pop3 telnet ftp等都会记录在此文件中</li>
+<li><code>btmp</code>：记录失败的用户登录</li>
+<li><code>boot.log</code>：记录开机或一些服务启动时所显示的启动和关闭信息</li>
+<li><code>/var/log/maillog</code> 或 <code>/var/log/mail/*</code>：记录邮件访问或往来的用户信息</li>
+<li><code>cron</code>： 记录 crontab 例行性服务的内容</li>
+<li><code>dmesg</code>：开机引导日志信息</li>
+<li><code>sudolog</code>：纪录使用sudo发出的命令</li>
+<li><code>/var/run</code>：此目录中的大部分文件都记载目前系统正在执行程序的PID值，每一个文件都是以个独立的PID记录；此目录下存放一个特殊文件utmp，此文件记录目前谁在使用系统，必须使用utmpdump命令才能看到其中的内容；</li>
+</ul>
+</li>
+<li><code>/var/spool</code>：里面主要都是一些临时存放，随时会被用户所调用的数据；打印机、邮件、代理服务器等假脱机目录存放在该目录下；</li>
+<li><code>/var/tmp</code>：专门为了一些应用程序在安装或执行时，需要在重启后使用的某些文件时，能将该文件暂时存放在这个目录中，完成后再行删除；</li>
+</ul>
+</li>
+</ul>
+<h1 id="查看文件"><a href="#查看文件" class="headerlink" title="查看文件"></a>查看文件</h1><h2 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h2><p>Linux cat 命令用于获取文件内容并输出到其他设备上（或者文件中），所以有时候也会用于合并文件。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> [-AbeEnstTuv] [--<span class="built_in">help</span>] [--version] fileName</span><br></pre></td></tr></table></figure>
+
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-n</code> 或 <code>--number</code></td>
+<td>由 <code>1</code> 开始对所有输出的行数编号</td>
+</tr>
+<tr>
+<td><code>-b</code> 或 <code>--number-nonblank</code></td>
+<td>和 <code>-n</code> 相似，只不过对于空白行不编号</td>
+</tr>
+<tr>
+<td><code>-s</code> 或 <code>--squeeze-blank</code></td>
+<td>当遇到有连续两行以上的空白行，就代换为一行的空白行</td>
+</tr>
+<tr>
+<td><code>-v</code> 或 <code>--show-nonprinting</code></td>
+<td>使用 <code>^</code> 和 <code>M-</code> 符号，除了 LFD 和 TAB 之外</td>
+</tr>
+<tr>
+<td><code>-E</code> 或 <code>--show-ends</code></td>
+<td>在每行结束处显示 <code>$</code></td>
+</tr>
+<tr>
+<td><code>-T</code> 或 <code>--show-tabs</code></td>
+<td>将 <code>TAB</code> 字符显示为 <code>^I</code></td>
+</tr>
+<tr>
+<td><code>-A</code>, <code>--show-all</code></td>
+<td>等价于 <code>-vET</code></td>
+</tr>
+<tr>
+<td><code>-e</code></td>
+<td>等价于”<code>-vE</code>“选项</td>
+</tr>
+<tr>
+<td><code>-t</code></td>
+<td>等价于”<code>-vT</code>“选项</td>
+</tr>
+</tbody></table>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>把文档 file1 中的内容加上行号后，保存到文档 file2 中：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cat</span> -n file1 &gt; file2</span><br></pre></td></tr></table></figure>
+
+<p>把两个文件：file1 和 file2 中的内容加上行号（空白行不加）之后合并输出到文件 file3 中：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cat</span> -b file1 file2 &gt;&gt; file3</span><br></pre></td></tr></table></figure>
+
+<p>由于cat可以输出并重写文档中的内容，所以也可以用来清空文档内容，将一个空内容输出到文件中即可。例如清空 &#x2F;opt&#x2F;test.txt 文件中的内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cat</span> /opt/null &gt; /opt/test.txt</span><br></pre></td></tr></table></figure>
+
+<p>cat 也可以用来制作镜像文件。例如要制作软盘的镜像文件，将软盘放好后输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cat</span> /dev/fd0 &gt; OUTFILE</span><br></pre></td></tr></table></figure>
+
+<p>相反的，如果想把 image file 写到软盘，输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cat</span> IMG_FILE &gt; /dev/fd0</span><br></pre></td></tr></table></figure>
+
+<p>将part_开头的文件合并为一个大文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cat</span> part_* &gt; merge_file.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="more"><a href="#more" class="headerlink" title="more"></a>more</h2><p><code>more</code> 命令类似 <code>cat</code> ，不过会以一页一页的形式显示，更方便使用者逐页阅读，而最基本的指令就是按空白键（<code>space</code>）就往下一页显示，按 <code>b</code> 键就会往回（<code>back</code>）一页显示，而且还有搜寻字串的功能（与 <code>vi</code> 相似），使用中的说明文件，请按 <code>h</code> 。</p>
+<h3 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">more [-dlfpcsu] [-num] [+/pattern] [+linenum] [fileNames..]</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-num</code></td>
+<td>一次显示的行数</td>
+</tr>
+<tr>
+<td><code>-d</code></td>
+<td>提示使用者，在画面下方显示 [Press space to continue, ‘q’ to quit.] ，如果使用者按错键，则会显示 [Press ‘h’ for instructions.] 而不是 ‘哔’ 声</td>
+</tr>
+<tr>
+<td><code>-l</code></td>
+<td>取消遇见特殊字元 ^L（送纸字元）时会暂停的功能</td>
+</tr>
+<tr>
+<td><code>-f</code></td>
+<td>计算行数时，以实际上的行数，而非自动换行过后的行数（有些单行字数太长的会被扩展为两行或两行以上）</td>
+</tr>
+<tr>
+<td><code>-p</code></td>
+<td>不以卷动的方式显示每一页，而是先清除萤幕后再显示内容</td>
+</tr>
+<tr>
+<td><code>-c</code></td>
+<td>跟 -p 相似，不同的是先显示内容再清除其他旧资料</td>
+</tr>
+<tr>
+<td><code>-s</code></td>
+<td>当遇到有连续两行以上的空白行，就代换为一行的空白行</td>
+</tr>
+<tr>
+<td><code>-u</code></td>
+<td>不显示下引号 （根据环境变数 TERM 指定的 terminal 而有所不同）</td>
+</tr>
+<tr>
+<td><code>+/pattern</code></td>
+<td>在每个文档显示前搜寻该字串（pattern），然后从该字串之后开始显示</td>
+</tr>
+<tr>
+<td><code>+num</code></td>
+<td>从第 num 行开始显示</td>
+</tr>
+<tr>
+<td><code>fileNames</code></td>
+<td>欲显示内容的文档，可为复数个数</td>
+</tr>
+</tbody></table>
+<h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 逐页显示 testfile 文档内容，如有连续两行以上空白行则以一行空白行显示。$ more -s testfile</span></span><br><span class="line"><span class="comment"># 从第 20 行开始显示 testfile 之文档内容。$ more +20 testfile</span></span><br></pre></td></tr></table></figure>
+
+<p>常用操作命令</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Enter</code></td>
+<td>向下n行，需要定义。默认为1行</td>
+</tr>
+<tr>
+<td><code>Ctrl+F</code></td>
+<td>向下滚动一屏</td>
+</tr>
+<tr>
+<td><code>空格键</code></td>
+<td>向下滚动一屏</td>
+</tr>
+<tr>
+<td><code>Ctrl+B</code></td>
+<td>返回上一屏</td>
+</tr>
+<tr>
+<td><code>=</code></td>
+<td>输出当前行的行号</td>
+</tr>
+<tr>
+<td><code>:f</code></td>
+<td>输出文件名和当前行的行号</td>
+</tr>
+<tr>
+<td><code>V</code></td>
+<td>调用vi编辑器</td>
+</tr>
+<tr>
+<td><code>!命令</code></td>
+<td>调用Shell，并执行命令</td>
+</tr>
+<tr>
+<td><code>q</code></td>
+<td>退出more</td>
+</tr>
+</tbody></table>
+<h2 id="less"><a href="#less" class="headerlink" title="less"></a>less</h2><p>less 与 more 类似，less 可以随意浏览文件，支持翻页和搜索，支持向上翻页和向下翻页。</p>
+<h3 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h3><p>less [参数] 文件 </p>
+<h3 id="参数说明-1"><a href="#参数说明-1" class="headerlink" title="参数说明"></a>参数说明</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-b</code></td>
+<td>&lt;缓冲区大小&gt; 设置缓冲区的大小</td>
+</tr>
+<tr>
+<td><code>-e</code></td>
+<td>当文件显示结束后，自动离开</td>
+</tr>
+<tr>
+<td><code>-f</code></td>
+<td>强迫打开特殊文件，例如外围设备代号、目录和二进制文件</td>
+</tr>
+<tr>
+<td><code>-g</code></td>
+<td>只标记最后搜索的关键词</td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td>忽略搜索时的大小写</td>
+</tr>
+<tr>
+<td><code>-m</code></td>
+<td>显示类似more命令的百分比</td>
+</tr>
+<tr>
+<td><code>-N</code></td>
+<td>显示每行的行号</td>
+</tr>
+<tr>
+<td><code>-o</code></td>
+<td>&lt;文件名&gt; 将less 输出的内容在指定文件中保存起来</td>
+</tr>
+<tr>
+<td><code>-Q</code></td>
+<td>不使用警告音</td>
+</tr>
+<tr>
+<td><code>-s</code></td>
+<td>显示连续空行为一行</td>
+</tr>
+<tr>
+<td><code>-S</code></td>
+<td>行过长时间将超出部分舍弃</td>
+</tr>
+<tr>
+<td><code>-x</code></td>
+<td>&lt;数字&gt; 将”tab”键显示为规定的数字空格</td>
+</tr>
+<tr>
+<td><code>/字符串</code></td>
+<td>向下搜索”字符串”的功能</td>
+</tr>
+<tr>
+<td><code>?字符串</code></td>
+<td>向上搜索”字符串”的功能</td>
+</tr>
+<tr>
+<td><code>n</code></td>
+<td>重复前一个搜索（与 &#x2F; 或 ? 有关）</td>
+</tr>
+<tr>
+<td><code>N</code></td>
+<td>反向重复前一个搜索（与 &#x2F; 或 ? 有关）</td>
+</tr>
+<tr>
+<td><code>b</code></td>
+<td>向上翻一页</td>
+</tr>
+<tr>
+<td><code>d</code></td>
+<td>向后翻半页</td>
+</tr>
+<tr>
+<td><code>h</code></td>
+<td>显示帮助界面</td>
+</tr>
+<tr>
+<td><code>Q</code></td>
+<td>退出less 命令</td>
+</tr>
+<tr>
+<td><code>u</code></td>
+<td>向前滚动半页</td>
+</tr>
+<tr>
+<td><code>y</code></td>
+<td>向前滚动一行</td>
+</tr>
+<tr>
+<td><code>空格键</code></td>
+<td>滚动一页</td>
+</tr>
+<tr>
+<td><code>回车键</code></td>
+<td>滚动一行</td>
+</tr>
+<tr>
+<td><code>[pagedown]</code></td>
+<td>向下翻动一页</td>
+</tr>
+<tr>
+<td><code>[pageup]</code></td>
+<td>向上翻动一页</td>
+</tr>
+</tbody></table>
+<h3 id="例子-2"><a href="#例子-2" class="headerlink" title="例子"></a>例子</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看文件$ less log2013.log# ps查看进程信息并通过less分页显示ps -ef |less</span></span><br><span class="line"><span class="comment"># 查看命令历史使用记录并通过less分页显示$ history | less22  scp -r tomcat6.0.32 root@192.168.120.203:/opt/soft23  cd ..24  scp -r web root@192.168.120.203:/opt/25  cd soft26  ls……省略……</span></span><br><span class="line"><span class="comment"># 浏览多个文件$ less log2013.log log2014.log</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h3><p>输入 ：n后，切换到 log2014.log</p>
+<p>输入 ：p 后，切换到log2013.log</p>
+<h3 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h3><ol>
+<li>全屏导航</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ctrl+F</code></td>
+<td>向前移动一屏</td>
+</tr>
+<tr>
+<td><code>ctrl+B</code></td>
+<td>向后移动一屏</td>
+</tr>
+<tr>
+<td><code>ctrl+D</code></td>
+<td>向前移动半屏</td>
+</tr>
+<tr>
+<td><code>ctrl+U</code></td>
+<td>向后移动半屏</td>
+</tr>
+</tbody></table>
+<ol start="2">
+<li>单行导航</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>j</code></td>
+<td>向前移动一行</td>
+</tr>
+<tr>
+<td><code>k</code></td>
+<td>向后移动一行</td>
+</tr>
+</tbody></table>
+<ol start="3">
+<li>其它导航</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>G</code></td>
+<td>- 移动到最后一行</td>
+</tr>
+<tr>
+<td><code>g</code></td>
+<td>- 移动到第一行</td>
+</tr>
+<tr>
+<td><code>q</code></td>
+<td>&#x2F; ZZ - 退出 less 命令</td>
+</tr>
+</tbody></table>
+<ol start="4">
+<li>其它有用的命令</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>v</code></td>
+<td>使用配置的编辑器编辑当前文件</td>
+</tr>
+<tr>
+<td><code>h</code></td>
+<td>显示 less 的帮助文档</td>
+</tr>
+<tr>
+<td><code>&amp;pattern</code></td>
+<td>仅显示匹配模式的行，而不是整个文件</td>
+</tr>
+</tbody></table>
+<ol start="5">
+<li>标记导航</li>
+</ol>
+<ul>
+<li>当使用 less 查看大文件时，可以在任何一个位置作标记，可以通过命令导航到标有特定标记的文本位置：</li>
+<li>ma - 使用 a 标记文本的当前位置</li>
+<li>‘a - 导航到标记 a 处</li>
+</ul>
+<h2 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h2><p>tail 命令可用于查看文件的内容，有一个常用的参数 -f 常用于查阅正在改变的日志文件。</p>
+<p>tail -f filename 会把 filename 文件里的最尾部的内容显示在屏幕上，并且不断刷新，只要 filename 更新就可以看到最新的文件内容。</p>
+<h3 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h3><p>tail [参数] [文件] </p>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-f</code></td>
+<td>循环读取</td>
+</tr>
+<tr>
+<td><code>-q</code></td>
+<td>不显示处理信息</td>
+</tr>
+<tr>
+<td><code>-v</code></td>
+<td>显示详细的处理信息</td>
+</tr>
+<tr>
+<td><code>-c&lt;数目&gt;</code></td>
+<td>显示的字节数</td>
+</tr>
+<tr>
+<td><code>-n&lt;行数&gt;</code></td>
+<td>显示文件的尾部 n 行内容</td>
+</tr>
+<tr>
+<td><code>--pid=PID</code></td>
+<td>与-f合用,表示在进程ID,PID死掉之后结束</td>
+</tr>
+<tr>
+<td><code>-q,--quiet,--silent</code></td>
+<td>从不输出给出文件名的首部</td>
+</tr>
+<tr>
+<td><code>-s,--sleep-interval=S</code></td>
+<td>与-f合用,表示在每次反复的间隔休眠S秒</td>
+</tr>
+</tbody></table>
+<h3 id="例子-3"><a href="#例子-3" class="headerlink" title="例子"></a>例子</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 要显示 notes.log 文件的最后 10 行，请输入以下命令：$ tail notes.log         # 默认显示最后 10 行</span></span><br><span class="line"><span class="comment"># 要跟踪名为 notes.log 的文件的增长情况，请输入以下命令：$ tail -f notes.log</span></span><br></pre></td></tr></table></figure>
+
+<p>此命令显示 notes.log 文件的最后 10 行。当将某些行添加至 notes.log 文件时，tail 命令会继续显示这些行。显示一直继续，直到您按下（Ctrl-C）组合键停止显示。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 显示文件 notes.log 的内容，从第 20 行至文件末尾:$ tail -n +20 notes.log</span></span><br><span class="line"><span class="comment"># 显示文件 notes.log 的最后 10 个字符:$ tail -c 10 notes.log</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h2><h3 id="查看日志常用命令"><a href="#查看日志常用命令" class="headerlink" title="查看日志常用命令"></a>查看日志常用命令</h3><h4 id="tail-1"><a href="#tail-1" class="headerlink" title="tail"></a>tail</h4><p><code>-n</code> 是显示行号；相当于nl命令；例子如下：</p>
+<p><strong><code>tail -100f test.log</code> 实时监控100行日志</strong></p>
+<p><code>tail -n 10 test.log</code> 查询日志尾部最后10行的日志;</p>
+<p><code>tail -n +10 test.log</code> 查询10行之后的所有日志;</p>
+<h4 id="head"><a href="#head" class="headerlink" title="head"></a>head</h4><p>跟tail是相反的，tail是看后多少行日志；例子如下：</p>
+<p><code>head -n 10 test.log</code> 查询日志文件中的头10行日志;</p>
+<p><code>head -n -10 test.log</code> 查询日志文件除了最后10行的其他所有日志;</p>
+<h4 id="cat-1"><a href="#cat-1" class="headerlink" title="cat"></a>cat</h4><p><code>tac</code>是倒序查看，是<code>cat</code>单词反写；例子如下：</p>
+<p><strong><code>cat -n test.log |grep &quot;debug&quot;</code> 查询关键字的日志</strong></p>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><h4 id="应用场景一"><a href="#应用场景一" class="headerlink" title="应用场景一"></a>应用场景一</h4><p>按行号查看—过滤出关键字附近的日志</p>
+<ul>
+<li><code>cat -n test.log |grep &quot;debug&quot;</code> 得到关键日志的行号</li>
+<li><code>cat -n test.log |tail -n +92|head -n 20</code> 选择关键字所在的中间一行. 然后查看这个关键字前10行和后10行的日志:</li>
+<li><code>tail -n +92</code> 表示查询92行之后的日志</li>
+<li><code>head -n 20</code> 则表示在前面的查询结果里再查前20条记录</li>
+</ul>
+<h4 id="应用场景二"><a href="#应用场景二" class="headerlink" title="应用场景二"></a>应用场景二</h4><p>根据日期查询日志</p>
+<ul>
+<li><code>sed -n &#39;/2014-12-17 16:17:20/,/2014-12-17 16:17:36/p&#39; test.log</code></li>
+</ul>
+<p>特别说明:上面的两个日期必须是日志中打印出来的日志,否则无效；</p>
+<p>先 <code>grep &#39;2014-12-17 16:17:20&#39; test.log</code> 来确定日志中是否有该 时间点</p>
+<h4 id="应用场景三"><a href="#应用场景三" class="headerlink" title="应用场景三"></a>应用场景三</h4><p>日志内容特别多，打印在屏幕上不方便查看</p>
+<ul>
+<li><p>使用more和less命令,</p>
+<p> 如： <code>cat -n test.log |grep &quot;debug&quot; |more</code> 这样就分页打印了,通过点击空格键翻页</p>
+</li>
+<li><p>使用 <code>&gt;xxx.txt</code> 将其保存到文件中,到时可以拉下这个文件分析</p>
+<p> 如：<code>cat -n test.log |grep &quot;debug&quot; &gt;debug.txt</code></p>
+</li>
+</ul>
+<h1 id="文件基本操作"><a href="#文件基本操作" class="headerlink" title="文件基本操作"></a>文件基本操作</h1><h2 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h2><p>cp 命令主要用于复制目录或者普通文档（为方便表达，本文中所说的 “文件” 均为普通文档。）。</p>
+<h3 id="语法-4"><a href="#语法-4" class="headerlink" title="语法"></a>语法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> [options] <span class="built_in">source</span> dest</span><br></pre></td></tr></table></figure>
+
+<h3 id="参数说明-2"><a href="#参数说明-2" class="headerlink" title="参数说明"></a>参数说明</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-a</code></td>
+<td>通常用于复制目录，保留链接和文件属性，并复制目录下的所有内容。相当于 dpr 三个参数的组合；</td>
+</tr>
+<tr>
+<td><code>-d</code></td>
+<td>复制时保留链接（类似于windows系统中的快捷方式）；</td>
+</tr>
+<tr>
+<td><code>-f</code></td>
+<td>覆盖已经存在的目标文件（没有提示）；</td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td>也是覆盖已经存在的目标文件，但是会给出提示，提示用户是否确认要覆盖。<br>用户输入 y 指令的时候，目标文件将被覆盖，否则操作会撤销；</td>
+</tr>
+<tr>
+<td><code>-l</code></td>
+<td>不复制文件，只是生成链接文件（即快捷方式）；</td>
+</tr>
+<tr>
+<td><code>-p</code></td>
+<td>该参数的作用是，除复制文件的内容外，还把修改时间和访问权限也复制到新文件中；</td>
+</tr>
+<tr>
+<td><code>-r</code></td>
+<td>若给出的源文件是一个目录文件，则将复制该目录下所有的子目录和文件。</td>
+</tr>
+</tbody></table>
+<h3 id="例子-4"><a href="#例子-4" class="headerlink" title="例子"></a>例子</h3><p>将目录 test&#x2F; 下的所有文件复制到新目录 test2下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cp</span> –r <span class="built_in">test</span>/ test2</span><br></pre></td></tr></table></figure>
+
+<p>注意：用户使用 cp 命令复制目录时，必须使用参数 <code>-r</code> 或者 <code>-R</code> ，以将目录下的子目录和文件也同步复制。</p>
+<h2 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h2><p><code>mv</code> 命令用于移动文件，将文件或目录移动到其它位置，如果是源地址和目标地址相同，则会将文件改名。</p>
+<h3 id="语法-5"><a href="#语法-5" class="headerlink" title="语法"></a>语法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> [options] <span class="built_in">source</span> dest</span><br></pre></td></tr></table></figure>
+
+<h3 id="参数说明-3"><a href="#参数说明-3" class="headerlink" title="参数说明"></a>参数说明</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-b</code></td>
+<td>当目标文件或目录存在时，在执行覆盖前，会为其创建一个备份；</td>
+</tr>
+<tr>
+<td><code>-f</code></td>
+<td>如果指定移动的源目录或文件与目标的目录或文件同名，不会询问，直接覆盖旧文件；</td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td>与 <code>-f</code> 参数功能类似，只是在将文件覆盖之前会给出提示，让用户确认。<br>输入 y 表示直接覆盖，输入 n 表示取消该操作；</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td>不要覆盖任何已存在的文件或目录，对于已经存在的文件，则会直接跳过；</td>
+</tr>
+<tr>
+<td><code>-u</code></td>
+<td>当源文件比目标文件新或者目标文件不存在时，才执行移动操作。</td>
+</tr>
+</tbody></table>
+<p>mv 命令在使用的时候，对于目的文件和源文件，区分是文件还是目录，执行结果是不一样的，例如：</p>
+<ol>
+<li><p>将源文件名 source_file 改为目标文件名 dest_file</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> source_file(文件) dest_file(文件)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将文件 source_file 移动到目标目录 dest_directory 中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> source_file(文件) dest_directory(目录)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>移动目录</p>
+<p>若目录名 dest_directory 已存在，将 source_directory 移动到目录名 dest_directory 中；</p>
+<p>若目录名 dest_directory 不存在则 source_directory 改名为目录名 dest_directory</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> source_directory(目录) dest_directory(目录)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>错误操作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> source_directory(目录) dest_file(文件)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="例子-5"><a href="#例子-5" class="headerlink" title="例子"></a>例子</h3><ol>
+<li>将文件 file1 改名为 file2:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">mv</span> file1 file2</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>将 test 目录放入 test2 目录中。注意，如果 test2目录不存在，则该命令将 test改名为 logs。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">mv</span> <span class="built_in">test</span>/ test2</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>将 &#x2F;opt&#x2F;logs下的所有文件和目录移到当前目录下，命令行为：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">mv</span> /opt/logs/*  .</span><br></pre></td></tr></table></figure>
+
+<h3 id="移动隐藏文件"><a href="#移动隐藏文件" class="headerlink" title="移动隐藏文件"></a>移动隐藏文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> * .[^.]* &lt;destination_directory&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>解释</p>
+</blockquote>
+<p>1、mv命令的最后一个参数是要移动文件的目标位置；<br>2、第一个 <code>*</code> 匹配除了隐藏文件的所有文件；<br>3、隐藏文件使用 <code>.[^.]*</code> 匹配<br>4、匹配隐藏文件用 <code>.[^.]*</code> 为什么不用 <code>.*</code>: <code>.*</code> 会匹配目录 <code>.</code> 和 <code>..</code><br>5、<code>.[^.]*</code> 的意思是：以 <code>.</code> 开头，加不是 <code>.</code> 的一个任意字符，再加其他任意字符</p>
+<blockquote>
+<p>参数补充</p>
+</blockquote>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-b</code></td>
+<td>当目标文件或目录存在时，在执行覆盖前，会为其创建一个备份。</td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td>如果指定移动的源目录或文件与目标的目录或文件同名，则会先询问是否覆盖旧文件，<br>输入 y 表示直接覆盖，输入 n 表示取消该操作。</td>
+</tr>
+<tr>
+<td><code>-f</code></td>
+<td>如果指定移动的源目录或文件与目标的目录或文件同名，不会询问，直接覆盖旧文件。</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td>不要覆盖任何已存在的文件或目录。</td>
+</tr>
+<tr>
+<td><code>-u</code></td>
+<td>当源文件比目标文件新或者目标文件不存在时，才执行移动操作。</td>
+</tr>
+</tbody></table>
+<h2 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h2><p>英文全拼：remove, 命令用于删除一个文件或者目录。</p>
+<h3 id="语法-6"><a href="#语法-6" class="headerlink" title="语法"></a>语法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> [options] name...</span><br></pre></td></tr></table></figure>
+
+<h3 id="参数-1"><a href="#参数-1" class="headerlink" title="参数"></a>参数</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-i</code></td>
+<td>删除前逐一询问确认。</td>
+</tr>
+<tr>
+<td><code>-f</code></td>
+<td>即使原档案属性设为唯读，亦直接删除，无需逐一确认。</td>
+</tr>
+<tr>
+<td><code>-r</code></td>
+<td>将目录及以下之档案亦逐一删除。</td>
+</tr>
+</tbody></table>
+<h3 id="例子-6"><a href="#例子-6" class="headerlink" title="例子"></a>例子</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#删除文件可以直接使用rm命令，若删除目录则必须配合选项&quot;-r&quot;</span></span><br><span class="line">$ <span class="built_in">rm</span>  test.txt </span><br><span class="line"><span class="built_in">rm</span>：是否删除 一般文件 <span class="string">&quot;test.txt&quot;</span>? y  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ <span class="built_in">rm</span>  homework  </span><br><span class="line"><span class="built_in">rm</span>: 无法删除目录<span class="string">&quot;homework&quot;</span>: 是一个目录  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ <span class="built_in">rm</span>  -r  homework  </span><br><span class="line"><span class="built_in">rm</span>：是否删除 目录 <span class="string">&quot;homework&quot;</span>? y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除当前目录下的所有文件及目录，命令行为：</span></span><br><span class="line"><span class="built_in">rm</span>  -r  * </span><br></pre></td></tr></table></figure>
+
+<p>文件一旦通过rm命令删除，则无法恢复，所以必须格外小心地使用该命令。</p>
+<h2 id="rmdir"><a href="#rmdir" class="headerlink" title="rmdir"></a>rmdir</h2><p>英文全拼：remove directory）命令删除空的目录</p>
+<h3 id="语法-7"><a href="#语法-7" class="headerlink" title="语法"></a>语法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rmdir</span> [-p] dirName</span><br></pre></td></tr></table></figure>
+
+<h3 id="参数-2"><a href="#参数-2" class="headerlink" title="参数"></a>参数</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-p</code></td>
+<td>当子目录被删除后使它也成为空目录的话，则顺便一并删除。</td>
+</tr>
+</tbody></table>
+<h3 id="例子-7"><a href="#例子-7" class="headerlink" title="例子"></a>例子</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将工作目录下，名为 AAA 的子目录删除 :</span></span><br><span class="line">$ <span class="built_in">rmdir</span> AAA</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在工作目录下的 BBB 目录中，删除名为 Test 的子目录。若 Test 删除后，BBB 目录成为空目录，则 BBB 亦予删除。</span></span><br><span class="line">$ <span class="built_in">rmdir</span> -p BBB/Test</span><br></pre></td></tr></table></figure>
+
+<h2 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h2><p>Linux <code>touch</code> 命令可用于修改系统中文件时间属性，比如文件的存储、读取时间和修改时间。如果文件不存在，系统会创建一个新的文件。</p>
+<p>使用<code>touch</code>命令后，可以执行 <code>ls -l</code> 命令可以显示档案的时间记录。</p>
+<h3 id="语法-8"><a href="#语法-8" class="headerlink" title="语法"></a>语法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> [-acfm] [-d&lt;日期时间&gt;] [-r&lt;参考文件或目录&gt;] [-t&lt;日期时间&gt;] [--<span class="built_in">help</span>] [--version] [文件名称]</span><br></pre></td></tr></table></figure>
+
+<h3 id="参数说明-4"><a href="#参数说明-4" class="headerlink" title="参数说明"></a>参数说明</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>a</code></td>
+<td>修改文件的读取时间</td>
+</tr>
+<tr>
+<td><code>m</code></td>
+<td>重新设置文件的修改时间</td>
+</tr>
+<tr>
+<td><code>c</code></td>
+<td>假如目的文件不存在，不会建立新的文件，与 <code>--no-create</code> 的效果一样。</td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>一般不使用，该参数是为了与其他 unix 系统的相容性而保留。</td>
+</tr>
+<tr>
+<td><code>r</code></td>
+<td>使用参考文件的时间记录，与 <code>--file</code> 的效果一样。</td>
+</tr>
+<tr>
+<td><code>d</code></td>
+<td>设定时间与日期，可以使用各种不同的格式。</td>
+</tr>
+<tr>
+<td><code>t</code></td>
+<td>设定文件的时间记录，格式与 <code>date</code> 指令相同。</td>
+</tr>
+<tr>
+<td><code>--no-create</code></td>
+<td>不会建立新文件。</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>显示帮助。</td>
+</tr>
+<tr>
+<td><code>--version</code></td>
+<td>显示版本信息。</td>
+</tr>
+</tbody></table>
+<h3 id="例子-8"><a href="#例子-8" class="headerlink" title="例子"></a>例子</h3><p>使用命令 “<code>touch</code>“ 修改文件”filename”的时间属性为当前系统时间：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#修改文件的时间属性</span></span><br><span class="line">$ <span class="built_in">touch</span> filename</span><br></pre></td></tr></table></figure>
+
+<p>首先，使用<code>ls</code>命令查看filename文件的属性，如下所示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看文件的时间属性</span></span><br><span class="line">$ <span class="built_in">ls</span> -l filename</span><br><span class="line"></span><br><span class="line"><span class="comment">#原来文件的修改时间为16:09  </span></span><br><span class="line">-rw-r--r-- 1 hdd hdd 55 2011-08-22 16:09 filename</span><br></pre></td></tr></table></figure>
+
+<p>执行指令”<code>touch</code>“修改文件属性以后，并再次查看该文件的时间属性，如下所示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改文件时间属性为当前系统时间</span></span><br><span class="line">$ <span class="built_in">touch</span> filename</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看文件的时间属性</span></span><br><span class="line">$ <span class="built_in">ls</span> -l filename</span><br><span class="line"></span><br><span class="line"><span class="comment">#修改后文件的时间属性为当前系统时间</span></span><br><span class="line">-rw-r--r-- 1 hdd hdd 55 2011-08-22 19:53 filename</span><br></pre></td></tr></table></figure>
+
+<p>使用指令 <code>touch</code> 时，如果指定的文件不存在，则将创建一个新的空白文件。例如，在当前目录下，使用该指令创建一个空白文件”file”，输入如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建一个名为“file”的新的空白文件 </span></span><br><span class="line">$ <span class="built_in">touch</span> file</span><br></pre></td></tr></table></figure>
+
+<h2 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h2><p><code>mkdir</code> 是每个Linux用户都应该知道的基本Linux命令之一。你可以使用<code>mkdir</code>创建新目录（文件夹）。</p>
+<p>在本文中将介绍<code>mkdir</code>命令。</p>
+<p><code>mkdir</code> 命令是为数不多的没有太多选项的Linux命令之一。这使得它的使用非常简单。</p>
+<p>这是它的语法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> [option] directory_name_or_path</span><br></pre></td></tr></table></figure>
+
+<p>下面我们来看一下怎么使用。</p>
+<h3 id="创建新目录"><a href="#创建新目录" class="headerlink" title="创建新目录"></a>创建新目录</h3><p>要创建新目录，使用<code>mkdir</code>命令（不带任何参数）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> new_dir</span><br></pre></td></tr></table></figure>
+
+<p>这样会在当前目录下新建一个名为 new_dir 的目录。可以使用<code>ls</code>命令查看：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">ls</span></span><br><span class="line">$ <span class="built_in">mkdir</span> new_dir</span><br><span class="line">$ <span class="built_in">ls</span> -l</span><br><span class="line">total 4</span><br><span class="line">drwxrwxr-x 2 abhishek abhishek 4096 May 14 16:15 new_dir</span><br></pre></td></tr></table></figure>
+
+<p>你还可以指定要创建新目录的路径。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$ <span class="built_in">ls</span></span><br><span class="line">new_dir</span><br><span class="line">$ <span class="built_in">mkdir</span> new_dir/another_new_dir</span><br><span class="line">$ tree</span><br><span class="line">.</span><br><span class="line">└── new_dir</span><br><span class="line">    └── another_new_dir</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2 directories, 0 files</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建多个目录"><a href="#创建多个目录" class="headerlink" title="创建多个目录"></a>创建多个目录</h3><p>还可以使用一个命令创建多个目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> new_dir_1 new_dir_2 new_dir_3</span><br></pre></td></tr></table></figure>
+
+<p>使用上面的命令创建的新目录，都在同一个路径下（即当前路径）。另外，你还可以创建嵌套目录，下面我们来介绍如何创建嵌套目录。</p>
+<h3 id="创建嵌套目录"><a href="#创建嵌套目录" class="headerlink" title="创建嵌套目录"></a>创建嵌套目录</h3><p>您可以使用选项 <code>-p</code> 来创建嵌套目录结构。如果父目录不存在，将会自动创建。当你要创建目录结构或要确保目录路径存在时，这尤其有用。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">mkdir</span> -p dir1/dir2/dir3/dir4</span><br><span class="line">$ tree </span><br><span class="line">.</span><br><span class="line">├── dir1</span><br><span class="line">│   └── dir2</span><br><span class="line">│       └── dir3</span><br><span class="line">│           └── dir4</span><br><span class="line">└── new_dir</span><br><span class="line">    └── another_new_dir</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">6 directories, 0 files</span><br></pre></td></tr></table></figure>
+
+<p>也可以对单个目录使用 <code>-p</code> 选项。如果要创建的目录已经存在了，那就会跳过，而且不报错：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">mkdir</span> new_dir</span><br><span class="line"><span class="built_in">mkdir</span>: cannot create directory ‘new_dir’: File exists</span><br><span class="line">$ <span class="built_in">mkdir</span> -p new_dir</span><br><span class="line">$ <span class="built_in">ls</span> -l</span><br><span class="line">total 8</span><br><span class="line">drwxrwxr-x 3 abhishek abhishek 4096 May 14 16:39 dir1</span><br><span class="line">drwxrwxr-x 3 abhishek abhishek 4096 May 14 16:16 new_dir</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建具有特定权限的目录"><a href="#创建具有特定权限的目录" class="headerlink" title="创建具有特定权限的目录"></a>创建具有特定权限的目录</h3><p>默认情况下，shell 的 <code>umask</code> 控制对新建目录的权限。如果希望对新创建的目录拥有不同的文件权限，你可以先创建，然后使用<code>chmod</code>命令更改权限。当然，还有一种更好的办法，就是使用 <code>-m</code> 选项。</p>
+<p>假设要对要创建的目录拥有766权限，可以使用如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -m 766 new_directory</span><br></pre></td></tr></table></figure>
+
+<h2 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h2><p>显示当前目录（Print working directory）</p>
+<p>pwd 命令打印你当前的工作目录，也就是说，它输出你当前正在使用的目录的路径。有两个选项：</p>
+<ul>
+<li><code>--logical</code> 用于显示带有任何符号链接的位置</li>
+<li><code>--physical</code> 用于在解析符号链接后显示你的位置。</li>
+</ul>
+<h1 id="文件进阶操作"><a href="#文件进阶操作" class="headerlink" title="文件进阶操作"></a>文件进阶操作</h1><h2 id="ln"><a href="#ln" class="headerlink" title="ln"></a>ln</h2><p>链接是对另一个文件的引用，它为同一文件提供多个名称，并允许它们同时位于两个或多个位置。</p>
+<p>有两种类型的链接：</p>
+<ul>
+<li>软连接：也称为符号链接，原始文件的快捷方式；</li>
+<li>硬链接：这将指向原始文件的内存位置。</li>
+</ul>
+<p>下图显示了两种链接的工作方式：</p>
+<img data-src="/2023/12/30/187/640-20240101170701825.png" class="" title="图片">
+
+<p>硬链接和软链接都是使用 ln 命令创建的，本文将会介绍如何使用 ln 命令在 Linux 中创建各种类型的链接。</p>
+<h3 id="ln-命令示例"><a href="#ln-命令示例" class="headerlink" title="ln 命令示例"></a>ln 命令示例</h3><p>ln 命令的语法很简单：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> [option] target_file link_name</span><br></pre></td></tr></table></figure>
+
+<p>下面我们通过例子来具体看一下。</p>
+<h3 id="创建指向文件的硬链接"><a href="#创建指向文件的硬链接" class="headerlink" title="创建指向文件的硬链接"></a>创建指向文件的硬链接</h3><p>创建指向文件的硬链接，可在不添加任何选项的情况下使用 ln 命令，如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> target_file link_name</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2023/12/30/187/640-20240101171331191.png" class="" title="图片">
+
+<h3 id="创建指向文件的软连接"><a href="#创建指向文件的软连接" class="headerlink" title="创建指向文件的软连接"></a>创建指向文件的软连接</h3><p>要创建指向文件的软连接，使用 ln 命令的 <code>-s</code> 选项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s target_file link_name</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2023/12/30/187/640-20240101170701839.png" class="" title="图片">
+
+<p>在 <code>ls -l</code> 命令的输出列表中，大多数 LInux 终端都会以不同颜色显示软链接及其指向的目标；同时链接都会以 <code>l</code> 开头，而不是普通文件的 <code>-</code>，这也是识别链接的一种方式。</p>
+<h3 id="创建指向目录的软链接"><a href="#创建指向目录的软链接" class="headerlink" title="创建指向目录的软链接"></a>创建指向目录的软链接</h3><p>创建指向目录的软链接与创建指向文件的软链接方法相同，将文件名替换为目录名即可：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s target_directory link_name</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2023/12/30/187/640-20240101170701854.png" class="" title="图片">
+
+<p>你可能会注意到了，在 Linux 终端中，软链接和硬链接的颜色是不同的，<strong>一般情况下，无法创建指向目录的硬链接</strong>。</p>
+<h3 id="更新已有的软链接（或硬链接）"><a href="#更新已有的软链接（或硬链接）" class="headerlink" title="更新已有的软链接（或硬链接）"></a>更新已有的软链接（或硬链接）</h3><p>链接是可以被覆盖的。默认情况下，如果你使用一个已有的链接指向一个新文件，会报错：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span>: failed to create symbolic <span class="built_in">link</span> <span class="string">&#x27;soft-link-to-file&#x27;</span>: File exists</span><br></pre></td></tr></table></figure>
+
+<p>要覆盖现有链接，有两种方式（即 ln 命令的两个选项）：</p>
+<ul>
+<li><code>-i</code>：系统会询问你是否要覆盖现有链接；</li>
+<li><code>-f</code>：强制覆盖现有链接，不会给确认信息。</li>
+</ul>
+<p>比如，我们要强制覆盖一个现有链接，看下面的例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -sf new_file existing_soft_link</span><br></pre></td></tr></table></figure>
+
+<p>在这里需要注意，如果是要覆盖一个软链接的话，需要添加 -s 选项，否则会将软链接转换为硬链接。</p>
+<img data-src="/2023/12/30/187/640-20240101171350058.png" class="" title="图片">
+
+<h3 id="通过链接链获取原始文件"><a href="#通过链接链获取原始文件" class="headerlink" title="通过链接链获取原始文件"></a>通过链接链获取原始文件</h3><p>通常情况下，使用 <code>ls -l</code> 命令来查看文件的时候，链接会显示它所指向的文件。</p>
+<p>但如果存在链接链的话，则不会显示原始文件。例如，创建指向文件的链接，然后创建指向第一个链接的另一个链接；在长列表的输出中，第二个链接将指向第一个链接。</p>
+<p>要从链接链中找到原始文件，可以使用 <code>readlink -f</code> 命令，如下所示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">readlink</span> -f soft_link</span><br></pre></td></tr></table></figure>
+
+<p>选项 <code>-f</code> 表示 follow，即 follow the chain。</p>
+<img data-src="/2023/12/30/187/640-20240101171557990.png" class="" title="图片">
+
+<h3 id="为什么会需要链接"><a href="#为什么会需要链接" class="headerlink" title="为什么会需要链接"></a>为什么会需要链接</h3><p>上面我们介绍了如何创建链接，接下来我们再来了解下链接的实际用途。</p>
+<p>假设我们下载了一个包含有代码和可执行文件的软件，然后我们将整个软件放在了 <code>/opt</code> 目录中。但是如果想要从任何路径下都可以运行该程序，那需要将可执行文件放到 <code>/usr/bin</code> 目录下。</p>
+<p>如果我们将可执行文件放到 <code>/usr/bin</code> 目录下以后，它可能不会正常运行，因为它需要访问某些代码（即随同文件一起被下载的那些代码），但是在 <code>/usr/bin</code> 目录下无法找到这些代码文件。这种情况下，我们就可以在 <code>/usr/bin</code> 目录中创建指向该可执行文件的链接，而不是把可执行文件移动到该目录下。</p>
+<p>这样，程序就可以在系统的任何地方运行，其可执行文件仍会保留在原地方。</p>
+<p>链接是 Linux 的重要组成部分，它在应用在很多地方。在系统的 <code>/lib</code> 目录下，会有很多软链接存在。</p>
+<h2 id="split"><a href="#split" class="headerlink" title="split"></a>split</h2><p>split命令用于将一个文件分割成数个。该指令将大文件分割成较小的文件，在默认情况下将按照每1000行切割成一个小文件。</p>
+<h3 id="语法-9"><a href="#语法-9" class="headerlink" title="语法"></a>语法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">split</span> [--<span class="built_in">help</span>][--version][-&lt;行数&gt;][-b &lt;字节&gt;][-C &lt;字节&gt;][-l &lt;行数&gt;][要切割的文件][输出文件名]</span><br></pre></td></tr></table></figure>
+
+<h3 id="参数说明-5"><a href="#参数说明-5" class="headerlink" title="参数说明"></a>参数说明</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-&lt;行数&gt;</code></td>
+<td>指定每多少行切成一个小文件</td>
+</tr>
+<tr>
+<td><code>-b&lt;字节&gt;</code></td>
+<td>指定每多少字节切成一个小文件，二进制分割模式(支持单位:<code>KB, MB</code>)</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>在线帮助</td>
+</tr>
+<tr>
+<td><code>--version</code></td>
+<td>显示版本信息</td>
+</tr>
+<tr>
+<td><code>-C&lt;字节&gt;</code></td>
+<td>与参数”<code>-b</code>“相似，但是在切割时将尽量<strong>维持每行的完整性</strong></td>
+</tr>
+<tr>
+<td><code>[输出文件名]</code></td>
+<td>设置切割后文件的前置文件名， split会自动在前置文件名后再加上编号</td>
+</tr>
+</tbody></table>
+<h3 id="例子-9"><a href="#例子-9" class="headerlink" title="例子"></a>例子</h3><p>使用指令”<code>split</code>“将文件”README”每6行切割成一个文件，输入如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">split</span> -6 README       <span class="comment">#将README文件每六行分割成一个文件 </span></span><br></pre></td></tr></table></figure>
+
+<p>以上命令执行后，指令”<code>split</code>“会将原来的大文件”README”切割成多个以”x”开头的小文件。而在这些小文件中，每个文件都只有6行内容。</p>
+<p>使用指令”<code>ls</code>“查看当前目录结构，如下所示：</p>
+<p>#执行ls指令查看当前目录列表</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">ls</span>  </span><br><span class="line">README xaa xad xag xab xae xah xac xaf xai</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按行数分割</span></span><br><span class="line">$ <span class="built_in">split</span> -l 300 large_file.txt new_file_prefix</span><br><span class="line"><span class="comment"># 加上-d，使用数字后缀；加上–verbose，显示分割进度</span></span><br><span class="line">$ <span class="built_in">split</span> -l 50000 -d large_file.txt part_ –verbose</span><br><span class="line"><span class="comment"># 按字节大小分割</span></span><br><span class="line">$ <span class="built_in">split</span> -b 10m large_file.log new_file_prefix</span><br></pre></td></tr></table></figure>
+
+<p>此外，可以使用 <code>split –help</code> 或者 <code>split –h</code>来查看帮助信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">split</span> –<span class="built_in">help</span></span><br><span class="line">Usage: <span class="built_in">split</span> [OPTION]… [FILE [PREFIX]]</span><br><span class="line">Output pieces of FILE to PREFIXaa, PREFIXab, …;</span><br><span class="line">default size is 1000 lines, and default PREFIX is <span class="string">&#x27;x&#x27;</span>.</span><br></pre></td></tr></table></figure>
+
+<p>文件分割后还可以合并，使用<code>cat</code>命令。</p>
+<h2 id="unlink"><a href="#unlink" class="headerlink" title="unlink"></a>unlink</h2><p>在 Linux 中删除文件，我们通常使用 <code>rm</code> 命令。除此以外，还有另外一个命令，可以用于删除文件和链接，这就是 <code>unlink</code> 命令。虽然它听起来像是只能删除 Linux 系统中的链接，但实际上，也可以删除文件。</p>
+<p>Linux 系统中删除文件的过程是非常迅速的，只是一瞬间。当你删除文件时，Linux 内核发现它对应于索引节点编号 X，系统会将其从目录列表中删除文件条目，并将索引节点 X 的链接计数减少1，这时候，索引节点 X 的链接计数为0，内核会认为没有人链接到此索引节点，所以就可以安全的删除索引节点，并删除与其关联的数据块。</p>
+<h3 id="unlink-命令"><a href="#unlink-命令" class="headerlink" title="unlink 命令"></a>unlink 命令</h3><p>如前文所述，<code>unlink</code> 命令用于删除文件和链接，其中链接包括软链接和硬链接。它是最简单的命令之一，除了 <code>--help</code> 以及 <code>--version</code> 以外，没有任何其他选项。</p>
+<p>使用 unlink 删除文件，可以这样：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unlink</span> filename</span><br></pre></td></tr></table></figure>
+
+<p>删除链接，可以这样使用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unlink</span> link_name</span><br></pre></td></tr></table></figure>
+
+<p>删除成功后，不会有任何输出：</p>
+<img data-src="/2023/12/30/187/640-20240115073950184.png" class="" title="图片">
+
+<p>这就是 unlink 命令的功能，除此以外不做任何其他事情。</p>
+<h3 id="unlink-不能同时删除多个文件和链接"><a href="#unlink-不能同时删除多个文件和链接" class="headerlink" title="unlink 不能同时删除多个文件和链接"></a>unlink 不能同时删除多个文件和链接</h3><p><code>rm</code> 命令可以一次删除多个文件。但是 <code>unlink</code> 却不能，它一次只能删除一个文件或者链接，而且，也不能使用全局模式（globbing patterns）。</p>
+<p>如果我们尝试给定多个文件的话，它会抛出一个错误，执行失败：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[gliu@fedora ~]$ <span class="built_in">unlink</span> *.txtunlink: extra operand ‘file2.txt’Try <span class="string">&#x27;unlink --help&#x27;</span> <span class="keyword">for</span> more information.</span><br></pre></td></tr></table></figure>
+
+<p>同时删除多个链接也会如此。</p>
+<h3 id="使用-unlink-不能删除目录"><a href="#使用-unlink-不能删除目录" class="headerlink" title="使用 unlink 不能删除目录"></a>使用 unlink 不能删除目录</h3><p>GNU 实现下的 <code>unlink</code> 命令是无法删除目录的，如果给定的文件名称是一个目录，就会报错：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[gliu@fedora ~]$ <span class="built_in">unlink</span> new_dirunlink: cannot <span class="built_in">unlink</span> <span class="string">&#x27;new_dir&#x27;</span>: Is a directory</span><br></pre></td></tr></table></figure>
+
+<h3 id="rm-和-unlink-的区别"><a href="#rm-和-unlink-的区别" class="headerlink" title="rm 和 unlink 的区别"></a>rm 和 unlink 的区别</h3><p><code>unlink</code> 命令使用 <code>unlink</code> 系统命令，而 <code>rm</code> 命令使用 <code>unlinkat</code> 系统调用，两个系统调用几乎相同。但是这两个命令之间还是有一些明显的差异。</p>
+<p>如前文所述，<code>unlink</code> 命令在同一时间<strong>只能删除一个文件或链接</strong>，而 <code>rm</code> 命令<strong>可以删除多个</strong>；<code>unlink</code> 命令<strong>不能删除目录</strong>，而 <code>rm</code> 命令<strong>能删除目录</strong>。</p>
+<p><code>rm</code> 命令在执行的时候，首先会安全检查，如果你没有文件的写权限，那么系统会要求你给出写权限（sudo或者切换至管理员用户），或者使用强制删除选项 <code>-f</code>；而 <code>unlink</code> 则不会进行安全检查，直接删除文件。</p>
+<img data-src="/2023/12/30/187/640-20240115073950264.png" class="" title="图片">
+
+<p>另外，与 <code>rm</code> 不同，<code>unlink</code> 没有其他选项。</p>
+<p>在某些情况下，相比于 <code>rm</code>，你可能更喜欢使用 <code>unlink</code>。比如你希望强制删除一个文件，而不考虑安全或者权限问题；或者如果删除失败（比如文件不存在）的话你希望能看到报错信息，这种情况下就可以使用 <code>unlink</code>。因为使用 <code>rm -f</code> 强制删除文件，如果文件不存在的话，不会显示任何错误信息。</p>
+<h2 id="stat"><a href="#stat" class="headerlink" title="stat"></a>stat</h2><p>使用stat命令检查Linux上的文件状态</p>
+<p>GNU coreutils包中包含的stat命令提供了各种元数据，包括文件大小、inode位置、访问权限和SELinux上下文，以及关于文件和文件系统的创建和修改时间。这是一种收集信息的便捷方法，通常需要使用多个不同的命令来获取这些信息。</p>
+<h3 id="在Linux中安装stat"><a href="#在Linux中安装stat" class="headerlink" title="在Linux中安装stat"></a>在Linux中安装stat</h3><p>在Linux上，你可能已经安装了<code>stat</code>命令，因为它是核心程序包的一部分，默认情况下通常与Linux发行版捆绑在一起。</p>
+<p>如果没有安装stat，可以使用包管理器安装coreutils。</p>
+<p>或者，你可以下载源代码编译coreutils, <a target="_blank" rel="noopener" href="https://www.gnu.org/software/coreutils/">下载地址</a></p>
+<h3 id="获取文件的状态"><a href="#获取文件的状态" class="headerlink" title="获取文件的状态"></a>获取文件的状态</h3><p>运行stat提供一个关于特定文件或目录的易读的输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">stat</span> planets.xml</span><br><span class="line">  File: planets.xml</span><br><span class="line">  Size: 325      Blocks: 8     IO Block: 4096   regular file</span><br><span class="line">Device: fd03h/64771d    Inode: 140217      Links: 1</span><br><span class="line">Access: (0664/-rw-rw-r--)  Uid: (1000/tux)   Gid: (100/users)</span><br><span class="line">Context: unconfined_u:object_r:user_home_t:s0</span><br><span class="line">Access: 2021-08-17 18:26:57.281330711 +1200</span><br><span class="line">Modify: 2021-08-17 18:26:58.738332799 +1200</span><br><span class="line">Change: 2021-08-17 18:26:58.738332799 +1200</span><br><span class="line"> Birth: 2021-08-17 18:26:57.281330711 +1200</span><br></pre></td></tr></table></figure>
+
+<p>它可能很容易阅读，但仍然有很多信息。以下是stat所涵盖的内容：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>File</code></td>
+<td>文件名</td>
+</tr>
+<tr>
+<td><code>Size</code></td>
+<td>以字节为单位的文件大小</td>
+</tr>
+<tr>
+<td><code>Blocks</code></td>
+<td>硬盘上为此文件保留的块数</td>
+</tr>
+<tr>
+<td><code>IO Block</code></td>
+<td>文件系统块的大小</td>
+</tr>
+<tr>
+<td><code>regular file</code></td>
+<td>文件类型（常规文件、目录、文件系统）</td>
+</tr>
+<tr>
+<td><code>Device</code></td>
+<td>文件所在的设备</td>
+</tr>
+<tr>
+<td><code>Inode</code></td>
+<td>文件所在的索引节点号</td>
+</tr>
+<tr>
+<td><code>Links</code></td>
+<td>指向该文件的链接数</td>
+</tr>
+<tr>
+<td><code>Access, UID, GID</code></td>
+<td>文件权限、用户和组所有者</td>
+</tr>
+<tr>
+<td><code>Context</code></td>
+<td>SELinux 上下文</td>
+</tr>
+<tr>
+<td><code>Access, Modify, Change, Birth</code></td>
+<td>访问、修改、更改状态和创建文件的时间戳</td>
+</tr>
+</tbody></table>
+<h3 id="简洁输出"><a href="#简洁输出" class="headerlink" title="简洁输出"></a>简洁输出</h3><p>对于非常了解输出的人，或者希望使用其他实用程序（如awk）解析输出的人，可以使用 –terse（-t）选项，该选项可以格式化输出，而不使用标题或换行符。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">stat</span> --terse planets.xml</span><br><span class="line">planets.xml 325 8 81b4 100977 100 fd03 140217 1 0 0 1629181617 1629181618 1629181618 1629181617 4096 unconfined_u:object_r:user_home_t:s0</span><br></pre></td></tr></table></figure>
+
+<h3 id="选择自己的格式"><a href="#选择自己的格式" class="headerlink" title="选择自己的格式"></a>选择自己的格式</h3><p>你可以使用<code>--printf</code>选项和类似于<code>printf</code>的语法定义自己的输出格式。<code>stat</code>报告的每个属性都有一个格式序列（<code>%C</code>表示SELinux上下文，%n表示文件名，等等），因此你可以选择希望在报告中看到的内容。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">stat</span> --<span class="built_in">printf</span>=<span class="string">&quot;%n\n%C\n&quot;</span> planets.xml</span><br><span class="line">planets.xml</span><br><span class="line">unconfined_u:object_r:user_home_t:s0</span><br><span class="line">$ $ <span class="built_in">stat</span> --<span class="built_in">printf</span>=<span class="string">&quot;Name: %n\nModified: %y\n&quot;</span> planets.xml</span><br><span class="line">Name: planets.xml</span><br><span class="line">Modified: 2021-08-17 18:26:58.738332799 +1200</span><br></pre></td></tr></table></figure>
+
+<p>以下是一些常见的格式序列：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>%a</code></td>
+<td>访问权限</td>
+</tr>
+<tr>
+<td><code>%F</code></td>
+<td>文件类型</td>
+</tr>
+<tr>
+<td><code>%n</code></td>
+<td>文件名称</td>
+</tr>
+<tr>
+<td><code>%U</code></td>
+<td>用户名称</td>
+</tr>
+<tr>
+<td><code>%u</code></td>
+<td>用户ID</td>
+</tr>
+<tr>
+<td><code>%g</code></td>
+<td>组 ID</td>
+</tr>
+<tr>
+<td><code>%w</code></td>
+<td>创建时间</td>
+</tr>
+<tr>
+<td><code>%y</code></td>
+<td>修改时间</td>
+</tr>
+</tbody></table>
+<p>详情大家可以参考stat手册或者coreutils手册。</p>
+<h3 id="文件信息"><a href="#文件信息" class="headerlink" title="文件信息"></a>文件信息</h3><p>如果你曾经尝试过解析<code>ls -l</code>的输出，那么你会喜欢<code>stat</code>命令的灵活性。你并不总是需要stat提供的所有默认信息，但是当你确实需要部分或全部信息时，该命令是很好用的。无论你是以默认格式读取其输出，还是创建自己的查询，stat命令都可以让你轻松访问有关数据的数据。</p>
+<h1 id="blkid"><a href="#blkid" class="headerlink" title="blkid"></a>blkid</h1><p>查看块设备的文件系统类型、LABEL、UUID等信息</p>
+<p>在Linux下可以使用 <strong>blkid命令</strong> 对查询设备上所采用文件系统类型进行查询。blkid主要用来对系统的块设备（包括交换分区）所使用的文件系统类型、LABEL、UUID等信息进行查询。要使用这个命令必须安装e2fsprogs软件包。</p>
+<h2 id="语法-10"><a href="#语法-10" class="headerlink" title="语法"></a>语法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ blkid -L | -U</span><br><span class="line">$ blkid [-c ] [-ghlLv] [-o] [-s ][-t ] -[w ] [ ...]</span><br><span class="line">$ blkid -p [-s ] [-O ] [-S ][-o] ...</span><br><span class="line">$ blkid -i [-s ] [-o] ...</span><br></pre></td></tr></table></figure>
+
+<h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-c &lt;file&gt;</code></td>
+<td>指定cache文件(default: &#x2F;etc&#x2F;blkid.tab, &#x2F;dev&#x2F;null &#x3D; none)</td>
+</tr>
+<tr>
+<td><code>-d</code></td>
+<td>don’t encode non-printing characters</td>
+</tr>
+<tr>
+<td><code>-h</code></td>
+<td>显示帮助信息</td>
+</tr>
+<tr>
+<td><code>-g</code></td>
+<td>garbage collect the blkid cache</td>
+</tr>
+<tr>
+<td><code>-o &lt;format&gt;</code></td>
+<td>指定输出格式</td>
+</tr>
+<tr>
+<td><code>-k</code></td>
+<td>list all known filesystems&#x2F;RAIDs and exit</td>
+</tr>
+<tr>
+<td><code>-s &lt;tag&gt;</code></td>
+<td>显示指定信息，默认显示所有信息</td>
+</tr>
+<tr>
+<td><code>-t &lt;token&gt;</code></td>
+<td>find device with a specific token (NAME&#x3D;value pair)</td>
+</tr>
+<tr>
+<td><code>-l</code></td>
+<td>look up only first device with token specified by -t</td>
+</tr>
+<tr>
+<td><code>-L &lt;label&gt;</code></td>
+<td>convert LABEL to device name</td>
+</tr>
+<tr>
+<td><code>-U &lt;uuid&gt;</code></td>
+<td>convert UUID to device name</td>
+</tr>
+<tr>
+<td><code>-v</code></td>
+<td>显示版本信息</td>
+</tr>
+<tr>
+<td><code>-w &lt;file&gt;</code></td>
+<td>write cache to different file (&#x2F;dev&#x2F;null &#x3D; no write)</td>
+</tr>
+<tr>
+<td><code>&lt;dev&gt;</code></td>
+<td>specify device(s) to probe (default: all devices)</td>
+</tr>
+</tbody></table>
+<h3 id="Low-level-probing-options"><a href="#Low-level-probing-options" class="headerlink" title="Low-level probing options"></a>Low-level probing options</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-p</code></td>
+<td>low-level superblocks probing (bypass cache)</td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td>gather information about I&#x2F;O limits</td>
+</tr>
+<tr>
+<td><code>-S &lt;size&gt;</code></td>
+<td>overwrite device size</td>
+</tr>
+<tr>
+<td><code>-O &lt;offset&gt;</code></td>
+<td>probe at the given offset</td>
+</tr>
+<tr>
+<td><code>-u &lt;list&gt;</code></td>
+<td>filter by “usage” (e.g. -u filesystem,raid)</td>
+</tr>
+<tr>
+<td><code>-n &lt;list&gt;</code></td>
+<td>filter by filesystem type (e.g. -n vfat,ext3)</td>
+</tr>
+</tbody></table>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><ol>
+<li><p>列出当前系统中所有已挂载文件系统的类型：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo blkid</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示指定设备 UUID：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo blkid -s UUID /dev/sda5</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示所有设备 UUID：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo blkid -s UUID</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示指定设备 LABEL：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo blkid -s LABEL /dev/sda5</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示所有设备 LABEL：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo blkid -s LABEL</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示所有设备文件系统：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo blkid -s TYPE</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示所有设备：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo blkid -o device</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>以列表方式查看详细信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo blkid -o list</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="mount和umount"><a href="#mount和umount" class="headerlink" title="mount和umount"></a>mount和umount</h1><h2 id="mount"><a href="#mount" class="headerlink" title="mount"></a>mount</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mount [-t vfstype] [-o options] device <span class="built_in">dir</span></span><br></pre></td></tr></table></figure>
+
+<p>特别地, 指定 NTFS</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t ntfs3 /dev/sdxY /mnt</span><br></pre></td></tr></table></figure>
+
+<h3 id="参数讲解"><a href="#参数讲解" class="headerlink" title="参数讲解"></a>参数讲解</h3><ul>
+<li><p><code>-t vfstype</code> 指定文件系统的类型，通常不必指定，mount 会自动选择正确的类型</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>iso9660</code></td>
+<td>光盘或光盘镜像</td>
+</tr>
+<tr>
+<td><code>msdos</code></td>
+<td>DOS fat16文件系统</td>
+</tr>
+<tr>
+<td><code>vfat</code></td>
+<td>Windows 9x fat32文件系统</td>
+</tr>
+<tr>
+<td><code>ntfs</code></td>
+<td>Windows NT ntfs文件系统</td>
+</tr>
+<tr>
+<td><code>smbfs</code></td>
+<td>Mount Windows文件网络共享</td>
+</tr>
+<tr>
+<td><code>nfs</code></td>
+<td>UNIX(LINUX) 文件网络共享</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>查看文件系统的类型<a href="#blkid">见这里</a></p>
+</blockquote>
+</li>
+<li><p><code>-o options</code> 主要用来描述设备或档案的挂接方式</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>loop</code></td>
+<td>用来把一个文件当成硬盘分区挂接上系统</td>
+</tr>
+<tr>
+<td><code>ro</code></td>
+<td>采用只读方式挂接设备</td>
+</tr>
+<tr>
+<td><code>rw</code></td>
+<td>采用读写方式挂接设备</td>
+</tr>
+<tr>
+<td><code>iocharset</code></td>
+<td>指定访问文件系统所用字符集</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>device 要挂接(mount)的设备</p>
+</li>
+<li><p>dir设备在系统上的挂接点(mount point)</p>
+</li>
+</ul>
+<h2 id="卸载磁盘时报错：’Umount-Target-is-Busy’"><a href="#卸载磁盘时报错：’Umount-Target-is-Busy’" class="headerlink" title="卸载磁盘时报错：’Umount Target is Busy’"></a>卸载磁盘时报错：’Umount Target is Busy’</h2><p>原因很简单，要卸载的目标设备还仍在使用中。</p>
+<p>如果有足够的权限，任何进程都可能正在使用你即将要卸载的驱动器。为了防止数据丢失，所以系统内核不允许你将其卸载。</p>
+<h3 id="那么怎么解决这个问题呢？"><a href="#那么怎么解决这个问题呢？" class="headerlink" title="那么怎么解决这个问题呢？"></a>那么怎么解决这个问题呢？</h3><p>提示：如果后台正在进行数据传输，可能会因为强制卸载驱动器而造成数据丢失。</p>
+<p>基于某种原因，有时候我们需要强制卸载驱动器。比如因某种原因造成的驱动器没有相应。强制卸载驱动器有多种方法，比如：</p>
+<ul>
+<li>杀掉进程；</li>
+<li>使用强制卸载（force unmount）</li>
+<li>使用延迟卸载（lazy unmount）</li>
+</ul>
+<p>我们先来看看第一种方法。</p>
+<h3 id="方法1：通过杀掉进程来强制卸载驱动器"><a href="#方法1：通过杀掉进程来强制卸载驱动器" class="headerlink" title="方法1：通过杀掉进程来强制卸载驱动器"></a>方法1：通过杀掉进程来强制卸载驱动器</h3><p>这应该是强制卸载磁盘驱动器的最佳方式，因为不管怎样，你都会杀掉这个进程。</p>
+<p>首先第一步是要找到造成该问题的进程的 PID。可以使用 <code>lsof</code> 命令，如下所示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsof /Path/to/target</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2023/12/30/187/640-20240116073411013.png" class="" title="图片">
+
+<p>找到 pid 后，要终止这个进程就很简单了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">kill</span> -9 [PID]</span><br></pre></td></tr></table></figure>
+
+<p>终止进程后，再次执行磁盘驱动器 <code>umount</code> 命令就可以了：</p>
+<img data-src="/2023/12/30/187/640-20240116073411219.png" class="" title="图片">
+
+<h3 id="方法2：强制卸载（适用于网络文件系统-Network-file-systems）"><a href="#方法2：强制卸载（适用于网络文件系统-Network-file-systems）" class="headerlink" title="方法2：强制卸载（适用于网络文件系统 Network file systems）"></a>方法2：强制卸载（适用于网络文件系统 Network file systems）</h3><p>当处理网路文件系统的时候，强制卸载是遇到 ‘umount: target is busy’ 问题时首选的方法。但是对于本地文件系统，其结果可能会不一样。</p>
+<p>强制卸载磁盘，可以使用 <code>umount</code> 命令的 <code>-f</code> 选项，如下所示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount -f /Path/to/target</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2023/12/30/187/640-20240116073411221.png" class="" title="图片">
+
+<h3 id="方法3：使用延迟卸载（lazy-unmount）"><a href="#方法3：使用延迟卸载（lazy-unmount）" class="headerlink" title="方法3：使用延迟卸载（lazy unmount）"></a>方法3：使用延迟卸载（lazy unmount）</h3><p>该方法不会立刻卸载目标，而只是将其从命名空间中删除掉。当目标驱动器不被使用的时候，再将其卸载掉。使用这个方法，你可能无法确定目标是否已经被卸载掉，这就像薛定谔的卸载。我们之所以介绍这种方法，是因为它是最柔和（无害）的一种方法。</p>
+<p>使用延迟卸载，可以在 <code>umount</code> 命令中添加 <code>-l</code> 选项，如下所示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount -l /Path/to/target</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2023/12/30/187/640-20240116073411246.png" class="" title="图片">
+
+<p>上述我们介绍的三种方法中，我更倾向于使用第一种方法，即直接杀掉占用磁盘的进程。当然大家可以根据各自实际情况选择合适的方法。</p>
+<h1 id="grub"><a href="#grub" class="headerlink" title="grub"></a>grub</h1><h2 id="不显示grub启动项"><a href="#不显示grub启动项" class="headerlink" title="不显示grub启动项"></a>不显示grub启动项</h2><h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><p>启动时候一直按住shift键</p>
+<p>以前的Ubuntu版本，启动grub的时候，有一个grub loading，press ESC to get the menu的提示，所以按ESC就可以看到grub界面</p>
+<p>现在的Ubuntu没有了，现在的做法是，启动的时候按住shift键，就可以看到grub界面了。</p>
+<p>（接下来就修改启动参数，加入single，然后按ctrl+x启动，就能看到一个ncurse的界面，选择drop to root prompt，就可以得到一个root的terminal然后就可以重新设置root口令了）</p>
+<h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><ol>
+<li><p><code>sudo gedit /etc/default/grub</code></p>
+<p>修改如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GRUB_HIDDEN_TIMEOUT=0</span><br><span class="line"><span class="comment">#GRUB_HIDDEN_TIMEOUT_QUIET=true</span></span><br><span class="line">GRUB_TIMEOUT=0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>sudo update-grub</code></p>
+</li>
+</ol>
+<blockquote>
+<p>说明</p>
+</blockquote>
+<ol>
+<li><p><code>GRUB_HIDDEN_TIMEOUT=0</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">此配置将影响菜单显示。若设置此选项,将在此时间内隐藏菜单而显示引导画面。</span><br><span class="line">菜单将会被隐藏,除非在此行开头加上一个 <span class="comment"># 符号。(# GRUB_HIDDEN_TIMEOUT=0)。</span></span><br><span class="line">GRUB 2 第一次执行时将会寻找其他操作系统。若没有其他操作系统被检测到,菜单将会配置为隐藏。若辨认出其他操作系统,菜单将会显示。</span><br><span class="line">若是大于 0 的整数,系统将会依此配置的秒数暂停,但不会显示菜单。</span><br><span class="line">0 则菜单不会显示,也不会有延迟。</span><br><span class="line">使用者可以在启动时按住 SHIFT 键不放以强制显示菜单。</span><br><span class="line">启动过程中,系统将会检查 SHIFT 键状态。若无法辨识按键状态,会有一个短时间的延迟让使用者可通过按下 ESC 键来显示菜单。</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>2.GRUB_HIDDEN_TIMEOUT_QUIET&#x3D;true</p>
+   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">true</span> 不显示倒计时。屏幕将会是空白的。</span><br><span class="line"><span class="literal">false</span> 在 GRUB_HIDDEN_TIMEOUT 中配置的时间,空白屏幕上会有一个倒数计时器。</span><br></pre></td></tr></table></figure>
+
+<p>3.GRUB_TIMEOUT&#x3D;10</p>
+   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">此命令将顺从 GRUB_HIDDEN_TIMEOUT 配置,除非 GRUB_HIDDEN_TIMEOUT 被注释掉(<span class="comment">#)。若 GRUB_HIDDEN_TIMEOUT 启用,则当菜单显示时,GRUB_TIMEOUT 将会只执行一次。</span></span><br><span class="line">配置此值为 -1 将会导致菜单一直显示,直到用户选择。</span><br><span class="line">GRUB 2 菜单默认为隐藏,除非其他操作系统被系统检测到。若没有其他操作系统,此行将会被注释掉,除非使用者修改它。为了在每次启动时显示菜单,去掉此行的注释并使用 1 或更大的值。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>references</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzI0OTQyNjU5Mw==&mid=2247483751&idx=1&sn=0956dc333351596f9e48f8e41a223325&chksm=e990e6a9dee76fbf5048d29a7a6255bb694ed9e56c0b23f4d39b63d5863eba8b00c150cb2b9c&scene=178&cur_album_id=1894932981526380552#rd">TIAP</a></li>
+<li>[Linux入门基础](<a target="_blank" rel="noopener" href="https://linux265.com/course/introductory">https://linux265.com/course/introductory</a> linux tutorials.html)</li>
+<li><a target="_blank" rel="noopener" href="https://linux265.com/course/unix-toolbox-intro.html">Unix Toolbox</a></li>
+<li><a target="_blank" rel="noopener" href="https://linux265.com/course/systemctl-intro.html">Systemctl 教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://linux265.com/course/vim-intro.html">Vim 命令操作教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://linux265.com/course/linux-command-ldconfig.html">Linux命令大全</a></li>
+<li><a target="_blank" rel="noopener" href="https://linux265.com/course/shell-tutorials.html">Shell入门教程</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://qeuroal.top/2023/12/30/187/" title="187. Linux文件">http://qeuroal.top/2023/12/30/187/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/11/17/186/" rel="prev" title="186. yacs 使用记录">
+                  <i class="fa fa-angle-left"></i> 186. yacs 使用记录
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/12/30/188/" rel="next" title="188. Linux用户与用户组">
+                  188. Linux用户与用户组 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Qeuroal" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="管道是什么? 如何使用管道进行线程间通信?">
+<meta property="og:type" content="article">
+<meta property="og:title" content="183. 管道与多线程">
+<meta property="og:url" content="http://qeuroal.top/2023/11/05/183/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Blog">
+<meta property="og:description" content="管道是什么? 如何使用管道进行线程间通信?">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qeuroal.top/2023/11/05/183/image-20231105103953741.png">
+<meta property="article:published_time" content="2023-11-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-08T06:36:58.563Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="c&#x2F;c++">
+<meta property="article:tag" content="thread">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qeuroal.top/2023/11/05/183/image-20231105103953741.png">
+
+
+<link rel="canonical" href="http://qeuroal.top/2023/11/05/183/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2023/11/05/183/","path":"2023/11/05/183/","title":"183. 管道与多线程"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>183. 管道与多线程 | Qeuroal's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Qeuroal's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">静幽正治</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%A1%E9%81%93"><span class="nav-number">1.</span> <span class="nav-text">管道</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PIPE%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">1.2.</span> <span class="nav-text">PIPE初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">1.3.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BB%E7%AE%A1%E9%81%93"><span class="nav-number">1.3.1.</span> <span class="nav-text">读管道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%99%E7%AE%A1%E9%81%93"><span class="nav-number">1.3.2.</span> <span class="nav-text">写管道</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%A1%E9%81%93%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">2.</span> <span class="nav-text">管道与多线程的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B"><span class="nav-number">2.1.</span> <span class="nav-text">实例</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">大人者，不失其赤子之心</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2023/11/05/183/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="183. 管道与多线程 | Qeuroal's Blog">
+      <meta itemprop="description" content="管道是什么? 如何使用管道进行线程间通信?">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          183. 管道与多线程
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-11-05 00:00:00" itemprop="dateCreated datePublished" datetime="2023-11-05T00:00:00+08:00">2023-11-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-08 14:36:58" itemprop="dateModified" datetime="2025-12-08T14:36:58+08:00">2025-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/c-c/" itemprop="url" rel="index"><span itemprop="name">c/c++</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">管道是什么? 如何使用管道进行线程间通信?</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h1><h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">pipe</span><span class="params">(<span class="type">int</span> fildes[<span class="number">2</span>])</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>The pipe function <strong>creates a communication buffer</strong> that the caller can access through the file descriptors fildes[0] and fildes[1]. The data <strong>written to fildes[1]</strong> can be <strong>read from fildes[0]</strong> on a <strong>first-in-first-out basis</strong>.</p>
+<ul>
+<li><p>最简单的UNIX进程间通信机制</p>
+</li>
+<li><p>管道是一种特殊的文件</p>
+</li>
+<li><p>pipe函数创建一个通信缓冲区,程序可以通过文件描述符<code>fildes[0]</code>和<code>fildes[1]</code>来访问这个缓冲区</p>
+</li>
+<li><p>写入<code>fildes[1]</code>的数据可以按照先进先出的顺序从<code>fildes[0]</code>中读出</p>
+</li>
+<li><p>如果成功则返回0。否则返回-1,并设置errno</p>
+</li>
+<li><p>使用 <code>close()</code> 关闭管道</p>
+  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 关闭读管道</span></span><br><span class="line"><span class="built_in">close</span>(pfd[<span class="number">0</span>]);</span><br><span class="line"><span class="comment">// 关闭写管道</span></span><br><span class="line"><span class="built_in">close</span>(pfd[<span class="number">1</span>]);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="PIPE初始化"><a href="#PIPE初始化" class="headerlink" title="PIPE初始化"></a>PIPE初始化</h2><ul>
+<li><p>PIPE 设备文件系统分配 inode</p>
+  <img data-src="/2023/11/05/183/image-20231105103953741.png" class="" title="image-20231105103953741">
+</li>
+<li><p>分配读写两个文件表项,分配两个文件描述符,设置相关引用计数</p>
+</li>
+<li><p>使用直接快作为BUFFER缓冲写入数据</p>
+</li>
+<li><p>循环数组方式使用BUFFER</p>
+</li>
+</ul>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>使用 <code>read</code> 和 <code>write</code> 对管道进行读写.</p>
+<h3 id="读管道"><a href="#读管道" class="headerlink" title="读管道"></a>读管道</h3><ul>
+<li><p>示例</p>
+  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> pfd[<span class="number">2</span>];</span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">pipe</span>(pfd) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;ERROR: failed to create the pipe.&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">ssize_t</span> n = <span class="built_in">read</span>(pfd[<span class="number">0</span>], buffer, bufferSize);<span class="built_in">read</span>(pfd[<span class="number">1</span>], buf, size);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意</p>
+<table>
+<thead>
+<tr>
+<th>条件</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>管道读写端都未关闭(未调用<code>close()</code>函数)<br>&amp;&amp; 管道中有数据</td>
+<td>成功读出数据<br>&amp;&amp; 返回值为读出的字节数</td>
+</tr>
+<tr>
+<td>管道读写端都未关闭(未调用<code>close()</code>函数)<br>&amp;&amp; 管道中无数据</td>
+<td>阻塞</td>
+</tr>
+<tr>
+<td>管道读端关闭(<code>close(pfd[0])</code>)<br>&amp;&amp; 管道中有数据</td>
+<td>return -1</td>
+</tr>
+<tr>
+<td>管道读端关闭(<code>close(pfd[0])</code>)<br>&amp;&amp; 管道中无数据</td>
+<td>return -1</td>
+</tr>
+<tr>
+<td>管道写端关闭(<code>close(pfd[1])</code>)<br>&amp;&amp; 管道中有数据</td>
+<td>成功读出数据<br>&amp;&amp; 返回值为读出的字节数</td>
+</tr>
+<tr>
+<td>管道写端关闭(<code>close(pfd[1])</code>)<br>&amp;&amp; 管道中无数据</td>
+<td>reutrn 0</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h3 id="写管道"><a href="#写管道" class="headerlink" title="写管道"></a>写管道</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> pfd[<span class="number">2</span>];</span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">pipe</span>(pfd) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;ERROR: failed to create the pipe.&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">write</span>(pfd[<span class="number">1</span>], buffer, bufferSize);</span><br></pre></td></tr></table></figure>
+
+<h1 id="管道与多线程的关系"><a href="#管道与多线程的关系" class="headerlink" title="管道与多线程的关系"></a>管道与多线程的关系</h1><p>在Linux和类Unix系统中，读写管道不需要加锁的原因是因为<strong>管道本身是一个原子性的操作</strong>，只有一个写入端和一个读取端。由于管道的设计和操作是线性的，不会有多个写入端或读取端同时操作同一个管道。</p>
+<p>在多进程或多线程环境中，多个进程或线程可以同时读取或写入管道，但这些操作不会导致数据竞争或并发问题，因为操作系统确保了管道的原子性。<strong>每次写入或读取操作都是原子的，不会中断或影响其他操作</strong>。这是因为操作系统会在内核层面对管道进行适当的同步和管理，以确保数据的一致性和完整性。</p>
+<p>使用管道进行多线程之间的信息传递, 由于管道自带了锁, 因此不需要加锁. 同时, 管道中的阻塞现象, 也可以避免使用信号量进行同步.</p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstddef&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdint&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> BLOCK_SIZE 1024</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> READER_COUNT 20</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> WRITER_COUNT 10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 管道描述符</span></span><br><span class="line"><span class="type">int</span> pfd[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> infileFd;</span><br><span class="line"><span class="type">int</span> outfileFd;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Buffer</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">off_t</span> offset;</span><br><span class="line">    <span class="type">ssize_t</span> dataLength;</span><br><span class="line">    <span class="type">char</span> data[BLOCK_SIZE];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ThreadArgs</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">uint32_t</span> id;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> *<span class="title">readerFunc</span><span class="params">(<span class="type">void</span> *args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (args == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;ERROR: args is NULL&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ThreadArgs *tArgs = (ThreadArgs *)args;</span><br><span class="line"></span><br><span class="line">    Buffer *buffer = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> epoch = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        buffer = <span class="keyword">new</span> Buffer;</span><br><span class="line">        <span class="built_in">memset</span>(buffer, <span class="number">0</span>, <span class="built_in">sizeof</span>(*buffer));</span><br><span class="line">        <span class="type">ssize_t</span> blockSize = <span class="built_in">sizeof</span>(buffer-&gt;data);</span><br><span class="line">        buffer-&gt;offset = (tArgs-&gt;id + epoch * READER_COUNT) * blockSize;</span><br><span class="line">        buffer-&gt;dataLength = <span class="built_in">pread</span>(infileFd, buffer-&gt;data, blockSize, buffer-&gt;offset);</span><br><span class="line">        <span class="keyword">if</span> (buffer-&gt;dataLength == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">delete</span> buffer;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;INFO: thread %d finish to read the infile\n&quot;</span>, tArgs-&gt;id);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (buffer-&gt;dataLength &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;WARNING: thread %d failed to read infile\n&quot;</span>, tArgs-&gt;id);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">write</span>(pfd[<span class="number">1</span>], &amp;buffer, <span class="built_in">sizeof</span>(Buffer *));</span><br><span class="line">            ++epoch;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">pthread_exit</span>(<span class="literal">NULL</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> *<span class="title">writerFunc</span><span class="params">(<span class="type">void</span> *args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (args == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;ERROR: tArgs is NULL&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ThreadArgs *tArgs = (ThreadArgs *)args;</span><br><span class="line"></span><br><span class="line">    Buffer *buffer = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="type">int</span> ret = <span class="built_in">read</span>(pfd[<span class="number">0</span>], &amp;buffer, <span class="built_in">sizeof</span>(Buffer *));</span><br><span class="line">        <span class="keyword">if</span> (ret &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;ERROR: thread %d failed to read pipe error.\n&quot;</span>, tArgs-&gt;id);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ret == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;INFO: thread %d pipe is empty, quiting\n&quot;</span>, tArgs-&gt;id );</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">pwrite</span>(outfileFd, buffer-&gt;data, buffer-&gt;dataLength, buffer-&gt;offset);</span><br><span class="line">            <span class="keyword">delete</span> buffer;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">pthread_exit</span>(<span class="literal">NULL</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> **args)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="type">clock_t</span> startTime = <span class="built_in">clock</span>();</span><br><span class="line">    <span class="type">clock_t</span> finishTime;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (argc != <span class="number">3</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;ERROR: please enter the infile and outfile.&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">pipe</span>(pfd) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;ERROR: failed to create the pipe.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ((infileFd = <span class="built_in">open</span>(args[<span class="number">1</span>], O_RDONLY)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;failed to open infile&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ((outfileFd = <span class="built_in">open</span>(args[<span class="number">2</span>], O_RDWR)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;failed to open outfile&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="type">pthread_t</span> readerHandles[READER_COUNT];</span><br><span class="line">    ThreadArgs readerArgs[READER_COUNT];</span><br><span class="line">    <span class="type">pthread_t</span> writerHandles[WRITER_COUNT];</span><br><span class="line">    ThreadArgs writerArgs[WRITER_COUNT];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; READER_COUNT; ++i) &#123;</span><br><span class="line">        readerArgs[i].id = i;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">pthread_create</span>(readerHandles + i, <span class="literal">NULL</span>, readerFunc, readerArgs + i) != <span class="number">0</span>) &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;ERROR: failed to create reader thread &quot;</span> &lt;&lt; i &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; WRITER_COUNT; ++i) &#123;</span><br><span class="line">        writerArgs[i].id = i;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">pthread_create</span>(writerHandles + i, <span class="literal">NULL</span>, writerFunc, writerArgs + i) != <span class="number">0</span>) &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;ERROR: failed to create writer thread &quot;</span> &lt;&lt; i &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; READER_COUNT; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">pthread_join</span>(readerHandles[i], <span class="literal">NULL</span>) != <span class="number">0</span>) &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;ERROR: failed to join reader thread &quot;</span> &lt;&lt; i &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 读者向管道写入数据</span></span><br><span class="line">    <span class="built_in">close</span>(pfd[<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; WRITER_COUNT; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">pthread_join</span>(writerHandles[i], <span class="literal">NULL</span>) != <span class="number">0</span>) &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;ERROR: failed to join reader thread &quot;</span> &lt;&lt; i &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 写者从管道读取数据</span></span><br><span class="line">    <span class="built_in">close</span>(pfd[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 关闭文件描述符</span></span><br><span class="line">    <span class="built_in">close</span>(infileFd);</span><br><span class="line">    <span class="built_in">close</span>(outfileFd);</span><br><span class="line"></span><br><span class="line">    finishTime = <span class="built_in">clock</span>();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;spend time %f seconds\n&quot;</span>, (<span class="type">double</span>)(finishTime - startTime) / CLOCKS_PER_SEC);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://qeuroal.top/2023/11/05/183/" title="183. 管道与多线程">http://qeuroal.top/2023/11/05/183/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/c-c/" rel="tag"><i class="fa fa-tag"></i> c/c++</a>
+              <a href="/tags/thread/" rel="tag"><i class="fa fa-tag"></i> thread</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/11/04/182/" rel="prev" title="182. 趣谈网络协议">
+                  <i class="fa fa-angle-left"></i> 182. 趣谈网络协议
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/11/09/184/" rel="next" title="184. 指针">
+                  184. 指针 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Qeuroal" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

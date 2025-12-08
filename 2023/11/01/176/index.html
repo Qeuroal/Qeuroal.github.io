@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="踩坑">
+<meta property="og:type" content="article">
+<meta property="og:title" content="176. C&#x2F;C++ 结构体的成员数组和指针">
+<meta property="og:url" content="http://qeuroal.top/2023/11/01/176/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Blog">
+<meta property="og:description" content="踩坑">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qeuroal.top/2023/11/01/176/image-20231101085801861.png">
+<meta property="article:published_time" content="2023-10-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-08T06:36:58.539Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="c&#x2F;c++">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qeuroal.top/2023/11/01/176/image-20231101085801861.png">
+
+
+<link rel="canonical" href="http://qeuroal.top/2023/11/01/176/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2023/11/01/176/","path":"2023/11/01/176/","title":"176. C/C++ 结构体的成员数组和指针"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>176. C/C++ 结构体的成员数组和指针 | Qeuroal's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Qeuroal's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">静幽正治</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%B0%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text">现象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%AD%E7%9A%84%E6%88%90%E5%91%98"><span class="nav-number">2.</span> <span class="nav-text">结构体中的成员</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E9%92%88%E5%92%8C%E6%95%B0%E7%BB%84%E7%9A%84%E5%B7%AE%E5%88%AB"><span class="nav-number">3.</span> <span class="nav-text">指针和数组的差别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E9%9B%B6%E9%95%BF%E5%BA%A6%E7%9A%84%E6%95%B0%E7%BB%84"><span class="nav-number">4.</span> <span class="nav-text">关于零长度的数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-number">5.</span> <span class="nav-text">测试</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">大人者，不失其赤子之心</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2023/11/01/176/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="176. C/C++ 结构体的成员数组和指针 | Qeuroal's Blog">
+      <meta itemprop="description" content="踩坑">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          176. C/C++ 结构体的成员数组和指针
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-11-01 00:00:00" itemprop="dateCreated datePublished" datetime="2023-11-01T00:00:00+08:00">2023-11-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-08 14:36:58" itemprop="dateModified" datetime="2025-12-08T14:36:58+08:00">2025-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/c-c/" itemprop="url" rel="index"><span itemprop="name">c/c++</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">踩坑</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">str</span>&#123;</span></span><br><span class="line">    <span class="type">int</span> len;</span><br><span class="line">    <span class="type">char</span> s[<span class="number">0</span>];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">foo</span> &#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">str</span> *<span class="title">a</span>;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>** argv)</span> &#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">foo</span> <span class="title">f</span>=</span>&#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">if</span> (f.a-&gt;s) &#123;</span><br><span class="line">        <span class="built_in">printf</span>( f.a-&gt;s);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用gdb调试如下:</p>
+<img data-src="/2023/11/01/176/image-20231101085801861.png" class="" title="image-20231101085801861">
+
+<p>你编译一下上面的代码，在VC++和GCC下都会在14行的printf处crash掉你的程序。</p>
+<p>接下来，你调试一下，或是你把14行的printf语句改成：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%x\n&quot;</span>, f.a-&gt;s);</span><br></pre></td></tr></table></figure>
+
+<p>你会看到程序不crash了。程序输出：4。 这下你知道了，访问0x4的内存地址，不crash才怪。于是，你一定会有如下的问题：</p>
+<ol>
+<li>为什么不是 13行if语句出错？<code>f.a</code>被初始化为空了嘛，用空指针访问成员变量为什么不crash？</li>
+<li>为什么会访问到了<code>0x4</code>的地址？靠，4是怎么出来的？</li>
+<li>代码中的第4行，<code>char s[0]</code> 是个什么东西？零长度的数组？为什么要这样玩？</li>
+</ol>
+<h1 id="结构体中的成员"><a href="#结构体中的成员" class="headerlink" title="结构体中的成员"></a>结构体中的成员</h1><p>首先，我们需要知道——<strong>所谓变量名，其实是内存地址的一个抽像名字罢了, 而变量就是内存空间</strong>。在静态编译的程序中，所有的变量名都会在编译时被转成内存地址。机器是不知道我们取的名字的，只知道地址。</p>
+<p>所以有了&#x3D;&#x3D;栈内存区，堆内存区，静态内存区，常量内存区&#x3D;&#x3D;，我们代码中的所有变量都会被编译器预先放到这些内存区中。</p>
+<p>有了上面这个基础，我们来看一下结构体中的成员的地址是什么？我们先简单化一下代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">test</span>&#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="type">char</span> *p;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，test结构中i和p指针，在C的编译器中保存的是&#x3D;&#x3D;相对地址&#x3D;&#x3D;. 也就是说，他们的地址是相对于<code>struct test</code>的实例的。如果我们有这样的代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">test</span> t;</span><br></pre></td></tr></table></figure>
+
+<p>我们用gdb跟进去，对于实例t，我们可以看到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># t实例中的p就是一个野指针</span><br><span class="line">(gdb) p t</span><br><span class="line">$1 = &#123;i = 0, c = 0 &#x27;\000&#x27;, d = 0 &#x27;\000&#x27;, p = 0x4003e0 &quot;1\355I\211\...&quot;&#125;</span><br><span class="line"></span><br><span class="line"># 输出t的地址</span><br><span class="line">(gdb) p &amp;t</span><br><span class="line">$2 = (struct test *) 0x7fffffffe5f0</span><br><span class="line"></span><br><span class="line">#输出(t.i)的地址</span><br><span class="line">(gdb) p &amp;(t.i)</span><br><span class="line">$3 = (char **) 0x7fffffffe5f0</span><br><span class="line"></span><br><span class="line">#输出(t.p)的地址</span><br><span class="line">(gdb) p &amp;(t.p)</span><br><span class="line">$4 = (char **) 0x7fffffffe5f4</span><br></pre></td></tr></table></figure>
+
+<p>我们可以看到，<code>t.i</code>的地址和<code>t</code>的地址是一样的，<code>t.p</code>的址址相对于<code>t</code>的地址多了个4。说白了，**<code>t.i</code> 其实就是<code>(&amp;t + 0x0)</code>**, **<code>t.p</code> 的其实就是 <code>(&amp;t + 0x4)</code>**。<code>0x0</code>和<code>0x4</code>这个偏移地址就是成员i和p在编译时就被编译器给&#x3D;&#x3D;hard code&#x3D;&#x3D;了的地址。于是，你就知道，&#x3D;&#x3D;不管结构体的实例是什么——访问其成员其实就是加成员的偏移量&#x3D;&#x3D;。</p>
+<p>下面我们来做个实验：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">test</span>&#123;</span></span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="type">short</span> c;</span><br><span class="line">    <span class="type">char</span> *p;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">test</span> *<span class="title">pt</span>=</span><span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译后，我们用gdb调试一下，当初始化pt后，我们看看如下的调试：（我们可以看到就算是pt为NULL，访问其中的成员时，其实就是在访问相对于pt的内址）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(gdb) p pt</span><br><span class="line">$1 = (struct test *) 0x0</span><br><span class="line">(gdb) p pt-&gt;i</span><br><span class="line">Cannot access memory at address 0x0</span><br><span class="line">(gdb) p pt-&gt;c</span><br><span class="line">Cannot access memory at address 0x4</span><br><span class="line">(gdb) p pt-&gt;p</span><br><span class="line">Cannot access memory at address 0x8</span><br></pre></td></tr></table></figure>
+
+<p>注意：上面的<code>pt-&gt;p</code>的偏移之所以是<code>0x8</code>而不是<code>0x6</code>，是因为内存对齐了（我在64位系统上）。关于内存对齐，可参看《<a target="_blank" rel="noopener" href="https://coolshell.cn/articles/5761.html">深入理解C语言</a>》一文。</p>
+<p>好了，现在你知道为什么原题中会访问到了<code>0x4</code>的地址了吧，因为是相对地址。</p>
+<p>相对地址有很好多处，其可以玩出一些有意思的编程技巧，比如把C搞出面向对象式的感觉来，你可以参看我正好11年前的文章《<a target="_blank" rel="noopener" href="http://blog.csdn.net/haoel/article/details/2864">用C写面向对像的程序</a>》（用指针类型强转的危险玩法——相对于C++来说，C++编译器帮你管了继承和虚函数表，语义也清楚了很多）</p>
+<h1 id="指针和数组的差别"><a href="#指针和数组的差别" class="headerlink" title="指针和数组的差别"></a>指针和数组的差别</h1><p>有了上面的基础后，你把源代码中的<code>struct str</code>结构体中的<code>char s[0];</code>改成<code>char *s;</code>试试看，你会发现，在13行if条件的时候，程序因为Cannot access memory就直接挂掉了。为什么声明成char s[0]，程序会在14行挂掉，而声明成char *s，程序会在13行挂掉呢？<strong>那么char *s 和 char s[0]有什么差别呢</strong>？</p>
+<p>在说明这个事之前，有必要看一下汇编代码，用GDB查看后发现：</p>
+<ul>
+<li>对于char s[0]来说，汇编代码用了lea指令，<code>lea  0x04(%rax),  %rdx</code></li>
+<li>对于char*s来说，汇编代码用了mov指令，<code>mov 0x04(%rax),  %rdx</code></li>
+</ul>
+<p>lea全称load effective address，是把地址放进去，而<code>mov</code>则是把地址里的内容放进去。所以，就crash了。</p>
+<p>从这里，我们可以看到，<strong>访问成员数组名其实得到的是数组的相对地址，而访问成员指针其实是相对地址里的内容</strong>（这和访问其它非指针或数组的变量是一样的）</p>
+<p>换句话说，<strong>对于数组 <code>char s[10]</code>来说，数组名 s 和 &amp;s 都是一样的</strong>（不信你可以自己写个程序试试）。在我们这个例子中，也就是说，都表示了偏移后的地址。这样，如果我们访问 指针的地址（或是成员变量的地址），那么也就不会让程序挂掉了。</p>
+<p>正如下面的代码，可以运行一点也不会crash掉（你汇编一下你会看到用的都是lea指令）：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">test</span>&#123;</span></span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="type">short</span> c;</span><br><span class="line">    <span class="type">char</span> *p;</span><br><span class="line">    <span class="type">char</span> s[<span class="number">10</span>];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">test</span> *<span class="title">pt</span>=</span><span class="literal">NULL</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;&amp;s = %x\n&quot;</span>, pt-&gt;s); <span class="comment">//等价于 printf(&quot;%x\n&quot;, &amp;(pt-&gt;s) );</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;&amp;i = %x\n&quot;</span>, &amp;pt-&gt;i); <span class="comment">//因为操作符优先级，我没有写成&amp;(pt-&gt;i)</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;&amp;c = %x\n&quot;</span>, &amp;pt-&gt;c);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;&amp;p = %x\n&quot;</span>, &amp;pt-&gt;p);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>看到这里，你觉得这能算坑吗？不要出什么事都去怪语言，大家要想想是不是问题出在自己身上。</strong></p>
+<h1 id="关于零长度的数组"><a href="#关于零长度的数组" class="headerlink" title="关于零长度的数组"></a>关于零长度的数组</h1><p>首先，我们要知道，<strong>0长度的数组在ISO C和C++的规格说明书中是不允许的</strong>。这也就是为什么在VC++2012下编译你会得到一个警告：“arning C4200: 使用了非标准扩展 : 结构&#x2F;联合中的零大小数组”。</p>
+<p>那么为什么gcc可以通过而连一个警告都没有？那是因为gcc 为了预先支持C99的这种玩法，所以，让“零长度数组”这种玩法合法了。关于GCC对于这个事的文档在这里：“<a target="_blank" rel="noopener" href="http://gcc.gnu.org/onlinedocs/gcc/Zero-Length.html">Arrays of Length Zero</a>”，文档中给了一个例子（我改了一下，改成可以运行的了）：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">line</span> &#123;</span></span><br><span class="line">   <span class="type">int</span> length;</span><br><span class="line">   <span class="type">char</span> contents[<span class="number">0</span>]; <span class="comment">// C99的玩法是：char contents[]; 没有指定数组长度</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> this_length=<span class="number">10</span>;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">line</span> *<span class="title">thisline</span> =</span> (<span class="keyword">struct</span> line *)</span><br><span class="line">        					<span class="built_in">malloc</span> (<span class="keyword">sizeof</span> (<span class="keyword">struct</span> line) + this_length);</span><br><span class="line">    thisline-&gt;length = this_length;</span><br><span class="line">    <span class="built_in">memset</span>(thisline-&gt;contents, <span class="string">&#x27;a&#x27;</span>, this_length);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面这段代码的意思是：我想分配一个不定长的数组，于是我有一个结构体，其中有两个成员，一个是length，代表数组的长度，一个是contents，代码数组的内容。后面代码里的 this_length（长度是10）代表是我想分配的数据的长度。（这看上去是不是像一个C++的类？）这种玩法英文叫：Flexible Array，中文翻译叫：柔性数组。</p>
+<p>我们来用gdb看一下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(gdb) p thisline</span><br><span class="line">$1 = (struct line *) 0x601010</span><br><span class="line"></span><br><span class="line">(gdb) p *thisline</span><br><span class="line">$2 = &#123;length = 10, contents = 0x601010 &quot;\n&quot;&#125;</span><br><span class="line"></span><br><span class="line">(gdb) p thisline-&gt;contents</span><br><span class="line">$3 = 0x601014 &quot;aaaaaaaaaa&quot;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以看到：在输出*thisline时，我们发现其中的成员变量contents的地址居然和thisline是一样的（偏移量为0x0??!!）。但是当我们输出thisline-&gt;contents的时候，你又发现contents的地址是被offset了0x4了的，内容也变成了10个‘a’。（我觉得这是一个GDB的bug，VC++的调试器就能很好的显示）</p>
+<p>我们继续，如果你sizeof(char[0])或是 sizeof(int[0]) 之类的零长度数组，你会发现sizeof返回了0，这就是说，零长度的数组是存在于结构体内的，但是不占结构体的size。你可以简单的理解为一个没有内容的占位标识，直到我们给结构体分配了内存，这个占位标识才变成了一个有长度的数组。</p>
+<p>看到这里，你会说，为什么要这样搞啊，把contents声明成一个指针，然后为它再分配一下内存不行么？就像下面一样。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">line</span> &#123;</span></span><br><span class="line">   <span class="type">int</span> length;</span><br><span class="line">   <span class="type">char</span> *contents;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> this_length=<span class="number">10</span>;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">line</span> *<span class="title">thisline</span> =</span> (<span class="keyword">struct</span> line *)<span class="built_in">malloc</span> (<span class="keyword">sizeof</span> (<span class="keyword">struct</span> line));</span><br><span class="line">    thisline-&gt;contents = (<span class="type">char</span>*) <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">char</span>) * this_length);</span><br><span class="line">    thisline-&gt;length = this_length;</span><br><span class="line">    <span class="built_in">memset</span>(thisline-&gt;contents, <span class="string">&#x27;a&#x27;</span>, this_length);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这不一样清楚吗？而且也没什么怪异难懂的东西。是的，这也是普遍的编程方式，代码是很清晰，也让人很容易理解。即然这样，那为什么要搞一个零长度的数组？有毛意义？！</p>
+<p>这个事情出来的原因是——<strong>我们想给一个结构体内的数据分配一个连续的内存！</strong>这样做的意义有两个好处：</p>
+<p><strong>第一个意义是，方便内存释放</strong>。如果我们的代码是在一个给别人用的函数中，你在里面做了二次内存分配，并把整个结构体返回给用户。用户调用free可以释放结构体，但是用户并不知道这个结构体内的成员也需要free，所以你不能指望用户来发现这个事。所以，如果我们把结构体的内存以及其成员要的内存一次性分配好了，并返回给用户一个结构体指针，用户做一次free就可以把所有的内存也给释放掉。（读到这里，你一定会觉得C++的封闭中的析构函数会让这事容易和干净很多）</p>
+<p><strong>第二个原因是，这样有利于访问速度</strong>。连续的内存有益于提高访问速度，也有益于减少内存碎片。（其实，我个人觉得也没多高了，反正你跑不了要用做偏移量的加法来寻址）</p>
+<p>我们来看看是怎么个连续的，用gdb的x命令来查看：(我们知道，用struct line {}中的那个char contents[]不占用结构体的内存，所以，struct line就只有一个int成员，4个字节，而我们还要为contents[]分配10个字节长度，所以，一共是14个字节)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(gdb) x /14b thisline</span><br><span class="line">0x601010:       10      0       0       0       97      97      97      97</span><br><span class="line">0x601018:       97      97      97      97      97      97</span><br></pre></td></tr></table></figure>
+
+<p>从上面的内存布局我们可以看到，前4个字节是 int length，后10个字节就是char contents[]。</p>
+<p>如果用指针的话，会变成这个样子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(gdb) x /16b thisline</span><br><span class="line">0x601010:       1       0       0       0       0       0       0       0</span><br><span class="line">0x601018:       32      16      96      0       0       0       0       0</span><br><span class="line">(gdb) x /10b this-&gt;contents</span><br><span class="line">0x601020:       97      97      97      97      97      97      97      97</span><br><span class="line">0x601028:       97      97</span><br></pre></td></tr></table></figure>
+
+<p>上面一共输出了四行内存，其中，</p>
+<ul>
+<li>第一行前四个字节是 int length，第一行的后四个字节是对齐。</li>
+<li>第二行是char* contents，64位系统指针8个长度，他的值是0x20 0x10 0x60 也就是0x601020。</li>
+<li>第三行和第四行是char* contents指向的内容。</li>
+</ul>
+<p>从这里，我们看到，<strong>其中的差别——数组的原地就是内容，而指针的那里保存的是内容的地址</strong>。</p>
+<blockquote>
+<p>转载自 <a target="_blank" rel="noopener" href="https://coolshell.cn/">酷 壳 – CoolShell</a> </p>
+</blockquote>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># printf(&quot;s: %s\n&quot;, st.s);</span><br><span class="line">   0x00005555555551c4 &lt;+27&gt;:	lea    -0x30(%rbp),%rax</span><br><span class="line">   0x00005555555551c8 &lt;+31&gt;:	add    $0x4,%rax</span><br><span class="line">   0x00005555555551cc &lt;+35&gt;:	mov    %rax,%rsi</span><br><span class="line">   0x00005555555551cf &lt;+38&gt;:	lea    0xe2e(%rip),%rax        # 0x555555556004</span><br><span class="line">   0x00005555555551d6 &lt;+45&gt;:	mov    %rax,%rdi</span><br><span class="line">   0x00005555555551d9 &lt;+48&gt;:	mov    $0x0,%eax</span><br><span class="line">   0x00005555555551de &lt;+53&gt;:	call   0x555555555080 &lt;printf@plt&gt;</span><br><span class="line"># printf(&quot;p: %s\n&quot;, st.p);</span><br><span class="line">   0x0000555555555221 &lt;+120&gt;:	mov    -0x20(%rbp),%rax</span><br><span class="line">   0x0000555555555225 &lt;+124&gt;:	mov    %rax,%rsi</span><br><span class="line">   0x0000555555555228 &lt;+127&gt;:	lea    0xdf5(%rip),%rax        # 0x555555556024</span><br><span class="line">   0x000055555555522f &lt;+134&gt;:	mov    %rax,%rdi</span><br><span class="line">   0x0000555555555232 &lt;+137&gt;:	mov    $0x0,%eax</span><br><span class="line">   0x0000555555555237 &lt;+142&gt;:	call   0x555555555080 &lt;printf@plt&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br></pre></td><td class="code"><pre><span class="line">GNU gdb (Ubuntu 12.1-0ubuntu1~22.04) 12.1</span><br><span class="line">Copyright (C) 2022 Free Software Foundation, Inc.</span><br><span class="line">License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;</span><br><span class="line">This is free software: you are free to change and redistribute it.</span><br><span class="line">There is NO WARRANTY, to the extent permitted by law.</span><br><span class="line">Type &quot;show copying&quot; and &quot;show warranty&quot; for details.</span><br><span class="line">This GDB was configured as &quot;x86_64-linux-gnu&quot;.</span><br><span class="line">Type &quot;show configuration&quot; for configuration details.</span><br><span class="line">For bug reporting instructions, please see:</span><br><span class="line">&lt;https://www.gnu.org/software/gdb/bugs/&gt;.</span><br><span class="line">Find the GDB manual and other documentation resources online at:</span><br><span class="line">    &lt;http://www.gnu.org/software/gdb/documentation/&gt;.</span><br><span class="line"></span><br><span class="line">For help, type &quot;help&quot;.</span><br><span class="line">Type &quot;apropos word&quot; to search for commands related to &quot;word&quot;...</span><br><span class="line">Reading symbols from demo...</span><br><span class="line">(gdb) l 1</span><br><span class="line">1	#include &lt;iostream&gt;</span><br><span class="line">2	#include &lt;stdio.h&gt;</span><br><span class="line">3</span><br><span class="line">4	using namespace std;</span><br><span class="line">5</span><br><span class="line">6	struct String &#123;</span><br><span class="line">7	    int len;</span><br><span class="line">8	    char s[10];</span><br><span class="line">9	    char *p;</span><br><span class="line">10	    int length;</span><br><span class="line">(gdb)</span><br><span class="line">11	&#125;;</span><br><span class="line">12</span><br><span class="line">13	int main() &#123;</span><br><span class="line">14	    String st;</span><br><span class="line">15	    printf(&quot;s: %s\n&quot;, st.s);</span><br><span class="line">16	    printf(&quot;s ptr: %p\n&quot;, st.s);</span><br><span class="line">17	    printf(&quot;(&amp;s) ptr: %p\n&quot;, &amp;(st.s));</span><br><span class="line">18	    printf(&quot;p: %s\n&quot;, st.p);</span><br><span class="line">19	    st.p = st.s;</span><br><span class="line">20	    printf(&quot;p: %s\n&quot;, st.p);</span><br><span class="line">(gdb)</span><br><span class="line">21	    return 0;</span><br><span class="line">22	&#125;</span><br><span class="line">23</span><br><span class="line">(gdb) r</span><br><span class="line">Starting program: /home/qeuroal/tmp/demo</span><br><span class="line">[Thread debugging using libthread_db enabled]</span><br><span class="line">Using host libthread_db library &quot;/lib/x86_64-linux-gnu/libthread_db.so.1&quot;.</span><br><span class="line"></span><br><span class="line">Breakpoint 1, main () at test_v2.cpp:13</span><br><span class="line">13	int main() &#123;</span><br><span class="line">(gdb) disassemble</span><br><span class="line">Dump of assembler code for function main():</span><br><span class="line">   0x00005555555551a9 &lt;+0&gt;:	endbr64</span><br><span class="line">   0x00005555555551ad &lt;+4&gt;:	push   %rbp</span><br><span class="line">   0x00005555555551ae &lt;+5&gt;:	mov    %rsp,%rbp</span><br><span class="line">   0x00005555555551b1 &lt;+8&gt;:	sub    $0x30,%rsp</span><br><span class="line">=&gt; 0x00005555555551b5 &lt;+12&gt;:	mov    %fs:0x28,%rax</span><br><span class="line">   0x00005555555551be &lt;+21&gt;:	mov    %rax,-0x8(%rbp)</span><br><span class="line">   0x00005555555551c2 &lt;+25&gt;:	xor    %eax,%eax</span><br><span class="line">   0x00005555555551c4 &lt;+27&gt;:	lea    -0x30(%rbp),%rax</span><br><span class="line">   0x00005555555551c8 &lt;+31&gt;:	add    $0x4,%rax</span><br><span class="line">   0x00005555555551cc &lt;+35&gt;:	mov    %rax,%rsi</span><br><span class="line">   0x00005555555551cf &lt;+38&gt;:	lea    0xe2e(%rip),%rax        # 0x555555556004</span><br><span class="line">   0x00005555555551d6 &lt;+45&gt;:	mov    %rax,%rdi</span><br><span class="line">   0x00005555555551d9 &lt;+48&gt;:	mov    $0x0,%eax</span><br><span class="line">   0x00005555555551de &lt;+53&gt;:	call   0x555555555080 &lt;printf@plt&gt;</span><br><span class="line">   0x00005555555551e3 &lt;+58&gt;:	lea    -0x30(%rbp),%rax</span><br><span class="line">   0x00005555555551e7 &lt;+62&gt;:	add    $0x4,%rax</span><br><span class="line">   0x00005555555551eb &lt;+66&gt;:	mov    %rax,%rsi</span><br><span class="line">   0x00005555555551ee &lt;+69&gt;:	lea    0xe16(%rip),%rax        # 0x55555555600b</span><br><span class="line">   0x00005555555551f5 &lt;+76&gt;:	mov    %rax,%rdi</span><br><span class="line">   0x00005555555551f8 &lt;+79&gt;:	mov    $0x0,%eax</span><br><span class="line">   0x00005555555551fd &lt;+84&gt;:	call   0x555555555080 &lt;printf@plt&gt;</span><br><span class="line">   0x0000555555555202 &lt;+89&gt;:	lea    -0x30(%rbp),%rax</span><br><span class="line">   0x0000555555555206 &lt;+93&gt;:	add    $0x4,%rax</span><br><span class="line">   0x000055555555520a &lt;+97&gt;:	mov    %rax,%rsi</span><br><span class="line">   0x000055555555520d &lt;+100&gt;:	lea    0xe02(%rip),%rax        # 0x555555556016</span><br><span class="line">   0x0000555555555214 &lt;+107&gt;:	mov    %rax,%rdi</span><br><span class="line">   0x0000555555555217 &lt;+110&gt;:	mov    $0x0,%eax</span><br><span class="line">   0x000055555555521c &lt;+115&gt;:	call   0x555555555080 &lt;printf@plt&gt;</span><br><span class="line">   0x0000555555555221 &lt;+120&gt;:	mov    -0x20(%rbp),%rax</span><br><span class="line">   0x0000555555555225 &lt;+124&gt;:	mov    %rax,%rsi</span><br><span class="line">   0x0000555555555228 &lt;+127&gt;:	lea    0xdf5(%rip),%rax        # 0x555555556024</span><br><span class="line">   0x000055555555522f &lt;+134&gt;:	mov    %rax,%rdi</span><br><span class="line">   0x0000555555555232 &lt;+137&gt;:	mov    $0x0,%eax</span><br><span class="line">   0x0000555555555237 &lt;+142&gt;:	call   0x555555555080 &lt;printf@plt&gt;</span><br><span class="line">   0x000055555555523c &lt;+147&gt;:	lea    -0x30(%rbp),%rax</span><br><span class="line">   0x0000555555555240 &lt;+151&gt;:	add    $0x4,%rax</span><br><span class="line">   0x0000555555555244 &lt;+155&gt;:	mov    %rax,-0x20(%rbp)</span><br><span class="line">   0x0000555555555248 &lt;+159&gt;:	mov    -0x20(%rbp),%rax</span><br><span class="line">   0x000055555555524c &lt;+163&gt;:	mov    %rax,%rsi</span><br><span class="line">   0x000055555555524f &lt;+166&gt;:	lea    0xdce(%rip),%rax        # 0x555555556024</span><br><span class="line">   0x0000555555555256 &lt;+173&gt;:	mov    %rax,%rdi</span><br><span class="line">   0x0000555555555259 &lt;+176&gt;:	mov    $0x0,%eax</span><br><span class="line">   0x000055555555525e &lt;+181&gt;:	call   0x555555555080 &lt;printf@plt&gt;</span><br><span class="line">   0x0000555555555263 &lt;+186&gt;:	mov    $0x0,%eax</span><br><span class="line">   0x0000555555555268 &lt;+191&gt;:	mov    -0x8(%rbp),%rdx</span><br><span class="line">   0x000055555555526c &lt;+195&gt;:	sub    %fs:0x28,%rdx</span><br><span class="line">   0x0000555555555275 &lt;+204&gt;:	je     0x55555555527c &lt;main()+211&gt;</span><br><span class="line">   0x0000555555555277 &lt;+206&gt;:	call   0x5555555550a0 &lt;__stack_chk_fail@plt&gt;</span><br><span class="line">   0x000055555555527c &lt;+211&gt;:	leave</span><br><span class="line">   0x000055555555527d &lt;+212&gt;:	ret</span><br><span class="line">End of assembler dump.</span><br><span class="line">(gdb) l 1</span><br><span class="line">1	#include &lt;iostream&gt;</span><br><span class="line">2	#include &lt;stdio.h&gt;</span><br><span class="line">3</span><br><span class="line">4	using namespace std;</span><br><span class="line">5</span><br><span class="line">6	struct String &#123;</span><br><span class="line">7	    int len;</span><br><span class="line">8	    char s[10];</span><br><span class="line">9	    char *p;</span><br><span class="line">10	    int length;</span><br><span class="line">(gdb)</span><br><span class="line">11	&#125;;</span><br><span class="line">12</span><br><span class="line">13	int main() &#123;</span><br><span class="line">14	    String st;</span><br><span class="line">15	    printf(&quot;s: %s\n&quot;, st.s);</span><br><span class="line">16	    printf(&quot;s ptr: %p\n&quot;, st.s);</span><br><span class="line">17	    printf(&quot;(&amp;s) ptr: %p\n&quot;, &amp;(st.s));</span><br><span class="line">18	    printf(&quot;p: %s\n&quot;, st.p);</span><br><span class="line">19	    st.p = st.s;</span><br><span class="line">20	    printf(&quot;p: %s\n&quot;, st.p);</span><br><span class="line">(gdb)</span><br><span class="line">21	    return 0;</span><br><span class="line">22	&#125;</span><br><span class="line">23</span><br><span class="line">(gdb) diass</span><br><span class="line">Undefined command: &quot;diass&quot;.  Try &quot;help&quot;.</span><br><span class="line">(gdb) disassemble</span><br><span class="line">Dump of assembler code for function main():</span><br><span class="line">   0x00005555555551a9 &lt;+0&gt;:	endbr64</span><br><span class="line">   0x00005555555551ad &lt;+4&gt;:	push   %rbp</span><br><span class="line">   0x00005555555551ae &lt;+5&gt;:	mov    %rsp,%rbp</span><br><span class="line">   0x00005555555551b1 &lt;+8&gt;:	sub    $0x30,%rsp</span><br><span class="line">=&gt; 0x00005555555551b5 &lt;+12&gt;:	mov    %fs:0x28,%rax</span><br><span class="line">   0x00005555555551be &lt;+21&gt;:	mov    %rax,-0x8(%rbp)</span><br><span class="line">   0x00005555555551c2 &lt;+25&gt;:	xor    %eax,%eax</span><br><span class="line">   0x00005555555551c4 &lt;+27&gt;:	lea    -0x30(%rbp),%rax</span><br><span class="line">   0x00005555555551c8 &lt;+31&gt;:	add    $0x4,%rax</span><br><span class="line">   0x00005555555551cc &lt;+35&gt;:	mov    %rax,%rsi</span><br><span class="line">   0x00005555555551cf &lt;+38&gt;:	lea    0xe2e(%rip),%rax        # 0x555555556004</span><br><span class="line">   0x00005555555551d6 &lt;+45&gt;:	mov    %rax,%rdi</span><br><span class="line">   0x00005555555551d9 &lt;+48&gt;:	mov    $0x0,%eax</span><br><span class="line">   0x00005555555551de &lt;+53&gt;:	call   0x555555555080 &lt;printf@plt&gt;</span><br><span class="line">   0x00005555555551e3 &lt;+58&gt;:	lea    -0x30(%rbp),%rax</span><br><span class="line">   0x00005555555551e7 &lt;+62&gt;:	add    $0x4,%rax</span><br><span class="line">   0x00005555555551eb &lt;+66&gt;:	mov    %rax,%rsi</span><br><span class="line">   0x00005555555551ee &lt;+69&gt;:	lea    0xe16(%rip),%rax        # 0x55555555600b</span><br><span class="line">   0x00005555555551f5 &lt;+76&gt;:	mov    %rax,%rdi</span><br><span class="line">   0x00005555555551f8 &lt;+79&gt;:	mov    $0x0,%eax</span><br><span class="line">   0x00005555555551fd &lt;+84&gt;:	call   0x555555555080 &lt;printf@plt&gt;</span><br><span class="line">   0x0000555555555202 &lt;+89&gt;:	lea    -0x30(%rbp),%rax</span><br><span class="line">   0x0000555555555206 &lt;+93&gt;:	add    $0x4,%rax</span><br><span class="line">   0x000055555555520a &lt;+97&gt;:	mov    %rax,%rsi</span><br><span class="line">   0x000055555555520d &lt;+100&gt;:	lea    0xe02(%rip),%rax        # 0x555555556016</span><br><span class="line">   0x0000555555555214 &lt;+107&gt;:	mov    %rax,%rdi</span><br><span class="line">   0x0000555555555217 &lt;+110&gt;:	mov    $0x0,%eax</span><br><span class="line">   0x000055555555521c &lt;+115&gt;:	call   0x555555555080 &lt;printf@plt&gt;</span><br><span class="line">   0x0000555555555221 &lt;+120&gt;:	mov    -0x20(%rbp),%rax</span><br><span class="line">   0x0000555555555225 &lt;+124&gt;:	mov    %rax,%rsi</span><br><span class="line">   0x0000555555555228 &lt;+127&gt;:	lea    0xdf5(%rip),%rax        # 0x555555556024</span><br><span class="line">   0x000055555555522f &lt;+134&gt;:	mov    %rax,%rdi</span><br><span class="line">   0x0000555555555232 &lt;+137&gt;:	mov    $0x0,%eax</span><br><span class="line">   0x0000555555555237 &lt;+142&gt;:	call   0x555555555080 &lt;printf@plt&gt;</span><br><span class="line">   0x000055555555523c &lt;+147&gt;:	lea    -0x30(%rbp),%rax</span><br><span class="line">   0x0000555555555240 &lt;+151&gt;:	add    $0x4,%rax</span><br><span class="line">   0x0000555555555244 &lt;+155&gt;:	mov    %rax,-0x20(%rbp)</span><br><span class="line">   0x0000555555555248 &lt;+159&gt;:	mov    -0x20(%rbp),%rax</span><br><span class="line">   0x000055555555524c &lt;+163&gt;:	mov    %rax,%rsi</span><br><span class="line">   0x000055555555524f &lt;+166&gt;:	lea    0xdce(%rip),%rax        # 0x555555556024</span><br><span class="line">   0x0000555555555256 &lt;+173&gt;:	mov    %rax,%rdi</span><br><span class="line">   0x0000555555555259 &lt;+176&gt;:	mov    $0x0,%eax</span><br><span class="line">   0x000055555555525e &lt;+181&gt;:	call   0x555555555080 &lt;printf@plt&gt;</span><br><span class="line">   0x0000555555555263 &lt;+186&gt;:	mov    $0x0,%eax</span><br><span class="line">   0x0000555555555268 &lt;+191&gt;:	mov    -0x8(%rbp),%rdx</span><br><span class="line">   0x000055555555526c &lt;+195&gt;:	sub    %fs:0x28,%rdx</span><br><span class="line">   0x0000555555555275 &lt;+204&gt;:	je     0x55555555527c &lt;main()+211&gt;</span><br><span class="line">   0x0000555555555277 &lt;+206&gt;:	call   0x5555555550a0 &lt;__stack_chk_fail@plt&gt;</span><br><span class="line">   0x000055555555527c &lt;+211&gt;:	leave</span><br><span class="line">   0x000055555555527d &lt;+212&gt;:	ret</span><br><span class="line">End of assembler dump.</span><br><span class="line">(gdb) info line 15</span><br><span class="line">Line 15 of &quot;test_v2.cpp&quot; starts at address 0x5555555551c4 &lt;main()+27&gt; and ends at 0x5555555551e3 &lt;main()+58&gt;.</span><br><span class="line">(gdb) ni</span><br><span class="line">0x00005555555551be	13	int main() &#123;</span><br><span class="line">(gdb)</span><br><span class="line">0x00005555555551c2	13	int main() &#123;</span><br><span class="line">(gdb)</span><br><span class="line">15	    printf(&quot;s: %s\n&quot;, st.s);</span><br><span class="line">(gdb) disassemble</span><br><span class="line">Dump of assembler code for function main():</span><br><span class="line">   0x00005555555551a9 &lt;+0&gt;:	endbr64</span><br><span class="line">   0x00005555555551ad &lt;+4&gt;:	push   %rbp</span><br><span class="line">   0x00005555555551ae &lt;+5&gt;:	mov    %rsp,%rbp</span><br><span class="line">   0x00005555555551b1 &lt;+8&gt;:	sub    $0x30,%rsp</span><br><span class="line">   0x00005555555551b5 &lt;+12&gt;:	mov    %fs:0x28,%rax</span><br><span class="line">   0x00005555555551be &lt;+21&gt;:	mov    %rax,-0x8(%rbp)</span><br><span class="line">   0x00005555555551c2 &lt;+25&gt;:	xor    %eax,%eax</span><br><span class="line">=&gt; 0x00005555555551c4 &lt;+27&gt;:	lea    -0x30(%rbp),%rax</span><br><span class="line">   0x00005555555551c8 &lt;+31&gt;:	add    $0x4,%rax</span><br><span class="line">   0x00005555555551cc &lt;+35&gt;:	mov    %rax,%rsi</span><br><span class="line">   0x00005555555551cf &lt;+38&gt;:	lea    0xe2e(%rip),%rax        # 0x555555556004</span><br><span class="line">   0x00005555555551d6 &lt;+45&gt;:	mov    %rax,%rdi</span><br><span class="line">   0x00005555555551d9 &lt;+48&gt;:	mov    $0x0,%eax</span><br><span class="line">   0x00005555555551de &lt;+53&gt;:	call   0x555555555080 &lt;printf@plt&gt;</span><br><span class="line">   0x00005555555551e3 &lt;+58&gt;:	lea    -0x30(%rbp),%rax</span><br><span class="line">   0x00005555555551e7 &lt;+62&gt;:	add    $0x4,%rax</span><br><span class="line">   0x00005555555551eb &lt;+66&gt;:	mov    %rax,%rsi</span><br><span class="line">   0x00005555555551ee &lt;+69&gt;:	lea    0xe16(%rip),%rax        # 0x55555555600b</span><br><span class="line">   0x00005555555551f5 &lt;+76&gt;:	mov    %rax,%rdi</span><br><span class="line">   0x00005555555551f8 &lt;+79&gt;:	mov    $0x0,%eax</span><br><span class="line">   0x00005555555551fd &lt;+84&gt;:	call   0x555555555080 &lt;printf@plt&gt;</span><br><span class="line">   0x0000555555555202 &lt;+89&gt;:	lea    -0x30(%rbp),%rax</span><br><span class="line">   0x0000555555555206 &lt;+93&gt;:	add    $0x4,%rax</span><br><span class="line">   0x000055555555520a &lt;+97&gt;:	mov    %rax,%rsi</span><br><span class="line">   0x000055555555520d &lt;+100&gt;:	lea    0xe02(%rip),%rax        # 0x555555556016</span><br><span class="line">   0x0000555555555214 &lt;+107&gt;:	mov    %rax,%rdi</span><br><span class="line">   0x0000555555555217 &lt;+110&gt;:	mov    $0x0,%eax</span><br><span class="line">   0x000055555555521c &lt;+115&gt;:	call   0x555555555080 &lt;printf@plt&gt;</span><br><span class="line">   0x0000555555555221 &lt;+120&gt;:	mov    -0x20(%rbp),%rax</span><br><span class="line">   0x0000555555555225 &lt;+124&gt;:	mov    %rax,%rsi</span><br><span class="line">   0x0000555555555228 &lt;+127&gt;:	lea    0xdf5(%rip),%rax        # 0x555555556024</span><br><span class="line">   0x000055555555522f &lt;+134&gt;:	mov    %rax,%rdi</span><br><span class="line">   0x0000555555555232 &lt;+137&gt;:	mov    $0x0,%eax</span><br><span class="line">   0x0000555555555237 &lt;+142&gt;:	call   0x555555555080 &lt;printf@plt&gt;</span><br><span class="line">   0x000055555555523c &lt;+147&gt;:	lea    -0x30(%rbp),%rax</span><br><span class="line">   0x0000555555555240 &lt;+151&gt;:	add    $0x4,%rax</span><br><span class="line">   0x0000555555555244 &lt;+155&gt;:	mov    %rax,-0x20(%rbp)</span><br><span class="line">   0x0000555555555248 &lt;+159&gt;:	mov    -0x20(%rbp),%rax</span><br><span class="line">   0x000055555555524c &lt;+163&gt;:	mov    %rax,%rsi</span><br><span class="line">   0x000055555555524f &lt;+166&gt;:	lea    0xdce(%rip),%rax        # 0x555555556024</span><br><span class="line">   0x0000555555555256 &lt;+173&gt;:	mov    %rax,%rdi</span><br><span class="line">   0x0000555555555259 &lt;+176&gt;:	mov    $0x0,%eax</span><br><span class="line">   0x000055555555525e &lt;+181&gt;:	call   0x555555555080 &lt;printf@plt&gt;</span><br><span class="line">   0x0000555555555263 &lt;+186&gt;:	mov    $0x0,%eax</span><br><span class="line">   0x0000555555555268 &lt;+191&gt;:	mov    -0x8(%rbp),%rdx</span><br><span class="line">   0x000055555555526c &lt;+195&gt;:	sub    %fs:0x28,%rdx</span><br><span class="line">   0x0000555555555275 &lt;+204&gt;:	je     0x55555555527c &lt;main()+211&gt;</span><br><span class="line">   0x0000555555555277 &lt;+206&gt;:	call   0x5555555550a0 &lt;__stack_chk_fail@plt&gt;</span><br><span class="line">   0x000055555555527c &lt;+211&gt;:	leave</span><br><span class="line">   0x000055555555527d &lt;+212&gt;:	ret</span><br><span class="line">End of assembler dump.</span><br><span class="line">(gdb) info line 15</span><br><span class="line">Line 15 of &quot;test_v2.cpp&quot; starts at address 0x5555555551c4 &lt;main()+27&gt; and ends at 0x5555555551e3 &lt;main()+58&gt;.</span><br><span class="line">(gdb) info line 16</span><br><span class="line">Line 16 of &quot;test_v2.cpp&quot; starts at address 0x5555555551e3 &lt;main()+58&gt; and ends at 0x555555555202 &lt;main()+89&gt;.</span><br><span class="line">(gdb) info line 18</span><br><span class="line">Line 18 of &quot;test_v2.cpp&quot; starts at address 0x555555555221 &lt;main()+120&gt; and ends at 0x55555555523c &lt;main()+147&gt;.</span><br><span class="line">(gdb) disassemble</span><br><span class="line">Dump of assembler code for function main():</span><br><span class="line">   0x00005555555551a9 &lt;+0&gt;:	endbr64</span><br><span class="line">   0x00005555555551ad &lt;+4&gt;:	push   %rbp</span><br><span class="line">   0x00005555555551ae &lt;+5&gt;:	mov    %rsp,%rbp</span><br><span class="line">   0x00005555555551b1 &lt;+8&gt;:	sub    $0x30,%rsp</span><br><span class="line">   0x00005555555551b5 &lt;+12&gt;:	mov    %fs:0x28,%rax</span><br><span class="line">   0x00005555555551be &lt;+21&gt;:	mov    %rax,-0x8(%rbp)</span><br><span class="line">   0x00005555555551c2 &lt;+25&gt;:	xor    %eax,%eax</span><br><span class="line">=&gt; 0x00005555555551c4 &lt;+27&gt;:	lea    -0x30(%rbp),%rax</span><br><span class="line">   0x00005555555551c8 &lt;+31&gt;:	add    $0x4,%rax</span><br><span class="line">   0x00005555555551cc &lt;+35&gt;:	mov    %rax,%rsi</span><br><span class="line">   0x00005555555551cf &lt;+38&gt;:	lea    0xe2e(%rip),%rax        # 0x555555556004</span><br><span class="line">   0x00005555555551d6 &lt;+45&gt;:	mov    %rax,%rdi</span><br><span class="line">   0x00005555555551d9 &lt;+48&gt;:	mov    $0x0,%eax</span><br><span class="line">   0x00005555555551de &lt;+53&gt;:	call   0x555555555080 &lt;printf@plt&gt;</span><br><span class="line">   0x00005555555551e3 &lt;+58&gt;:	lea    -0x30(%rbp),%rax</span><br><span class="line">   0x00005555555551e7 &lt;+62&gt;:	add    $0x4,%rax</span><br><span class="line">   0x00005555555551eb &lt;+66&gt;:	mov    %rax,%rsi</span><br><span class="line">   0x00005555555551ee &lt;+69&gt;:	lea    0xe16(%rip),%rax        # 0x55555555600b</span><br><span class="line">   0x00005555555551f5 &lt;+76&gt;:	mov    %rax,%rdi</span><br><span class="line">   0x00005555555551f8 &lt;+79&gt;:	mov    $0x0,%eax</span><br><span class="line">   0x00005555555551fd &lt;+84&gt;:	call   0x555555555080 &lt;printf@plt&gt;</span><br><span class="line">   0x0000555555555202 &lt;+89&gt;:	lea    -0x30(%rbp),%rax</span><br><span class="line">   0x0000555555555206 &lt;+93&gt;:	add    $0x4,%rax</span><br><span class="line">   0x000055555555520a &lt;+97&gt;:	mov    %rax,%rsi</span><br><span class="line">   0x000055555555520d &lt;+100&gt;:	lea    0xe02(%rip),%rax        # 0x555555556016</span><br><span class="line">   0x0000555555555214 &lt;+107&gt;:	mov    %rax,%rdi</span><br><span class="line">   0x0000555555555217 &lt;+110&gt;:	mov    $0x0,%eax</span><br><span class="line">   0x000055555555521c &lt;+115&gt;:	call   0x555555555080 &lt;printf@plt&gt;</span><br><span class="line">   0x0000555555555221 &lt;+120&gt;:	mov    -0x20(%rbp),%rax</span><br><span class="line">   0x0000555555555225 &lt;+124&gt;:	mov    %rax,%rsi</span><br><span class="line">   0x0000555555555228 &lt;+127&gt;:	lea    0xdf5(%rip),%rax        # 0x555555556024</span><br><span class="line">   0x000055555555522f &lt;+134&gt;:	mov    %rax,%rdi</span><br><span class="line">   0x0000555555555232 &lt;+137&gt;:	mov    $0x0,%eax</span><br><span class="line">   0x0000555555555237 &lt;+142&gt;:	call   0x555555555080 &lt;printf@plt&gt;</span><br><span class="line">   0x000055555555523c &lt;+147&gt;:	lea    -0x30(%rbp),%rax</span><br><span class="line">   0x0000555555555240 &lt;+151&gt;:	add    $0x4,%rax</span><br><span class="line">   0x0000555555555244 &lt;+155&gt;:	mov    %rax,-0x20(%rbp)</span><br><span class="line">   0x0000555555555248 &lt;+159&gt;:	mov    -0x20(%rbp),%rax</span><br><span class="line">   0x000055555555524c &lt;+163&gt;:	mov    %rax,%rsi</span><br><span class="line">   0x000055555555524f &lt;+166&gt;:	lea    0xdce(%rip),%rax        # 0x555555556024</span><br><span class="line">   0x0000555555555256 &lt;+173&gt;:	mov    %rax,%rdi</span><br><span class="line">   0x0000555555555259 &lt;+176&gt;:	mov    $0x0,%eax</span><br><span class="line">   0x000055555555525e &lt;+181&gt;:	call   0x555555555080 &lt;printf@plt&gt;</span><br><span class="line">   0x0000555555555263 &lt;+186&gt;:	mov    $0x0,%eax</span><br><span class="line">   0x0000555555555268 &lt;+191&gt;:	mov    -0x8(%rbp),%rdx</span><br><span class="line">   0x000055555555526c &lt;+195&gt;:	sub    %fs:0x28,%rdx</span><br><span class="line">   0x0000555555555275 &lt;+204&gt;:	je     0x55555555527c &lt;main()+211&gt;</span><br><span class="line">   0x0000555555555277 &lt;+206&gt;:	call   0x5555555550a0 &lt;__stack_chk_fail@plt&gt;</span><br><span class="line">   0x000055555555527c &lt;+211&gt;:	leave</span><br><span class="line">   0x000055555555527d &lt;+212&gt;:	ret</span><br><span class="line">End of assembler dump.</span><br><span class="line">(gdb) f</span><br><span class="line">#0  main () at test_v2.cpp:15</span><br><span class="line">15	    printf(&quot;s: %s\n&quot;, st.s);</span><br><span class="line">(gdb) l 1</span><br><span class="line">1	#include &lt;iostream&gt;</span><br><span class="line">2	#include &lt;stdio.h&gt;</span><br><span class="line">3</span><br><span class="line">4	using namespace std;</span><br><span class="line">5</span><br><span class="line">6	struct String &#123;</span><br><span class="line">7	    int len;</span><br><span class="line">8	    char s[10];</span><br><span class="line">9	    char *p;</span><br><span class="line">10	    int length;</span><br><span class="line">(gdb)</span><br><span class="line">11	&#125;;</span><br><span class="line">12</span><br><span class="line">13	int main() &#123;</span><br><span class="line">14	    String st;</span><br><span class="line">15	    printf(&quot;s: %s\n&quot;, st.s);</span><br><span class="line">16	    printf(&quot;s ptr: %p\n&quot;, st.s);</span><br><span class="line">17	    printf(&quot;(&amp;s) ptr: %p\n&quot;, &amp;(st.s));</span><br><span class="line">18	    printf(&quot;p: %s\n&quot;, st.p);</span><br><span class="line">19	    st.p = st.s;</span><br><span class="line">20	    printf(&quot;p: %s\n&quot;, st.p);</span><br><span class="line">(gdb)</span><br><span class="line">21	    return 0;</span><br><span class="line">22	&#125;</span><br><span class="line">23</span><br><span class="line">(gdb) p st.s</span><br><span class="line">$1 = &quot;\377\177\000\000\352\347\321\367\377\177&quot;</span><br><span class="line">(gdb) p st.p</span><br><span class="line">$2 = 0x7ffff7e290c8 &lt;std::wcout+8&gt; &quot;\370\063\342\367\377\177&quot;</span><br><span class="line">(gdb) p &amp;st.p</span><br><span class="line">$3 = (char **) 0x7fffffffe150</span><br><span class="line">(gdb) p &amp;st.s</span><br><span class="line">$4 = (char (*)[10]) 0x7fffffffe144</span><br><span class="line">(gdb) x /10xb s</span><br><span class="line">No symbol &quot;s&quot; in current context.</span><br><span class="line">(gdb) x /10xb st.s</span><br><span class="line">0x7fffffffe144:	0xff	0x7f	0x00	0x00	0xea	0xe7	0xd1	0xf7</span><br><span class="line">0x7fffffffe14c:	0xff	0x7f</span><br><span class="line">(gdb) x /10xb st.p</span><br><span class="line">0x7ffff7e290c8 &lt;_ZSt5wcout+8&gt;:	0xf8	0x33	0xe2	0xf7	0xff	0x7f	0x00	0x00</span><br><span class="line">0x7ffff7e290d0 &lt;_ZSt5wcout+16&gt;:	0x06	0x00</span><br><span class="line">(gdb) x /10xb &amp;st.p</span><br><span class="line">0x7fffffffe150:	0xc8	0x90	0xe2	0xf7	0xff	0x7f	0x00	0x00</span><br><span class="line">0x7fffffffe158:	0x88	0x8e</span><br><span class="line">(gdb) x /10xx &amp;st.p</span><br><span class="line">0x7fffffffe150:	0xc8	0x90	0xe2	0xf7	0xff	0x7f	0x00	0x00</span><br><span class="line">0x7fffffffe158:	0x88	0x8e</span><br><span class="line">(gdb) x /10xb &amp;st.p</span><br><span class="line">0x7fffffffe150:	0xc8	0x90	0xe2	0xf7	0xff	0x7f	0x00	0x00</span><br><span class="line">0x7fffffffe158:	0x88	0x8e</span><br><span class="line">(gdb) p st</span><br><span class="line">$5 = &#123;len = -136147112, s = &quot;\377\177\000\000\352\347\321\367\377\177&quot;, p = 0x7ffff7e290c8 &lt;std::wcout+8&gt; &quot;\370\063\342\367\377\177&quot;, length = -136147320&#125;</span><br><span class="line">(gdb) p &amp;st</span><br><span class="line">$6 = (String *) 0x7fffffffe140</span><br><span class="line">(gdb) p &amp;st.</span><br><span class="line">len     length  p       s</span><br><span class="line">(gdb) p &amp;st.</span><br><span class="line">len     length  p       s</span><br><span class="line">(gdb) p &amp;st.len</span><br><span class="line">$7 = (int *) 0x7fffffffe140</span><br><span class="line">(gdb) p &amp;st.s</span><br><span class="line">$8 = (char (*)[10]) 0x7fffffffe144</span><br><span class="line">(gdb) p &amp;st.p</span><br><span class="line">$9 = (char **) 0x7fffffffe150</span><br><span class="line">(gdb) p &amp;st.length</span><br><span class="line">$10 = (int *) 0x7fffffffe158</span><br><span class="line">(gdb) x /10xb st</span><br><span class="line">Value can&#x27;t be converted to integer.</span><br><span class="line">(gdb) x /10xb &amp;st</span><br><span class="line">0x7fffffffe140:	0x58	0x8f	0xe2	0xf7	0xff	0x7f	0x00	0x00</span><br><span class="line">0x7fffffffe148:	0xea	0xe7</span><br><span class="line">(gdb) p &amp;st</span><br><span class="line">$11 = (String *) 0x7fffffffe140</span><br><span class="line">(gdb) x /32xb</span><br><span class="line">0x7fffffffe14a:	0xd1	0xf7	0xff	0x7f	0x00	0x00	0xc8	0x90</span><br><span class="line">0x7fffffffe152:	0xe2	0xf7	0xff	0x7f	0x00	0x00	0x88	0x8e</span><br><span class="line">0x7fffffffe15a:	0xe2	0xf7	0xff	0x7f	0x00	0x00	0x40	0x89</span><br><span class="line">0x7fffffffe162:	0xe2	0xf7	0xff	0x7f	0x00	0x00	0x00	0x18</span><br><span class="line">(gdb) x /32xb &amp;st</span><br><span class="line">0x7fffffffe140:	0x58	0x8f	0xe2	0xf7	0xff	0x7f	0x00	0x00</span><br><span class="line">0x7fffffffe148:	0xea	0xe7	0xd1	0xf7	0xff	0x7f	0x00	0x00</span><br><span class="line">0x7fffffffe150:	0xc8	0x90	0xe2	0xf7	0xff	0x7f	0x00	0x00</span><br><span class="line">0x7fffffffe158:	0x88	0x8e	0xe2	0xf7	0xff	0x7f	0x00	0x00</span><br><span class="line">(gdb) p /x st.p</span><br><span class="line">$12 = 0x7ffff7e290c8</span><br><span class="line">(gdb) p /x st.len</span><br><span class="line">$13 = 0xf7e28f58</span><br><span class="line">(gdb) p /x st.s</span><br><span class="line">$14 = &#123;0xff, 0x7f, 0x0, 0x0, 0xea, 0xe7, 0xd1, 0xf7, 0xff, 0x7f&#125;</span><br><span class="line">(gdb) p st.s</span><br><span class="line">$15 = &quot;\377\177\000\000\352\347\321\367\377\177&quot;</span><br><span class="line">(gdb) p st.s /x</span><br><span class="line">No symbol &quot;x&quot; in current context.</span><br><span class="line">(gdb) p /x st.s</span><br><span class="line">$16 = &#123;0xff, 0x7f, 0x0, 0x0, 0xea, 0xe7, 0xd1, 0xf7, 0xff, 0x7f&#125;</span><br><span class="line">(gdb) p /x &amp;st.p</span><br><span class="line">$17 = 0x7fffffffe150</span><br><span class="line">(gdb) x /64xb &amp;st</span><br><span class="line">0x7fffffffe140:	0x58	0x8f	0xe2	0xf7	0xff	0x7f	0x00	0x00</span><br><span class="line">0x7fffffffe148:	0xea	0xe7	0xd1	0xf7	0xff	0x7f	0x00	0x00</span><br><span class="line">0x7fffffffe150:	0xc8	0x90	0xe2	0xf7	0xff	0x7f	0x00	0x00</span><br><span class="line">0x7fffffffe158:	0x88	0x8e	0xe2	0xf7	0xff	0x7f	0x00	0x00</span><br><span class="line">0x7fffffffe160:	0x40	0x89	0xe2	0xf7	0xff	0x7f	0x00	0x00</span><br><span class="line">0x7fffffffe168:	0x00	0x18	0xaf	0x66	0xb1	0xde	0xe5	0xa6</span><br><span class="line">0x7fffffffe170:	0x01	0x00	0x00	0x00	0x00	0x00	0x00	0x00</span><br><span class="line">0x7fffffffe178:	0x90	0x9d	0x82	0xf7	0xff	0x7f	0x00	0x00</span><br><span class="line">(gdb) l 1</span><br><span class="line">1	#include &lt;iostream&gt;</span><br><span class="line">2	#include &lt;stdio.h&gt;</span><br><span class="line">3</span><br><span class="line">4	using namespace std;</span><br><span class="line">5</span><br><span class="line">6	struct String &#123;</span><br><span class="line">7	    int len;</span><br><span class="line">8	    char s[10];</span><br><span class="line">9	    char *p;</span><br><span class="line">10	    int length;</span><br><span class="line">(gdb) p /x len</span><br><span class="line">No symbol &quot;len&quot; in current context.</span><br><span class="line">(gdb) p /x st.len</span><br><span class="line">$18 = 0xf7e28f58</span><br><span class="line">(gdb) p /x s</span><br><span class="line">No symbol &quot;s&quot; in current context.</span><br><span class="line">(gdb) p /x st.x</span><br><span class="line">There is no member named x.</span><br><span class="line">(gdb) p /x st.s</span><br><span class="line">$19 = &#123;0xff, 0x7f, 0x0, 0x0, 0xea, 0xe7, 0xd1, 0xf7, 0xff, 0x7f&#125;</span><br><span class="line">(gdb) p /x st.p</span><br><span class="line">$20 = 0x7ffff7e290c8</span><br><span class="line">(gdb) p /x st.p</span><br><span class="line">$21 = 0x7ffff7e290c8</span><br><span class="line">(gdb) p /x st.p</span><br><span class="line">$22 = 0x7ffff7e290c8</span><br><span class="line">(gdb) p /x st.s</span><br><span class="line">$23 = &#123;0xff, 0x7f, 0x0, 0x0, 0xea, 0xe7, 0xd1, 0xf7, 0xff, 0x7f&#125;</span><br><span class="line">(gdb) set st.p=st.s</span><br><span class="line">(gdb) x /64xb &amp;st</span><br><span class="line">0x7fffffffe140:	0x58	0x8f	0xe2	0xf7	0xff	0x7f	0x00	0x00</span><br><span class="line">0x7fffffffe148:	0xea	0xe7	0xd1	0xf7	0xff	0x7f	0x00	0x00</span><br><span class="line">0x7fffffffe150:	0x44	0xe1	0xff	0xff	0xff	0x7f	0x00	0x00</span><br><span class="line">0x7fffffffe158:	0x88	0x8e	0xe2	0xf7	0xff	0x7f	0x00	0x00</span><br><span class="line">0x7fffffffe160:	0x40	0x89	0xe2	0xf7	0xff	0x7f	0x00	0x00</span><br><span class="line">0x7fffffffe168:	0x00	0x18	0xaf	0x66	0xb1	0xde	0xe5	0xa6</span><br><span class="line">0x7fffffffe170:	0x01	0x00	0x00	0x00	0x00	0x00	0x00	0x00</span><br><span class="line">0x7fffffffe178:	0x90	0x9d	0x82	0xf7	0xff	0x7f	0x00	0x00</span><br><span class="line">(gdb) p /x st.p</span><br><span class="line">$24 = 0x7fffffffe144</span><br><span class="line">(gdb) p /x &amp;st.s</span><br><span class="line">$25 = 0x7fffffffe144</span><br><span class="line">(gdb) p /x *st.p</span><br><span class="line">$26 = 0xff</span><br><span class="line">(gdb) p /x st.length</span><br><span class="line">$27 = 0xf7e28e88</span><br><span class="line">(gdb) set st.p =  &amp;st.s</span><br><span class="line">(gdb) p /x st.p</span><br><span class="line">$28 = 0x7fffffffe144</span><br><span class="line">(gdb) q</span><br><span class="line">A debugging session is active.</span><br><span class="line"></span><br><span class="line">	Inferior 1 [process 29494] will be killed.</span><br><span class="line"></span><br><span class="line">Quit anyway? (y or n) y</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://qeuroal.top/2023/11/01/176/" title="176. C&#x2F;C++ 结构体的成员数组和指针">http://qeuroal.top/2023/11/01/176/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/c-c/" rel="tag"><i class="fa fa-tag"></i> c/c++</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/10/31/173/" rel="prev" title="173. Linux中文件格式说明">
+                  <i class="fa fa-angle-left"></i> 173. Linux中文件格式说明
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/11/04/182/" rel="next" title="182. 趣谈网络协议">
+                  182. 趣谈网络协议 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Qeuroal" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

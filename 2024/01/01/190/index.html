@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Linux中的网络相关内容整理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="190. Linux中的网络相关">
+<meta property="og:url" content="http://qeuroal.top/2024/01/01/190/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Blog">
+<meta property="og:description" content="Linux中的网络相关内容整理">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/190/640.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/190/640-20240101134831420.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/190/640-20240101140506551.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/190/640-20240101134831716.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/190/640-20240101134831572.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/190/640-20240101134831585.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/190/640-20240101134831609.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/190/640-20240101134831551.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/190/640-20240101134831715.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/190/640-20240102090154504.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/190/640-5275016.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/190/640-20240111075903585.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/190/640-20240111075903972.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/190/640-20240111075903971.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/190/640-20240111075903972-4931143.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/190/640-20240111075903728.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/190/640-20240307081135528.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/190/640-20240111075903667.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/190/640-20240111075903842.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/190/640-20240111075903850.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/190/640-9770260.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/190/640-20240111075903977.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/190/640-20240111075904068.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/190/c2392793-6104-415e-8ed3-25f283c6e002.png">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/190/97891490-7d13-4e5a-9e8d-7f7dcedaf81a.jpg">
+<meta property="og:image" content="http://qeuroal.top/2024/01/01/190/Clip_2024-12-26_16-45-30.png">
+<meta property="article:published_time" content="2024-01-01T01:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-08T06:36:58.603Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qeuroal.top/2024/01/01/190/640.png">
+
+
+<link rel="canonical" href="http://qeuroal.top/2024/01/01/190/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2024/01/01/190/","path":"2024/01/01/190/","title":"190. Linux中的网络相关"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>190. Linux中的网络相关 | Qeuroal's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Qeuroal's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">静幽正治</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-number">1.</span> <span class="nav-text">防火墙</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E9%98%B2%E7%81%AB%E5%A2%99%E7%8A%B6%E6%80%81"><span class="nav-number">1.1.</span> <span class="nav-text">查看防火墙状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E9%98%B2%E7%81%AB%E5%A2%99%E6%89%80%E6%9C%89%E5%B7%B2%E5%BC%80%E6%94%BE%E7%9A%84%E7%AB%AF%E5%8F%A3"><span class="nav-number">1.2.</span> <span class="nav-text">查看防火墙所有已开放的端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E6%94%BE%E7%AB%AF%E5%8F%A3"><span class="nav-number">1.3.</span> <span class="nav-text">开放端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-number">1.4.</span> <span class="nav-text">关闭防火墙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E5%90%AF%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-number">1.5.</span> <span class="nav-text">重启防火墙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%9B%91%E5%90%AC%E7%9A%84%E7%AB%AF%E5%8F%A3"><span class="nav-number">1.6.</span> <span class="nav-text">查看监听的端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%93%AA%E4%B8%AA%E8%BF%9B%E7%A8%8B%E5%8D%A0%E7%94%A8"><span class="nav-number">1.7.</span> <span class="nav-text">检查端口被哪个进程占用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E6%AD%A2%E8%BF%9B%E7%A8%8B"><span class="nav-number">1.8.</span> <span class="nav-text">中止进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="nav-number">1.9.</span> <span class="nav-text">其他相关命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tcpdump"><span class="nav-number">2.</span> <span class="nav-text">tcpdump</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E5%8F%AF%E7%94%A8%E7%BD%91%E5%8F%A3%EF%BC%88interfaces%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">检查可用网口（interfaces）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%93%E5%8F%96%E6%9F%90%E4%B8%AA%E7%BD%91%E5%8F%A3%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8C%85"><span class="nav-number">2.2.</span> <span class="nav-text">抓取某个网口的数据包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E8%AE%BE%E6%8A%93%E5%8C%85%E6%95%B0%E9%87%8F"><span class="nav-number">2.3.</span> <span class="nav-text">预设抓包数量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E8%AF%A6%E7%BB%86%E8%BE%93%E5%87%BA"><span class="nav-number">2.4.</span> <span class="nav-text">获取详细输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A5-ASCII-%E6%A0%BC%E5%BC%8F%E6%89%93%E5%8D%B0%E6%8A%93%E5%8F%96%E5%88%B0%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="nav-number">2.5.</span> <span class="nav-text">以 ASCII 格式打印抓取到的数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%93%E5%8F%96%E4%BB%8E%E6%9F%90%E4%B8%AA%E6%BA%90-IP-%E5%8F%91%E9%80%81%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8C%85"><span class="nav-number">2.6.</span> <span class="nav-text">抓取从某个源 IP 发送的数据包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%93%E5%8F%96%E5%8F%91%E9%80%81%E5%88%B0%E7%89%B9%E5%AE%9A%E7%9B%AE%E6%A0%87-IP-%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8C%85"><span class="nav-number">2.7.</span> <span class="nav-text">抓取发送到特定目标 IP 的数据包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8-tcpdump-%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%BF%87%E6%BB%A4%E9%80%89%E9%A1%B9"><span class="nav-number">2.8.</span> <span class="nav-text">在 tcpdump 中使用过滤选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3%E5%8F%B7"><span class="nav-number">2.9.</span> <span class="nav-text">端口号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%8F%E8%AE%AE"><span class="nav-number">2.10.</span> <span class="nav-text">协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E6%9C%BA%E8%BF%87%E6%BB%A4"><span class="nav-number">2.11.</span> <span class="nav-text">主机过滤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%9D%E5%AD%98%E6%8A%93%E5%8F%96%E5%88%B0%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="nav-number">2.12.</span> <span class="nav-text">保存抓取到的数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96%E6%8A%93%E5%8F%96%E5%88%B0%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="nav-number">2.13.</span> <span class="nav-text">读取抓取到的数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE-IP-%E5%9C%B0%E5%9D%80"><span class="nav-number">3.</span> <span class="nav-text">查找 IP 地址</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8-Linux-%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%AD%E6%9F%A5%E6%89%BE-IP-%E5%9C%B0%E5%9D%80"><span class="nav-number">3.1.</span> <span class="nav-text">在 Linux 命令行中查找 IP 地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96-IP-%E5%9C%B0%E5%9D%80%E7%9A%84%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">获取 IP 地址的其他方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-hostname-%E5%91%BD%E4%BB%A4%E6%9F%A5%E7%9C%8BIP%E5%9C%B0%E5%9D%80"><span class="nav-number">3.3.</span> <span class="nav-text">使用 hostname 命令查看IP地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-nmcli-%E5%B7%A5%E5%85%B7%E6%98%BE%E7%A4%BA-IP-%E5%9C%B0%E5%9D%80"><span class="nav-number">3.4.</span> <span class="nav-text">使用 nmcli 工具显示 IP 地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%82%A3%E4%B9%88%EF%BC%8Cifconfig-%E5%91%A2%EF%BC%9F"><span class="nav-number">3.5.</span> <span class="nav-text">那么，ifconfig 呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E5%85%AC%E7%BD%91IP%E5%9C%B0%E5%9D%80"><span class="nav-number">3.6.</span> <span class="nav-text">查询公网IP地址</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E9%BB%98%E8%AE%A4%E7%BD%91%E5%85%B3"><span class="nav-number">4.</span> <span class="nav-text">查询默认网关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E7%BD%91%E5%85%B3IP%E5%9C%B0%E5%9D%80%E7%9A%84%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95"><span class="nav-number">4.1.</span> <span class="nav-text">查找网关IP地址的其他方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-route-%E5%91%BD%E4%BB%A4%E6%9F%A5%E8%AF%A2%E7%BD%91%E5%85%B3%E5%9C%B0%E5%9D%80"><span class="nav-number">4.2.</span> <span class="nav-text">使用 route 命令查询网关地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-netstat-%E5%91%BD%E4%BB%A4%E6%9F%A5%E8%AF%A2%E7%BD%91%E5%85%B3"><span class="nav-number">4.3.</span> <span class="nav-text">使用 netstat 命令查询网关</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5"><span class="nav-number">5.</span> <span class="nav-text">端口占用情况</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#netstat"><span class="nav-number">5.1.</span> <span class="nav-text">netstat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lsof"><span class="nav-number">5.2.</span> <span class="nav-text">lsof</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#netcat"><span class="nav-number">5.3.</span> <span class="nav-text">netcat</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#netstat-1"><span class="nav-number">6.</span> <span class="nav-text">netstat</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-number">6.1.</span> <span class="nav-text">例子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E5%87%BA%E6%89%80%E6%9C%89%E7%AB%AF%E5%8F%A3%E4%BF%A1%E6%81%AF"><span class="nav-number">6.1.1.</span> <span class="nav-text">列出所有端口信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E5%87%BA%E6%89%80%E6%9C%89tcp%E7%AB%AF%E5%8F%A3%E4%BF%A1%E6%81%AF"><span class="nav-number">6.1.2.</span> <span class="nav-text">列出所有tcp端口信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E5%87%BA%E6%89%80%E6%9C%89udp%E7%AB%AF%E5%8F%A3"><span class="nav-number">6.1.3.</span> <span class="nav-text">列出所有udp端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AA%E6%98%BE%E7%A4%BA%E7%9B%91%E5%90%AC%E7%AB%AF%E5%8F%A3"><span class="nav-number">6.1.4.</span> <span class="nav-text">只显示监听端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E7%A4%BAtcp%E6%88%96udp%E7%AB%AF%E5%8F%A3%E7%9A%84%E7%BB%9F%E8%AE%A1%E4%BF%A1%E6%81%AF"><span class="nav-number">6.1.5.</span> <span class="nav-text">显示tcp或udp端口的统计信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E7%89%B9%E5%AE%9A%E7%A8%8B%E5%BA%8F"><span class="nav-number">6.1.6.</span> <span class="nav-text">显示特定程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8netstat%E6%8C%87%E4%BB%A4%E8%BE%93%E5%87%BA%E4%B8%AD%E4%B8%8D%E6%98%BE%E7%A4%BA%E4%B8%BB%E6%9C%BA%E5%90%8D%E3%80%81%E7%AB%AF%E5%8F%A3%E5%92%8C%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="nav-number">6.1.7.</span> <span class="nav-text">在netstat指令输出中不显示主机名、端口和用户信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%81%E7%BB%AD%E8%BE%93%E5%87%BAnetstat%E4%BF%A1%E6%81%AF"><span class="nav-number">6.1.8.</span> <span class="nav-text">持续输出netstat信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E6%A0%B8%E5%BF%83%E8%B7%AF%E7%94%B1%E4%BF%A1%E6%81%AF"><span class="nav-number">6.1.9.</span> <span class="nav-text">显示核心路由信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%BE%E5%87%BA%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E7%AB%AF%E5%8F%A3"><span class="nav-number">6.1.10.</span> <span class="nav-text">找出程序运行的端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%BE%E5%87%BA%E8%BF%90%E8%A1%8C%E5%9C%A8%E6%8C%87%E5%AE%9A%E7%AB%AF%E5%8F%A3%E7%9A%84%E8%BF%9B%E7%A8%8B"><span class="nav-number">6.1.11.</span> <span class="nav-text">找出运行在指定端口的进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3%E5%88%97%E8%A1%A8"><span class="nav-number">6.1.12.</span> <span class="nav-text">显示网络接口列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ip%E5%92%8Ctcp%E7%8A%B6%E6%80%81%E5%88%86%E6%9E%90"><span class="nav-number">6.1.13.</span> <span class="nav-text">ip和tcp状态分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tcp%E5%90%84%E7%A7%8D%E7%8A%B6%E6%80%81%E5%88%97%E8%A1%A8"><span class="nav-number">6.1.14.</span> <span class="nav-text">tcp各种状态列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tcp%E7%8A%B6%E6%80%81%E4%BF%A1%E6%81%AF%E7%BB%9F%E8%AE%A1"><span class="nav-number">6.1.15.</span> <span class="nav-text">tcp状态信息统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90ip%E5%9C%B0%E5%9D%80"><span class="nav-number">6.1.16.</span> <span class="nav-text">分析ip地址</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#traceroute"><span class="nav-number">7.</span> <span class="nav-text">traceroute</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8-Linux-%E4%B8%AD%E5%AE%89%E8%A3%85-traceroute"><span class="nav-number">7.1.</span> <span class="nav-text">在 Linux 中安装 traceroute</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-traceroute-%E5%91%BD%E4%BB%A4"><span class="nav-number">7.2.</span> <span class="nav-text">使用 traceroute 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%AD%89%E5%BE%85%E6%97%B6%E9%97%B4"><span class="nav-number">7.3.</span> <span class="nav-text">配置等待时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E6%94%B6%E5%8F%91%E5%8C%85%E7%9A%84%E6%95%B0%E9%87%8F"><span class="nav-number">7.4.</span> <span class="nav-text">更改收发包的数量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E5%AE%9A%E6%9C%80%E5%A4%A7%E8%B7%83%E7%82%B9%E6%95%B0"><span class="nav-number">7.5.</span> <span class="nav-text">指定最大跃点数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E5%AE%9A-TTL"><span class="nav-number">7.6.</span> <span class="nav-text">指定 TTL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E5%A4%87%E7%94%A8%E6%BA%90IP%E5%9C%B0%E5%9D%80"><span class="nav-number">7.7.</span> <span class="nav-text">添加备用源IP地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%9F%E8%B8%AA%E6%97%B6%E7%A6%81%E7%94%A8%E4%B8%BB%E6%9C%BA%E5%90%8D%E6%98%A0%E5%B0%84%E5%88%B0IP%E5%9C%B0%E5%9D%80"><span class="nav-number">7.8.</span> <span class="nav-text">跟踪时禁用主机名映射到IP地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E7%BD%91%E5%85%B3%E8%B7%AF%E7%94%B1%E5%8C%85"><span class="nav-number">7.9.</span> <span class="nav-text">通过网关路由包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E7%9B%AE%E6%A0%87%E7%AB%AF%E5%8F%A3"><span class="nav-number">7.10.</span> <span class="nav-text">更改目标端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E6%9C%80%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%8C%85%E9%95%BF%E5%BA%A6"><span class="nav-number">7.11.</span> <span class="nav-text">设置最大数据包长度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A6%81%E7%94%A8%E6%8E%A2%E6%B5%8B%E6%95%B0%E6%8D%AE%E5%8C%85%E7%A2%8E%E7%89%87%EF%BC%88probe-packet-fragmentation%EF%BC%89"><span class="nav-number">7.12.</span> <span class="nav-text">禁用探测数据包碎片（probe packet fragmentation）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E9%9D%99%E6%80%81IP"><span class="nav-number">8.</span> <span class="nav-text">设置静态IP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#fedora"><span class="nav-number">8.1.</span> <span class="nav-text">fedora</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NetworkManager"><span class="nav-number">8.1.1.</span> <span class="nav-text">NetworkManager</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nmcli"><span class="nav-number">9.</span> <span class="nav-text">nmcli</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5-802-1x"><span class="nav-number">9.1.</span> <span class="nav-text">连接 802.1x</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">9.1.1.</span> <span class="nav-text">示例</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">大人者，不失其赤子之心</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2024/01/01/190/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="190. Linux中的网络相关 | Qeuroal's Blog">
+      <meta itemprop="description" content="Linux中的网络相关内容整理">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          190. Linux中的网络相关
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-01-01 09:00:00" itemprop="dateCreated datePublished" datetime="2024-01-01T09:00:00+08:00">2024-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-08 14:36:58" itemprop="dateModified" datetime="2025-12-08T14:36:58+08:00">2025-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">Linux中的网络相关内容整理</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h1><h2 id="查看防火墙状态"><a href="#查看防火墙状态" class="headerlink" title="查看防火墙状态"></a>查看防火墙状态</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ firewall-cmd --state</span><br><span class="line">running</span><br></pre></td></tr></table></figure>
+
+<p>显示running，则表示防火墙正在运行。另外，还可以使用<code>systemctl status firewalld</code>来查看防火墙是否开启：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl status firewalld</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2024/01/01/190/640.png" class="" title="图片">
+
+<h2 id="查看防火墙所有已开放的端口"><a href="#查看防火墙所有已开放的端口" class="headerlink" title="查看防火墙所有已开放的端口"></a>查看防火墙所有已开放的端口</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ firewall-cmd --zone=public --list-ports</span><br><span class="line">7021/tcp 6001/tcp 8080/tcp 16749/tcp</span><br></pre></td></tr></table></figure>
+
+<h2 id="开放端口"><a href="#开放端口" class="headerlink" title="开放端口"></a>开放端口</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开放5612端口</span></span><br><span class="line">$ firewall-cmd --zone=public --add-port=5612/tcp --permanent</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#关闭5612端口</span></span><br><span class="line">$ firewall-cmd --zone=public --remove-port=5612/tcp --permanent</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#添加端口，格式为：端口/通讯协议    --permanent #永久生效，没有此参数重启后失效</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h2><p>在测试环境或者开发环境中，有时候为了测试方便，可以临时关闭防火墙。但是要注意，只有在保证安全前提下才可关闭防火墙。关闭防火墙的命令为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl stop firewalld.service</span><br></pre></td></tr></table></figure>
+
+<p>此外，还可以使用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl stop firewalld</span><br></pre></td></tr></table></figure>
+
+<p>若开启则将 stop 改为 start</p>
+<h2 id="重启防火墙"><a href="#重启防火墙" class="headerlink" title="重启防火墙"></a>重启防火墙</h2><p>防火墙端口策略改变后，需要重启才能生效：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看监听的端口"><a href="#查看监听的端口" class="headerlink" title="查看监听的端口"></a>查看监听的端口</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$ netstat -lnpt</span><br><span class="line">Active Internet connections (only servers)</span><br><span class="line">Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    </span><br><span class="line">tcp        0      0 0.0.0.0:17000           0.0.0.0:*               LISTEN      22781/./src/redis-s </span><br><span class="line">tcp        0      0 0.0.0.0:17001           0.0.0.0:*               LISTEN      22783/./src/redis-s </span><br><span class="line">tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      8095/sshd           </span><br><span class="line">tcp        0      0 0.0.0.0:6589            0.0.0.0:*               LISTEN      22781/./src/redis-s </span><br><span class="line">tcp        0      0 0.0.0.0:7002            0.0.0.0:*               LISTEN      22783/./src/redis-s </span><br><span class="line">tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      1183/master         </span><br><span class="line">tcp6       0      0 127.0.0.1:8004          :::*                    LISTEN      13884/java          </span><br><span class="line">tcp6       0      0 :::17000                :::*                    LISTEN      22781/./src/redis-s </span><br><span class="line">tcp6       0      0 :::17001                :::*                    LISTEN      22783/./src/redis-s </span><br><span class="line">tcp6       0      0 :::18767                :::*                    LISTEN      13884/java          </span><br><span class="line">tcp6       0      0 :::9904                 :::*                    LISTEN      13884/java          </span><br><span class="line">tcp6       0      0 :::8080                 :::*                    LISTEN      13884/java          </span><br><span class="line">tcp6       0      0 :::22                   :::*                    LISTEN      8095/sshd           </span><br><span class="line">tcp6       0      0 :::6589                 :::*                    LISTEN      22781/./src/redis-s </span><br><span class="line">tcp6       0      0 :::7002                 :::*                    LISTEN      22783/./src/redis-s </span><br><span class="line">tcp6       0      0 ::1:25                  :::*                    LISTEN      1183/master</span><br></pre></td></tr></table></figure>
+
+<h2 id="检查端口被哪个进程占用"><a href="#检查端口被哪个进程占用" class="headerlink" title="检查端口被哪个进程占用"></a>检查端口被哪个进程占用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ netstat -lnpt |grep 8080</span><br><span class="line">tcp6       0      0 :::8080                 :::*                    LISTEN      13884/java</span><br></pre></td></tr></table></figure>
+
+<h2 id="中止进程"><a href="#中止进程" class="headerlink" title="中止进程"></a>中止进程</h2><p>当由于某种原因，按正常方法无法关掉进程的时候，可以强制关闭（关掉端口）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">kill</span> -9 8080</span><br></pre></td></tr></table></figure>
+
+<h2 id="其他相关命令"><a href="#其他相关命令" class="headerlink" title="其他相关命令"></a>其他相关命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --get-zones                      <span class="comment">##列出支持的zone</span></span><br><span class="line">firewall-cmd --get-services                    <span class="comment">##列出支持的服务，在列表中的服务是放行的</span></span><br><span class="line">firewall-cmd --query-service ftp              <span class="comment">##查看ftp服务是否支持，返回yes或者no</span></span><br><span class="line">firewall-cmd --add-service=ftp                <span class="comment">##临时开放ftp服务</span></span><br><span class="line">firewall-cmd --add-service=ftp --permanent    <span class="comment">##永久开放ftp服务</span></span><br><span class="line">firewall-cmd --remove-service=ftp --permanent  <span class="comment">##永久移除ftp服务</span></span><br><span class="line">firewall-cmd --add-port=80/tcp --permanent    <span class="comment">##永久添加80端口 </span></span><br><span class="line">firewall-cmd --remove-port=80/tcp --permanent    <span class="comment">##永久移除80端口 </span></span><br><span class="line">firewall-cmd --zone=public --list-ports       <span class="comment">##查看已开放的端口</span></span><br><span class="line">iptables -L -n                                <span class="comment">##查看规则，这个命令是和iptables的相同的</span></span><br><span class="line">man firewall-cmd</span><br></pre></td></tr></table></figure>
+
+<h1 id="tcpdump"><a href="#tcpdump" class="headerlink" title="tcpdump"></a>tcpdump</h1><p>tcpdump 是分析网络和排查网络问题的一个很好用的工具，它通过抓取数据包，显示网络的实时情况，并将结果输出到标准输出（STDOUT）上，也可以存储在文件中。关于它的具体使用，它有很多可用的选项，本文我们介绍关于此命令常用的几个核心选项。</p>
+<h2 id="检查可用网口（interfaces）"><a href="#检查可用网口（interfaces）" class="headerlink" title="检查可用网口（interfaces）"></a>检查可用网口（interfaces）</h2><p>查询所有可用的网口，使用 <code>-D</code> 选项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tcpdump -D</span><br></pre></td></tr></table></figure>
+
+<p>上述命令将会列出系统中所有可用的网络接口，包括有线和无线接口，使用 <code>--list-interfaces</code> 选项也可以达到相同的目的：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tcpdump --list-interfaces</span><br></pre></td></tr></table></figure>
+
+<p>运行结果如下图所示：</p>
+<img data-src="/2024/01/01/190/640-20240101134831420.png" class="" title="图片">
+
+<h2 id="抓取某个网口的数据包"><a href="#抓取某个网口的数据包" class="headerlink" title="抓取某个网口的数据包"></a>抓取某个网口的数据包</h2><p>不适用任选项的情况下，tcpdump 将会扫描所有网口，使用 <code>-i</code> 选项可抓取某个特定网口的数据：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tcpdump -i &lt;target-interface&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在上述命令中 <code>&lt;target-interface&gt;</code> 表示网口名称。假如我们要抓取网口 <code>eth0</code> 的数据，可使用如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tcpdump -i eth0</span><br></pre></td></tr></table></figure>
+
+<p>注：为了方便演示，我们后文中将会使用 eth0 或者 eth1 作为目标网口。</p>
+<h2 id="预设抓包数量"><a href="#预设抓包数量" class="headerlink" title="预设抓包数量"></a>预设抓包数量</h2><p>使用 <code>-c</code> 选项可以预设抓包的数量。比如，下面命令将会抓取 4 个数据包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tcpdump -c 4 -i eth0 </span><br></pre></td></tr></table></figure>
+
+<img data-src="/2024/01/01/190/640-20240101140506551.png" class="" title="图片">
+
+<p>如果没有预设抓包数量，需要使用 <code>ctrl+c</code> 或者 <code>ctrl+z</code> 手动停止抓包操作。</p>
+<h2 id="获取详细输出"><a href="#获取详细输出" class="headerlink" title="获取详细输出"></a>获取详细输出</h2><p>使用 <code>-v</code> 选项可以获取详细输出，如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tcpdump -c 6 -v -i eth0 </span><br></pre></td></tr></table></figure>
+
+<p>详情的输出，有个详细程度的区别，换句话说，可以使用更多的 <code>-v</code> 标志，比如 <code>-vv</code> 或者 <code>-vvv</code>，这将会在终端上产生更加详细的输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tcpdump -vv -i eth0 </span><br></pre></td></tr></table></figure>
+
+<h2 id="以-ASCII-格式打印抓取到的数据"><a href="#以-ASCII-格式打印抓取到的数据" class="headerlink" title="以 ASCII 格式打印抓取到的数据"></a>以 ASCII 格式打印抓取到的数据</h2><p>有时候我们希望数据以 HEX 或者 ASCII 格式展现，这里可以使用 <code>-A</code> 选项来表示以 ASCII 格式，<code>-XX</code> 选项表示以 ASCII 和 HEX 格式展示数据：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tcpdump -XX -i eth0</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2024/01/01/190/640-20240101134831716.png" class="" title="图片">
+
+<h2 id="抓取从某个源-IP-发送的数据包"><a href="#抓取从某个源-IP-发送的数据包" class="headerlink" title="抓取从某个源 IP 发送的数据包"></a>抓取从某个源 IP 发送的数据包</h2><p>要抓取来自某个特定源 IP 的数据包，可使用如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tcpdump -i eth0 src &lt;source-ip-address&gt;</span><br></pre></td></tr></table></figure>
+
+<p>比如，我们查看来自 IP 为 <code>192.168.56.11</code> 的数据：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tcpdump -i eth1 -c 5 src 192.168.56.11</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2024/01/01/190/640-20240101134831572.png" class="" title="图片">
+
+<p>上面例子中的计数 5 为只抓取5个数据包。</p>
+<h2 id="抓取发送到特定目标-IP-的数据包"><a href="#抓取发送到特定目标-IP-的数据包" class="headerlink" title="抓取发送到特定目标 IP 的数据包"></a>抓取发送到特定目标 IP 的数据包</h2><p>如果要检查发送到特定目标 IP 地址的流量，可使用以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tcpdump -i eth0 dst &lt;source-ip-address&gt;</span><br></pre></td></tr></table></figure>
+
+<p>比如我们将目标 IP 设为 <code>192.168.56.11</code>，查看流量的详细信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tcpdump -i eth1 -c 5 dst 192.168.56.11</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2024/01/01/190/640-20240101134831585.png" class="" title="图片">
+
+<h2 id="在-tcpdump-中使用过滤选项"><a href="#在-tcpdump-中使用过滤选项" class="headerlink" title="在 tcpdump 中使用过滤选项"></a>在 tcpdump 中使用过滤选项</h2><p>tcpdump 命令提供了一些过滤选项，以缩小抓包数据的范围，这样可以过滤掉一些不必要的数据，以便于分析数据。过滤方式包括主机地址、端口、协议或者其他过滤条件。下面我们来举例说明。</p>
+<h2 id="端口号"><a href="#端口号" class="headerlink" title="端口号"></a>端口号</h2><p>如果要执行端口号（比如端口22）过滤，可参照如下方式执行 tcpdump 命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tcpdump -i eth0 port 22</span><br></pre></td></tr></table></figure>
+
+<p>此命令将抓取 TCP 和 UDP 数据流。</p>
+<h2 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h2><p>与端口号类似，proto 指令根据特定流量过滤数据包捕获。在这里，你可以使用协议名称或协议编号作为参数值：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tcpdump -i eth0 proto tcp</span><br></pre></td></tr></table></figure>
+
+<p>或者：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tcpdump -i eth0 proto 6</span><br></pre></td></tr></table></figure>
+
+<p>上面两个命令是相同的，因为 6 是 TCP 的协议号。</p>
+<h2 id="主机过滤"><a href="#主机过滤" class="headerlink" title="主机过滤"></a>主机过滤</h2><p>host 参数使用特定主机的IP，筛选来自该主机的数据流：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tcpdump -i eth0 host 192.168.56.10</span><br></pre></td></tr></table></figure>
+
+<p>这将捕获来自此主机的所有流量。此外，还可以对主机应用多个过滤条件，以针对特定类型的数据包流量。</p>
+<p>比如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tcpdump -i eth1 -c 50 “(host 192.168.56.11) and (port 443 or port 80)<span class="string">&quot;</span></span><br></pre></td></tr></table></figure>
+
+<img data-src="/2024/01/01/190/640-20240101134831609.png" class="" title="图片">
+
+<p>上面例子中，我将多个过滤条件合并到一个规则中，过滤 http 和 https 数据流，这两个协议的端口分分别为 80 和 443。我们之前分享过一篇常见网络端口的文字，感兴趣的朋友可以参考：<a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzI0OTQyNjU5Mw==&mid=2247484786&idx=1&sn=0c06b004fbab345d9821375a6315f239&chksm=e990e2bcdee76baa85c860f2f8125f7f66488d1b6697309713ae6adc6b005ffa8c1ea8bde4c3&scene=21#wechat_redirect">Linux中常见的网络端口号</a></p>
+<h2 id="保存抓取到的数据"><a href="#保存抓取到的数据" class="headerlink" title="保存抓取到的数据"></a>保存抓取到的数据</h2><p>如果要保存抓取到的数据，可参考如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tcpdump -i eth0 -c 10 -w my_capture.pcap</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2024/01/01/190/640-20240101134831551.png" class="" title="图片">
+
+<p>这里需要注意的是，最好将要抓取的数据包预设一个最小的值，否则需要手动停止该进程。</p>
+<h2 id="读取抓取到的数据"><a href="#读取抓取到的数据" class="headerlink" title="读取抓取到的数据"></a>读取抓取到的数据</h2><p>我们可以使用 <a target="_blank" rel="noopener" href="https://www.wireshark.org/">Wireshark</a>或者其他图形网络分析工具分析抓取到的数据（上个例子中保存到.pcap文件中的数据）。此外，也可以使用 tcpdump 本身来读取：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tcpdump -r my_capture.pcap</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2024/01/01/190/640-20240101134831715.png" class="" title="图片">
+
+<p>当你进行数据包抓取的时候，这是一个很好用的工具。如果你想用更直观的方式来分析数据包，可以试试 Wireshark。</p>
+<h1 id="查找-IP-地址"><a href="#查找-IP-地址" class="headerlink" title="查找 IP 地址"></a>查找 IP 地址</h1><p>fconfig 是 Linux 中最受欢迎的查询本机 IP 地址的方法。但是现如今 ifconfig 命令已经被启用了。在某些 Linux 发行版上已经不用了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">command</span> not found: ifconfig</span><br></pre></td></tr></table></figure>
+
+<p>那么，除此以外还有什么别的方式来查询 IP 地址呢？今天我们就来了解一下这个问题。</p>
+<h2 id="在-Linux-命令行中查找-IP-地址"><a href="#在-Linux-命令行中查找-IP-地址" class="headerlink" title="在 Linux 命令行中查找 IP 地址"></a>在 Linux 命令行中查找 IP 地址</h2><p>现在，可以使用 ip 命令来查询 IP 地址。ip 命令是通用的，可以用于网络相关的其他一些事情。</p>
+<p>不过，要显示 IP 地址，可以使用 ip addr，ip a 或者 ip address，如下所示命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ip address</span><br></pre></td></tr></table></figure>
+
+<p>输出如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1: lo: mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000</span><br><span class="line"><span class="built_in">link</span>/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</span><br><span class="line">inet 127.0.0.1/8 scope host lo</span><br><span class="line">valid_lft forever preferred_lft forever</span><br><span class="line">inet6 ::1/128 scope host</span><br><span class="line">valid_lft forever preferred_lft forever</span><br><span class="line">2: wlp58s0: mtu 1500 qdisc mq state UP group default qlen 1000</span><br><span class="line"><span class="built_in">link</span>/ether 9c:b6:d0:d0:<span class="built_in">fc</span>:b5 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">inet 192.168.1.20/24 brd 192.168.1.255 scope global dynamic noprefixroute wlp58s0</span><br><span class="line">valid_lft 5962sec preferred_lft 5962sec</span><br><span class="line">inet6 fe80::bf14:21e3:4223:e5e4/64 scope <span class="built_in">link</span> noprefixroute</span><br><span class="line">valid_lft forever preferred_lft forever</span><br></pre></td></tr></table></figure>
+
+<p>在上面的输出中，你可以忽略第一个名为<code>lo(loopback)</code>的输出，除此以外，可以看到 IP 地址显示为<code>192.168.1.20</code>。它后面的<code>24</code>是子网掩码。</p>
+<img data-src="/2024/01/01/190/640-20240102090154504.png" class="" title="图片">
+
+<p>如上所示，可以使用 ip 命令获取主机的 IP 地址。除此以外，还可以通过 bash 脚本获取 IP 地址。</p>
+<h2 id="获取-IP-地址的其他方法"><a href="#获取-IP-地址的其他方法" class="headerlink" title="获取 IP 地址的其他方法"></a>获取 IP 地址的其他方法</h2><p>除了使用 ip 命令以外，还有其他的几个方法来获取 IP 地址。</p>
+<h2 id="使用-hostname-命令查看IP地址"><a href="#使用-hostname-命令查看IP地址" class="headerlink" title="使用 hostname 命令查看IP地址"></a>使用 hostname 命令查看IP地址</h2><p><code>hostname</code> 命令通常用于显示系统的主机名，也可以用于显示主机的IP地址：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hostname -I</span><br></pre></td></tr></table></figure>
+
+<p>上述命令会显示主机的 IP 地址：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hostname -I</span><br><span class="line">192.168.0.106</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-nmcli-工具显示-IP-地址"><a href="#使用-nmcli-工具显示-IP-地址" class="headerlink" title="使用 nmcli 工具显示 IP 地址"></a>使用 nmcli 工具显示 IP 地址</h2><p>大多数 Linux 发行版都有一个 Network Manager 的工具，该工具有一个名为 <code>nmcli</code> 的命令行界面，可以使用此 <code>nmcli</code> 工具来查看网络配置。比如可以使用如下命令查看 IP 地址：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nmcli -p device show</span><br></pre></td></tr></table></figure>
+
+<h2 id="那么，ifconfig-呢？"><a href="#那么，ifconfig-呢？" class="headerlink" title="那么，ifconfig 呢？"></a>那么，ifconfig 呢？</h2><p>实际上，我们仍然可以使用 ifconfig 命令。如果系统中不存在这个命令，我们可以手动安装，它存在于网络工具包中。</p>
+<p>在基于 Ubuntu 的 Linux 中，可以使用如下命令安装网络工具：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install net-tools</span><br></pre></td></tr></table></figure>
+
+<p>安装完成后，就可以使用 ifconfig 命令来查询 IP 地址了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig -a</span><br></pre></td></tr></table></figure>
+
+<p>输出如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">lo: flags=73 mtu 65536</span><br><span class="line">inet 127.0.0.1 netmask 255.0.0.0</span><br><span class="line">inet6 ::1 prefixlen 128 scopeid 0x10</span><br><span class="line">loop txqueuelen 1000 (Local Loopback)</span><br><span class="line">RX packets 14855 bytes 3027297 (3.0 MB)</span><br><span class="line">RX errors 0 dropped 0 overruns 0 frame 0</span><br><span class="line">TX packets 14855 bytes 3027297 (3.0 MB)</span><br><span class="line">TX errors 0 dropped 0 overruns 0 carrier 0 collisions 0</span><br><span class="line">wlp58s0: flags=4163 mtu 1500</span><br><span class="line">inet 192.168.0.106 netmask 255.255.255.0 broadcast 192.168.0.255</span><br><span class="line">inet6 fe80::bf14:21e3:4223:e5e4 prefixlen 64 scopeid 0x20</span><br><span class="line">ether 9c:b6:d0:d0:<span class="built_in">fc</span>:b5 txqueuelen 1000 (Ethernet)</span><br><span class="line">RX packets 88413 bytes 61851930 (61.8 MB)</span><br><span class="line">RX errors 0 dropped 0 overruns 0 frame 0</span><br><span class="line">TX packets 56505 bytes 11409219 (11.4 MB)</span><br><span class="line">TX errors 0 dropped 0 overruns 0 carrier 0 collisions 0</span><br></pre></td></tr></table></figure>
+
+<p>不过，因为 ifconfig 命令已经被弃用，所以我们还是不鼓励使用网络工具，建议使用 ip 命令。</p>
+<h2 id="查询公网IP地址"><a href="#查询公网IP地址" class="headerlink" title="查询公网IP地址"></a>查询公网IP地址</h2><p>上面我们介绍的都是查询本地内网IP地址的方法，也就是局域网的 IP 地址。</p>
+<p>内网 IP 地址是局限在局域网中的地址，用于与局域网中的其他设备进行通信。局域网之外的其他设备无法通过这个 IP 地址找到你。我们所说的公网地址一般是指路由器的IP地址，路由器通过内网 IP 与你的设备通信。</p>
+<p>那么，如何获取公网IP地址呢？这就需要借助于第三方工具了。</p>
+<p>比如，可以使用 OpenDNS 的 <code>host</code> 命令来获取公网 IP 地址。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">host myip.opendns.com resolver1.opendns.com</span><br></pre></td></tr></table></figure>
+
+<p>其输出如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Using domain server:Name: resolver1.opendns.comAddress: 208.67.222.222<span class="comment">#53Aliases:myip.opendns.com has address 202.91.87.117Host myip.opendns.com not found: 3(NXDOMAIN)Host myip.opendns.com not found: 3(NXDOMAIN)</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="查询默认网关"><a href="#查询默认网关" class="headerlink" title="查询默认网关"></a>查询默认网关</h1><p>网关是两个网络之间的入口，路由器就是网关的一个例子。你的网络中所有的流量都是流向路由器，然后再通过路由器流向互联网。</p>
+<p>有时候你需要知道路由器的 IP 地址，网关 IP 其实就是正常设置中路由器的 IP 地址。</p>
+<p>下面我们使用 ip 命令在命令行中显示网关 IP，打开一个终端，然后输入如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip route</span><br></pre></td></tr></table></figure>
+
+<p>会看到如下输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">default via 192.168.0.1 dev wlp58s0 proto dhcp metric 600</span><br><span class="line">169.254.0.0/16 dev wlp58s0 scope <span class="built_in">link</span> metric 1000</span><br><span class="line">192.168.0.0/24 dev wlp58s0 proto kernel scope <span class="built_in">link</span> src 192.168.0.106 metric 600</span><br></pre></td></tr></table></figure>
+
+<p>上面的输出中，注意 <code>default</code> 开头的那一行，后面跟的就是默认网关 IP 地址。</p>
+<p>或者，可以将上述命令与 <a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzI0OTQyNjU5Mw==&mid=2247484486&idx=1&sn=c5e38d90a9ef895e1860bd5d208bda31&chksm=e990e388dee76a9e7629a556126c397b16101f3590ad9a4569cd01900dec5f0e3d678912eab3&scene=21#wechat_redirect">grep </a>结合使用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip route | grep default</span><br></pre></td></tr></table></figure>
+
+<p>这个命令的输出只会给出默认网关 IP：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">default via 192.168.0.1 dev wlp1s0 proto dhcp metric 600</span><br></pre></td></tr></table></figure>
+
+<p>如上所示，<code>192.168.0.1</code> 即为我们例子中的默认网关 IP。</p>
+<h2 id="查找网关IP地址的其他方法"><a href="#查找网关IP地址的其他方法" class="headerlink" title="查找网关IP地址的其他方法"></a>查找网关IP地址的其他方法</h2><p>Linux 中的 <code>ip</code> 命令提供了大多数网络相关的操作，如果用过一段时间的 Linux 系统，我们可能就会注意到，要完成某件事情，一般会有多种不同的方法。所以，要查看默认网关，还有其他的一些方法，比如使用其他网络命令行工具，接下来我们就来看一下。</p>
+<h2 id="使用-route-命令查询网关地址"><a href="#使用-route-命令查询网关地址" class="headerlink" title="使用 route 命令查询网关地址"></a>使用 route 命令查询网关地址</h2><p>我们可以在 route 命令中使用 -n 选项来显示包含 IP 地址的路由表，如下所示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">route -n</span><br></pre></td></tr></table></figure>
+
+<p>输出如下所示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Kernel IP routing table</span><br><span class="line">Destination     Gateway         Genmask         Flags Metric Ref    Use Iface</span><br><span class="line">0.0.0.0         192.168.0.1     0.0.0.0         UG    600    0        0 wlp58s0</span><br><span class="line">169.254.0.0     0.0.0.0         255.255.0.0     U     1000   0        0 wlp58s0</span><br><span class="line">192.168.0.0     0.0.0.0         255.255.255.0   U     600    0        0 wlp58s0</span><br></pre></td></tr></table></figure>
+
+<p>注意到其中的 <strong>U</strong> 和 <strong>G</strong> 标志了吗？<strong>U 表示路由“向上”，G 表示它是网关</strong>。</p>
+<h2 id="使用-netstat-命令查询网关"><a href="#使用-netstat-命令查询网关" class="headerlink" title="使用 netstat 命令查询网关"></a>使用 netstat 命令查询网关</h2><p>我们还可以使用 <code>netstat</code> 命令显示组成网关的路由表，以此来获取网关地址。看如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -r -n</span><br></pre></td></tr></table></figure>
+
+<p>其输出与 route 命令的输出相同：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Kernel IP routing table</span><br><span class="line">Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface</span><br><span class="line">0.0.0.0         192.168.0.1     0.0.0.0         UG        0 0          0 wlp58s0</span><br><span class="line">169.254.0.0     0.0.0.0         255.255.0.0     U         0 0          0 wlp58s0</span><br><span class="line">192.168.0.0     0.0.0.0         255.255.255.0   U         0 0          0 wlp58s0</span><br></pre></td></tr></table></figure>
+
+<p><strong>可以通过 G 标志来找到网关地址。</strong></p>
+<h1 id="端口占用情况"><a href="#端口占用情况" class="headerlink" title="端口占用情况"></a>端口占用情况</h1><h2 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -tunlp</span><br></pre></td></tr></table></figure>
+
+<p>用于显示 tcp，udp 的端口和进程等相关情况。</p>
+<p>netstat 查看端口占用语法格式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -tunlp | grep 端口号</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>-t (tcp) 仅显示tcp相关选项</li>
+<li>-u (udp)仅显示udp相关选项</li>
+<li>-n 拒绝显示别名，能显示数字的全部转化为数字</li>
+<li>-l 仅列出在Listen(监听)的服务状态</li>
+<li>-p 显示建立相关链接的程序名</li>
+</ul>
+<p>例如查看 8000 端口的情况，使用以下命令：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># netstat -tunlp | grep <span class="number">8000</span></span><br><span class="line">tcp        <span class="number">0</span>      <span class="number">0</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">8000</span>            <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:*               <span class="variable constant_">LISTEN</span>      <span class="number">26993</span>/nodejs</span><br></pre></td></tr></table></figure>
+
+<p>更多命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">netstat -ntlp   //查看当前所有tcp端口</span><br><span class="line">netstat -ntulp | grep 80   //查看所有80端口使用情况</span><br><span class="line">netstat -ntulp | grep 3306   //查看所有3306端口使用情况</span><br></pre></td></tr></table></figure>
+
+<h2 id="lsof"><a href="#lsof" class="headerlink" title="lsof"></a>lsof</h2><p>不管你是直接登录的系统，还是使用 ssh 连接的，都可以使用 <code>lsof</code> 命令来检查端口：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsof -i -P -n</span><br></pre></td></tr></table></figure>
+
+<p>该命令用于查找用户使用的文件和进程。上述命令中的选项，包括：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-i</code></td>
+<td>如果没有指定IP地址，那么此选项就会选择所有网络文件的列表；</td>
+</tr>
+<tr>
+<td><code>-P</code></td>
+<td>禁止将网络文件的端口号转换为端口名;</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td>禁止将网络文件的网络编号转为主机名。</td>
+</tr>
+</tbody></table>
+<img data-src="/2024/01/01/190/640-5275016.png" class="" title="图片">
+
+<p>但是，这也会展示许多计算机并没有监听的其他端口。</p>
+<p>我们可以通过管道将此输出传输到 grep，并匹配模式 “LISTEN”，如下所示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsof -i -P -n | grep LISTEN</span><br></pre></td></tr></table></figure>
+
+<p>这样就只显示计算机正在监听的，以及正在运行的服务所占用的端口。</p>
+<h2 id="netcat"><a href="#netcat" class="headerlink" title="netcat"></a>netcat</h2><p><code>nc</code>(<code>Netcat</code>) 是一个命令行实用程序，使用TCP和UDP协议在网络计算机之间读取和写入数据。</p>
+<p>以下是<code>nc</code>命令的语法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc [options] host port</span><br></pre></td></tr></table></figure>
+
+<p>这个工具有一个很实用的 <code>-z</code> 选项，它会让 <code>nc</code> 命令扫描正在监听的守护进程，但是不会向端口发送任何数据。</p>
+<p>将其与 <code>-v</code> 选项结合，启动详细信息，会有详细信息的输出。</p>
+<p>如下是使用 nc 命令扫描开放的端口：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -z -v &lt;IP-ADDRESS&gt; 1-65535 2&gt;&amp;1 | grep -v &#x27;Connection refused&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>将上面的<code>&lt;IP-ADDRESS&gt;</code> 替换为你要检查的 Linux 系统的IP地址。</p>
+<p>至于为什么我会选择 1 到 65535，那是因为端口的范围是 <strong>1 到 65535</strong>。</p>
+<p>最后，通过管道将输出传到grep，使用 <code>-v</code> 选项可以排除“拒绝连接( Connection refused)”的端口。</p>
+<p>这样就会扫描到计算机上所有开放的端口，这些端口可以被网络上的其他机器访问。</p>
+<p>以上两种方法中，lsof 比 nc 速度要快。但是使用 lsof 需要先登录到系统中，并且具有 sudo 访问权限。所以，如果你扫描的是你已经登录到的系统，可以优先选择 lsof。</p>
+<p>nc 命令可以很灵活的扫描端口，而不需要登录。</p>
+<h1 id="netstat-1"><a href="#netstat-1" class="headerlink" title="netstat"></a>netstat</h1><p>Linux下网络连接分析指令：<code>netstat</code></p>
+<p><code>netstat</code>指令主要用于显示与IP、TCP、UDP和ICMP协议相关的统计数据及网络相关信息，可以用于检验本机各端口的网络连接情况，哪个端口被哪个程序占用、TCP连接状态、统计网络连接信息等。</p>
+<p>Linux系统终端输入<code>netstat</code>命令，会输出以下内容显示tcp相关的信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># netstat</span></span><br><span class="line">Active Internet connections (w/o servers)</span><br><span class="line">Proto Recv-Q Send-Q Local Address           Foreign Address         State      </span><br><span class="line">tcp        0      0 localhost.localdoma:ssh 10.47.0.58:53706        ESTABLISHED</span><br><span class="line">tcp        0      0 localhost.localdom:http 10.72.17.179:55137      ESTABLISHED</span><br><span class="line">tcp        0      0 localhost:globe         localhost:59988         ESTABLISHED</span><br><span class="line">tcp        0      0 localhost:dc            localhost:40862         ESTABLISHED</span><br><span class="line">tcp6       0      0 172.31.2.63:56949       172.31.2.169:6379       ESTABLISHED</span><br><span class="line">tcp6       0      0 172.31.2.63:46256       172.31.2.169:6379       ESTABLISHED</span><br><span class="line">tcp6       0      0 172.31.2.63:25068       172.31.2.65:mysql       ESTABLISHED</span><br><span class="line">tcp6       0      0 172.31.2.63:21653       172.31.2.65:mysql       ESTABLISHED</span><br><span class="line">tcp6       0      0 172.31.2.63:36472       172.31.2.169:6379       ESTABLISHED</span><br><span class="line">tcp6       0      0 172.31.2.63:26128       172.31.2.65:mysql       ESTABLISHED</span><br><span class="line">tcp6       0      0 172.31.2.63:57247       172.31.2.169:6379       ESTABLISHED</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>从整体上看，netstat指令的输出分为以下两个部分：</p>
+<p><strong>1）Active Internet connections (w&#x2F;o servers) 部分</strong></p>
+<p>这一部分称为有源的tcp连接，其中Recv-Q和Send-Q分别指接受队列和发送队列，这些数字一般都是为0。如果不为0，则表示数据包正在队列中堆积。</p>
+<p><strong>2）Active Unix domain sockets (w&#x2F;o servers) 部分</strong></p>
+<p>  这一部分称为有源的Unix域套接口（和网络套接字一样，但是只能用于本机通信，性能可以提高一倍）。proto显示连接用的协议，RefCnt表示连接到本套接口上的进程号，Types显示套接口的类型，State显示套接口当前的状态，Path表示连接到套接口的其他进程使用的路径名。</p>
+<p>了解了netstat指令的这些含义后，再配合一些常用的选项，可以让netstat指令输出更丰富有用的信息，netstat指令常用的选项如下：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-a/-all </code></td>
+<td>显示所有选项，默认不显示listen相关；</td>
+</tr>
+<tr>
+<td><code>-t/-tcp </code></td>
+<td>仅显示tcp传输协议的连接状况；</td>
+</tr>
+<tr>
+<td><code>-u/-udp </code></td>
+<td>仅显示udp传输协议的连接状况；</td>
+</tr>
+<tr>
+<td><code>-n/-numeric </code></td>
+<td>拒绝显示别名，能显示数字的全部转化成数字；</td>
+</tr>
+<tr>
+<td><code>-l/-listening </code></td>
+<td>仅列出在listen（监听）状态的socket；</td>
+</tr>
+<tr>
+<td><code>-p/-programs </code></td>
+<td>显示正在使用socket的程序识别码和程序名称；</td>
+</tr>
+<tr>
+<td><code>-r/-route </code></td>
+<td>显示路由信息；</td>
+</tr>
+<tr>
+<td><code>-s/-statistice </code></td>
+<td>显示网络工作信息统计表；</td>
+</tr>
+<tr>
+<td><code>-c/-continuous </code></td>
+<td>每隔指定时间执行netstat指令。</td>
+</tr>
+</tbody></table>
+<p>提示：listen和listening的状态只有使用 <code>-a</code> 或 -l 选项才能看到。</p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><h3 id="列出所有端口信息"><a href="#列出所有端口信息" class="headerlink" title="列出所有端口信息"></a>列出所有端口信息</h3><p><code>netstat -a</code> 指令列出当前操作系统的所有端口。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># netstat -a|more</span></span><br><span class="line">Active Internet connections (servers and established)</span><br><span class="line">Proto Recv-Q Send-Q Local Address           Foreign Address         State      </span><br><span class="line">tcp        0      0 0.0.0.0:http            0.0.0.0:*               LISTEN     </span><br><span class="line">tcp        0      0 localhost:dc            0.0.0.0:*               LISTEN     </span><br><span class="line">tcp        0      0 localhost:globe         0.0.0.0:*               LISTEN     </span><br><span class="line">tcp        0      0 0.0.0.0:ssh             0.0.0.0:*               LISTEN     </span><br><span class="line">tcp        0      0 localhost:smtp          0.0.0.0:*               LISTEN     </span><br><span class="line">tcp        0      0 localhost.localdo:44550 localhost.localdo:12888 TIME_WAIT  </span><br><span class="line">tcp        0      0 localhost.localdom:http 10.72.145.14:54042      ESTABLISHED</span><br><span class="line">tcp        0      0 localhost.localdom:http 10.72.145.14:60963      ESTABLISHED</span><br><span class="line">tcp        0      0 localhost.localdom:http 10.72.145.14:54882      ESTABLISHED</span><br><span class="line">tcp        0      0 localhost.localdom:http 10.72.145.14:64495      ESTABLISHED</span><br><span class="line">tcp        0      0 localhost.localdo:44644 localhost.localdo:12888 TIME_WAIT  </span><br><span class="line">tcp        0      0 localhost.localdom:http 10.72.145.14:49926      ESTABLISHED</span><br><span class="line">tcp        0     52 localhost.localdoma:ssh 10.47.0.58:63897        ESTABLISHED</span><br><span class="line">tcp        0      0 localhost.localdo:44510 localhost.localdo:12888 ESTABLISHED</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h3 id="列出所有tcp端口信息"><a href="#列出所有tcp端口信息" class="headerlink" title="列出所有tcp端口信息"></a>列出所有tcp端口信息</h3><p><code>netstat -at</code>指令列出所有处于监听状态的sockets</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># netstat -at</span></span><br><span class="line">Active Internet connections (servers and established)</span><br><span class="line">Proto Recv-Q Send-Q Local Address           Foreign Address         State      </span><br><span class="line">tcp        0      0 0.0.0.0:http            0.0.0.0:*               LISTEN     </span><br><span class="line">tcp        0      0 localhost:dc            0.0.0.0:*               LISTEN     </span><br><span class="line">tcp        0      0 localhost:globe         0.0.0.0:*               LISTEN     </span><br><span class="line">tcp        0      0 0.0.0.0:ssh             0.0.0.0:*               LISTEN     </span><br><span class="line">tcp        0      0 localhost:smtp          0.0.0.0:*               LISTEN     </span><br><span class="line">tcp        0      0 localhost.localdom:http 10.72.145.14:54042      ESTABLISHED</span><br><span class="line">tcp        0      0 localhost.localdom:http 10.72.145.14:60963      ESTABLISHED</span><br><span class="line">tcp        0      0 localhost.localdom:http 10.72.145.14:54882      ESTABLISHED</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h3 id="列出所有udp端口"><a href="#列出所有udp端口" class="headerlink" title="列出所有udp端口"></a>列出所有udp端口</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#列出所有udp端口</span></span><br><span class="line">[root@localhost ~]<span class="comment"># netstat -au</span></span><br><span class="line">Active Internet connections (servers and established)</span><br><span class="line">Proto Recv-Q Send-Q Local Address           Foreign Address         State      </span><br><span class="line">udp        0      0 localhost:323           0.0.0.0:*                          </span><br><span class="line">udp6       0      0 [::]:12521              [::]:*                             </span><br><span class="line">udp6       0      0 [::]:16620              [::]:*                             </span><br><span class="line">udp6       0      0 localhost:323           [::]:*                             </span><br><span class="line">udp6       0      0 [::]:16712              [::]:*                             </span><br><span class="line">udp6       0      0 [::]:16861              [::]:*                             </span><br><span class="line">udp6       0      0 [::]:57943              [::]:*                             </span><br><span class="line">udp6       0      0 [::]:37501              [::]:*                             </span><br><span class="line">udp6       0      0 [::]:62094              [::]:*                             </span><br><span class="line">udp6       0      0 [::]:33765              [::]:*                             </span><br><span class="line">udp6       0      0 [::]:34081              [::]:*                             </span><br><span class="line">udp6       0      0 [::]:11239              [::]:*                             </span><br><span class="line">udp6       0      0 [::]:27708              [::]:*                             </span><br><span class="line">udp6       0      0 [::]:31870              [::]:*                             </span><br><span class="line">udp6       0      0 [::]:28440              [::]:*                             </span><br><span class="line">udp6       0      0 [::]:36716              [::]:* </span><br></pre></td></tr></table></figure>
+
+<h3 id="只显示监听端口"><a href="#只显示监听端口" class="headerlink" title="只显示监听端口"></a>只显示监听端口</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># netstat -l</span></span><br><span class="line">Active Internet connections (only servers)</span><br><span class="line">Proto Recv-Q Send-Q Local Address           Foreign Address         State      </span><br><span class="line">tcp        0      0 0.0.0.0:http            0.0.0.0:*               LISTEN     </span><br><span class="line">tcp        0      0 localhost:dc            0.0.0.0:*               LISTEN     </span><br><span class="line">tcp        0      0 localhost:globe         0.0.0.0:*               LISTEN     </span><br><span class="line">tcp        0      0 0.0.0.0:ssh             0.0.0.0:*               LISTEN     </span><br><span class="line">tcp        0      0 localhost:smtp          0.0.0.0:*               LISTEN     </span><br><span class="line">tcp6       0      0 localhost:18044         [::]:*                  LISTEN     </span><br><span class="line">tcp6       0      0 localhost:18045         [::]:*                  LISTEN     </span><br><span class="line">tcp6       0      0 [::]:9853               [::]:*                  LISTEN     </span><br><span class="line">tcp6       0      0 [::]:8093               [::]:*                  LISTEN   </span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h3 id="显示tcp或udp端口的统计信息"><a href="#显示tcp或udp端口的统计信息" class="headerlink" title="显示tcp或udp端口的统计信息"></a>显示tcp或udp端口的统计信息</h3><p><code>netstat -st</code> 或 <code>-su</code> 指令输出tcp或udp端口的统计信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># netstat -st</span></span><br><span class="line">IcmpMsg:</span><br><span class="line">    InType0: 1419</span><br><span class="line">    InType3: 8365968</span><br><span class="line">    InType8: 2051697</span><br><span class="line">    InType11: 247</span><br><span class="line">    InType13: 34</span><br><span class="line">    InType17: 17</span><br><span class="line">    InType37: 3</span><br><span class="line">    InType165: 4</span><br><span class="line">    OutType0: 2051695</span><br><span class="line">    OutType3: 7071013</span><br><span class="line">    OutType8: 32209</span><br><span class="line">    OutType14: 34</span><br><span class="line">Tcp:</span><br><span class="line">    112465077 active connections openings</span><br><span class="line">    82617386 passive connection openings</span><br><span class="line">    43204454 failed connection attempts</span><br><span class="line">    13439770 connection resets received</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h3 id="显示特定程序"><a href="#显示特定程序" class="headerlink" title="显示特定程序"></a>显示特定程序</h3><p><code>netstat -p</code> 指令可以与其他开关一起使用，可以添加<code>pid/进程名称</code> 到<code>netstat</code>输出中，debug系统时可以很方便的发现特定端口运行程序。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># netstat -pt</span></span><br><span class="line">Active Internet connections (w/o servers)</span><br><span class="line">Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    </span><br><span class="line">tcp        0      0 localhost.localdom:http 10.47.0.72:60182        ESTABLISHED 23849/nginx: worker </span><br><span class="line">tcp        0      0 localhost.localdom:http 10.72.145.14:54042      ESTABLISHED 23849/nginx: worker </span><br><span class="line">tcp        0      0 localhost.localdom:http 10.72.145.14:60963      ESTABLISHED 23849/nginx: worker </span><br><span class="line">tcp        0      0 localhost.localdom:http 10.72.145.14:54882      ESTABLISHED 23849/nginx: worker </span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>在输出中显示pid和进程名称 netstat -p</p>
+<h3 id="在netstat指令输出中不显示主机名、端口和用户信息"><a href="#在netstat指令输出中不显示主机名、端口和用户信息" class="headerlink" title="在netstat指令输出中不显示主机名、端口和用户信息"></a>在netstat指令输出中不显示主机名、端口和用户信息</h3><p>可以使用 <code>netstat -n</code> 指令使用数字代替名称加速输出显示结果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ netstat -an</span><br></pre></td></tr></table></figure>
+
+<h3 id="持续输出netstat信息"><a href="#持续输出netstat信息" class="headerlink" title="持续输出netstat信息"></a>持续输出netstat信息</h3><p>每隔1秒输出网络信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ netstat -ntpl -c</span><br></pre></td></tr></table></figure>
+
+<h3 id="显示核心路由信息"><a href="#显示核心路由信息" class="headerlink" title="显示核心路由信息"></a>显示核心路由信息</h3><p>使用 <code>netstat -rn</code> 显示数字格式，不查询主机名称</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ netstat -r</span><br></pre></td></tr></table></figure>
+
+<h3 id="找出程序运行的端口"><a href="#找出程序运行的端口" class="headerlink" title="找出程序运行的端口"></a>找出程序运行的端口</h3><p><code>netstat -ap|grep ssh</code> 指令并不是所有的进程都能找到，没有权限的会不显示，使用root权限查看所有的信息。</p>
+<h3 id="找出运行在指定端口的进程"><a href="#找出运行在指定端口的进程" class="headerlink" title="找出运行在指定端口的进程"></a>找出运行在指定端口的进程</h3><p>使用 netstat -ntpl 指令过滤出端口为22的程序</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># netstat -ntpl | grep &#x27;:22&#x27;</span></span><br><span class="line">tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      9332/sshd: /usr/sbi </span><br><span class="line">tcp6       0      0 :::22                   :::*                    LISTEN      9332/sshd: /usr/sbi </span><br></pre></td></tr></table></figure>
+
+<h3 id="显示网络接口列表"><a href="#显示网络接口列表" class="headerlink" title="显示网络接口列表"></a>显示网络接口列表</h3><p><code>netstat -i</code>指令查看当前主机网络接口信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># netstat -i</span></span><br><span class="line">Kernel Interface table</span><br><span class="line">Iface             MTU    RX-OK RX-ERR RX-DRP RX-OVR    TX-OK TX-ERR TX-DRP TX-OVR Flg</span><br><span class="line">eth0             1500 3575801954      0 976636 0      812647343      0      0      0 BMRU</span><br><span class="line">lo              65536 1345189379      0      0 0      1345189379      0      0      0 LRU</span><br></pre></td></tr></table></figure>
+
+<p>使用 netstat -ie 可以显示网络接口的详细信息。</p>
+<h3 id="ip和tcp状态分析"><a href="#ip和tcp状态分析" class="headerlink" title="ip和tcp状态分析"></a>ip和tcp状态分析</h3><p>统计当前系统连接服务22端口的前20个ip地址：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ netstat -nat | grep <span class="string">&quot;192.168.1.56:22&quot;</span> | awk <span class="string">&#x27;&#123;pring $5&#125;&#x27;</span>|awk -F: <span class="string">&#x27;&#123;print $1&#125;&#x27;</span>|<span class="built_in">sort</span>|<span class="built_in">uniq</span> -c|<span class="built_in">sort</span> -nr|<span class="built_in">head</span> -20</span><br></pre></td></tr></table></figure>
+
+<h3 id="tcp各种状态列表"><a href="#tcp各种状态列表" class="headerlink" title="tcp各种状态列表"></a>tcp各种状态列表</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ netstat -nat |awk <span class="string">&#x27;&#123;print $6&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="tcp状态信息统计"><a href="#tcp状态信息统计" class="headerlink" title="tcp状态信息统计"></a>tcp状态信息统计</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ netstat -nat |awk <span class="string">&#x27;&#123;print $6&#125;&#x27;</span>|<span class="built_in">sort</span>|<span class="built_in">uniq</span> -c|<span class="built_in">sort</span> -rn</span><br></pre></td></tr></table></figure>
+
+<p>代码实现思路：先把状态全部取出来，然后使用uniq -c统计，再进行排序。</p>
+<h3 id="分析ip地址"><a href="#分析ip地址" class="headerlink" title="分析ip地址"></a>分析ip地址</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span> /data/app/nginx/logs/access.log|<span class="built_in">sort</span>|<span class="built_in">uniq</span> -c|<span class="built_in">sort</span> -nr|<span class="built_in">head</span> -10</span><br></pre></td></tr></table></figure>
+
+<p>如上代码分析了web服务器access.log获得访问前10位的ip地址。</p>
+<h1 id="traceroute"><a href="#traceroute" class="headerlink" title="traceroute"></a>traceroute</h1><p>Linux 中使用 traceroute 命令跟踪目标地址</p>
+<p>traceroute 类似于 ping 命令，但是提供了更详细的信息输出，它跟踪从原点到目标系统的路由。当你连接到某个远程系统时，数据会经过几个中间节点（比如你的路由器，ISP路由等等）的传输。</p>
+<img data-src="/2024/01/01/190/640-20240111075903585.png" class="" title="图片">
+
+<p>traceroute 一般为系统管理员或者网络管理员用于对网络进行故障排除。</p>
+<h2 id="在-Linux-中安装-traceroute"><a href="#在-Linux-中安装-traceroute" class="headerlink" title="在 Linux 中安装 traceroute"></a>在 Linux 中安装 traceroute</h2><p>在大多数 Linux 发行版中，<code>traceroute</code> 都没有被预安装，所以需要我们手动安装。</p>
+<p>如果你用的是 Ubuntu，可以使用如下命令安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install traceroute</span><br></pre></td></tr></table></figure>
+
+<p>如果你用的是 Fedora，可以使用如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install traceroute</span><br></pre></td></tr></table></figure>
+
+<p>下面，我们介绍几个使用 <code>traceroute</code> 的例子。</p>
+<h2 id="使用-traceroute-命令"><a href="#使用-traceroute-命令" class="headerlink" title="使用 traceroute 命令"></a>使用 traceroute 命令</h2><p>我们先来介绍一个最基本的例子，使用 <code>traceroute</code> 命令跟踪一个主机名，它将显示到达目的地所需的路由器列表（带IP）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">traceroute google.com</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2024/01/01/190/640-20240111075903972.png" class="" title="图片">
+
+<p>如上图所示，它需要7个路由器才能到达目的地，默认情况下，它向每个路由器发送3个包，并返回响应所需的时间。</p>
+<p>下面我们来看看其他几个例子。</p>
+<h2 id="配置等待时间"><a href="#配置等待时间" class="headerlink" title="配置等待时间"></a>配置等待时间</h2><p><code>traceroute</code> 中的默认等待时间为3秒，要修改这个时间，可以使用 <code>-w</code> 选项。比如，我们将等待时间改为 1 秒：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">traceroute -w 1 google.com</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2024/01/01/190/640-20240111075903971.png" class="" title="图片">
+
+<h2 id="更改收发包的数量"><a href="#更改收发包的数量" class="headerlink" title="更改收发包的数量"></a>更改收发包的数量</h2><p>默认情况下，<code>traceroute</code> 为一个跃点（<code>hop</code>）发送3个包，如果想更改此行为，可使用 <code>-q</code> 选项。</p>
+<p>比如，我们我们将其改为4个数据包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">traceroute -q 4 google.com</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2024/01/01/190/640-20240111075903972-4931143.png" class="" title="图片">
+
+<h2 id="指定最大跃点数"><a href="#指定最大跃点数" class="headerlink" title="指定最大跃点数"></a>指定最大跃点数</h2><p>在traceroute中，单个查询的默认最大跳数为<code>30</code>，可以扩展到<code>255</code>。使用 <code>-m</code> 选项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">traceroute -m 4 google.com</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2024/01/01/190/640-20240111075903728.png" class="" title="图片">
+
+<h2 id="指定-TTL"><a href="#指定-TTL" class="headerlink" title="指定 TTL"></a>指定 TTL</h2><p>默认情况下，traceroute 将以第一个 TTL 开始，但您可以使用 <code>-f</code> 选项更改此行为。</p>
+<p>如下例子，我们从第5个TTL开始跟踪 google：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">traceroute -f 5 google.com</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2024/01/01/190/640-20240307081135528.png" class="" title="img">
+
+<h2 id="添加备用源IP地址"><a href="#添加备用源IP地址" class="headerlink" title="添加备用源IP地址"></a>添加备用源IP地址</h2><p>使用 <code>-s</code> 选项添加备用 IP 地址：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">traceroute -s 192.168.1.7 google.com</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2024/01/01/190/640-20240111075903667.png" class="" title="图片">
+
+<h2 id="跟踪时禁用主机名映射到IP地址"><a href="#跟踪时禁用主机名映射到IP地址" class="headerlink" title="跟踪时禁用主机名映射到IP地址"></a>跟踪时禁用主机名映射到IP地址</h2><p>如果出于某种原因希望在跟踪时禁用主机名映射，可以使用 <code>-n</code> 选项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">traceroute -n google.com</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2024/01/01/190/640-20240111075903842.png" class="" title="图片">
+
+<h2 id="通过网关路由包"><a href="#通过网关路由包" class="headerlink" title="通过网关路由包"></a>通过网关路由包</h2><p>可以在要跟踪路由的域时，使用 <code>-g</code> 选项指定网关地址。</p>
+<p>比如，我们添加 <code>192.168.1.7</code> 作为网关地址：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">traceroute -g 192.168.1.7 google.com</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2024/01/01/190/640-20240111075903850.png" class="" title="图片">
+
+<h2 id="更改目标端口"><a href="#更改目标端口" class="headerlink" title="更改目标端口"></a>更改目标端口</h2><p>可以使用 <code>-p</code> 来指定要跟踪的目标端口：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">traceroute -p 29879 google.com</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2024/01/01/190/640-9770260.png" class="" title="img">
+
+<h2 id="设置最大数据包长度"><a href="#设置最大数据包长度" class="headerlink" title="设置最大数据包长度"></a>设置最大数据包长度</h2><p>默认情况下，<code>traceroute</code> 跟踪的数据包长度为 60 字节（bytes），可以在目标地址后跟一个数字（即包大小）来修改：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">traceroute google.com 100</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2024/01/01/190/640-20240111075903977.png" class="" title="图片">
+
+<h2 id="禁用探测数据包碎片（probe-packet-fragmentation）"><a href="#禁用探测数据包碎片（probe-packet-fragmentation）" class="headerlink" title="禁用探测数据包碎片（probe packet fragmentation）"></a>禁用探测数据包碎片（probe packet fragmentation）</h2><p>如果你不想允许探测数据包碎片化，有一种简单的方法来实现这个目的，使用 <code>-F</code> 选项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">traceroute -F google.com</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2024/01/01/190/640-20240111075904068.png" class="" title="图片">
+
+<p>如果你想要了解 traceroute 是如何工作的，可以参考另一篇指南，这个指南解释了 traceroute 的工作原理，<a target="_blank" rel="noopener" href="https://learnubuntu.com/traceroute/">点击这里</a></p>
+<h1 id="设置静态IP"><a href="#设置静态IP" class="headerlink" title="设置静态IP"></a>设置静态IP</h1><h2 id="fedora"><a href="#fedora" class="headerlink" title="fedora"></a>fedora</h2><h3 id="NetworkManager"><a href="#NetworkManager" class="headerlink" title="NetworkManager"></a>NetworkManager</h3><ol>
+<li><p>查看并记录Linux实例的网卡信息: IP地址、子网掩码、网关信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2024/01/01/190/c2392793-6104-415e-8ed3-25f283c6e002.png" class="" title="ifconfig">
+</li>
+<li><p>查看实例的路由表和网关信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">route -n</span><br></pre></td></tr></table></figure>
+
+<img data-src="/2024/01/01/190/97891490-7d13-4e5a-9e8d-7f7dcedaf81a.jpg" class="" title="{D26B4046-C999-4D0B-AE20-E1DB2A7D17D9}_20200414105215.jpg">
+</li>
+<li><p>查看DNS</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nmcli device show | grep DNS</span><br></pre></td></tr></table></figure>
+
+<p>如: </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">root@localhost:/etc/sysconfig/network-scripts# nmcli device show</span><br><span class="line">GENERAL.DEVICE:                         ens18</span><br><span class="line">GENERAL.TYPE:                           ethernet</span><br><span class="line">GENERAL.HWADDR:                         FE:FC:FE:7E:DB:51</span><br><span class="line">GENERAL.MTU:                            1500</span><br><span class="line">GENERAL.STATE:                          100 (connected)</span><br><span class="line">GENERAL.CONNECTION:                     ens18</span><br><span class="line">GENERAL.CON-PATH:                       /org/freedesktop/NetworkManager/ActiveConnection/2</span><br><span class="line">WIRED-PROPERTIES.CARRIER:               on</span><br><span class="line">IP4.ADDRESS[1]:                         10.10.32.10/16</span><br><span class="line">IP4.GATEWAY:                            10.10.0.1</span><br><span class="line">IP4.ROUTE[1]:                           dst = 10.10.0.0/16, nh = 0.0.0.0, mt = 100</span><br><span class="line">IP4.ROUTE[2]:                           dst = 0.0.0.0/0, nh = 10.10.0.1, mt = 100</span><br><span class="line">IP4.DNS[1]:                             10.10.0.1</span><br><span class="line">IP4.DNS[2]:                             223.5.5.5</span><br><span class="line">IP6.ADDRESS[1]:                         240c:c983:5:a569::e27/128</span><br><span class="line">IP6.ADDRESS[2]:                         240c:c983:5:a569:fcfc:feff:fe7e:db51/64</span><br><span class="line">IP6.ADDRESS[3]:                         fe80::fcfc:feff:fe7e:db51/64</span><br><span class="line">IP6.GATEWAY:                            fe80::266e:96ff:fe19:972</span><br><span class="line">IP6.ROUTE[1]:                           dst = fe80::/64, nh = ::, mt = 1024</span><br><span class="line">IP6.ROUTE[2]:                           dst = 240c:c983:5:a569::/64, nh = ::, mt = 100</span><br><span class="line">IP6.ROUTE[3]:                           dst = ::/0, nh = fe80::266e:96ff:fe19:972, mt = 100</span><br><span class="line">IP6.ROUTE[4]:                           dst = 240c:c983:5:a569::e27/128, nh = ::, mt = 100</span><br><span class="line">IP6.DNS[1]:                             2400:3200::1</span><br><span class="line">IP6.DNS[2]:                             2001:da8:8000:1:202:120:2:100</span><br><span class="line"></span><br><span class="line">GENERAL.DEVICE:                         lo</span><br><span class="line">GENERAL.TYPE:                           loopback</span><br><span class="line">GENERAL.HWADDR:                         00:00:00:00:00:00</span><br><span class="line">GENERAL.MTU:                            65536</span><br><span class="line">GENERAL.STATE:                          100 (connected (externally))</span><br><span class="line">GENERAL.CONNECTION:                     lo</span><br><span class="line">GENERAL.CON-PATH:                       /org/freedesktop/NetworkManager/ActiveConnection/1</span><br><span class="line">IP4.ADDRESS[1]:                         127.0.0.1/8</span><br><span class="line">IP4.GATEWAY:                            --</span><br><span class="line">IP6.ADDRESS[1]:                         ::1/128</span><br><span class="line">IP6.GATEWAY:                            --</span><br><span class="line">root@localhost:/etc/sysconfig/network-scripts# nmcli device show | grep DNS</span><br><span class="line">IP4.DNS[1]:                             10.10.0.1</span><br><span class="line">IP4.DNS[2]:                             223.5.5.5</span><br><span class="line">IP6.DNS[1]:                             2400:3200::1</span><br><span class="line">IP6.DNS[2]:                             2001:da8:8000:1:202:120:2:100</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改 &#x2F;etc&#x2F;NetworkManager&#x2F;system-connection&#x2F;&lt;网卡名&gt;.nmconnection</p>
+<ul>
+<li>method: manual</li>
+<li>address: 静态IP地址 (通过 <code>ifconfig</code> 获得)</li>
+<li>gateway: 网关(通过 <code>route -n</code> 获得)</li>
+<li>dns: 通过 <code>nmcli device show | grep DNS</code> 得到的</li>
+</ul>
+</li>
+</ol>
+<p>效果如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">root@localhost:/etc/NetworkManager/system-connections# cat ens18.nmconnection</span><br><span class="line">[connection]</span><br><span class="line">id=ens18</span><br><span class="line">uuid=05676398-c786-3fd5-a807-11aa3e49aa67</span><br><span class="line">type=ethernet</span><br><span class="line">autoconnect-priority=-999</span><br><span class="line">interface-name=ens18</span><br><span class="line">timestamp=1721699946</span><br><span class="line"></span><br><span class="line">[ethernet]</span><br><span class="line"></span><br><span class="line">[ipv4]</span><br><span class="line">method=manual</span><br><span class="line">address=10.10.4.138/16;</span><br><span class="line">gateway=10.10.0.1</span><br><span class="line">dns=10.10.0.1;223.5.5.5;</span><br><span class="line"></span><br><span class="line">[ipv6]</span><br><span class="line">addr-gen-mode=eui64</span><br><span class="line">method=auto</span><br><span class="line"></span><br><span class="line">[proxy]</span><br></pre></td></tr></table></figure>
+
+<h1 id="nmcli"><a href="#nmcli" class="headerlink" title="nmcli"></a>nmcli</h1><h2 id="连接-802-1x"><a href="#连接-802-1x" class="headerlink" title="连接 802.1x"></a>连接 802.1x</h2><p>Authenticating with a username and password<br>(This section was helpfully added by a contributor editing the post:)</p>
+<p>Or if you use a username&#x2F;password auth (likely via RADIUS) you can use the command below to add it (use the correct 802-1x.eap option for your network, the example of ttls as below doesn’t require a certificate to be defined) and then use –ask the first time you go to connect to save the password into the connection file.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nmcli connection add \</span><br><span class="line">   <span class="built_in">type</span> wifi con-name <span class="string">&quot;MySSID&quot;</span> ifname wlp3s0 ssid <span class="string">&quot;MySSID&quot;</span> -- \</span><br><span class="line">   wifi-sec.key-mgmt wpa-eap 802-1x.eap ttls \</span><br><span class="line">   802-1x.phase2-auth mschapv2 802-1x.identity <span class="string">&quot;USERNAME&quot;</span> </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>con-name &quot;MySSID&quot;</code>: 连接名称</p>
+</li>
+<li><p><code>ifname wlp3s0</code>: 网卡名称, 可以通过 <code>ip addr</code> 查看, 如下:</p>
+  <img data-src="/2024/01/01/190/Clip_2024-12-26_16-45-30.png" class="" title="Clip_2024-12-26_16-45-30">
+</li>
+<li><p><code>ssid &quot;MySSID&quot;</code>: wifi 名</p>
+</li>
+</ul>
+<p>If using the username&#x2F;password option you should add –ask after nmcli the first time you bring it up to save the password without leaving it in your command history.<br>It will give you an error message saying as much when you attempt to bring it up otherwise.<br>You will probably get prompted about additional wireless settings when using –ask, you can type no for them unless you need to specify a static IP, in which case answer yes for that option and set the correct information, and in the future you shouldn’t need to use –ask unless your password changes.</p>
+<p>连接</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmcli con up --ask <span class="string">&quot;MySSID&quot;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参考资料</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://unix.stackexchange.com/questions/145366/how-to-connect-to-an-802-1x-wireless-network-via-nmcli">https://unix.stackexchange.com/questions/145366/how-to-connect-to-an-802-1x-wireless-network-via-nmcli</a></li>
+</ul>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p> WPA2 802.1X 需要的命令（）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmcli connection add <span class="built_in">type</span> wifi con-name NAME ifname wlan0 ssid SSID -- wifo-sec.key-mgmt wpa-eap 802-1x.eap ttls 802-1x.phase2-auth mschapv2 802-1x.identity USERNAME</span><br></pre></td></tr></table></figure>
+
+<p>第一次登录的时候需要额外使用 <code>--ask</code>  参数输入密码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmcli --ask connection up NAME</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://qeuroal.top/2024/01/01/190/" title="190. Linux中的网络相关">http://qeuroal.top/2024/01/01/190/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/01/01/189/" rel="prev" title="189. Linux中的命令之大杂烩">
+                  <i class="fa fa-angle-left"></i> 189. Linux中的命令之大杂烩
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/01/01/191/" rel="next" title="191. Linux的shell脚本及用法">
+                  191. Linux的shell脚本及用法 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Qeuroal" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

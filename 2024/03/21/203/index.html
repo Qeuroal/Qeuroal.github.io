@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="systemtap记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="203. systemtap stap命令">
+<meta property="og:url" content="http://qeuroal.top/2024/03/21/203/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Blog">
+<meta property="og:description" content="systemtap记录">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qeuroal.top/2024/03/21/203/image-20240322201950754.png">
+<meta property="og:image" content="http://qeuroal.top/2024/03/21/203/image-20240322202009950.png">
+<meta property="og:image" content="http://qeuroal.top/2024/03/21/203/image-20240322202207124.png">
+<meta property="og:image" content="http://qeuroal.top/2024/03/21/203/image-20240322202257396.png">
+<meta property="og:image" content="http://qeuroal.top/2024/03/21/203/image-20240323095955266.png">
+<meta property="og:image" content="http://qeuroal.top/2024/03/21/203/image-20240323100248338.png">
+<meta property="og:image" content="http://qeuroal.top/2024/03/21/203/image-20240322215818564.png">
+<meta property="og:image" content="http://qeuroal.top/2024/03/21/203/image-20240323105836165.png">
+<meta property="og:image" content="http://qeuroal.top/2024/03/21/203/image-20240323105846675.png">
+<meta property="og:image" content="http://qeuroal.top/2024/03/21/203/image-20240323110017925.png">
+<meta property="og:image" content="http://qeuroal.top/2024/03/21/203/v2-95278ea4dcef6ab626d7025eb86d776c_1440w.jpeg">
+<meta property="og:image" content="http://qeuroal.top/2024/03/21/203/image-20240323110615473.png">
+<meta property="og:image" content="http://qeuroal.top/2024/03/21/203/image-20240323110648514.png">
+<meta property="og:image" content="http://qeuroal.top/2024/03/21/203/image-20240323094434229.png">
+<meta property="og:image" content="http://qeuroal.top/2024/03/21/203/image-20240323095159706.png">
+<meta property="og:image" content="http://qeuroal.top/2024/03/21/203/image-20240323095321037.png">
+<meta property="og:image" content="http://qeuroal.top/2024/03/21/203/image-20240323095451089.png">
+<meta property="og:image" content="http://qeuroal.top/2024/03/21/203/image-20240322220834475.png">
+<meta property="og:image" content="http://qeuroal.top/2024/03/21/203/image-20240323083626048.png">
+<meta property="article:published_time" content="2024-03-21T05:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-08T06:36:58.649Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="kernel">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qeuroal.top/2024/03/21/203/image-20240322201950754.png">
+
+
+<link rel="canonical" href="http://qeuroal.top/2024/03/21/203/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2024/03/21/203/","path":"2024/03/21/203/","title":"203. systemtap stap命令"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>203. systemtap stap命令 | Qeuroal's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Qeuroal's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">静幽正治</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Systemtap-Installation"><span class="nav-number">1.1.</span> <span class="nav-text">Systemtap Installation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Where-to-get-debug-symbols-for-kernel-X"><span class="nav-number">1.2.</span> <span class="nav-text">Where to get debug symbols for kernel X?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GPG-key-import"><span class="nav-number">1.2.1.</span> <span class="nav-text">GPG key import</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Add-repository-config"><span class="nav-number">1.2.2.</span> <span class="nav-text">Add repository config</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">2.</span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%A7%88"><span class="nav-number">2.1.</span> <span class="nav-text">概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#systemtap-%E5%85%B8%E5%9E%8B%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">2.2.</span> <span class="nav-text">systemtap 典型应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8systemtap"><span class="nav-number">2.3.</span> <span class="nav-text">如何使用systemtap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#stap-%E5%91%BD%E4%BB%A4"><span class="nav-number">2.3.1.</span> <span class="nav-text">stap 命令</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3%E7%A7%8D%E6%89%A7%E8%A1%8C%E6%96%B9%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">3种执行方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8E%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5%E4%B8%AD%E8%AF%BB%E5%85%A5%E5%B9%B6%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC"><span class="nav-number">3.1.</span> <span class="nav-text">从标准输入中读入并运行脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%AD%E7%9A%84%E8%84%9A%E6%9C%AC"><span class="nav-number">3.2.</span> <span class="nav-text">运行命令行中的脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">3.2.1.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9"><span class="nav-number">3.2.2.</span> <span class="nav-text">常用选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B%EF%BC%9Asystemtap-%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E7%9A%84%EF%BC%9F"><span class="nav-number">3.2.3.</span> <span class="nav-text">实例：systemtap 是如何运行的？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C-stp%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6"><span class="nav-number">3.3.</span> <span class="nav-text">执行.stp脚本文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8Cstap%E6%96%87%E4%BB%B6%E5%91%BD%E4%BB%A4"><span class="nav-number">3.3.1.</span> <span class="nav-text">执行stap文件命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9-1"><span class="nav-number">3.3.2.</span> <span class="nav-text">常用选项</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%84%9A%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">脚本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">4.1.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84"><span class="nav-number">4.2.</span> <span class="nav-text">控制结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F"><span class="nav-number">4.3.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E5%8F%A5"><span class="nav-number">4.4.</span> <span class="nav-text">语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A2%E6%B5%8Bprobe"><span class="nav-number">4.5.</span> <span class="nav-text">探测probe</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A2%E9%92%88%E8%AF%AD%E6%B3%95"><span class="nav-number">4.5.1.</span> <span class="nav-text">探针语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A2%E9%92%88%E5%90%8D%E7%A7%B0"><span class="nav-number">4.5.2.</span> <span class="nav-text">探针名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Systemtap%E9%BB%91%E5%90%8D%E5%8D%95"><span class="nav-number">4.5.3.</span> <span class="nav-text">Systemtap黑名单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#API%E5%87%BD%E6%95%B0"><span class="nav-number">4.5.4.</span> <span class="nav-text">API函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E7%94%A8%E6%B3%95"><span class="nav-number">4.5.5.</span> <span class="nav-text">变量用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#systemtap%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="nav-number">4.6.</span> <span class="nav-text">systemtap使用技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%9F%E8%B8%AA%E5%86%85%E6%A0%B8%E6%80%81%E8%B0%83%E7%94%A8%E6%A0%88%E5%92%8C%E5%85%A5%E5%8F%82"><span class="nav-number">4.6.1.</span> <span class="nav-text">跟踪内核态调用栈和入参</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%9F%E8%B8%AA%E6%95%B4%E4%B8%AA%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">4.6.2.</span> <span class="nav-text">跟踪整个数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%9F%E8%B8%AA%E7%94%A8%E6%88%B7%E6%80%81"><span class="nav-number">4.6.3.</span> <span class="nav-text">跟踪用户态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B"><span class="nav-number">4.7.</span> <span class="nav-text">简单实例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#systemtap-%E6%8A%80%E6%9C%AF"><span class="nav-number">5.</span> <span class="nav-text">systemtap 技术</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%BA%94%E7%94%A8"><span class="nav-number">6.</span> <span class="nav-text">基本应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%BD%8D%E5%87%BD%E6%95%B0%E4%BD%8D%E7%BD%AE"><span class="nav-number">6.1.</span> <span class="nav-text">定位函数位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E8%83%BD%E5%A4%9F%E6%B7%BB%E5%8A%A0%E6%8E%A2%E9%92%88%E7%9A%84%E4%BD%8D%E7%BD%AE-%E5%AF%B9%E6%AF%94%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="nav-number">6.2.</span> <span class="nav-text">查看文件能够添加探针的位置(对比源代码)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%93%E5%8D%B0%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0"><span class="nav-number">6.3.</span> <span class="nav-text">打印函数参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%93%E5%8D%B0%E5%87%BD%E6%95%B0%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F"><span class="nav-number">6.4.</span> <span class="nav-text">打印函数局部变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0"><span class="nav-number">6.4.1.</span> <span class="nav-text">函数实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%BB%93%E6%9E%9C"><span class="nav-number">6.4.2.</span> <span class="nav-text">查看结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%87%BD%E6%95%B0%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F-%E6%85%8E%E9%87%8D"><span class="nav-number">6.5.</span> <span class="nav-text">修改函数局部变量(慎重)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%86%E4%B8%8A%E4%B8%80%E4%B8%AA%E6%89%93%E5%8D%B0%E7%9A%84%E5%8F%98%E9%87%8F%E7%9A%84%E5%80%BC%E4%BB%8E0-%E6%9B%B4%E6%94%B9%E4%B8%BA%E5%85%B6%E4%BB%96%E7%9A%84%E6%95%B0%E5%80%BC"><span class="nav-number">6.5.1.</span> <span class="nav-text">将上一个打印的变量的值从0 更改为其他的数值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%93%E5%8D%B0%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E6%97%B6%E7%9A%84%E5%8F%98%E9%87%8F"><span class="nav-number">6.6.</span> <span class="nav-text">打印函数返回时的变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%93%E5%8D%B0%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%A0%88"><span class="nav-number">6.7.</span> <span class="nav-text">打印函数调用栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5C%E4%BB%A3%E7%A0%81"><span class="nav-number">6.8.</span> <span class="nav-text">嵌入C代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E4%BA%86vfs-statfs%E5%87%BD%E6%95%B0%E7%9A%84%E6%AC%A1%E6%95%B0"><span class="nav-number">6.8.1.</span> <span class="nav-text">获取系统调用了vfs_statfs函数的次数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%BD%E8%B8%AA%E5%87%BD%E6%95%B0%E6%B5%81%E7%A8%8B"><span class="nav-number">6.9.</span> <span class="nav-text">追踪函数流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%9F%E8%B8%AA%E7%89%B9%E5%AE%9A%E8%BF%9B%E7%A8%8B"><span class="nav-number">6.10.</span> <span class="nav-text">跟踪特定进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E8%B7%AF%E5%BE%84"><span class="nav-number">6.11.</span> <span class="nav-text">查看代码执行路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%86%85%E6%A0%B8%E6%96%87%E4%BB%B6%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="nav-number">6.12.</span> <span class="nav-text">查看内核文件函数的执行流程</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">大人者，不失其赤子之心</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2024/03/21/203/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="203. systemtap stap命令 | Qeuroal's Blog">
+      <meta itemprop="description" content="systemtap记录">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          203. systemtap stap命令
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-03-21 13:00:00" itemprop="dateCreated datePublished" datetime="2024-03-21T13:00:00+08:00">2024-03-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-08 14:36:58" itemprop="dateModified" datetime="2025-12-08T14:36:58+08:00">2025-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">systemtap记录</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="Systemtap-Installation"><a href="#Systemtap-Installation" class="headerlink" title="Systemtap Installation"></a>Systemtap Installation</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y systemtap gcc</span><br></pre></td></tr></table></figure>
+
+<h2 id="Where-to-get-debug-symbols-for-kernel-X"><a href="#Where-to-get-debug-symbols-for-kernel-X" class="headerlink" title="Where to get debug symbols for kernel X?"></a>Where to get debug symbols for kernel X?</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://ddebs.ubuntu.com/pool/main/l/linux/">http://ddebs.ubuntu.com/pool/main/l/linux/</a></li>
+</ul>
+<h3 id="GPG-key-import"><a href="#GPG-key-import" class="headerlink" title="GPG key import"></a>GPG key import</h3><ul>
+<li><p>16.04 and higher</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C8CAB6595FDFF622</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>older distributions</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ECDCAD72428D7C01</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Add-repository-config"><a href="#Add-repository-config" class="headerlink" title="Add repository config"></a>Add repository config</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">codename=$(lsb_release -c | awk  <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>)</span><br><span class="line">sudo <span class="built_in">tee</span> /etc/apt/sources.list.d/ddebs.list &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">deb http://ddebs.ubuntu.com/ $&#123;codename&#125;      main restricted universe multiverse</span></span><br><span class="line"><span class="string">deb http://ddebs.ubuntu.com/ $&#123;codename&#125;-security main restricted universe multiverse</span></span><br><span class="line"><span class="string">deb http://ddebs.ubuntu.com/ $&#123;codename&#125;-updates  main restricted universe multiverse</span></span><br><span class="line"><span class="string">deb http://ddebs.ubuntu.com/ $&#123;codename&#125;-proposed main restricted universe multiverse</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install ubuntu-dbgsym-keyring</span><br><span class="line"></span><br><span class="line">stap-prep</span><br><span class="line"><span class="comment"># 如果需要安装linux-head，会显示安装linux-header，如：Please install linux-headers-4.15.0-20-generic</span></span><br><span class="line">sudo apt-get install linux-headers-4.15.0-20-generic</span><br><span class="line"></span><br><span class="line">sudo apt-get install ubuntu-dbgsym-keyring</span><br><span class="line">sudo apt-get install linux-image-$(<span class="built_in">uname</span> -r)-dbgsym</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>　参考：<a target="_blank" rel="noopener" href="https://wiki.ubuntu.com/Kernel/Systemtap">https://wiki.ubuntu.com/Kernel/Systemtap</a></p>
+</blockquote>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p>介绍</p>
+<ul>
+<li>systemtap是一个强大的调试工具，一种调试语言</li>
+<li>支持脚本编程，“tapset”，更简洁，更高效</li>
+</ul>
+<p>特点：</p>
+<ul>
+<li>Flexibility：稳定，提供问题的接口，方便用户扩展</li>
+<li>Easeofuse：动态监控，不影响原程序运行</li>
+</ul>
+<p>官方链接：<a target="_blank" rel="noopener" href="https://sourceware.org/systemtap">https://sourceware.org/systemtap</a></p>
+<h2 id="systemtap-典型应用场景"><a href="#systemtap-典型应用场景" class="headerlink" title="systemtap 典型应用场景"></a>systemtap 典型应用场景</h2><ul>
+<li>定位（内核）函数位置</li>
+<li>查看函数被调用时的调用堆栈、局部变量、参数</li>
+<li>查看函数指针变量实际指的是哪个函数</li>
+<li>查看代码的执行轨迹（哪些行被执行了）</li>
+<li>查看内核或者进程的执行流程</li>
+<li>调试内存泄露或者内存重复释放</li>
+<li>统计函数调用次数</li>
+</ul>
+<p>官方链接：<a target="_blank" rel="noopener" href="https://sourceware.org/systemtap/tapsets/index.html">https://sourceware.org/systemtap/tapsets/index.html</a></p>
+<h2 id="如何使用systemtap"><a href="#如何使用systemtap" class="headerlink" title="如何使用systemtap"></a>如何使用systemtap</h2><h3 id="stap-命令"><a href="#stap-命令" class="headerlink" title="stap 命令"></a>stap 命令</h3><p>常用参数：</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>-e SCRIPT</code></td>
+<td align="left">Run given script.</td>
+</tr>
+<tr>
+<td align="left"><code>-l PROBE</code></td>
+<td align="left">List matching probes.</td>
+</tr>
+<tr>
+<td align="left"><code>-L PROBE</code></td>
+<td align="left">List matching probes and local variables.</td>
+</tr>
+<tr>
+<td align="left"><code>-g</code></td>
+<td align="left">Guru mode</td>
+</tr>
+<tr>
+<td align="left"><code>-D NM=VAL</code></td>
+<td align="left">emit macro definition into generated C code</td>
+</tr>
+<tr>
+<td align="left"><code>-o FILE</code></td>
+<td align="left">send script output to file, instead of stdout.</td>
+</tr>
+<tr>
+<td align="left"><code>-x PID</code></td>
+<td align="left">sets target() to PID</td>
+</tr>
+</tbody></table>
+<p><strong>注意安装内核调试包</strong></p>
+<h1 id="3种执行方式"><a href="#3种执行方式" class="headerlink" title="3种执行方式"></a>3种执行方式</h1><h2 id="从标准输入中读入并运行脚本"><a href="#从标准输入中读入并运行脚本" class="headerlink" title="从标准输入中读入并运行脚本"></a>从标准输入中读入并运行脚本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ stap [选项]</span><br></pre></td></tr></table></figure>
+
+<p>如: 定位函数位置: <code>stap -l &#39;kernel.function(&quot;vfs_open&quot;)&#39;</code></p>
+<blockquote>
+<p>linux源码：<a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/v6.5/source/fs/open.c#L1045">https://elixir.bootlin.com/linux/v6.5/source/fs/open.c#L1045</a></p>
+</blockquote>
+<h2 id="运行命令行中的脚本"><a href="#运行命令行中的脚本" class="headerlink" title="运行命令行中的脚本"></a>运行命令行中的脚本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stap [选项] -e 脚本</span><br></pre></td></tr></table></figure>
+
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stap -e <span class="string">&#x27;probe begin &#123; log(&quot;hell world&quot;) exit() &#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="常用选项"><a href="#常用选项" class="headerlink" title="常用选项"></a>常用选项</h3><ul>
+<li><p><code>-v</code>: 展开显示脚本解析、细化、翻译C、编译C、加载内核模块整个过程</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stap -ve <span class="string">&#x27;probe begin &#123; log(&quot;hell world&quot;) exit() &#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+ <img data-src="/2024/03/21/203/image-20240322201950754.png" class="" title="image-20240322201950754">
+</li>
+<li><p><code>-k</code>: 保存编译期间的中间文件</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stap -ke <span class="string">&#x27;probe begin &#123; log(&quot;hell world&quot;) exit() &#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+ <img data-src="/2024/03/21/203/image-20240322202009950.png" class="" title="image-20240322202009950">
+</li>
+<li><p><code>-o</code>: FILE 输出到文档，而不是输出到标准输出</p>
+ <img data-src="/2024/03/21/203/image-20240322202207124.png" class="" title="image-20240322202207124">
+</li>
+<li><p><code>-p</code> NUM: 运行完Pass Num后停止，缺省是运行到 Pass 5</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stap -p 2 -kve <span class="string">&#x27;probe begin &#123; log(&quot;hell world&quot;) exit()&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+ <img data-src="/2024/03/21/203/image-20240322202257396.png" class="" title="image-20240322202257396">
+</li>
+<li><p><code>-g</code>: 采用<code>guru</code>模式，允许脚本中嵌入C语句；</p>
+</li>
+<li><p><code>-c CMD</code>: 启动探测后，运行CMD命令，直到命令结束后退出；</p>
+</li>
+<li><p><code>-x pid</code>: 使用<code>target()</code>捕获指定的进程ID (<code>-x procss_id</code> 指定探测进程ID为’process_id‘的程序)</p>
+</li>
+</ul>
+<h3 id="实例：systemtap-是如何运行的？"><a href="#实例：systemtap-是如何运行的？" class="headerlink" title="实例：systemtap 是如何运行的？"></a>实例：systemtap 是如何运行的？</h3><img data-src="/2024/03/21/203/image-20240323095955266.png" class="" title="image-20240323095955266">
+
+<p>Systemtap 的处理流程有5个步骤：</p>
+<ul>
+<li>解析 script 文件(Parse)</li>
+<li>细化（Elaborate）</li>
+<li>Script 文件翻译成 C 语言代码（Translate）</li>
+<li>编译 C 语言代码（生成内核模块）（Compile）</li>
+<li>加载内核模块（Run）</li>
+</ul>
+<img data-src="/2024/03/21/203/image-20240323100248338.png" class="" title="image-20240323100248338">
+
+<h2 id="执行-stp脚本文件"><a href="#执行-stp脚本文件" class="headerlink" title="执行.stp脚本文件"></a>执行.stp脚本文件</h2><h3 id="执行stap文件命令"><a href="#执行stap文件命令" class="headerlink" title="执行stap文件命令"></a>执行stap文件命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">stap[选项] xx.stp</span><br><span class="line">或</span><br><span class="line">stap[选项] ./xx.stp</span><br></pre></td></tr></table></figure>
+
+<p>示例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stap isprime_test.stp</span><br></pre></td></tr></table></figure>
+
+<h3 id="常用选项-1"><a href="#常用选项-1" class="headerlink" title="常用选项"></a>常用选项</h3><ul>
+<li><p><code>-o</code>: FILE 输出到文档，而不是输出到标准输出</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stap -o outfile.log isprime_test.stp</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>-S size,count</code>: 限制输出文件的大小(单位MB)和最大的文件数。这个选项会实现一个回滚机制的日志输出，日志文件名会加一个序列号的后缀。</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stap -o outfile.log -S 1,2 isprime_test.stp</span><br></pre></td></tr></table></figure>
+
+ <img data-src="/2024/03/21/203/image-20240322215818564.png" class="" title="image-20240322215818564">
+</li>
+<li><p><code>-F</code>: 使用SystemTap的长期记录模式，脚本后台执行。</p>
+</li>
+<li><p><code>-x process_id</code>: 设置SystemTap处理函数<code>target()</code>指向特定进程号</p>
+</li>
+</ul>
+<h1 id="脚本语法"><a href="#脚本语法" class="headerlink" title="脚本语法"></a>脚本语法</h1><p>systemtap 脚本文件是 <strong>.stp</strong> 后缀的文件，使用的脚本语言是前面讲到的 systemtap 自己定义的脚本语言，一个 systemtap 脚本描述了将要探测的探测点以及定义了相关联的处理函数，每一个探测点对应于一个内核函数或事件或函数内部的某一位置。被关联的处理函数将在内核执行到对应的探测点时被执行。</p>
+<p>systemtap 脚本包含两个基本元素：<strong>event</strong> 和 <strong>handler</strong>。Systemtap 执行脚本时，它会监控事件(event)，当事件发生时，Linux 内核就会执行 handler, 其中:</p>
+<ul>
+<li>事件(event)的类型有开始&#x2F;结束、定时器超时、会话终止等。</li>
+<li>Handler 是指定事件发生时需要做的一些脚本语句，我们可以在这里指定为各类维测或者想跟踪的信息。</li>
+</ul>
+<p><strong>关键字:</strong></p>
+<ul>
+<li><strong>probe</strong>: 探测，是 systemtap 进行具体地收集数据的关键字。</li>
+<li><strong>probe point</strong>:是 probe 动作的时机，也称探测点，是 probe 程序监视的某事件点，一旦侦测的事件(event)触发了，则 probe 将从此处插入内核或者用户进程中。</li>
+<li><strong>probe handler</strong>:是当 probe 插入内核或者用户进程后所做的具体动作。</li>
+</ul>
+<p><strong>probe</strong> 的用法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">probe probe-point &#123; statement &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><ul>
+<li>整数(integers)</li>
+<li>字符串（strings）</li>
+<li>关联数组（associative Arrays）</li>
+</ul>
+<h2 id="控制结构"><a href="#控制结构" class="headerlink" title="控制结构"></a>控制结构</h2><ul>
+<li><p>条件（<code>if()&#123;&#125;else&#123;&#125;</code>）</p>
+</li>
+<li><p>循环（<code>for(exp1;exp2;exp3)</code>,<code>do&#123;&#125;while(exp)</code>, <code>foreach</code>）</p>
+</li>
+<li><p>函数（<code>functions</code>）</p>
+<p> systemtap 提供了丰富的内置函数，主要有转换函数、字符操作函数、时间戳信息等。详情见：</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://sourceware.org/systemtap/tapsets/index.html">https://sourceware.org/systemtap/tapsets/index.html</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://linux.die.net/man/5/stapfuncs">https://linux.die.net/man/5/stapfuncs</a></p>
+</li>
+</ul>
+</li>
+<li><p><code>break</code></p>
+</li>
+<li><p><code>continue</code></p>
+</li>
+<li><p><code>next</code></p>
+</li>
+<li><p><code>return</code></p>
+</li>
+<li><p><code>delete</code></p>
+</li>
+<li><p><code>try/catch</code></p>
+</li>
+</ul>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>无需声明, 上下文自动推测和检查</p>
+<p>全局变量: 使用 <code>globle</code> 修饰</p>
+<h2 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h2><p>语句分隔符 <code>;</code> 是可选的</p>
+<h2 id="探测probe"><a href="#探测probe" class="headerlink" title="探测probe"></a>探测probe</h2><p>使用kprobe提供的接口来实现探测，对于每一个探测，需要定义探测点以及相应的处理函数</p>
+<h3 id="探针语法"><a href="#探针语法" class="headerlink" title="探针语法"></a>探针语法</h3><ul>
+<li><p>内核的探测点语法:</p>
+<ul>
+<li><p><code>kernel.function(pattern)</code>: 在内核函数的入口处放置探测点，可以获取参数 <code>$parm</code></p>
+</li>
+<li><p><code>kernel.function(pattern).return</code>: 在内核函数返回时的出口处放置探测点，可以获取返回时的参数<code>$parm</code></p>
+</li>
+<li><p><code>kernel.function(PATTERN).return.maxactive(VALUE)</code></p>
+</li>
+<li><p><code>kernel.function(pattern).call</code>: 内核函数的调用入口处放置探测点，获取对应函数信息</p>
+</li>
+<li><p><code>kernel.fuction(pattern).inline</code>: 获取符合条件的内联函数</p>
+</li>
+<li><p><code>kernel.function(pattern).exported</code>: 只选择导出的函数</p>
+</li>
+<li><p><code>kernel.function(PATTERN).label(LPATTERN)</code></p>
+</li>
+<li><p><code>module(modulename).fuction(pattern)</code>: 在模块modulename中调用的函数入口处放置探测点</p>
+</li>
+<li><p><code>module(modulename).fuction(pattern).return</code>: 在模块module中调用的函数返回时放置探测点</p>
+</li>
+<li><p><code>module(modulename).fuction(pattern).return.maxactive(VALUE)</code></p>
+</li>
+<li><p><code>module(modulename).fuction(pattern).call</code>: 在模块modulename中调用的函数入口处放置探测点</p>
+</li>
+<li><p><code>module(modulename).fuction(pattern).inline</code>: 在模块modulename中调用的内联函数处放置探测点</p>
+</li>
+<li><p><code>kernel.statement(pattern)</code>: 在内核中的某个地址处增加探针（函数、文件行号）</p>
+</li>
+<li><p><code>kernel.statement(pattern).absolute</code>: 在内核中的某个地址处增加探针（函数、文件行号），精确匹配地址</p>
+</li>
+<li><p><code>module(modulename).statement(pattern)</code>: 在内核模块中的某个地址处增加探针（函数、文件行号）</p>
+</li>
+</ul>
+</li>
+<li><p>用户态程序的探测点语法</p>
+<ul>
+<li><code>process(PROCESSPATH).function(PATTERN)</code></li>
+<li><code>process(PROCESSPATH).function(PATTERN).call</code></li>
+<li><code>process(PROCESSPATH).function(PATTERN).return</code></li>
+<li><code>process(PROCESSPATH).function(PATTERN).inline</code></li>
+<li><code>process(PROCESSPATH).statement(PATTERN)</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>语法解释说明:</strong></p>
+<ul>
+<li><code>return</code>: 表示返回点探测</li>
+<li><code>return.maxactive(VALUE)</code>: 修饰 <code>return</code>，控制同时探测多少个实例，默认足够一搬不用，如果出现了跳过探测现象且很多，可以使用此参数，提升探测效果</li>
+<li><code>Call</code>: 表示函数被调用时触发此调用点</li>
+<li><code>Inline</code>: 表示内联函数需要展示时候用此参数</li>
+<li><code>Label</code>: 表示内核常常用到 <code>goto</code> 函数，用此标签可以探测出具体的 <code>goto</code> 返回点</li>
+<li><code>Statement</code>: 定位到具体的行或者函数，将这些定位点作为跟踪点</li>
+</ul>
+<p><strong>PATTERN语法:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">func[@file]</span><br><span class="line"></span><br><span class="line">func@file:linenumber</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例:</strong></p>
+<ol>
+<li><p><code>kernel.function(&quot;*init*&quot;)</code>: 表示对内核中包含有 init 的函数进行探测</p>
+</li>
+<li><p><code>module(“ext3”).function(“*”)</code>: 表示对 ext3 内核模块的所有函数进行探测</p>
+</li>
+<li><p><code>kernel.statement(&quot;cmdline_proc_show@fs/proc/cmdline.c:9&quot;)</code>: 表示对 cmdline_proc_show 函数中的 &#x2F;fs&#x2F;proc&#x2F;cmdline.c 文件的第9行进行探测 &#x3D;&#x3D;???没看懂&#x3D;&#x3D;</p>
+</li>
+<li><p><code>process(&quot;/home/tianyu/chmod&quot;).function(&quot;GetUidGid&quot;)</code>: 表示对用户态程序 &#x2F;home&#x2F;tianyu&#x2F;chmod 的函数 <code>GetUidGid</code> 进行探测</p>
+</li>
+</ol>
+<h3 id="探针名称"><a href="#探针名称" class="headerlink" title="探针名称"></a>探针名称</h3><table>
+<thead>
+<tr>
+<th>探针名称</th>
+<th>探针含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>begin</code></td>
+<td>脚本开始时触发</td>
+</tr>
+<tr>
+<td><code>end</code></td>
+<td>脚本结束时触发</td>
+</tr>
+<tr>
+<td><code>kernel.function(&quot;sys_read&quot;)</code></td>
+<td>调用<code>sys_read</code>时触发</td>
+</tr>
+<tr>
+<td><code>kernel.function(&quot;sys_read&quot;).call</code></td>
+<td>同上</td>
+</tr>
+<tr>
+<td><code>kernel.function(&quot;sys_read&quot;).return</code></td>
+<td><code>sys_read</code>执行完，返回时触发</td>
+</tr>
+<tr>
+<td><code>syscall.*</code></td>
+<td>调用任何系统调用时触发</td>
+</tr>
+<tr>
+<td><code>kernel.function(&quot;*@kernel/fork.c:934&quot;)</code></td>
+<td>执行到 fork.c 的934行时触发</td>
+</tr>
+<tr>
+<td><code>module(“ext3”).function(“ext3_file_write”)</code></td>
+<td>调用ext3模块中的<code>ext3_file_write</code>时触发</td>
+</tr>
+<tr>
+<td><code>timer.jiffies(1000)</code></td>
+<td>每隔1000个内核<code>jiffy</code>时触发一次</td>
+</tr>
+<tr>
+<td><code>timer.ms()</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>timer.s()</code></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="Systemtap黑名单"><a href="#Systemtap黑名单" class="headerlink" title="Systemtap黑名单"></a>Systemtap黑名单</h3><p>Systemtap包含了一个黑名单，其中列出的函数不能被Systemtap探测，因为它们会导致无限探测循环、锁重入等问题</p>
+<p>所有的脚本内容在转换时进行严格的检查，并且在运行时也要检查（如无限循环、内存使用、递归和无效指针等）</p>
+<h3 id="API函数"><a href="#API函数" class="headerlink" title="API函数"></a>API函数</h3><p><strong>tapsets</strong> 是一个脚本库，包含了许多 tapset，每一个 tapset 一般为某一内核子系统或特定的功能块预定义了一套探测点、辅助函数或全局变量供用户脚本或其它的 tapset 引用，它定义的一些数据能够被每一个探测点处理函数或脚本使用</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>execname()</td>
+<td>获取当前进程名称</td>
+</tr>
+<tr>
+<td>pid()</td>
+<td>当前进程的ID</td>
+</tr>
+<tr>
+<td>tid()</td>
+<td>当前线程ID</td>
+</tr>
+<tr>
+<td>cpu()</td>
+<td>当前cpu号</td>
+</tr>
+<tr>
+<td>gettimeofday_s()</td>
+<td>获取当前系统时间，秒</td>
+</tr>
+<tr>
+<td>gettimeofday_usec()</td>
+<td>获取当前系统时间，微秒</td>
+</tr>
+<tr>
+<td>ppfunc()</td>
+<td>获取当前probe的函数名称，可以知道当前probe位于哪个函数</td>
+</tr>
+<tr>
+<td>print_backtrace()</td>
+<td>打印内核函数调用栈</td>
+</tr>
+</tbody></table>
+<h3 id="变量用法"><a href="#变量用法" class="headerlink" title="变量用法"></a>变量用法</h3><table>
+<thead>
+<tr>
+<th>变量格式</th>
+<th>使用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>$varname</code></td>
+<td>引用变量varname</td>
+</tr>
+<tr>
+<td><code>$var-&gt;field</code></td>
+<td>引用结构的成员变量</td>
+</tr>
+<tr>
+<td><code>$var[N]</code></td>
+<td>引用数组的成员变量</td>
+</tr>
+<tr>
+<td><code>&amp;$var</code></td>
+<td>变量的地址</td>
+</tr>
+<tr>
+<td><code>@var(“varname”)</code></td>
+<td>引用变量varname</td>
+</tr>
+<tr>
+<td><code>@var(“var@src/file.c”)</code></td>
+<td>引用src中file.c编译时的全局变量</td>
+</tr>
+<tr>
+<td><code>@var(“var@src/file.c”)-&gt;field</code></td>
+<td>src&#x2F;file.c中全局结构的成员变量</td>
+</tr>
+<tr>
+<td><code>@var(“var@src/file.c”)[N]</code></td>
+<td>src&#x2F;file.c中全局数据变量</td>
+</tr>
+<tr>
+<td><code>&amp;@var(“var@src/file.c”)</code></td>
+<td>引用变量的地址</td>
+</tr>
+<tr>
+<td><code>$var$</code></td>
+<td>将变量转为字符串类型</td>
+</tr>
+<tr>
+<td><code>$$vars</code></td>
+<td>包含函数所有参数，局部变量，需以字符串类型输出</td>
+</tr>
+<tr>
+<td><code>$$locals</code></td>
+<td>包含函数所有局部变量，需以字符串类型输出</td>
+</tr>
+<tr>
+<td><code>$$params</code></td>
+<td>包含所有函数参数的变量，需以字符串类型输出</td>
+</tr>
+</tbody></table>
+<h2 id="systemtap使用技巧"><a href="#systemtap使用技巧" class="headerlink" title="systemtap使用技巧"></a>systemtap使用技巧</h2><h3 id="跟踪内核态调用栈和入参"><a href="#跟踪内核态调用栈和入参" class="headerlink" title="跟踪内核态调用栈和入参"></a>跟踪内核态调用栈和入参</h3><p>systemtap 提供库函数，分别用于跟踪用户态和内核态的调用堆栈。</p>
+<ul>
+<li><p>用户态：（不带 s 和带 s 的区别是前者直接输出，后者是返回堆栈字符串）</p>
+<ul>
+<li><code>print_ubacktrace()</code></li>
+<li><code>sprint_ubacktrace()</code></li>
+</ul>
+</li>
+<li><p>内核态：</p>
+<ul>
+<li><code>print_backtrace()</code></li>
+<li><code>sprint_backtrace()</code></li>
+</ul>
+</li>
+</ul>
+<p>跟踪对文件的 open 流程，更多调用栈和入参，提升内核代码分析和调试的效率</p>
+<p>更多跟踪函数：<a target="_blank" rel="noopener" href="https://linux.die.net/man/5/stapfuncs">https://linux.die.net/man/5/stapfuncs</a></p>
+<p>示例:</p>
+<ol>
+<li><p>查看 <code>do_sys_open</code> 位置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu18:/tmp/stapw0gXSN<span class="comment"># stap -L &#x27;kernel.function(&quot;do_sys_open&quot;)&#x27;</span></span><br><span class="line">kernel.function(<span class="string">&quot;do_sys_open@/build/linux-5s7Xkn/linux-4.15.0/fs/open.c:1049&quot;</span>) <span class="variable">$dfd</span>:int <span class="variable">$filename</span>:char const* <span class="variable">$flags</span>:int <span class="variable">$mode</span>:umode_t <span class="variable">$op</span>:struct open_flags</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>vfsopen.stp</code>脚本文件</p>
+<img data-src="/2024/03/21/203/image-20240323105836165.png" class="" title="image-20240323105836165">
+</li>
+<li><p>运行<code>vfsopen.stp</code>脚本文件</p>
+<img data-src="/2024/03/21/203/image-20240323105846675.png" class="" title="image-20240323105846675"></li>
+</ol>
+<h3 id="跟踪整个数据结构"><a href="#跟踪整个数据结构" class="headerlink" title="跟踪整个数据结构"></a>跟踪整个数据结构</h3><p>systemtap 有两个语法可以输出整个数据结构：</p>
+<p>在变量的后面加一个或者两个<code>$</code>号即可，输出的内容是字符串，所以打印的时候需要用 <code>%s</code>。</p>
+<img data-src="/2024/03/21/203/image-20240323110017925.png" class="" title="image-20240323110017925">
+
+<h3 id="跟踪用户态"><a href="#跟踪用户态" class="headerlink" title="跟踪用户态"></a>跟踪用户态</h3><p>利用 systemtap 可以轻松跟踪用户态程序和 so 的调用轨迹、参数等</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/stap</span><br><span class="line">probe begin &#123;</span><br><span class="line">	printf(&quot;=============begin============\n&quot;)</span><br><span class="line">&#125;</span><br><span class="line">probe process(&quot;/usr/lib/x86_64-linux-gnu/libc.so.6&quot;).function(&quot;malloc&quot;) &#123;</span><br><span class="line">    printf(&quot;%s pid=%d malloc(%s) \r\n&quot;, execname(), pid(), $$parms)</span><br><span class="line">    print_ubacktrace()</span><br><span class="line">&#125;</span><br><span class="line">probe timer.ms(10000)#1s later &#123;</span><br><span class="line">    log(&quot;probe exit&quot;)</span><br><span class="line">    exit()</span><br><span class="line">&#125;</span><br><span class="line">probe end &#123;</span><br><span class="line">    printf(&quot;=============end============\n&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">root@ctumhispra00449:/home/tianyu/stap# ./userspace.stp</span><br><span class="line">=============begin============</span><br><span class="line">sh pid=1067447 malloc(bytes=0x28)</span><br><span class="line">0x7f95d869a230 : __libc_malloc+0x0/0x310 [/usr/lib/x86_64-linux-gnu/libc-2.31.so]</span><br><span class="line">0x7f95d8910c4a [/usr/lib/x86_64-linux-gnu/ld-2.31.so+0xfc4a/0x2c000]</span><br><span class="line">sh pid=1067447 malloc(bytes=0xa000)</span><br><span class="line">0x7f95d869a230 : __libc_malloc+0x0/0x310 [/usr/lib/x86_64-linux-gnu/libc-2.31.so]</span><br><span class="line">0x7f95d87f3589 [/usr/lib/libachk.so+0x4589/0x106000]</span><br><span class="line">sh pid=1067447 malloc(bytes=0x1d8)</span><br><span class="line">0x7f95d869a230 : __libc_malloc+0x0/0x310 [/usr/lib/x86_64-linux-gnu/libc-2.31.so]</span><br><span class="line">0x7f95d8682a7e : _IO_fopen@@GLIBC_2.2.5+0x1e/0x100 [/usr/lib/x86_64-linux-gnu/libc-2.31.so]</span><br><span class="line">0x7f95d87f35c9 [/usr/lib/libachk.so+0x45c9/0x106000]</span><br><span class="line">sh pid=1067447 malloc(bytes=0x1000)</span><br><span class="line">0x7f95d869a230 : __libc_malloc+0x0/0x310 [/usr/lib/x86_64-linux-gnu/libc-2.31.so]</span><br><span class="line">0x7f95d8681e54 : _IO_file_doallocate+0x94/0x160 [/usr/lib/x86_64-linux-gnu/libc-2.31.so]</span><br><span class="line">0x7f95d8692020 : _IO_doallocbuf+0x50/0xc0 [/usr/lib/x86_64-linux-gnu/libc-2.31.so]</span><br><span class="line">0x7f95d8690df4 : _IO_file_underflow@@GLIBC_2.2.5+0x284/0x360 [/usr/lib/x86_64-linux-gnu/libc-2.31.so]</span><br><span class="line">0x7f95d86920d6 : _IO_default_uflow+0x36/0x60 [/usr/lib/x86_64-linux-gnu/libc-2.31.so]</span><br><span class="line">0x7f95d86839bc : _IO_getline_info+0xac/0x1a0 [/usr/lib/x86_64-linux-gnu/libc-2.31.so]</span><br><span class="line">0x7f95d868281a : _IO_fgets+0x9a/0x190 [/usr/lib/x86_64-linux-gnu/libc-2.31.so]</span><br></pre></td></tr></table></figure>
+
+<h2 id="简单实例"><a href="#简单实例" class="headerlink" title="简单实例"></a>简单实例</h2><p>打印素数</p>
+<figure class="highlight stp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">#!/usr/bin/stap</span></span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol">probe begin &#123;</span></span><br><span class="line"><span class="symbol">	printf(&quot;=============begin============\n&quot;)</span></span><br><span class="line"><span class="symbol">&#125;</span></span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol">function isprime(x) &#123;</span></span><br><span class="line"><span class="symbol">    if (x &lt; 2</span>) return <span class="number">0</span></span><br><span class="line">    for (i = <span class="number">2</span>; i &lt; x; i++) &#123;</span><br><span class="line">        if (x % i == <span class="number">0</span>) return <span class="number">0</span></span><br><span class="line">        if (i * i &gt; x) break</span><br><span class="line">    &#125;</span><br><span class="line">    return <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">probe begin &#123;</span><br><span class="line">    for (i = <span class="number">0</span>; i &lt; <span class="number">50</span>; i++)</span><br><span class="line">        if (isprime(i)) printf(<span class="string">&quot;%d, pid(%d)\n&quot;</span>, i, pid())</span><br><span class="line">    exit()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">probe end &#123;</span><br><span class="line">	printf(<span class="string">&quot;=============end============\n&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过 stap 脚本实现对内核接口调用点的跟踪, stap 脚本名为 <strong>hellowolrd.stp</strong>:</p>
+<figure class="highlight stp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">#!/usr/bin/stap</span></span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol">probe begin &#123;</span></span><br><span class="line"><span class="symbol">    log(&quot;begin probe&quot;)</span></span><br><span class="line"><span class="symbol">&#125;</span></span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol">probe kernel.function(&quot;vfs_write&quot;).call &#123;</span></span><br><span class="line"><span class="symbol">    printf(&quot;%s(%d) vfs_write (%s)\n&quot;,execname(),pid(),print_regs())</span></span><br><span class="line"><span class="symbol">    print_backtrace()</span></span><br><span class="line"><span class="symbol">&#125;</span></span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol">probe timer.ms(5000</span>)<span class="symbol">#5</span>s later &#123;</span><br><span class="line">    log(<span class="string">&quot;probe exit&quot;</span>)</span><br><span class="line">    exit()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">probe end &#123;</span><br><span class="line">    log(<span class="string">&quot;end probe&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="systemtap-技术"><a href="#systemtap-技术" class="headerlink" title="systemtap 技术"></a>systemtap 技术</h1><p>systemtap 基本思想是命名事件，并为它们提供处理程序。每当发生指定的事件时，内核都会将处理程序视为子例程运行，然后继续运行。处理程序是一系列脚本语言语句，用于指定事件发生时要完成的工作。</p>
+<p>systemtap 基本原理是将脚本翻译成 C 语言，执行 C 编译器创建一个内核模块。当模块被加载后，通过挂载到内核来激活所有的探测事件。</p>
+<p>然后，当事件发生在任何处理器上时，编译后的处理程序就会运行。</p>
+<p>最终，systemtap 会话停止，hook 取消，内核模块被移除，整个过程由命令行程序 stap 驱动。</p>
+<img data-src="/2024/03/21/203/v2-95278ea4dcef6ab626d7025eb86d776c_1440w.jpeg" class="" title="systemtap从入门到放弃（一）">
+
+<p>用户手册: <a target="_blank" rel="noopener" href="https://sourceware.org/systemtap/documentation.html">https://sourceware.org/systemtap/documentation.html</a></p>
+<img data-src="/2024/03/21/203/image-20240323110615473.png" class="" title="image-20240323110615473">
+
+<p>典型应用场景库 193个: <a target="_blank" rel="noopener" href="https://sourceware.org/systemtap/examples/">https://sourceware.org/systemtap/examples/</a></p>
+<img data-src="/2024/03/21/203/image-20240323110648514.png" class="" title="image-20240323110648514">
+
+<h1 id="基本应用"><a href="#基本应用" class="headerlink" title="基本应用"></a>基本应用</h1><h2 id="定位函数位置"><a href="#定位函数位置" class="headerlink" title="定位函数位置"></a>定位函数位置</h2><p>查找内核函数的定义位于哪一个文件的哪一行时很有用，特别是有些函数有多个定义的时候（不同的架构或者宏会来控制当前使用哪一个，实际上只会有一个），用 systemtap 一行命令就可以搞定。</p>
+<p>比如说我们查看内核的 <code>vfs_open</code> 函数在哪里定义的：</p>
+<img data-src="/2024/03/21/203/image-20240323094434229.png" class="" title="image-20240323094434229">
+
+<p>可以在 open.c 文件的第862行定义的。</p>
+<img data-src="/2024/03/21/203/image-20240323095159706.png" class="" title="image-20240323095159706">
+
+<p>同时支持<code>*</code>号来实现模糊查找</p>
+<img data-src="/2024/03/21/203/image-20240323095321037.png" class="" title="image-20240323095321037-部分截图">
+
+<p><code>-L</code> 查看变量，例如 <code>vfs_open</code> 的两个参数:</p>
+<img data-src="/2024/03/21/203/image-20240323095451089.png" class="" title="image-20240323095451089">
+
+<p>其他的一些用法:</p>
+<figure class="highlight stp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">stap -l <span class="string">&#x27;kernel.function(&quot;vfs_open&quot;)&#x27;</span></span><br><span class="line">stap -l <span class="string">&#x27;kernel.function(&quot;*open&quot;)&#x27;</span></span><br><span class="line"></span><br><span class="line">stap -L <span class="string">&#x27;kernel.function(&quot;vfs_open&quot;)&#x27;</span></span><br><span class="line"></span><br><span class="line">stap -l <span class="string">&#x27;process(&quot;/lib/x86_64-linux-gnu/libc.so.6&quot;).function(&quot;printf&quot;)&#x27;</span></span><br><span class="line"></span><br><span class="line">stap -l <span class="string">&#x27;module(&quot;ceph&quot;).function(&quot;ceph_statfs&quot;)&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="查看文件能够添加探针的位置-对比源代码"><a href="#查看文件能够添加探针的位置-对比源代码" class="headerlink" title="查看文件能够添加探针的位置(对比源代码)"></a>查看文件能够添加探针的位置(对比源代码)</h2><figure class="highlight stp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stap -L <span class="string">&#x27;kernel.statement(&quot;*@fs/statfs.c&quot;)&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="打印函数参数"><a href="#打印函数参数" class="headerlink" title="打印函数参数"></a>打印函数参数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/stap</span><br><span class="line"></span><br><span class="line">probe begin &#123;</span><br><span class="line">    printf(&quot;begin to probe\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//在调用vfs_statfs处添加探针</span><br><span class="line">probe kernel.function(&quot;vfs_statfs&quot;) &#123;</span><br><span class="line">    //打印调用vfs_statfs函数的进程名称以及进程号</span><br><span class="line">    printf(&quot;%s %d\n&quot;, execname(),pid());</span><br><span class="line">    //打印path参数的结构体成员，以及整个buf结构体</span><br><span class="line">    printf(&quot;path : %s buf : %s\n&quot;,$path-&gt;mnt-&gt;mnt_root-&gt;d_iname$,$buf$);</span><br><span class="line">    </span><br><span class="line">    // 如果没有exit(), 那么程序就一直运行, 直至用户自己ctrl+c关闭</span><br><span class="line">    exit()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">probe end &#123;</span><br><span class="line">	printf(&quot;end to probe\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="打印函数局部变量"><a href="#打印函数局部变量" class="headerlink" title="打印函数局部变量"></a>打印函数局部变量</h2><h3 id="函数实现"><a href="#函数实现" class="headerlink" title="函数实现"></a>函数实现</h3><img data-src="/2024/03/21/203/image-20240322220834475.png" class="" title="image-20240322220834475">
+
+<h3 id="查看结果"><a href="#查看结果" class="headerlink" title="查看结果"></a>查看结果</h3><p>查看error在函数statfs_by_dentry执行完成之后的结果，那么就在下一行处添加探针</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/stap</span><br><span class="line"></span><br><span class="line">probe begin &#123;</span><br><span class="line">    printf(&quot;begin to probe\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//探测statfs.c中的第75行</span><br><span class="line">probe kernel.statement(&quot;vfs_statfs@fs/statfs.c:75&quot;) &#123;</span><br><span class="line">    printf(&quot;%s %d\n&quot;, execname(),pid());</span><br><span class="line">    printf(&quot;error number is %d\n&quot;,$error);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">probe timer.s(10) #100ms later</span><br><span class="line">&#123;</span><br><span class="line">    log(&quot;probe exit&quot;)</span><br><span class="line">    exit()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">probe end &#123;</span><br><span class="line">    printf(&quot;end to probe\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改函数局部变量-慎重"><a href="#修改函数局部变量-慎重" class="headerlink" title="修改函数局部变量(慎重)"></a>修改函数局部变量(慎重)</h2><h3 id="将上一个打印的变量的值从0-更改为其他的数值"><a href="#将上一个打印的变量的值从0-更改为其他的数值" class="headerlink" title="将上一个打印的变量的值从0 更改为其他的数值"></a>将上一个打印的变量的值从0 更改为其他的数值</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/stap</span><br><span class="line"></span><br><span class="line">probe begin &#123;</span><br><span class="line">    printf(&quot;begin to probe\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">probe kernel.statement(&quot;vfs_statfs@fs/statfs.c:75&quot;) &#123;</span><br><span class="line">	printf(&quot;%s %d\n&quot;, execname(),pid());</span><br><span class="line">    printf(&quot;error number before modify is %d\n&quot;,$error);</span><br><span class="line">    $error=$1</span><br><span class="line">    printf(&quot;error number before modify is %d\n&quot;,$error);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">probe end &#123;</span><br><span class="line">    printf(&quot;end to probe\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>执行<code>stap -g test.stp 2</code>将2传入，但是运行的时候需要增加-g参数</p>
+<h2 id="打印函数返回时的变量"><a href="#打印函数返回时的变量" class="headerlink" title="打印函数返回时的变量"></a>打印函数返回时的变量</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/stap</span><br><span class="line"></span><br><span class="line">probe begin &#123;</span><br><span class="line">    printf(&quot;begin to probe\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//在调用vfs_statfs处添加探针</span><br><span class="line">probe kernel.function(&quot;vfs_statfs&quot;).return &#123;</span><br><span class="line">	//打印调用vfs_statfs函数的进程名称以及进程号</span><br><span class="line">    printf(&quot;%s %d\n&quot;, execname(),pid());</span><br><span class="line">    //打印局部变量需使用@entry($varname)</span><br><span class="line">    printf(&quot;error&#x27;s return value is %d\n&quot;, @entry($error));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">probe end &#123;</span><br><span class="line">    printf(&quot;end to probe\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="打印函数调用栈"><a href="#打印函数调用栈" class="headerlink" title="打印函数调用栈"></a>打印函数调用栈</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/stap</span><br><span class="line"></span><br><span class="line">probe kernel.function(&quot;vfs_statfs&quot;) &#123;</span><br><span class="line">    printf(&quot;%s %d\n&quot;, execname(),pid());</span><br><span class="line">    printf(&quot;----------------------------------\n&quot;);</span><br><span class="line">    print_backtrace();//打印vfs_statfs在内核态的调用栈</span><br><span class="line">    printf(&quot;----------------------------------\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>执行时增加参数 <code>--all-modules</code>, 类似如: <code>stap --all-modules test.stp</code>, 探测所有的系统模块</p>
+<h2 id="嵌入C代码"><a href="#嵌入C代码" class="headerlink" title="嵌入C代码"></a>嵌入C代码</h2><h3 id="获取系统调用了vfs-statfs函数的次数"><a href="#获取系统调用了vfs-statfs函数的次数" class="headerlink" title="获取系统调用了vfs_statfs函数的次数"></a>获取系统调用了vfs_statfs函数的次数</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/stap</span><br><span class="line">global count = 0;//全局变量</span><br><span class="line"></span><br><span class="line">//C函数计算次数</span><br><span class="line">function getcount:long(task:long) %&#123;</span><br><span class="line">    int count = (int) STAP_ARG_task;</span><br><span class="line">    count ++;</span><br><span class="line">    STAP_RETURN(count);</span><br><span class="line">%&#125;</span><br><span class="line"></span><br><span class="line">probe begin &#123;</span><br><span class="line">    printf(&quot;begin to probe\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">probe kernel.function(&quot;vfs_statfs&quot;) &#123;</span><br><span class="line">    printf(&quot;%s %d\n&quot;, execname(),pid());</span><br><span class="line">    printf(&quot;----------------------------------\n&quot;);</span><br><span class="line">    print_ubacktrace();</span><br><span class="line">    printf(&quot;----------------------------------\n&quot;);</span><br><span class="line">    count = getcount(count);</span><br><span class="line">    printf(&quot;c code caculate the count is %d\n&quot;, count);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">probe end &#123;</span><br><span class="line">    printf(&quot;end to probe\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>格式上：C语言代码要在每个大括号前加<code>%</code>前缀，是<code>%&#123;…… %&#125;</code> 而不是<code>%&#123; …… &#125;%</code></li>
+<li>获取脚本函数参数要用<code>STAP_ARG_前缀</code>，即<code>getcount</code>函数使用的是<code>STAP_ARG_task</code>来获取传入的count参数</li>
+<li>一般long等返回值用<code>STAP_RETURN</code>,一般字符串则使用<code>snprintf, strncat</code>等方式把字符串复制到<code>STAP_RETVALUE</code>里面</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stap -g test.stp</span><br></pre></td></tr></table></figure>
+
+<h2 id="追踪函数流程"><a href="#追踪函数流程" class="headerlink" title="追踪函数流程"></a>追踪函数流程</h2><p>函数被哪个进程调用，且在该函数处执行了多长时间</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/stap</span><br><span class="line"></span><br><span class="line">probe begin &#123;</span><br><span class="line">    printf(&quot;begin to probe&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">probe kernel.function(&quot;sys_read&quot;).call &#123;</span><br><span class="line">    printf(&quot;%s -&gt; %s\n&quot;,thread_indent(4),ppfunc());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">probe kernel.function(&quot;sys_read&quot;).return &#123;</span><br><span class="line">    printf(&quot;%s &lt;- %s\n&quot;,thread_indent(-4),ppfunc());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>thread_indent()</code>函数为<code>/usr/share/systemtap/tapset/indent.stp</code>中实现的一个stap脚本，该函数的功能是增加函数执行时间（微妙），进程名称（pid）打印出来，传入的参数是打印空格的个数</p>
+<h2 id="跟踪特定进程"><a href="#跟踪特定进程" class="headerlink" title="跟踪特定进程"></a>跟踪特定进程</h2><p>跟踪一个进程所调用过的函数：sshd进程调用的系统调用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/stap</span><br><span class="line"></span><br><span class="line">probe begin &#123;</span><br><span class="line">    printf(&quot;begin to probe\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//探测所有的系统调用</span><br><span class="line">probe syscall.* &#123;</span><br><span class="line">    procname = execname();</span><br><span class="line"></span><br><span class="line">    if (procname =~ &quot;sshd.*&quot;)&#123; //使用stp脚本中的通配符匹配所有的sshd服务的子进程</span><br><span class="line">        printf(&quot;%s[%d]: %s -&gt; %s\n&quot;, procname,pid(),name,ppfunc()); //name为sshd内部函数，ppfunc为该函数调用的系统调用</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看代码执行路径"><a href="#查看代码执行路径" class="headerlink" title="查看代码执行路径"></a>查看代码执行路径</h2><img data-src="/2024/03/21/203/image-20240323083626048.png" class="" title="image-20240323083626048">
+
+<p>想要知道当前系统针对该函数的处理过程，走到哪个分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/stap</span><br><span class="line"></span><br><span class="line">probe begin &#123;</span><br><span class="line">    printf(&quot;begin to probe\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//探测点设置为*</span><br><span class="line">probe kernel.statement(&quot;do_statfs_native@fs/statfs.c:*&quot;) &#123;</span><br><span class="line">    printf(&quot;%s\n&quot;,pp());//打印当前探测点</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu18:~/stap_scipts# stap show_run_flow.stp</span><br><span class="line">begin to probe</span><br><span class="line">kernel.statement(&quot;do_statfs_native@/build/linux-5s7Xkn/linux-4.15.0/fs/statfs.c:111&quot;)</span><br><span class="line">kernel.statement(&quot;do_statfs_native@/build/linux-5s7Xkn/linux-4.15.0/fs/statfs.c:149&quot;)</span><br><span class="line">kernel.statement(&quot;do_statfs_native@/build/linux-5s7Xkn/linux-4.15.0/fs/statfs.c:150&quot;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看内核文件函数的执行流程"><a href="#查看内核文件函数的执行流程" class="headerlink" title="查看内核文件函数的执行流程"></a>查看内核文件函数的执行流程</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/stap</span><br><span class="line"></span><br><span class="line">probe begin &#123;</span><br><span class="line">    printf(&quot;begin to probe\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//监控mds_client.c文件中所有的函数，调用时打印</span><br><span class="line">probe module(&quot;ceph&quot;).function(&quot;*@mds_client.c&quot;).call &#123;</span><br><span class="line">    printf(&quot;%s -&gt; %s \n&quot;, thread_indent(4), ppfunc());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//监控mds_client.c文件中所有的函数，返回时打印</span><br><span class="line">probe module(&quot;ceph&quot;).function(&quot;*@mds_client.c&quot;).return &#123;</span><br><span class="line">    printf(&quot;%s &lt;- %s \n&quot;, thread_indent(-4), ppfunc());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/stap</span><br><span class="line"></span><br><span class="line">probe begin &#123;</span><br><span class="line">    printf(&quot;begin to probe\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//监控mds_client.c文件中所有的函数，调用时打印</span><br><span class="line">probe kernel.function(&quot;*@statfs.c&quot;).call&#123;</span><br><span class="line">    printf(&quot;%s -&gt; %s \n&quot;, thread_indent(4), ppfunc());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//监控mds_client.c文件中所有的函数，返回时打印</span><br><span class="line">probe kernel.function(&quot;*@statfs.c&quot;).return &#123;</span><br><span class="line">    printf(&quot;%s &lt;- %s \n&quot;, thread_indent(-4), ppfunc());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://qeuroal.top/2024/03/21/203/" title="203. systemtap stap命令">http://qeuroal.top/2024/03/21/203/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+              <a href="/tags/kernel/" rel="tag"><i class="fa fa-tag"></i> kernel</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/03/20/202/" rel="prev" title="202. 汇编语言">
+                  <i class="fa fa-angle-left"></i> 202. 汇编语言
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/03/22/204/" rel="next" title="204. Linux系统管理">
+                  204. Linux系统管理 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Qeuroal" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

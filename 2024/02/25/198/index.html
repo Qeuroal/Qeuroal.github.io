@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="如题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="198. 01_OS概览">
+<meta property="og:url" content="http://qeuroal.top/2024/02/25/198/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Blog">
+<meta property="og:description" content="如题">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-02-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-08T06:36:58.648Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="6.828">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://qeuroal.top/2024/02/25/198/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2024/02/25/198/","path":"2024/02/25/198/","title":"198. 01_OS概览"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>198. 01_OS概览 | Qeuroal's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Qeuroal's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">静幽正治</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#lecture"><span class="nav-number">1.</span> <span class="nav-text">lecture</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OS"><span class="nav-number">1.1.</span> <span class="nav-text">OS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Class-structure"><span class="nav-number">1.2.</span> <span class="nav-text">Class structure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-to-system-calls"><span class="nav-number">1.3.</span> <span class="nav-text">Introduction to system calls</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lab-1-Booting-a-PC"><span class="nav-number">2.</span> <span class="nav-text">Lab 1: Booting a PC</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Software-Setup"><span class="nav-number">2.1.1.</span> <span class="nav-text">Software Setup</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hand-In-Procedure"><span class="nav-number">2.1.2.</span> <span class="nav-text">Hand-In Procedure</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-1-PC-Bootstrap"><span class="nav-number">2.2.</span> <span class="nav-text">Part 1: PC Bootstrap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Getting-Started-with-x86-assembly"><span class="nav-number">2.2.1.</span> <span class="nav-text">Getting Started with x86 assembly</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Simulating-the-x86"><span class="nav-number">2.2.2.</span> <span class="nav-text">Simulating the x86</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-PC%E2%80%99s-Physical-Address-Space"><span class="nav-number">2.2.3.</span> <span class="nav-text">The PC’s Physical Address Space</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-ROM-BIOS"><span class="nav-number">2.2.4.</span> <span class="nav-text">The ROM BIOS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-2-The-Boot-Loader"><span class="nav-number">2.3.</span> <span class="nav-text">Part 2: The Boot Loader</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Loading-the-Kernel"><span class="nav-number">2.3.1.</span> <span class="nav-text">Loading the Kernel</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-3-The-Kernel"><span class="nav-number">2.4.</span> <span class="nav-text">Part 3: The Kernel</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Using-virtual-memory-to-work-around-position-dependence"><span class="nav-number">2.4.1.</span> <span class="nav-text">Using virtual memory to work around position dependence</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Formatted-Printing-to-the-Console"><span class="nav-number">2.4.2.</span> <span class="nav-text">Formatted Printing to the Console</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Stack"><span class="nav-number">2.4.3.</span> <span class="nav-text">The Stack</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">大人者，不失其赤子之心</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2024/02/25/198/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="198. 01_OS概览 | Qeuroal's Blog">
+      <meta itemprop="description" content="如题">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          198. 01_OS概览
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-02-25 00:00:00" itemprop="dateCreated datePublished" datetime="2024-02-25T00:00:00+08:00">2024-02-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-08 14:36:58" itemprop="dateModified" datetime="2025-12-08T14:36:58+08:00">2025-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">如题</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="lecture"><a href="#lecture" class="headerlink" title="lecture"></a>lecture</h1><h2 id="OS"><a href="#OS" class="headerlink" title="OS"></a>OS</h2><ul>
+<li><p>6.828 goals</p>
+<ul>
+<li>Understand operating system design and implementation</li>
+<li>Hands-on experience by building small O&#x2F;S</li>
+</ul>
+</li>
+<li><p>What is the purpose of an O&#x2F;S?</p>
+<ul>
+<li>Support applications</li>
+<li>Abstract the hardware for convenience and portability</li>
+<li>Multiplex the hardware among multiple applications</li>
+<li>Isolate applications in order to contain bugs</li>
+<li>Allow sharing among applications</li>
+<li>Provide high performance</li>
+</ul>
+</li>
+<li><p>What is the O&#x2F;S design approach?</p>
+<ul>
+<li>the small view: a h&#x2F;w management library</li>
+<li>the big view: physical machine -&gt; abstract one w&#x2F; better properties</li>
+</ul>
+</li>
+<li><p>Organization: layered picture<br> h&#x2F;w: CPU, mem, disk, &amp;c<br> kernel services<br> user applications: vi, gcc, &amp;c</p>
+<ul>
+<li>we care a lot about the interfaces and internal kernel structure</li>
+</ul>
+</li>
+<li><p>What services does an O&#x2F;S kernel typically provide?</p>
+<ul>
+<li>processes</li>
+<li>memory allocation</li>
+<li>file contents</li>
+<li>directories and file names</li>
+<li>security</li>
+<li>many others: users, IPC, network, time, terminals</li>
+</ul>
+</li>
+<li><p>What does an O&#x2F;S abstraction look like?</p>
+<ul>
+<li><p>Applications see them only via system calls</p>
+</li>
+<li><p>Examples, from UNIX (e.g. Linux, OSX, FreeBSD):</p>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fd = <span class="built_in">open</span>(<span class="string">&quot;out&quot;</span>, <span class="number">1</span>);</span><br><span class="line"><span class="built_in">write</span>(fd, <span class="string">&quot;hello\n&quot;</span>, <span class="number">6</span>);</span><br><span class="line">pid = fork();</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>Why is O&#x2F;S design&#x2F;implementation hard&#x2F;interesting?</p>
+<ul>
+<li>the environment is unforgiving: quirky h&#x2F;w, weak debugger</li>
+<li>it must be efficient (thus low-level?)<br>…but abstract&#x2F;portable (thus high-level?)</li>
+<li>powerful (thus many features?)<br>…but simple (thus a few composable building blocks?)</li>
+<li>features interact: <code>fd = open(); ...; fork()</code></li>
+<li>behaviors interact: CPU priority vs memory allocator</li>
+<li>open problems: security; performance; exploiting new hardware</li>
+</ul>
+</li>
+<li><p>You’ll be glad you learned about operating systems if you…</p>
+<ul>
+<li>want to work on the above problems</li>
+<li>care about what’s going on under the hood</li>
+<li>have to build high-performance systems</li>
+<li>need to diagnose bugs or security problems</li>
+</ul>
+</li>
+</ul>
+<h2 id="Class-structure"><a href="#Class-structure" class="headerlink" title="Class structure"></a>Class structure</h2><ul>
+<li><p>See web site: <a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828">https://pdos.csail.mit.edu/6.828</a></p>
+</li>
+<li><p>Lectures</p>
+<ul>
+<li>O&#x2F;S ideas</li>
+<li>detailed inspection of xv6, a traditional O&#x2F;S</li>
+<li>xv6 programming homework to motivate lectures</li>
+<li>papers on some recent topics</li>
+</ul>
+</li>
+<li><p>Labs: JOS, a small O&#x2F;S for x86 in an exokernel style</p>
+<ul>
+<li>you build it, 5 labs + final lab of your choice</li>
+<li>kernel interface: expose hardware, but protect – few abstractions!</li>
+<li>unprivileged user-level library: fork, exec, pipe, …</li>
+<li>applications: file system, shell, ..</li>
+<li>development environment: gcc, qemu</li>
+<li>lab 1 is out</li>
+</ul>
+<p>(demo: build JOS and run ls)</p>
+</li>
+<li><p>Xv6 and JOS<br>Two different designs<br>Hopefully will force you understand issues better, but will be confusing too<br>Neither has the complexity of a real OS<br>(demo: build Linux)</p>
+</li>
+<li><p>Two exams: midterm during class meeting, final in finals week</p>
+</li>
+</ul>
+<h2 id="Introduction-to-system-calls"><a href="#Introduction-to-system-calls" class="headerlink" title="Introduction to system calls"></a>Introduction to system calls</h2><ul>
+<li><p>6.828 is largely about design and implementation of system call<br>interface. let’s look at how programs use that interface.<br>we’ll focus on UNIX (Linux, Mac, POSIX, &amp;c).</p>
+</li>
+<li><p>a simple example: what system calls does “ls” call?</p>
+<ul>
+<li>Trace system calls:<ul>
+<li>On OSX: sudo dtruss &#x2F;bin&#x2F;ls</li>
+<li>On Linux: strace &#x2F;bin&#x2F;ls</li>
+</ul>
+</li>
+<li>so many system calls!</li>
+</ul>
+</li>
+<li><p>example: copy input to output<br>cat copy.c<br>cc -o copy copy.c<br>.&#x2F;copy<br>read a line, then write a line<br>note: written in C, the traditional O&#x2F;S language</p>
+<ul>
+<li><p>first read&#x2F;write argument is a “file descriptor” (fd)<br>passed to kernel to tell it what “open file” to read&#x2F;write<br>must previously have been opened, connects to file&#x2F;device&#x2F;socket&#x2F;&amp;c<br>UNIX convention: fd 0 is “standard input”, 1 is “standard output”</p>
+</li>
+<li><p>sudo dtruss .&#x2F;copy<br>read(0x0, “123\n\0”, 0x80)		 &#x3D; 4 0<br>write(0x1, “123\n@\213\002\0”, 0x4)		 &#x3D; 4 0</p>
+</li>
+</ul>
+</li>
+<li><p>example: creating a file<br>cat open.c<br>cc -o open open.c<br>.&#x2F;open<br>cat output.txt<br>note: creat() turned into open()<br>note: can see actual FD with dtruss<br>note: this code ignores errors – don’t be this sloppy!</p>
+</li>
+<li><p>example: redirecting standard output<br>cat redirect.c<br>cc -o redirect redirect.c<br>.&#x2F;redirect<br>cat output.txt<br>man dup2<br>sudo dtruss .&#x2F;redirect<br>note: writes output.txt via fd 1<br>note: stderr (standard error) is fd 2 – that’s why creat() yields FD 3</p>
+</li>
+<li><p>a more interesting program: the Unix shell.</p>
+<ul>
+<li>it’s the Unix command-line user interface</li>
+<li>it’s a good illustration of the UNIX system call API</li>
+<li>some example commands:<br>ls<br>ls &gt; junk<br>ls | wc -l<br>ls | wc -l &gt; junk</li>
+<li>the shell is also a programming&#x2F;scripting language<br>cat &gt; script<br>  echo one<br>  echo two<br>sh &lt; script</li>
+<li>the shell uses system calls to set up redirection, pipes, waiting<br>programs like wc are ignorant of input&#x2F;output setup</li>
+</ul>
+</li>
+<li><p>Let’s look at source for a simple shell, sh.c</p>
+<ul>
+<li><p>main()<br>basic organization: parse into tree, then run<br>main process: getcmd, fork, wait<br>child process: parsecmd, runcmd<br>why the fork()?<br>  we need a new process for the command<br>what does fork() do?<br>  copies user memory<br>  copies kernel state e.g. file descriptors<br>  so “child” is almost identical to “parent”<br>  child has different “process ID”<br>  both processes now run, in parallel<br>  fork returns twice, once in parent, once in child<br>  fork returns child PID to parent<br>  fork returns 0 to child<br>  so sh calls runcmd() in the child process<br>why the wait()?<br>what if child exits before parent calls wait()?</p>
+</li>
+<li><p>runcmd()<br>executes parse tree generated by parsecmd()<br>distinct cmd types for simple command, redirection,<br>pipe</p>
+</li>
+<li><p>runcmd() for simple command with arguments<br>execvp(cmd, args)<br>man execvp<br>ls command &amp;c exist as executable files, e.g. &#x2F;bin&#x2F;ls<br>execvp loads executable file over memory of current process<br>jumps to start of executable – main()<br>note: execvp doesn’t return if all goes well<br>note: execvp() only returns if it can’t find the executable file<br>note: it’s the shell child that’s replaced with execvp()<br>note: the main shell process is still wait()ing for the child</p>
+</li>
+<li><p>how does runcmd() handle I&#x2F;O redirection?<br>e.g. echo hello &gt; junk<br>parsecmd() produces tree with two nodes<br>  cmd-&gt;type&#x3D;’&gt;’, cmd-&gt;file&#x3D;”junk”, cmd-&gt;cmd&#x3D;…<br>  cmd-&gt;type&#x3D;’ ‘, cmd-&gt;argv&#x3D;[“echo”, “hello”]<br>the open(); dup2() causes FD 1 to be replaced with FD to output file<br>it’s the shell child process that changes its FD 1<br>execvp preserves the FD setup<br>so echo runs with FD 1 connected to file junk<br>again, very nice that echo is oblivious, just writes FD 1</p>
+</li>
+<li><p>why are fork and exec separate?<br>perhaps wasteful that fork copies shell memory, only<br>  to have it thrown away by exec<br>the point: the child gets a chance to change FD setup<br>  before calling exec<br>and the parent’s FD set is not disturbed<br>you’ll implement tricks to avoid fork() copy cost in the labs</p>
+</li>
+<li><p>how does the shell implement pipelines?<br>$ ls | wc -l</p>
+</li>
+<li><p>the kernel provides a pipe abstraction<br>int fds[2]<br>pipe(fds)<br>a pair of file descriptors: a write FD, and a read FD<br>data written to the write FD appears on the read FD</p>
+</li>
+<li><p>example: pipe1.c<br>read() blocks until data is available<br>write() blocks if pipe buffer is full</p>
+</li>
+<li><p>pipe file descriptors are inherited across fork<br>so pipes can be used to communicate between processes<br>example: pipe2.c<br>for many programs, just like file I&#x2F;O, so pipes work for stdin&#x2F;stdout</p>
+</li>
+<li><p>for ls | wc -l, shell must:</p>
+<ul>
+<li>create a pipe</li>
+<li>fork</li>
+<li>set up fd 1 to be the pipe write FD</li>
+<li>exec ls</li>
+<li>set up wc’s fd 0 to be pipe read FD</li>
+<li>exec wc</li>
+<li>wait for wc<br>[diagram: sh parent, sh child, ls grandchild, wc grandchild, stdin&#x2F;out for each]<br>case ‘|’ in sh.c<br>note: sh close()es unused FDs<br>so exit of writer produces EOF at reader</li>
+</ul>
+</li>
+<li><p>you’ll implement pieces of a shell in an upcoming homework</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Lab-1-Booting-a-PC"><a href="#Lab-1-Booting-a-PC" class="headerlink" title="Lab 1: Booting a PC"></a>Lab 1: Booting a PC</h1><p><strong>Due Thursday, September 13, 2018</strong></p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>This lab is split into three parts. The first part concentrates on getting familiarized with x86 assembly language, the QEMU x86 emulator, and the PC’s power-on bootstrap procedure. The second part examines the boot loader for our 6.828 kernel, which resides in the <code>boot</code> directory of the <code>lab</code> tree. Finally, the third part delves into the initial template for our 6.828 kernel itself, named JOS, which resides in the <code>kernel</code> directory.</p>
+<h3 id="Software-Setup"><a href="#Software-Setup" class="headerlink" title="Software Setup"></a>Software Setup</h3><p>The files you will need for this and subsequent lab assignments in this course are distributed using the <a target="_blank" rel="noopener" href="http://www.git-scm.com/">Git</a> version control system. To learn more about Git, take a look at the <a target="_blank" rel="noopener" href="http://www.kernel.org/pub/software/scm/git/docs/user-manual.html">Git user’s manual</a>, or, if you are already familiar with other version control systems, you may find this <a target="_blank" rel="noopener" href="http://eagain.net/articles/git-for-computer-scientists/">CS-oriented overview of Git</a> useful.</p>
+<p>The URL for the course Git repository is <a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2018/jos.git">https://pdos.csail.mit.edu/6.828/2018/jos.git</a>. To install the files in your Athena account, you need to <em>clone</em> the course repository, by running the commands below. You must use an x86 Athena machine; that is, <code>uname -a</code> should mention <code>i386 GNU/Linux</code> or <code>i686 GNU/Linux</code> or <code>x86_64 GNU/Linux</code>. You can log into a public Athena host with <code>ssh -X athena.dialup.mit.edu</code>.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">athena% mkdir ~/6.828</span><br><span class="line">athena% cd ~/6.828</span><br><span class="line">athena% add git</span><br><span class="line">athena% git clone https://pdos.csail.mit.edu/6.828/2018/jos.git lab</span><br><span class="line">Cloning into lab...</span><br><span class="line">athena% cd lab</span><br><span class="line">athena% </span><br></pre></td></tr></table></figure>
+
+<p>Git allows you to keep track of the changes you make to the code. For example, if you are finished with one of the exercises, and want to checkpoint your progress, you can <em>commit</em> your changes by running:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">athena% git commit -am &#x27;my solution for lab1 exercise 9&#x27;</span><br><span class="line">Created commit 60d2135: my solution for lab1 exercise 9</span><br><span class="line"> 1 files changed, 1 insertions(+), 0 deletions(-)</span><br><span class="line">athena% </span><br></pre></td></tr></table></figure>
+
+<p>You can keep track of your changes by using the git diff command. Running git diff will display the changes to your code since your last commit, and git diff origin&#x2F;lab1 will display the changes relative to the initial code supplied for this lab. Here, <code>origin/lab1</code> is the name of the git branch with the initial code you downloaded from our server for this assignment.</p>
+<p>We have set up the appropriate compilers and simulators for you on Athena. To use them, run add -f 6.828. You must run this command every time you log in (or add it to your <code>~/.environment</code> file). If you get obscure errors while compiling or running <code>qemu</code>, double check that you added the course locker.</p>
+<p>If you are working on a non-Athena machine, you’ll need to install <code>qemu</code> and possibly <code>gcc</code> following the directions on the <a href="/2024/02/25/199/">tools page</a>. We’ve made several useful debugging changes to <code>qemu</code> and some of the later labs depend on these patches, so you must build your own. If your machine uses a native ELF toolchain (such as Linux and most BSD’s, but notably <em>not</em> OS X), you can simply install <code>gcc</code> from your package manager. Otherwise, follow the directions on the tools page.</p>
+<h3 id="Hand-In-Procedure"><a href="#Hand-In-Procedure" class="headerlink" title="Hand-In Procedure"></a>Hand-In Procedure</h3><p>You will turn in your assignments using the <a target="_blank" rel="noopener" href="https://6828.scripts.mit.edu/2018/handin.py/">submission website</a>. You need to request an API key from the submission website before you can turn in any assignments or labs.</p>
+<p>The lab code comes with GNU Make rules to make submission easier. After committing your final changes to the lab, type make handin to submit your lab.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">athena% git commit -am &quot;ready to submit my lab&quot;</span><br><span class="line">[lab1 c2e3c8b] ready to submit my lab</span><br><span class="line"> 2 files changed, 18 insertions(+), 2 deletions(-)</span><br><span class="line"></span><br><span class="line">athena% make handin</span><br><span class="line">git archive --prefix=lab1/ --format=tar HEAD | gzip &gt; lab1-handin.tar.gz</span><br><span class="line">Get an API key for yourself by visiting https://6828.scripts.mit.edu/2018/handin.py/</span><br><span class="line">Please enter your API key: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span><br><span class="line">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</span><br><span class="line">                                 Dload  Upload   Total   Spent    Left  Speed</span><br><span class="line">100 50199  100   241  100 49958    414  85824 --:--:-- --:--:-- --:--:-- 85986</span><br><span class="line">athena%</span><br></pre></td></tr></table></figure>
+
+<p>make handin will store your API key in <em>myapi.key</em>. If you need to change your API key, just remove this file and let make handin generate it again (<em>myapi.key</em> must not include newline characters).</p>
+<p>If use make handin and you have either uncomitted changes or untracked files, you will see output similar to the following:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> M hello.c</span><br><span class="line">?? bar.c</span><br><span class="line">?? foo.pyc</span><br><span class="line">Untracked files will not be handed in.  Continue? [y/N]</span><br></pre></td></tr></table></figure>
+
+<p>Inspect the above lines and make sure all files that your lab solution needs are tracked i.e. not listed in a line that begins with ??.</p>
+<p>In the case that make handin does not work properly, try fixing the problem with the curl or Git commands. Or you can run make tarball. This will make a tar file for you, which you can then upload via our <a target="_blank" rel="noopener" href="https://6828.scripts.mit.edu/2018/handin.py/">web interface</a>.</p>
+<p>You can run make grade to test your solutions with the grading program. The <a target="_blank" rel="noopener" href="https://6828.scripts.mit.edu/2018/handin.py/">web interface</a> uses the same grading program to assign your lab submission a grade. You should check the output of the grader (it may take a few minutes since the grader runs periodically) and ensure that you received the grade which you expected. If the grades don’t match, your lab submission probably has a bug – check the output of the grader (resp-lab*.txt) to see which particular test failed.</p>
+<p>For Lab 1, you do not need to turn in answers to any of the questions below. (Do answer them for yourself though! They will help with the rest of the lab.)</p>
+<h2 id="Part-1-PC-Bootstrap"><a href="#Part-1-PC-Bootstrap" class="headerlink" title="Part 1: PC Bootstrap"></a>Part 1: PC Bootstrap</h2><p>The purpose of the first exercise is to introduce you to x86 assembly language and the PC bootstrap process, and to get you started with QEMU and QEMU&#x2F;GDB debugging. You will not have to write any code for this part of the lab, but you should go through it anyway for your own understanding and be prepared to answer the questions posed below.</p>
+<h3 id="Getting-Started-with-x86-assembly"><a href="#Getting-Started-with-x86-assembly" class="headerlink" title="Getting Started with x86 assembly"></a>Getting Started with x86 assembly</h3><p>If you are not already familiar with x86 assembly language, you will quickly become familiar with it during this course! The <a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2018/readings/pcasm-book.pdf">PC Assembly Language Book</a> is an excellent place to start. Hopefully, the book contains mixture of new and old material for you.</p>
+<p><em>Warning:</em> Unfortunately the examples in the book are written for the NASM assembler, whereas we will be using the GNU assembler. NASM uses the so-called <em>Intel</em> syntax while GNU uses the <em>AT&amp;T</em> syntax. While semantically equivalent, an assembly file will differ quite a lot, at least superficially, depending on which syntax is used. Luckily the conversion between the two is pretty simple, and is covered in <a target="_blank" rel="noopener" href="http://www.delorie.com/djgpp/doc/brennan/brennan_att_inline_djgpp.html">Brennan’s Guide to Inline Assembly</a>.</p>
+<p><strong>Exercise 1.</strong> Familiarize yourself with the assembly language materials available on <a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2018/reference.html">the 6.828 reference page</a>. You don’t have to read them now, but you’ll almost certainly want to refer to some of this material when reading and writing x86 assembly.</p>
+<p>We do recommend reading the section “The Syntax” in <a target="_blank" rel="noopener" href="http://www.delorie.com/djgpp/doc/brennan/brennan_att_inline_djgpp.html">Brennan’s Guide to Inline Assembly</a>. It gives a good (and quite brief) description of the AT&amp;T assembly syntax we’ll be using with the GNU assembler in JOS.</p>
+<p>Certainly the definitive reference for x86 assembly language programming is Intel’s instruction set architecture reference, which you can find on <a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2018/reference.html">the 6.828 reference page</a> in two flavors: an HTML edition of the old <a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2018/readings/i386/toc.htm">80386 Programmer’s Reference Manual</a>, which is much shorter and easier to navigate than more recent manuals but describes all of the x86 processor features that we will make use of in 6.828; and the full, latest and greatest <a target="_blank" rel="noopener" href="http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html">IA-32 Intel Architecture Software Developer’s Manuals</a> from Intel, covering all the features of the most recent processors that we won’t need in class but you may be interested in learning about. An equivalent (and often friendlier) set of manuals is <a target="_blank" rel="noopener" href="http://developer.amd.com/resources/developer-guides-manuals/">available from AMD</a>. Save the Intel&#x2F;AMD architecture manuals for later or use them for reference when you want to look up the definitive explanation of a particular processor feature or instruction.</p>
+<h3 id="Simulating-the-x86"><a href="#Simulating-the-x86" class="headerlink" title="Simulating the x86"></a>Simulating the x86</h3><p>Instead of developing the operating system on a real, physical personal computer (PC), we use a program that faithfully emulates a complete PC: the code you write for the emulator will boot on a real PC too. Using an emulator simplifies debugging; you can, for example, set break points inside of the emulated x86, which is difficult to do with the silicon version of an x86.</p>
+<p>In 6.828 we will use the <a target="_blank" rel="noopener" href="http://www.qemu.org/">QEMU Emulator</a>, a modern and relatively fast emulator. While QEMU’s built-in monitor provides only limited debugging support, QEMU can act as a remote debugging target for the <a target="_blank" rel="noopener" href="http://www.gnu.org/software/gdb/">GNU debugger</a> (GDB), which we’ll use in this lab to step through the early boot process.</p>
+<p>To get started, extract the Lab 1 files into your own directory on Athena as described above in “Software Setup”, then type make (or gmake on BSD systems) in the <code>lab</code> directory to build the minimal 6.828 boot loader and kernel you will start with. (It’s a little generous to call the code we’re running here a “kernel,” but we’ll flesh it out throughout the semester.)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">athena% cd lab</span><br><span class="line">athena% make</span><br><span class="line">+ as kern/entry.S</span><br><span class="line">+ cc kern/entrypgdir.c</span><br><span class="line">+ cc kern/init.c</span><br><span class="line">+ cc kern/console.c</span><br><span class="line">+ cc kern/monitor.c</span><br><span class="line">+ cc kern/printf.c</span><br><span class="line">+ cc kern/kdebug.c</span><br><span class="line">+ cc lib/printfmt.c</span><br><span class="line">+ cc lib/readline.c</span><br><span class="line">+ cc lib/string.c</span><br><span class="line">+ ld obj/kern/kernel</span><br><span class="line">+ as boot/boot.S</span><br><span class="line">+ cc -Os boot/main.c</span><br><span class="line">+ ld boot/boot</span><br><span class="line">boot block is 380 bytes (max 510)</span><br><span class="line">+ mk obj/kern/kernel.img</span><br></pre></td></tr></table></figure>
+
+<p>(If you get errors like “undefined reference to &#96;__udivdi3’”, you probably don’t have the 32-bit gcc multilib. If you’re running Debian or Ubuntu, try installing the gcc-multilib package.)</p>
+<p>Now you’re ready to run QEMU, supplying the file <code>obj/kern/kernel.img</code>, created above, as the contents of the emulated PC’s “virtual hard disk.” This hard disk image contains both our boot loader (<code>obj/boot/boot</code>) and our kernel (<code>obj/kernel</code>).</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">athena% make qemu</span><br></pre></td></tr></table></figure>
+
+<p>or</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">athena% make qemu-nox</span><br></pre></td></tr></table></figure>
+
+<p>This executes QEMU with the options required to set the hard disk and direct serial port output to the terminal. Some text should appear in the QEMU window:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Booting from Hard Disk...</span><br><span class="line">6828 decimal is XXX octal!</span><br><span class="line">entering test_backtrace 5</span><br><span class="line">entering test_backtrace 4</span><br><span class="line">entering test_backtrace 3</span><br><span class="line">entering test_backtrace 2</span><br><span class="line">entering test_backtrace 1</span><br><span class="line">entering test_backtrace 0</span><br><span class="line">leaving test_backtrace 0</span><br><span class="line">leaving test_backtrace 1</span><br><span class="line">leaving test_backtrace 2</span><br><span class="line">leaving test_backtrace 3</span><br><span class="line">leaving test_backtrace 4</span><br><span class="line">leaving test_backtrace 5</span><br><span class="line">Welcome to the JOS kernel monitor!</span><br><span class="line">Type &#x27;help&#x27; for a list of commands.</span><br><span class="line">K&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Everything after ‘<code>Booting from Hard Disk...</code>‘ was printed by our skeletal JOS kernel; the <code>K&gt;</code> is the prompt printed by the small <em>monitor</em>, or interactive control program, that we’ve included in the kernel. If you used make qemu, these lines printed by the kernel will appear in both the regular shell window from which you ran QEMU and the QEMU display window. This is because for testing and lab grading purposes we have set up the JOS kernel to write its console output not only to the virtual VGA display (as seen in the QEMU window), but also to the simulated PC’s virtual serial port, which QEMU in turn outputs to its own standard output. Likewise, the JOS kernel will take input from both the keyboard and the serial port, so you can give it commands in either the VGA display window or the terminal running QEMU. Alternatively, you can use the serial console without the virtual VGA by running make qemu-nox. This may be convenient if you are SSH’d into an Athena dialup. To quit qemu, type Ctrl+a x.</p>
+<p>There are only two commands you can give to the kernel monitor, <code>help</code> and <code>kerninfo</code>.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">K&gt; help</span><br><span class="line">help - display this list of commands</span><br><span class="line">kerninfo - display information about the kernel</span><br><span class="line">K&gt; kerninfo</span><br><span class="line">Special kernel symbols:</span><br><span class="line">  entry  f010000c (virt)  0010000c (phys)</span><br><span class="line">  etext  f0101a75 (virt)  00101a75 (phys)</span><br><span class="line">  edata  f0112300 (virt)  00112300 (phys)</span><br><span class="line">  end    f0112960 (virt)  00112960 (phys)</span><br><span class="line">Kernel executable memory footprint: 75KB</span><br><span class="line">K&gt;</span><br></pre></td></tr></table></figure>
+
+<p>The <code>help</code> command is obvious, and we will shortly discuss the meaning of what the <code>kerninfo</code> command prints. Although simple, it’s important to note that this kernel monitor is running “directly” on the “raw (virtual) hardware” of the simulated PC. This means that you should be able to copy the contents of <code>obj/kern/kernel.img</code> onto the first few sectors of a <em>real</em> hard disk, insert that hard disk into a real PC, turn it on, and see exactly the same thing on the PC’s real screen as you did above in the QEMU window. (We don’t recommend you do this on a real machine with useful information on its hard disk, though, because copying <code>kernel.img</code> onto the beginning of its hard disk will trash the master boot record and the beginning of the first partition, effectively causing everything previously on the hard disk to be lost!)</p>
+<h3 id="The-PC’s-Physical-Address-Space"><a href="#The-PC’s-Physical-Address-Space" class="headerlink" title="The PC’s Physical Address Space"></a>The PC’s Physical Address Space</h3><p>We will now dive into a bit more detail about how a PC starts up. A PC’s physical address space is hard-wired to have the following general layout:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+------------------+  &lt;- 0xFFFFFFFF (4GB) |      32-bit      | |  memory mapped   | |     devices      | |                  | /\/\/\/\/\/\/\/\/\/\ /\/\/\/\/\/\/\/\/\/\ |                  | |      Unused      | |                  | +------------------+  &lt;- depends on amount of RAM |                  | |                  | | Extended Memory  | |                  | |                  | +------------------+  &lt;- 0x00100000 (1MB) |     BIOS ROM     | +------------------+  &lt;- 0x000F0000 (960KB) |  16-bit devices, | |  expansion ROMs  | +------------------+  &lt;- 0x000C0000 (768KB) |   VGA Display    | +------------------+  &lt;- 0x000A0000 (640KB) |                  | |    Low Memory    | |                  | +------------------+  &lt;- 0x00000000 </span><br></pre></td></tr></table></figure>
+
+<p>The first PCs, which were based on the 16-bit Intel 8088 processor, were only capable of addressing 1MB of physical memory. The physical address space of an early PC would therefore start at 0x00000000 but end at 0x000FFFFF instead of 0xFFFFFFFF. The 640KB area marked “Low Memory” was the <em>only</em> random-access memory (RAM) that an early PC could use; in fact the very earliest PCs only could be configured with 16KB, 32KB, or 64KB of RAM!</p>
+<p>The 384KB area from 0x000A0000 through 0x000FFFFF was reserved by the hardware for special uses such as video display buffers and firmware held in non-volatile memory. The most important part of this reserved area is the Basic Input&#x2F;Output System (BIOS), which occupies the 64KB region from 0x000F0000 through 0x000FFFFF. In early PCs the BIOS was held in true read-only memory (ROM), but current PCs store the BIOS in updateable flash memory. The BIOS is responsible for performing basic system initialization such as activating the video card and checking the amount of memory installed. After performing this initialization, the BIOS loads the operating system from some appropriate location such as floppy disk, hard disk, CD-ROM, or the network, and passes control of the machine to the operating system.</p>
+<p>When Intel finally “broke the one megabyte barrier” with the 80286 and 80386 processors, which supported 16MB and 4GB physical address spaces respectively, the PC architects nevertheless preserved the original layout for the low 1MB of physical address space in order to ensure backward compatibility with existing software. Modern PCs therefore have a “hole” in physical memory from 0x000A0000 to 0x00100000, dividing RAM into “low” or “conventional memory” (the first 640KB) and “extended memory” (everything else). In addition, some space at the very top of the PC’s 32-bit physical address space, above all physical RAM, is now commonly reserved by the BIOS for use by 32-bit PCI devices.</p>
+<p>Recent x86 processors can support <em>more</em> than 4GB of physical RAM, so RAM can extend further above 0xFFFFFFFF. In this case the BIOS must arrange to leave a <em>second</em> hole in the system’s RAM at the top of the 32-bit addressable region, to leave room for these 32-bit devices to be mapped. Because of design limitations JOS will use only the first 256MB of a PC’s physical memory anyway, so for now we will pretend that all PCs have “only” a 32-bit physical address space. But dealing with complicated physical address spaces and other aspects of hardware organization that evolved over many years is one of the important practical challenges of OS development.</p>
+<h3 id="The-ROM-BIOS"><a href="#The-ROM-BIOS" class="headerlink" title="The ROM BIOS"></a>The ROM BIOS</h3><p>In this portion of the lab, you’ll use QEMU’s debugging facilities to investigate how an IA-32 compatible computer boots.</p>
+<p>Open two terminal windows and cd both shells into your lab directory. In one, enter make qemu-gdb (or make qemu-nox-gdb). This starts up QEMU, but QEMU stops just before the processor executes the first instruction and waits for a debugging connection from GDB. In the second terminal, from the same directory you ran <code>make</code>, run make gdb. You should see something like this,</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">athena% make gdb</span><br><span class="line">GNU gdb (GDB) 6.8-debian</span><br><span class="line">Copyright (C) 2008 Free Software Foundation, Inc.</span><br><span class="line">License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;</span><br><span class="line">This is free software: you are free to change and redistribute it.</span><br><span class="line">There is NO WARRANTY, to the extent permitted by law.  Type &quot;show copying&quot;</span><br><span class="line">and &quot;show warranty&quot; for details.</span><br><span class="line">This GDB was configured as &quot;i486-linux-gnu&quot;.</span><br><span class="line">+ target remote localhost:26000</span><br><span class="line">The target architecture is assumed to be i8086</span><br><span class="line">[f000:fff0] 0xffff0:	ljmp   $0xf000,$0xe05b</span><br><span class="line">0x0000fff0 in ?? ()</span><br><span class="line">+ symbol-file obj/kern/kernel</span><br><span class="line">(gdb) </span><br></pre></td></tr></table></figure>
+
+<p>We provided a <code>.gdbinit</code> file that set up GDB to debug the 16-bit code used during early boot and directed it to attach to the listening QEMU. (If it doesn’t work, you may have to add an <code>add-auto-load-safe-path</code> in your <code>.gdbinit</code> in your home directory to convince <code>gdb</code> to process the <code>.gdbinit</code> we provided. <code>gdb</code> will tell you if you have to do this.)</p>
+<p>The following line:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[f000:fff0] 0xffff0:	ljmp   $0xf000,$0xe05b</span><br></pre></td></tr></table></figure>
+
+<p>is GDB’s disassembly of the first instruction to be executed. From this output you can conclude a few things:</p>
+<ul>
+<li>The IBM PC starts executing at physical address 0x000ffff0, which is at the very top of the 64KB area reserved for the ROM BIOS.</li>
+<li>The PC starts executing with <code>CS = 0xf000</code> and <code>IP = 0xfff0</code>.</li>
+<li>The first instruction to be executed is a <code>jmp</code> instruction, which jumps to the segmented address <code>CS = 0xf000</code> and <code>IP = 0xe05b</code>.</li>
+</ul>
+<p>Why does QEMU start like this? This is how Intel designed the 8088 processor, which IBM used in their original PC. Because the BIOS in a PC is “hard-wired” to the physical address range 0x000f0000-0x000fffff, this design ensures that the BIOS always gets control of the machine first after power-up or any system restart - which is crucial because on power-up there <em>is</em> no other software anywhere in the machine’s RAM that the processor could execute. The QEMU emulator comes with its own BIOS, which it places at this location in the processor’s simulated physical address space. On processor reset, the (simulated) processor enters real mode and sets CS to 0xf000 and the IP to 0xfff0, so that execution begins at that (CS:IP) segment address. How does the segmented address 0xf000:fff0 turn into a physical address?</p>
+<p>To answer that we need to know a bit about real mode addressing. In real mode (the mode that PC starts off in), address translation works according to the formula: <em>physical address</em> &#x3D; 16 * <em>segment</em> + <em>offset</em>. So, when the PC sets CS to 0xf000 and IP to 0xfff0, the physical address referenced is:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">16 * 0xf000 + 0xfff0   # in hex multiplication by 16 is</span><br><span class="line">= 0xf0000 + 0xfff0     # easy--just append a 0.</span><br><span class="line">= 0xffff0 </span><br></pre></td></tr></table></figure>
+
+<p><code>0xffff0</code> is 16 bytes before the end of the BIOS (<code>0x100000</code>). Therefore we shouldn’t be surprised that the first thing that the BIOS does is <code>jmp</code> backwards to an earlier location in the BIOS; after all how much could it accomplish in just 16 bytes?</p>
+<p><strong>Exercise 2.</strong> Use GDB’s si (Step Instruction) command to trace into the ROM BIOS for a few more instructions, and try to guess what it might be doing. You might want to look at <a target="_blank" rel="noopener" href="http://web.archive.org/web/20040404164813/members.iweb.net.au/~pstorr/pcbook/book2/book2.htm">Phil Storrs I&#x2F;O Ports Description</a>, as well as other materials on the <a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2018/reference.html">6.828 reference materials page</a>. No need to figure out all the details - just the general idea of what the BIOS is doing first.</p>
+<p>When the BIOS runs, it sets up an interrupt descriptor table and initializes various devices such as the VGA display. This is where the “<code>Starting SeaBIOS</code>“ message you see in the QEMU window comes from.</p>
+<p>After initializing the PCI bus and all the important devices the BIOS knows about, it searches for a bootable device such as a floppy, hard drive, or CD-ROM. Eventually, when it finds a bootable disk, the BIOS reads the <em>boot loader</em> from the disk and transfers control to it.</p>
+<h2 id="Part-2-The-Boot-Loader"><a href="#Part-2-The-Boot-Loader" class="headerlink" title="Part 2: The Boot Loader"></a>Part 2: The Boot Loader</h2><p>Floppy and hard disks for PCs are divided into 512 byte regions called <em>sectors</em>. A sector is the disk’s minimum transfer granularity: each read or write operation must be one or more sectors in size and aligned on a sector boundary. If the disk is bootable, the first sector is called the <em>boot sector</em>, since this is where the boot loader code resides. When the BIOS finds a bootable floppy or hard disk, it loads the 512-byte boot sector into memory at physical addresses 0x7c00 through 0x7dff, and then uses a <code>jmp</code> instruction to set the CS:IP to <code>0000:7c00</code>, passing control to the boot loader. Like the BIOS load address, these addresses are fairly arbitrary - but they are fixed and standardized for PCs.</p>
+<p>The ability to boot from a CD-ROM came much later during the evolution of the PC, and as a result the PC architects took the opportunity to rethink the boot process slightly. As a result, the way a modern BIOS boots from a CD-ROM is a bit more complicated (and more powerful). CD-ROMs use a sector size of 2048 bytes instead of 512, and the BIOS can load a much larger boot image from the disk into memory (not just one sector) before transferring control to it. For more information, see the <a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2018/readings/boot-cdrom.pdf">“El Torito” Bootable CD-ROM Format Specification</a>.</p>
+<p>For 6.828, however, we will use the conventional hard drive boot mechanism, which means that our boot loader must fit into a measly 512 bytes. The boot loader consists of one assembly language source file, <code>boot/boot.S</code>, and one C source file, <code>boot/main.c</code> Look through these source files carefully and make sure you understand what’s going on. The boot loader must perform two main functions:</p>
+<ol>
+<li>First, the boot loader switches the processor from real mode to <em>32-bit protected mode</em>, because it is only in this mode that software can access all the memory above 1MB in the processor’s physical address space. Protected mode is described briefly in sections 1.2.7 and 1.2.8 of <a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2018/readings/pcasm-book.pdf">PC Assembly Language</a>, and in great detail in the Intel architecture manuals. At this point you only have to understand that translation of segmented addresses (segment:offset pairs) into physical addresses happens differently in protected mode, and that after the transition offsets are 32 bits instead of 16.</li>
+<li>Second, the boot loader reads the kernel from the hard disk by directly accessing the IDE disk device registers via the x86’s special I&#x2F;O instructions. If you would like to understand better what the particular I&#x2F;O instructions here mean, check out the “IDE hard drive controller” section on <a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2018/reference.html">the 6.828 reference page</a>. You will not need to learn much about programming specific devices in this class: writing device drivers is in practice a very important part of OS development, but from a conceptual or architectural viewpoint it is also one of the least interesting.</li>
+</ol>
+<p>After you understand the boot loader source code, look at the file <code>obj/boot/boot.asm</code>. This file is a disassembly of the boot loader that our GNUmakefile creates <em>after</em> compiling the boot loader. This disassembly file makes it easy to see exactly where in physical memory all of the boot loader’s code resides, and makes it easier to track what’s happening while stepping through the boot loader in GDB. Likewise, <code>obj/kern/kernel.asm</code> contains a disassembly of the JOS kernel, which can often be useful for debugging.</p>
+<p>You can set address breakpoints in GDB with the <code>b</code> command. For example, b *0x7c00 sets a breakpoint at address 0x7C00. Once at a breakpoint, you can continue execution using the c and si commands: c causes QEMU to continue execution until the next breakpoint (or until you press Ctrl-C in GDB), and si <em>N</em> steps through the instructions <em><code>N</code></em> at a time.</p>
+<p>To examine instructions in memory (besides the immediate next one to be executed, which GDB prints automatically), you use the x&#x2F;i command. This command has the syntax x&#x2F;<em>N</em>i <em>ADDR</em>, where <em>N</em> is the number of consecutive instructions to disassemble and <em>ADDR</em> is the memory address at which to start disassembling.</p>
+<p><strong>Exercise 3.</strong> Take a look at the <a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2018/labguide.html">lab tools guide</a>, especially the section on GDB commands. Even if you’re familiar with GDB, this includes some esoteric GDB commands that are useful for OS work.</p>
+<p>Set a breakpoint at address 0x7c00, which is where the boot sector will be loaded. Continue execution until that breakpoint. Trace through the code in <code>boot/boot.S</code>, using the source code and the disassembly file <code>obj/boot/boot.asm</code> to keep track of where you are. Also use the <code>x/i</code> command in GDB to disassemble sequences of instructions in the boot loader, and compare the original boot loader source code with both the disassembly in <code>obj/boot/boot.asm</code> and GDB.</p>
+<p>Trace into <code>bootmain()</code> in <code>boot/main.c</code>, and then into <code>readsect()</code>. Identify the exact assembly instructions that correspond to each of the statements in <code>readsect()</code>. Trace through the rest of <code>readsect()</code> and back out into <code>bootmain()</code>, and identify the begin and end of the <code>for</code> loop that reads the remaining sectors of the kernel from the disk. Find out what code will run when the loop is finished, set a breakpoint there, and continue to that breakpoint. Then step through the remainder of the boot loader.</p>
+<p>Be able to answer the following questions:</p>
+<ul>
+<li>At what point does the processor start executing 32-bit code? What exactly causes the switch from 16- to 32-bit mode?</li>
+<li>What is the <em>last</em> instruction of the boot loader executed, and what is the <em>first</em> instruction of the kernel it just loaded?</li>
+<li><em>Where</em> is the first instruction of the kernel?</li>
+<li>How does the boot loader decide how many sectors it must read in order to fetch the entire kernel from disk? Where does it find this information?</li>
+</ul>
+<h3 id="Loading-the-Kernel"><a href="#Loading-the-Kernel" class="headerlink" title="Loading the Kernel"></a>Loading the Kernel</h3><p>We will now look in further detail at the C language portion of the boot loader, in <code>boot/main.c</code>. But before doing so, this is a good time to stop and review some of the basics of C programming.</p>
+<p><strong>Exercise 4.</strong> Read about programming with pointers in C. The best reference for the C language is <em>The C Programming Language</em> by Brian Kernighan and Dennis Ritchie (known as ‘K&amp;R’). We recommend that students purchase this book (here is an <a target="_blank" rel="noopener" href="http://www.amazon.com/C-Programming-Language-2nd/dp/0131103628/sr=8-1/qid=1157812738/ref=pd_bbs_1/104-1502762-1803102?ie=UTF8&s=books">Amazon Link</a>) or find one of <a target="_blank" rel="noopener" href="http://library.mit.edu/F/AI9Y4SJ2L5ELEE2TAQUAAR44XV5RTTQHE47P9MKP5GQDLR9A8X-10422?func=item-global&doc_library=MIT01&doc_number=000355242&year=&volume=&sub_library=">MIT’s 7 copies</a>.</p>
+<p>Read 5.1 (Pointers and Addresses) through 5.5 (Character Pointers and Functions) in K&amp;R. Then download the code for <a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2018/labs/lab1/pointers.c">pointers.c</a>, run it, and make sure you understand where all of the printed values come from. In particular, make sure you understand where the pointer addresses in printed lines 1 and 6 come from, how all the values in printed lines 2 through 4 get there, and why the values printed in line 5 are seemingly corrupted.</p>
+<p>There are other references on pointers in C (e.g., <a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2018/readings/pointers.pdf">A tutorial by Ted Jensen</a> that cites K&amp;R heavily), though not as strongly recommended.</p>
+<p><em>Warning:</em> Unless you are already thoroughly versed in C, do not skip or even skim this reading exercise. If you do not really understand pointers in C, you will suffer untold pain and misery in subsequent labs, and then eventually come to understand them the hard way. Trust us; you don’t want to find out what “the hard way” is.</p>
+<p>To make sense out of <code>boot/main.c</code> you’ll need to know what an ELF binary is. When you compile and link a C program such as the JOS kernel, the compiler transforms each C source (‘<code>.c</code>‘) file into an <em>object</em> (‘<code>.o</code>‘) file containing assembly language instructions encoded in the binary format expected by the hardware. The linker then combines all of the compiled object files into a single <em>binary image</em> such as <code>obj/kern/kernel</code>, which in this case is a binary in the ELF format, which stands for “Executable and Linkable Format”.</p>
+<p>Full information about this format is available in <a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2018/readings/elf.pdf">the ELF specification</a> on <a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2018/reference.html">our reference page</a>, but you will not need to delve very deeply into the details of this format in this class. Although as a whole the format is quite powerful and complex, most of the complex parts are for supporting dynamic loading of shared libraries, which we will not do in this class. The <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Executable_and_Linkable_Format">Wikipedia page</a> has a short description.</p>
+<p>For purposes of 6.828, you can consider an ELF executable to be a header with loading information, followed by several <em>program sections</em>, each of which is a contiguous chunk of code or data intended to be loaded into memory at a specified address. The boot loader does not modify the code or data; it loads it into memory and starts executing it.</p>
+<p>An ELF binary starts with a fixed-length <em>ELF header</em>, followed by a variable-length <em>program header</em> listing each of the program sections to be loaded. The C definitions for these ELF headers are in <code>inc/elf.h</code>. The program sections we’re interested in are:</p>
+<ul>
+<li><code>.text</code>: The program’s executable instructions.</li>
+<li><code>.rodata</code>: Read-only data, such as ASCII string constants produced by the C compiler. (We will not bother setting up the hardware to prohibit writing, however.)</li>
+<li><code>.data</code>: The data section holds the program’s initialized data, such as global variables declared with initializers like <code>int x = 5;</code>.</li>
+</ul>
+<p>When the linker computes the memory layout of a program, it reserves space for <em>uninitialized</em> global variables, such as <code>int x;</code>, in a section called <code>.bss</code> that immediately follows <code>.data</code> in memory. C requires that “uninitialized” global variables start with a value of zero. Thus there is no need to store contents for <code>.bss</code> in the ELF binary; instead, the linker records just the address and size of the <code>.bss</code> section. The loader or the program itself must arrange to zero the <code>.bss</code> section.</p>
+<p>Examine the full list of the names, sizes, and link addresses of all the sections in the kernel executable by typing:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">athena% objdump -h obj/kern/kernel</span><br><span class="line">(If you compiled your own toolchain, you may need to use i386-jos-elf-objdump)</span><br></pre></td></tr></table></figure>
+
+<p>You will see many more sections than the ones we listed above, but the others are not important for our purposes. Most of the others are to hold debugging information, which is typically included in the program’s executable file but not loaded into memory by the program loader.</p>
+<p>Take particular note of the “VMA” (or <em>link address</em>) and the “LMA” (or <em>load address</em>) of the <code>.text</code> section. The load address of a section is the memory address at which that section should be loaded into memory.</p>
+<p>The link address of a section is the memory address from which the section expects to execute. The linker encodes the link address in the binary in various ways, such as when the code needs the address of a global variable, with the result that a binary usually won’t work if it is executing from an address that it is not linked for. (It is possible to generate <em>position-independent</em> code that does not contain any such absolute addresses. This is used extensively by modern shared libraries, but it has performance and complexity costs, so we won’t be using it in 6.828.)</p>
+<p>Typically, the link and load addresses are the same. For example, look at the <code>.text</code> section of the boot loader:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">athena% objdump -h obj/boot/boot.out</span><br></pre></td></tr></table></figure>
+
+<p>The boot loader uses the ELF <em>program headers</em> to decide how to load the sections. The program headers specify which parts of the ELF object to load into memory and the destination address each should occupy. You can inspect the program headers by typing:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">athena% objdump -x obj/kern/kernel</span><br></pre></td></tr></table></figure>
+
+<p>The program headers are then listed under “Program Headers” in the output of objdump. The areas of the ELF object that need to be loaded into memory are those that are marked as “LOAD”. Other information for each program header is given, such as the virtual address (“vaddr”), the physical address (“paddr”), and the size of the loaded area (“memsz” and “filesz”).</p>
+<p>Back in boot&#x2F;main.c, the <code>ph-&gt;p_pa</code> field of each program header contains the segment’s destination physical address (in this case, it really is a physical address, though the ELF specification is vague on the actual meaning of this field).</p>
+<p>The BIOS loads the boot sector into memory starting at address 0x7c00, so this is the boot sector’s load address. This is also where the boot sector executes from, so this is also its link address. We set the link address by passing <code>-Ttext 0x7C00</code> to the linker in <code>boot/Makefrag</code>, so the linker will produce the correct memory addresses in the generated code.</p>
+<p><strong>Exercise 5.</strong> Trace through the first few instructions of the boot loader again and identify the first instruction that would “break” or otherwise do the wrong thing if you were to get the boot loader’s link address wrong. Then change the link address in <code>boot/Makefrag</code> to something wrong, run make clean, recompile the lab with make, and trace into the boot loader again to see what happens. Don’t forget to change the link address back and make clean again afterward!</p>
+<p>Look back at the load and link addresses for the kernel. Unlike the boot loader, these two addresses aren’t the same: the kernel is telling the boot loader to load it into memory at a low address (1 megabyte), but it expects to execute from a high address. We’ll dig in to how we make this work in the next section.</p>
+<p>Besides the section information, there is one more field in the ELF header that is important to us, named <code>e_entry</code>. This field holds the link address of the <em>entry point</em> in the program: the memory address in the program’s text section at which the program should begin executing. You can see the entry point:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">athena% objdump -f obj/kern/kernel</span><br></pre></td></tr></table></figure>
+
+<p>You should now be able to understand the minimal ELF loader in <code>boot/main.c</code>. It reads each section of the kernel from disk into memory at the section’s load address and then jumps to the kernel’s entry point.</p>
+<p><strong>Exercise 6.</strong> We can examine memory using GDB’s x command. The <a target="_blank" rel="noopener" href="https://sourceware.org/gdb/current/onlinedocs/gdb/Memory.html">GDB manual</a> has full details, but for now, it is enough to know that the command x&#x2F;<em>N</em>x <em>ADDR</em> prints <em><code>N</code></em> words of memory at <em><code>ADDR</code></em>. (Note that both ‘<code>x</code>‘s in the command are lowercase.) <em>Warning</em>: The size of a word is not a universal standard. In GNU assembly, a word is two bytes (the ‘w’ in xorw, which stands for word, means 2 bytes).</p>
+<p>Reset the machine (exit QEMU&#x2F;GDB and start them again). Examine the 8 words of memory at 0x00100000 at the point the BIOS enters the boot loader, and then again at the point the boot loader enters the kernel. Why are they different? What is there at the second breakpoint? (You do not really need to use QEMU to answer this question. Just think.)</p>
+<h2 id="Part-3-The-Kernel"><a href="#Part-3-The-Kernel" class="headerlink" title="Part 3: The Kernel"></a>Part 3: The Kernel</h2><p>We will now start to examine the minimal JOS kernel in a bit more detail. (And you will finally get to write some code!). Like the boot loader, the kernel begins with some assembly language code that sets things up so that C language code can execute properly.</p>
+<h3 id="Using-virtual-memory-to-work-around-position-dependence"><a href="#Using-virtual-memory-to-work-around-position-dependence" class="headerlink" title="Using virtual memory to work around position dependence"></a>Using virtual memory to work around position dependence</h3><p>When you inspected the boot loader’s link and load addresses above, they matched perfectly, but there was a (rather large) disparity between the <em>kernel’s</em> link address (as printed by objdump) and its load address. Go back and check both and make sure you can see what we’re talking about. (Linking the kernel is more complicated than the boot loader, so the link and load addresses are at the top of <code>kern/kernel.ld</code>.)</p>
+<p>Operating system kernels often like to be linked and run at very high <em>virtual address</em>, such as 0xf0100000, in order to leave the lower part of the processor’s virtual address space for user programs to use. The reason for this arrangement will become clearer in the next lab.</p>
+<p>Many machines don’t have any physical memory at address 0xf0100000, so we can’t count on being able to store the kernel there. Instead, we will use the processor’s memory management hardware to map virtual address 0xf0100000 (the link address at which the kernel code <em>expects</em> to run) to physical address 0x00100000 (where the boot loader loaded the kernel into physical memory). This way, although the kernel’s virtual address is high enough to leave plenty of address space for user processes, it will be loaded in physical memory at the 1MB point in the PC’s RAM, just above the BIOS ROM. This approach requires that the PC have at least a few megabytes of physical memory (so that physical address 0x00100000 works), but this is likely to be true of any PC built after about 1990.</p>
+<p>In fact, in the next lab, we will map the <em>entire</em> bottom 256MB of the PC’s physical address space, from physical addresses 0x00000000 through 0x0fffffff, to virtual addresses 0xf0000000 through 0xffffffff respectively. You should now see why JOS can only use the first 256MB of physical memory.</p>
+<p>For now, we’ll just map the first 4MB of physical memory, which will be enough to get us up and running. We do this using the hand-written, statically-initialized page directory and page table in <code>kern/entrypgdir.c</code>. For now, you don’t have to understand the details of how this works, just the effect that it accomplishes. Up until <code>kern/entry.S</code> sets the <code>CR0_PG</code> flag, memory references are treated as physical addresses (strictly speaking, they’re linear addresses, but boot&#x2F;boot.S set up an identity mapping from linear addresses to physical addresses and we’re never going to change that). Once <code>CR0_PG</code> is set, memory references are virtual addresses that get translated by the virtual memory hardware to physical addresses. <code>entry_pgdir</code> translates virtual addresses in the range 0xf0000000 through 0xf0400000 to physical addresses 0x00000000 through 0x00400000, as well as virtual addresses 0x00000000 through 0x00400000 to physical addresses 0x00000000 through 0x00400000. Any virtual address that is not in one of these two ranges will cause a hardware exception which, since we haven’t set up interrupt handling yet, will cause QEMU to dump the machine state and exit (or endlessly reboot if you aren’t using the 6.828-patched version of QEMU).</p>
+<p><strong>Exercise 7.</strong> Use QEMU and GDB to trace into the JOS kernel and stop at the <code>movl %eax, %cr0</code>. Examine memory at 0x00100000 and at 0xf0100000. Now, single step over that instruction using the stepi GDB command. Again, examine memory at 0x00100000 and at 0xf0100000. Make sure you understand what just happened.</p>
+<p>What is the first instruction <em>after</em> the new mapping is established that would fail to work properly if the mapping weren’t in place? Comment out the <code>movl %eax, %cr0</code> in <code>kern/entry.S</code>, trace into it, and see if you were right.</p>
+<h3 id="Formatted-Printing-to-the-Console"><a href="#Formatted-Printing-to-the-Console" class="headerlink" title="Formatted Printing to the Console"></a>Formatted Printing to the Console</h3><p>Most people take functions like <code>printf()</code> for granted, sometimes even thinking of them as “primitives” of the C language. But in an OS kernel, we have to implement all I&#x2F;O ourselves.</p>
+<p>Read through <code>kern/printf.c</code>, <code>lib/printfmt.c</code>, and <code>kern/console.c</code>, and make sure you understand their relationship. It will become clear in later labs why <code>printfmt.c</code> is located in the separate <code>lib</code> directory.</p>
+<p><strong>Exercise 8.</strong> We have omitted a small fragment of code - the code necessary to print octal numbers using patterns of the form “%o”. Find and fill in this code fragment.</p>
+<p>Be able to answer the following questions:</p>
+<ol>
+<li><p>Explain the interface between <code>printf.c</code> and <code>console.c</code>. Specifically, what function does <code>console.c</code> export? How is this function used by <code>printf.c</code>?</p>
+</li>
+<li><p>Explain the following from</p>
+<p>console.c</p>
+<p>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1      if (crt_pos &gt;= CRT_SIZE) &#123;</span><br><span class="line">2              int i;</span><br><span class="line">3              memmove(crt_buf, crt_buf + CRT_COLS, (CRT_SIZE - CRT_COLS) * sizeof(uint16_t));</span><br><span class="line">4              for (i = CRT_SIZE - CRT_COLS; i &lt; CRT_SIZE; i++)</span><br><span class="line">5                      crt_buf[i] = 0x0700 | &#x27; &#x27;;</span><br><span class="line">6              crt_pos -= CRT_COLS;</span><br><span class="line">7      &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>For the following questions you might wish to consult the notes for Lecture 2. These notes cover GCC’s calling convention on the x86.</p>
+<p>Trace the execution of the following code step-by-step:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int x = 1, y = 3, z = 4;</span><br><span class="line">cprintf(&quot;x %d, y %x, z %d\n&quot;, x, y, z);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>In the call to <code>cprintf()</code>, to what does <code>fmt</code> point? To what does <code>ap</code> point?</li>
+<li>List (in order of execution) each call to <code>cons_putc</code>, <code>va_arg</code>, and <code>vcprintf</code>. For <code>cons_putc</code>, list its argument as well. For <code>va_arg</code>, list what <code>ap</code> points to before and after the call. For <code>vcprintf</code> list the values of its two arguments.</li>
+</ul>
+</li>
+<li><p>Run the following code.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unsigned int i = 0x00646c72;</span><br><span class="line">cprintf(&quot;H%x Wo%s&quot;, 57616, &amp;i);</span><br></pre></td></tr></table></figure>
+
+<p>What is the output? Explain how this output is arrived at in the step-by-step manner of the previous exercise.</p>
+<p>Here’s an ASCII table</p>
+<p>that maps bytes to characters.</p>
+<p>The output depends on that fact that the x86 is little-endian. If the x86 were instead big-endian what would you set <code>i</code> to in order to yield the same output? Would you need to change <code>57616</code> to a different value?</p>
+<p><a target="_blank" rel="noopener" href="http://www.webopedia.com/TERM/b/big_endian.html">Here’s a description of little- and big-endian</a> and <a target="_blank" rel="noopener" href="http://www.networksorcery.com/enp/ien/ien137.txt">a more whimsical description</a>.</p>
+</li>
+<li><p>In the following code, what is going to be printed after</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;y=&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>? (note: the answer is not a specific value.) Why does this happen?</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cprintf(&quot;x=%d y=%d&quot;, 3);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Let’s say that GCC changed its calling convention so that it pushed arguments on the stack in declaration order, so that the last argument is pushed last. How would you have to change <code>cprintf</code> or its interface so that it would still be possible to pass it a variable number of arguments?</p>
+</li>
+</ol>
+<p><em>Challenge</em> Enhance the console to allow text to be printed in different colors. The traditional way to do this is to make it interpret <a target="_blank" rel="noopener" href="http://rrbrandt.dee.ufcg.edu.br/en/docs/ansi/">ANSI escape sequences</a> embedded in the text strings printed to the console, but you may use any mechanism you like. There is plenty of information on <a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2018/reference.html">the 6.828 reference page</a> and elsewhere on the web on programming the VGA display hardware. If you’re feeling really adventurous, you could try switching the VGA hardware into a graphics mode and making the console draw text onto the graphical frame buffer.</p>
+<h3 id="The-Stack"><a href="#The-Stack" class="headerlink" title="The Stack"></a>The Stack</h3><p>In the final exercise of this lab, we will explore in more detail the way the C language uses the stack on the x86, and in the process write a useful new kernel monitor function that prints a <em>backtrace</em> of the stack: a list of the saved Instruction Pointer (IP) values from the nested <code>call</code> instructions that led to the current point of execution.</p>
+<p><strong>Exercise 9.</strong> Determine where the kernel initializes its stack, and exactly where in memory its stack is located. How does the kernel reserve space for its stack? And at which “end” of this reserved area is the stack pointer initialized to point to?</p>
+<p>The x86 stack pointer (<code>esp</code> register) points to the lowest location on the stack that is currently in use. Everything <em>below</em> that location in the region reserved for the stack is free. Pushing a value onto the stack involves decreasing the stack pointer and then writing the value to the place the stack pointer points to. Popping a value from the stack involves reading the value the stack pointer points to and then increasing the stack pointer. In 32-bit mode, the stack can only hold 32-bit values, and esp is always divisible by four. Various x86 instructions, such as <code>call</code>, are “hard-wired” to use the stack pointer register.</p>
+<p>The <code>ebp</code> (base pointer) register, in contrast, is associated with the stack primarily by software convention. On entry to a C function, the function’s <em>prologue</em> code normally saves the previous function’s base pointer by pushing it onto the stack, and then copies the current <code>esp</code> value into <code>ebp</code> for the duration of the function. If all the functions in a program obey this convention, then at any given point during the program’s execution, it is possible to trace back through the stack by following the chain of saved <code>ebp</code> pointers and determining exactly what nested sequence of function calls caused this particular point in the program to be reached. This capability can be particularly useful, for example, when a particular function causes an <code>assert</code> failure or <code>panic</code> because bad arguments were passed to it, but you aren’t sure <em>who</em> passed the bad arguments. A stack backtrace lets you find the offending function.</p>
+<p><strong>Exercise 10.</strong> To become familiar with the C calling conventions on the x86, find the address of the <code>test_backtrace</code> function in <code>obj/kern/kernel.asm</code>, set a breakpoint there, and examine what happens each time it gets called after the kernel starts. How many 32-bit words does each recursive nesting level of <code>test_backtrace</code> push on the stack, and what are those words?</p>
+<p>Note that, for this exercise to work properly, you should be using the patched version of QEMU available on the <a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2018/tools.html">tools</a> page or on Athena. Otherwise, you’ll have to manually translate all breakpoint and memory addresses to linear addresses.</p>
+<p>The above exercise should give you the information you need to implement a stack backtrace function, which you should call <code>mon_backtrace()</code>. A prototype for this function is already waiting for you in <code>kern/monitor.c</code>. You can do it entirely in C, but you may find the <code>read_ebp()</code> function in <code>inc/x86.h</code> useful. You’ll also have to hook this new function into the kernel monitor’s command list so that it can be invoked interactively by the user.</p>
+<p>The backtrace function should display a listing of function call frames in the following format:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Stack backtrace:</span><br><span class="line">  ebp f0109e58  eip f0100a62  args 00000001 f0109e80 f0109e98 f0100ed2 00000031</span><br><span class="line">  ebp f0109ed8  eip f01000d6  args 00000000 00000000 f0100058 f0109f28 00000061</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
+
+<p>Each line contains an <code>ebp</code>, <code>eip</code>, and <code>args</code>. The <code>ebp</code> value indicates the base pointer into the stack used by that function: i.e., the position of the stack pointer just after the function was entered and the function prologue code set up the base pointer. The listed <code>eip</code> value is the function’s <em>return instruction pointer</em>: the instruction address to which control will return when the function returns. The return instruction pointer typically points to the instruction after the <code>call</code> instruction (why?). Finally, the five hex values listed after <code>args</code> are the first five arguments to the function in question, which would have been pushed on the stack just before the function was called. If the function was called with fewer than five arguments, of course, then not all five of these values will be useful. (Why can’t the backtrace code detect how many arguments there actually are? How could this limitation be fixed?)</p>
+<p>The first line printed reflects the <em>currently executing</em> function, namely <code>mon_backtrace</code> itself, the second line reflects the function that called <code>mon_backtrace</code>, the third line reflects the function that called that one, and so on. You should print <em>all</em> the outstanding stack frames. By studying <code>kern/entry.S</code> you’ll find that there is an easy way to tell when to stop.</p>
+<p>Here are a few specific points you read about in K&amp;R Chapter 5 that are worth remembering for the following exercise and for future labs.</p>
+<ul>
+<li>If <code>int *p = (int*)100</code>, then <code>(int)p + 1</code> and <code>(int)(p + 1)</code> are different numbers: the first is <code>101</code> but the second is <code>104</code>. When adding an integer to a pointer, as in the second case, the integer is implicitly multiplied by the size of the object the pointer points to.</li>
+<li><code>p[i]</code> is defined to be the same as <code>*(p+i)</code>, referring to the i’th object in the memory pointed to by p. The above rule for addition helps this definition work when the objects are larger than one byte.</li>
+<li><code>&amp;p[i]</code> is the same as <code>(p+i)</code>, yielding the address of the i’th object in the memory pointed to by p.</li>
+</ul>
+<p>Although most C programs never need to cast between pointers and integers, operating systems frequently do. Whenever you see an addition involving a memory address, ask yourself whether it is an integer addition or pointer addition and make sure the value being added is appropriately multiplied or not.</p>
+<p><strong>Exercise 11.</strong> Implement the backtrace function as specified above. Use the same format as in the example, since otherwise the grading script will be confused. When you think you have it working right, run make grade to see if its output conforms to what our grading script expects, and fix it if it doesn’t. <em>After</em> you have handed in your Lab 1 code, you are welcome to change the output format of the backtrace function any way you like.</p>
+<p>If you use <code>read_ebp()</code>, note that GCC may generate “optimized” code that calls <code>read_ebp()</code> <em>before</em> <code>mon_backtrace()</code>‘s function prologue, which results in an incomplete stack trace (the stack frame of the most recent function call is missing). While we have tried to disable optimizations that cause this reordering, you may want to examine the assembly of <code>mon_backtrace()</code> and make sure the call to <code>read_ebp()</code> is happening after the function prologue.</p>
+<p>At this point, your backtrace function should give you the addresses of the function callers on the stack that lead to <code>mon_backtrace()</code> being executed. However, in practice you often want to know the function names corresponding to those addresses. For instance, you may want to know which functions could contain a bug that’s causing your kernel to crash.</p>
+<p>To help you implement this functionality, we have provided the function <code>debuginfo_eip()</code>, which looks up <code>eip</code> in the symbol table and returns the debugging information for that address. This function is defined in <code>kern/kdebug.c</code>.</p>
+<p><strong>Exercise 12.</strong> Modify your stack backtrace function to display, for each <code>eip</code>, the function name, source file name, and line number corresponding to that <code>eip</code>.</p>
+<p>In <code>debuginfo_eip</code>, where do <code>__STAB_*</code> come from? This question has a long answer; to help you to discover the answer, here are some things you might want to do:</p>
+<ul>
+<li>look in the file <code>kern/kernel.ld</code> for <code>__STAB_*</code></li>
+<li>run objdump -h obj&#x2F;kern&#x2F;kernel</li>
+<li>run objdump -G obj&#x2F;kern&#x2F;kernel</li>
+<li>run gcc -pipe -nostdinc -O2 -fno-builtin -I. -MD -Wall -Wno-format -DJOS_KERNEL -gstabs -c -S kern&#x2F;init.c, and look at init.s.</li>
+<li>see if the bootloader loads the symbol table in memory as part of loading the kernel binary</li>
+</ul>
+<p>Complete the implementation of <code>debuginfo_eip</code> by inserting the call to <code>stab_binsearch</code> to find the line number for an address.</p>
+<p>Add a <code>backtrace</code> command to the kernel monitor, and extend your implementation of <code>mon_backtrace</code> to call <code>debuginfo_eip</code> and print a line for each stack frame of the form:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">K&gt; backtrace</span><br><span class="line">Stack backtrace:</span><br><span class="line">  ebp f010ff78  eip f01008ae  args 00000001 f010ff8c 00000000 f0110580 00000000</span><br><span class="line">         kern/monitor.c:143: monitor+106</span><br><span class="line">  ebp f010ffd8  eip f0100193  args 00000000 00001aac 00000660 00000000 00000000</span><br><span class="line">         kern/init.c:49: i386_init+59</span><br><span class="line">  ebp f010fff8  eip f010003d  args 00000000 00000000 0000ffff 10cf9a00 0000ffff</span><br><span class="line">         kern/entry.S:70: &lt;unknown&gt;+0</span><br><span class="line">K&gt; </span><br></pre></td></tr></table></figure>
+
+<p>Each line gives the file name and line within that file of the stack frame’s <code>eip</code>, followed by the name of the function and the offset of the <code>eip</code> from the first instruction of the function (e.g., <code>monitor+106</code> means the return <code>eip</code> is 106 bytes past the beginning of <code>monitor</code>).</p>
+<p>Be sure to print the file and function names on a separate line, to avoid confusing the grading script.</p>
+<p>Tip: printf format strings provide an easy, albeit obscure, way to print non-null-terminated strings like those in STABS tables. <code>printf(&quot;%.*s&quot;, length, string)</code> prints at most <code>length</code> characters of <code>string</code>. Take a look at the printf man page to find out why this works.</p>
+<p>You may find that some functions are missing from the backtrace. For example, you will probably see a call to <code>monitor()</code> but not to <code>runcmd()</code>. This is because the compiler in-lines some function calls. Other optimizations may cause you to see unexpected line numbers. If you get rid of the <code>-O2</code> from <code>GNUMakefile</code>, the backtraces may make more sense (but your kernel will run more slowly).</p>
+<p><strong>This completes the lab.</strong> In the <code>lab</code> directory, commit your changes with git commit and type make handin to submit your code.</p>
+<blockquote>
+<p>转载自<a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2023/">https://pdos.csail.mit.edu/6.828/2023/</a></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://qeuroal.top/2024/02/25/198/" title="198. 01_OS概览">http://qeuroal.top/2024/02/25/198/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/6-828/" rel="tag"><i class="fa fa-tag"></i> 6.828</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/02/24/197/" rel="prev" title="197. 00_6.828Preparation">
+                  <i class="fa fa-angle-left"></i> 197. 00_6.828Preparation
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/02/25/199/" rel="next" title="199. Tools Used in 6.828">
+                  199. Tools Used in 6.828 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Qeuroal" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

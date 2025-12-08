@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="C++命名通用命名驼峰风格(CamelCase) 大小写字母混用，单词连在一起，不同单词间通过单词首字母大写来分开。 按连接后的首字母是否大写，又分: 大驼峰(UperCamelCase)和小驼峰(lowerCamelCase)    类型 命名风格    类类型，结构体类型，枚举类型，联合体类型等类型定义， 作用域名称 大驼峰   函数(包括全局函数，作用域函数，成员函数) 大驼峰   全局变量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="170. C++ 编码规范">
+<meta property="og:url" content="http://qeuroal.top/2023/10/28/170/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Blog">
+<meta property="og:description" content="C++命名通用命名驼峰风格(CamelCase) 大小写字母混用，单词连在一起，不同单词间通过单词首字母大写来分开。 按连接后的首字母是否大写，又分: 大驼峰(UperCamelCase)和小驼峰(lowerCamelCase)    类型 命名风格    类类型，结构体类型，枚举类型，联合体类型等类型定义， 作用域名称 大驼峰   函数(包括全局函数，作用域函数，成员函数) 大驼峰   全局变量">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-28T01:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-08T06:36:58.537Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="c&#x2F;c++">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://qeuroal.top/2023/10/28/170/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2023/10/28/170/","path":"2023/10/28/170/","title":"170. C++ 编码规范"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>170. C++ 编码规范 | Qeuroal's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Qeuroal's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">静幽正治</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C-%E5%91%BD%E5%90%8D"><span class="nav-number">1.</span> <span class="nav-text">C++命名</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E7%94%A8%E5%91%BD%E5%90%8D"><span class="nav-number">1.1.</span> <span class="nav-text">通用命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%91%BD%E5%90%8D"><span class="nav-number">1.2.</span> <span class="nav-text">文件命名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E8%AE%AE2-2-1-C-%E6%96%87%E4%BB%B6%E4%BB%A5-cpp%E7%BB%93%E5%B0%BE%EF%BC%8C%E5%A4%B4%E6%96%87%E4%BB%B6%E4%BB%A5-h%E7%BB%93%E5%B0%BE"><span class="nav-number">1.2.1.</span> <span class="nav-text">建议2.2.1 C++文件以.cpp结尾，头文件以.h结尾</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E8%AE%AE2-2-2-C-%E6%96%87%E4%BB%B6%E5%90%8D%E5%92%8C%E7%B1%BB%E5%90%8D%E4%BF%9D%E6%8C%81%E4%B8%80%E8%87%B4"><span class="nav-number">1.2.2.</span> <span class="nav-text">建议2.2.2 C++文件名和类名保持一致</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%91%BD%E5%90%8D"><span class="nav-number">1.3.</span> <span class="nav-text">函数命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E5%91%BD%E5%90%8D"><span class="nav-number">1.4.</span> <span class="nav-text">类型命名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E8%AE%AE2-4-1-%E9%81%BF%E5%85%8D%E6%BB%A5%E7%94%A8-typedef%E6%88%96%E8%80%85-define-%E5%AF%B9%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E8%B5%B7%E5%88%AB%E5%90%8D"><span class="nav-number">1.4.1.</span> <span class="nav-text">建议2.4.1 避免滥用 typedef或者#define 对基本类型起别名</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%91%BD%E5%90%8D"><span class="nav-number">1.5.</span> <span class="nav-text">变量命名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%84%E5%88%992-5-1-%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E5%BA%94%E5%A2%9E%E5%8A%A0-%E2%80%98g-%E2%80%99-%E5%89%8D%E7%BC%80%EF%BC%8C%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F%E5%91%BD%E5%90%8D%E4%B8%8D%E9%9C%80%E8%A6%81%E5%8A%A0%E7%89%B9%E6%AE%8A%E5%89%8D%E7%BC%80"><span class="nav-number">1.5.1.</span> <span class="nav-text">规则2.5.1 全局变量应增加 ‘g_’ 前缀，静态变量命名不需要加特殊前缀</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%84%E5%88%992-5-2-%E7%B1%BB%E7%9A%84%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%91%BD%E5%90%8D%E4%BB%A5%E5%B0%8F%E9%A9%BC%E5%B3%B0%E5%8A%A0%E5%90%8E%E4%B8%8B%E5%88%92%E7%BA%BF%E7%BB%84%E6%88%90"><span class="nav-number">1.5.2.</span> <span class="nav-text">规则2.5.2 类的成员变量命名以小驼峰加后下划线组成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8F%E3%80%81%E5%B8%B8%E9%87%8F%E3%80%81%E6%9E%9A%E4%B8%BE%E5%91%BD%E5%90%8D"><span class="nav-number">1.6.</span> <span class="nav-text">宏、常量、枚举命名</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A"><span class="nav-number">2.</span> <span class="nav-text">注释</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">大人者，不失其赤子之心</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2023/10/28/170/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="170. C++ 编码规范 | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          170. C++ 编码规范
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-10-28 09:00:00" itemprop="dateCreated datePublished" datetime="2023-10-28T09:00:00+08:00">2023-10-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-08 14:36:58" itemprop="dateModified" datetime="2025-12-08T14:36:58+08:00">2025-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/c-c/" itemprop="url" rel="index"><span itemprop="name">c/c++</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="C-命名"><a href="#C-命名" class="headerlink" title="C++命名"></a>C++命名</h1><h2 id="通用命名"><a href="#通用命名" class="headerlink" title="通用命名"></a>通用命名</h2><p><strong>驼峰风格(CamelCase)</strong> 大小写字母混用，单词连在一起，不同单词间通过单词首字母大写来分开。 按连接后的首字母是否大写，又分: 大驼峰(UperCamelCase)和小驼峰(lowerCamelCase)</p>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">命名风格</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">类类型，结构体类型，枚举类型，联合体类型等类型定义， 作用域名称</td>
+<td align="left">大驼峰</td>
+</tr>
+<tr>
+<td align="left">函数(包括全局函数，作用域函数，成员函数)</td>
+<td align="left">大驼峰</td>
+</tr>
+<tr>
+<td align="left">全局变量(包括全局和命名空间域下的变量，类静态变量)，局部变量，函数参数，类、结构体和联合体中的成员变量</td>
+<td align="left">小驼峰</td>
+</tr>
+<tr>
+<td align="left">宏，常量(const)，枚举值，goto 标签</td>
+<td align="left">全大写，下划线分割</td>
+</tr>
+</tbody></table>
+<p>注意： 上表中<strong>常量</strong>是指全局作用域、namespace域、类的静态成员域下，以 const或constexpr 修饰的基本数据类型、枚举、字符串类型的变量，不包括数组和其他类型变量。 上表中<strong>变量</strong>是指除常量定义以外的其他变量，均使用小驼峰风格。</p>
+<h2 id="文件命名"><a href="#文件命名" class="headerlink" title="文件命名"></a>文件命名</h2><h3 id="建议2-2-1-C-文件以-cpp结尾，头文件以-h结尾"><a href="#建议2-2-1-C-文件以-cpp结尾，头文件以-h结尾" class="headerlink" title="建议2.2.1 C++文件以.cpp结尾，头文件以.h结尾"></a>建议2.2.1 C++文件以.cpp结尾，头文件以.h结尾</h3><p>我们推荐使用.h作为头文件的后缀，这样头文件可以直接兼容C和C++。 我们推荐使用.cpp作为实现文件的后缀，这样可以直接区分C++代码，而不是C代码。</p>
+<p>目前业界还有一些其他的后缀的表示方法：</p>
+<ul>
+<li>头文件： .hh, .hpp, .hxx</li>
+<li>cpp文件：.cc, .cxx, .C</li>
+</ul>
+<p>如果当前项目组使用了某种特定的后缀，那么可以继续使用，但是请保持风格统一。 但是对于本文档，我们默认使用.h和.cpp作为后缀。</p>
+<h3 id="建议2-2-2-C-文件名和类名保持一致"><a href="#建议2-2-2-C-文件名和类名保持一致" class="headerlink" title="建议2.2.2 C++文件名和类名保持一致"></a>建议2.2.2 C++文件名和类名保持一致</h3><p>C++的头文件和cpp文件名和类名保持一致，使用下划线小写风格。</p>
+<p>如果有一个类叫DatabaseConnection，那么对应的文件名：</p>
+<ul>
+<li>database_connection.h</li>
+<li>database_connection.cpp</li>
+</ul>
+<p>结构体，命名空间，枚举等定义的文件名类似。</p>
+<h2 id="函数命名"><a href="#函数命名" class="headerlink" title="函数命名"></a>函数命名</h2><p>函数命名统一使用小驼峰风格，一般采用动词或者动宾结构。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">List</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">addElement</span><span class="params">(<span class="type">const</span> Element&amp; element)</span></span>;</span><br><span class="line">    <span class="function">Element <span class="title">getElement</span><span class="params">(<span class="type">const</span> <span class="type">unsigned</span> <span class="type">int</span> index)</span> <span class="type">const</span></span>;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isEmpty</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> Utils &#123;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">deleteUser</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="类型命名"><a href="#类型命名" class="headerlink" title="类型命名"></a>类型命名</h2><p>类型命名采用大驼峰命名风格。 所有类型命名——类、结构体、联合体、类型定义（typedef）、枚举——使用相同约定，例如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// classes, structs and unions</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UrlTable</span> &#123; ...</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UrlTableTester</span> &#123; ...</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">UrlTableProperties</span> &#123; ...</span><br><span class="line"><span class="keyword">union</span> <span class="title class_">Packet</span> &#123; ...</span><br><span class="line"></span><br><span class="line"><span class="comment">// typedefs</span></span><br><span class="line"><span class="keyword">typedef</span> std::map&lt;std::string, UrlTableProperties*&gt; PropertiesMap;</span><br><span class="line"></span><br><span class="line"><span class="comment">// enums</span></span><br><span class="line"><span class="keyword">enum</span> <span class="title class_">UrlTableErrors</span> &#123; ...</span><br></pre></td></tr></table></figure>
+
+<p>对于命名空间的命名，建议使用大驼峰：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// namespace</span></span><br><span class="line"><span class="keyword">namespace</span> OsUtils &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> FileUtils &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="建议2-4-1-避免滥用-typedef或者-define-对基本类型起别名"><a href="#建议2-4-1-避免滥用-typedef或者-define-对基本类型起别名" class="headerlink" title="建议2.4.1 避免滥用 typedef或者#define 对基本类型起别名"></a>建议2.4.1 避免滥用 typedef或者#define 对基本类型起别名</h3><p>除有明确的必要性，否则不要用 typedef&#x2F;#define 对基本数据类型进行重定义。 优先使用<code>&lt;cstdint&gt;</code>头文件中的基本类型：</p>
+<table>
+<thead>
+<tr>
+<th align="left">有符号类型</th>
+<th align="left">无符号类型</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">int8_t</td>
+<td align="left">uint8_t</td>
+<td align="left">宽度恰为8的有&#x2F;无符号整数类型</td>
+</tr>
+<tr>
+<td align="left">int16_t</td>
+<td align="left">uint16_t</td>
+<td align="left">宽度恰为16的有&#x2F;无符号整数类型</td>
+</tr>
+<tr>
+<td align="left">int32_t</td>
+<td align="left">uint32_t</td>
+<td align="left">宽度恰为32的有&#x2F;无符号整数类型</td>
+</tr>
+<tr>
+<td align="left">int64_t</td>
+<td align="left">uint64_t</td>
+<td align="left">宽度恰为64的有&#x2F;无符号整数类型</td>
+</tr>
+<tr>
+<td align="left">intptr_t</td>
+<td align="left">uintptr_t</td>
+<td align="left">足以保存指针的有&#x2F;无符号整数类型</td>
+</tr>
+</tbody></table>
+<h2 id="变量命名"><a href="#变量命名" class="headerlink" title="变量命名"></a>变量命名</h2><p>通用变量命名采用小驼峰，包括全局变量，函数形参，局部变量，成员变量。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Good: 推荐此风格</span></span><br><span class="line">std::string tableName;</span><br><span class="line"><span class="comment">// Bad: 禁止此风格</span></span><br><span class="line">std::string tablename;</span><br><span class="line"><span class="comment">// Good: 只有一个单词时，小驼峰为全小写</span></span><br><span class="line">std::string path;</span><br></pre></td></tr></table></figure>
+
+<h3 id="规则2-5-1-全局变量应增加-‘g-’-前缀，静态变量命名不需要加特殊前缀"><a href="#规则2-5-1-全局变量应增加-‘g-’-前缀，静态变量命名不需要加特殊前缀" class="headerlink" title="规则2.5.1 全局变量应增加 ‘g_’ 前缀，静态变量命名不需要加特殊前缀"></a>规则2.5.1 全局变量应增加 ‘g_’ 前缀，静态变量命名不需要加特殊前缀</h3><p>全局变量是应当尽量少使用的，使用时应特别注意，所以加上前缀用于视觉上的突出，促使开发人员对这些变量的使用更加小心。</p>
+<ul>
+<li>全局静态变量命名与全局变量相同。</li>
+<li>函数内的静态变量命名与普通局部变量相同。</li>
+<li>类的静态成员变量和普通成员变量相同。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> g_activeConnectCount;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Func</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> packetCount = <span class="number">0</span>;  </span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="规则2-5-2-类的成员变量命名以小驼峰加后下划线组成"><a href="#规则2-5-2-类的成员变量命名以小驼峰加后下划线组成" class="headerlink" title="规则2.5.2 类的成员变量命名以小驼峰加后下划线组成"></a>规则2.5.2 类的成员变量命名以小驼峰加后下划线组成</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Foo</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="comment">// 添加_后缀，类似于K&amp;R命名风格</span></span><br><span class="line">    std::string fileName_;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>对于struct&#x2F;union的成员变量，仍采用小驼峰不加后缀的命名方式，与局部变量命名风格一致。</p>
+<h2 id="宏、常量、枚举命名"><a href="#宏、常量、枚举命名" class="headerlink" title="宏、常量、枚举命名"></a>宏、常量、枚举命名</h2><p>宏、枚举值采用全大写，下划线连接的格式。 全局作用域内，有名和匿名namespace内的 const 常量，类的静态成员常量，全大写，下划线连接；函数局部 const 常量和类的普通const成员变量，使用小驼峰命名风格。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 仅对宏命名举例，并不推荐用宏实现此类功能</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAX(a, b)   (((a) &lt; (b)) ? (b) : (a))</span></span><br><span class="line"><span class="comment">// 注意，枚举类型名用大驼峰，其下面的取值是全大写，下划线相连</span></span><br><span class="line"><span class="keyword">enum</span> <span class="title class_">TintColor</span> &#123;</span><br><span class="line">    RED,</span><br><span class="line">    DARK_RED,</span><br><span class="line">    GREEN,</span><br><span class="line">    LIGHT_GREEN</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Func</span><span class="params">(...)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 函数局部常量</span></span><br><span class="line">    <span class="type">const</span> <span class="type">unsigned</span> <span class="type">int</span> bufferSize = <span class="number">100</span>;</span><br><span class="line">    <span class="type">char</span> *p = <span class="keyword">new</span> <span class="type">char</span>[bufferSize];</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> Utils &#123;</span><br><span class="line">    <span class="comment">// 全局常量</span></span><br><span class="line">    <span class="type">const</span> <span class="type">unsigned</span> <span class="type">int</span> DEFAULT_FILE_SIZE_KB = <span class="number">200</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><ul>
+<li>单行注释都放在上一行</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://qeuroal.top/2023/10/28/170/" title="170. C++ 编码规范">http://qeuroal.top/2023/10/28/170/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/c-c/" rel="tag"><i class="fa fa-tag"></i> c/c++</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/10/27/169/" rel="prev" title="169. linux 学习网站汇总">
+                  <i class="fa fa-angle-left"></i> 169. linux 学习网站汇总
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/10/28/171/" rel="next" title="171. 用GDB调试程序">
+                  171. 用GDB调试程序 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Qeuroal" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

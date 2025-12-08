@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="第22章 Vimrc在先前的章节中，您学习了如何使用Vim。在本章，您将学习如何组织和配置Vimrc。 Vim如何找到Vimrc对于Vimrc，常见的理解是在根目录下添加一个 .vimrc 点文件（根据您使用的操作系统，文件路径名可能不同）。 实际上，Vim在多个地方查找vimrc文件。下面是Vim检查的路径：  $VIMINIT $HOME&#x2F;.vimrc $HOME&#x2F;.vim&#x2F;vimrc $EX">
+<meta property="og:type" content="article">
+<meta property="og:title" content="155. VIM 从偶尔到日常">
+<meta property="og:url" content="http://qeuroal.top/2023/06/08/155/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Blog">
+<meta property="og:description" content="第22章 Vimrc在先前的章节中，您学习了如何使用Vim。在本章，您将学习如何组织和配置Vimrc。 Vim如何找到Vimrc对于Vimrc，常见的理解是在根目录下添加一个 .vimrc 点文件（根据您使用的操作系统，文件路径名可能不同）。 实际上，Vim在多个地方查找vimrc文件。下面是Vim检查的路径：  $VIMINIT $HOME&#x2F;.vimrc $HOME&#x2F;.vim&#x2F;vimrc $EX">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-06-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-08T06:36:58.507Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="software">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="vim">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://qeuroal.top/2023/06/08/155/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2023/06/08/155/","path":"2023/06/08/155/","title":"155. VIM 从偶尔到日常"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>155. VIM 从偶尔到日常 | Qeuroal's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Qeuroal's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">静幽正治</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC22%E7%AB%A0-Vimrc"><span class="nav-number">1.</span> <span class="nav-text">第22章 Vimrc</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vim%E5%A6%82%E4%BD%95%E6%89%BE%E5%88%B0Vimrc"><span class="nav-number">1.1.</span> <span class="nav-text">Vim如何找到Vimrc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E8%AF%A5%E6%8A%8A%E4%BB%80%E4%B9%88%E6%94%BE%E5%9C%A8Vimrc%E4%B8%AD%EF%BC%9F"><span class="nav-number">1.2.</span> <span class="nav-text">应该把什么放在Vimrc中？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vimrc%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9"><span class="nav-number">1.3.</span> <span class="nav-text">Vimrc基础内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6"><span class="nav-number">1.3.1.</span> <span class="nav-text">插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.3.2.</span> <span class="nav-text">设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.3.</span> <span class="nav-text">自定义函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%91%BD%E4%BB%A4"><span class="nav-number">1.3.4.</span> <span class="nav-text">自定义命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%94%AE%E7%9B%98%E6%98%A0%E5%B0%84"><span class="nav-number">1.3.5.</span> <span class="nav-text">键盘映射</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%84%E7%BB%87%E7%AE%A1%E7%90%86Vimrc"><span class="nav-number">1.4.</span> <span class="nav-text">组织管理Vimrc</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%92%E5%88%86%E6%82%A8%E7%9A%84vimrc"><span class="nav-number">1.4.1.</span> <span class="nav-text">划分您的vimrc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%9D%E6%8C%81%E5%8D%95%E7%8B%AC%E7%9A%84%E4%B8%80%E4%B8%AAVimrc%E6%96%87%E4%BB%B6"><span class="nav-number">1.4.2.</span> <span class="nav-text">保持单独的一个Vimrc文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8Vim%E6%97%B6%E5%8A%A0%E8%BD%BD-%E4%B8%8D%E5%8A%A0%E8%BD%BDVimrc%E5%92%8C%E6%8F%92%E4%BB%B6"><span class="nav-number">1.5.</span> <span class="nav-text">启动Vim时加载&#x2F;不加载Vimrc和插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%AA%E6%98%8E%E5%9C%B0%E9%85%8D%E7%BD%AEVimrc"><span class="nav-number">1.6.</span> <span class="nav-text">聪明地配置Vimrc</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC23%E7%AB%A0-Vim%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="nav-number">2.</span> <span class="nav-text">第23章 Vim软件包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%85%E7%9B%AE%E5%BD%95"><span class="nav-number">2.1.</span> <span class="nav-text">包目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E5%8A%A0%E8%BD%BD%E6%96%B9%E5%BC%8F"><span class="nav-number">2.2.</span> <span class="nav-text">两种加载方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD"><span class="nav-number">2.2.1.</span> <span class="nav-text">自动加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%8B%E5%8A%A8%E5%8A%A0%E8%BD%BD"><span class="nav-number">2.2.2.</span> <span class="nav-text">手动加载</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%84%E7%BB%87%E7%AE%A1%E7%90%86%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="nav-number">2.3.</span> <span class="nav-text">组织管理软件包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%AA%E6%98%8E%E5%9C%B0%E6%B7%BB%E5%8A%A0%E6%8F%92%E4%BB%B6"><span class="nav-number">2.4.</span> <span class="nav-text">聪明地添加插件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC24%E7%AB%A0-Vim-Runtime"><span class="nav-number">3.</span> <span class="nav-text">第24章 Vim Runtime</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Runtime%E8%B7%AF%E5%BE%84"><span class="nav-number">3.1.</span> <span class="nav-text">Runtime路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Plugin%E8%84%9A%E6%9C%AC"><span class="nav-number">3.2.</span> <span class="nav-text">Plugin脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%B5%8B"><span class="nav-number">3.3.</span> <span class="nav-text">文件类型检测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%90%8D%E6%A3%80%E6%B5%8B"><span class="nav-number">3.3.1.</span> <span class="nav-text">文件名检测</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ftdetect"><span class="nav-number">3.3.1.1.</span> <span class="nav-text">ftdetect&#x2F;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B%E6%96%87%E4%BB%B6"><span class="nav-number">3.3.1.2.</span> <span class="nav-text">文件类型文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B%E8%84%9A%E6%9C%AC"><span class="nav-number">3.3.2.</span> <span class="nav-text">文件类型脚本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B%E6%8F%92%E4%BB%B6"><span class="nav-number">3.4.</span> <span class="nav-text">文件类型插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%A9%E8%BF%9B%E6%96%87%E4%BB%B6"><span class="nav-number">3.5.</span> <span class="nav-text">缩进文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%9C%E8%89%B2"><span class="nav-number">3.6.</span> <span class="nav-text">颜色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE"><span class="nav-number">3.7.</span> <span class="nav-text">语法高亮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%A1%A3"><span class="nav-number">3.8.</span> <span class="nav-text">文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%B6%E6%97%B6%E5%8A%A0%E8%BD%BD%E8%84%9A%E6%9C%AC"><span class="nav-number">3.9.</span> <span class="nav-text">延时加载脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#After%E8%84%9A%E6%9C%AC"><span class="nav-number">3.10.</span> <span class="nav-text">After脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VIMRUNTIME"><span class="nav-number">3.11.</span> <span class="nav-text">$VIMRUNTIME</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Runtimepath%E9%80%89%E9%A1%B9"><span class="nav-number">3.12.</span> <span class="nav-text">Runtimepath选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%AA%E6%98%8E%E5%9C%B0%E5%AD%A6%E4%B9%A0Runtime"><span class="nav-number">3.13.</span> <span class="nav-text">聪明地学习Runtime</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC25%E7%AB%A0-Vimscript-%E5%9F%BA%E7%A1%80%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">4.</span> <span class="nav-text">第25章 Vimscript 基础和数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ex-%E6%A8%A1%E5%BC%8F"><span class="nav-number">4.1.</span> <span class="nav-text">Ex 模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#echo"><span class="nav-number">4.1.1.</span> <span class="nav-text">echo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%97"><span class="nav-number">4.2.</span> <span class="nav-text">数字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%81%E8%BF%9B%E5%88%B6-Decimal"><span class="nav-number">4.2.1.</span> <span class="nav-text">十进制 Decimal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6-Hexadecimal"><span class="nav-number">4.2.2.</span> <span class="nav-text">十六进制 Hexadecimal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6-Binary"><span class="nav-number">4.2.3.</span> <span class="nav-text">二进制 Binary</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AB%E8%BF%9B%E5%88%B6-Octal"><span class="nav-number">4.2.4.</span> <span class="nav-text">八进制 Octal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9C%9F%E5%81%87%E5%80%BC"><span class="nav-number">4.2.5.</span> <span class="nav-text">真假值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%80%BC%E8%BF%90%E7%AE%97"><span class="nav-number">4.3.</span> <span class="nav-text">数值运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">4.4.</span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BF%9E%E6%8E%A5"><span class="nav-number">4.4.1.</span> <span class="nav-text">字符串连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%AE%97%E6%95%B0"><span class="nav-number">4.4.2.</span> <span class="nav-text">字符串算数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BF%9E%E6%8E%A5"><span class="nav-number">4.4.3.</span> <span class="nav-text">数字与字符串连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BD%9C%E4%B8%BA%E6%9D%A1%E4%BB%B6%E6%97%B6"><span class="nav-number">4.4.4.</span> <span class="nav-text">字符串作为条件时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E5%BC%95%E5%8F%B7%E4%B8%8E%E5%8F%8C%E5%BC%95%E5%8F%B7"><span class="nav-number">4.4.5.</span> <span class="nav-text">单引号与双引号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E7%BD%AE%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%A8%8B%E5%BA%8F"><span class="nav-number">4.4.6.</span> <span class="nav-text">内置字符串程序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%97%E8%A1%A8"><span class="nav-number">4.5.</span> <span class="nav-text">列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E5%88%97%E8%A1%A8"><span class="nav-number">4.5.1.</span> <span class="nav-text">子列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%87%E7%89%87%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">4.5.2.</span> <span class="nav-text">切片字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E5%80%BC%E8%BF%90%E7%AE%97-1"><span class="nav-number">4.5.3.</span> <span class="nav-text">数值运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-number">4.5.4.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%8C%85"><span class="nav-number">4.5.5.</span> <span class="nav-text">解包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%88%97%E8%A1%A8"><span class="nav-number">4.5.6.</span> <span class="nav-text">修改列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E5%85%B8"><span class="nav-number">4.6.</span> <span class="nav-text">字典</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%B7%E6%87%92%E6%96%B9%E6%B3%95"><span class="nav-number">4.6.1.</span> <span class="nav-text">偷懒方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E5%AD%97%E5%85%B8"><span class="nav-number">4.6.2.</span> <span class="nav-text">访问字典</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%AD%97%E5%85%B8"><span class="nav-number">4.6.3.</span> <span class="nav-text">修改字典</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0"><span class="nav-number">4.6.4.</span> <span class="nav-text">内置函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E5%9F%BA%E5%85%83"><span class="nav-number">4.7.</span> <span class="nav-text">特殊基元</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#True"><span class="nav-number">4.7.1.</span> <span class="nav-text">True</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#False"><span class="nav-number">4.7.2.</span> <span class="nav-text">False</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#None"><span class="nav-number">4.7.3.</span> <span class="nav-text">None</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Null"><span class="nav-number">4.7.4.</span> <span class="nav-text">Null</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC26%E7%AB%A0-%E6%9D%A1%E4%BB%B6%E5%92%8C%E5%BE%AA%E7%8E%AF"><span class="nav-number">5.</span> <span class="nav-text">第26章 条件和循环</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">5.1.</span> <span class="nav-text">关系表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97"><span class="nav-number">5.1.1.</span> <span class="nav-text">字符串逻辑运算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#if"><span class="nav-number">5.2.</span> <span class="nav-text">if</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E7%9A%84-if-%E8%AF%AD%E5%8F%A5"><span class="nav-number">5.2.1.</span> <span class="nav-text">最小的 if 语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#if-%E5%85%A8%E8%B2%8C"><span class="nav-number">5.2.2.</span> <span class="nav-text">if 全貌</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E5%85%83%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">5.2.3.</span> <span class="nav-text">三元表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#or"><span class="nav-number">5.2.4.</span> <span class="nav-text">or</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#and"><span class="nav-number">5.2.5.</span> <span class="nav-text">and</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for"><span class="nav-number">5.3.</span> <span class="nav-text">for</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%951"><span class="nav-number">5.3.1.</span> <span class="nav-text">方法1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%952"><span class="nav-number">5.3.2.</span> <span class="nav-text">方法2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%953"><span class="nav-number">5.3.3.</span> <span class="nav-text">方法3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#while"><span class="nav-number">5.4.</span> <span class="nav-text">while</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81"><span class="nav-number">5.4.1.</span> <span class="nav-text">常见</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%BE%97%E6%AF%8F%E8%A1%8C%E5%86%85%E5%AE%B9"><span class="nav-number">5.4.2.</span> <span class="nav-text">获得每行内容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Error-Handling"><span class="nav-number">5.5.</span> <span class="nav-text">Error Handling</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#break"><span class="nav-number">5.5.1.</span> <span class="nav-text">break</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Continue"><span class="nav-number">5.5.2.</span> <span class="nav-text">Continue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#try-finally-and-catch"><span class="nav-number">5.5.3.</span> <span class="nav-text">try, finally, and catch</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC27%E7%AB%A0-%E5%8F%98%E9%87%8F%E8%8C%83%E5%9B%B4"><span class="nav-number">6.</span> <span class="nav-text">第27章 变量范围</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E4%B8%8E%E5%B8%B8%E9%87%8F"><span class="nav-number">6.1.</span> <span class="nav-text">变量与常量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%98%E9%87%8F"><span class="nav-number">6.1.1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E9%87%8F"><span class="nav-number">6.1.2.</span> <span class="nav-text">常量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E6%BA%90"><span class="nav-number">6.2.</span> <span class="nav-text">变量源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">6.2.1.</span> <span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E9%A1%B9%E5%8F%98%E9%87%8F"><span class="nav-number">6.2.2.</span> <span class="nav-text">选项变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8%E5%8F%98%E9%87%8F"><span class="nav-number">6.2.3.</span> <span class="nav-text">寄存器变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E8%8C%83%E5%9B%B4"><span class="nav-number">6.3.</span> <span class="nav-text">变量范围</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="nav-number">6.3.1.</span> <span class="nav-text">全局变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%93%E5%86%B2%E5%8C%BA%E5%8F%98%E9%87%8F"><span class="nav-number">6.3.2.</span> <span class="nav-text">缓冲区变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AA%97%E5%8F%A3%E5%8F%98%E9%87%8F"><span class="nav-number">6.3.3.</span> <span class="nav-text">窗口变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%84%9A%E6%9C%AC%E5%8F%98%E9%87%8F"><span class="nav-number">6.3.4.</span> <span class="nav-text">脚本变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-Local-and-Function-Formal-Parameter-Variable"><span class="nav-number">6.3.5.</span> <span class="nav-text">Function Local and Function Formal Parameter Variable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E7%BD%AE%E5%8F%98%E9%87%8F"><span class="nav-number">6.3.6.</span> <span class="nav-text">内置变量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC28%E7%AB%A0-%E5%87%BD%E6%95%B0"><span class="nav-number">7.</span> <span class="nav-text">第28章 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E8%AF%AD%E6%B3%95"><span class="nav-number">7.1.</span> <span class="nav-text">函数语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%90%8D%E5%B0%8F%E5%86%99%E5%AD%97%E6%AF%8D%E5%BC%80%E5%A7%8B"><span class="nav-number">7.1.1.</span> <span class="nav-text">函数名小写字母开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E5%90%8D%E5%87%BD%E6%95%B0"><span class="nav-number">7.1.2.</span> <span class="nav-text">同名函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%89%80%E6%9C%89%E5%8F%AF%E7%94%A8%E5%87%BD%E6%95%B0"><span class="nav-number">7.2.</span> <span class="nav-text">查看所有可用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0%E5%86%85%E5%AE%B9"><span class="nav-number">7.2.1.</span> <span class="nav-text">查看某一个函数内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%BC%8F%E6%90%9C%E7%B4%A2%E5%87%BD%E6%95%B0"><span class="nav-number">7.2.2.</span> <span class="nav-text">模式搜索函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%87%BD%E6%95%B0%E4%BD%8D%E7%BD%AE"><span class="nav-number">7.2.3.</span> <span class="nav-text">查看函数位置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%87%BD%E6%95%B0"><span class="nav-number">7.3.</span> <span class="nav-text">删除函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="nav-number">7.4.</span> <span class="nav-text">函数返回值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0"><span class="nav-number">7.5.</span> <span class="nav-text">函数参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F"><span class="nav-number">7.5.1.</span> <span class="nav-text">局部变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%B3%95"><span class="nav-number">7.5.2.</span> <span class="nav-text">用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="nav-number">7.5.3.</span> <span class="nav-text">常见问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0"><span class="nav-number">7.6.</span> <span class="nav-text">调用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">7.6.1.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-number">7.6.2.</span> <span class="nav-text">区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0"><span class="nav-number">7.7.</span> <span class="nav-text">默认参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">7.7.1.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0"><span class="nav-number">7.8.</span> <span class="nav-text">可变参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-1"><span class="nav-number">7.8.1.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Range"><span class="nav-number">7.9.</span> <span class="nav-text">Range</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C"><span class="nav-number">7.9.1.</span> <span class="nav-text">效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8E-line-%E2%80%9C-%E2%80%9D-%E5%8C%BA%E5%88%AB"><span class="nav-number">7.9.2.</span> <span class="nav-text">与 line(“.”) 区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-2"><span class="nav-number">7.9.3.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E5%85%B8-1"><span class="nav-number">7.10.</span> <span class="nav-text">字典</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%BC%95%E7%94%A8"><span class="nav-number">7.11.</span> <span class="nav-text">函数引用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-1"><span class="nav-number">7.11.1.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-3"><span class="nav-number">7.11.2.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lambda"><span class="nav-number">7.12.</span> <span class="nav-text">Lambda</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-4"><span class="nav-number">7.12.1.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E9%93%BE"><span class="nav-number">7.13.</span> <span class="nav-text">方法链</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%B3%95-1"><span class="nav-number">7.13.1.</span> <span class="nav-text">用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E"><span class="nav-number">7.13.2.</span> <span class="nav-text">说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Closure"><span class="nav-number">7.14.</span> <span class="nav-text">Closure</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%99%E6%8F%92%E4%BB%B6"><span class="nav-number">8.</span> <span class="nav-text">写插件</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">大人者，不失其赤子之心</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2023/06/08/155/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="155. VIM 从偶尔到日常 | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          155. VIM 从偶尔到日常
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-08 00:00:00" itemprop="dateCreated datePublished" datetime="2023-06-08T00:00:00+08:00">2023-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-08 14:36:58" itemprop="dateModified" datetime="2025-12-08T14:36:58+08:00">2025-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/software/" itemprop="url" rel="index"><span itemprop="name">software</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="第22章-Vimrc"><a href="#第22章-Vimrc" class="headerlink" title="第22章 Vimrc"></a>第22章 Vimrc</h1><p>在先前的章节中，您学习了如何使用Vim。在本章，您将学习如何组织和配置Vimrc。</p>
+<h2 id="Vim如何找到Vimrc"><a href="#Vim如何找到Vimrc" class="headerlink" title="Vim如何找到Vimrc"></a>Vim如何找到Vimrc</h2><p>对于Vimrc，常见的理解是在根目录下添加一个 <code>.vimrc</code> 点文件（根据您使用的操作系统，文件路径名可能不同）。</p>
+<p>实际上，Vim在多个地方查找vimrc文件。下面是Vim检查的路径：</p>
+<ul>
+<li><code>$VIMINIT</code></li>
+<li><code>$HOME/.vimrc</code></li>
+<li><code>$HOME/.vim/vimrc</code></li>
+<li><code>$EXINIT</code></li>
+<li><code>$HOME/.exrc</code></li>
+<li><code>$VIMRUNTIME/default.vim</code></li>
+</ul>
+<p>当您启动Vim时，它将在上面列出的6个位置按顺序检查vimrc文件，第一个被找到的vimrc文件将被加载，而其余的将被忽略。</p>
+<p>首先，Vim将查找环境变量 <code>$VIMINIT</code>。如果没有找到，Vim将检查 <code>$HOME/.vimrc</code>。如果还没找到，VIm就检查 <code>$HOME/.vim/vimrc</code>。如果Vim找到了vimrc文件，它就停止查找，并使用 <code>$HOME/.vim/vimrc</code>。</p>
+<p>关于第一个位置，<code>$VIMINIT</code> 是一个环境变量。默认情况下它是未定义的。如果您想将 <code>~/dotfiles/testvimrc</code> 作为 <code>$VIMINTI</code> 的值，您可以创建一个包含那个vimrc路径的环境变量。当您运行 <code>export VIMINIT=&#39;let $MYVIMRC=&quot;$HOME/dotfiles/testvimrc&quot; | source $MYVIMRC&#39;</code>后，VIm将使用 <code>~/dotfiles/testvimrc</code> 作为您的vimrc文件。</p>
+<p>第二个位置，<code>$HOME/.vimrc</code> 是很多Vim用户习惯使用的路径。<code>$HOME</code> 大部分情况下是您的根目录（<code>~</code>）。如果您有一个 <code>~/.vimrc</code> 文件，Vim将使用它作为您的vimrc文件。</p>
+<p>第三个，<code>$HOME/.vim/vimrc</code>，位于 <code>~/.vim</code> 目录中。您可能已经有了一个 <code>~/.vim</code> 目录用于存放插件、自定义脚本、或视图文件。注意这里的vimrc文件名没有“点”（<code>$HOME/.vim/.vimrc</code> 不会被识别，但 <code>$HOME/.vim/vimrc</code>能被识别）。</p>
+<p>第四个，<code>$EXINIT</code> 工作方式与 <code>$VIMINIT</code> 类似。</p>
+<p>第五个，<code>$HOME/.exrc</code> 工作方式与 <code>$HOME/.vimrc</code> 类似。</p>
+<p>第六个，<code>$VIMRUNTIME/defaults.vim</code> 是Vim编译时自带的默认vimrc文件。在我的电脑中，我是使用Homebrew安装的Vim8.2，所以我的路径是（<code>/usr/local/share/vim/vim82</code>）。如果Vim在前5个位置都没有找到vimrc文件，它将使用这个Vim自带的vimrc文件。</p>
+<p>在本章剩余部分，我将假设vimrc使用的路径是 <code>~/.vimrc</code>。</p>
+<h2 id="应该把什么放在Vimrc中？"><a href="#应该把什么放在Vimrc中？" class="headerlink" title="应该把什么放在Vimrc中？"></a>应该把什么放在Vimrc中？</h2><p>我刚开始配置Vimrc时，曾问过一个问题，“我究竟该把什么放在Vimrc文件中？”。</p>
+<p>答案是，“任何您想放的东西”。 直接复制粘贴别人的vimrc文件的确是一个诱惑，但您应当抵制这个诱惑。如果您仍然坚持使用别人的vimrc文件，确保您知道这个vimrc干了什么，为什么他&#x2F;她要用这些设置？以及他&#x2F;她如何使用这些设置？还有最重要的是，这个vimrc文件是否符合你的实际需要？别人使用并不代表您也要使用。</p>
+<h2 id="Vimrc基础内容"><a href="#Vimrc基础内容" class="headerlink" title="Vimrc基础内容"></a>Vimrc基础内容</h2><p>简单地说，一个vimrc是以下内容的集合：</p>
+<ul>
+<li>插件</li>
+<li>设置</li>
+<li>自定义函数</li>
+<li>自定义命令</li>
+<li>键盘映射</li>
+</ul>
+<p>当然还有一些上面没有提到的内容，但总体说，已经涵盖了绝大部分使用场景。</p>
+<h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><p>在前面的章节中，我曾提到很多不同的插件，比如<a target="_blank" rel="noopener" href="https://github.com/junegunn/fzf.vim">fzf.vim</a>, <a target="_blank" rel="noopener" href="https://github.com/simnalamburt/vim-mundo">vim-mundo</a>, 还有 <a target="_blank" rel="noopener" href="https://github.com/tpope/vim-fugitive">vim-fugitive</a>.</p>
+<p>十年前，管理插件插件是一个噩梦。但随着很多现代插件管理器的开发，现在安装插件可以在几秒内完成。我现在正在使用<a target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug">vim-plug</a>作为我的插件管理器，所以我在本节中将使用它。相关概念和其他流行的插件管理器应该是类似的。我强烈建议您多试试几个插件管理器，比如：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/VundleVim/Vundle.vim">vundle.vim</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/tpope/vim-pathogen">vim-pathogen</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Shougo/dein.vim">dein.vim</a></li>
+</ul>
+<p>除了上面列出的，还有很多插件管理器，可以随便看看。要想安装 vim-plug，如果您使用的是Unix，运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br></pre></td></tr></table></figure>
+
+<p>要添加新的插件，将您的插件名(比如，<code>Plug &#39;github-username/repository-name&#39;</code>) 放置在 <code>call plug#begin()</code> 和 <code>call plug#end()</code> 之间的行中. 所以，如果您想安装 <code>emmet-vim</code> 和 <code>nerdtree</code>，将下面的片段放到您的vimrc中：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">call plug#begin(&#x27;~/.vim/plugged&#x27;)</span><br><span class="line">  Plug &#x27;mattn/emmet-vim&#x27;</span><br><span class="line">  Plug &#x27;preservim/nerdtree&#x27;</span><br><span class="line">call plug#end()</span><br></pre></td></tr></table></figure>
+
+<p>然后保存修改，加载当前vimrc (<code>:source %</code>), 然后运行 <code>:PlugInstall</code> 安装插件。</p>
+<p>如果以后您想删除不使用的插件，您只需将插件名从 <code>call</code> 代码块之间移除，保存并加载，然后运行 <code>:PlugClean</code> 命令将它从机器上删除。</p>
+<p>Vim 8 有自己的内置包管理器。您可以查阅 <code>:h packages</code> 了解更多信息。在后面一章中，我将向您展示如何使用它。</p>
+<h3 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h3><p>在任意一个vimrc文件中都可以看到大量的 <code>set</code> 选项。 如果您在命令行模式中运行 set 命令，它只是暂时的。当您关闭Vim，设置就会丢失。比如，为了避免您每次运行Vim时都必须在命令行模式运行 <code>:set relativenumber number</code> 命令，您可以将这个命令添加在vimrc中：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set relativenumber number</span><br></pre></td></tr></table></figure>
+
+<p>有一些设置需要您赋予一个值，比如 <code>set tabstop=2</code>。想了解一个设置可以接收什么类型的值，可以查看帮助页。</p>
+<p>您也可以使用 <code>let</code> 来代替 <code>set</code>（&#x3D;&#x3D;确保在选项前添加一个 <code>&amp;</code>号&#x3D;&#x3D;）。使用 <code>let</code> ，您可以使用表达式进行赋值。比如，要想仅当某个路径存在时，才将该路径赋予 <code>&#39;dictionary&#39;</code> 选项：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let s:english_dict = &quot;/usr/share/dict/words&quot;</span><br><span class="line"></span><br><span class="line">if filereadable(s:english_dict)</span><br><span class="line">  let &amp;dictionary=s:english_dict</span><br><span class="line">endif</span><br></pre></td></tr></table></figure>
+
+<p>在后面的章节中您将了解关于Vimscript赋值和条件的知识。</p>
+<p>要查看Vim中所有可用的选项，查阅 <code>:h E355</code>。</p>
+<h3 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h3><p>Vimrc是一个很好的用来放置自定义函数的地方。在后面的章节中您将学习如何写您自己的Vimscript函数。</p>
+<h3 id="自定义命令"><a href="#自定义命令" class="headerlink" title="自定义命令"></a>自定义命令</h3><p>您可以使用 <code>command</code> 创建一个自定义命令行命令。</p>
+<p>比如，创建一个用于显示今天日期的基本命令 <code>GimmeDate</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:command! GimmeDate echo call(&quot;strftime&quot;, [&quot;%F&quot;])</span><br></pre></td></tr></table></figure>
+
+<p>当您运行 <code>:GimmeDate</code> 时，Vim将显示一个类似 “2021-01-1”的日期。</p>
+<p>要创建一个可以接收输入的基本命令，您可以使用 <code>&lt;args&gt;</code> 。如果您想向 <code>GimmeDate</code> 传递一个时间&#x2F;日期格式参数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">:command! GimmeDate echo call(&quot;strftime&quot;, [&lt;args&gt;])</span><br><span class="line"></span><br><span class="line">:GimmeDate &quot;%F&quot;</span><br><span class="line">&quot; 2020-01-01</span><br><span class="line"></span><br><span class="line">:GimmeDate &quot;%H:%M&quot;</span><br><span class="line">&quot; 11:30</span><br></pre></td></tr></table></figure>
+
+<p>如果您想限定参数的数目，您可以使用 <code>-nargs</code> 标志。<code>-nargs=0</code> 表示没有参数，<code>-nargs=1</code> 表示传递1个参数，<code>-nargs=+</code> 表示至少1个参数，<code>-nargs=*</code> 表示传递任意数量的参数，<code>-nargs=?</code> 表示传递0个或1个参数。如果您想传递n个参数，使用 <code>-nargs=n</code>（这里 <code>n</code> 是一个任意整数）。</p>
+<p><code>&lt;args&gt;</code> 有两个变体：<code>&lt;f-args&gt;</code> 和 <code>&lt;q-args&gt;</code> 。前者用来向Vimscript函数传递参数，后者用来将用户输入自动转换为字符串。</p>
+<p>使用 <code>args</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">:command! -nargs=1 Hello echo &quot;Hello &quot; . &lt;args&gt;</span><br><span class="line">:Hello &quot;Iggy&quot;</span><br><span class="line">&quot; returns &#x27;Hello Iggy&#x27;</span><br><span class="line"></span><br><span class="line">:Hello Iggy</span><br><span class="line">&quot; Undefined variable error</span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>q-args</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:command! -nargs=1 Hello echo &quot;Hello &quot; . &lt;q-args&gt;</span><br><span class="line">:Hello Iggy</span><br><span class="line">&quot; returns &#x27;Hello Iggy&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>f-args</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">:function! PrintHello(person1, person2)</span><br><span class="line">:  echo &quot;Hello &quot; . a:person1 . &quot; and &quot; . a:person2</span><br><span class="line">:endfunction</span><br><span class="line"></span><br><span class="line">:command! -nargs=* Hello call PrintHello(&lt;f-args&gt;)</span><br><span class="line"></span><br><span class="line">:Hello Iggy1 Iggy2</span><br><span class="line">&quot; returns &quot;Hello Iggy1 and Iggy2&quot;</span><br></pre></td></tr></table></figure>
+
+<p>当您学了关于Vimscript函数的章节后，上面的函数将更有意义。</p>
+<p>查阅 <code>:h command</code> 和 <code>:args</code> 了解更多关于command和args的信息。</p>
+<h3 id="键盘映射"><a href="#键盘映射" class="headerlink" title="键盘映射"></a>键盘映射</h3><p>如果您发现您重复地执行一些相同的复杂操作，那么为这些复杂操作建立一个键盘映射将会很有用：</p>
+<p>比如，在我的vimrc文件中有2个键盘映射：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nnoremap &lt;silent&gt; &lt;C-f&gt; :GFiles&lt;CR&gt;</span><br><span class="line"></span><br><span class="line">nnoremap &lt;Leader&gt;tn :call ToggleNumber()&lt;CR&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在第一个中，我将 <code>Ctrl-F</code> 映射到 <a target="_blank" rel="noopener" href="https://github.com/junegunn/fzf.vim">fzf.vim</a> 插件的 <code>:Gfiles</code> 命令(快速搜索Git文件)上。在第二个中，我将 <code>&lt;leader&gt;tn</code> 映射到调用一个自定义函数 <code>ToggleNumber</code> （切换 <code>norelativenumber</code> 和 <code>relativenumber</code> 选项）。<code>Ctrl-f</code> 映射覆盖了Vim的原生的页面滚动。如果发生冲突，您的映射将会覆盖Vim的设置。因为从几乎从来不用Vim原生的页面滚动功能，所以我认为可以安全地覆盖它。</p>
+<p>另外，在 <code>&lt;Leader&gt;tn</code> 中的 “leader” 键到底是什么?</p>
+<p>Vim有一个leader键用来辅助键盘映射。比如，我将 <code>&lt;leader&gt;tn</code> 映射为运行 <code>ToggleNumber()</code> 函数。如果没有leader键，我可能会用 <code>tn</code>，但Vim中的 <code>t</code> 已经用做其他功能（”till”搜索导航命令）了。有了leader键，我现在先按定义好的leader键作为开头，然后按 <code>tn</code>，而不用干扰已经存在的命令。您可以设置leader键作为您映射的连续按键的第一个按键。默认Vim使用反斜杠作为leader键（所以 <code>&lt;Leader&gt;tn</code> 会变成 “反斜杠-t-n”）。</p>
+<p>我个人喜欢使用空格 <code>&lt;Space&gt;</code> 作为leader键，代替默认的反斜杠。要想改变您的leader键，将下面的文本添加到您的vimrc中：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let mapleader = &quot;\&lt;space&gt;&quot;</span><br></pre></td></tr></table></figure>
+
+<p>上面的 <code>nnoremap</code> 命令可以分解为三个部分：</p>
+<ul>
+<li><code>n</code> 表示普通模式。</li>
+<li><code>nore</code> 表示禁止递归。</li>
+<li><code>map</code> 是键盘映射命令。</li>
+</ul>
+<p>如果不想使用 <code>nnoremap</code>，您至少也得使用 <code>nmap</code> (<code>nmap &lt;silent&gt; &lt;C-f&gt; :Gfiles&lt;CR&gt;</code>)。但是，最好还是使用禁止递归的版本，这样是为了避免键盘映射时潜在的无限循环风险。</p>
+<p>如果您进行键盘映射时不使用禁止递归，下面例子演示了会发生什么。假设您想给 <code>B</code> 添加一个键盘映射，用来在一行的末尾添加一个分号，然后跳回前一个词组（回想一下，<code>B</code> 是Vim普通模式的一个导航命令，用来跳回前一个词组)。 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap B A;&lt;esc&gt;B</span><br></pre></td></tr></table></figure>
+
+<p>当您按下 <code>B</code> …哦豁，Vim开始失控了，开始无止尽的添加<code>;</code>（用 <code>Ctrl-c</code>终止）。为什么会发生这样的情况？因为在键盘映射 <code>A;&lt;esc&gt;B</code>中，这个 <code>B</code>不再是Vim原生的导航命令，它已经被映射到您刚才创建的键盘映射中了。这是您实际上执行的操作序列：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A;&lt;esc&gt;A;&lt;esc&gt;A;&lt;esc&gt;A;esc&gt;...</span><br></pre></td></tr></table></figure>
+
+<p>要解决这个问题，您需要指定键盘映射禁止递归：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nnoremap B A;&lt;esc&gt;B</span><br></pre></td></tr></table></figure>
+
+<p>现在再按一下 <code>B</code> 试试。这一次它成功地在行尾添加了一个 <code>;</code>，然后跳回到前一个词组。这个映射中的 <code>B</code> 就表示Vim原生的 <code>B</code>了。</p>
+<p>Vim针对不同的模式有不同的键盘映射命令。如果您想创建一个插入模式下的键盘映射 <code>jk</code>，用来退出插入模式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inoremap jk &lt;esc&gt;</span><br></pre></td></tr></table></figure>
+
+<p>其他模式的键盘映射命令有：<code>map</code>（普通、可视、选择、以及操作符等待模式）， <code>vmap</code>（可视、选择）， <code>smap</code>（选择）， <code>xmap</code>（可视）， <code>omap</code>（操作符等待模式）， <code>map!</code>（插入、命令行）， <code>lmap</code>（插入，命令行，Lang-arg模式）， <code>cmap</code>（命令行）， 还有<code>tmap</code>（终端任务）。在这里我不会详细的讲解它们，要了解更多信息，查阅 <code>:h map.txt</code>。</p>
+<p>创建最直观、最一致、最易于记忆的键盘映射。</p>
+<h2 id="组织管理Vimrc"><a href="#组织管理Vimrc" class="headerlink" title="组织管理Vimrc"></a>组织管理Vimrc</h2><p>一段时候键，您的vimrc文件就会变大且复杂得难以阅读。有两种方法让您的vimrc文件保持整洁：</p>
+<ul>
+<li>将您的vimrc文件划分为几个文件</li>
+<li>折叠您的vimrc文件</li>
+</ul>
+<h3 id="划分您的vimrc"><a href="#划分您的vimrc" class="headerlink" title="划分您的vimrc"></a>划分您的vimrc</h3><p>您可以使用Vim的 <code>:source</code> 命令将您的vimrc文件划分为多个文件。这个命令可以根据给定的文件参数，读取文件中的命令行命令。</p>
+<p>让我们在 <code>~/.vim</code> 下创建一个子文件夹，取名为 <code>/settings</code>（<code>~/.vim/settings</code>）。名字可以取为任意您喜欢的名字。</p>
+<p>然后你在这个文件夹下创建4个文件：</p>
+<ul>
+<li>第三方插件 (<code>~/.vim/settings/plugins.vim</code>).</li>
+<li>通用设置 (<code>~/.vim/settings/configs.vim</code>).</li>
+<li>自定义函数 (<code>~/.vim/settings/functions.vim</code>).</li>
+<li>键盘映射 (<code>~/.vim/settings/mappings.vim</code>) .</li>
+</ul>
+<p>在 <code>~/.vimrc</code> 里面添加:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">source $HOME/.vim/settings/plugins.vim</span><br><span class="line">source $HOME/.vim/settings/configs.vim</span><br><span class="line">source $HOME/.vim/settings/functions.vim</span><br><span class="line">source $HOME/.vim/settings/mappings.vim</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>~/.vim/settings/plugins.vim</code> 里面:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">call plug#begin(&#x27;~/.vim/plugged&#x27;)</span><br><span class="line">  Plug &#x27;mattn/emmet-vim&#x27;</span><br><span class="line">  Plug &#x27;preservim/nerdtree&#x27;</span><br><span class="line">call plug#end()</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>~/.vim/settings/configs.vim</code> 里面:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set nocompatible</span><br><span class="line">set relativenumber</span><br><span class="line">set number</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>~/.vim/settings/functions.vim</code> 里面:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function! ToggleNumber()</span><br><span class="line">  if(&amp;relativenumber == 1)</span><br><span class="line">    set norelativenumber</span><br><span class="line">  else</span><br><span class="line">    set relativenumber</span><br><span class="line">  endif</span><br><span class="line">endfunc</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>~/.vim/settings/mappings.vim</code> 里面:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">inoremap jk &lt;esc&gt;</span><br><span class="line">nnoremap &lt;silent&gt; &lt;C-f&gt; :GFiles&lt;CR&gt;</span><br><span class="line">nnoremap &lt;Leader&gt;tn :call ToggleNumber()&lt;CR&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这样您的vimrc文件依然能够正常工作，但现在它只有4行了。</p>
+<p>使用这样的设置，您可以轻易知道到哪去修改配置。如果您要添加一些键盘映射，就将它们添加在 <code>/mappings.vim</code> 文件中。以后，当您的vimrc变大时，您总是可以新建几个子文件来缩小它的大小。比如，如果您想为主题配色创建相关设置，您可以添加 <code>~/.vim/settings/themes.vim</code>。</p>
+<h3 id="保持单独的一个Vimrc文件"><a href="#保持单独的一个Vimrc文件" class="headerlink" title="保持单独的一个Vimrc文件"></a>保持单独的一个Vimrc文件</h3><p>如果您倾向于保持一个单独的vimrc文件，以使它更加便于携带，您可以使用标志折叠让它保持有序。在vimrc文件的顶部添加一下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&quot; setup folds &#123;&#123;&#123;</span><br><span class="line">augroup filetype_vim</span><br><span class="line">  autocmd!</span><br><span class="line">  autocmd FileType vim setlocal foldmethod=marker</span><br><span class="line">augroup END</span><br><span class="line">&quot; &#125;&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Vim能够检测当前buffer所属的文件类型 (<code>:set filetype?</code>). 如果发现属于 <code>vim</code> 类型，您可以使用标志折叠。回想一个标志折叠的用法，它使用 <code>&#123;&#123;&#123;` 和 `&#125;&#125;&#125;</code> 来指明折叠的开始和结束。</p>
+<p>添加 <code>&#123;&#123;&#123;` 和 `&#125;&#125;&#125;</code> 标志将您的vimrc文件其他部分折叠起来。(别忘了使用 <code>&quot;</code> 对标志进行注释):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&quot; setup folds &#123;&#123;&#123;</span><br><span class="line">augroup filetype_vim</span><br><span class="line">  autocmd!</span><br><span class="line">  autocmd FileType vim setlocal foldmethod=marker</span><br><span class="line">augroup END</span><br><span class="line">&quot; &#125;&#125;&#125;</span><br><span class="line"></span><br><span class="line">&quot; plugins &#123;&#123;&#123;</span><br><span class="line">call plug#begin(&#x27;~/.vim/plugged&#x27;)</span><br><span class="line">  Plug &#x27;mattn/emmet-vim&#x27;</span><br><span class="line">  Plug &#x27;preservim/nerdtree&#x27;</span><br><span class="line">call plug#end()</span><br><span class="line">&quot; &#125;&#125;&#125;</span><br><span class="line"></span><br><span class="line">&quot; configs &#123;&#123;&#123;</span><br><span class="line">set nocompatible</span><br><span class="line">set relativenumber</span><br><span class="line">set number</span><br><span class="line">&quot; &#125;&#125;&#125;</span><br><span class="line"></span><br><span class="line">&quot; functions &#123;&#123;&#123;</span><br><span class="line">function! ToggleNumber()</span><br><span class="line">  if(&amp;relativenumber == 1)</span><br><span class="line">    set norelativenumber</span><br><span class="line">  else</span><br><span class="line">    set relativenumber</span><br><span class="line">  endif</span><br><span class="line">endfunc</span><br><span class="line">&quot; &#125;&#125;&#125;</span><br><span class="line"></span><br><span class="line">&quot; mappings &#123;&#123;&#123;</span><br><span class="line">inoremap jk &lt;esc&gt;</span><br><span class="line">nnoremap &lt;silent&gt; &lt;C-f&gt; :GFiles&lt;CR&gt;</span><br><span class="line">nnoremap &lt;Leader&gt;tn :call ToggleNumber()&lt;CR&gt;</span><br><span class="line">&quot; &#125;&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>您的vimrc文件将会看起来类似下面：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+-- 6 lines: setup folds -----</span><br><span class="line"></span><br><span class="line">+-- 6 lines: plugins ---------</span><br><span class="line"></span><br><span class="line">+-- 5 lines: configs ---------</span><br><span class="line"></span><br><span class="line">+-- 9 lines: functions -------</span><br><span class="line"></span><br><span class="line">+-- 5 lines: mappings --------</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动Vim时加载-不加载Vimrc和插件"><a href="#启动Vim时加载-不加载Vimrc和插件" class="headerlink" title="启动Vim时加载&#x2F;不加载Vimrc和插件"></a>启动Vim时加载&#x2F;不加载Vimrc和插件</h2><p>如果您要启动Vim时，既不加载Vimrc，也不加载插件，运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim -u NONE</span><br></pre></td></tr></table></figure>
+
+<p>如果您要启动Vim时，不加载Vimrc，但加载插件，运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim -u NORC</span><br></pre></td></tr></table></figure>
+
+<p>如果您要启动Vim时，加载Vimrc，但不加载插件，运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim --noplugin</span><br></pre></td></tr></table></figure>
+
+<p>如果您要Vim启动加载一个 <em>其他的</em> vimrc, 比如 <code>~/.vimrc-backup</code>, 运行:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim -u ~/.vimrc-backup</span><br></pre></td></tr></table></figure>
+
+<h2 id="聪明地配置Vimrc"><a href="#聪明地配置Vimrc" class="headerlink" title="聪明地配置Vimrc"></a>聪明地配置Vimrc</h2><p>Vimrc是定制Vim时的一个重要组件，学习构建您的Vimrc最好是首先阅读他人的vimrc文件，然后逐渐地建立自己的。最好的vimrc并不是谁谁谁使用的，而是最适合您的工作需要和编辑风格的。</p>
+<h1 id="第23章-Vim软件包"><a href="#第23章-Vim软件包" class="headerlink" title="第23章 Vim软件包"></a>第23章 Vim软件包</h1><p>在前面的章节中，我提到使用第三方插件管理器来安装插件。从Vim 8开始，Vim自带了一个内置的插件管理器，名叫 <em>软件包（packages）</em>。在本章，您将学习如何使用Vim软件包来安装插件。</p>
+<p>要看您的Vim编译版本是否能够使用软件包，运行 <code>:version</code>。然后查看是否有 <code>+packages</code>属性。另外，您也可以运行 <code>:echo has(&#39;packages&#39;)</code>（如果返回1，表示可以使用软件包）。</p>
+<h2 id="包目录"><a href="#包目录" class="headerlink" title="包目录"></a>包目录</h2><p>在根目录下查看您是否有一个 <code>~/.vim</code> 文件夹。如果没有就新建一个。在文件夹里面，创建一个子文件夹取名 <code>pack</code>(<code>~/.vim/pack/</code>)。Vim会在这个子文件夹内自动搜索插件。</p>
+<h2 id="两种加载方式"><a href="#两种加载方式" class="headerlink" title="两种加载方式"></a>两种加载方式</h2><p>Vim软件包有两种加载机制：自动加载和手动加载。</p>
+<h3 id="自动加载"><a href="#自动加载" class="headerlink" title="自动加载"></a>自动加载</h3><p>要想让Vim启动时自动加载插件，你需要将它们放置在 <code>start/</code>子目录中。路径看起来像这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.vim/pack/*/start/</span><br></pre></td></tr></table></figure>
+
+<p>现在您可能会问，为什么在<code>pack/</code> 和 <code>start/</code> 之间有一个 <code>*</code> ？这个星号可以是任意名字。让我们将它取为<code>packdemo/</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.vim/pack/packdemo/start/</span><br></pre></td></tr></table></figure>
+
+<p>记住，如果您忽略这一点，用下面的路径代替的话：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.vim/pack/start/</span><br></pre></td></tr></table></figure>
+
+<p>软件包系统是不会正常工作的。 必须在<code>pack/</code> 和 <code>start/</code>之间添加一个名字才能正常运行。</p>
+<p>在这个示例中，让我们尝试安装 [NERDTree](<a target="_blank" rel="noopener" href="https://github.com/preservim/nThe">https://github.com/preservim/nThe</a> package system won’t work. It is imperative to put a name between <code>pack/</code> and <code>start/</code>.erdtree) 插件。用任意方法进入 <code>start/</code> 目录（<code>cd ~/.vim/pack/packdemo/start/</code>），然后将NERDTree的仓库克隆下来：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/preservim/nerdtree.git</span><br></pre></td></tr></table></figure>
+
+<p>完成了！您已经完成了安装。下一次您启动Vim，您可以立即执行 NERDTree 命令 <code>:NERDTreeToggle</code>。</p>
+<p>在 <code>~/.vim/pack/*/start/</code> 目录中，您想克隆多少插件仓库就克隆多少。Vim将会自动加载每一个插件。如果您删除了克隆的仓库（<code>rm -rf nerdtree</code>），那么插件就失效了。</p>
+<h3 id="手动加载"><a href="#手动加载" class="headerlink" title="手动加载"></a>手动加载</h3><p>要想在Vim启动时手动加载插件，您得将相关插件放置在 <code>opt/</code> 目录中，类似于自动加载，这个路径看起来像这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.vim/pack/*/opt/</span><br></pre></td></tr></table></figure>
+
+<p>让我们继续使用前面的 <code>packdemo/</code> 这个名字：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.vim/pack/packdemo/opt/</span><br></pre></td></tr></table></figure>
+
+<p>这一次，让我们安装<a target="_blank" rel="noopener" href="https://github.com/vim/killersheep">killersheep</a> 游戏（需要Vim8.2以上版本）。进入<code>opt/</code> 目录(<code>cd ~/.vim/pack/packdemo/opt/</code>) 然后克隆仓库：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/vim/killersheep.git</span><br></pre></td></tr></table></figure>
+
+<p>启动Vim。执行游戏的命令是 <code>:KillKillKill</code>。试着运行一下。Vim将会提示这不是一个有效的编辑命令。您需要首先 <em>手动</em> 加载插件，运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:packadd killersheep</span><br></pre></td></tr></table></figure>
+
+<p>现在再运行一下 <code>:KillKillKill</code> 。命令已经可以使用了。</p>
+<p>您可能好奇，“为什么我需要手动加载插件？启动时自动加载岂不是更好？”</p>
+<p>很好的问题。有时候有些插件我们并不是所有的时候都在用，比如 KillerSheep 游戏。您可能不会想要加载10个不同的游戏导致Vim启动变慢。但是偶尔当您觉得乏味的时候，您可能想要玩几个游戏，使用手动加载一些非必须的插件。</p>
+<p>您也可以使用这个方法有条件的加载插件。可能您同时使用了Neovim和Vim，有一些插件是为NeoVim优化过的。您可以添加类似下列的内容到您的vimrc中：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if has(&#x27;nvim&#x27;)</span><br><span class="line">  packadd! neovim-only-plugin</span><br><span class="line">else</span><br><span class="line">  packadd! generic-vim-plugin</span><br><span class="line">endif</span><br></pre></td></tr></table></figure>
+
+<h2 id="组织管理软件包"><a href="#组织管理软件包" class="headerlink" title="组织管理软件包"></a>组织管理软件包</h2><p>回想一下，要使用Vim的软件包系统必须有以下需求：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.vim/pack/*/start/</span><br></pre></td></tr></table></figure>
+
+<p>或者:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.vim/pack/*/opt/</span><br></pre></td></tr></table></figure>
+
+<p>实际上，<code>*</code>星号可以使 <em>任意</em> 名字，这个名字就可以用来管理您的插件。假设您想将您的插件根据类型（颜色、语法、游戏）分组：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">~/.vim/pack/colors/</span><br><span class="line">~/.vim/pack/syntax/</span><br><span class="line">~/.vim/pack/games/</span><br></pre></td></tr></table></figure>
+
+<p>您仍然可以使用各个目录下的 <code>start/</code> 和 <code>opt/</code> 。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">~/.vim/pack/colors/start/</span><br><span class="line">~/.vim/pack/colors/opt/</span><br><span class="line"></span><br><span class="line">~/.vim/pack/syntax/start/</span><br><span class="line">~/.vim/pack/syntax/opt/</span><br><span class="line"></span><br><span class="line">~/.vim/pack/games/start/</span><br><span class="line">~/.vim/pack/games/opt/</span><br></pre></td></tr></table></figure>
+
+<h2 id="聪明地添加插件"><a href="#聪明地添加插件" class="headerlink" title="聪明地添加插件"></a>聪明地添加插件</h2><p>您可能好奇，Vim软件包是否让一些流行的插件管理器，比如 vim-pathogen, vundle.vim, dein.vim, a还有vim-plug面临淘汰？</p>
+<p>答案永远是：“看情况而定。”</p>
+<p>我仍然使用vim-plug，因为使用它添加、删除、更新插件很容易。如果您使用了很多插件，插件管理器的好处更加明显，因为使用它可以对很多插件进行同时更新。有些插件管理器同时也提供了一些异步功能。</p>
+<p>如果您是极简主义者，可以尝试一下Vim软件包。如果您是一名插件重度使用者，您可能需要一个插件管理器。</p>
+<h1 id="第24章-Vim-Runtime"><a href="#第24章-Vim-Runtime" class="headerlink" title="第24章 Vim Runtime"></a>第24章 Vim Runtime</h1><p>在前面的章节中，我提到Vim会自动查找一些特殊的路径，比如在<code>~/.vim/</code> 中的 <code>pack/</code>(第23章) <code>compiler/</code>（第19章）。这些都是Vim runtime路径的例子。</p>
+<p>除了上面提到的两个，Vim还有更多runtime路径。在本章，您将学习关于Vim runtime路径的高层次概述。本章的目标是向您展示它们什么时候被调用。知道这些知识能够帮您更进一步理解和定制Vim。</p>
+<h2 id="Runtime路径"><a href="#Runtime路径" class="headerlink" title="Runtime路径"></a>Runtime路径</h2><p>在一台Unix机器中，其中一个vim runtime路径就是 <code>$HOME/.vim/</code> （如果您用的是其他操作系统，比如Windows，您的路径可能有所不同）。要查看不同的操作系统有什么样的runtime路径，查阅 <code>:h runtimepath</code>。在本章，我将使用 <code>~/.vim/</code> 作为默认的runtime路径。</p>
+<h2 id="Plugin脚本"><a href="#Plugin脚本" class="headerlink" title="Plugin脚本"></a>Plugin脚本</h2><p>Vim有一个runtime路径 plugin，每次Vim启动时都会执行这个路径中的所有脚本。不要把这个名字 “plugin” 和Vim的外部插件（external plugins，比如NERDTree, fzf.vim, 等)搞混了。</p>
+<p>进入 <code>~/.vim/</code> 目录，然后创建 <code>plugin/</code> 子目录。 创建两个文件： <code>donut.vim</code> 和 <code>chocolate.vim</code>。</p>
+<p>在 <code>~/.vim/plugin/donut.vim</code>里面:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;donut!&quot;</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>~/.vim/plugin/chocolate.vim</code>里面:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;chocolate!&quot;</span><br></pre></td></tr></table></figure>
+
+<p>现在关闭Vim。下次您启动Vim，您将会看到 <code>&quot;donut!&quot;</code> 和 <code>:chocolate!</code> 的显示。此 plugin runtime路径可以用来执行一些初始化脚本。</p>
+<h2 id="文件类型检测"><a href="#文件类型检测" class="headerlink" title="文件类型检测"></a>文件类型检测</h2><p>在开始之前，为保证检测能正常运行，确保在您的vimrc中至少包含了下列的行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filetype plugin indent on</span><br></pre></td></tr></table></figure>
+
+<p>查阅 <code>:h filetype-overview</code> 了解更多信息。本质上，这条代码开启Vim的文件类型检测。</p>
+<p>当您打开一个新的文件，Vim通常知道这个文件是什么类型。如果您有一个文件 <code>hello.rb</code>，运行 <code>:set filetype?</code> 会返回正确的相应 <code>filetype=ruby</code>。</p>
+<p>Vim知道如何检测 “常见” 的文件类型（Ruby, Python, Javascript, 等）。但如果是一个自定义文件会怎样呢？您需要告诉Vim去检测它，并给它指派一个正确的文件类型。</p>
+<p>有两种检测方法：使用文件名和使用文件内容</p>
+<h3 id="文件名检测"><a href="#文件名检测" class="headerlink" title="文件名检测"></a>文件名检测</h3><p>文件名检测使用一个文件的文件名来检测文件类型。当您打开 <code>hello.rb</code>文件时，Vim依靠扩展名 <code>.rb</code> 知道它是一个Ruby文件。</p>
+<p>有两种方法实现文件名检测：一是使用 <code>ftdetect</code> runtime目录，二是使用 <code>filetype.vim</code> runtime文件。我们两个都看一看。</p>
+<h4 id="ftdetect"><a href="#ftdetect" class="headerlink" title="ftdetect/"></a><code>ftdetect/</code></h4><p>让我们创建一个古怪（但优雅）的名字，<code>hello.chocodonut</code>。当您打开它后运行 <code>:set filetype?</code> ，因为它的后缀名不是常见的文件名，Vim不知道它是什么类型，会返回 <code>filetype=</code>。</p>
+<p>您需要指示Vim将所有以 <code>.chocodonut</code>结尾的文件设置为 “chocodonut”类型的文件。在runtime路径根目录(<code>~/.vim/</code>)创建一个子目录，名为 <code>ftdetect/</code> 。在子目录里面，再创建一个名叫 <code>chocodonut.vim</code> 的文件（<code>~/.vim/ftdetect/chocodonut.vim</code>），在文件里面，添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autocmd BufNewFile,BufRead *.chocodonut set filetype=chocodonut</span><br></pre></td></tr></table></figure>
+
+<p>当您创建新buffer或打开新buffer时，事件<code>BufNewFile</code> 和 <code>BufRead</code> 就会被触发。 <code>*.chocodonut</code> 意思是只有当新打开的buffer文件名后缀是 <code>.chocodonut</code> 时事件才会被触发。最后，<code>set filetype=chocodonut</code> 命令将文件类型设置为chocodonut类型。</p>
+<p>重启Vim。新建一个 <code>hello.chocodonut</code> 文件然后运行 <code>:set filetype?</code>。它将返回 <code>filetype=chocodonut</code>.</p>
+<p>好极了！只要您想，您可以将任意多的文件放置在 <code>ftdetect/</code> 中。以后，如果您想扩展您的 donut 文件类型，你可以添加 <code>ftdetect/strawberrydonut.vim</code>, <code>ftdetect/plaindonut.vim</code> 等等。</p>
+<p>在Vim中，实际上有两种方法设置文件类型。其中给一个是您刚刚使用的 <code>set filetype=chocodonut</code>。另一种方法是运行 <code>setfiletype chocodonut</code>。前一个命令 <code>set filetype=chocodonut</code> 将 <em>总是</em> 设置文件类型为chocodonut。 而后者<code>setfiletype chocodonut</code>只有当文件类型尚未设置时，才会将文件类型设置为chocodonut。</p>
+<h4 id="文件类型文件"><a href="#文件类型文件" class="headerlink" title="文件类型文件"></a>文件类型文件</h4><p>第二种文件类型检测需要你创建一个名为 <code>filetype.vim</code>的文件，并将它放置在根目录(<code>~/.vim/filetype.vim</code>)。在文件内添加一下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autocmd BufNewFile,BufRead *.plaindonut set filetype=plaindonut</span><br></pre></td></tr></table></figure>
+
+<p>创建一个名为 <code>hello.plaindonut</code> 的文件。当你打开它后运行 <code>:set filetype?</code> Vim会显示正确的自定义文件类型 <code>filetype=plaindonut</code>。</p>
+<p>太好了，修改生效了。另外，如果您仔细看看 <code>filetype.vim</code> ，您会发现当您打开<code>hello.plaindonut</code>时，这个文件文件运行了多次。为防止这一点，您可以添加一个守卫，让主脚本只运行一次。更新 <code>filetype.vim</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if exists(&quot;did_load_filetypes&quot;)</span><br><span class="line">  finish</span><br><span class="line">endif</span><br><span class="line"></span><br><span class="line">augroup donutfiletypedetection</span><br><span class="line">  autocmd! BufRead,BufNewFile *.plaindonut setfiletype plaindonut</span><br><span class="line">augroup END</span><br></pre></td></tr></table></figure>
+
+<p><code>finish</code> 是一个Vim命令，用来停止执行剩余的脚本。表达式<code>&quot;did_load_filetypes&quot;</code> 并 <em>不是</em> 一个Vim内置函数。它实际上是<code>$VIMRUNTIME/filetype.vim</code> 中的一个全局变量。如果您好奇，运行<code>:e $VIMRUNTIME/filetype.vim</code>。您将会发现以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if exists(&quot;did_load_filetypes&quot;)</span><br><span class="line">  finish</span><br><span class="line">endif</span><br><span class="line"></span><br><span class="line">let did_load_filetypes = 1</span><br></pre></td></tr></table></figure>
+
+<p>当Vim调用这个文件时，它会定义 <code>did_load_filetypes</code> 变量，并将它设置为 1 。在Vim中，1 表示真。你可以试着读完 <code>filetype.vim</code> 剩余的内容，看看您是否能够理解当Vim调用它时干了什么。</p>
+<h3 id="文件类型脚本"><a href="#文件类型脚本" class="headerlink" title="文件类型脚本"></a>文件类型脚本</h3><p>让我们学习如何基于文件内容检测文件类型。</p>
+<p>假设您有一个无扩展名的文件的集合。这些文件唯一相同的地方是，第一行都是以 “donutify” 开头。您现在想给这些文件指派一个 <code>donut</code> 的文件类型。创建新文件，起名为 <code>sugardonut</code>, <code>glazeddonut</code>, 还有 <code>frieddonut</code>（没有扩展名）。在每个文件中，添加下列内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">donutify</span><br></pre></td></tr></table></figure>
+
+<p>当您在<code>sugardonut</code>中运行 <code>:set filetype?</code>，Vim无法知道应该给这个文件指派什么文件类型，会返回 <code>filetype=</code>。</p>
+<p>在runtime根目录，添加一个 <code>scripts.vim</code> 文件(<code>~/.vim/scripts.vim</code>)，在文件中，添加一下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if did_filetype()</span><br><span class="line">  finish</span><br><span class="line">endif</span><br><span class="line"></span><br><span class="line">if getline(1) =~ &#x27;^\\&lt;donutify\\&gt;&#x27;</span><br><span class="line">  setfiletype donut</span><br><span class="line">endif</span><br></pre></td></tr></table></figure>
+
+<p>函数 <code>getline(1)</code> 返回文件第一行的内容。它检查第一行是否以 “donutify” 开头。函数 <code>did_filetype()</code> 是Vim的内置函数，当一个与文件类型相关的事件发生至少一次时，它返回真。它用来做守卫，防止文件类型事件反复运行。</p>
+<p>打开文件 <code>sugardonut</code> 然后运行 <code>:set filetype?</code>，Vim现在返回 <code>filetype=donut</code>。如果您打开另外一个donut文件 (<code>glazeddonut</code> 和 <code>frieddonut</code>)，Vim同样会将它们的文件类型定义为 <code>donut</code> 类型。</p>
+<p>注意，<code>scripts.vim</code> 仅当Vim打开一个未知文件类型的文件时才会运行。如果Vim打开一个已知文件类型的文件，<code>scripts.vim</code> 将不会运行。</p>
+<h2 id="文件类型插件"><a href="#文件类型插件" class="headerlink" title="文件类型插件"></a>文件类型插件</h2><p>如果您想让Vim仅当您打开一个 chocodonut 文件时才运行 chocodonut 相关的特殊脚本，而当您打开的是 plaindonut 文件时，Vim就不运行这些脚本。能否做到呢？</p>
+<p>您可以使用文件类型插件runtime路径(<code>~/.vim/ftplugin/</code>)来完成这个功能。Vim会在这个目录中查找一个文件，这个文件的文件名与您打开的文件类型一样。创建一个文件，起名为<code>chocodonut.vim</code> (<code>~/.vim/ftplugin/chocodonut.vim</code>):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;Calling from chocodonut ftplugin&quot;</span><br></pre></td></tr></table></figure>
+
+<p>创建另一个 ftplugin 文件，起名为<code>plaindonut.vim</code> (<code>~/.vim/ftplugin/plaindonut.vim</code>):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;Calling from plaindonut ftplugin&quot;</span><br></pre></td></tr></table></figure>
+
+<p>现在，每次您打开一个 chocodonut 类型的文件时，Vim会运行 <code>~/.vim/ftplugin/chocodonut.vim</code>中的脚本。每次您打开 plaindonut 类型的文件时，Vim会运行 <code>~/.vim/ftplugin/plaindonut.vim</code> 中的脚本。</p>
+<p>一个警告：每当一个buffer的文件类型被设置时(比如，<code>set filetype=chocodonut</code>)，上述脚本就会运行一次。如果您打开3个不同的 chocodonut 文件，该脚本将运行 <em>总共</em> 3次。</p>
+<h2 id="缩进文件"><a href="#缩进文件" class="headerlink" title="缩进文件"></a>缩进文件</h2><p>Vim有一个 缩进runtime路径，其工作方式与ftplugin类似，Vim也会在这个目录中查找一个与打开的文件类型名字一样的文件。缩进runtime路径的目的是存储缩进相关的代码。如果您有文件 <code>~/.vim/indent/chocodonut.vim</code>，它仅当您打开一个 chocodonut 类型的文件时执行。您可以将 chocodonut 文件中缩进相关的代码存储在这里。</p>
+<h2 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h2><p>Vim 有一个颜色runtime路径 (<code>~/.vim/colors/</code>) ，用来存储颜色主题。这个目录中的任何文件都会在命令行命令 <code>:color</code> 中显示出来。</p>
+<p>如果您有一个文件 <code>~/.vim/colors/beautifulprettycolors.vim</code>，当您运行 <code>:color</code> 然后按 Tab，您将会看到 <code>beautifulprettycolors</code> 出现在颜色选项中。  如果您想添加自己的颜色主题，就放在这个地方。</p>
+<p>如果您想看其他人做的颜色主题，有一个好地方值得推荐：<a target="_blank" rel="noopener" href="https://vimcolors.com/">vimcolors</a>。</p>
+<h2 id="语法高亮"><a href="#语法高亮" class="headerlink" title="语法高亮"></a>语法高亮</h2><p>Vim有一个语法runtime路径 (<code>~/.vim/syntax/</code>)，用来定义语法高亮。</p>
+<p>假设您有一个文件 <code>hello.chocodonut</code>，在文件里面有以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(donut &quot;tasty&quot;)</span><br><span class="line">(donut &quot;savory&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>虽然Vim现在知道了正确的文件类型，但所有的文本都是相同的颜色。让我们添加语法高亮规则，使 “donut” 关键词高亮显示。创建一个新的 chocodonut 语法文件 <code>~/.vim/syntax/chocodonut.vim</code>，在文件中添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">syntax keyword donutKeyword donut</span><br><span class="line"></span><br><span class="line">highlight link donutKeyword Keyword</span><br></pre></td></tr></table></figure>
+
+<p>现在重新打开 <code>hello.chocodonut</code> 文件，关键词 <code>donut</code> 已经高亮显示了。</p>
+<p>本章不会详细介绍语法高亮。它是一个庞大的主题。如果您感兴趣，可以查阅 <code>:h syntax.txt</code>。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sheerun/vim-polyglot">vim-polyglot</a> 插件非常的棒，它提供了很多流行的编程语言的语法高亮。</p>
+<h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><p>如果您写了一个插件，您还得创建一个您自己的文档。您可以使用文档runtime路径完成这个。</p>
+<p>让我们为 chocodonut 和 plaindonut 关键字创建一个基本文档。创建文件 <code>donut.txt</code> (<code>~/.vim/doc/donut.txt</code>)。在文件中，添加一下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*chocodonut* Delicious chocolate donut</span><br><span class="line"></span><br><span class="line">*plaindonut* No choco goodness but still delicious nonetheless</span><br></pre></td></tr></table></figure>
+
+<p>如果您试着搜索 <code>chocodonut</code> 或 <code>plaindonut</code> (<code>:h chocodonut</code> 或 <code>:h plaindonut</code>)，您找不到任何东西。</p>
+<p>首先，你需要运行 <code>:helptags</code>来创建新的帮助入口。运行 <code>:helptags ~/.vim/doc/</code></p>
+<p>现在，如果您运行 <code>:h chocodonut</code> 或 <code>:h plaindonut</code>，您将找到上面那些新的帮助入口。注意，现在文件是只读的，而且类型是 “help”。</p>
+<h2 id="延时加载脚本"><a href="#延时加载脚本" class="headerlink" title="延时加载脚本"></a>延时加载脚本</h2><p>到现在，本章您学到的所有runtime路径都是自动运行的。如果您想手动加载一个脚本，可使用 autoload runtime路径。</p>
+<p>创建一个目录名为 autoload(<code>~/.vim/autoload/</code>)。在目录中，创建一个新文件，起名为 <code>tasty.vim</code> (<code>~/.vim/autoload/tasty.vim</code>)。在文件中：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;tasty.vim global&quot;</span><br><span class="line"></span><br><span class="line">function tasty#donut()</span><br><span class="line">  echo &quot;tasty#donut&quot;</span><br><span class="line">endfunction</span><br></pre></td></tr></table></figure>
+
+<p>注意，函数名是 <code>tasty#donut</code> 而不是 <code>donut()</code>。要想使用autoload功能，井号(<code>#</code>)是必须的。在使用autoload功能时，函数的命名惯例是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function fileName#functionName()</span><br><span class="line">  ...</span><br><span class="line">endfunction</span><br></pre></td></tr></table></figure>
+
+<p>在本例中，文件名是 <code>tasty.vim</code>，而函数名是<code>donut</code>。</p>
+<p>要调用一个函数，可以使用 <code>call</code> 命令。让我们call这个函数 <code>:call tasty#donut()</code>。</p>
+<p>您第一次调用这个函数时，您应当会 <em>同时</em> 看到两条信息 (“tasty.vim global” 和 “tasty#donut”) 。后面再调用 <code>tasty#donut</code> 函数，将只会显示 “testy#donut”。</p>
+<p>当您在Vim中打开一个文件，不像前面说的runtime路径，autoload脚本不会被自动加载。仅当您显式地调用 <code>tasty#donut()</code>，Vim才会查找文件<code>tasty.vim</code>，然后加载文件中的内容，包括函数 <code>tasty#donut()</code>。有些函数会占用大量资源，但我们又不常用，这时候 Autoload runtime路径就是最佳的解决方案。 </p>
+<p>您可以在autoload目录任意添加嵌套的目录。如果您有一个runtime路径 <code>~/.vim/autoload/one/two/three/tasty.vim</code>，您可以使用<code>:call one#two#three#tasty#donut()</code>来调用函数。</p>
+<h2 id="After脚本"><a href="#After脚本" class="headerlink" title="After脚本"></a>After脚本</h2><p>Vim有一个 after runtime路径 (<code>~/.vim/after/</code>) ，它的结构是 <code>~/.vim/</code>的镜像。在此目录中的任何脚本都会最后执行，所以开发者通常使用这个路径来重载脚本。</p>
+<p>比如，如果您想重载 <code>plugin/chocolate.vim</code> 中的脚本，您可以创建<code>~/.vim/after/plugin/chocolate.vim</code>来放置重载脚本。Vim将会先运行 <code>~/.vim/plugin/chocolate.vim</code>， <em>然后运行</em> <code>~/.vim/after/plugin/chocolate.vim</code></p>
+<h2 id="VIMRUNTIME"><a href="#VIMRUNTIME" class="headerlink" title="$VIMRUNTIME"></a>$VIMRUNTIME</h2><p>Vim有一个环境变量 <code>$VIMRUNTIME</code> 用来加载默认脚本和支持文件。您可以运行 <code>:e $VIMRUNTIME</code>查看。</p>
+<p>它的结构应该看起来很熟悉。它包含的很多runtime路径都是我们本章前面学过的。</p>
+<p>回想第22章，当您打开Vim时，它会在6个不同的位置查找vimrc文件。当时我说最后一个位置就是 <code>$VIMRUNTIME/default.vim</code>，如果Vim在前5个位置查找用户vimrc文件失败，就会使用<code>default.vim</code> 作为vimrc。</p>
+<p>不知您是否尝试过，运行Vim是不加载比如vim-polyglot之类的语法插件，但您的文件依然有语法高亮?这是因为当Vim在runtime路径查找语法文件失败时，会从<code>$VIMRUNTIME</code> 的语法目录中查找语法文件。</p>
+<p>查阅 <code>:h $VIMRUNTIME</code>了解更多信息。</p>
+<h2 id="Runtimepath选项"><a href="#Runtimepath选项" class="headerlink" title="Runtimepath选项"></a>Runtimepath选项</h2><p>运行 <code>:set runtimepath?</code>，可以查看您的runtime路径。</p>
+<p>如果您使用 Vim-Plug 或其他流行的第三方插件管理器，它应该会显示一个目录列表。比如，我的显示如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">runtimepath=~/.vim,~/.vim/plugged/vim-signify,~/.vim/plugged/base16-vim,~/.vim/plugged/fzf.vim,~/.vim/plugged/fzf,~/.vim/plugged/vim-gutentags,~/.vim/plugged/tcomment_vim,~/.vim/plugged/emmet-vim,~/.vim/plugged/vim-fugitive,~/.vim/plugged/vim-sensible,~/.vim/plugged/lightline.vim, ...</span><br></pre></td></tr></table></figure>
+
+<p>插件管理器做了一件事，就是将每个插件添加到runtime路径中。每个runtime路径都有一个类似 <code>~/.vim/</code>的目录结构。</p>
+<p>如果您有一个目录 <code>~/box/of/donuts/</code>，然后您想将这个目录添加到您的runtime路径中，您可以在vimrc中添加以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set rtp+=$HOME/box/of/donuts/</span><br></pre></td></tr></table></figure>
+
+<p>如果在 <code>~/box/of/donuts/</code> 里面，您有一个plugin目录 (<code>~/box/of/donuts/plugin/hello.vim</code>) 以及ftplugin目录 (<code>~/box/of/donuts/ftplugin/chocodonut.vim</code>)，当您打开Vim时，Vim将会运行 <code>plugin/hello.vim</code> 中所有脚本。同样，当您打开一个 chocodonut 文件时，Vim 将会运行 <code>ftplugin/chocodonut.vim</code>。</p>
+<p>自己试着做一下：创建一个任意目录，然后将它添加到您的 runtimepath中。添加一些我们本章学到的runtime路径。确保它们按预期工作。</p>
+<h2 id="聪明地学习Runtime"><a href="#聪明地学习Runtime" class="headerlink" title="聪明地学习Runtime"></a>聪明地学习Runtime</h2><p>花点时间阅读本章，还有认真研究一下这些runtime路径。看一下真实环境下runtime路径是如何使用的。浏览一下您最喜欢的Vim插件仓库，仔细研究一下它的目录结构，您应该能够理解它们中的绝大部分。试着领会重点并跟着做。现在您已经理解了Vim的目录结构，您可以准备学习Vimscript了。</p>
+<h1 id="第25章-Vimscript-基础和数据类型"><a href="#第25章-Vimscript-基础和数据类型" class="headerlink" title="第25章 Vimscript 基础和数据类型"></a>第25章 Vimscript 基础和数据类型</h1><h2 id="Ex-模式"><a href="#Ex-模式" class="headerlink" title="Ex 模式"></a>Ex 模式</h2><p>技术上来说，Vim 没有内置的交互式解释器 (REPL)，但是有一个 Ex 模式，可以使 vim 像使用 REPL 一样、Ex 模式更现实命令行模式的拓展，即非停止的命令行模式</p>
+<p>进入EX模式的方法：</p>
+<ul>
+<li><code>Q</code></li>
+<li><code>gQ</code></li>
+</ul>
+<p>退出Ex模式</p>
+<ul>
+<li>输入: <code>:visual</code></li>
+</ul>
+<h3 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h3><p>类似于 <code>python</code> 的 <code>print()</code></p>
+<p><code>echom</code>: 和 echo 相同， 不同支出在于 <code>echom</code> 会将结果保存到 message 历史记录中</p>
+<ul>
+<li><p>查看 message 历史记录</p>
+<p> <code>:messages</code></p>
+</li>
+<li><p>清空 mwssage 历史记录</p>
+<p> <code>:message clear</code></p>
+</li>
+</ul>
+<h2 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h2><p>模式指的是&#x3D;&#x3D;十进制&#x3D;&#x3D;数字</p>
+<h3 id="十进制-Decimal"><a href="#十进制-Decimal" class="headerlink" title="十进制 Decimal"></a>十进制 Decimal</h3><p>1, -1, -10</p>
+<h3 id="十六进制-Hexadecimal"><a href="#十六进制-Hexadecimal" class="headerlink" title="十六进制 Hexadecimal"></a>十六进制 Hexadecimal</h3><p>以 <code>0x</code> 或 <code>oX</code> 开头</p>
+<h3 id="二进制-Binary"><a href="#二进制-Binary" class="headerlink" title="二进制 Binary"></a>二进制 Binary</h3><p>以 <code>0b</code> 或 <code>0B</code> 开头</p>
+<h3 id="八进制-Octal"><a href="#八进制-Octal" class="headerlink" title="八进制 Octal"></a>八进制 Octal</h3><p>以 <code>0</code>, <code>0o</code> 或 <code>0O</code> 开头</p>
+<h3 id="真假值"><a href="#真假值" class="headerlink" title="真假值"></a>真假值</h3><ul>
+<li>真：非0</li>
+<li>假：0</li>
+</ul>
+<h2 id="数值运算"><a href="#数值运算" class="headerlink" title="数值运算"></a>数值运算</h2><p>同 C++ 的数值运算</p>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>使用 双引号(<code>&quot;&quot;</code>) 或 单引号(<code>&#39;&#39;</code>) 包裹起来</p>
+<h3 id="字符串连接"><a href="#字符串连接" class="headerlink" title="字符串连接"></a>字符串连接</h3><p>使用 <code>.</code> 连接字符串</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">echo</span> <span class="string">&quot;Hello&quot;</span> . <span class="string">&quot;world&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="字符串算数"><a href="#字符串算数" class="headerlink" title="字符串算数"></a>字符串算数</h3><p>当使用数字和字符串使用运算符 <code>+ - * /</code> 进行算数运算时，vim会将字符串转化为数字</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:echo &quot;12 donuts&quot; + 3</span><br></pre></td></tr></table></figure>
+
+<p>也可以是字符串与字符串进行数值计算</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:echo &quot;12 donuts&quot; * &quot;6 pastries&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>要求</strong>：</p>
+<ul>
+<li>数字字符必须是字符串的第一个字符</li>
+</ul>
+<p><strong>注意</strong></p>
+<ul>
+<li>当使用浮点型进行运算时，将被转化成整数</li>
+</ul>
+<h3 id="数字与字符串连接"><a href="#数字与字符串连接" class="headerlink" title="数字与字符串连接"></a>数字与字符串连接</h3><p>使用 <code>.</code> 运算符</p>
+<p><strong>注意</strong></p>
+<ul>
+<li>不适用于浮点数</li>
+</ul>
+<h3 id="字符串作为条件时"><a href="#字符串作为条件时" class="headerlink" title="字符串作为条件时"></a>字符串作为条件时</h3><ul>
+<li>真：第一个字符为数字</li>
+<li>假：第一个字符不为数字</li>
+</ul>
+<h3 id="单引号与双引号"><a href="#单引号与双引号" class="headerlink" title="单引号与双引号"></a>单引号与双引号</h3><ul>
+<li>单引号只会输出字面值</li>
+<li>双引号可以接受特殊字符，如: <code>\n, \&quot;</code></li>
+</ul>
+<h3 id="内置字符串程序"><a href="#内置字符串程序" class="headerlink" title="内置字符串程序"></a>内置字符串程序</h3><table>
+<thead>
+<tr>
+<th>程序</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>strlen()</code></td>
+<td>获取字符串长度</td>
+</tr>
+<tr>
+<td><code>str2nr()</code></td>
+<td>将字符串转化为数字</td>
+</tr>
+<tr>
+<td><code>str2float()</code></td>
+<td>将字符串转化为浮点数</td>
+</tr>
+<tr>
+<td><code>substitute()</code></td>
+<td>字符串模式替换<br/>可以结合 <code>getline()</code> 使用</td>
+</tr>
+<tr>
+<td>其他函数</td>
+<td><code>:h string-functions</code></td>
+</tr>
+</tbody></table>
+<p><code>getline()</code>: 获取传入行号的文本</p>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>类似于 Python 的列表，类型可以混合在一起</p>
+<h3 id="子列表"><a href="#子列表" class="headerlink" title="子列表"></a>子列表</h3><p><strong>获取单个值</strong></p>
+<p>同 Python 的索引，类似于<code>list[n]</code></p>
+<p><strong>切片</strong></p>
+<ul>
+<li><code>list[n:m]</code> 获取 <code>list</code> 列表中的索引号 n 到 m 的元素 （包括m）</li>
+<li><code>list[n:]</code>: n到末尾</li>
+<li><code>list[:m]</code>: 从头到m</li>
+</ul>
+<p>注: 若 <code>m</code> &gt; <code>list</code> 的长度，那么就是获取 m 到末尾的元素</p>
+<h3 id="切片字符串"><a href="#切片字符串" class="headerlink" title="切片字符串"></a>切片字符串</h3><p>同list</p>
+<h3 id="数值运算-1"><a href="#数值运算-1" class="headerlink" title="数值运算"></a>数值运算</h3><p>使用 <code>+</code>: 连接两个劫镖</p>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>len()</code></td>
+<td>获得列表长度</td>
+</tr>
+<tr>
+<td><code>insert()</code></td>
+<td>将元素传输到列表开始位置</td>
+</tr>
+<tr>
+<td><code>remove()</code></td>
+<td>删除列表元素</td>
+</tr>
+<tr>
+<td><code>map()</code><br/><code>filter()</code></td>
+<td>用来过滤元素 &#x3D;&#x3D;？？？？&#x3D;&#x3D;</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">:let sweeterList = [&quot;glazed&quot;, &quot;chocolate&quot;, &quot;strawberry&quot;]</span><br><span class="line">:call filter(sweeterList, &#x27;v:val !~ &quot;choco&quot;&#x27;)</span><br><span class="line">:echo sweeterList</span><br><span class="line">&quot; returns [&quot;glazed&quot;, &quot;strawberry&quot;]</span><br><span class="line"></span><br><span class="line">:let sweetestList = [&quot;chocolate&quot;, &quot;glazed&quot;, &quot;sugar&quot;]</span><br><span class="line">:call map(sweetestList, &#x27;v:val . &quot; donut&quot;&#x27;)</span><br><span class="line">:echo sweetestList</span><br><span class="line">&quot; returns [&#x27;chocolate donut&#x27;, &#x27;glazed donut&#x27;, &#x27;sugar donut&#x27;]</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="解包"><a href="#解包" class="headerlink" title="解包"></a>解包</h3><p>像python</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">:let favoriteFlavor = [&quot;chocolate&quot;, &quot;glazed&quot;, &quot;plain&quot;]</span><br><span class="line">:let [flavor1, flavor2, flavor3] = favoriteFlavor</span><br><span class="line"></span><br><span class="line">:echo flavor1</span><br><span class="line">&quot; returns &quot;chocolate&quot;</span><br><span class="line"></span><br><span class="line">:echo flavor2</span><br><span class="line">&quot; returns &quot;glazed&quot;</span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>;</code> 分配剩余的元素</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">:let favoriteFruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;lemon&quot;, &quot;blueberry&quot;, &quot;raspberry&quot;]</span><br><span class="line">:let [fruit1, fruit2; restFruits] = favoriteFruits</span><br><span class="line"></span><br><span class="line">:echo fruit1</span><br><span class="line">&quot; returns &quot;apple&quot;</span><br><span class="line"></span><br><span class="line">:echo restFruits</span><br><span class="line">&quot; returns [&#x27;lemon&#x27;, &#x27;blueberry&#x27;, &#x27;raspberry&#x27;]</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="修改列表"><a href="#修改列表" class="headerlink" title="修改列表"></a>修改列表</h3><p><strong>修改一项</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:let favoriteFlavor = [&quot;chocolate&quot;, &quot;glazed&quot;, &quot;plain&quot;]</span><br><span class="line">:let favoriteFlavor[0] = &quot;sugar&quot;</span><br><span class="line">:echo favoriteFlavor</span><br><span class="line">&quot; returns [&#x27;sugar&#x27;, &#x27;glazed&#x27;, &#x27;plain&#x27;]</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>修改多项</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:let favoriteFlavor = [&quot;chocolate&quot;, &quot;glazed&quot;, &quot;plain&quot;]</span><br><span class="line">:let favoriteFlavor[2:] = [&quot;strawberry&quot;, &quot;chocolate&quot;]</span><br><span class="line">:echo favoriteFlavor</span><br><span class="line">&quot; returns [&#x27;chocolate&#x27;, &#x27;glazed&#x27;, &#x27;strawberry&#x27;, &#x27;chocolate&#x27;]</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h2><p>类似于 python</p>
+<p>&#x3D;&#x3D;区别&#x3D;&#x3D;在于 vim 只使用字符串为“键”，即使使用数字，也会将数字转化为字符串</p>
+<h3 id="偷懒方法"><a href="#偷懒方法" class="headerlink" title="偷懒方法"></a>偷懒方法</h3><p>使用 <code>#&#123;&#125;</code> 来表示</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:let mealPlans = #&#123;breakfast: &quot;waffles&quot;, lunch: &quot;pancakes&quot;, dinner: &quot;donuts&quot;&#125;</span><br><span class="line"></span><br><span class="line">:echo mealPlans</span><br><span class="line">&quot; returns &#123;&#x27;lunch&#x27;: &#x27;pancakes&#x27;, &#x27;breakfast&#x27;: &#x27;waffles&#x27;, &#x27;dinner&#x27;: &#x27;donuts&#x27;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>要求</strong></p>
+<p>“键”的字符必须满足一下条件：</p>
+<ul>
+<li>ASCII character.</li>
+<li>Digit.</li>
+<li>An underscore (<code>_</code>).</li>
+<li>A hyphen (<code>-</code>).</li>
+</ul>
+<h3 id="访问字典"><a href="#访问字典" class="headerlink" title="访问字典"></a>访问字典</h3><ul>
+<li><p><code>[]</code></p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">meal[&#x27;breakfast&#x27;]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>.</code></p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">meal.lunch</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="修改字典"><a href="#修改字典" class="headerlink" title="修改字典"></a>修改字典</h3><ul>
+<li><p>[]&#96;</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">meal[&#x27;breakfast&#x27;] = &quot;...&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>.</code></p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">meal.lunch = &quot;...&quot;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="内置函数"><a href="#内置函数" class="headerlink" title="内置函数"></a>内置函数</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>len()</code></td>
+<td>获取字典长度</td>
+</tr>
+<tr>
+<td><code>has_key()</code></td>
+<td>获取字典的键</td>
+</tr>
+<tr>
+<td><code>empty()</code></td>
+<td>字典是否有键值对</td>
+</tr>
+<tr>
+<td><code>remove()</code></td>
+<td>移除键值对</td>
+</tr>
+<tr>
+<td><code>items()</code></td>
+<td>将键值对转化为列表：每个键值对为一个列表</td>
+</tr>
+<tr>
+<td><code>filter()</code> and <code>map()</code></td>
+<td>过滤作用</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="特殊基元"><a href="#特殊基元" class="headerlink" title="特殊基元"></a>特殊基元</h2><ul>
+<li><code>v:false</code></li>
+<li><code>v:true</code></li>
+<li><code>v:none</code></li>
+<li><code>v:null</code></li>
+</ul>
+<blockquote>
+<p>注：</p>
+<ul>
+<li><code>v:</code> 是 vim 内置的变量</li>
+<li>这些不常用</li>
+<li>常用如下<ul>
+<li>布尔值：0(假)；non-0 (真)</li>
+<li>空字符串：<code>&quot;&quot;</code></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id="True"><a href="#True" class="headerlink" title="True"></a>True</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:echo json_encode(&#123;&quot;test&quot;: v:true&#125;)</span><br><span class="line">&quot; returns &#123;&quot;test&quot;: true&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="False"><a href="#False" class="headerlink" title="False"></a>False</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:echo json_encode(&#123;&quot;test&quot;: v:false&#125;)</span><br><span class="line">&quot; returns &#123;&quot;test&quot;: false&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="None"><a href="#None" class="headerlink" title="None"></a>None</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:echo json_encode(&#123;&quot;test&quot;: v:none&#125;)</span><br><span class="line">&quot; returns &#123;&quot;test&quot;: null&#125;</span><br></pre></td></tr></table></figure>
+
+<p>被解释成 <code>null</code></p>
+<h3 id="Null"><a href="#Null" class="headerlink" title="Null"></a>Null</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:echo json_encode(&#123;&quot;test&quot;: v:null&#125;)</span><br><span class="line">&quot; returns &#123;&quot;test&quot;: null&#125;</span><br></pre></td></tr></table></figure>
+
+<p>类似于 <code>v:none</code></p>
+<h1 id="第26章-条件和循环"><a href="#第26章-条件和循环" class="headerlink" title="第26章 条件和循环"></a>第26章 条件和循环</h1><h2 id="关系表达式"><a href="#关系表达式" class="headerlink" title="关系表达式"></a>关系表达式</h2><ul>
+<li><code>==</code></li>
+<li><code>!=</code></li>
+<li><code>&gt;</code></li>
+<li><code>&gt;=</code></li>
+<li><code>&lt;</code></li>
+<li><code>&lt;=</code></li>
+</ul>
+<blockquote>
+<p>注意：这里的字符串仍被转换为数字</p>
+</blockquote>
+<h3 id="字符串逻辑运算"><a href="#字符串逻辑运算" class="headerlink" title="字符串逻辑运算"></a>字符串逻辑运算</h3><p>用关系运算符来比较字符串</p>
+<ul>
+<li><code>=~</code>：对字符串进行正则表达式匹配：可以模式匹配上</li>
+<li><code>!~</code>: 对字符串进行正则表达式匹配：不可以匹配上</li>
+<li><code>==</code>: 完全匹配：相等</li>
+<li><code>!=</code>：完全匹配：不相等</li>
+</ul>
+<blockquote>
+<p>注意：如果在设置了 <code>set ignorecase</code>，那么比较时也会忽略大小写</p>
+</blockquote>
+<p><strong>设置总是忽略大小写</strong></p>
+<ul>
+<li><p>在末尾加一个 <code>#</code>，如：<code>=~#</code> （推荐：安全）</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo str =~# &quot;hearty&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在末尾加一个 <code>?</code>，如：<code>=~?</code></p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo str =~? &quot;hearty&quot;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="if"><a href="#if" class="headerlink" title="if"></a>if</h2><h3 id="最小的-if-语句"><a href="#最小的-if-语句" class="headerlink" title="最小的 if 语句"></a>最小的 if 语句</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if &#123;clasuse&#125;</span><br><span class="line">	&#123;some expression&#125;</span><br><span class="line">endif</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="if-全貌"><a href="#if-全貌" class="headerlink" title="if 全貌"></a>if 全貌</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if &#123;predicate1&#125;</span><br><span class="line">	&#123;expression1&#125;</span><br><span class="line">elseif &#123;predicate2&#125;</span><br><span class="line">	&#123;expression2&#125;</span><br><span class="line">elseif &#123;predicate3&#125;</span><br><span class="line">	&#123;expression3&#125;</span><br><span class="line">else</span><br><span class="line">	&#123;expression4&#125;</span><br><span class="line">endif</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="三元表达式"><a href="#三元表达式" class="headerlink" title="三元表达式"></a>三元表达式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;predicate&#125; ? expressiontrue : expressionfalse</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>补充</strong></p>
+<ul>
+<li><code>background</code>: 背景</li>
+<li><code>strftime()</code>： 目前时间</li>
+</ul>
+<h3 id="or"><a href="#or" class="headerlink" title="or"></a>or</h3><p><code>||</code></p>
+<blockquote>
+<p>注意：短路运算</p>
+</blockquote>
+<h3 id="and"><a href="#and" class="headerlink" title="and"></a>and</h3><p><code>&amp;&amp;</code></p>
+<blockquote>
+<p>注意：短路运算</p>
+</blockquote>
+<h2 id="for"><a href="#for" class="headerlink" title="for"></a>for</h2><h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let breakfasts = [&quot;pancakes&quot;, &quot;waffles&quot;, &quot;eggs&quot;]</span><br><span class="line"></span><br><span class="line">for breakfast in breakfasts</span><br><span class="line">  echo breakfast</span><br><span class="line">endfor</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let meals = [[&quot;breakfast&quot;, &quot;pancakes&quot;], [&quot;lunch&quot;, &quot;fish&quot;], [&quot;dinner&quot;, &quot;pasta&quot;]]</span><br><span class="line"></span><br><span class="line">for [meal_type, food] in meals</span><br><span class="line">  echo &quot;I am having &quot; . food . &quot; for &quot; . meal_type</span><br><span class="line">endfor</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="方法3"><a href="#方法3" class="headerlink" title="方法3"></a>方法3</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let beverages = #&#123;breakfast: &quot;milk&quot;, lunch: &quot;orange juice&quot;, dinner: &quot;water&quot;&#125;</span><br><span class="line">for beverage_type in keys(beverages)</span><br><span class="line">  echo &quot;I am drinking &quot; . beverages[beverage_type] . &quot; for &quot; . beverage_type</span><br><span class="line">endfor</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="while"><a href="#while" class="headerlink" title="while"></a>while</h2><h3 id="常见"><a href="#常见" class="headerlink" title="常见"></a>常见</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let counter = 1</span><br><span class="line">while counter &lt; 5</span><br><span class="line">  echo &quot;Counter is: &quot; . counter</span><br><span class="line">  let counter += 1</span><br><span class="line">endwhile</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="获得每行内容"><a href="#获得每行内容" class="headerlink" title="获得每行内容"></a>获得每行内容</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let current_line = line(&quot;.&quot;)</span><br><span class="line">let last_line = line(&quot;$&quot;)</span><br><span class="line"></span><br><span class="line">while current_line &lt;= last_line</span><br><span class="line">  echo getline(current_line)</span><br><span class="line">  let current_line += 1</span><br><span class="line">endwhile</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Error-Handling"><a href="#Error-Handling" class="headerlink" title="Error Handling"></a>Error Handling</h2><h3 id="break"><a href="#break" class="headerlink" title="break"></a>break</h3><p>和 python 一样：中断循环</p>
+<h3 id="Continue"><a href="#Continue" class="headerlink" title="Continue"></a>Continue</h3><p>和 python 一样：跳过当前轮</p>
+<h3 id="try-finally-and-catch"><a href="#try-finally-and-catch" class="headerlink" title="try, finally, and catch"></a>try, finally, and catch</h3><p>和 python 一样</p>
+<ul>
+<li>finally: 总是被执行，且是最后被执行</li>
+<li>catch: 捕获错误</li>
+</ul>
+<blockquote>
+<p>注</p>
+<ul>
+<li><code>throw</code>：抛出一个错误</li>
+</ul>
+</blockquote>
+<p><strong>catch 捕捉的错误</strong></p>
+<p><code>:h :catch</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">catch /^Vim:Interrupt$/.             &quot; catch interrupts (CTRL-C)</span><br><span class="line">catch /^Vim\\%((\\a\\+)\\)\\=:E/.    &quot; catch all Vim errors</span><br><span class="line">catch /^Vim\\%((\\a\\+)\\)\\=:/.     &quot; catch errors and interrupts</span><br><span class="line">catch /^Vim(write):/.                &quot; catch all errors in :write</span><br><span class="line">catch /^Vim\\%((\\a\\+)\\)\\=:E123:/ &quot; catch error E123</span><br><span class="line">catch /my-exception/.                &quot; catch user exception</span><br><span class="line">catch /.*/                           &quot; catch everything</span><br><span class="line">catch.                               &quot; same as /.*/</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="第27章-变量范围"><a href="#第27章-变量范围" class="headerlink" title="第27章 变量范围"></a>第27章 变量范围</h1><h2 id="变量与常量"><a href="#变量与常量" class="headerlink" title="变量与常量"></a>变量与常量</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p><strong>定义变量</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let val = &quot;value&quot;</span><br></pre></td></tr></table></figure>
+
+<p><code>let</code> 定义的是&#x3D;&#x3D;变量&#x3D;&#x3D;</p>
+<p><strong>修改变量</strong></p>
+<p>当需要改变变量的值时，需要使用 <code>let</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let val = &quot;value&quot;</span><br><span class="line">let val = &quot;value1&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>使用变量</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo val</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p><strong>定义</strong></p>
+<p>使用 <code>const</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const val = &quot;value&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="变量源"><a href="#变量源" class="headerlink" title="变量源"></a>变量源</h2><ul>
+<li>环境变量</li>
+<li>选项变量</li>
+<li>寄存器变量</li>
+</ul>
+<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p>vim 可以访问&#x3D;&#x3D;终端的环境变量&#x3D;&#x3D;</p>
+<p><strong>语法</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;Enviroment_variable&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>示例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $SHELL</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：不要使用 <code>&#123;&#125;</code>，错误的用法: <code>echo $&#123;SHELL&#125;</code></p>
+</blockquote>
+<h3 id="选项变量"><a href="#选项变量" class="headerlink" title="选项变量"></a>选项变量</h3><p>这些变量也就是 <code>.vimrc</code> 中使用 <code>set</code> 设置的那些变量</p>
+<p><strong>访问</strong></p>
+<ul>
+<li><p>方法1<code>: 使用 </code>&amp;&#96;</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &amp;background</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方法2: <code>set background?</code></p>
+</li>
+</ul>
+<h3 id="寄存器变量"><a href="#寄存器变量" class="headerlink" title="寄存器变量"></a>寄存器变量</h3><p><strong>访问</strong></p>
+<p>使用 <code>@</code></p>
+<p><strong>更新寄存器的值</strong></p>
+<p>使用 <code>let</code></p>
+<p><strong>示例</strong></p>
+<ul>
+<li><p>访问寄存器 a</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo @a</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新寄存器 a 的值</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let @a .= &quot; donut&quot;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="变量范围"><a href="#变量范围" class="headerlink" title="变量范围"></a>变量范围</h2><table>
+<thead>
+<tr>
+<th>变量范围</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>g:</code></td>
+<td>Global variable</td>
+</tr>
+<tr>
+<td><code>&#123;nothing&#125;</code></td>
+<td>Global variable</td>
+</tr>
+<tr>
+<td><code>b:</code></td>
+<td>Buffer-local variable</td>
+</tr>
+<tr>
+<td><code>w:</code></td>
+<td>Window-local variable</td>
+</tr>
+<tr>
+<td><code>t:</code></td>
+<td>Tab-local variable</td>
+</tr>
+<tr>
+<td><code>s:</code></td>
+<td>Sourced Vimscript variable</td>
+</tr>
+<tr>
+<td><code>l:</code></td>
+<td>Function local variable</td>
+</tr>
+<tr>
+<td><code>a:</code></td>
+<td>Function formal parameter variable</td>
+</tr>
+<tr>
+<td><code>v:</code></td>
+<td>Built-in Vim variable</td>
+</tr>
+</tbody></table>
+<h3 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h3><p><strong>范围</strong></p>
+<p>可以在任何地方使用</p>
+<p><strong>定义</strong></p>
+<ul>
+<li><code>let val = &quot;value&quot;</code></li>
+<li><code>let g:val = &quot;value&quot;</code></li>
+</ul>
+<p><strong>使用</strong></p>
+<ul>
+<li><code>echo val</code></li>
+<li><code>echo g:val</code></li>
+</ul>
+<h3 id="缓冲区变量"><a href="#缓冲区变量" class="headerlink" title="缓冲区变量"></a>缓冲区变量</h3><p><strong>定义</strong></p>
+<p>添加前缀 <code>b:</code> </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const b:donut = &quot;chocoldate donut&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>说明</strong></p>
+<p>定义的每个缓冲区变量仅在定义时所在的缓冲区有效，也就是说缓冲区变量的作用域是定义所在缓冲区</p>
+<p><strong>特殊缓冲区值</strong></p>
+<p><code>b:changedtick</code>: 跟踪了在当前缓冲区所有的改变</p>
+<h3 id="窗口变量"><a href="#窗口变量" class="headerlink" title="窗口变量"></a>窗口变量</h3><p><strong>定义</strong></p>
+<p>添加前缀 <code>w:</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let w:donut = &quot;donut&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>说明</strong></p>
+<p>类似于缓冲区变量，变量的作用域为定义的窗口</p>
+<p><strong>标签变量</strong></p>
+<p><strong>定义</strong></p>
+<p>添加前缀 <code>t:</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let t:done</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>说明</strong></p>
+<p>类似于窗口变量和缓冲区变量</p>
+<h3 id="脚本变量"><a href="#脚本变量" class="headerlink" title="脚本变量"></a>脚本变量</h3><p><strong>定义</strong></p>
+<p>使用前缀 <code>s:</code></p>
+<p><strong>说明</strong></p>
+<p>仅在定义变量的脚本内部才可以访问到</p>
+<h3 id="Function-Local-and-Function-Formal-Parameter-Variable"><a href="#Function-Local-and-Function-Formal-Parameter-Variable" class="headerlink" title="Function Local and Function Formal Parameter Variable"></a>Function Local and Function Formal Parameter Variable</h3><p><strong>定义</strong></p>
+<ul>
+<li>函数局部变量：<code>l:</code></li>
+<li>函数形参变量: <code>a:</code></li>
+</ul>
+<h3 id="内置变量"><a href="#内置变量" class="headerlink" title="内置变量"></a>内置变量</h3><p><strong>说明</strong></p>
+<p>前缀为 <code>v:</code></p>
+<p><strong>注意</strong></p>
+<p>无法定义这些变量</p>
+<p><strong>常见</strong></p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>v:version</code></td>
+<td>vim 版本</td>
+</tr>
+<tr>
+<td><code>v:key</code></td>
+<td>contains the current item value when iterating through a dictionary.</td>
+</tr>
+<tr>
+<td><code>v:val</code></td>
+<td>contains the current item value when running a map() or filter() operation.</td>
+</tr>
+<tr>
+<td><code>v:true</code>, <code>v:false</code>, <code>v:null</code>, and <code>v:none</code></td>
+<td>special data types.</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>注意：查看其他的内置变量 <code>:h vim-variable</code> or <code>:h v:</code>.</p>
+</blockquote>
+<h1 id="第28章-函数"><a href="#第28章-函数" class="headerlink" title="第28章 函数"></a>第28章 函数</h1><h2 id="函数语法"><a href="#函数语法" class="headerlink" title="函数语法"></a>函数语法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function &#123;FunctionNmae&#125;()</span><br><span class="line">	&#123;do-something&#125;</span><br><span class="line">endfunction</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：</p>
+<ul>
+<li>&#x3D;&#x3D;函数名必须以大写字母开头&#x3D;&#x3D;</li>
+<li>函数名不能以数字开头</li>
+</ul>
+</blockquote>
+<h3 id="函数名小写字母开始"><a href="#函数名小写字母开始" class="headerlink" title="函数名小写字母开始"></a>函数名小写字母开始</h3><p>使用脚本变量前缀 <code>s:</code>，如：<code>function s:tasty()</code></p>
+<h3 id="同名函数"><a href="#同名函数" class="headerlink" title="同名函数"></a>同名函数</h3><p>不允许有重名函数</p>
+<p><strong>覆写函数</strong></p>
+<p>在 <code>function</code> 后面使用 <code>!</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function！ Tasty()</span><br><span class="line">	echo &quot;Tasty&quot;</span><br><span class="line">endfunction</span><br></pre></td></tr></table></figure>
+
+<p>覆写之后上面的函数就会没有。&#x3D;&#x3D;覆写不是重载&#x3D;&#x3D;哦</p>
+<h2 id="查看所有可用函数"><a href="#查看所有可用函数" class="headerlink" title="查看所有可用函数"></a>查看所有可用函数</h2><p>使用 <code>:function</code></p>
+<h3 id="查看某一个函数内容"><a href="#查看某一个函数内容" class="headerlink" title="查看某一个函数内容"></a>查看某一个函数内容</h3><p><code>:function Tasty</code></p>
+<h3 id="模式搜索函数"><a href="#模式搜索函数" class="headerlink" title="模式搜索函数"></a>模式搜索函数</h3><p><code>:function /pattern</code></p>
+<h3 id="查看函数位置"><a href="#查看函数位置" class="headerlink" title="查看函数位置"></a>查看函数位置</h3><p>使用 <code>:verbose</code> 和 <code>:function 命令</code></p>
+<ul>
+<li><p>某一函数</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:verbose function &lt;FunctionName&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>模式匹配函数</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:verbose function /&lt;pattern&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="删除函数"><a href="#删除函数" class="headerlink" title="删除函数"></a>删除函数</h2><p>删除一个已有函数: <code>:delfunction &#123;FunctionName&#125;</code></p>
+<p>例如: <code>:delfunction Tasty</code></p>
+<h2 id="函数返回值"><a href="#函数返回值" class="headerlink" title="函数返回值"></a>函数返回值</h2><ul>
+<li>默认返回 0</li>
+<li><code>return</code>: 等价于返回0</li>
+</ul>
+<h2 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h2><p><strong>用法</strong></p>
+<p>使用 <code>a:</code></p>
+<p><strong>示例</strong></p>
+<p>如函数 <code>Tasty()</code> 使用参数 <code>food</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function! Tasty(food)</span><br><span class="line">	return &quot;Tasty&quot; . a:food</span><br><span class="line">endfunction</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h3><h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>使用 <code>l:</code></p>
+<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><p><strong>问题 1</strong></p>
+<p>若在函数内部定义一个变量，那么这个变量默认为局部变量</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function!</span> <span class="title">Tasty</span><span class="params">()</span></span><br><span class="line">	<span class="keyword">let</span> location = <span class="string">&quot;tasty&quot;</span></span><br><span class="line">	<span class="keyword">return</span> location . <span class="string">&quot; in Tasty&quot;</span></span><br><span class="line"><span class="keyword">endfunction</span></span><br></pre></td></tr></table></figure>
+
+<p>与下面代码等价，但是&#x3D;&#x3D;没有下面的代码好&#x3D;&#x3D;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function! Tasty()</span><br><span class="line">	let l:location = &quot;tasty&quot;</span><br><span class="line">	return l:location . &quot; in Tasty&quot;</span><br><span class="line">endfunction</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>问题 2</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function! Calories()</span><br><span class="line">  let count = &quot;count&quot;</span><br><span class="line">  return &quot;I do not &quot; . count . &quot; my calories&quot;</span><br><span class="line">endfunction</span><br><span class="line"></span><br><span class="line">echo Calories()</span><br><span class="line">&quot; throws an error</span><br></pre></td></tr></table></figure>
+
+<p>变量会与特殊变量同名，导致错误</p>
+<p>错误根源：<code>let count = &quot;count&quot;</code></p>
+<h2 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h2><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p><strong>纯粹调用函数</strong></p>
+<p>使用 <code>call</code> 调用函数</p>
+<ul>
+<li><p>命令行</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:call Tasty()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>脚本</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">call Tasty()</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>You cannot call a command-line command with another command-line command. </p>
+<p>你不能使用命令行命令调用命令行命令</p>
+<p><strong>使用函数返回值</strong><br>使用 <code>call(&quot;&lt;FunctionName&gt;&quot;, [&lt;参数列表&gt;])</code></p>
+<p><code>[]</code> 不可以省略</p>
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ul>
+<li><code>:call</code> 是命令行命令</li>
+<li><code>call()</code>： 函数<ul>
+<li>第一个参数接收函数名</li>
+<li>第二个参数接收形参列表</li>
+</ul>
+</li>
+</ul>
+<h2 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h2><p>使用 <code>=</code></p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function! Breakfast(meal, beverage = &quot;Milk&quot;)</span><br><span class="line">  return &quot;I had &quot; . a:meal . &quot; and &quot; . a:beverage . &quot; for breakfast&quot;</span><br><span class="line">endfunction</span><br><span class="line"></span><br><span class="line">echo Breakfast(&quot;Hash Browns&quot;)</span><br><span class="line">&quot; returns I had hash browns and milk for breakfast</span><br><span class="line"></span><br><span class="line">echo Breakfast(&quot;Cereal&quot;, &quot;Orange Juice&quot;)</span><br><span class="line">&quot; returns I had Cereal and Orange Juice for breakfast</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="可变参数"><a href="#可变参数" class="headerlink" title="可变参数"></a>可变参数</h2><p>使用 <code>...</code></p>
+<h3 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function! Buffet(...)</span><br><span class="line">  return a:1</span><br><span class="line">endfunction</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>a:0</code>: 共有多少个参数</li>
+<li><code>a:1</code> 是第一个参数</li>
+<li><code>a:2</code> 是第二个参数</li>
+<li>…</li>
+<li><code>a:20</code> 是第20个参数</li>
+<li><code>a:000</code> 是所有参数值组成的列表</li>
+</ul>
+<p><strong>a:0 示例</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function! Buffet(...)</span><br><span class="line">  let l:food_counter = 1</span><br><span class="line">  let l:foods = &quot;&quot;</span><br><span class="line">  while l:food_counter &lt;= a:0</span><br><span class="line">    let l:foods .= a:&#123;l:food_counter&#125; . &quot; &quot;</span><br><span class="line">    let l:food_counter += 1</span><br><span class="line">  endwhile</span><br><span class="line">  return l:foods</span><br><span class="line">endfunction</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>a:000 + for</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function! Buffet(...)</span><br><span class="line">  let l:foods = &quot;&quot;</span><br><span class="line">  for food_item in a:000</span><br><span class="line">    let l:foods .= food_item . &quot; &quot;</span><br><span class="line">  endfor</span><br><span class="line">  return l:foods</span><br><span class="line">endfunction</span><br><span class="line"></span><br><span class="line">echo Buffet(&quot;Noodles&quot;, &quot;Sushi&quot;, &quot;Ice cream&quot;, &quot;Tofu&quot;, &quot;Mochi&quot;)</span><br><span class="line">&quot; returns Noodles Sushi Ice cream Tofu Mochi</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Range"><a href="#Range" class="headerlink" title="Range"></a>Range</h2><p>在定义函数的第一行最后加入 <code>range</code></p>
+<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p>会给该函数添加两个特定变量：</p>
+<ul>
+<li><code>a:firstline</code>: 所选范围的第一行的行号</li>
+<li><code>b:lastline</code>: 所选范围的最后一行的行号</li>
+</ul>
+<h3 id="与-line-“-”-区别"><a href="#与-line-“-”-区别" class="headerlink" title="与 line(“.”) 区别"></a>与 line(“.”) 区别</h3><ul>
+<li><code>line(&quot;.&quot;)</code>： 会在所选范围的所有行上，每行会执行一次函数</li>
+<li><code>range</code>： 只会在第一行执行一次</li>
+</ul>
+<h3 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function! Breakfast() range</span><br><span class="line">    echo line(&quot;.&quot;)</span><br><span class="line">endfunction</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:11,20 call Breakfast</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="字典-1"><a href="#字典-1" class="headerlink" title="字典"></a>字典</h2><p>没什么用处</p>
+<p>也没怎么看懂</p>
+<h2 id="函数引用"><a href="#函数引用" class="headerlink" title="函数引用"></a>函数引用</h2><p>类似于函数指针，将变量指向一个函数</p>
+<h3 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h3><p>使用 <code>function()</code></p>
+<h3 id="示例-3"><a href="#示例-3" class="headerlink" title="示例"></a>示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function! Breakfast(item)</span><br><span class="line">  return &quot;I am having &quot; . a:item . &quot; for breakfast&quot;</span><br><span class="line">endfunction</span><br><span class="line"></span><br><span class="line">let Breakfastify = Breakfast</span><br><span class="line">&quot; returns error</span><br><span class="line"></span><br><span class="line">let Breakfastify = function(&quot;Breakfast&quot;)</span><br><span class="line"></span><br><span class="line">echo Breakfastify(&quot;oatmeal&quot;)</span><br><span class="line">&quot; returns &quot;I am having oatmeal for breakfast&quot;</span><br><span class="line"></span><br><span class="line">echo Breakfastify(&quot;pancake&quot;)</span><br><span class="line">&quot; returns &quot;I am having pancake for breakfast&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Lambda"><a href="#Lambda" class="headerlink" title="Lambda"></a>Lambda</h2><p>未命名函数</p>
+<h3 id="示例-4"><a href="#示例-4" class="headerlink" title="示例"></a>示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let Plus = &#123;x,y -&gt; x + y&#125;</span><br><span class="line">echo Plus(1,2)</span><br><span class="line">&quot; returns 3</span><br><span class="line"></span><br><span class="line">let Tasty = &#123; -&gt; &#x27;tasty&#x27;&#125;</span><br><span class="line">echo Tasty()</span><br><span class="line">&quot; returns &quot;tasty&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>You can call a function from insisde a lambda expression（没看懂）</p>
+<h2 id="方法链"><a href="#方法链" class="headerlink" title="方法链"></a>方法链</h2><h3 id="用法-1"><a href="#用法-1" class="headerlink" title="用法"></a>用法</h3><p>使用 <code>-&gt;</code></p>
+<p><code>-&gt;</code>跟在函数名后面，且中间不能添加空格</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Source-&gt;Method1()-&gt;Method2()-&gt;...-&gt;MethodN()</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>像 <code>shell</code> 的 &#x3D;&#x3D;管道&#x3D;&#x3D;</p>
+<h2 id="Closure"><a href="#Closure" class="headerlink" title="Closure"></a>Closure</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function! Lunch()</span><br><span class="line">  let appetizer = &quot;shrimp&quot;</span><br><span class="line"></span><br><span class="line">  function! SecondLunch()</span><br><span class="line">    return appetizer</span><br><span class="line">  endfunction</span><br><span class="line"></span><br><span class="line">  return funcref(&quot;SecondLunch&quot;)</span><br><span class="line">endfunction</span><br></pre></td></tr></table></figure>
+
+<p>appetizer在Lunch函数中定义，该函数返回SecondLunch函数。注意，SecondLunch使用了appetizer，但在Vimscript中，它没有访问该变量的权限。如果你尝试运行<code>echo Lunch()()</code>， Vim将抛出一个未定义变量错误。</p>
+<p><strong>解决</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function! Lunch()</span><br><span class="line">  let appetizer = &quot;shrimp&quot;</span><br><span class="line"></span><br><span class="line">  function! SecondLunch() closure</span><br><span class="line">    return appetizer</span><br><span class="line">  endfunction</span><br><span class="line"></span><br><span class="line">  return funcref(&quot;SecondLunch&quot;)</span><br><span class="line">endfunction</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="写插件"><a href="#写插件" class="headerlink" title="写插件"></a>写插件</h1><p>略</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://qeuroal.top/2023/06/08/155/" title="155. VIM 从偶尔到日常">http://qeuroal.top/2023/06/08/155/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/software/" rel="tag"><i class="fa fa-tag"></i> software</a>
+              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+              <a href="/tags/vim/" rel="tag"><i class="fa fa-tag"></i> vim</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/06/05/154/" rel="prev" title="154. VIM 从放弃到偶尔">
+                  <i class="fa fa-angle-left"></i> 154. VIM 从放弃到偶尔
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/06/23/156/" rel="next" title="156. vagrant + virturalbox 环境">
+                  156. vagrant + virturalbox 环境 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Qeuroal" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

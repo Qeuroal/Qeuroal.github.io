@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="rime用于配置小鹤音形, 一些配置的随记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="205. rime系软件的使用">
+<meta property="og:url" content="http://qeuroal.top/2024/03/23/205/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Blog">
+<meta property="og:description" content="rime用于配置小鹤音形, 一些配置的随记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qeuroal.top/2024/03/23/205/2022-03-22-000487.gif">
+<meta property="og:image" content="http://qeuroal.top/2024/03/23/205/2023-04-06-000118.webp">
+<meta property="og:image" content="http://qeuroal.top/2024/03/23/205/2023-04-06-000122.webp">
+<meta property="article:published_time" content="2024-03-22T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-08T06:36:58.672Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="software">
+<meta property="article:tag" content="rime">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qeuroal.top/2024/03/23/205/2022-03-22-000487.gif">
+
+
+<link rel="canonical" href="http://qeuroal.top/2024/03/23/205/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2024/03/23/205/","path":"2024/03/23/205/","title":"205. rime系软件的使用"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>205. rime系软件的使用 | Qeuroal's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Qeuroal's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">静幽正治</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A5patch%E7%9A%84%E6%96%B9%E5%BC%8F%E6%89%93%E8%A1%A5%E4%B8%81"><span class="nav-number">2.</span> <span class="nav-text">以patch的方式打补丁</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="nav-number">2.1.</span> <span class="nav-text">使用说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8Bpatch%E6%98%AF%E5%90%A6%E6%89%93%E4%B8%8A"><span class="nav-number">2.2.</span> <span class="nav-text">查看patch是否打上</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B"><span class="nav-number">2.3.</span> <span class="nav-text">实例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A0%81%E8%A1%A8%E5%92%8C%E8%AF%8D%E5%BA%93"><span class="nav-number">3.1.</span> <span class="nav-text">码表和词库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E6%AE%B5%E8%A7%A3%E9%87%8A"><span class="nav-number">3.1.1.</span> <span class="nav-text">字段解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E8%AF%8D%E5%BA%93"><span class="nav-number">3.1.2.</span> <span class="nav-text">编写词库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%82%E8%BD%BD%E8%87%AA%E5%B7%B1%E7%9A%84%E8%AF%8D%E5%BA%93"><span class="nav-number">3.1.3.</span> <span class="nav-text">挂载自己的词库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%87%E6%9C%AC"><span class="nav-number">3.1.4.</span> <span class="nav-text">自定义文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E9%B9%A4%E9%9F%B3%E5%BD%A2%E6%B7%BB%E5%8A%A0%E8%AF%8D%E5%BA%93%E7%9A%84%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%96%B9%E6%B3%95"><span class="nav-number">3.1.5.</span> <span class="nav-text">小鹤音形添加词库的另一个方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#patch%E6%96%B9%E6%B3%95%E6%B7%BB%E5%8A%A0"><span class="nav-number">3.1.5.1.</span> <span class="nav-text">patch方法添加</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E4%B8%AD%E8%8B%B1%E6%96%87%E5%88%87%E6%8D%A2%E6%8F%90%E7%A4%BA"><span class="nav-number">3.2.</span> <span class="nav-text">配置中英文切换提示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#patch%E8%A1%A5%E4%B8%81-%E6%8E%A8%E8%8D%90"><span class="nav-number">3.2.1.</span> <span class="nav-text">patch补丁(推荐)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%8E%9F%E6%96%87%E4%BB%B6-%E4%B8%8D%E6%8E%A8%E8%8D%90"><span class="nav-number">3.2.2.</span> <span class="nav-text">修改原文件(不推荐)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%97%AD%E5%85%A8%E8%A7%92%E6%8C%89%E9%94%AEshift-space"><span class="nav-number">3.3.</span> <span class="nav-text">关闭全角按键shift+space</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#patch%E8%A1%A5%E4%B8%81-%E6%8E%A8%E8%8D%90-1"><span class="nav-number">3.3.1.</span> <span class="nav-text">patch补丁(推荐)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%8E%9F%E6%96%87%E4%BB%B6-%E4%B8%8D%E6%8E%A8%E8%8D%90-1"><span class="nav-number">3.3.2.</span> <span class="nav-text">修改原文件(不推荐)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E4%BD%BF%E7%94%A8%E8%8B%B1%E6%96%87%E6%A0%87%E7%82%B9"><span class="nav-number">3.4.</span> <span class="nav-text">设置中文输入使用英文标点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#patch%E8%A1%A5%E4%B8%81-%E6%8E%A8%E8%8D%90-2"><span class="nav-number">3.4.1.</span> <span class="nav-text">patch补丁(推荐)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%8E%9F%E6%96%87%E4%BB%B6-%E4%B8%8D%E6%8E%A8%E8%8D%90-2"><span class="nav-number">3.4.2.</span> <span class="nav-text">修改原文件(不推荐)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E8%AF%8D%E8%87%AA%E5%8A%A8%E4%B8%8A%E5%B1%8F"><span class="nav-number">3.5.</span> <span class="nav-text">单词自动上屏</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#patch%E8%A1%A5%E4%B8%81"><span class="nav-number">3.5.1.</span> <span class="nav-text">patch补丁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%8E%9F%E6%96%87%E4%BB%B6-%E4%B8%8D%E6%8E%A8%E8%8D%90-3"><span class="nav-number">3.5.2.</span> <span class="nav-text">修改原文件(不推荐)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BE%85%E6%B5%8B%E8%AF%95"><span class="nav-number">4.</span> <span class="nav-text">待测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%85%B3%E8%AE%B0%E5%BF%86"><span class="nav-number">4.1.</span> <span class="nav-text">开关记忆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4%E7%9B%B8%E5%85%B3%E5%8A%9F%E8%83%BD"><span class="nav-number">4.2.</span> <span class="nav-text">如何删除相关功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E8%AF%8Dor%E9%99%8D%E6%9D%83"><span class="nav-number">4.3.</span> <span class="nav-text">删词or降权</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tab-%E5%88%87%E5%85%89%E6%A0%87"><span class="nav-number">4.4.</span> <span class="nav-text">Tab 切光标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E5%90%8C%E7%9A%84%E4%B8%8A%E5%B1%8F%E6%96%B9%E5%BC%8F"><span class="nav-number">4.4.1.</span> <span class="nav-text">不同的上屏方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#opencc"><span class="nav-number">4.5.</span> <span class="nav-text">opencc</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5"><span class="nav-number">5.</span> <span class="nav-text">同步</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E"><span class="nav-number">5.1.</span> <span class="nav-text">文件说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E8%AE%BE%E5%A4%87%E5%90%8C%E6%AD%A5"><span class="nav-number">5.2.</span> <span class="nav-text">多设备同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E8%AF%8D%E5%85%B8%E8%BF%81%E7%A7%BB"><span class="nav-number">5.3.</span> <span class="nav-text">用户词典迁移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git%E5%90%8C%E6%AD%A5%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">5.4.</span> <span class="nav-text">git同步配置文件</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">大人者，不失其赤子之心</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2024/03/23/205/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="205. rime系软件的使用 | Qeuroal's Blog">
+      <meta itemprop="description" content="rime用于配置小鹤音形, 一些配置的随记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          205. rime系软件的使用
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-03-23 00:00:00" itemprop="dateCreated datePublished" datetime="2024-03-23T00:00:00+08:00">2024-03-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-08 14:36:58" itemprop="dateModified" datetime="2025-12-08T14:36:58+08:00">2025-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/software/" itemprop="url" rel="index"><span itemprop="name">software</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">rime用于配置小鹤音形, 一些配置的随记</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li>配置目录&#x2F;用户文件夹：<ul>
+<li>鼠须管： <code>~/Library/Rime</code></li>
+<li>小狼毫： <code>%APPDATA%\Rime</code></li>
+</ul>
+</li>
+<li>共享目录&#x2F;程序文件夹：<ul>
+<li>鼠须管： <code>/Library/Input Methods/Squirrel.app/Contents/SharedSupport</code></li>
+<li>小狼毫： <code>&lt;安装目录&gt;\data</code></li>
+</ul>
+</li>
+</ul>
+<p>自己的配置放到配置目录里就可以。共享目录提供了一些自带的方案及各项默认配置，可以直接引用；无特殊需求，不要修改共享目录的文件。</p>
+<p>比如 opencc 简繁转换的配置可以直接书写 <code>s2t.json</code>，因为共享目录里已经有相关文件了。</p>
+<p><code>build/</code> 目录是部署后自动生成的，不要修改，出错时可以看看里面生成的是否正确。首次部署较慢，主要是拼音方案词库很大，如果下次部署前没有修改词库，就会很快完成部署。</p>
+<h1 id="以patch的方式打补丁"><a href="#以patch的方式打补丁" class="headerlink" title="以patch的方式打补丁"></a>以patch的方式打补丁</h1><h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><p>文件名为 <code>xxx.custom.yaml</code>，内容以 <code>patch:</code> 开头的，是补丁文件，<strong>注意缩进</strong>，可以对原配置进行覆盖和追加。</p>
+<ul>
+<li>方案 <code>xxx.schema.yaml</code> 的补丁文件是 <code>xxx.custom.yaml</code></li>
+<li><code>default.yaml</code> <code>squirrel.yaml</code> 就是把结尾的 <code>.yaml</code> 改成 <code>.custom.yaml</code></li>
+</ul>
+<p>具体语法参考官方 wiki：<a target="_blank" rel="noopener" href="https://github.com/rime/home/wiki/CustomizationGuide#%E5%AE%9A%E8%A3%BD%E6%8C%87%E5%8D%97">定製指南</a></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">patch:</span></span><br><span class="line">  <span class="string">&quot;一级设定项/二级设定项/三级设定项&quot;</span><span class="string">:</span> <span class="string">新的设定值</span></span><br><span class="line">  <span class="string">&quot;另一个设定项&quot;</span><span class="string">:</span> <span class="string">新的设定值</span></span><br><span class="line">  <span class="string">&quot;再一个设定项&quot;</span><span class="string">:</span> <span class="string">新的设定值</span></span><br><span class="line">  <span class="string">&quot;含列表的设定项/@n&quot;</span><span class="string">:</span> <span class="string">列表第n个元素新的设定值，从0开始计数</span></span><br><span class="line">  <span class="string">&quot;含列表的设定项/@last&quot;</span><span class="string">:</span> <span class="string">列表最后一个元素新的设定值</span></span><br><span class="line">  <span class="string">&quot;含列表的设定项/@before 0&quot;</span><span class="string">:</span> <span class="string">在列表第一个元素之前插入新的设定值（不建议在补靪中使用）</span></span><br><span class="line">  <span class="string">&quot;含列表的设定项/@after last&quot;</span><span class="string">:</span> <span class="string">在列表最后一个元素之后插入新的设定值（不建议在补靪中使用）</span></span><br><span class="line">  <span class="string">&quot;含列表的设定项/@next&quot;</span><span class="string">:</span> <span class="string">在列表最后一个元素之后插入新的设定值（不建议在补靪中使用）</span></span><br><span class="line">  <span class="string">&quot;含列表的设定项/+&quot;</span><span class="string">:</span> <span class="string">与列表合并的设定值（必须为列表）</span></span><br><span class="line">  <span class="string">&quot;含字典的设定项/+&quot;</span><span class="string">:</span> <span class="string">与字典合并的设定值（必须为字典，注意YAML字典的无序性）</span></span><br></pre></td></tr></table></figure>
+
+<p>patch 时支持用 <code>/</code> 来分隔节点，打补丁时可以这样写（比如有如下文件 <code>rime_ice.custom.yaml</code>）：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">patch:</span></span><br><span class="line">  <span class="attr">a/b:</span> <span class="string">new_value</span></span><br><span class="line">  <span class="attr">c/d/e:</span> <span class="string">new_value</span></span><br></pre></td></tr></table></figure>
+
+<p>但是非补丁的文件只能展开来写（比如 <code>rime_ice.schema.yaml</code>）：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">a:</span></span><br><span class="line">  <span class="attr">b:</span> <span class="string">value</span></span><br><span class="line"><span class="attr">c:</span></span><br><span class="line">  <span class="attr">d:</span></span><br><span class="line">    <span class="attr">e:</span> <span class="string">value</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="查看patch是否打上"><a href="#查看patch是否打上" class="headerlink" title="查看patch是否打上"></a>查看patch是否打上</h2><ol>
+<li><p>点击Rime的”<strong>重新部署</strong>“选项</p>
+</li>
+<li><p>查看配置文件夹下的Build目录中的 <code>xxx.schema.yaml</code></p>
+<p>如: 小鹤音形的Build目录下是 <code>flypy.schema.yaml</code></p>
+</li>
+<li><p>查看 <code>xxx.schema.yaml</code> 是否含有你设置的项</p>
+<blockquote>
+<p><strong>Tip</strong>: 可以先生成原始配置的 <code>xxx.schema.yaml</code>, 再生成自己配置后的 <code>xxx.schema.yaml</code>, 最后将这两个文件对比, 看看异同.</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以 patch: 开头，后面的内容都需要缩进</span></span><br><span class="line"><span class="attr">patch:</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">##### 修改单项</span></span><br><span class="line">  <span class="comment"># 正确 ✅ 这种方式只覆盖 Shift_L，不影响其他选项</span></span><br><span class="line">  <span class="attr">ascii_composer/switch_key/Shift_L:</span> <span class="string">commit_code</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 错误 ❌ 这样导致 switch_key 下将只有 Shift_L 一个选项</span></span><br><span class="line">  <span class="attr">ascii_composer/switch_key:</span></span><br><span class="line">    <span class="attr">Shift_L:</span> <span class="string">commit_code</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">##### 如果有较多修改项，可以直接全部复制过来再修改</span></span><br><span class="line">  <span class="attr">ascii_composer:</span></span><br><span class="line">    <span class="attr">good_old_caps_lock:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">switch_key:</span></span><br><span class="line">      <span class="attr">Caps_Lock:</span> <span class="string">commit_code</span></span><br><span class="line">      <span class="attr">Shift_L:</span> <span class="string">commit_code</span></span><br><span class="line">      <span class="attr">Shift_R:</span> <span class="string">noop</span></span><br><span class="line">      <span class="attr">Control_L:</span> <span class="string">noop</span></span><br><span class="line">      <span class="attr">Control_R:</span> <span class="string">noop</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">##### 结尾的 /+ 表示在原基础上追加</span></span><br><span class="line">  <span class="comment"># 保留已有的快捷键，追加一个逗号句号翻页</span></span><br><span class="line">  <span class="string">key_binder/bindings/+:</span></span><br><span class="line">    <span class="bullet">-</span> &#123; <span class="attr">when:</span> <span class="string">paging</span>, <span class="attr">accept:</span> <span class="string">comma</span>, <span class="attr">send:</span> <span class="string">Page_Up</span> &#125;</span><br><span class="line">    <span class="bullet">-</span> &#123; <span class="attr">when:</span> <span class="string">has_menu</span>, <span class="attr">accept:</span> <span class="string">period</span>, <span class="attr">send:</span> <span class="string">Page_Down</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果选项是数组，比如 <code>switches</code>，得用 <code>switches/@n:</code> 什么的，可读性不好，改多了就乱了，万一原始方案文件更改了顺序就会造成错误，不如全部复制过来再改。</p>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>Rime 的配置可以很灵活复杂，比如设置一个快捷键：</p>
+<ul>
+<li>可以在方案文件 <code>xxx.schema.yaml</code> 中设定；</li>
+<li>也可以在方案的补丁文件 <code>xxx.custom.yaml</code> 中设定；</li>
+<li>也可以写在 <code>default.yaml</code> 或 <code>defaut.custom.yaml</code> 中，再在方案中引用；</li>
+<li>也可以额外创建一个 YAML 文件，再在方案中中引用。</li>
+</ul>
+<p>比如我想让所有方案共用同一套快捷键，不用写很多份。写在 <code>default</code> 中就比较合适，然后再在多个方案中进行引用: </p>
+<ol>
+<li><p>在 default.yaml 或 default.custom.yaml 中配置</p>
+ <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">key_binder:</span></span><br><span class="line">  <span class="attr">bindings:</span></span><br><span class="line">    <span class="comment"># ... 相关快捷键配置</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在多个方案 xxx.schema.yaml 或 xxx.custom.yaml 中引用</p>
+ <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">key_binder:</span></span><br><span class="line">  <span class="attr">import_preset:</span> <span class="string">default</span> <span class="comment"># 从 default 继承快捷键的相关配置</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>注解:</p>
+<ul>
+<li><code>import_preset</code> 是导入成套的配置。</li>
+<li><code>__include</code> 是在当前位置包含另一 YAML 节点的内容。</li>
+</ul>
+<p>具体用法参考官方 wiki。</p>
+<p>下面是一个典型的示例：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方案文件 xxx.schema.yaml</span></span><br><span class="line"><span class="attr">punctuator:</span></span><br><span class="line">  <span class="comment"># 可以用以下任何方式搞定：</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># __include: punctuation:/  # 从共享目录引入预设的 punctuation.yaml</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># import_preset: symbols    # 从共享目录引入预设的 symbols.yaml</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">full_shape:</span></span><br><span class="line">    <span class="attr">__include:</span> <span class="string">default:/punctuator/full_shape</span>  <span class="comment"># 从 default.yaml 导入配置</span></span><br><span class="line">  <span class="attr">half_shape:</span></span><br><span class="line">    <span class="attr">__include:</span> <span class="string">default:/punctuator/half_shape</span>  <span class="comment"># 从 default.yaml 导入配置</span></span><br><span class="line">  <span class="attr">symbols:</span></span><br><span class="line">    <span class="attr">__include:</span> <span class="string">symbols_v:/symbols</span>              <span class="comment"># 从 symbols_v.yaml 导入配置</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 也可以直接在这里配置：</span></span><br><span class="line">  <span class="comment"># full_shape:</span></span><br><span class="line">    <span class="comment"># ...</span></span><br><span class="line">  <span class="comment"># half_shape:</span></span><br><span class="line">    <span class="comment"># ...</span></span><br><span class="line">  <span class="comment"># symbols:</span></span><br><span class="line">    <span class="comment"># ...</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="码表和词库"><a href="#码表和词库" class="headerlink" title="码表和词库"></a>码表和词库</h2><h3 id="字段解释"><a href="#字段解释" class="headerlink" title="字段解释"></a>字段解释</h3><p><code>translator/enable_user_dict</code> 是默认开启的，即记录用户输入内容。</p>
+<p>用户词典类型 <code>translator/db_class</code> 的值默认为 <code>userdb</code>，即二进制文件，输入过的内容会记录在 <code>*.userdb/</code> 文件夹中，只有在同步后才能在同步目录看到人类可读的用户词典；另一个值是 <code>tabledb</code>，会直接在配置目录生成一个人类可读的 txt 文件。如有多平台同步需求，使用默认值 <code>userdb</code>。</p>
+<h3 id="编写词库"><a href="#编写词库" class="headerlink" title="编写词库"></a>编写词库</h3><p>由于 Rime 的设计，拼音词库中并不适用非拼音编码：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">hello</span>	<span class="string">hello</span></span><br><span class="line"><span class="string">世界</span>	<span class="string">s</span> <span class="string">j</span></span><br><span class="line"><span class="string">蒙奇·D·路飞</span>	<span class="string">meng</span> <span class="string">qi</span> <span class="string">d</span> <span class="string">lu</span> <span class="string">fei</span></span><br><span class="line"><span class="string">非拼音编码</span>	<span class="string">asdasdasd</span></span><br></pre></td></tr></table></figure>
+
+<p>Rime 在部署时会综合词库中所有音节和拼写规则生成一个映射表，如果开启了简拼，过多的英文单词会导致打字时极其卡顿。上面单个的编码也会导致 <code>s</code>、<code>j</code>、<code>d</code> 结尾时无法响应超级简拼。</p>
+<p>英文建议放到英文方案，非常规的注音建议放到自定义短语 <code>custom_phrase.txt</code>。</p>
+<p>词库默认的列是：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">词库名</span></span><br><span class="line"><span class="attr">version:</span> <span class="string">&quot;版本号&quot;</span></span><br><span class="line"><span class="attr">sort:</span> <span class="string">by_weight（按权重排序）</span> <span class="string">|</span> <span class="string">original（按码表顺序排序）</span></span><br><span class="line"><span class="attr">columns:</span>    <span class="comment"># 不写 columns 属性时，默认顺序为：</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">text</span>    <span class="comment"># 词汇</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">code</span>    <span class="comment"># 编码</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">weight</span>  <span class="comment"># 权重</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">stem</span>    <span class="comment"># 造词码（不知道是啥，好像和拼音方案没有关系）</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line"><span class="string">你好</span>	<span class="string">ni</span> <span class="string">hao</span>	<span class="number">123</span></span><br></pre></td></tr></table></figure>
+
+<p>对于没有注音，又想设置权重的词库文件，修改列即可：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">xxx</span></span><br><span class="line"><span class="attr">version:</span> <span class="string">&quot;1&quot;</span></span><br><span class="line"><span class="attr">sort:</span> <span class="string">by_weight</span></span><br><span class="line"><span class="attr">columns:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">text</span>    <span class="comment"># 词汇</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">weight</span>  <span class="comment"># 权重</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line"><span class="string">你好</span>	<span class="number">123</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="挂载自己的词库"><a href="#挂载自己的词库" class="headerlink" title="挂载自己的词库"></a>挂载自己的词库</h3><p>词库文件以 <code>.dict.yaml</code> 结尾。</p>
+<p>词库由具体方案指定：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># rime_ice.schema.yaml</span></span><br><span class="line"></span><br><span class="line"><span class="attr">translator:</span></span><br><span class="line">  <span class="attr">dictionary:</span> <span class="string">rime_ice</span> <span class="comment"># 挂载词库文件 rime_ice.dict.yaml</span></span><br></pre></td></tr></table></figure>
+
+<p>可以把所有词条堆在这个文件，也可以将这个文件作为一个入口，通过 <code>import_tables</code> 再挂载多个词库：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># rime_ice.dict.yaml</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">rime_ice</span></span><br><span class="line"><span class="attr">version:</span> <span class="string">&quot;1&quot;</span></span><br><span class="line"><span class="attr">import_tables:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">mydict</span>            <span class="comment"># 挂载配置目录下的 mydict.dict.yaml</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">cn_dicts/mydict2</span>  <span class="comment"># 挂载 cn_dicts/ 目录下的 mydict2.dict.yaml</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line"><span class="comment"># mydict.dict.yaml</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">mydict</span></span><br><span class="line"><span class="attr">version:</span> <span class="string">&quot;1&quot;</span></span><br><span class="line"><span class="attr">sort:</span> <span class="string">by_weight</span></span><br><span class="line"><span class="string">...</span></span><br><span class="line"><span class="string">你好</span>	<span class="string">ni</span> <span class="string">hao</span>	<span class="number">1</span></span><br><span class="line"><span class="string">世界</span>	<span class="string">shi</span> <span class="string">jie</span>	<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>词库名 <code>xxx.dict.yaml</code> 和词库中的属性 <code>name: xxx</code> 可以不同，但建议设置为一样的。</p>
+<p>其他类型的词库，可以通过 <a target="_blank" rel="noopener" href="https://github.com/lewangdev/scel2txt">一些脚本</a> 或 <a target="_blank" rel="noopener" href="https://github.com/studyzy/imewlconverter">深蓝词库转换 </a>转为 Rime 格式的。</p>
+<h3 id="自定义文本"><a href="#自定义文本" class="headerlink" title="自定义文本"></a>自定义文本</h3><p>在 <code>custom_phrase.txt</code> 中可以放置一些特定的词汇与编码，比如输入 vmail 得到自己的邮箱，输入 vphone 得到手机号，输入 vuser 得到用户名等等。</p>
+<p>我自己的理解：每个方案都有一个主翻译器，例如拼音；也可以增加一个次翻译器，例如英文；还可以再增加其他的，例如自定义文本。</p>
+<p><code>custom_phrase.txt</code> 文件内的字词会占据最高权重，即排在候选项的最前面。（默认是这样的，但可以通过 <code>initial_quality</code> 调整各个翻译器的权重）</p>
+<p>自定义文本不与其他翻译器互相造词，如果使用了完整编码，那么这个字或词将无法参与造词，即自造词无法被记住。</p>
+<blockquote>
+<p>所以建议只固定非完整编码的字词，「的de」应为「的d」，「是shi」应为「是s」，「仙剑xianjian」应为「仙剑xj」。</p>
+<p>注意全拼的 <code>a o e</code> 也是完整拼写，不宜将 <code>a o e</code> 的单字写进自定义文本，否则「啊 哦 呃」无法进行造词。</p>
+</blockquote>
+<p>💡 置顶已经由 <code>pin_cand_filter.lua</code> 实现，可参与造词。</p>
+<h3 id="小鹤音形添加词库的另一个方法"><a href="#小鹤音形添加词库的另一个方法" class="headerlink" title="小鹤音形添加词库的另一个方法"></a>小鹤音形添加词库的另一个方法</h3><h4 id="patch方法添加"><a href="#patch方法添加" class="headerlink" title="patch方法添加"></a>patch方法添加</h4><ol>
+<li><p>在”<strong>flypy.schema.yaml</strong>“ 的补丁文件是 “<strong>flypy.custom.yam</strong>l” 中添加 <code>patch</code>:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">patch:</span></span><br><span class="line">  <span class="string">engine/translators/+:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">table_translator@custom_phraseQRL</span> <span class="comment"># 添加词库custom_phraseQRL</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">custom_phraseQRL:</span></span><br><span class="line">    <span class="attr">dictionary:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="attr">user_dict:</span> <span class="string">flypy_qrl</span></span><br><span class="line">    <span class="attr">db_class:</span> <span class="string">stabledb</span></span><br><span class="line">    <span class="attr">enable_sentence:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">enable_completion:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">initial_quality:</span> <span class="number">0</span> <span class="comment">#本表词和系统词重码居前</span></span><br></pre></td></tr></table></figure>
+
+<p>其中:</p>
+<ul>
+<li><code>custom_phraseQRL</code>: 词库的名称</li>
+<li><code>custom_phraseQRL</code> 项: 自定义的词库名称<ul>
+<li><code>user_dict: flypy_qrl</code>: 是自定义词库文件的名字 flypy_qrl, 文件全名为 <strong>flypy_qrl.txt</strong></li>
+<li><code>initial_quality</code>: 设置本表词和系统词重码的位置: 0, 居前; -1, 居后</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>添加flypy_qrl.txt文件</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># coding: utf-8</span><br><span class="line"># 用户自定义词库</span><br><span class="line"># 与系统词条重码时居前, 如想居后, 请把需要居前的词条添加进该文件, 然后分别为两个词条添加权重, 本文件权重范围: 0-10</span><br><span class="line"># </span><br><span class="line"># 编码格式：字词+Tab符+编码（用户词库本身有重码则还需后面+Tab符+权重, 权重大者居前, 权重数字随意）</span><br><span class="line">#</span><br><span class="line">#   ------------------强调一下----------------------</span><br><span class="line"># </span><br><span class="line">#   词条和编码之间的不是空格, 而是Tab符</span><br><span class="line">#   按住键盘 G 键, 切换到功能键盘, 使用上面的Tab键</span><br><span class="line"># </span><br><span class="line">#   ------------------------------------------------</span><br><span class="line"># </span><br><span class="line"># 简词补全放本文件内, 不需要可删除</span><br><span class="line"># 用户词库, 下行开始添加, 编码格式见上, 部署后生效</span><br><span class="line"></span><br><span class="line">缘起性空	yqxk</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="配置中英文切换提示"><a href="#配置中英文切换提示" class="headerlink" title="配置中英文切换提示"></a>配置中英文切换提示</h2><h3 id="patch补丁-推荐"><a href="#patch补丁-推荐" class="headerlink" title="patch补丁(推荐)"></a>patch补丁(推荐)</h3><p>本人使用的是小鹤音形, 因此方案 “<strong>flypy.schema.yaml</strong>“ 的补丁文件是 “<strong>flypy.custom.yam</strong>l”</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">patch:</span></span><br><span class="line">  <span class="attr">switches:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">ascii_mode</span></span><br><span class="line">      <span class="attr">reset:</span> <span class="number">0</span></span><br><span class="line">      <span class="attr">states:</span> [ <span class="string">中</span>, <span class="string">英</span> ]</span><br><span class="line">     <span class="comment"># states: [ 中文, 英文 ]</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">full_shape</span></span><br><span class="line">     <span class="comment"># states: [ 半角, 全角 ]</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">simplification</span></span><br><span class="line">     <span class="comment"># states: [ 简, 繁 ]</span></span><br><span class="line">      <span class="attr">reset:</span> <span class="number">0</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">ascii_punct</span></span><br><span class="line">     <span class="comment"># states: [ 。，, ．， ]</span></span><br><span class="line">      <span class="attr">reset:</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>同样地, 也可以使用单项修改(不推荐, 因为是修改列表, 容易乱, 不如复制原版, 在此基础上修改)</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">switches/@1/states:</span> [ <span class="string">中</span>, <span class="string">英</span> ]</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改原文件-不推荐"><a href="#修改原文件-不推荐" class="headerlink" title="修改原文件(不推荐)"></a>修改原文件(不推荐)</h3><blockquote>
+<p>这里以小鹤音形为演示, 配置文件皆为 flypy*</p>
+</blockquote>
+<ol>
+<li><p>进入Rime配置文件夹: ~&#x2F;Library&#x2F;Rime</p>
+</li>
+<li><p>打开 flypy.schema.yaml 文件</p>
+</li>
+<li><p>在<code>switches</code>项中的<code>name</code>为”<code>ascii_mode</code>“项添加 <code>states: [&quot;中文&quot;, &quot;英文&quot;]</code>或<code>states: [ 中文, 英文 ]</code>, 如下所示:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">switches:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">ascii_mode</span></span><br><span class="line">    <span class="attr">reset:</span> <span class="number">0</span></span><br><span class="line">    <span class="attr">states:</span> [<span class="string">&quot;中文&quot;</span>, <span class="string">&quot;西文&quot;</span>]</span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">full_shape</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">simplification</span></span><br><span class="line">    <span class="attr">reset:</span> <span class="number">0</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">ascii_punct</span></span><br><span class="line">    <span class="attr">reset:</span> <span class="number">0</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="关闭全角按键shift-space"><a href="#关闭全角按键shift-space" class="headerlink" title="关闭全角按键shift+space"></a>关闭全角按键shift+space</h2><h3 id="patch补丁-推荐-1"><a href="#patch补丁-推荐-1" class="headerlink" title="patch补丁(推荐)"></a>patch补丁(推荐)</h3><p>本人使用的是小鹤音形, 因此方案 flypy.schema.yaml 的补丁文件是 flypy.custom.yaml</p>
+<p>下面两种方法2选1</p>
+<ul>
+<li><p>修改单项</p>
+ <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">patch:</span></span><br><span class="line">  <span class="attr">key_binder/bindings:</span></span><br><span class="line">      <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">bracketleft</span>, <span class="attr">send:</span> <span class="string">Page_Up</span>, <span class="attr">when:</span> <span class="string">paging</span>&#125; <span class="comment"># [上翻页</span></span><br><span class="line">      <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">bracketright</span>, <span class="attr">send:</span> <span class="string">Page_Down</span>, <span class="attr">when:</span> <span class="string">has_menu</span>&#125; <span class="comment"># ]下翻页</span></span><br><span class="line">      <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">comma</span>, <span class="attr">send:</span> <span class="string">comma</span>, <span class="attr">when:</span> <span class="string">paging</span>&#125; <span class="comment">#注销逗号翻页</span></span><br><span class="line">      <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">period</span>, <span class="attr">send:</span> <span class="string">period</span>, <span class="attr">when:</span> <span class="string">has_menu</span>&#125; <span class="comment">#注销句号翻页</span></span><br><span class="line">      <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">semicolon</span>, <span class="attr">send:</span> <span class="number">2</span>, <span class="attr">when:</span> <span class="string">has_menu</span>&#125; <span class="comment">#分号次选</span></span><br><span class="line">    <span class="comment">#  - &#123;accept: Release+semicolon, send: semicolon, when: has_menu&#125; #如启用此行，则分号引导符号功能无效</span></span><br><span class="line">      <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">Release+period</span>, <span class="attr">send:</span> <span class="string">period</span>, <span class="attr">when:</span> <span class="string">composing</span>&#125; <span class="comment">#句号顶屏</span></span><br><span class="line">      <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">Release+comma</span>, <span class="attr">send:</span> <span class="string">comma</span>, <span class="attr">when:</span> <span class="string">composing</span>&#125; <span class="comment">#逗号顶屏</span></span><br><span class="line">      <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">&quot;Tab&quot;</span>, <span class="attr">send:</span> <span class="string">Escape</span>, <span class="attr">when:</span> <span class="string">composing</span>&#125;</span><br><span class="line">      <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">&quot;Shift_R&quot;</span>, <span class="attr">send:</span> <span class="string">Escape</span>, <span class="attr">when:</span> <span class="string">composing</span>&#125;</span><br><span class="line">      <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">&quot;Shift+space&quot;</span>, <span class="attr">toggle:</span> <span class="string">noop</span>, <span class="attr">when:</span> <span class="string">always</span>&#125; <span class="comment">#切换全半角</span></span><br><span class="line">      <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">&quot;Control+period&quot;</span>, <span class="attr">toggle:</span> <span class="string">ascii_punct</span>, <span class="attr">when:</span> <span class="string">always</span>&#125; <span class="comment">#切换中英标点</span></span><br><span class="line">      <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">&quot;Control+j&quot;</span>, <span class="attr">toggle:</span> <span class="string">simplification</span>, <span class="attr">when:</span> <span class="string">always</span>&#125; <span class="comment">#切换简繁</span></span><br></pre></td></tr></table></figure>
+
+<p> 可以说仅修改 <code>key_binder/bindings</code> 单项, 而不包括 <code>bindings</code> 的单个按键项</p>
+</li>
+<li><p>修改整个段落(更大项)</p>
+ <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">patch:</span></span><br><span class="line">  <span class="attr">key_binder:</span></span><br><span class="line">    <span class="attr">import_preset:</span> <span class="string">default</span> <span class="comment">#方案切换相关</span></span><br><span class="line">    <span class="attr">bindings:</span></span><br><span class="line">      <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">bracketleft</span>, <span class="attr">send:</span> <span class="string">Page_Up</span>, <span class="attr">when:</span> <span class="string">paging</span>&#125; <span class="comment"># [上翻页</span></span><br><span class="line">      <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">bracketright</span>, <span class="attr">send:</span> <span class="string">Page_Down</span>, <span class="attr">when:</span> <span class="string">has_menu</span>&#125; <span class="comment"># ]下翻页</span></span><br><span class="line">      <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">comma</span>, <span class="attr">send:</span> <span class="string">comma</span>, <span class="attr">when:</span> <span class="string">paging</span>&#125; <span class="comment">#注销逗号翻页</span></span><br><span class="line">      <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">period</span>, <span class="attr">send:</span> <span class="string">period</span>, <span class="attr">when:</span> <span class="string">has_menu</span>&#125; <span class="comment">#注销句号翻页</span></span><br><span class="line">      <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">semicolon</span>, <span class="attr">send:</span> <span class="number">2</span>, <span class="attr">when:</span> <span class="string">has_menu</span>&#125; <span class="comment">#分号次选</span></span><br><span class="line">    <span class="comment">#  - &#123;accept: Release+semicolon, send: semicolon, when: has_menu&#125; #如启用此行，则分号引导符号功能无效</span></span><br><span class="line">      <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">Release+period</span>, <span class="attr">send:</span> <span class="string">period</span>, <span class="attr">when:</span> <span class="string">composing</span>&#125; <span class="comment">#句号顶屏</span></span><br><span class="line">      <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">Release+comma</span>, <span class="attr">send:</span> <span class="string">comma</span>, <span class="attr">when:</span> <span class="string">composing</span>&#125; <span class="comment">#逗号顶屏</span></span><br><span class="line">      <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">&quot;Tab&quot;</span>, <span class="attr">send:</span> <span class="string">Escape</span>, <span class="attr">when:</span> <span class="string">composing</span>&#125;</span><br><span class="line">      <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">&quot;Shift_R&quot;</span>, <span class="attr">send:</span> <span class="string">Escape</span>, <span class="attr">when:</span> <span class="string">composing</span>&#125;</span><br><span class="line">      <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">&quot;Shift+space&quot;</span>, <span class="attr">toggle:</span> <span class="string">noop</span>, <span class="attr">when:</span> <span class="string">always</span>&#125; <span class="comment">#切换全半角</span></span><br><span class="line">      <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">&quot;Control+period&quot;</span>, <span class="attr">toggle:</span> <span class="string">ascii_punct</span>, <span class="attr">when:</span> <span class="string">always</span>&#125; <span class="comment">#切换中英标点</span></span><br><span class="line">      <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">&quot;Control+j&quot;</span>, <span class="attr">toggle:</span> <span class="string">simplification</span>, <span class="attr">when:</span> <span class="string">always</span>&#125; <span class="comment">#切换简繁</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="修改原文件-不推荐-1"><a href="#修改原文件-不推荐-1" class="headerlink" title="修改原文件(不推荐)"></a>修改原文件(不推荐)</h3><ol>
+<li><p>进入Rime配置文件夹</p>
+</li>
+<li><p>打开 flypy.schema.yaml 文件</p>
+</li>
+<li><p>搜索 <code>shift+space</code> 项, 并修改 <code>toggle</code> 为 <code>noop</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">key_binder:</span></span><br><span class="line">  <span class="attr">import_preset:</span> <span class="string">default</span> <span class="comment">#方案切换相关</span></span><br><span class="line">  <span class="attr">bindings:</span></span><br><span class="line">    <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">bracketleft</span>, <span class="attr">send:</span> <span class="string">Page_Up</span>, <span class="attr">when:</span> <span class="string">paging</span>&#125; <span class="comment"># [上翻页</span></span><br><span class="line">    <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">bracketright</span>, <span class="attr">send:</span> <span class="string">Page_Down</span>, <span class="attr">when:</span> <span class="string">has_menu</span>&#125; <span class="comment"># ]下翻页</span></span><br><span class="line">    <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">comma</span>, <span class="attr">send:</span> <span class="string">comma</span>, <span class="attr">when:</span> <span class="string">paging</span>&#125; <span class="comment">#注销逗号翻页</span></span><br><span class="line">    <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">period</span>, <span class="attr">send:</span> <span class="string">period</span>, <span class="attr">when:</span> <span class="string">has_menu</span>&#125; <span class="comment">#注销句号翻页</span></span><br><span class="line">    <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">semicolon</span>, <span class="attr">send:</span> <span class="number">2</span>, <span class="attr">when:</span> <span class="string">has_menu</span>&#125; <span class="comment">#分号次选</span></span><br><span class="line">  <span class="comment">#  - &#123;accept: Release+semicolon, send: semicolon, when: has_menu&#125; #如启用此行，则分号引导符号功能无效</span></span><br><span class="line">    <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">Release+period</span>, <span class="attr">send:</span> <span class="string">period</span>, <span class="attr">when:</span> <span class="string">composing</span>&#125; <span class="comment">#句号顶屏</span></span><br><span class="line">    <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">Release+comma</span>, <span class="attr">send:</span> <span class="string">comma</span>, <span class="attr">when:</span> <span class="string">composing</span>&#125; <span class="comment">#逗号顶屏</span></span><br><span class="line">    <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">&quot;Tab&quot;</span>, <span class="attr">send:</span> <span class="string">Escape</span>, <span class="attr">when:</span> <span class="string">composing</span>&#125;</span><br><span class="line">    <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">&quot;Shift_R&quot;</span>, <span class="attr">send:</span> <span class="string">Escape</span>, <span class="attr">when:</span> <span class="string">composing</span>&#125;</span><br><span class="line">    <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">&quot;Shift+space&quot;</span>, <span class="attr">toggle:</span> <span class="string">noop</span>, <span class="attr">when:</span> <span class="string">always</span>&#125; <span class="comment">#切换全半角</span></span><br><span class="line">    <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">&quot;Control+period&quot;</span>, <span class="attr">toggle:</span> <span class="string">ascii_punct</span>, <span class="attr">when:</span> <span class="string">always</span>&#125; <span class="comment">#切换中英标点</span></span><br><span class="line">    <span class="bullet">-</span> &#123;<span class="attr">accept:</span> <span class="string">&quot;Control+j&quot;</span>, <span class="attr">toggle:</span> <span class="string">simplification</span>, <span class="attr">when:</span> <span class="string">always</span>&#125; <span class="comment">#切换简繁</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="设置中文输入使用英文标点"><a href="#设置中文输入使用英文标点" class="headerlink" title="设置中文输入使用英文标点"></a>设置中文输入使用英文标点</h2><h3 id="patch补丁-推荐-2"><a href="#patch补丁-推荐-2" class="headerlink" title="patch补丁(推荐)"></a>patch补丁(推荐)</h3><p>本人使用的是小鹤音形, 因此方案 flypy.schema.yaml 的补丁文件是 flypy.custom.yaml</p>
+<p>下面两种方法2选1</p>
+<ul>
+<li><p>修改单项</p>
+ <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">patch:</span></span><br><span class="line">  <span class="attr">punctuator/import_preset:</span> <span class="string">alternative</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改整个段落(更大项)</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">patch:</span></span><br><span class="line">  <span class="attr">punctuator:</span></span><br><span class="line">    <span class="attr">import_preset:</span> <span class="string">alternative</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="修改原文件-不推荐-2"><a href="#修改原文件-不推荐-2" class="headerlink" title="修改原文件(不推荐)"></a>修改原文件(不推荐)</h3><ol>
+<li><p>下载<a target="_blank" rel="noopener" href="https://gist.githubusercontent.com/lotem/2334409/raw/0941ff22b30e8a6199838623d31a9406ee1d8a74/alternative.yaml">alternative</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -JLO https://gist.githubusercontent.com/lotem/2334409/raw/0941ff22b30e8a6199838623d31a9406ee1d8a74/alternative.yaml</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入Rime配置文件夹</p>
+</li>
+<li><p>打开 default.custom.yaml 文件</p>
+</li>
+<li><p>在<code>punctuator</code>项的<code>import_preset</code>为 <code>alternative</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">punctuator:</span></span><br><span class="line">  <span class="attr">import_preset:</span> <span class="string">alternative</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="单词自动上屏"><a href="#单词自动上屏" class="headerlink" title="单词自动上屏"></a>单词自动上屏</h2><h3 id="patch补丁"><a href="#patch补丁" class="headerlink" title="patch补丁"></a>patch补丁</h3><p>本人使用的是小鹤音形, 因此方案 <code>flypy.schema.yaml</code> 的补丁文件是 <code>flypy.custom.yaml</code></p>
+<p>下面两种方法2选1</p>
+<ul>
+<li><p>修改单项</p>
+ <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">patch:</span></span><br><span class="line">  <span class="attr">speller/auto_select:</span> <span class="literal">false</span>   <span class="comment">#顶字上屏</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改整个段落(更大项)</p>
+ <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">patch:</span></span><br><span class="line">  <span class="attr">speller:</span></span><br><span class="line">    <span class="attr">alphabet:</span> <span class="string">&quot;abcdefghijklmnopqrstuvwxyz;&#x27;&quot;</span></span><br><span class="line">    <span class="attr">initials:</span> <span class="string">&#x27;;abcdefghijklmnopqrstuvwxyz&#x27;</span></span><br><span class="line">    <span class="attr">finals:</span> <span class="string">&quot;&#x27;&quot;</span></span><br><span class="line">    <span class="comment">#delimiter: &quot; &#x27;&quot;</span></span><br><span class="line">    <span class="attr">max_code_length:</span> <span class="number">4</span></span><br><span class="line">    <span class="attr">auto_select:</span> <span class="literal">false</span>   <span class="comment">#顶字上屏</span></span><br><span class="line">    <span class="attr">auto_select_pattern:</span> <span class="string">^;.$|^\w&#123;4&#125;$</span></span><br><span class="line">    <span class="attr">auto_clear:</span> <span class="string">max_length</span> <span class="comment">#manual|auto|max_length 空码按下一键确认清屏|空码自动清|达到最长码时后码顶上清屏</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="修改原文件-不推荐-3"><a href="#修改原文件-不推荐-3" class="headerlink" title="修改原文件(不推荐)"></a>修改原文件(不推荐)</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">speller:</span></span><br><span class="line">  <span class="attr">alphabet:</span> <span class="string">&quot;abcdefghijklmnopqrstuvwxyz;&#x27;&quot;</span></span><br><span class="line">  <span class="attr">initials:</span> <span class="string">&#x27;;abcdefghijklmnopqrstuvwxyz&#x27;</span></span><br><span class="line">  <span class="attr">finals:</span> <span class="string">&quot;&#x27;&quot;</span></span><br><span class="line">  <span class="comment">#delimiter: &quot; &#x27;&quot;</span></span><br><span class="line">  <span class="attr">max_code_length:</span> <span class="number">4</span></span><br><span class="line">  <span class="attr">auto_select:</span> <span class="literal">false</span>   <span class="comment">#顶字上屏</span></span><br><span class="line">  <span class="attr">auto_select_pattern:</span> <span class="string">^;.$|^\w&#123;4&#125;$</span></span><br><span class="line">  <span class="attr">auto_clear:</span> <span class="string">max_length</span> <span class="comment">#manual|auto|max_length 空码按下一键确认清屏|空码自动清|达到最长码时后码顶上清屏</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="待测试"><a href="#待测试" class="headerlink" title="待测试"></a>待测试</h1><h2 id="开关记忆"><a href="#开关记忆" class="headerlink" title="开关记忆"></a>开关记忆</h2><p>方案中有几个开关（<code>switches</code>），比如简繁开关、Emoji 开关、中英标点开关。。。</p>
+<p>如果设定了 reset，值为 0 或 1，则默认使用第一个或第二个值，即便使用时修改了，切换程序后还是默认值。</p>
+<p>如果想让输入法永远记住，需要取消设置 <code>reset</code>，并在 <code>default.custom.yaml</code> 中写入 <code>save_options</code>。</p>
+<p>*永远记住的前提是通过方案选单选择，而不是快捷键切换 (╯’-’)╯︵┻━┻</p>
+<h2 id="如何删除相关功能"><a href="#如何删除相关功能" class="headerlink" title="如何删除相关功能"></a>如何删除相关功能</h2><p>比如删除英文输入，所有的相关配置是这些：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># dependencies 下的：</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">melt_eng</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># engine/translators 下的：</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">table_translator@melt_eng</span></span><br><span class="line"></span><br><span class="line"><span class="attr">melt_eng:</span></span><br><span class="line">  <span class="attr">dictionary:</span> <span class="string">melt_eng</span></span><br></pre></td></tr></table></figure>
+
+<p>拼字方案同样，此外还有一些 Lua 的功能，直接在 <code>engine</code> 下注释掉那一行就禁用了。</p>
+<h2 id="删词or降权"><a href="#删词or降权" class="headerlink" title="删词or降权"></a>删词or降权</h2><p>可以删除自造词，或降低词库中已有词语的权重（回到原始权重，不是降到最低）。</p>
+<ul>
+<li>鼠须管使用 Fn + ⇧ + ⌫</li>
+<li>小狼毫使用 Ctrl&#x2F;Shift + Del</li>
+</ul>
+<p>想永久删除一个词库中存在的词汇，只能编辑词库，重新部署。</p>
+<p>如果各位有在使用过程中有发现什么错别字，希望可以提个 issue。</p>
+<h2 id="Tab-切光标"><a href="#Tab-切光标" class="headerlink" title="Tab 切光标"></a>Tab 切光标</h2><p>这功能挺好用的，每次用别人的电脑打字都会怀念这个功能。</p>
+<p>已经默认开启，可以使用 Tab 或 Shift + Tab 在拼音中前后移动。</p>
+<img data-src="/2024/03/23/205/2022-03-22-000487.gif" class="" title="img">
+
+<p>对于「xian西安」「tian提案」这种拼音，如果想切到「xi、ti」的后面，只能用左右方向键移动。</p>
+<p>另外 Shift + ⌫ 可以删除单个汉字的拼音。</p>
+<h3 id="不同的上屏方式"><a href="#不同的上屏方式" class="headerlink" title="不同的上屏方式"></a>不同的上屏方式</h3><p>按下空格会上屏汉字，按下回车会上屏字母（可临时输入一些词库中没有的英文）。</p>
+<p>以输入「虐心 nue’xin」为例：</p>
+<ul>
+<li>按回车，上屏的是 <code>nuexin</code>。</li>
+<li>按 Ctrl&#x2F;Shift + 回车，上屏的是 <code>nve xin</code>。（u → v，中间有空格）</li>
+</ul>
+<p><code>translator/preedit_format</code> 这里会影响输入框和 shift + 回车时的显示，比如是显示 nue、nve 或 nüe。</p>
+<p>如果是双拼方案，<code>preedit_format</code> 还可以选择是否在输入框进行转换，比如小鹤双拼输入 <code>zz</code> 时，是显示 <code>zz</code> 还是 <code>zou</code>。</p>
+<p>要设置双拼不转换为全拼，可以直接把 <code>preedit_format</code> 及下面那些 <code>xform</code> 都删除，或者这样打补丁：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">patch:</span></span><br><span class="line">  <span class="attr">translator/preedit_format:</span> []</span><br></pre></td></tr></table></figure>
+
+<h2 id="opencc"><a href="#opencc" class="headerlink" title="opencc"></a>opencc</h2><p>opencc 除了做简繁转换，也可以做词语映射。</p>
+<p>比如想输入摄氏度的符号 °C ，可以自定义文本 <code>custom_phrase.txt</code> 中写上：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">°C	sheshidu</span><br></pre></td></tr></table></figure>
+
+<p>但这样，这个符号会顶到第一个候选项，重码时影响平时打汉字。推荐用 opencc 的方法，Emoji 就是这样实现的。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">摄氏度	摄氏度 °C</span><br><span class="line">足球	足球 ⚽</span><br><span class="line">输入内容<span class="tag">&lt;<span class="name">Tab</span>&gt;</span>响应内容1<span class="tag">&lt;<span class="name">Space</span>&gt;</span>响应内容2<span class="tag">&lt;<span class="name">Space</span>&gt;</span>响应内容3...</span><br></pre></td></tr></table></figure>
+
+<p>输入 <code>摄氏度</code>，第一个候选项是其本身，后续则是映射的其他内容。类似输入 <code>提手旁</code> 会得到 <code>提手旁 扌</code>，输入 <code>相泽南</code> 会得到 <code>相泽南 相沢みなみ</code> 等等都是这么做的。</p>
+<p>这个「输入内容」其本身应该在词库中存在，否则只能输入过一次后才会有响应。</p>
+<p>还有个用法是 <code>show_in_comment: true</code>，可以让「响应内容」放到 <code>comment</code> 里面。</p>
+<p><code>show_in_comment: true</code> 可以实现显示英文单词的翻译，类似<a target="_blank" rel="noopener" href="https://github.com/dongyuwei/hallelujahIM">哈利路亚输入法</a>，尝试过加入这个功能，一是没有找到比较好的简短翻译数据；二是 Rime 的 <code>comment</code> 区域并不是一个独立存在的窗口，翻译和候选项挤在一起看起来乱糟糟的。</p>
+<h1 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h1><h2 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h2><p><code>installation.yaml</code> 文件在第一次部署后会自动生成，在这里可以编辑当前设备的 ID 和同步目录，如：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 本机的 ID 标志，默认是一串 UUID</span></span><br><span class="line"><span class="comment"># 生成的文件夹是这个名字，可以改成更好识别的名称</span></span><br><span class="line"><span class="attr">installation_id:</span> <span class="string">&quot;MBP-001&quot;</span></span><br><span class="line"><span class="comment"># 同步的路径，默认是当前配置目录下的 `sync/`</span></span><br><span class="line"><span class="attr">sync_dir:</span> <span class="string">&quot;/file/path/sync&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>在你输入过内容后，配置目录下会生成 <code>*.userdb/</code> 文件夹，里面是二进制的用户词典。</p>
+<p>点击「同步用户数据」后，Rime 会和配置目录下的 <code>*.userdb/</code> 进行双向更新同步，并在同步目录（<code>/file/path/sync/MBP-001</code>）下生成的 <code>*.userdb.txt</code>，里面都是输入过的内容。</p>
+<blockquote>
+<p>同步目录里还有其他一些没用的文件，Rime 额外单向备份了配置目录下的 YAML 和 TXT 文件，但只有根目录的，比如文件夹里的词库、八股文模型、<code>rime.lua</code> 就没有被同步过来。</p>
+</blockquote>
+<p>⚠️ Windows 用户注意 YAML 语法，反斜杠在双引号中转义，在单引号中不转义：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sync_dir:</span> <span class="string">&quot;c:\\file\\path\\sync&quot;</span></span><br><span class="line"><span class="attr">sync_dir:</span> <span class="string">&#x27;c:\file\path\sync&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="多设备同步"><a href="#多设备同步" class="headerlink" title="多设备同步"></a>多设备同步</h2><p>将所有平台的 <code>sync_dir</code> 设定为同一个目录，比如 iCloud、Dropbox 的目录。</p>
+<p>多个设备在这个目录中会生成并列的文件夹，里面是用户词典。</p>
+<img data-src="/2024/03/23/205/2023-04-06-000118.webp" class="" title="img">
+
+
+
+<p>PC-1 里点【同步】，通过网盘同步到 PC-2，PC-2 再点同步，才可以获得 PC-1 输入过的内容。</p>
+<h2 id="用户词典迁移"><a href="#用户词典迁移" class="headerlink" title="用户词典迁移"></a>用户词典迁移</h2><p>如果之前在用别的方案，如 <code>pinyin_simp</code> 或 <code>luna_pinyin</code>。</p>
+<ol>
+<li>将之前的 <code>pinyin_simp.userdb.txt</code> 或 <code>luna_pinyin[_simp].userdb.txt</code> 放到同步目录</li>
+<li>命名为 <code>rime_ice.userdb.txt</code></li>
+<li>修改文件里面的 <code>#@/db_name</code> 为 <code>rime_ice</code></li>
+<li>点击【同步用户数据】后就可以了</li>
+</ol>
+<img data-src="/2024/03/23/205/2023-04-06-000122.webp" class="" title="img">
+
+
+
+<p>如果之前用的是繁体词库，还需要提前做一个简繁转换，注意不要把 Tab 全转为空格了。</p>
+<p>简单的方法，比如 Mac 上通过 VSCode 打开 ➡️ 全选 ➡️ 左上角 Code ➡️ 服务 ➡️ 将文本转换为简体中文。</p>
+<p>或者用 <a target="_blank" rel="noopener" href="https://github.com/BYVoid/OpenCC">opencc</a>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ opencc -c t2s -i in.txt -o out.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="git同步配置文件"><a href="#git同步配置文件" class="headerlink" title="git同步配置文件"></a>git同步配置文件</h2><p>本人主要使用了3个配置文件: “<strong>flypy.custom.yaml, flypy_qrl.txt, alternative.yaml</strong>“, 分别对应为 flypy补丁文件, 个人词库, 中英文标点替换.</p>
+<p>本步骤适用于MacOS, 具体步骤如下</p>
+<ol>
+<li><p>创建git仓库, 将配置文件复制到git仓库本地文件夹中</p>
+</li>
+<li><p>将配置文件的软链接添加到Rime配置路径</p>
+<p>可使用以下命令添加软链接</p>
+<ul>
+<li><code>ln -s -f &lt;指向的目标文件&gt; &lt;存放软链接的文件夹&gt;</code></li>
+</ul>
+</li>
+<li><p>如果修改修改git仓库本地文件夹或Rime配置文件夹中都是一样的, 从而保障线与离线一致性</p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://qeuroal.top/2024/03/23/205/" title="205. rime系软件的使用">http://qeuroal.top/2024/03/23/205/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/software/" rel="tag"><i class="fa fa-tag"></i> software</a>
+              <a href="/tags/rime/" rel="tag"><i class="fa fa-tag"></i> rime</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/03/22/204/" rel="prev" title="204. Linux系统管理">
+                  <i class="fa fa-angle-left"></i> 204. Linux系统管理
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/03/27/206/" rel="next" title="206. Linux中显卡相关">
+                  206. Linux中显卡相关 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Qeuroal" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

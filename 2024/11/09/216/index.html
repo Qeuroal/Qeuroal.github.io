@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="安装配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="216. dwm">
+<meta property="og:url" content="http://qeuroal.top/2024/11/09/216/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Blog">
+<meta property="og:description" content="安装配置">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qeuroal.top/2024/11/09/216/Clip_2024-10-30_09-10-54.png">
+<meta property="article:published_time" content="2024-11-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-08T06:36:58.700Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qeuroal.top/2024/11/09/216/Clip_2024-10-30_09-10-54.png">
+
+
+<link rel="canonical" href="http://qeuroal.top/2024/11/09/216/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2024/11/09/216/","path":"2024/11/09/216/","title":"216. dwm"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>216. dwm | Qeuroal's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Qeuroal's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">静幽正治</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="nav-number">1.2.</span> <span class="nav-text">安装依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#archlinux"><span class="nav-number">1.2.1.</span> <span class="nav-text">archlinux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ubuntu"><span class="nav-number">1.2.2.</span> <span class="nav-text">ubuntu</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85dwm"><span class="nav-number">1.3.</span> <span class="nav-text">安装dwm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QAs"><span class="nav-number">1.4.</span> <span class="nav-text">QAs</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#config"><span class="nav-number">2.1.</span> <span class="nav-text">config</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8"><span class="nav-number">2.2.</span> <span class="nav-text">开机启动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%951"><span class="nav-number">2.2.1.</span> <span class="nav-text">方法1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%952"><span class="nav-number">2.2.2.</span> <span class="nav-text">方法2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%953"><span class="nav-number">2.2.3.</span> <span class="nav-text">方法3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%954"><span class="nav-number">2.2.4.</span> <span class="nav-text">方法4</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%AD%97%E7%AC%A6%E7%95%8C%E9%9D%A2%E7%99%BB%E5%BD%95"><span class="nav-number">2.2.4.1.</span> <span class="nav-text">使用字符界面登录</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A5%E4%B8%81"><span class="nav-number">2.3.</span> <span class="nav-text">补丁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%98%E7%9B%98"><span class="nav-number">2.4.</span> <span class="nav-text">托盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E4%B8%8D%E7%99%BB%E5%87%BA%E5%92%8C%E9%80%80%E5%87%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E9%87%8D%E5%90%AF-dwm"><span class="nav-number">2.5.</span> <span class="nav-text">在不登出和退出程序的情况下重启 dwm</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#QAs-1"><span class="nav-number">3.</span> <span class="nav-text">QAs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">大人者，不失其赤子之心</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2024/11/09/216/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="216. dwm | Qeuroal's Blog">
+      <meta itemprop="description" content="安装配置">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          216. dwm
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-11-09 00:00:00" itemprop="dateCreated datePublished" datetime="2024-11-09T00:00:00+08:00">2024-11-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-08 14:36:58" itemprop="dateModified" datetime="2025-12-08T14:36:58+08:00">2025-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">安装配置</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><ol>
+<li>打开 <u><a target="_blank" rel="noopener" href="https://dwm.suckless.org/">官网</a></u>, 找到 Development</li>
+<li>下载: <code>git clone https://git.suckless.org/dwm</code></li>
+</ol>
+<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><h3 id="archlinux"><a href="#archlinux" class="headerlink" title="archlinux"></a>archlinux</h3><p>首先是安装Xorg相关软件包：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S xorg-server xorg-xinit libxft</span><br></pre></td></tr></table></figure>
+
+<p>安装字体，否则可能会导致后续步骤无法进入图形化界面，如果安装的是别的字体，后续修改配置文件时记得修改成别的对应的字体：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S ttf-dejavu</span><br></pre></td></tr></table></figure>
+
+<p>安装DWM下载及编辑源码所需要的依赖：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S git vim dmenu</span><br></pre></td></tr></table></figure>
+
+<p>如果ArchLinux安装的时候，没有安装base-devel包，在安装DWM之前需要安装上：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S base-devel # 非必须，如果安装ArchLinux时安装过了，无需再次安装</span><br></pre></td></tr></table></figure>
+
+<p>额外的，终端软件包，我不喜欢dwm同门的suckless出品的st，如果不需要的话可以不装：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S alacritty</span><br></pre></td></tr></table></figure>
+
+<h3 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h3><p>安装依赖</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install suckless-tools libx11-dev libxft-dev libxinerama-dev gcc make</span><br><span class="line">sudo apt install compton</span><br><span class="line">sudo apt install feh</span><br><span class="line">sudo apt install acpi acpitool</span><br><span class="line">sudo apt install light</span><br><span class="line">sudo apt install numlockx</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装dwm"><a href="#安装dwm" class="headerlink" title="安装dwm"></a>安装dwm</h2><ol>
+<li><code>cd dwn</code></li>
+<li>编译: <code>make</code></li>
+<li>安装: <code>sudo make clean install</code></li>
+</ol>
+<h2 id="QAs"><a href="#QAs" class="headerlink" title="QAs"></a>QAs</h2><ol>
+<li><p><em>drw.c:6:10: fatal error: X11&#x2F;Xft&#x2F;Xft.h: No such file or directory</em></p>
+<p>安装: libxft 和 libxinerama</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S libxft libxinerama</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="config"><a href="#config" class="headerlink" title="config"></a>config</h2><p>源码的config.h文件, 如果要固定就修改 config.def.h 文件</p>
+<h2 id="开机启动"><a href="#开机启动" class="headerlink" title="开机启动"></a>开机启动</h2><p><strong>谷歌搜索前先看官方文件</strong></p>
+<h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><p>修改 &#x2F;etc&#x2F;x11&#x2F;xinit&#x2F;xinitrc</p>
+<p>添加 <code>exec dwm</code></p>
+<p>看官方文档</p>
+<h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><p>复制 <code>/etc/X11/xinit/xinitrc</code> 到 <code>~/.xinitrc</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> /etc/X11/xinit/xinitrc ~/.xinitrc</span><br></pre></td></tr></table></figure>
+
+<p>注释掉 <code>~/.xinitrc</code> 最后5行，并添加exec dwm</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#twm &amp;</span><br><span class="line">#xclock -geometry 50x50-1+1 &amp;</span><br><span class="line">#xterm -geometry 80x50+494+51 &amp;</span><br><span class="line">#xterm -geometry 80x20+494-0 &amp;</span><br><span class="line">#exec xterm -geometry 80x66+0+0 -name login</span><br><span class="line">exec dwm</span><br></pre></td></tr></table></figure>
+
+<p>启动: <code>startx</code></p>
+<h3 id="方法3"><a href="#方法3" class="headerlink" title="方法3"></a>方法3</h3><ol>
+<li>配置 <code>~/.xinitrc</code>, 添加 <code>exec dwm</code></li>
+<li>然后执行: <code>startx</code></li>
+</ol>
+<h3 id="方法4"><a href="#方法4" class="headerlink" title="方法4"></a>方法4</h3><p>添加启动选项</p>
+<p>具体配置方式，进入&#x2F;usr&#x2F;share&#x2F;xsessions&#x2F;目录，新建文件dwm.desktop,输入内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Encoding=UTF-8</span><br><span class="line">Name=Dwm</span><br><span class="line">Comment=Dynamic window manager</span><br><span class="line">Exec=dwm</span><br><span class="line">Icon=dwm</span><br><span class="line">Type=XSession</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用字符界面登录"><a href="#使用字符界面登录" class="headerlink" title="使用字符界面登录"></a>使用字符界面登录</h4><p><strong>使用startx命令从文字界面启动</strong></p>
+<p>此方式开机更加快速，使用更加灵活，系统资源占用更少。 首先将系统改为默认进入文字界面 修改grub配置,打开文件&#x2F;etc&#x2F;default&#x2F;grub</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">将GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet splash&quot;</span><br><span class="line">改为GRUB_CMDLINE_LINUX_DEFAULT=&quot;text&quot;</span><br></pre></td></tr></table></figure>
+
+<p>然后执行命令: <code>$ sudo update-grub </code></p>
+<p>将启动等级改为多用户等级，执行如下命令： <code>systemctl set-default multi-user.target </code></p>
+<p>如果想改回启动图形界面, 执行: <code>$ systemctl set-default graphical.target</code></p>
+<p>最后修改~&#x2F;.xsession文件（如果没有就新建），在最后一行加入: <code>exec dwm</code></p>
+<p>重启电脑，执行startx命令，直接进入dwm，同时也可以执行<code>sudo systemctl start gdm.service</code>命令，打开gdm3的用户登录界面。</p>
+<h2 id="补丁"><a href="#补丁" class="headerlink" title="补丁"></a>补丁</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://dwm.suckless.org/patches/alpha/">alpha</a>: 状态栏透明效果</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://dwm.suckless.org/patches/autostart/">autostart</a>: dwm自动启动一个脚本</p>
+<p>脚本内容</p>
+<img data-src="/2024/11/09/216/Clip_2024-10-30_09-10-54.png" class="" title="Clip_2024-10-30_09-10-54">
+</li>
+<li><p><del><a target="_blank" rel="noopener" href="https://dwm.suckless.org/patches/awesomebar/">awesomebar</a></del>: 状态栏显示多个窗口的名字</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://dwm.suckless.org/patches/fullscreen/">fullscreen</a>: 窗口全屏能力</p>
+</li>
+<li><p><del><a target="_blank" rel="noopener" href="https://github.com/theniceboy/dwm-hide-and-restore-win.diff">hide-and-restore</a></del>: 可以隐藏和恢复窗口</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://dwm.suckless.org/patches/hide_vacant_tags/">hide_vacant_tags</a>: 只显示有窗口的标签</p>
+</li>
+<li><p><del><a target="_blank" rel="noopener" href="https://dwm.suckless.org/patches/noborder/">noborder</a></del>: 视觉增强</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://dwm.suckless.org/patches/pertag/">pertag</a>: 不同标签具有不同的窗口管理方式</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://dwm.suckless.org/patches/viewontag/">viewontag</a>: 当前这个窗口移动到第N个标签, 并切换到第N个标签</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://dwm.suckless.org/patches/rotatestack/">rotatestack</a>: 管理栈</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://dwm.suckless.org/patches/scratchpad/">scratchpad</a>: 临时打开一个小窗口</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://dwm.suckless.org/patches/vanitygaps/">vanitygaps</a>: 窗口之间加空隙</p>
+</li>
+</ul>
+<h2 id="托盘"><a href="#托盘" class="headerlink" title="托盘"></a>托盘</h2><ol>
+<li>安装 tayer</li>
+<li>打trayer补丁</li>
+</ol>
+<h2 id="在不登出和退出程序的情况下重启-dwm"><a href="#在不登出和退出程序的情况下重启-dwm" class="headerlink" title="在不登出和退出程序的情况下重启 dwm"></a>在不登出和退出程序的情况下重启 dwm</h2><blockquote>
+<p> 建议无需这样设置</p>
+</blockquote>
+<p>添加:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">while true; do</span><br><span class="line">    # Log stderror to a file </span><br><span class="line">    dwm 2&gt; ~/.dwm.log</span><br><span class="line">    # No error logging</span><br><span class="line">    #dwm &gt;/dev/null 2&gt;&amp;1</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<h1 id="QAs-1"><a href="#QAs-1" class="headerlink" title="QAs"></a>QAs</h1><ol>
+<li><p>togglefloating只能浮动, 不能平铺</p>
+<blockquote>
+<p> 仅使用于没有打补丁之前的原始文件, 当打了补丁后, 这个问题已经被解决</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">修改</span><br><span class="line">&#123; MODKEY|ShiftMask,             XK_space,  togglefloating, &#123;0&#125; &#125;,</span><br><span class="line">为</span><br><span class="line">&#123; MODKEY|ShiftMask,             XK_space,  togglefloating, &#123;1&#125; &#125;,</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/theniceboy/dwm/blob/master/README_cn.md">TheCW</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://cfanzp.com/dwm/">dwm安装与使用</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34548075/article/details/106941934">dwm问题汇总</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/262067759">Ubuntu DWM安装配置文档</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/183861786">入坑dwm——原来窗口管理器还可以这样用？</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/LSJ944830401/article/details/106010401">dwm使用帮助</a></p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://qeuroal.top/2024/11/09/216/" title="216. dwm">http://qeuroal.top/2024/11/09/216/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/09/19/213/" rel="prev" title="213. sbin-init:No such file or directory">
+                  <i class="fa fa-angle-left"></i> 213. sbin-init:No such file or directory
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/11/16/218/" rel="next" title="218. lua">
+                  218. lua <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Qeuroal" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="手工pagewalk,以解决linux3.13版本中kgdb双机联调中的int3问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="208. 手工page walk">
+<meta property="og:url" content="http://qeuroal.top/2024/04/27/208/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Blog">
+<meta property="og:description" content="手工pagewalk,以解决linux3.13版本中kgdb双机联调中的int3问题">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-04-26T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-08T06:36:58.676Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="kernel">
+<meta property="article:tag" content="kgdb">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://qeuroal.top/2024/04/27/208/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2024/04/27/208/","path":"2024/04/27/208/","title":"208. 手工page walk"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>208. 手工page walk | Qeuroal's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Qeuroal's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">静幽正治</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%8B%E5%8A%A8page-work"><span class="nav-number">1.</span> <span class="nav-text">手动page work</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%A8%E9%83%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text">全部命令</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">大人者，不失其赤子之心</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2024/04/27/208/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="208. 手工page walk | Qeuroal's Blog">
+      <meta itemprop="description" content="手工pagewalk,以解决linux3.13版本中kgdb双机联调中的int3问题">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          208. 手工page walk
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-04-27 00:00:00" itemprop="dateCreated datePublished" datetime="2024-04-27T00:00:00+08:00">2024-04-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-08 14:36:58" itemprop="dateModified" datetime="2025-12-08T14:36:58+08:00">2025-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">手工pagewalk,以解决linux3.13版本中kgdb双机联调中的int3问题</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="手动page-work"><a href="#手动page-work" class="headerlink" title="手动page work"></a>手动page work</h1><ol>
+<li><p><code>p /x cr3</code> </p>
+<p>我们只能使用线性地址</p>
+<p>找到DriverInitianize的页框, 即找到DriverInitianize的函数地址</p>
+</li>
+<li><p>找到pgd表的线性地址</p>
+<p>线性地址空间的布局: 物理内存的直接映射:物理地址加上偏移(0xffff8800_0000000)就等于物理地址对应的线性地址</p>
+</li>
+<li><p>看断点处的反汇编</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">(gdb) disassemble</span><br><span class="line">Dump of assembler code for function DriverInitialize:</span><br><span class="line">   0xffffffffa02c9217 &lt;+0&gt;:     nopl   0x0(%rax,%rax,1)</span><br><span class="line">   0xffffffffa02c921c &lt;+5&gt;:     push   %rbp</span><br><span class="line">   0xffffffffa02c921d &lt;+6&gt;:     mov    %rsp,%rbp</span><br><span class="line">   0xffffffffa02c9220 &lt;+9&gt;:     sub    $0x8,%rsp</span><br><span class="line">   0xffffffffa02c9224 &lt;+13&gt;:    mov    $0xffffffffa02ca0e3,%rdi</span><br><span class="line">   0xffffffffa02c922b &lt;+20&gt;:    mov    $0x0,%eax</span><br><span class="line">   0xffffffffa02c9230 &lt;+25&gt;:    callq  0xffffffff810b3f72 &lt;printk&gt;</span><br><span class="line">   0xffffffffa02c9235 &lt;+30&gt;:    mov    %cr3,%rax</span><br><span class="line">   0xffffffffa02c9238 &lt;+33&gt;:    mov    %rax,-0x8(%rbp)</span><br><span class="line">=&gt; 0xffffffffa02c923c &lt;+37&gt;:    int3</span><br><span class="line">   0xffffffffa02c923d &lt;+38&gt;:    out    %eax,(%dx)</span><br><span class="line">   0xffffffffa02c923e &lt;+39&gt;:    std</span><br><span class="line">   0xffffffffa02c923f &lt;+40&gt;:    (bad)</span><br><span class="line">   0xffffffffa02c9240 &lt;+41&gt;:    dec    %ecx</span><br><span class="line">   0xffffffffa02c9242 &lt;+43&gt;:    retq</span><br><span class="line">End of assembler dump.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>看int3是什么</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(gdb) x /8xb 0xffffffffa02c923c</span><br><span class="line">0xffffffffa02c923c &lt;DriverInitialize+37&gt;:       0xcc    0xef    0xfd    0xff    0xff    0xc9    0xc3    0x0f</span><br><span class="line">(gdb) x /8xb 0xffffffffa02c923d</span><br><span class="line">0xffffffffa02c923d &lt;DriverInitialize+38&gt;:       0xef    0xfd    0xff    0xff    0xc9    0xc3    0x0f    0x1f</span><br></pre></td></tr></table></figure>
+
+<p>可知int3对应的机器码为<code>0xcc</code>, 这是调试器的断点标记.</p>
+<p>猜想是否内核模块代码所在页框不可写, 因此接下来就是找到该页框, 查看该页框的属性</p>
+</li>
+<li><p>查看cr3寄存器的值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) p /x cr3</span><br><span class="line">$8 = 0x138bca000</span><br></pre></td></tr></table></figure>
+
+<p>pgd的物理地址: <code>0x138bca000</code></p>
+<p>线性地址: <code>0xffff8801 38bca000</code></p>
+</li>
+<li><p>查看<code>DriverInitialize</code>的线性地址</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) p DriverInitialize</span><br><span class="line">$9 = &#123;int (void)&#125; 0xffffffffa02c9217 &lt;DriverInitialize&gt;</span><br></pre></td></tr></table></figure>
+
+<p>线性地址: <code>0xffffffffa02c9217</code></p>
+</li>
+<li><p>pgd表</p>
+<ol>
+<li><p>index: <code>0b1,1111,1111</code> &#x3D; <code>0x1ff</code></p>
+</li>
+<li><p>偏移量: $index \times 8$</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) p /x 0x1ff * 8</span><br><span class="line">$12 = 0xff8</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>存储pud表物理基地址的内存的线性地址: <code>0xffff8801 38bca000+0xff8 = 0xffff8801 38bcaff8</code></p>
+</li>
+<li><p><code>0xffff8801 38bcaff8</code>存储的值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) x /8xb 0xffff880138bcaff8</span><br><span class="line">0xffff880138bcaff8:     0x67    0x10    0xc1    0x01    0x00    0x00    0x00    0x00</span><br></pre></td></tr></table></figure>
+
+<p>即: <code>0x01c11067</code></p>
+</li>
+<li><p>获得的信息如下</p>
+<ul>
+<li>pud的物理基地址: <code>0x01c11000</code></li>
+<li><strong>R&#x2F;W</strong>: 1</li>
+<li><strong>P</strong>: 1</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>pud表</p>
+<ol>
+<li><p>index:  <code>0b111111110 = 0x1fe</code></p>
+</li>
+<li><p>offset:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) p /x 0b111111110 * 8</span><br><span class="line">$16 = 0xff0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>索引项的线性地址: <code>0xffff8800 01c11000+0xff0 = 0xffff8800 01c11ff0</code></p>
+</li>
+<li><p><code>0xffff8800 01c11ff0</code> 存储的值:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) x /8xb 0xffff880001c11ff0</span><br><span class="line">0xffff880001c11ff0:     0x63    0x20    0xc1    0x01    0x00    0x00    0x00    0x00</span><br></pre></td></tr></table></figure>
+
+<p>即: <code>0x01c12063</code></p>
+</li>
+<li><p>获得的信息如下</p>
+<ul>
+<li>pmd的物理基地址: <code>0x01c12000</code></li>
+<li><strong>R&#x2F;W</strong>: 1</li>
+<li><strong>P</strong>: 1</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>pmd表</p>
+<ol>
+<li><p>index: <code>0b1 0000 0001 = 0x101</code></p>
+</li>
+<li><p>offset: <code>0x808</code></p>
+</li>
+<li><p>索引项的线性地址: <code>0xffff8800 01c12000 + 0x808 = 0xffff8800 01c12808</code></p>
+</li>
+<li><p><code>0xffff880001c12808</code>存储的值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) x /8xb 0xffff880001c12808</span><br><span class="line">0xffff880001c12808:     0x67    0xb0    0xb8    0xb4    0x00    0x00    0x00    0x00</span><br></pre></td></tr></table></figure>
+
+<p>即: <code>0xb4b8b067</code></p>
+</li>
+<li><p>获得的信息如下</p>
+<ul>
+<li>pt的物理基地址: <code>0xb4b8b000</code></li>
+<li><strong>R&#x2F;W</strong>: 1</li>
+<li><strong>P</strong>: 1</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>pt表</p>
+<ol>
+<li><p>index: <code>0b0 1100 1001 = 0x0c9</code></p>
+</li>
+<li><p>offset: <code>0x0c9 * 8 = 0x648</code></p>
+</li>
+<li><p>索引项线性地址: <code>0xffff8800 b4b8b000 + 0x648 = 0xffff8800 b4b8b648</code></p>
+</li>
+<li><p><code>0xffff8800 b4b8b648</code>存储的值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) x /8xb 0xffff8800b4b8b648</span><br><span class="line">0xffff8800b4b8b648:     0x61    0x91    0xfa    0x35    0x01    0x00    0x00    0x00</span><br></pre></td></tr></table></figure>
+
+<p>即: <code>0x0135fa9161</code></p>
+</li>
+<li><p>获得的信息如下</p>
+<ul>
+<li>pt的物理基地址: <code>0x0135fa9000</code></li>
+<li><strong>R&#x2F;W</strong>: 0 (只可读不可写)</li>
+<li><strong>P</strong>: 1</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>修改pt表的 R&#x2F;W 值</p>
+<ol>
+<li><p>修改为可读可写: <code>set &#123;unsigned char&#125;0xffff8800b4b8b648=0x63</code></p>
+</li>
+<li><p>查看是否修改成功</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) x /8xb 0xffff8800b4b8b648</span><br><span class="line">0xffff8800b4b8b648:     0x63    0x91    0xfa    0x35    0x01    0x00    0x00    0x00</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>修改int3处的机器码</p>
+<ol>
+<li><p>查看call的机器码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">(gdb) disassemble</span><br><span class="line">Dump of assembler code for function DriverInitialize:</span><br><span class="line">   0xffffffffa02c9217 &lt;+0&gt;:     nopl   0x0(%rax,%rax,1)</span><br><span class="line">   0xffffffffa02c921c &lt;+5&gt;:     push   %rbp</span><br><span class="line">   0xffffffffa02c921d &lt;+6&gt;:     mov    %rsp,%rbp</span><br><span class="line">   0xffffffffa02c9220 &lt;+9&gt;:     sub    $0x8,%rsp</span><br><span class="line">   0xffffffffa02c9224 &lt;+13&gt;:    mov    $0xffffffffa02ca0e3,%rdi</span><br><span class="line">   0xffffffffa02c922b &lt;+20&gt;:    mov    $0x0,%eax</span><br><span class="line">   0xffffffffa02c9230 &lt;+25&gt;:    callq  0xffffffff810b3f72 &lt;printk&gt;</span><br><span class="line">   0xffffffffa02c9235 &lt;+30&gt;:    mov    %cr3,%rax</span><br><span class="line">   0xffffffffa02c9238 &lt;+33&gt;:    mov    %rax,-0x8(%rbp)</span><br><span class="line">=&gt; 0xffffffffa02c923c &lt;+37&gt;:    int3</span><br><span class="line">   0xffffffffa02c923d &lt;+38&gt;:    out    %eax,(%dx)</span><br><span class="line">   0xffffffffa02c923e &lt;+39&gt;:    std</span><br><span class="line">   0xffffffffa02c923f &lt;+40&gt;:    (bad)</span><br><span class="line">   0xffffffffa02c9240 &lt;+41&gt;:    dec    %ecx</span><br><span class="line">   0xffffffffa02c9242 &lt;+43&gt;:    retq</span><br><span class="line">End of assembler dump.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>根据 <code>0xffffffffa02c9230 &lt;+25&gt;:    callq  0xffffffff810b3f72 &lt;printk&gt;</code> 查看<code>0xffffffffa02c9230</code>处的机器码</p>
+</li>
+<li><p><code>0xffffffffa02c9230</code>机器码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) x /8xb 0xffffffffa02c9230</span><br><span class="line">0xffffffffa02c9230 &lt;DriverInitialize+25&gt;:       0xe8    0x3d    0xad    0xde    0xe0    0x0f    0x20    0xd8</span><br></pre></td></tr></table></figure>
+
+<p>知: <code>callq</code> 的机器码为 <code>0xe8</code></p>
+</li>
+<li><p>修改int3处的机器码 <code>0xe8</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(gdb) set &#123;unsigned char&#125;0xffffffffa02c923c=0xe8</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看是否修改成功</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">(gdb) disassemble</span><br><span class="line">Dump of assembler code for function DriverInitialize:</span><br><span class="line">   0xffffffffa02c9217 &lt;+0&gt;:     nopl   0x0(%rax,%rax,1)</span><br><span class="line">   0xffffffffa02c921c &lt;+5&gt;:     push   %rbp</span><br><span class="line">   0xffffffffa02c921d &lt;+6&gt;:     mov    %rsp,%rbp</span><br><span class="line">   0xffffffffa02c9220 &lt;+9&gt;:     sub    $0x8,%rsp</span><br><span class="line">   0xffffffffa02c9224 &lt;+13&gt;:    mov    $0xffffffffa02ca0e3,%rdi</span><br><span class="line">   0xffffffffa02c922b &lt;+20&gt;:    mov    $0x0,%eax</span><br><span class="line">   0xffffffffa02c9230 &lt;+25&gt;:    callq  0xffffffff810b3f72 &lt;printk&gt;</span><br><span class="line">   0xffffffffa02c9235 &lt;+30&gt;:    mov    %cr3,%rax</span><br><span class="line">   0xffffffffa02c9238 &lt;+33&gt;:    mov    %rax,-0x8(%rbp)</span><br><span class="line">=&gt; 0xffffffffa02c923c &lt;+37&gt;:    callq  0xffffffffa02c9030 &lt;InitalizeCharDevice&gt;</span><br><span class="line">   0xffffffffa02c9241 &lt;+42&gt;:    leaveq</span><br><span class="line">   0xffffffffa02c9242 &lt;+43&gt;:    retq</span><br><span class="line">End of assembler dump.</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>继续运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) c</span><br><span class="line">Continuing.</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="全部命令"><a href="#全部命令" class="headerlink" title="全部命令"></a>全部命令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu14:/home/qeuroal/Documents/kernel/linux-3.13<span class="comment"># gdb ./vmlinux</span></span><br><span class="line">GNU gdb (Ubuntu 7.7.1-0ubuntu5~14.04.3) 7.7.1</span><br><span class="line">Copyright (C) 2014 Free Software Foundation, Inc.</span><br><span class="line">License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;</span><br><span class="line">This is free software: you are free to change and redistribute it.</span><br><span class="line">There is NO WARRANTY, to the extent permitted by law.  Type <span class="string">&quot;show copying&quot;</span></span><br><span class="line">and <span class="string">&quot;show warranty&quot;</span> <span class="keyword">for</span> details.</span><br><span class="line">This GDB was configured as <span class="string">&quot;x86_64-linux-gnu&quot;</span>.</span><br><span class="line">Type <span class="string">&quot;show configuration&quot;</span> <span class="keyword">for</span> configuration details.</span><br><span class="line">For bug reporting instructions, please see:</span><br><span class="line">&lt;http://www.gnu.org/software/gdb/bugs/&gt;.</span><br><span class="line">Find the GDB manual and other documentation resources online at:</span><br><span class="line">&lt;http://www.gnu.org/software/gdb/documentation/&gt;.</span><br><span class="line">For <span class="built_in">help</span>, <span class="built_in">type</span> <span class="string">&quot;help&quot;</span>.</span><br><span class="line">Type <span class="string">&quot;apropos word&quot;</span> to search <span class="keyword">for</span> commands related to <span class="string">&quot;word&quot;</span>...</span><br><span class="line">Reading symbols from ./vmlinux...done.</span><br><span class="line">(gdb) <span class="built_in">set</span> serial baud 115200</span><br><span class="line">(gdb) target remote /dev/ttyS1</span><br><span class="line">Remote debugging using /dev/ttyS1</span><br><span class="line">kgdb_breakpoint () at kernel/debug/debug_core.c:1042</span><br><span class="line">1042            wmb(); /* Sync point after breakpoint */</span><br><span class="line">(gdb) l</span><br><span class="line">1037    void kgdb_breakpoint(void)</span><br><span class="line">1038    &#123;</span><br><span class="line">1039            atomic_inc(&amp;kgdb_setting_breakpoint);</span><br><span class="line">1040            wmb(); /* Sync point before breakpoint */</span><br><span class="line">1041            arch_kgdb_breakpoint();</span><br><span class="line">1042            wmb(); /* Sync point after breakpoint */</span><br><span class="line">1043            atomic_dec(&amp;kgdb_setting_breakpoint);</span><br><span class="line">1044    &#125;</span><br><span class="line">1045    EXPORT_SYMBOL_GPL(kgdb_breakpoint);</span><br><span class="line">1046</span><br><span class="line">(gdb) b do_init_module</span><br><span class="line">Breakpoint 1 at 0xffffffff810d4ed7: file kernel/module.c, line 3013.</span><br><span class="line">(gdb) c</span><br><span class="line">Continuing.</span><br><span class="line">[New Thread 1835]</span><br><span class="line">[Switching to Thread 1835]</span><br><span class="line"></span><br><span class="line">Breakpoint 1, do_init_module (mod=mod@entry=0xffffffffa02a50e0) at kernel/module.c:3013</span><br><span class="line">3013    &#123;</span><br><span class="line">(gdb) c</span><br><span class="line">Continuing.</span><br><span class="line">[New Thread 1859]</span><br><span class="line">[Switching to Thread 1859]</span><br><span class="line"></span><br><span class="line">Breakpoint 1, do_init_module (mod=mod@entry=0xffffffffa02cb0e0) at kernel/module.c:3013</span><br><span class="line">3013    &#123;</span><br><span class="line">(gdb) p mod-&gt;sect_attrs-&gt;attrs[1]-&gt;name</span><br><span class="line"><span class="variable">$1</span> = 0xffff8800bb806de0 <span class="string">&quot;.text&quot;</span></span><br><span class="line">(gdb) p /x mod-&gt;sect_attrs-&gt;attrs[1]-&gt;address</span><br><span class="line"><span class="variable">$2</span> = 0xffffffffa02c9000</span><br><span class="line">(gdb) p mod-&gt;sect_attrs-&gt;attrs[4]-&gt;name</span><br><span class="line"><span class="variable">$3</span> = 0xffff8800bb806db0 <span class="string">&quot;.data&quot;</span></span><br><span class="line">(gdb) p /x mod-&gt;sect_attrs-&gt;attrs[4]-&gt;address</span><br><span class="line"><span class="variable">$4</span> = 0xffffffffa02cb000</span><br><span class="line">(gdb) p mod-&gt;sect_attrs-&gt;attrs[6]-&gt;name</span><br><span class="line"><span class="variable">$5</span> = 0xffff8800bb806df8 <span class="string">&quot;.bss&quot;</span></span><br><span class="line">(gdb) p /x mod-&gt;sect_attrs-&gt;attrs[6]-&gt;address</span><br><span class="line"><span class="variable">$6</span> = 0xffffffffa02cb340</span><br><span class="line">(gdb) add-symbol-file /home/qeuroal/Documents/code/4/4.1/PrintModule.ko 0xffffffffa02c9000 -s .data 0xffffffffa02cb000 -s .bss 0xffffffffa02cb340</span><br><span class="line">add symbol table from file <span class="string">&quot;/home/qeuroal/Documents/code/4/4.1/PrintModule.ko&quot;</span> at</span><br><span class="line">        .text_addr = 0xffffffffa02c9000</span><br><span class="line">        .data_addr = 0xffffffffa02cb000</span><br><span class="line">        .bss_addr = 0xffffffffa02cb340</span><br><span class="line">(y or n) y</span><br><span class="line">Reading symbols from /home/qeuroal/Documents/code/4/4.1/PrintModule.ko...done.</span><br><span class="line">(gdb) l Driver</span><br><span class="line">Function <span class="string">&quot;Driver&quot;</span> not defined.</span><br><span class="line">(gdb) l DriverInitialize</span><br><span class="line">81</span><br><span class="line">82              unregister_chrdev_region(gslDriverParameters.uiDeviceNumber, 1);</span><br><span class="line">83      &#125;</span><br><span class="line">84</span><br><span class="line">85      static int DriverInitialize(void)</span><br><span class="line">86      &#123;</span><br><span class="line">87              unsigned long cr3;</span><br><span class="line">88</span><br><span class="line">89              DEBUG_PRINT(DEVICE_NAME <span class="string">&quot; Initialize\n&quot;</span>);</span><br><span class="line">90</span><br><span class="line">(gdb)</span><br><span class="line">91              asm volatile(<span class="string">&quot;mov %%cr3, %0\n\t&quot;</span> : <span class="string">&quot;=r&quot;</span> (cr3), <span class="string">&quot;=m&quot;</span> (__force_order));</span><br><span class="line">92</span><br><span class="line">93              <span class="built_in">return</span> InitalizeCharDevice();</span><br><span class="line">94      &#125;</span><br><span class="line">95</span><br><span class="line">96      static void DriverUninitialize(void)</span><br><span class="line">97      &#123;</span><br><span class="line">98              DEBUG_PRINT(DEVICE_NAME <span class="string">&quot; Uninitialize\n&quot;</span>);</span><br><span class="line">99</span><br><span class="line">100             UninitialCharDevice();</span><br><span class="line">(gdb)</span><br><span class="line">101     &#125;</span><br><span class="line">102</span><br><span class="line">103     module_init(DriverInitialize);</span><br><span class="line">104     module_exit(DriverUninitialize);</span><br><span class="line">(gdb) b 93</span><br><span class="line">Breakpoint 2 at 0xffffffffa02c923c: file /home/qeuroal/Documents/code/4/4.1/DriverMain.c, line 93.</span><br><span class="line">(gdb) c</span><br><span class="line">Continuing.</span><br><span class="line"></span><br><span class="line">Breakpoint 2, DriverInitialize () at /home/qeuroal/Documents/code/4/4.1/DriverMain.c:93</span><br><span class="line">93              <span class="built_in">return</span> InitalizeCharDevice();</span><br><span class="line">(gdb) disassemble</span><br><span class="line">Dump of assembler code <span class="keyword">for</span> <span class="keyword">function</span> DriverInitialize:</span><br><span class="line">   0xffffffffa02c9217 &lt;+0&gt;:     nopl   0x0(%rax,%rax,1)</span><br><span class="line">   0xffffffffa02c921c &lt;+5&gt;:     push   %rbp</span><br><span class="line">   0xffffffffa02c921d &lt;+6&gt;:     mov    %rsp,%rbp</span><br><span class="line">   0xffffffffa02c9220 &lt;+9&gt;:     sub    <span class="variable">$0x8</span>,%rsp</span><br><span class="line">   0xffffffffa02c9224 &lt;+13&gt;:    mov    <span class="variable">$0xffffffffa02ca0e3</span>,%rdi</span><br><span class="line">   0xffffffffa02c922b &lt;+20&gt;:    mov    <span class="variable">$0x0</span>,%eax</span><br><span class="line">   0xffffffffa02c9230 &lt;+25&gt;:    callq  0xffffffff810b3f72 &lt;printk&gt;</span><br><span class="line">   0xffffffffa02c9235 &lt;+30&gt;:    mov    %cr3,%rax</span><br><span class="line">   0xffffffffa02c9238 &lt;+33&gt;:    mov    %rax,-0x8(%rbp)</span><br><span class="line">=&gt; 0xffffffffa02c923c &lt;+37&gt;:    int3</span><br><span class="line">   0xffffffffa02c923d &lt;+38&gt;:    out    %eax,(%dx)</span><br><span class="line">   0xffffffffa02c923e &lt;+39&gt;:    std</span><br><span class="line">   0xffffffffa02c923f &lt;+40&gt;:    (bad)</span><br><span class="line">   0xffffffffa02c9240 &lt;+41&gt;:    dec    %ecx</span><br><span class="line">   0xffffffffa02c9242 &lt;+43&gt;:    retq</span><br><span class="line">End of assembler dump.</span><br><span class="line">(gdb) x /8xb 0xffffffffa02c923c</span><br><span class="line"></span><br><span class="line">0xffffffffa02c923c &lt;DriverInitialize+37&gt;:       0xcc    0xef    0xfd    0xff    0xff    0xc9    0xc3    0x0f</span><br><span class="line">(gdb)</span><br><span class="line">0xffffffffa02c9244 &lt;DriverUninitialize+1&gt;:      0x1f    0x44    0x00    0x00    0x55    0x48    0x89    0xe5</span><br><span class="line">(gdb) x /8xb 0xffffffffa02c923d</span><br><span class="line">0xffffffffa02c923d &lt;DriverInitialize+38&gt;:       0xef    0xfd    0xff    0xff    0xc9    0xc3    0x0f    0x1f</span><br><span class="line">(gdb) x /8xb 0xffffffffa02c923c</span><br><span class="line">0xffffffffa02c923c &lt;DriverInitialize+37&gt;:       0xcc    0xef    0xfd    0xff    0xff    0xc9    0xc3    0x0f</span><br><span class="line">(gdb) p cr3</span><br><span class="line"><span class="variable">$7</span> = 5246853120</span><br><span class="line">(gdb) p /x cr3</span><br><span class="line"><span class="variable">$8</span> = 0x138bca000</span><br><span class="line">(gdb) p DriverInitialize</span><br><span class="line"><span class="variable">$9</span> = &#123;int (void)&#125; 0xffffffffa02c9217 &lt;DriverInitialize&gt;</span><br><span class="line">(gdb) p /x cr3</span><br><span class="line"><span class="variable">$10</span> = 0x138bca000</span><br><span class="line">(gdb) p /x PAGE_OFFSET</span><br><span class="line">No symbol <span class="string">&quot;PAGE_OFFSET&quot;</span> <span class="keyword">in</span> current context.</span><br><span class="line">(gdb) p DriverInitialize</span><br><span class="line"><span class="variable">$11</span> = &#123;int (void)&#125; 0xffffffffa02c9217 &lt;DriverInitialize&gt;</span><br><span class="line">(gdb) p /x 0x1ff * 8</span><br><span class="line"><span class="variable">$12</span> = 0xff8</span><br><span class="line">(gdb) p /x 0x1ff*8</span><br><span class="line"><span class="variable">$13</span> = 0xff8</span><br><span class="line">(gdb) x /8xb 0xffff880138bcaff8</span><br><span class="line">0xffff880138bcaff8:     0x67    0x10    0xc1    0x01    0x00    0x00    0x00    0x00</span><br><span class="line">(gdb) p /x 0x1fe * 8</span><br><span class="line"><span class="variable">$14</span> = 0xff0</span><br><span class="line">(gdb) p /x 0xffff880001c11000+0xff0</span><br><span class="line"><span class="variable">$17</span> = 0xffff880001c11ff0</span><br><span class="line">(gdb) x /8xb 0xffff880001c11ff0</span><br><span class="line">0xffff880001c11ff0:     0x63    0x20    0xc1    0x01    0x00    0x00    0x00    0x00</span><br><span class="line">(gdb) x /8xb 0xffff880001c12808</span><br><span class="line">0xffff880001c12808:     0x67    0xb0    0xb8    0xb4    0x00    0x00    0x00    0x00</span><br><span class="line">(gdb) p /x 0x0c9</span><br><span class="line"><span class="variable">$18</span> = 0xc9</span><br><span class="line">(gdb) p /x 0x0c9 * 8</span><br><span class="line"><span class="variable">$19</span> = 0x648</span><br><span class="line">(gdb) x /8xb 0xffff8800b4b8b648</span><br><span class="line">0xffff8800b4b8b648:     0x61    0x91    0xfa    0x35    0x01    0x00    0x00    0x00</span><br><span class="line">(gdb) <span class="built_in">set</span> &#123;unsigned char&#125;0xffff8800b4b8b648=0x63</span><br><span class="line">(gdb) x /8xb 0xffff8800b4b8b648</span><br><span class="line">0xffff8800b4b8b648:     0x63    0x91    0xfa    0x35    0x01    0x00    0x00    0x00</span><br><span class="line">(gdb) disassemble</span><br><span class="line">Dump of assembler code <span class="keyword">for</span> <span class="keyword">function</span> DriverInitialize:</span><br><span class="line">   0xffffffffa02c9217 &lt;+0&gt;:     nopl   0x0(%rax,%rax,1)</span><br><span class="line">   0xffffffffa02c921c &lt;+5&gt;:     push   %rbp</span><br><span class="line">   0xffffffffa02c921d &lt;+6&gt;:     mov    %rsp,%rbp</span><br><span class="line">   0xffffffffa02c9220 &lt;+9&gt;:     sub    <span class="variable">$0x8</span>,%rsp</span><br><span class="line">   0xffffffffa02c9224 &lt;+13&gt;:    mov    <span class="variable">$0xffffffffa02ca0e3</span>,%rdi</span><br><span class="line">   0xffffffffa02c922b &lt;+20&gt;:    mov    <span class="variable">$0x0</span>,%eax</span><br><span class="line">   0xffffffffa02c9230 &lt;+25&gt;:    callq  0xffffffff810b3f72 &lt;printk&gt;</span><br><span class="line">   0xffffffffa02c9235 &lt;+30&gt;:    mov    %cr3,%rax</span><br><span class="line">   0xffffffffa02c9238 &lt;+33&gt;:    mov    %rax,-0x8(%rbp)</span><br><span class="line">=&gt; 0xffffffffa02c923c &lt;+37&gt;:    int3</span><br><span class="line">   0xffffffffa02c923d &lt;+38&gt;:    out    %eax,(%dx)</span><br><span class="line">   0xffffffffa02c923e &lt;+39&gt;:    std</span><br><span class="line">   0xffffffffa02c923f &lt;+40&gt;:    (bad)</span><br><span class="line">   0xffffffffa02c9240 &lt;+41&gt;:    dec    %ecx</span><br><span class="line">   0xffffffffa02c9242 &lt;+43&gt;:    retq</span><br><span class="line">End of assembler dump.</span><br><span class="line">(gdb) x /8xb 0xffffffffa02c9230</span><br><span class="line">0xffffffffa02c9230 &lt;DriverInitialize+25&gt;:       0xe8    0x3d    0xad    0xde    0xe0    0x0f    0x20    0xd8</span><br><span class="line">(gdb) <span class="built_in">set</span> &#123;unsigned char&#125;0xffffffffa02c923c=0xe8</span><br><span class="line">(gdb) disassemble</span><br><span class="line">Dump of assembler code <span class="keyword">for</span> <span class="keyword">function</span> DriverInitialize:</span><br><span class="line">   0xffffffffa02c9217 &lt;+0&gt;:     nopl   0x0(%rax,%rax,1)</span><br><span class="line">   0xffffffffa02c921c &lt;+5&gt;:     push   %rbp</span><br><span class="line">   0xffffffffa02c921d &lt;+6&gt;:     mov    %rsp,%rbp</span><br><span class="line">   0xffffffffa02c9220 &lt;+9&gt;:     sub    <span class="variable">$0x8</span>,%rsp</span><br><span class="line">   0xffffffffa02c9224 &lt;+13&gt;:    mov    <span class="variable">$0xffffffffa02ca0e3</span>,%rdi</span><br><span class="line">   0xffffffffa02c922b &lt;+20&gt;:    mov    <span class="variable">$0x0</span>,%eax</span><br><span class="line">   0xffffffffa02c9230 &lt;+25&gt;:    callq  0xffffffff810b3f72 &lt;printk&gt;</span><br><span class="line">   0xffffffffa02c9235 &lt;+30&gt;:    mov    %cr3,%rax</span><br><span class="line">   0xffffffffa02c9238 &lt;+33&gt;:    mov    %rax,-0x8(%rbp)</span><br><span class="line">=&gt; 0xffffffffa02c923c &lt;+37&gt;:    callq  0xffffffffa02c9030 &lt;InitalizeCharDevice&gt;</span><br><span class="line">   0xffffffffa02c9241 &lt;+42&gt;:    leaveq</span><br><span class="line">   0xffffffffa02c9242 &lt;+43&gt;:    retq</span><br><span class="line">End of assembler dump.</span><br><span class="line">(gdb) c</span><br><span class="line">Continuing.</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://qeuroal.top/2024/04/27/208/" title="208. 手工page walk">http://qeuroal.top/2024/04/27/208/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+              <a href="/tags/kernel/" rel="tag"><i class="fa fa-tag"></i> kernel</a>
+              <a href="/tags/kgdb/" rel="tag"><i class="fa fa-tag"></i> kgdb</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/04/03/207/" rel="prev" title="207. eBFP">
+                  <i class="fa fa-angle-left"></i> 207. eBFP
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/04/28/209/" rel="next" title="209. Shell中特殊字符的用法总结大全">
+                  209. Shell中特殊字符的用法总结大全 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Qeuroal" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

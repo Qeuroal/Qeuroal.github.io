@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="用法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="224. gcc, g++ 和 gdb">
+<meta property="og:url" content="http://qeuroal.top/2025/02/02/224/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Blog">
+<meta property="og:description" content="用法">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-02-01T23:00:47.000Z">
+<meta property="article:modified_time" content="2025-12-08T06:36:58.734Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="c&#x2F;c++">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://qeuroal.top/2025/02/02/224/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2025/02/02/224/","path":"2025/02/02/224/","title":"224. gcc, g++ 和 gdb"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>224. gcc, g++ 和 gdb | Qeuroal's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Qeuroal's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">静幽正治</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-gcc%EF%BC%9F%E7%AE%80%E5%8D%95%E8%81%8A%E8%81%8A%E5%AE%83%E7%9A%84%E8%BA%AB%E4%BB%BD"><span class="nav-number">1.</span> <span class="nav-text">什么是 gcc？简单聊聊它的身份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GCC-%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E6%A3%80%E6%9F%A5"><span class="nav-number">2.</span> <span class="nav-text">GCC 的安装与检查</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E5%B7%B2%E5%AE%89%E8%A3%85"><span class="nav-number">2.1.</span> <span class="nav-text">检查是否已安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-GCC-G-GDB"><span class="nav-number">2.2.</span> <span class="nav-text">安装 GCC&#x2F;G++&#x2F;GDB</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gcc-%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95%EF%BC%9A%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%86%9F%E7%BB%83"><span class="nav-number">3.</span> <span class="nav-text">gcc 的基本用法：从入门到熟练</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E7%BC%96%E8%AF%91%E6%8C%87%E4%BB%A4"><span class="nav-number">3.1.</span> <span class="nav-text">最简单的编译指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E6%AD%A5%E7%BC%96%E8%AF%91%E6%8C%87%E4%BB%A4"><span class="nav-number">3.2.</span> <span class="nav-text">分步编译指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9%E5%A4%A7%E7%9B%98%E7%82%B9"><span class="nav-number">3.3.</span> <span class="nav-text">常用选项大盘点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A%E9%80%89%E6%8B%A9%E9%80%82%E5%90%88%E7%9A%84%E4%BC%98%E5%8C%96%E7%BA%A7%E5%88%AB"><span class="nav-number">3.4.</span> <span class="nav-text">总结：选择适合的优化级别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E6%96%87%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%9A%84%E7%BC%96%E8%AF%91"><span class="nav-number">4.</span> <span class="nav-text">多文件项目的编译</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E4%B8%80%E6%AC%A1%E6%80%A7%E7%BC%96%E8%AF%91"><span class="nav-number">4.1.</span> <span class="nav-text">方法一：一次性编译</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E5%88%86%E6%AD%A5%E7%BC%96%E8%AF%91%E5%86%8D%E9%93%BE%E6%8E%A5"><span class="nav-number">4.2.</span> <span class="nav-text">方法二：分步编译再链接</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gcc-%E7%BC%96%E8%AF%91%E6%B5%81%E7%A8%8B%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90%EF%BC%9A%E6%90%9E%E6%87%82%E6%AF%8F%E4%B8%80%E6%AD%A5"><span class="nav-number">5.</span> <span class="nav-text">gcc 编译流程深入解析：搞懂每一步</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%84%E5%A4%84%E7%90%86%EF%BC%9A%E5%85%88%E6%90%9E%E5%AE%9A%E5%A4%B4%E6%96%87%E4%BB%B6%E5%92%8C%E5%AE%8F"><span class="nav-number">5.1.</span> <span class="nav-text">预处理：先搞定头文件和宏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%EF%BC%9A%E4%BB%8E%E4%BA%BA%E8%AF%9D%E5%88%B0%E6%B1%87%E7%BC%96"><span class="nav-number">5.2.</span> <span class="nav-text">编译：从人话到汇编</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B1%87%E7%BC%96%EF%BC%9A%E6%8A%8A%E6%B1%87%E7%BC%96%E8%BD%AC%E6%88%90%E6%9C%BA%E5%99%A8%E7%A0%81"><span class="nav-number">5.3.</span> <span class="nav-text">汇编：把汇编转成机器码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5%EF%BC%9A%E7%94%9F%E6%88%90%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6"><span class="nav-number">5.4.</span> <span class="nav-text">链接：生成可执行文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E8%AF%95%E5%88%A9%E5%99%A8%EF%BC%9AGDB-%E4%B8%8A%E7%BA%BF%E4%BA%86"><span class="nav-number">6.</span> <span class="nav-text">调试利器：GDB 上线了</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8-gcc-%E7%BC%96%E8%AF%91%E6%97%B6%E5%8A%A0%E8%B0%83%E8%AF%95%E4%BF%A1%E6%81%AF"><span class="nav-number">6.1.</span> <span class="nav-text">用 gcc 编译时加调试信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8-GDB-%E5%91%BD%E4%BB%A4"><span class="nav-number">6.2.</span> <span class="nav-text">常用 GDB 命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5"><span class="nav-number">7.</span> <span class="nav-text">常见问题排查</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%BA%E5%B0%91%E5%A4%B4%E6%96%87%E4%BB%B6"><span class="nav-number">7.1.</span> <span class="nav-text">缺少头文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%80%9C%E6%AE%B5%E9%94%99%E8%AF%AF%E2%80%9D"><span class="nav-number">7.2.</span> <span class="nav-text">“段错误”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5%E9%94%99%E8%AF%AF"><span class="nav-number">7.3.</span> <span class="nav-text">链接错误</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%87%BD%E6%95%B0%E5%BC%95%E7%94%A8"><span class="nav-number">7.4.</span> <span class="nav-text">未定义的函数引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GDB-%E6%8F%90%E7%A4%BA%E6%B2%A1%E6%9C%89%E8%B0%83%E8%AF%95%E4%BF%A1%E6%81%AF"><span class="nav-number">7.5.</span> <span class="nav-text">GDB 提示没有调试信息</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9Agcc-g-gdb-%E4%B8%8D%E6%98%AF%E9%AD%94%E6%B3%95%EF%BC%8C%E7%94%A8%E7%86%9F%E4%BA%86%E5%83%8F%E5%BC%80%E6%8C%82"><span class="nav-number">8.</span> <span class="nav-text">总结：gcc&#x2F;g++&#x2F;gdb 不是魔法，用熟了像开挂</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">大人者，不失其赤子之心</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2025/02/02/224/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="224. gcc, g++ 和 gdb | Qeuroal's Blog">
+      <meta itemprop="description" content="用法">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          224. gcc, g++ 和 gdb
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-02-02 07:00:47" itemprop="dateCreated datePublished" datetime="2025-02-02T07:00:47+08:00">2025-02-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-08 14:36:58" itemprop="dateModified" datetime="2025-12-08T14:36:58+08:00">2025-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/c-c/" itemprop="url" rel="index"><span itemprop="name">c/c++</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">用法</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>提到 gcc&#x2F;g++，很多初学者的第一反应可能是：<br>“这不是编译器嘛，不就写 <code>gcc main.c</code> 然后敲个回车？”<br>但当编译报错时，才发现自己对它的了解就像对前任一样——<strong>一知半解</strong>。</p>
+<p>其实，gcc&#x2F;g++ 不只是一个“会把 C&#x2F;C++ 代码变成可执行文件”的工具，它还能优化、调试、排错，甚至分析代码！今天，小康就来带你解锁 gcc&#x2F;g++&#x2F;gdb 的正确姿势：从编译到调试，通通搞明白！</p>
+<blockquote>
+<p> <strong>小贴士</strong>：</p>
+<ul>
+<li><strong>gcc</strong>：C 编译器，专门编译 C 程序。</li>
+<li><strong>g++</strong> : C++编译器，专门编译 C++ 程序。<br><strong>gcc 和 g++的用法和参数基本相同，主要介绍 gcc！</strong></li>
+<li><strong>gdb ：</strong>调试 C&#x2F;C++ 程序的利器！</li>
+</ul>
+</blockquote>
+<h3 id="什么是-gcc？简单聊聊它的身份"><a href="#什么是-gcc？简单聊聊它的身份" class="headerlink" title="什么是 gcc？简单聊聊它的身份"></a>什么是 gcc？简单聊聊它的身份</h3><p>gcc，全称 GNU Compiler Collection，是一款强大的开源编译器，支持多种语言（C、C++、Objective-C 等）。但今天，我们只专注它在 <strong>C&#x2F;C++ 编译领域</strong>的表现。</p>
+<p><strong>一句话概括 gcc 的工作：</strong><br>把你写的代码从“人话”翻译成机器能看懂的“机器语言”。即：将你的程序代码编译成计算机能够识别的机器语言(01机器码)。</p>
+<p>gcc 的核心流程分为四步：</p>
+<ol>
+<li><strong>预处理</strong>：处理宏定义、头文件、条件编译等。</li>
+<li><strong>编译</strong>：将预处理的代码转成汇编代码。</li>
+<li><strong>汇编</strong>：把汇编代码转成机器代码（生成目标文件）。</li>
+<li><strong>链接</strong>：将目标文件生成可执行文件。</li>
+</ol>
+<h3 id="GCC-的安装与检查"><a href="#GCC-的安装与检查" class="headerlink" title="GCC 的安装与检查"></a>GCC 的安装与检查</h3><h4 id="检查是否已安装"><a href="#检查是否已安装" class="headerlink" title="检查是否已安装"></a>检查是否已安装</h4><p>在终端输入以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc --version</span><br></pre></td></tr></table></figure>
+
+<p>如果返回版本信息，说明 GCC 已经安装成功。如果提示 <code>command not found</code>，那就继续看下面的安装步骤。</p>
+<h4 id="安装-GCC-G-GDB"><a href="#安装-GCC-G-GDB" class="headerlink" title="安装 GCC&#x2F;G++&#x2F;GDB"></a>安装 GCC&#x2F;G++&#x2F;GDB</h4><ol>
+<li><p><strong>Ubuntu&#x2F;Debian 系统</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install build-essential -y   <span class="comment"># 安装 gcc 和 g++</span></span><br><span class="line">sudo apt install gdb                  <span class="comment"># 安装 gdb</span></span><br></pre></td></tr></table></figure>
+
+<p>这会同时安装 GCC 和其他编译工具链。</p>
+</li>
+<li><p><strong>CentOS&#x2F;Red Hat 系统</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo yum groupinstall <span class="string">&quot;Development Tools&quot;</span> -y  <span class="comment"># 安装 gcc 和 g++</span></span><br><span class="line"></span><br><span class="line">sudo yum install gdb -y                       <span class="comment"># 安装 gdb</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>验证安装</strong>：分别运行 <code>gcc --version</code> 、 <code>g++ --version</code>和 <code>gdb --version</code>，确认 GCC&#x2F;G++&#x2F;GDB 是否安装成功。</p>
+</li>
+</ol>
+<h3 id="gcc-的基本用法：从入门到熟练"><a href="#gcc-的基本用法：从入门到熟练" class="headerlink" title="gcc 的基本用法：从入门到熟练"></a>gcc 的基本用法：从入门到熟练</h3><h4 id="最简单的编译指令"><a href="#最简单的编译指令" class="headerlink" title="最简单的编译指令"></a>最简单的编译指令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc main.c -o main</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>main.c</code> 是你的代码文件。</li>
+<li><code>-o main</code> 指定生成的可执行文件名为 <code>main</code>。如果不写 <code>-o</code>，默认生成名为 <code>a.out</code> 的文件。</li>
+</ul>
+<p><strong>运行程序</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./main</span><br></pre></td></tr></table></figure>
+
+<p>就这么简单，一行命令搞定编译和运行，是不是挺方便？但这其实是“打包式”的操作，编译和链接一起完成。如果你是刚入门的初学者，可能还不知道 GCC 背后做了些什么。这时，我们可以试试 <strong>分步编译</strong>，让每一步变得更清晰。</p>
+<h4 id="分步编译指令"><a href="#分步编译指令" class="headerlink" title="分步编译指令"></a>分步编译指令</h4><p>分步编译可以帮你更好地理解编译器的工作流程。其实，GCC 编译分为两个主要阶段（G++ 类似）：</p>
+<ol>
+<li><strong>编译阶段</strong>：将源码翻译成机器能理解的中间文件（目标文件，<code>.o</code> 文件）。</li>
+<li><strong>链接阶段</strong>：将目标文件链接成最终的可执行文件。</li>
+</ol>
+<p><strong>第一步：编译源程序文件</strong></p>
+<p>运行以下命令，将 main.c 转换成目标文件 main.o：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -c main.c -o main.o</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>-c</code> 参数表示只编译，不链接。</li>
+<li>main.o 是生成的目标文件，虽然不能直接运行，但它已经包含了 main.c 的翻译结果。</li>
+</ul>
+<p><strong>第二步：链接目标文件</strong></p>
+<p>接下来，将目标文件 main.o 链接成可执行文件 main：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc main.o -o main</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这一步不再使用 <code>-c</code>，而是使用 <code>-o</code>，因为我们要让 GCC 把目标文件链接成一个完整的程序。</li>
+</ul>
+<p>运行程序：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./main</span><br></pre></td></tr></table></figure>
+
+<p>同样的输出，经过分步操作生成了结果，是不是感觉自己更专业了？</p>
+<p><strong>为什么要分步编译？</strong></p>
+<p>你可能会想：“分两步多麻烦啊，我直接一步编译不就行了？”其实，分步编译有它的优势：</p>
+<ul>
+<li><strong>更高的灵活性</strong>：当项目中有多个文件时，你只需要重新编译修改过的文件，其他部分可以直接复用之前生成的目标文件（<code>.o文件</code> ），大大提高效率。（下文会提到多个文件编译的情况）</li>
+<li><strong>清晰的流程</strong>：每一步的工作职责都很明确，便于排查问题。例如，如果某个文件编译不过，可以单独解决，而不用从头来过。</li>
+</ul>
+<h4 id="常用选项大盘点"><a href="#常用选项大盘点" class="headerlink" title="常用选项大盘点"></a>常用选项大盘点</h4><ol>
+<li><p><strong>加点料，让错误信息更清晰：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -Wall -Wextra main.c -o main</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>-Wall</code>：开启常见警告（比如变量声明但没使用<code> -Wunused-variable</code> ）</li>
+<li><code>-Wextra</code>：开启额外警告(如未使用函数参数 <code>-Wunused-parameter</code>）</li>
+</ul>
+</li>
+<li><p><strong>为调试准备，加上调试符号：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -g main.c -o main</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>-g</code>：生成调试信息，方便用 GDB 调试。</li>
+</ul>
+</li>
+<li><p><strong>编译多个文件：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc file1.c file2.c -o program</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>多个源文件会一起编译链接成一个可执行文件。</li>
+</ul>
+</li>
+<li><p><strong>优化代码(<code>-O</code> 系列)</strong></p>
+<p>让程序更快？试试优化选项：</p>
+<p><code>-O0</code>：不优化（默认）</p>
+<p>gcc 默认不会优化代码，生成的程序跟你写的源代码更接近。</p>
+<p><strong>啥时候用？</strong></p>
+<ul>
+<li><p>开发调试时，容易追踪代码逻辑。</p>
+<p><strong>编译示例：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这两个命令效果一样</span></span><br><span class="line">gcc hello.c -O0 -o hello</span><br><span class="line">gcc hello.c -o hello</span><br></pre></td></tr></table></figure>
+
+<p><code>-O1</code>：基础优化</p>
+<p>会优化掉无用代码，让程序稍微跑快一点，但调试依然友好。</p>
+</li>
+<li><p>需要一点性能提升，但还得经常调试代码的时候。</p>
+<p><strong>编译示例：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc hello.c -O1 -o hello</span><br></pre></td></tr></table></figure>
+
+<p><code>-O2</code>：常用优化（<strong>推荐！</strong>）</p>
+<p>在 <code>-O1</code> 的基础上，增加更多优化，比如减少循环次数、改进分支预测等。</p>
+</li>
+<li><p>程序跑得还可以，但希望它跑得更稳更快。适合大部分场景。</p>
+<p><strong>编译示例：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc hello.c -O2 -o hello</span><br></pre></td></tr></table></figure>
+
+<p><code>-O3</code>：更高级优化</p>
+<p>比 <code>-O2</code> 更激进，开启一些高级优化，比如函数内联和向量化。</p>
+</li>
+<li><p>追求极限性能的程序，比如科学计算、大型数据处理。但注意，有时候优化过头会导致兼容性问题（比如浮点运算不准）。</p>
+<p><strong>编译示例：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc hello.c -O3 -o hello</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<h4 id="总结：选择适合的优化级别"><a href="#总结：选择适合的优化级别" class="headerlink" title="总结：选择适合的优化级别"></a><strong>总结：选择适合的优化级别</strong></h4><ul>
+<li><strong>开发阶段</strong>：<code>-O0</code> 或 <code>-O1</code>，方便调试。</li>
+<li><strong>生产环境</strong>：<code>-O2</code> 是最平衡的选项，跑得快又稳。</li>
+<li><strong>极限性能</strong>：<code>-O3</code> ，但要注意兼容性和精度问题。</li>
+</ul>
+<p>根据场景选个合适的优化级别，你的代码就能跑得既稳又快！</p>
+<h3 id="多文件项目的编译"><a href="#多文件项目的编译" class="headerlink" title="多文件项目的编译"></a>多文件项目的编译</h3><p>在实际项目中，代码往往分成多个文件，比如：</p>
+<ul>
+<li><code>main.c</code></li>
+<li><code>utils.c</code></li>
+<li><code>utils.h</code></li>
+</ul>
+<h4 id="方法一：一次性编译"><a href="#方法一：一次性编译" class="headerlink" title="方法一：一次性编译"></a><strong>方法一：一次性编译</strong></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc main.c utils.c -o my_program</span><br></pre></td></tr></table></figure>
+
+<p><strong>优势：</strong></p>
+<ul>
+<li><strong>简单粗暴</strong>：一条命令搞定所有文件，适合小项目。</li>
+<li><strong>快速省事</strong>：文件少的时候，用起来方便快捷。</li>
+</ul>
+<h4 id="方法二：分步编译再链接"><a href="#方法二：分步编译再链接" class="headerlink" title="方法二：分步编译再链接"></a><strong>方法二：分步编译再链接</strong></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gcc -c main.c -o main.o  </span><br><span class="line">gcc -c utils.c -o utils.o  </span><br><span class="line">gcc main.o utils.o -o my_program</span><br></pre></td></tr></table></figure>
+
+<p><strong>优势：</strong></p>
+<ul>
+<li><strong>效率高</strong>：只编译修改过的文件，不用每次全编译。</li>
+<li><strong>更灵活</strong>：大项目用分步编译更好管理，还能配合自动化工具用。</li>
+</ul>
+<p><strong>建议：</strong></p>
+<p>文件少就用方法一，文件多或者想提高效率就用方法二，两个都得会，随场景切换！</p>
+<h3 id="gcc-编译流程深入解析：搞懂每一步"><a href="#gcc-编译流程深入解析：搞懂每一步" class="headerlink" title="gcc 编译流程深入解析：搞懂每一步"></a>gcc 编译流程深入解析：搞懂每一步</h3><p>如果只知道用 gcc 编译，算是入门；但要真正搞懂 gcc，必须了解它的四步工作流程。</p>
+<h4 id="预处理：先搞定头文件和宏"><a href="#预处理：先搞定头文件和宏" class="headerlink" title="预处理：先搞定头文件和宏"></a>预处理<strong>：先搞定头文件和宏</strong></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -E main.c -o main.i</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>-E</code>：只执行预处理，输出结果是 <code>main.i</code>。</li>
+<li>预处理会替换 <code>#include</code> 的头文件内容，展开宏定义，去掉注释。</li>
+<li>打开生成的文件，你能看到“裸露”的预处理后代码。</li>
+</ul>
+<h4 id="编译：从人话到汇编"><a href="#编译：从人话到汇编" class="headerlink" title="编译：从人话到汇编"></a>编译：从人话到汇编</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -S main.i -o main.s</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>-S</code>：将预处理后的代码转成汇编代码，结果是 <code>main.s</code>。</li>
+<li>汇编代码是介于高级语言和机器语言之间的一种语言，更接近机器。</li>
+</ul>
+<h4 id="汇编：把汇编转成机器码"><a href="#汇编：把汇编转成机器码" class="headerlink" title="汇编：把汇编转成机器码"></a>汇编：把汇编转成机器码</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -c main.s -o main.o</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>-c</code>：只执行编译到汇编的这一步，生成目标文件（<code>main.o</code>）。</li>
+<li>目标文件是二进制的，但还不能直接运行。</li>
+</ul>
+<h4 id="链接：生成可执行文件"><a href="#链接：生成可执行文件" class="headerlink" title="链接：生成可执行文件"></a>链接：生成可执行文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc main.o -o main </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>链接器负责将目标文件和系统库一起链接，生成最终的可执行文件。</li>
+</ul>
+<p><strong>各文件内容对比：</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">文件名</th>
+<th align="left">内容类型</th>
+<th align="left">用 <code>cat</code> &#x2F;<code>vim</code> 查看结果</th>
+<th align="left">更合适的查看方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>main.i</code></td>
+<td align="left">预处理后的源码</td>
+<td align="left">源码，可读</td>
+<td align="left">无需额外工具，直接查看</td>
+</tr>
+<tr>
+<td align="left"><code>main.s</code></td>
+<td align="left">汇编代码</td>
+<td align="left">汇编指令，可读</td>
+<td align="left">无需额外工具，直接查看</td>
+</tr>
+<tr>
+<td align="left"><code>main.o</code></td>
+<td align="left">二进制目标文件</td>
+<td align="left">乱码，不可读</td>
+<td align="left"><code>objdump</code> 或 <code>readelf</code></td>
+</tr>
+<tr>
+<td align="left"><code>main</code></td>
+<td align="left">可执行文件，机器码</td>
+<td align="left">乱码，不可读</td>
+<td align="left"><code>objdump</code> 或 <code>readelf</code></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p> <strong>PS:</strong>  gcc 和 g++ 的用法及参数基本相同。要编译 C++ 程序，只需把命令中的 <code>gcc</code> 换成 <code>g++</code>，比如编译 <code>main.cpp</code>：<code>g++ main.cpp -o main</code>。C++ 程序的文件通常以 <code>.cpp</code> 为后缀，如 <code>main.cpp</code>。</p>
+</blockquote>
+<h3 id="调试利器：GDB-上线了"><a href="#调试利器：GDB-上线了" class="headerlink" title="调试利器：GDB 上线了"></a>调试利器：GDB 上线了</h3><p>写代码，最怕的是：<strong>程序挂了，但根本不知道为什么挂。</strong><br>这时，调试工具 GDB 就派上用场了。</p>
+<h4 id="用-gcc-编译时加调试信息"><a href="#用-gcc-编译时加调试信息" class="headerlink" title="用 gcc 编译时加调试信息"></a>用 gcc 编译时加调试信息</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -g main.c -o main</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>-g</code> 选项主要是生成调试信息，方便用 GDB 调试。</li>
+</ul>
+<h4 id="常用-GDB-命令"><a href="#常用-GDB-命令" class="headerlink" title="常用 GDB 命令"></a>常用 GDB 命令</h4><ol>
+<li><p>启动 GDB：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb ./main</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>进入 GDB 调试模式。</li>
+</ul>
+</li>
+<li><p>设置断点：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">break</span> &lt;行号&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>比如 <code>break 10</code>，在代码第 10 行 设置断点 。</li>
+</ul>
+</li>
+<li><p>运行程序<strong>：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">run</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>运行程序，停在断点处。</li>
+</ul>
+</li>
+</ol>
+<p><strong>4. <strong>单步执行</strong>：</strong></p>
+<ul>
+<li><p>单步执行，不进入函数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">next</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>单步执行，进入函数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">step</span><br></pre></td></tr></table></figure>
+
+<p>选择 <code>next</code> 跳过函数，<code>step</code> 进入函数，按需使用即可！</p>
+</li>
+</ul>
+<ol start="5">
+<li><p>查看变量值：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span> &lt;变量名&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>比如 <code>print x</code>，显示当前变量 <code>x</code> 的值。</li>
+</ul>
+</li>
+<li><p>查看当前代码（上下文代码）</p>
+<ul>
+<li>查看当前执行位置的代码：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list</span><br></pre></td></tr></table></figure>
+
+<p>默认显示当前断点附近的代码。</p>
+<ul>
+<li>指定显示某行附近的代码：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list &lt;行号&gt;</span><br></pre></td></tr></table></figure>
+
+<p>比如 <code>list 20</code>，显示第 20 行附近的代码。</p>
+</li>
+<li><p>打印函数调用栈</p>
+<ul>
+<li><p>查看调用栈信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">backtrace</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示当前函数被哪个函数调用，调用者又是谁，一层层往上追溯。</p>
+</li>
+<li><p>对于分析崩溃点（coredump）特别有用。</p>
+</li>
+</ul>
+</li>
+<li><p>查看所有断点</p>
+</li>
+</ol>
+<ul>
+<li><p>列出当前所有断点：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">info breakpoints</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>   可以看到每个断点的编号、位置等信息。</p>
+<ol start="9">
+<li><p>删除断点</p>
+<ul>
+<li><p>删除某个断点：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete &lt;断点编号&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>比如 <code>delete 1</code>，删除编号为 1 的断点。</p>
+<ul>
+<li><p>删除所有断点：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>继续运行程序</p>
+</li>
+</ol>
+<ul>
+<li><p>从当前断点继续运行程序：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">continue</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>程序会从当前断点继续跑，直到遇到下一个断点或结束。</p>
+</li>
+</ul>
+<ol start="11">
+<li>退出调试：</li>
+</ol>
+   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quit</span><br></pre></td></tr></table></figure>
+
+<h3 id="常见问题排查"><a href="#常见问题排查" class="headerlink" title="常见问题排查"></a>常见问题排查</h3><h4 id="缺少头文件"><a href="#缺少头文件" class="headerlink" title="缺少头文件"></a>缺少头文件</h4><p><strong>报错</strong>：<code>stdio.h: No such file or directory</code></p>
+<p><strong>原因</strong>：简单说，编译器找不到 stdio.h 这个标准头文件，可能是系统里没装编译工具包，缺了开发相关的库。</p>
+<p><strong>解决方法</strong>：</p>
+<ul>
+<li><p>在 Ubuntu&#x2F;Debian 系统上，安装必备工具包：使用命令 <code>sudo apt install build-essential</code>   这会把 gcc、g++ 和相关头文件都装上。</p>
+</li>
+<li><p>在 CentOS&#x2F;Red Hat 系统上，安装开发工具：<code>sudo yum groupinstall &quot;Development Tools&quot;</code></p>
+<p>这样能确保编译环境完整无缺。</p>
+</li>
+</ul>
+<h4 id="“段错误”"><a href="#“段错误”" class="headerlink" title="“段错误”"></a>“段错误”</h4><p><strong>报错</strong>：Segmentation fault (core dumped)</p>
+<p><strong>原因</strong>：简单说，程序想访问一块不该碰的内存，比如：</p>
+<ul>
+<li>用了“野指针”（指针没初始化，随便指向了某个未知地址）。</li>
+<li>数组越界了，访问了数组的第“10086”个元素，而数组长度只有 100 个。</li>
+<li>使用了已经释放的内存。</li>
+</ul>
+<p><strong>解决方法</strong>：</p>
+<p>1、检查指针和数组：</p>
+<ul>
+<li><p>确保指针初始化，比如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int *ptr ; </span><br><span class="line">*ptr = 10;  // 未初始化就赋值，肯定会报错：Segmentation fault (core dumped)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不要访问超出数组范围的元素，比如访问 arr[10086]，而数组只有 100 个元素。</p>
+</li>
+<li><p>如果是动态内存分配（malloc&#x2F;free），检查是否释放了两次。</p>
+</li>
+</ul>
+<p>2、用 GDB 调试：</p>
+<ul>
+<li><p>编译时加上 -g 参数生成调试信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -g main.c -o main</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后用 GDB 跑程序：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gdb ./main</span><br><span class="line">run</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>程序崩溃时，输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bt</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>GDB 会告诉你出错在哪一行。</p>
+<p>调试时别慌，找到那行代码，慢慢改，段错误就能搞定！</p>
+<h4 id="链接错误"><a href="#链接错误" class="headerlink" title="链接错误"></a>链接错误</h4><p><strong>报错</strong>：<code>undefined reference to</code> ‘某函数’</p>
+<p><strong>原因</strong>：这句话的意思很简单，你的代码用到了一个函数，但是编译器在链接阶段找不到它的实现。可能是：</p>
+<ul>
+<li>忘了加实现的文件：函数写在另一个 <code>.c</code> 文件里，编译时没有包含进去。</li>
+<li>漏了库的链接：用到了外部库的函数，但没告诉编译器要用哪个库。</li>
+<li>函数声明没问题，函数实现却没写，编译器不知道该去哪里找它。</li>
+</ul>
+<p><strong>解决方法</strong>：</p>
+<ul>
+<li><p>如果函数是你自己写的，确保编译时包含了所有相关文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc main.c func.c -o main</span><br></pre></td></tr></table></figure>
+
+<p>没加就补上！</p>
+</li>
+<li><p>如果是库函数，比如用到了数学库的 <code>sqrt</code>，需要链接对应的库，加上 <code>-lm</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc main.c -lm -o main</span><br></pre></td></tr></table></figure>
+
+<p>这里的 <code>-lm</code> 表示链接数学库（math library）。</p>
+</li>
+<li><p>检查函数实现是否真的写了！如果只是声明了函数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void my_function();</span><br></pre></td></tr></table></figure>
+
+<p>但实现忘了写，肯定会报错。赶紧补上实现！</p>
+<p>这个链接错误其实很常见，仔细检查文件和库就能解决！</p>
+</li>
+</ul>
+<h4 id="未定义的函数引用"><a href="#未定义的函数引用" class="headerlink" title="未定义的函数引用"></a>未定义的函数引用</h4><p><strong>报错</strong>：<code>undefined reference to</code> ‘某函数’</p>
+<p><strong>原因</strong>：简单说，这个报错就是你的代码用到了某个函数，但编译器找不到它的实现。可能是你没把实现的文件加到编译命令里，或者用到了外部库却忘了链接。</p>
+<p><strong>解决方法</strong>：</p>
+<p>1、如果是你自己写的函数，确认它的实现文件是否加到编译命令里，比如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc main.c func.c -o main</span><br></pre></td></tr></table></figure>
+
+<p>没加就补上！</p>
+<p>2、如果是用的库函数，比如数学库里的 <code>sqrt</code>，就加上对应的库链接，比如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc main.c -lm -o main</span><br></pre></td></tr></table></figure>
+
+<p>这个 <strong>-lm</strong> 是告诉编译器“我要用数学库”。</p>
+<h4 id="GDB-提示没有调试信息"><a href="#GDB-提示没有调试信息" class="headerlink" title="GDB 提示没有调试信息"></a>GDB 提示没有调试信息</h4><p><strong>报错</strong>：<code>No debugging symbols found</code></p>
+<p><strong>原因</strong>：这个报错意思很简单：你的程序没带“调试信息”。GDB 说，“你让我调试代码，可你不给我地图（调试信息），我咋知道问题在哪？”</p>
+<p><strong>解决方法</strong>：</p>
+<p>编译的时候记得加上 <code>-g</code> 参数，这是让 GCC 帮你把调试信息打包进去，比如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -g main.c -o main</span><br></pre></td></tr></table></figure>
+
+<p>这个 <code>-g</code> 就是那个“地图”。</p>
+<p>然后再用 GDB 调试：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb ./main</span><br></pre></td></tr></table></figure>
+
+<p>这下 GDB 才知道代码怎么走的，可以帮你查问题了！</p>
+<h3 id="总结：gcc-g-gdb-不是魔法，用熟了像开挂"><a href="#总结：gcc-g-gdb-不是魔法，用熟了像开挂" class="headerlink" title="总结：gcc&#x2F;g++&#x2F;gdb 不是魔法，用熟了像开挂"></a>总结：gcc&#x2F;g++&#x2F;gdb 不是魔法，用熟了像开挂</h3><p>gcc&#x2F;g++ 就像开发中的“瑞士军刀”，功能全面却不复杂，用熟了它们，开发效率会直线上升：</p>
+<ul>
+<li><strong>从编译到优化</strong>，轻松搞定，让程序又快又稳。</li>
+<li><strong>从调试到排错</strong>，有了 gdb，分析问题更加清晰直观。</li>
+<li>掌握了 gcc&#x2F;g++ 和 gdb，任何 C&#x2F;C++ 程序编译调试都不在话下！</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://qeuroal.top/2025/02/02/224/" title="224. gcc, g++ 和 gdb">http://qeuroal.top/2025/02/02/224/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/c-c/" rel="tag"><i class="fa fa-tag"></i> c/c++</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/01/24/223/" rel="prev" title="223. Linux 端口相关">
+                  <i class="fa fa-angle-left"></i> 223. Linux 端口相关
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/02/02/225/" rel="next" title="225. 搜索">
+                  225. 搜索 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Qeuroal" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="omit...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="111. Vscode">
+<meta property="og:url" content="http://qeuroal.top/2020/10/29/111/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Blog">
+<meta property="og:description" content="omit...">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qeuroal.top/2020/10/29/111/PixPin_2025-06-15_14-01-58.png">
+<meta property="og:image" content="http://qeuroal.top/2020/10/29/111/v2-ae77fbb0384d166b1cb11e7b07199715_720w.png">
+<meta property="og:image" content="http://qeuroal.top/2020/10/29/111/v2-884037c09e32462160b6f72de659a120_720w.png">
+<meta property="og:image" content="http://qeuroal.top/2020/10/29/111/v2-3765a8bbcf247233c1f4a042d87bb9f5_720w.webp">
+<meta property="article:published_time" content="2020-10-28T20:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-08T06:36:58.295Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="software">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qeuroal.top/2020/10/29/111/PixPin_2025-06-15_14-01-58.png">
+
+
+<link rel="canonical" href="http://qeuroal.top/2020/10/29/111/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2020/10/29/111/","path":"2020/10/29/111/","title":"111. Vscode"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>111. Vscode | Qeuroal's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Qeuroal's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">静幽正治</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">插件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6%E5%88%97%E8%A1%A8"><span class="nav-number">1.1.</span> <span class="nav-text">插件列表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">离线安装插件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ref"><span class="nav-number">2.1.</span> <span class="nav-text">Ref</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%B8%E8%BD%BD"><span class="nav-number">3.</span> <span class="nav-text">卸载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E4%BA%91%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">删除云端配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF%EF%BC%9A%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E6%96%87%E4%BB%B6%E5%90%8D%E3%80%81%E4%BD%9C%E8%80%85%E3%80%81%E5%88%9B%E5%BB%BA%E6%97%A5%E6%9C%9F%E7%AD%89%E4%BF%A1%E6%81%AF"><span class="nav-number">5.</span> <span class="nav-text">设置代码模板：自动生成文件名、作者、创建日期等信息</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Snippet-%E8%AF%AD%E6%B3%95"><span class="nav-number">5.1.</span> <span class="nav-text">Snippet 语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tabstops"><span class="nav-number">5.1.1.</span> <span class="nav-text">Tabstops</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Placeholders"><span class="nav-number">5.1.2.</span> <span class="nav-text">Placeholders</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Choice"><span class="nav-number">5.1.3.</span> <span class="nav-text">Choice</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Variables"><span class="nav-number">5.1.4.</span> <span class="nav-text">Variables</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VsCode-Terminal-%E8%AE%BE%E7%BD%AE"><span class="nav-number">6.</span> <span class="nav-text">VsCode-Terminal 设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E5%88%86%E8%AE%BE%E7%BD%AE"><span class="nav-number">6.1.</span> <span class="nav-text">部分设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E8%AE%BE%E7%BD%AE"><span class="nav-number">6.2.</span> <span class="nav-text">完整设置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E9%85%8D%E7%BD%AE"><span class="nav-number">7.</span> <span class="nav-text">用户配置</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">大人者，不失其赤子之心</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2020/10/29/111/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="111. Vscode | Qeuroal's Blog">
+      <meta itemprop="description" content="omit...">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          111. Vscode
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-29 04:00:00" itemprop="dateCreated datePublished" datetime="2020-10-29T04:00:00+08:00">2020-10-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-08 14:36:58" itemprop="dateModified" datetime="2025-12-08T14:36:58+08:00">2025-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/software/" itemprop="url" rel="index"><span itemprop="name">software</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">omit...</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h1><h2 id="插件列表"><a href="#插件列表" class="headerlink" title="插件列表"></a>插件列表</h2><table>
+<thead>
+<tr>
+<th>插件名</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C&#x2F;C++</td>
+<td></td>
+</tr>
+<tr>
+<td>Chinese (Simplified)</td>
+<td></td>
+</tr>
+<tr>
+<td>Code Runner</td>
+<td></td>
+</tr>
+<tr>
+<td>highlight-words</td>
+<td></td>
+</tr>
+<tr>
+<td>indent-rainbow</td>
+<td></td>
+</tr>
+<tr>
+<td>IntelliCode</td>
+<td></td>
+</tr>
+<tr>
+<td>IntelliCode API Usage Examples</td>
+<td></td>
+</tr>
+<tr>
+<td>LaTeX Workshop</td>
+<td></td>
+</tr>
+<tr>
+<td>One Dark Pro</td>
+<td></td>
+</tr>
+<tr>
+<td>Path Intellisense</td>
+<td></td>
+</tr>
+<tr>
+<td>Power Mode</td>
+<td></td>
+</tr>
+<tr>
+<td>Python</td>
+<td></td>
+</tr>
+<tr>
+<td>Remote - SSH</td>
+<td></td>
+</tr>
+<tr>
+<td>Vim</td>
+<td></td>
+</tr>
+<tr>
+<td>vscode-icons</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="离线安装插件"><a href="#离线安装插件" class="headerlink" title="离线安装插件"></a>离线安装插件</h1><p>vsix (vscode插件) 官网下载方法, 2025可用</p>
+<ol>
+<li><p>前往 VS Code 的插件市场: <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/vscode">https://marketplace.visualstudio.com/vscode</a>。<br>搜索插件名称，进入插件页面。这里用Deno举例</p>
+</li>
+<li><p>详情页打开版本号页签: <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno">https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno</a></p>
+</li>
+<li><p>得到两个参数</p>
+<ul>
+<li><p>[第一个参数] 作者名称 denoland</p>
+</li>
+<li><p>[第二个参数] 软件名称 vscode-deno （就是itemName&#x3D;后面然后.后面的名字）</p>
+</li>
+<li><p>[版本号] 3.43.3</p>
+<blockquote>
+<p>版本号可以在 “Vision History” 中找到. 也可以使用 “latest”, 从而下载最新版的vsix</p>
+</blockquote>
+</li>
+</ul>
+<p>下载链接模板: <code>https://marketplace.visualstudio.com/_apis/public/gallery/publishers/$&#123;第一个参数&#125;/vsextensions/$&#123;第二个参数&#125;/$&#123;版本号&#125;/vspackage</code></p>
+<p>示例如下:</p>
+<ul>
+<li>指定下载版本为3.43.3 <code>https://marketplace.visualstudio.com/_apis/public/gallery/publishers/denoland/vsextensions/vscode-deno/3.43.3/vspackage</code></li>
+<li>下载最新版 <code>https://marketplace.visualstudio.com/_apis/public/gallery/publishers/denoland/vsextensions/vscode-deno/latest/vspackage</code></li>
+</ul>
+</li>
+<li><p>下载方法 (选择任意一种下载方式即可)</p>
+<ul>
+<li><p>使用 curl 直接下载, 如:</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -JLO https://marketplace.visualstudio.com/_apis/public/gallery/publishers/denoland/vsextensions/vscode-deno/latest/vspackage</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>html 函数下载</p>
+<p> 写一个函数 直接下载最新版的vsix</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(function getVscodeVsixByReciter () &#123;</span><br><span class="line">const scriptElement = document.querySelector(&#x27;.jiContent&#x27;);</span><br><span class="line">const jsonData = JSON.parse(scriptElement.textContent);</span><br><span class="line">const &#123; Resources &#125; = jsonData;</span><br><span class="line">const &#123; PublisherName, ExtensionName, Version &#125; = Resources ;</span><br><span class="line">const url = `https://marketplace.visualstudio.com/_apis/public/gallery/publishers/$&#123;PublisherName&#125;/vsextensions/$&#123;ExtensionName&#125;/$&#123;Version&#125;/vspackage`;</span><br><span class="line">console.info(&#x27;点击url下载插件&#x27;, url);</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+<p> 使用方式：</p>
+<ol>
+<li><p>打开详情页</p>
+</li>
+<li><p>键入 f12 或右键-检查</p>
+</li>
+<li><p>将函数代码块粘贴到 console (控制台) 回车</p>
+<img data-src="/2020/10/29/111/PixPin_2025-06-15_14-01-58.png" class="" title="PixPin_2025-06-15_14-01-58"></li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h2><p>从 VS Code 的插件市场安装: <a target="_blank" rel="noopener" href="https://docs.trae.com.cn/ide/manage-extensions#ac13a078">https://docs.trae.com.cn/ide/manage-extensions#ac13a078</a></p>
+<h1 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h1><p>1、退出vscode</p>
+<p>2、删除配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">rm</span> -rf <span class="variable">$HOME</span>/Library/Application\ Support/Code</span><br><span class="line"><span class="comment"># if you&#x27;re using insider*</span></span><br><span class="line">sudo <span class="built_in">rm</span> -rf <span class="variable">$HOME</span>/Library/Application\ Support/Code\ -\ Insiders/</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">rm</span> -rf <span class="variable">$HOME</span>/Library/Preferences/com.microsoft.VSCode.helper.plist</span><br><span class="line">sudo <span class="built_in">rm</span> -rf <span class="variable">$HOME</span>/Library/Preferences/com.microsoft.VSCode.plist</span><br><span class="line">sudo <span class="built_in">rm</span> -rf <span class="variable">$HOME</span>/Library/Caches/com.microsoft.VSCode</span><br><span class="line">sudo <span class="built_in">rm</span> -rf <span class="variable">$HOME</span>/Library/Caches/com.microsoft.VSCode.ShipIt/</span><br><span class="line">sudo <span class="built_in">rm</span> -rf <span class="variable">$HOME</span>/Library/Application\ Support/Code/</span><br><span class="line">sudo <span class="built_in">rm</span> -rf <span class="variable">$HOME</span>/Library/Saved\ Application\ State/com.microsoft.VSCode.savedState/</span><br><span class="line">sudo <span class="built_in">rm</span> -rf <span class="variable">$HOME</span>/.vscode/</span><br></pre></td></tr></table></figure>
+
+<p>3、删除扩展插件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">rm</span> -rf <span class="variable">$HOME</span>/.vscode</span><br><span class="line"><span class="comment"># if you&#x27;re using insider*</span></span><br><span class="line">sudo <span class="built_in">rm</span> -rf <span class="variable">$HOME</span>/.vscode-insiders/</span><br></pre></td></tr></table></figure>
+
+<p>4、从应用中删除vscode（如果存在的话，如果直接解压后使用似乎不用做）</p>
+<p>5、卸载所有vscode系统配置</p>
+<p>6、重新下载vscode安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">rm</span> -rf <span class="variable">$HOME</span>/.vscode</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="删除云端配置"><a href="#删除云端配置" class="headerlink" title="删除云端配置"></a>删除云端配置</h1><img data-src="/2020/10/29/111/v2-ae77fbb0384d166b1cb11e7b07199715_720w.png" class="" title="img">
+
+<img data-src="/2020/10/29/111/v2-884037c09e32462160b6f72de659a120_720w.png" class="" title="img">
+
+<img data-src="/2020/10/29/111/v2-3765a8bbcf247233c1f4a042d87bb9f5_720w.webp" class="" title="img">
+
+<h1 id="设置代码模板：自动生成文件名、作者、创建日期等信息"><a href="#设置代码模板：自动生成文件名、作者、创建日期等信息" class="headerlink" title="设置代码模板：自动生成文件名、作者、创建日期等信息"></a>设置代码模板：自动生成文件名、作者、创建日期等信息</h1><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;pyheader&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;test&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">          <span class="string">&quot;/**&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;* @author: test&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;* @desc：$1&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;* @date: $&#123;CURRENT_YEAR&#125;-$&#123;CURRENT_MONTH&#125;-$&#123;CURRENT_DATE&#125; $&#123;CURRENT_HOUR&#125;:$&#123;CURRENT_MINUTE&#125;:$&#123;CURRENT_SECOND&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;* @Email：test@qq.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;* @url：test.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;*/&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;&quot;</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;test&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ol>
+<li>打开 <code>vs­code</code> 在左下角设置图标 -&gt; <code>用户代码片段</code></li>
+<li><code>For_Loop</code>: 当前 <code>snip­pet</code> 名字。</li>
+<li><code>pre­fix</code>: 前缀，代码块使用快捷方式；键入前缀，按 tab 键，代码块就会被使用。</li>
+<li><code>body</code>: 代码块内容；换行使用 rn。</li>
+<li><code>de­scrip­tion</code>: 键入前缀，vs­code 感知到前缀，显示的说明内容。</li>
+<li><code>$1,$2,$0</code>: 指定代码模块生成后，编辑光标出现位置；使用 Tab 键进行切换 (编辑光标按 <code>$1,$2,$3...$0</code> 的顺序跳转)，<code>$0</code> 是光标最后可切换位置。</li>
+</ol>
+<h2 id="Snippet-语法"><a href="#Snippet-语法" class="headerlink" title="Snippet 语法"></a>Snippet 语法</h2><h3 id="Tabstops"><a href="#Tabstops" class="headerlink" title="Tabstops"></a>Tabstops</h3><p><code>$1，$2</code> 指定代码块生成后，光标出现的位置；不同位置的相同 <code>$1</code> 位置同时出现光标。</p>
+<h3 id="Placeholders"><a href="#Placeholders" class="headerlink" title="Placeholders"></a>Placeholders</h3><p>给光标出现位置加上默认值；例如，<code>$&#123;1:an­other\$&#123;2:place­holder&#125;&#125;</code>；<code>$1</code> 处位置默认值是 <code>an­other</code>。</p>
+<h3 id="Choice"><a href="#Choice" class="headerlink" title="Choice"></a>Choice</h3><p>光标位置设置多个值可供选择；例如，<code>$&#123;1|one,two,three|&#125;</code>；<code>$1</code> 位置处可以选择 <code>one,two,three</code> 中一个词填充在此处。</p>
+<h3 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a>Variables</h3><ol>
+<li><p>常用变量</p>
+<ul>
+<li><code>TM_SELECTED_TEXT</code> 当前选中内容或空字符串</li>
+<li><code>TM_CURRENT_LINE</code> 当前行内容</li>
+<li><code>TM_CURRENT_WORD</code> 光标处字符或空字符串</li>
+<li><code>TM_LINE_INDEX</code> 从 0 开始的行号</li>
+<li><code>TM_LINE_NUMBER</code> 从 1 开始的行号</li>
+<li><code>TM_FILENAME</code> 当前被编辑文档名</li>
+<li><code>TM_FILENAME_BASE</code> 当前被编辑文档名，没有后缀</li>
+<li><code>TM_DIRECTORY</code> 当前被编辑文档目录</li>
+<li><code>TM_FILEPATH</code> 当前被编辑文档全路径</li>
+<li><code>CLIPBOARD</code> 当前剪切板内容</li>
+<li><code>WORKSPACE_NAME</code> 打开的工作空间或文件夹的名称</li>
+</ul>
+</li>
+<li><p>日期和时间相关变量</p>
+<ul>
+<li><code>CURRENT_YEAR</code> 当前年</li>
+<li><code>CURRENT_YEAR_SHORT</code> 当前年后两位</li>
+<li><code>CURRENT_MONTH</code> 月份，两位数字表示，例如 02</li>
+<li><code>CURRENT_MONTH_NAME</code> 月份全称，例如’July’</li>
+<li><code>CURRENT_MONTH_NAME_SHORT</code> 月份简写 ，例如’Jul</li>
+<li><code>CURRENT_DATE</code> 某天</li>
+<li><code>CURRENT_DAY_NAME</code> 星期几， 例如’Monday’</li>
+<li><code>CURRENT_DAY_NAME_SHORT</code> 星期几的简写， ‘Mon’</li>
+<li><code>CURRENT_HOUR</code> 小时，24 小时制</li>
+<li><code>CURRENT_MINUTE</code> 分钟</li>
+<li><code>CURRENT_SECOND</code> 秒数</li>
+<li><code>CURRENT_SECONDS_UNIX</code> 自 <code>Unix</code> 时代以来的秒数</li>
+</ul>
+</li>
+</ol>
+<h1 id="VsCode-Terminal-设置"><a href="#VsCode-Terminal-设置" class="headerlink" title="VsCode-Terminal 设置"></a>VsCode-Terminal 设置</h1><h2 id="部分设置"><a href="#部分设置" class="headerlink" title="部分设置"></a>部分设置</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;workbench.colorCustomizations&quot; : &#123;</span><br><span class="line">  &quot;terminal.foreground&quot; : &quot;#00FD61&quot;,</span><br><span class="line">  &quot;terminal.background&quot; : &quot;#383737&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="完整设置"><a href="#完整设置" class="headerlink" title="完整设置"></a>完整设置</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&quot;workbench.colorCustomizations&quot;: &#123;</span><br><span class="line">    &quot;terminal.background&quot;: &quot;#181818&quot;,</span><br><span class="line">    &quot;terminal.foreground&quot;: &quot;#D8D8D8&quot;,</span><br><span class="line">    &quot;terminalCursor.background&quot;: &quot;#D8D8D8&quot;,</span><br><span class="line">    &quot;terminalCursor.foreground&quot;: &quot;#D8D8D8&quot;,</span><br><span class="line">    &quot;terminal.ansiBlack&quot;: &quot;#181818&quot;,</span><br><span class="line">    &quot;terminal.ansiBlue&quot;: &quot;#7CAFC2&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightBlack&quot;: &quot;#585858&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightBlue&quot;: &quot;#7CAFC2&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightCyan&quot;: &quot;#86C1B9&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightGreen&quot;: &quot;#A1B56C&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightMagenta&quot;: &quot;#BA8BAF&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightRed&quot;: &quot;#AB4642&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightWhite&quot;: &quot;#F8F8F8&quot;,</span><br><span class="line">    &quot;terminal.ansiBrightYellow&quot;: &quot;#F7CA88&quot;,</span><br><span class="line">    &quot;terminal.ansiCyan&quot;: &quot;#86C1B9&quot;,</span><br><span class="line">    &quot;terminal.ansiGreen&quot;: &quot;#A1B56C&quot;,</span><br><span class="line">    &quot;terminal.ansiMagenta&quot;: &quot;#BA8BAF&quot;,</span><br><span class="line">    &quot;terminal.ansiRed&quot;: &quot;#AB4642&quot;,</span><br><span class="line">    &quot;terminal.ansiWhite&quot;: &quot;#D8D8D8&quot;,</span><br><span class="line">    &quot;terminal.ansiYellow&quot;: &quot;#F7CA88&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="用户配置"><a href="#用户配置" class="headerlink" title="用户配置"></a>用户配置</h1><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="comment">//&#123;&#123;&#123;&gt; begin</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/// workplace</span></span><br><span class="line">    <span class="comment">// file</span></span><br><span class="line">    <span class="comment">// 自动保存选项</span></span><br><span class="line">    <span class="attr">&quot;files.autoSave&quot;</span><span class="punctuation">:</span> <span class="string">&quot;onWindowChange&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;files.autoGuessEncoding&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// editor</span></span><br><span class="line">    <span class="attr">&quot;editor.fontSize&quot;</span><span class="punctuation">:</span> <span class="number">15.5</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;editor.suggestSelection&quot;</span><span class="punctuation">:</span> <span class="string">&quot;recentlyUsedByPrefix&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;editor.inlayHints.fontFamily&quot;</span><span class="punctuation">:</span> <span class="string">&quot;JetBrainsMono Nerd Font, JetBrains Mono, MesloLGS NF, Menlo, Monaco, Courier New, monospace&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;editor.snippetSuggestions&quot;</span><span class="punctuation">:</span> <span class="string">&quot;inline&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;editor.fontFamily&quot;</span><span class="punctuation">:</span> <span class="string">&quot;JetBrainsMono Nerd Font, JetBrains Mono, MesloLGS NF, Menlo, Monaco, Courier New, monospace, Menlo for Powerline&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;editor.wordWrap&quot;</span><span class="punctuation">:</span> <span class="string">&quot;on&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;editor.quickSuggestionsDelay&quot;</span><span class="punctuation">:</span> <span class="number">10</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 自动修正格式</span></span><br><span class="line">    <span class="attr">&quot;editor.formatOnType&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;editor.cursorWidth&quot;</span><span class="punctuation">:</span> <span class="number">4</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;diffEditor.wordWrap&quot;</span><span class="punctuation">:</span> <span class="string">&quot;on&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// workbench</span></span><br><span class="line">    <span class="attr">&quot;workbench.colorTheme&quot;</span><span class="punctuation">:</span> <span class="string">&quot;One Dark Pro&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;workbench.iconTheme&quot;</span><span class="punctuation">:</span> <span class="string">&quot;vscode-icons&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;workbench.sideBar.location&quot;</span><span class="punctuation">:</span> <span class="string">&quot;right&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;workbench.startupEditor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;none&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;workbench.colorCustomizations&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;editorCursor.foreground&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#ff6347&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;terminalCursor.foreground&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#ff6347&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 资源管理器排列方式</span></span><br><span class="line">    <span class="attr">&quot;explorer.sortOrder&quot;</span><span class="punctuation">:</span> <span class="string">&quot;foldersNestsFiles&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// update 发行说明</span></span><br><span class="line">    <span class="attr">&quot;update.showReleaseNotes&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 关闭工作区信任</span></span><br><span class="line">    <span class="attr">&quot;security.workspace.trust.enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 在文件和文件夹上显示错误和警告</span></span><br><span class="line">    <span class="attr">&quot;problems.decorations.enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 选项卡是否应在多行之间换行</span></span><br><span class="line">    <span class="attr">&quot;workbench.editor.wrapTabs&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/// abundant</span></span><br><span class="line">    <span class="comment">// &quot;editor.formatOnPaste&quot;: true, // 粘贴自动修正格式</span></span><br><span class="line">    <span class="comment">// &quot;files.trimTrailingWhitespace&quot;: true, // 自动删除尾随空格</span></span><br><span class="line">    <span class="comment">// &quot;files.trimFinalNewlines&quot;: true,   // 自动删除空行</span></span><br><span class="line">    <span class="comment">// &quot;workbench.editor.decorations.colors&quot;:false,</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// terminal</span></span><br><span class="line">    <span class="attr">&quot;terminal.integrated.inheritEnv&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.integrated.fontSize&quot;</span><span class="punctuation">:</span> <span class="number">16</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.integrated.fontFamily&quot;</span><span class="punctuation">:</span> <span class="string">&quot;JetBrains Nerd Font, DroidSansMono Nerd Font, MesloLGS NF&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.integrated.cursorWidth&quot;</span><span class="punctuation">:</span> <span class="number">4</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/// powermode</span></span><br><span class="line">    <span class="attr">&quot;powermode.enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;powermode.presets&quot;</span><span class="punctuation">:</span> <span class="string">&quot;particles&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;powermode.shake.enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;powermode.combo.counterEnabled&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hide&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;powermode.combo.timerEnabled&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hide&quot;</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/// python</span></span><br><span class="line">    <span class="comment">// &quot;python.defaultInterpreterPath&quot;: &quot;~/anaconda3/bin/python&quot;,</span></span><br><span class="line">    <span class="attr">&quot;python.languageServer&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Default&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;python.defaultInterpreterPath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;~/anaconda3/bin/python&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// &quot;python.linting.enabled&quot;: false,</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/// cpp</span></span><br><span class="line">    <span class="attr">&quot;C_Cpp.errorSquiggles&quot;</span><span class="punctuation">:</span> <span class="string">&quot;disabled&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;C_Cpp.intelliSenseEngine&quot;</span><span class="punctuation">:</span> <span class="string">&quot;default&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;C_Cpp.intelliSenseUpdateDelay&quot;</span><span class="punctuation">:</span> <span class="number">500</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;C_Cpp.clang_format_fallbackStyle&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&#123; BasedOnStyle: Google, UseTab: Never, IndentWidth: 4, TabWidth: 4, BreakBeforeBraces: Attach, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false, ColumnLimit: 80, AccessModifierOffset: -4 &#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;C_Cpp.suggestSnippets&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/// leetcode</span></span><br><span class="line">    <span class="attr">&quot;settingsSync.ignoredExtensions&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;leetcode.vscode-leetcode&quot;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/// Doxygen</span></span><br><span class="line">    <span class="attr">&quot;doxdocgen.generic.authorName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&lt;username&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;doxdocgen.generic.authorEmail&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&lt;usermail&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;doxdocgen.generic.order&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;brief&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;empty&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;tparam&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;param&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;return&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;doxdocgen.file.versionTag&quot;</span><span class="punctuation">:</span> <span class="string">&quot;@version 1.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;doxdocgen.generic.dateFormat&quot;</span><span class="punctuation">:</span> <span class="string">&quot;YYYY-MM-DD HH:MM:SS&quot;</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/// git</span></span><br><span class="line">    <span class="comment">// &quot;git.ignoreMissingGitWarning&quot;: true,</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/// vim</span></span><br><span class="line">    <span class="attr">&quot;vim.useSystemClipboard&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;vim.replaceWithRegister&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// &quot;vim.visualstar&quot;: true,</span></span><br><span class="line">    <span class="attr">&quot;vim.mouseSelectionGoesIntoVisualMode&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;editor.cursorBlinking&quot;</span><span class="punctuation">:</span> <span class="string">&quot;solid&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// Use key mappings from a `.vimrc` file.</span></span><br><span class="line">    <span class="attr">&quot;vim.vimrc.enable&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// Path to a Vim configuration file. If unset, it will check for `$HOME/.vscodevimrc`, `$HOME/.vimrc`, `$HOME/_vimrc`, and `$HOME/.config/nvim/init.vim`, in that order.</span></span><br><span class="line">    <span class="attr">&quot;vim.vimrc.path&quot;</span><span class="punctuation">:</span> <span class="string">&quot;~/.vimrc&quot;</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/// incedent-rainbow</span></span><br><span class="line">    <span class="comment">// Using the light mode</span></span><br><span class="line">    <span class="attr">&quot;indentRainbow.indicatorStyle&quot;</span><span class="punctuation">:</span> <span class="string">&quot;light&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// we use a simple 1 pixel wide line</span></span><br><span class="line">    <span class="attr">&quot;indentRainbow.lightIndicatorStyleLineWidth&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span></span><br><span class="line">      <span class="comment">// the same colors as above but more visible</span></span><br><span class="line">    <span class="attr">&quot;indentRainbow.colors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;rgba(255,255,64,0.3)&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;rgba(127,255,127,0.3)&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;rgba(255,127,255,0.3)&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;rgba(79,236,236,0.3)&quot;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/// latex</span></span><br><span class="line">    <span class="comment">// 使用内置pdf浏览器预览pdf文件</span></span><br><span class="line">    <span class="attr">&quot;latex-workshop.view.pdf.viewer&quot;</span><span class="punctuation">:</span> <span class="string">&quot;tab&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// tex文件时禁止自动编译</span></span><br><span class="line">    <span class="attr">&quot;latex-workshop.latex.autoBuild.run&quot;</span><span class="punctuation">:</span> <span class="string">&quot;never&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 隐藏在编译出现错误或警告时自动弹出的提示窗口</span></span><br><span class="line">    <span class="attr">&quot;latex-workshop.message.error.show&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;latex-workshop.message.warning.show&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 启用或禁用自动提示功能</span></span><br><span class="line">    <span class="attr">&quot;latex-workshop.intellisense.package.enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 启用或禁用数学符号的自动提示功能。</span></span><br><span class="line">    <span class="attr">&quot;latex-workshop.intellisense.unimathsymbols.enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 配置自动提示的更新延迟时间</span></span><br><span class="line">    <span class="attr">&quot;latex-workshop.intellisense.update.delay&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;latex-workshop.latex.recipe.default&quot;</span><span class="punctuation">:</span> <span class="string">&quot;lastUsed&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 自动清理</span></span><br><span class="line">    <span class="attr">&quot;latex-workshop.latex.autoClean.run&quot;</span><span class="punctuation">:</span> <span class="string">&quot;onBuilt&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 发行版的可执行文件路径</span></span><br><span class="line">        <span class="comment">// &quot;latex-workshop.latex.path&quot;: </span></span><br><span class="line">    <span class="comment">// 将编译工具配置添加到用户设置中</span></span><br><span class="line">    <span class="attr">&quot;latex-workshop.latex.tools&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;latexmk&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;latexmk&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;-synctex=1&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;-interaction=nonstopmode&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;-file-line-error&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;-pdf&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;%DOC%&quot;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;pdflatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;pdflatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;-synctex=1&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;-interaction=nonstopmode&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;-file-line-error&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;%DOC%&quot;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xelatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xelatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;-synctex=1&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;-interaction=nonstopmode&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;-file-line-error&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;%DOC%&quot;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;bibtex&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;bibtex&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;%DOCFILE%&quot;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 编译方案配置</span></span><br><span class="line">    <span class="attr">&quot;latex-workshop.latex.recipes&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;XeLaTeX&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;tools&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;xelatex&quot;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;latexmk&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;tools&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;latexmk&quot;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;PDFLaTeX&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;tools&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;pdflatex&quot;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;BibTeX&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;tools&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;bibtex&quot;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;pdflatex -&gt; bibtex -&gt; pdflatex*2&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;tools&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;pdflatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;bibtex&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;pdflatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;pdflatex&quot;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xelatex -&gt; bibtex -&gt; xelatex*2&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;tools&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;xelatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;bibtex&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;xelatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;xelatex&quot;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xelatex*2&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;tools&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;xelatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;xelatex&quot;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">// 编译后自动清理多余文件</span></span><br><span class="line">    <span class="attr">&quot;latex-workshop.latex.clean.fileTypes&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;*.aux&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.bbl&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.blg&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.idx&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.ind&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.lof&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.lot&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.out&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.toc&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.acn&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.acr&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.alg&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.glg&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.glo&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.gls&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.ist&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.fls&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.log&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.fdb_latexmk&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;*.pdfsync&quot;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// &quot;vsicons.dontShowNewVersionMessage&quot;: true,</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//&lt;&#125;&#125;&#125; end</span></span><br><span class="line">    </span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://qeuroal.top/2020/10/29/111/" title="111. Vscode">http://qeuroal.top/2020/10/29/111/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/software/" rel="tag"><i class="fa fa-tag"></i> software</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/10/22/110/" rel="prev" title="110. 双系统下 .Trash-1000 的说明">
+                  <i class="fa fa-angle-left"></i> 110. 双系统下 .Trash-1000 的说明
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/10/30/112/" rel="next" title="112. 程序设计">
+                  112. 程序设计 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Qeuroal" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

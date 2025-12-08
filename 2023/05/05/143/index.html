@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="学习链接 常用变量img1img &#x3D; cv2.imread(filename)    图片相关读图：imread定义1imread(&lt;文件名&gt;, flag)  imread 第二个参数: flag   imread 第二个参数 含义    cv2.IMREAD_COLOR 缺省方式，读取图像为 BGR 8-bit 格式.   cv2.IMREAD_UNCHANGED 图像格式不做任何改">
+<meta property="og:type" content="article">
+<meta property="og:title" content="143. opencv">
+<meta property="og:url" content="http://qeuroal.top/2023/05/05/143/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Blog">
+<meta property="og:description" content="学习链接 常用变量img1img &#x3D; cv2.imread(filename)    图片相关读图：imread定义1imread(&lt;文件名&gt;, flag)  imread 第二个参数: flag   imread 第二个参数 含义    cv2.IMREAD_COLOR 缺省方式，读取图像为 BGR 8-bit 格式.   cv2.IMREAD_UNCHANGED 图像格式不做任何改">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qeuroal.top/2023/05/05/143/20-COLORMAP-1-1024x607.jpg">
+<meta property="og:image" content="http://qeuroal.top/2023/05/05/143/image-35.png">
+<meta property="og:image" content="http://qeuroal.top/2023/05/05/143/image-36.png">
+<meta property="og:image" content="http://qeuroal.top/2023/05/05/143/image-37.png">
+<meta property="article:published_time" content="2023-05-05T05:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-08T06:36:58.437Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="opencv">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qeuroal.top/2023/05/05/143/20-COLORMAP-1-1024x607.jpg">
+
+
+<link rel="canonical" href="http://qeuroal.top/2023/05/05/143/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2023/05/05/143/","path":"2023/05/05/143/","title":"143. opencv"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>143. opencv | Qeuroal's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Qeuroal's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">静幽正治</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%8F%98%E9%87%8F"><span class="nav-number">1.</span> <span class="nav-text">常用变量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#img"><span class="nav-number">1.1.</span> <span class="nav-text">img</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E7%9B%B8%E5%85%B3"><span class="nav-number">2.</span> <span class="nav-text">图片相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BB%E5%9B%BE%EF%BC%9Aimread"><span class="nav-number">2.1.</span> <span class="nav-text">读图：imread</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">2.1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#imread-%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%8F%82%E6%95%B0-flag"><span class="nav-number">2.1.2.</span> <span class="nav-text">imread 第二个参数: flag</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E5%9B%BE%EF%BC%9Aimshow"><span class="nav-number">2.2.</span> <span class="nav-text">显示图：imshow</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#waitkey"><span class="nav-number">2.3.</span> <span class="nav-text">waitkey</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="nav-number">2.3.1.</span> <span class="nav-text">返回值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E6%95%B4%E7%AA%97%E5%8F%A3"><span class="nav-number">2.4.</span> <span class="nav-text">调整窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%80%E6%AF%81%E7%AA%97%E5%8F%A3"><span class="nav-number">2.5.</span> <span class="nav-text">销毁窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%85%A5%E5%9B%BE%E7%89%87-imwrite"><span class="nav-number">2.6.</span> <span class="nav-text">写入图片: imwrite</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-2"><span class="nav-number">2.6.1.</span> <span class="nav-text">定义</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%86%E9%A2%91%E7%9B%B8%E5%85%B3"><span class="nav-number">3.</span> <span class="nav-text">视频相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="nav-number">3.1.</span> <span class="nav-text">常用函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8E%E8%A7%86%E9%A2%91%E6%96%87%E4%BB%B6%E8%8E%B7%E5%8F%96%E5%9B%BE%E5%83%8F"><span class="nav-number">3.2.</span> <span class="nav-text">从视频文件获取图像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8E%E7%9B%B8%E6%9C%BA%E8%8E%B7%E5%8F%96%E5%9B%BE%E5%83%8F"><span class="nav-number">3.3.</span> <span class="nav-text">从相机获取图像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%85%A5%E8%A7%86%E9%A2%91%E6%96%87%E4%BB%B6"><span class="nav-number">3.4.</span> <span class="nav-text">写入视频文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#VideoWriter-%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.4.1.</span> <span class="nav-text">VideoWriter 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D%E7%A7%B0%E5%90%8E%E7%BC%80%E5%92%8C%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F"><span class="nav-number">3.4.2.</span> <span class="nav-text">常用的文件名称后缀和编码方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E5%A4%A7%E5%B0%8F%E8%8E%B7%E5%8F%96"><span class="nav-number">3.4.3.</span> <span class="nav-text">图像大小获取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BE%E4%BE%8B"><span class="nav-number">3.4.4.</span> <span class="nav-text">举例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%96%87%E5%AD%97"><span class="nav-number">4.</span> <span class="nav-text">输出文字</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98-%EF%BC%88%E8%BF%98%E6%98%AF%E4%B8%8D%E8%A6%81%E7%94%A8%E4%B8%AD%E6%96%87%E5%90%A7%EF%BC%89"><span class="nav-number">4.1.</span> <span class="nav-text">乱码问题 （还是不要用中文吧）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E5%B1%9E%E6%80%A7"><span class="nav-number">5.</span> <span class="nav-text">图像属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#shape-%E5%B1%9E%E6%80%A7"><span class="nav-number">5.1.</span> <span class="nav-text">shape 属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E5%88%97%E6%95%B0"><span class="nav-number">5.1.1.</span> <span class="nav-text">行列数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E9%81%93%E6%95%B0"><span class="nav-number">5.1.2.</span> <span class="nav-text">通道数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%B1%9E%E6%80%A7"><span class="nav-number">5.2.</span> <span class="nav-text">其他属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dtype-%E5%B1%9E%E6%80%A7"><span class="nav-number">5.3.</span> <span class="nav-text">dtype 属性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%83%8F%E7%B4%A0%E6%93%8D%E4%BD%9C"><span class="nav-number">6.</span> <span class="nav-text">像素操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E9%81%93"><span class="nav-number">6.1.</span> <span class="nav-text">通道</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E9%81%93%E5%88%86%E7%A6%BB"><span class="nav-number">6.2.</span> <span class="nav-text">通道分离</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-1"><span class="nav-number">6.2.1.</span> <span class="nav-text">方法 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-2"><span class="nav-number">6.2.2.</span> <span class="nav-text">方法 2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E9%81%93%E5%90%88%E5%B9%B6"><span class="nav-number">6.3.</span> <span class="nav-text">通道合并</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-1-1"><span class="nav-number">6.3.1.</span> <span class="nav-text">方法 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-2-1"><span class="nav-number">6.3.2.</span> <span class="nav-text">方法 2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E7%9A%84%E5%8A%A0%E6%B3%95"><span class="nav-number">7.</span> <span class="nav-text">图像的加法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#add"><span class="nav-number">7.1.</span> <span class="nav-text">add()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">7.2.</span> <span class="nav-text">+</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#addWeighted"><span class="nav-number">7.3.</span> <span class="nav-text">addWeighted()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E7%9A%84%E5%87%8F%E6%B3%95"><span class="nav-number">8.</span> <span class="nav-text">图像的减法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#subtract"><span class="nav-number">8.1.</span> <span class="nav-text">subtract()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#-1"><span class="nav-number">8.2.</span> <span class="nav-text">-</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#absdiff"><span class="nav-number">8.3.</span> <span class="nav-text">absdiff()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E5%92%8C%E6%A0%87%E9%87%8F%E5%8A%A0%E5%87%8F"><span class="nav-number">8.4.</span> <span class="nav-text">图像和标量加减</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E7%9A%84%E4%B9%98%E6%B3%95"><span class="nav-number">9.</span> <span class="nav-text">图像的乘法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#multiply"><span class="nav-number">9.1.</span> <span class="nav-text">multiply()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-3"><span class="nav-number">9.1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0"><span class="nav-number">9.1.2.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%84%E5%88%99"><span class="nav-number">9.1.3.</span> <span class="nav-text">规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%A6%E5%8F%B7%E4%B9%98%E6%B3%95"><span class="nav-number">9.2.</span> <span class="nav-text">符号乘法 *</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E7%9A%84%E9%99%A4%E6%B3%95"><span class="nav-number">10.</span> <span class="nav-text">图像的除法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#divide"><span class="nav-number">10.1.</span> <span class="nav-text">divide()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%B3%95"><span class="nav-number">10.1.1.</span> <span class="nav-text">用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85"><span class="nav-number">10.1.2.</span> <span class="nav-text">补充</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#-2"><span class="nav-number">10.2.</span> <span class="nav-text">&#x2F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#divide-%E9%99%A4%E6%B3%95%E4%B8%AD%E7%9A%84-0"><span class="nav-number">10.3.</span> <span class="nav-text">divide() 除法中的 0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scale-%E5%8F%82%E6%95%B0"><span class="nav-number">10.4.</span> <span class="nav-text">scale 参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="nav-number">11.</span> <span class="nav-text">图像位运算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%89%E4%BD%8D%E5%8F%96%E5%8F%8D-bitwise-not"><span class="nav-number">11.1.</span> <span class="nav-text">按位取反 bitwise_not()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%89%E4%BD%8D%E4%B8%8E-bitwise-and"><span class="nav-number">11.2.</span> <span class="nav-text">按位与 bitwise_and()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%89%E4%BD%8D%E6%88%96-bitwise-or"><span class="nav-number">11.3.</span> <span class="nav-text">按位或 bitwise_or()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%89%E4%BD%8D%E5%BC%82%E6%88%96-bitwise-nor"><span class="nav-number">11.4.</span> <span class="nav-text">按位异或 bitwise_nor()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F"><span class="nav-number">11.5.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4%E5%8F%98%E6%8D%A2"><span class="nav-number">12.</span> <span class="nav-text">色彩空间变换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cvtColor"><span class="nav-number">12.1.</span> <span class="nav-text">cvtColor()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B"><span class="nav-number">12.1.1.</span> <span class="nav-text">原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%8D%E5%8E%86%E6%89%80%E6%9C%89%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4%E8%BD%AC%E6%8D%A2%E5%90%8D%E7%A7%B0"><span class="nav-number">12.1.2.</span> <span class="nav-text">遍历所有色彩空间转换名称</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#applyColorMap"><span class="nav-number">12.2.</span> <span class="nav-text">applyColorMap()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B-1"><span class="nav-number">12.2.1.</span> <span class="nav-text">原型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%A0%E4%BD%95%E7%A9%BA%E9%97%B4%E5%8F%98%E6%8D%A2"><span class="nav-number">13.</span> <span class="nav-text">几何空间变换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%A9%E6%94%BE"><span class="nav-number">13.1.</span> <span class="nav-text">缩放</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B-2"><span class="nav-number">13.1.1.</span> <span class="nav-text">原型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AC%E7%BD%AE"><span class="nav-number">13.2.</span> <span class="nav-text">转置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8"><span class="nav-number">13.2.1.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B-3"><span class="nav-number">13.2.2.</span> <span class="nav-text">原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F-1"><span class="nav-number">13.2.3.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BF%BB%E8%BD%AC"><span class="nav-number">13.3.</span> <span class="nav-text">翻转</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8-1"><span class="nav-number">13.3.1.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B-4"><span class="nav-number">13.3.2.</span> <span class="nav-text">原型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%BF%E5%B0%84%E5%8F%98%E6%8D%A2"><span class="nav-number">13.4.</span> <span class="nav-text">仿射变换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B-5"><span class="nav-number">13.4.1.</span> <span class="nav-text">原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B3%E7%A7%BB"><span class="nav-number">13.4.2.</span> <span class="nav-text">平移</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%8B%E8%BD%AC"><span class="nav-number">13.4.3.</span> <span class="nav-text">旋转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%AB%E6%AD%A3"><span class="nav-number">13.4.4.</span> <span class="nav-text">矫正</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%8B%E8%BD%AC-1"><span class="nav-number">13.5.</span> <span class="nav-text">旋转</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B-6"><span class="nav-number">13.5.1.</span> <span class="nav-text">原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E8%B4%A8"><span class="nav-number">13.5.2.</span> <span class="nav-text">本质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%8F%E8%A7%86%E5%8F%98%E6%8D%A2"><span class="nav-number">13.6.</span> <span class="nav-text">透视变换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">13.6.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B-7"><span class="nav-number">13.6.2.</span> <span class="nav-text">原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B"><span class="nav-number">13.6.3.</span> <span class="nav-text">例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%98%88%E5%80%BC%E5%8C%96"><span class="nav-number">14.</span> <span class="nav-text">阈值化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-1"><span class="nav-number">14.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#threshold"><span class="nav-number">14.2.</span> <span class="nav-text">threshold()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B-8"><span class="nav-number">14.2.1.</span> <span class="nav-text">原型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E9%80%82%E5%BA%94%E9%98%88%E5%80%BC"><span class="nav-number">14.3.</span> <span class="nav-text">自适应阈值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B-9"><span class="nav-number">14.3.1.</span> <span class="nav-text">原型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">14.4.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B9%B3%E6%BB%91%E5%A4%84%E7%90%86"><span class="nav-number">15.</span> <span class="nav-text">平滑处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84"><span class="nav-number">15.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3"><span class="nav-number">15.2.</span> <span class="nav-text">滑动窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9D%87%E5%80%BC%E5%B9%B3%E6%BB%91"><span class="nav-number">15.3.</span> <span class="nav-text">均值平滑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B-10"><span class="nav-number">15.3.1.</span> <span class="nav-text">原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C"><span class="nav-number">15.3.2.</span> <span class="nav-text">效果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E5%80%BC%E5%B9%B3%E6%BB%91"><span class="nav-number">15.4.</span> <span class="nav-text">中值平滑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-2"><span class="nav-number">15.4.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B-11"><span class="nav-number">15.4.2.</span> <span class="nav-text">原型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%83%8F%E7%B4%A0%E5%80%BC%E5%AF%B9%E6%AF%94"><span class="nav-number">15.5.</span> <span class="nav-text">像素值对比</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E5%80%BC%E5%90%8E%E6%A8%A1%E7%B3%8A%E5%8E%9F%E5%9B%A0"><span class="nav-number">15.5.1.</span> <span class="nav-text">中值后模糊原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">15.5.2.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E6%96%AF%E5%B9%B3%E6%BB%91"><span class="nav-number">15.6.</span> <span class="nav-text">高斯平滑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-3"><span class="nav-number">15.6.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B-12"><span class="nav-number">15.6.2.</span> <span class="nav-text">原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C-1"><span class="nav-number">15.6.3.</span> <span class="nav-text">效果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8C%E8%BE%B9%E5%B9%B3%E6%BB%91"><span class="nav-number">15.7.</span> <span class="nav-text">双边平滑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">15.7.1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E6%9D%83%E7%B3%BB%E6%95%B0"><span class="nav-number">15.7.2.</span> <span class="nav-text">加权系数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%8E%9F%E5%9E%8B"><span class="nav-number">15.7.3.</span> <span class="nav-text">函数原型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93-1"><span class="nav-number">15.8.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BD%A2%E6%80%81%E5%AD%A6%E5%8F%98%E6%8D%A2"><span class="nav-number">16.</span> <span class="nav-text">形态学变换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%A2%E6%80%81%E5%AD%A6%E6%A6%82%E5%BF%B5"><span class="nav-number">16.1.</span> <span class="nav-text">形态学概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E5%85%83%E7%94%9F%E6%88%90"><span class="nav-number">16.2.</span> <span class="nav-text">结构元生成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%8E%9F%E5%9E%8B-1"><span class="nav-number">16.2.1.</span> <span class="nav-text">函数原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E5%90%8C-kernel-%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-number">16.2.2.</span> <span class="nav-text">不同 kernel 的影响</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%85%90%E8%9A%80"><span class="nav-number">16.3.</span> <span class="nav-text">腐蚀</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-4"><span class="nav-number">16.3.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%8E%9F%E5%9E%8B-2"><span class="nav-number">16.3.2.</span> <span class="nav-text">函数原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C-2"><span class="nav-number">16.3.3.</span> <span class="nav-text">效果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%86%A8%E8%83%80"><span class="nav-number">16.4.</span> <span class="nav-text">膨胀</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-5"><span class="nav-number">16.4.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%8E%9F%E5%9E%8B-3"><span class="nav-number">16.4.2.</span> <span class="nav-text">函数原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C-3"><span class="nav-number">16.4.3.</span> <span class="nav-text">效果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#morphologyEx-%E5%87%BD%E6%95%B0"><span class="nav-number">16.5.</span> <span class="nav-text">morphologyEx() 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%8E%9F%E5%9E%8B-4"><span class="nav-number">16.5.1.</span> <span class="nav-text">函数原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#op-%E5%80%BC%E4%B8%8E-erode%E3%80%81dilate-%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">16.5.2.</span> <span class="nav-text">op 值与 erode、dilate 的关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E6%93%8D%E4%BD%9C"><span class="nav-number">16.6.</span> <span class="nav-text">开操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-6"><span class="nav-number">16.6.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">16.6.2.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AD%E6%93%8D%E4%BD%9C"><span class="nav-number">16.7.</span> <span class="nav-text">闭操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-7"><span class="nav-number">16.7.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-1"><span class="nav-number">16.7.2.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%A2%E6%80%81%E5%AD%A6%E6%A2%AF%E5%BA%A6"><span class="nav-number">16.8.</span> <span class="nav-text">形态学梯度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-8"><span class="nav-number">16.8.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-2"><span class="nav-number">16.8.2.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B6%E5%B8%BD"><span class="nav-number">16.9.</span> <span class="nav-text">顶帽</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-9"><span class="nav-number">16.9.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-3"><span class="nav-number">16.9.2.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BB%91%E5%B8%BD"><span class="nav-number">16.10.</span> <span class="nav-text">黑帽</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-10"><span class="nav-number">16.10.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-4"><span class="nav-number">16.10.2.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BB%E4%B8%AD%E4%B8%8D%E5%87%BB%E4%B8%AD"><span class="nav-number">16.11.</span> <span class="nav-text">击中不击中</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-11"><span class="nav-number">16.11.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">16.11.2.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-5"><span class="nav-number">16.11.3.</span> <span class="nav-text">示例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E9%87%91%E5%AD%97%E5%A1%94"><span class="nav-number">17.</span> <span class="nav-text">图像金字塔</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-12"><span class="nav-number">17.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pyrDown"><span class="nav-number">17.2.</span> <span class="nav-text">pyrDown</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-13"><span class="nav-number">17.2.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-1"><span class="nav-number">17.2.2.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%8E%9F%E5%9E%8B-5"><span class="nav-number">17.2.3.</span> <span class="nav-text">函数原型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pyrUp"><span class="nav-number">17.3.</span> <span class="nav-text">pyrUp</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-14"><span class="nav-number">17.3.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%8E%9F%E5%9E%8B-6"><span class="nav-number">17.3.2.</span> <span class="nav-text">函数原型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E6%A2%AF%E5%BA%A6"><span class="nav-number">18.</span> <span class="nav-text">图像梯度</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-15"><span class="nav-number">18.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sobel"><span class="nav-number">18.2.</span> <span class="nav-text">sobel</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%8E%9F%E5%9E%8B-7"><span class="nav-number">18.2.1.</span> <span class="nav-text">函数原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C-4"><span class="nav-number">18.2.2.</span> <span class="nav-text">效果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scharr"><span class="nav-number">18.3.</span> <span class="nav-text">scharr</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%83%8C%E6%99%AF-1"><span class="nav-number">18.3.1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-16"><span class="nav-number">18.3.2.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%8E%9F%E5%9E%8B-8"><span class="nav-number">18.3.3.</span> <span class="nav-text">函数原型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Laplacian"><span class="nav-number">18.4.</span> <span class="nav-text">Laplacian</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-17"><span class="nav-number">18.4.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%8E%9F%E5%9E%8B-9"><span class="nav-number">18.4.2.</span> <span class="nav-text">函数原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C-5"><span class="nav-number">18.4.3.</span> <span class="nav-text">效果</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BE%B9%E6%B2%BF%E6%A3%80%E6%B5%8B"><span class="nav-number">19.</span> <span class="nav-text">边沿检测</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-18"><span class="nav-number">19.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Canny"><span class="nav-number">19.2.</span> <span class="nav-text">Canny</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-19"><span class="nav-number">19.2.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-2"><span class="nav-number">19.2.2.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%8E%9F%E5%9E%8B-10"><span class="nav-number">19.2.3.</span> <span class="nav-text">函数原型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ksize%E5%B7%AE%E5%BC%82"><span class="nav-number">19.2.4.</span> <span class="nav-text">ksize差异</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9F%E6%BB%9E%E9%98%88%E5%80%BC"><span class="nav-number">19.2.5.</span> <span class="nav-text">迟滞阈值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%88%E5%80%BC%E5%AE%BD%E5%BA%A6"><span class="nav-number">19.2.6.</span> <span class="nav-text">阈值宽度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%83%8F%E7%B4%A0%E5%80%BC"><span class="nav-number">19.2.7.</span> <span class="nav-text">像素值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93-1"><span class="nav-number">19.2.8.</span> <span class="nav-text">小结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%9F%E8%AE%A1%E5%87%BD%E6%95%B0"><span class="nav-number">20.</span> <span class="nav-text">统计函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E-0-%E5%80%BC%E6%95%B0%E9%87%8F"><span class="nav-number">20.1.</span> <span class="nav-text">非 0 值数量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E6%9C%80%E5%A4%A7%E5%80%BC%E5%8F%8A%E5%85%B6%E4%BD%8D%E7%BD%AE"><span class="nav-number">20.2.</span> <span class="nav-text">最小最大值及其位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%83%E7%B4%A0%E5%80%BC%E4%B9%8B%E5%92%8C"><span class="nav-number">20.3.</span> <span class="nav-text">元素值之和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B3%E5%9D%87%E5%80%BC"><span class="nav-number">20.4.</span> <span class="nav-text">平均值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B3%E5%9D%87%E5%80%BC%E4%B8%8E%E6%A0%87%E5%87%86%E5%B7%AE"><span class="nav-number">20.5.</span> <span class="nav-text">平均值与标准差</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E8%A1%8C-%E5%88%97%E7%9A%84%E6%9E%81%E5%80%BC%E3%80%81%E5%92%8C%E3%80%81%E5%9D%87%E5%80%BC"><span class="nav-number">20.6.</span> <span class="nav-text">单行&#x2F;列的极值、和、均值</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">大人者，不失其赤子之心</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2023/05/05/143/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="143. opencv | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          143. opencv
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-05-05 13:00:00" itemprop="dateCreated datePublished" datetime="2023-05-05T13:00:00+08:00">2023-05-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-08 14:36:58" itemprop="dateModified" datetime="2025-12-08T14:36:58+08:00">2025-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/opencv/" itemprop="url" rel="index"><span itemprop="name">opencv</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><a target="_blank" rel="noopener" href="http://www.juzicode.com/opencvpythontutorial/">学习链接</a></p>
+<h1 id="常用变量"><a href="#常用变量" class="headerlink" title="常用变量"></a>常用变量</h1><h2 id="img"><a href="#img" class="headerlink" title="img"></a>img</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">img = cv2.imread(filename)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="图片相关"><a href="#图片相关" class="headerlink" title="图片相关"></a>图片相关</h1><h2 id="读图：imread"><a href="#读图：imread" class="headerlink" title="读图：imread"></a>读图：imread</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imread(&lt;文件名&gt;, flag)</span><br></pre></td></tr></table></figure>
+
+<h3 id="imread-第二个参数-flag"><a href="#imread-第二个参数-flag" class="headerlink" title="imread 第二个参数: flag"></a>imread 第二个参数: flag</h3><table>
+<thead>
+<tr>
+<th>imread 第二个参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cv2.IMREAD_COLOR</td>
+<td>缺省方式，读取图像为 BGR 8-bit 格式.</td>
+</tr>
+<tr>
+<td>cv2.IMREAD_UNCHANGED</td>
+<td>图像格式不做任何改变，可用在读取带 alpha 通道的图片</td>
+</tr>
+<tr>
+<td>cv2.IMREAD_GRAYSCALE</td>
+<td>读取图像为转换为灰度图</td>
+</tr>
+</tbody></table>
+<h2 id="显示图：imshow"><a href="#显示图：imshow" class="headerlink" title="显示图：imshow"></a>显示图：imshow</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imshow(&lt;窗口名称&gt;, &lt; 图像实例 &gt;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="waitkey"><a href="#waitkey" class="headerlink" title="waitkey"></a>waitkey</h2><p>waitKey() 传入的参数如果为 0，会无限等待直到任何按键按下，或者传入其他数值参数表示等待时长，单位为 ms，时长结束后显示图像窗口会关闭。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>无限等待直到任何按键按下</td>
+</tr>
+<tr>
+<td>传入其他数值参数</td>
+<td>表示等待时长 (单位: ms)，时长结束后显示图像窗口会关闭。</td>
+</tr>
+</tbody></table>
+<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p><strong>返回</strong>: 键入的值</p>
+<p><strong>使用</strong>: 检查按键，键入 <code>q or Q</code>  退出</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">key = waitKey(<span class="number">20</span>) &amp; <span class="number">0xff</span></span><br><span class="line"><span class="keyword">if</span> (key == <span class="built_in">ord</span>(<span class="string">&#x27;q&#x27;</span>) <span class="keyword">or</span> key == <span class="built_in">ord</span>(<span class="string">&#x27;Q&#x27;</span>)):</span><br><span class="line">    <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+<p>waityKey() 返回的数值和 0xff 相与后再和字符的 ord() 值比较，是为了规避某些系统中 waitKey() 返回的数值在高字节为非 0 值的情况。</p>
+<h2 id="调整窗口"><a href="#调整窗口" class="headerlink" title="调整窗口"></a>调整窗口</h2><p>使用 imshow() 方法显示图像时，默认是以图像的像素大小显示的，可以通过 <strong>nameWindow(窗口名称, cv2.WINDOW_NORMAL)<strong>命名窗口，再使用</strong>resizeWindow(窗口名称, 窗口宽度, 窗口高度)</strong> 缩放窗口，最后使用 imshow() 显示图像，注意三者都 * 在同一个窗口名称上 * 操作。</p>
+<h2 id="销毁窗口"><a href="#销毁窗口" class="headerlink" title="销毁窗口"></a>销毁窗口</h2><ul>
+<li><code>destroyWindow(窗口名称)</code>: 单独关闭某个显示窗口</li>
+<li><code>destroyAllWindows()</code>: 关闭所有显示窗口。</li>
+</ul>
+<h2 id="写入图片-imwrite"><a href="#写入图片-imwrite" class="headerlink" title="写入图片: imwrite"></a>写入图片: imwrite</h2><h3 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imwrite(&lt;写入的文件名称&gt;, &lt; 图像实例 &gt;)</span><br></pre></td></tr></table></figure>
+
+<p>注：文件名称的后缀决定了图片文件的格式</p>
+<h1 id="视频相关"><a href="#视频相关" class="headerlink" title="视频相关"></a>视频相关</h1><h2 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>cap = cv2.VideoCapture(‘文件名称’)</code></td>
+<td>构建视频文件的 cap 实例</td>
+</tr>
+<tr>
+<td><code>cap.read()</code></td>
+<td>逐帧提取视频，每一帧为一幅图像 &lt; br &#x2F;&gt; 方法返回的是一个二元组：<br />    下标 0 的元素值为 True 或 False 如果为 Flase 表示读取文件完成。<br />    下标 1 的元素为图像对象，也是一个 numpy 数组类型的数据。</td>
+</tr>
+<tr>
+<td><code>cap.isOpened()</code></td>
+<td>检查 cap 实例是否已经打开</td>
+</tr>
+<tr>
+<td><code>cap.release()</code></td>
+<td>释放实例</td>
+</tr>
+</tbody></table>
+<h2 id="从视频文件获取图像"><a href="#从视频文件获取图像" class="headerlink" title="从视频文件获取图像"></a>从视频文件获取图像</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line">cap = cv2.VideoCapture(<span class="string">&#x27;..\\vtest.avi&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> cap.isOpened():</span><br><span class="line">    ret, img = cap.read()</span><br><span class="line">    <span class="keyword">if</span> ret <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;读取完成，退出&quot;</span>)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="comment">#处理 img</span></span><br><span class="line">    cv2.imshow(<span class="string">&#x27;vedio&#x27;</span>, img)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#检查按键</span></span><br><span class="line">    key = cv2.waitKey(<span class="number">20</span>) &amp; <span class="number">0xff</span></span><br><span class="line">    <span class="keyword">if</span>  key == <span class="built_in">ord</span>(<span class="string">&#x27;q&#x27;</span>) <span class="keyword">or</span> key == <span class="built_in">ord</span>(<span class="string">&#x27;Q&#x27;</span>) :</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;cap.isOpened():&#x27;</span>,cap.isOpened())</span><br><span class="line">cap.release()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;cap.isOpened():&#x27;</span>,cap.isOpened())</span><br></pre></td></tr></table></figure>
+
+<h2 id="从相机获取图像"><a href="#从相机获取图像" class="headerlink" title="从相机获取图像"></a>从相机获取图像</h2><p>打开相机需要用相机的设备编号（数值型整数）作为入参传入 <code>VideoCapture(相机编号)</code>，比如 <code>cap = cv2.VideoCapture(0)</code> 构建编号为 0 的相机访问实例，第 2 台相机则传入 1，以此类推，后续步骤的处理方法和读取视频文件一样。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line">cap = cv2.VideoCapture(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> cap.isOpened():</span><br><span class="line">    ret, img = cap.read()</span><br><span class="line">    <span class="keyword">if</span> ret <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;读取失败，退出&quot;</span>)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="comment">#处理 img</span></span><br><span class="line">    cv2.imshow(<span class="string">&#x27;vedio&#x27;</span>, img)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#检查按键</span></span><br><span class="line">    key = cv2.waitKey(<span class="number">20</span>) &amp; <span class="number">0xff</span></span><br><span class="line">    <span class="keyword">if</span>  key == <span class="built_in">ord</span>(<span class="string">&#x27;q&#x27;</span>) <span class="keyword">or</span> key == <span class="built_in">ord</span>(<span class="string">&#x27;Q&#x27;</span>) :</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;cap.isOpened():&#x27;</span>,cap.isOpened())</span><br><span class="line">cap.release()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;cap.isOpened():&#x27;</span>,cap.isOpened())</span><br></pre></td></tr></table></figure>
+
+<h2 id="写入视频文件"><a href="#写入视频文件" class="headerlink" title="写入视频文件"></a>写入视频文件</h2><h3 id="VideoWriter-对象"><a href="#VideoWriter-对象" class="headerlink" title="VideoWriter 对象"></a><code>VideoWriter</code> 对象</h3><p><strong>参数</strong></p>
+<ol>
+<li>文件名称</li>
+<li>编码方式，其中编码方式和文件名称后缀有对应关系</li>
+<li>每秒写入的帧数，参考数值为 25，符合人眼习惯</li>
+<li>图像大小，int 类型</li>
+</ol>
+<h3 id="常用的文件名称后缀和编码方式"><a href="#常用的文件名称后缀和编码方式" class="headerlink" title="常用的文件名称后缀和编码方式"></a>常用的文件名称后缀和编码方式</h3><table>
+<thead>
+<tr>
+<th>文件后缀</th>
+<th>编码方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>avi</td>
+<td>XVID</td>
+</tr>
+<tr>
+<td>avi</td>
+<td>MJPG</td>
+</tr>
+<tr>
+<td>avi</td>
+<td>mp4v（小写）</td>
+</tr>
+<tr>
+<td>mp4</td>
+<td>mp4v（小写）</td>
+</tr>
+</tbody></table>
+<p><strong>使用</strong>：创建 <code>VideoWriter_fourcc</code> 对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法 1</span></span><br><span class="line">fourcc=cv2.VideoWriter_fourcc(<span class="string">&#x27;M&#x27;</span>,<span class="string">&#x27;J&#x27;</span>,<span class="string">&#x27;P&#x27;</span>,<span class="string">&#x27;G&#x27;</span>)</span><br><span class="line"><span class="comment"># 方法 2</span></span><br><span class="line">fourcc=cv2.VideoWriter_fourcc(*<span class="string">&#x27;MJPG&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="图像大小获取"><a href="#图像大小获取" class="headerlink" title="图像大小获取"></a>图像大小获取</h3><p><code>cat.get(propId)</code> 方法获取，但是该方法获取的是 float 类型，需要转换为 int 类型再传入 <strong>VideoWriter</strong>。</p>
+<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line"><span class="comment">#获取图像宽高</span></span><br><span class="line">cap = cv2.VideoCapture(<span class="number">0</span>)</span><br><span class="line">width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)</span><br><span class="line">height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)</span><br><span class="line"><span class="comment"># 转为 int 型</span></span><br><span class="line">width = <span class="built_in">int</span>(width)</span><br><span class="line">height = <span class="built_in">int</span>(height)</span><br><span class="line"><span class="built_in">print</span>(width,height)</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建 VideoWriter 对象</span></span><br><span class="line">fourcc = cv2.VideoWriter_fourcc(*<span class="string">&#x27;XVID&#x27;</span>)</span><br><span class="line">out = cv2.VideoWriter(<span class="string">&#x27;output.avi&#x27;</span>, fourcc, <span class="number">25.0</span>, (width,  height))</span><br><span class="line">fourcc = cv2.VideoWriter_fourcc(*<span class="string">&#x27;MJPG&#x27;</span>)</span><br><span class="line">out2 = cv2.VideoWriter(<span class="string">&#x27;output2.avi&#x27;</span>, fourcc, <span class="number">25.0</span>, (width,  height))</span><br><span class="line">fourcc = cv2.VideoWriter_fourcc(*<span class="string">&#x27;mp4v&#x27;</span>)</span><br><span class="line">out3 = cv2.VideoWriter(<span class="string">&#x27;output3.mp4&#x27;</span>, fourcc, <span class="number">25.0</span>, (width,  height))</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> cap.isOpened():</span><br><span class="line">    ret, img = cap.read()</span><br><span class="line">    <span class="built_in">print</span>(img.shape)</span><br><span class="line">    <span class="keyword">if</span> ret <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;读取失败，退出&quot;</span>)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#处理 img</span></span><br><span class="line">    cv2.imshow(<span class="string">&#x27;vedio&#x27;</span>, img)</span><br><span class="line">    out.write(img)</span><br><span class="line">    out2.write(img)</span><br><span class="line">    out3.write(img)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#检查按键</span></span><br><span class="line">    key = cv2.waitKey(<span class="number">1</span>) &amp; <span class="number">0xff</span></span><br><span class="line">    <span class="keyword">if</span>  key == <span class="built_in">ord</span>(<span class="string">&#x27;q&#x27;</span>) <span class="keyword">or</span> key == <span class="built_in">ord</span>(<span class="string">&#x27;Q&#x27;</span>) :</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">cap.release()</span><br><span class="line">out.release()</span><br><span class="line">out2.release()</span><br><span class="line">out3.release()</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="输出文字"><a href="#输出文字" class="headerlink" title="输出文字"></a>输出文字</h1><h2 id="乱码问题-（还是不要用中文吧）"><a href="#乱码问题-（还是不要用中文吧）" class="headerlink" title="乱码问题 （还是不要用中文吧）"></a>乱码问题 （还是不要用中文吧）</h2><p>**1、指定已有字体 **</p>
+<p>查看字体</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fontList = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">dir</span>(cv2) <span class="keyword">if</span> (i.startswith(<span class="string">&quot;FONT&quot;</span>))]</span><br></pre></td></tr></table></figure>
+
+<p><strong>2、使用 pillow</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image,ImageDraw,ImageFont</span><br><span class="line"></span><br><span class="line"><span class="comment"># 白色背景</span></span><br><span class="line">img = np.full((<span class="number">512</span>,<span class="number">512</span>,<span class="number">3</span>),<span class="number">255</span>,np.uint8)</span><br><span class="line">img_pil = Image.fromarray(cv2.cvtColor(img,cv2.COLOR_BGR2RGB))</span><br><span class="line"></span><br><span class="line">text = <span class="string">&#x27;VX: 桔子 code&#x27;</span></span><br><span class="line"><span class="comment"># 起始位置</span></span><br><span class="line">start = (<span class="number">10</span>,<span class="number">200</span>)</span><br><span class="line"><span class="comment"># 微软雅黑字体，和具体操作系统相关</span></span><br><span class="line">fonttype = <span class="string">&#x27;msyh.ttc&#x27;</span></span><br><span class="line"><span class="comment"># 字体大小</span></span><br><span class="line">fontscale = <span class="number">30</span></span><br><span class="line">font = ImageFont.truetype(fonttype,fontscale)</span><br><span class="line">draw = ImageDraw.Draw(img_pil)</span><br><span class="line"><span class="comment">#PIL 中 BGR=(255,0,0) 表示红色</span></span><br><span class="line">draw.text(start,text,font=font,fill=(<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>))</span><br><span class="line"><span class="comment">#PIL 图片转换为 numpy</span></span><br><span class="line">img_ocv = np.array(img_pil)</span><br><span class="line"><span class="comment">#PIL 格式转换为 OpenCV 的 BGR 格式</span></span><br><span class="line">img = cv2.cvtColor(img_ocv,cv2.COLOR_RGB2BGR)</span><br><span class="line"></span><br><span class="line">cv2.imshow(<span class="string">&#x27;juzicode.com&#x27;</span>,img)</span><br><span class="line">cv2.waitKey()</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="图像属性"><a href="#图像属性" class="headerlink" title="图像属性"></a>图像属性</h1><h2 id="shape-属性"><a href="#shape-属性" class="headerlink" title="shape 属性"></a>shape 属性</h2><h3 id="行列数"><a href="#行列数" class="headerlink" title="行列数"></a>行列数</h3><ul>
+<li>行对应 <code>img.shape[0]</code></li>
+<li>列对应 <code>img.shape[1]</code></li>
+</ul>
+<h3 id="通道数"><a href="#通道数" class="headerlink" title="通道数"></a>通道数</h3><ul>
+<li>必须是非灰度图才有通道数 *，对应 <code>img.shape[2]</code></li>
+</ul>
+<h2 id="其他属性"><a href="#其他属性" class="headerlink" title="其他属性"></a>其他属性</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ndim</td>
+<td>维度 &lt;&#x3D;&gt; <code>len(img.shape)</code></td>
+</tr>
+<tr>
+<td>itemsize</td>
+<td>单个数据长度</td>
+</tr>
+<tr>
+<td>size</td>
+<td>总长度：有多少个数据</td>
+</tr>
+<tr>
+<td>nbytes</td>
+<td>占用的内存空间 &#x3D; $itemsize \times size$</td>
+</tr>
+<tr>
+<td>shape</td>
+<td>形状 (type: tuple)</td>
+</tr>
+<tr>
+<td>data</td>
+<td>数据 buffer</td>
+</tr>
+</tbody></table>
+<h2 id="dtype-属性"><a href="#dtype-属性" class="headerlink" title="dtype 属性"></a>dtype 属性</h2><p>可以通过 <code>img.astype(&lt;np.uint32&gt;)</code> 转换得到，进行转换后看到 dtype 的变化，以及因为 dtype 变化引起 itemsize 相关属性的变化。</p>
+<h1 id="像素操作"><a href="#像素操作" class="headerlink" title="像素操作"></a>像素操作</h1><h2 id="通道"><a href="#通道" class="headerlink" title="通道"></a>通道</h2><p><strong>三通道</strong>： RGB</p>
+<p><strong>四通道</strong>: RGB + ahpha(透明度)</p>
+<h2 id="通道分离"><a href="#通道分离" class="headerlink" title="通道分离"></a>通道分离</h2><h3 id="方法-1"><a href="#方法-1" class="headerlink" title="方法 1"></a>方法 1</h3><p>使用 <code>cv2.split(img)</code></p>
+<h3 id="方法-2"><a href="#方法-2" class="headerlink" title="方法 2"></a>方法 2</h3><p>使用索引方式（切片），如：<code>r = img[:, :, 0]</code></p>
+<h2 id="通道合并"><a href="#通道合并" class="headerlink" title="通道合并"></a>通道合并</h2><h3 id="方法-1-1"><a href="#方法-1-1" class="headerlink" title="方法 1"></a>方法 1</h3><p>使用 <code>cv2.merge((r, g, b))</code></p>
+<h3 id="方法-2-1"><a href="#方法-2-1" class="headerlink" title="方法 2"></a>方法 2</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">newImg = np.zeros(img.shape, dtype=np.uint8)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(img.ndim):</span><br><span class="line">    newImg[:, :, i] = img[:, :, i]</span><br><span class="line"></span><br><span class="line">cv2.imshow(<span class="string">&#x27;new img&#x27;</span>, newImg)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>注 *：np.zeros 一定要指定 dtype 为 <code>np.uint8</code></li>
+</ul>
+<h1 id="图像的加法"><a href="#图像的加法" class="headerlink" title="图像的加法"></a>图像的加法</h1><h2 id="add"><a href="#add" class="headerlink" title="add()"></a>add()</h2><p><code>cv2.add(img1, img2)</code>: 超过阈值会截断</p>
+<h2 id=""><a href="#" class="headerlink" title="+"></a>+</h2><p><code>img1 + img2</code>: 超过阈值会溢出，也就是说对 255 取模</p>
+<h2 id="addWeighted"><a href="#addWeighted" class="headerlink" title="addWeighted()"></a>addWeighted()</h2><p>参数</p>
+<ol>
+<li>第 1 个参数是图像 1</li>
+<li>第 2 个参数是图像 1 的权值</li>
+<li>第 3 个参数为图像 2</li>
+<li>第 4 个参数为图像 2 的权值</li>
+<li>第 5 个参数附加数值 gamma，单个数值，即使是多通道图像也使用单个数值；</li>
+<li>第 6 个参数可选，返回图像的实例，等同于函数返回结果</li>
+<li>第 7 个参数可选，dtype，表示像素值的数据类型</li>
+</ol>
+<h1 id="图像的减法"><a href="#图像的减法" class="headerlink" title="图像的减法"></a>图像的减法</h1><p>** 目的：** 比较 2 幅图像的差异，比如判断前后 2 个时间点的图像是否发生了变化</p>
+<h2 id="subtract"><a href="#subtract" class="headerlink" title="subtract()"></a>subtract()</h2><p><code>subtract(img1, img2)</code> : img1 - img2，但是如果小于 0，那么就会截断为 0</p>
+<h2 id="-1"><a href="#-1" class="headerlink" title="-"></a>-</h2><p>计算结果对 256 求模运算</p>
+<h2 id="absdiff"><a href="#absdiff" class="headerlink" title="absdiff()"></a>absdiff()</h2><p>绝对值减法</p>
+<h2 id="图像和标量加减"><a href="#图像和标量加减" class="headerlink" title="图像和标量加减"></a>图像和标量加减</h2><p>图像之间的加减运算可以看成是 2 个向量之间的加减，将相同下标之间的元素值进行加减运算，如果和标量进行加减，则是将图像的每一个元素都和这个标量值进行加减。</p>
+<p>当标量值只是 1 个数值时，只会对多通道图像的第 1 个通道进行运算，如果要进行多通道运算，标量值则使用一个包含 4 个数值的元组表示，即使是 3 通道的彩色图像也要用 4 元组表示这个标量值。</p>
+<h1 id="图像的乘法"><a href="#图像的乘法" class="headerlink" title="图像的乘法"></a>图像的乘法</h1><h2 id="multiply"><a href="#multiply" class="headerlink" title="multiply()"></a>multiply()</h2><h3 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h3><p><code>dst=cv2.multiply(src1, src2[, dst[, scale[, dtype]]])</code></p>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><ul>
+<li>src1 和 src2 为图像对象</li>
+<li>可选参数 scale 为放大倍数</li>
+<li>结果 dst 等于 $saturate(scale \times src1 \times src2)$</li>
+</ul>
+<h3 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h3><p>multiply() 遵循 * 饱和运算规则 *，比如 uint8 类型的数据如果超过 255 会被截断到 255。</p>
+<h2 id="符号乘法"><a href="#符号乘法" class="headerlink" title="符号乘法 *"></a>符号乘法 *</h2><p>实际上就是 Numpy 数组的乘法, 和用 +&#x2F;- 做 numpy 加减法一样, 在数值类型表示范围的上限加 1 取模，比如 uint8 类型的数据对 256 取模</p>
+<h1 id="图像的除法"><a href="#图像的除法" class="headerlink" title="图像的除法"></a>图像的除法</h1><h2 id="divide"><a href="#divide" class="headerlink" title="divide()"></a>divide()</h2><h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>** 用法 1**</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dst = cv2.divide(src1, src2[, dst[, scale[, dtype]]])</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>src1 和 src2 都是图像对象</li>
+<li>scale: 制定 src1 的方法倍数</li>
+<li>$dst &#x3D; saturate(src1 \times scale \div src2)$</li>
+</ul>
+<p>** 用法 2**</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dst = cv2.divide(scale, src2[, dst[, dtype]])</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>scale: 数值类型</li>
+<li>src2: 图像对象</li>
+<li>$dst &#x3D; saturate(scale \div src2)$</li>
+</ul>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><ul>
+<li>uint8 等整数类型的除法，运算后的结果会做四舍五入取整</li>
+<li>divide() 遵守 * 饱和运算规则 *</li>
+</ul>
+<h2 id="-2"><a href="#-2" class="headerlink" title="&#x2F;"></a>&#x2F;</h2><p>对应元素直接进行数学运算</p>
+<h2 id="divide-除法中的-0"><a href="#divide-除法中的-0" class="headerlink" title="divide() 除法中的 0"></a>divide() 除法中的 0</h2><p>当有元素为 0 且作为被除数时，divide() 计算仍然是有实际意义的</p>
+<h2 id="scale-参数"><a href="#scale-参数" class="headerlink" title="scale 参数"></a>scale 参数</h2><p>scale 参数的用法比较特殊，要想实现 $scale \div src2$ 的用法，必须显式地声明形参的名称。</p>
+<h1 id="图像位运算"><a href="#图像位运算" class="headerlink" title="图像位运算"></a>图像位运算</h1><h2 id="按位取反-bitwise-not"><a href="#按位取反-bitwise-not" class="headerlink" title="按位取反 bitwise_not()"></a>按位取反 bitwise_not()</h2><p>将数值根据每个 bit 位 1 变 0，0 变 1，比如 0xf0 按位取反就变成了 0x0f</p>
+<p>如果是 uint8 类型的数据，取反前后的数据相加结果为 0xff(255)</p>
+<h2 id="按位与-bitwise-and"><a href="#按位与-bitwise-and" class="headerlink" title="按位与 bitwise_and()"></a>按位与 bitwise_and()</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dst = cv2.bitwise_or(src1, src2[, dst[, mask]])</span><br></pre></td></tr></table></figure>
+
+<h2 id="按位或-bitwise-or"><a href="#按位或-bitwise-or" class="headerlink" title="按位或 bitwise_or()"></a>按位或 bitwise_or()</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dst = cv2.bitwise_or(src1, src2[, dst[, mask]])</span><br></pre></td></tr></table></figure>
+
+<h2 id="按位异或-bitwise-nor"><a href="#按位异或-bitwise-nor" class="headerlink" title="按位异或 bitwise_nor()"></a>按位异或 bitwise_nor()</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dst = cv2.bitwise_or(src1, src2[, dst[, mask]])</span><br></pre></td></tr></table></figure>
+
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
+<li>2 个图像的按位操作和算术运算一样，也要求 2 个图像的大小一样，通道数一样。不同于算术运算数据类型不一样时通过 dtype 声明新生成图像的数据类型，按位运算的接口中根本就没有 dtype 参数，所以位运算中 2 个图像的数据类型也必须一致。</li>
+<li>处理标量数据时不会自动填充第 4 通道为 0 而直接报错了，所以在处理 4 通道图像时则必须使用四元组。一个好的编程习惯是不管图像是多少通道的都使用四元组表示这个标量，如果不想对某些通道进行位运算，则用相应的全 0 或全 f 代替，比如一个 3 通道的 uint8 类型的图像，只需要对 2 通道和 0x33 相与，构造的四元组就是（0xff，0x33，0xff，0xff）。</li>
+</ul>
+<h1 id="色彩空间变换"><a href="#色彩空间变换" class="headerlink" title="色彩空间变换"></a>色彩空间变换</h1><h2 id="cvtColor"><a href="#cvtColor" class="headerlink" title="cvtColor()"></a>cvtColor()</h2><h3 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dst=cv2.cvtColor(src, code[, dst[, dstCn]])</span><br></pre></td></tr></table></figure>
+
+<h3 id="遍历所有色彩空间转换名称"><a href="#遍历所有色彩空间转换名称" class="headerlink" title="遍历所有色彩空间转换名称"></a>遍历所有色彩空间转换名称</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">colors = [i <span class="keyword">for</span> <span class="keyword">in</span> <span class="built_in">dir</span>(cv) <span class="keyword">if</span> (i.startswith(<span class="string">&#x27;COLOR_&#x27;</span>))]</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="applyColorMap"><a href="#applyColorMap" class="headerlink" title="applyColorMap()"></a>applyColorMap()</h2><h3 id="原型-1"><a href="#原型-1" class="headerlink" title="原型"></a>原型</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.applyColorMap(src, colormap[, dst])</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>src 为输入图像，可以是单通道或 3 通道的 8bit 图像。</p>
+</li>
+<li><p>colormap 为颜色图模式，可以传入整数 0~21 对应各种不同的颜色图，或者用 cv2.COLORMAP_AUTUMN（等价于 0）、cv2.COLORMAP_BONE（等价于 1）等方式传入，OpenCV 源码头文件中定义的 22 种模式如下：</p>
+ <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//! GNU Octave/MATLAB equivalent colormaps</span></span><br><span class="line"><span class="keyword">enum</span> <span class="title class_">ColormapTypes</span></span><br><span class="line">&#123;</span><br><span class="line">    COLORMAP_AUTUMN = <span class="number">0</span>,</span><br><span class="line">    COLORMAP_BONE = <span class="number">1</span>,</span><br><span class="line">    COLORMAP_JET = <span class="number">2</span>,</span><br><span class="line">    COLORMAP_WINTER = <span class="number">3</span>,</span><br><span class="line">    COLORMAP_RAINBOW = <span class="number">4</span>,</span><br><span class="line">    COLORMAP_OCEAN = <span class="number">5</span>,</span><br><span class="line">    COLORMAP_SUMMER = <span class="number">6</span>,</span><br><span class="line">    COLORMAP_SPRING = <span class="number">7</span>,</span><br><span class="line">    COLORMAP_COOL = <span class="number">8</span>,</span><br><span class="line">    COLORMAP_HSV = <span class="number">9</span>,</span><br><span class="line">    COLORMAP_PINK = <span class="number">10</span>,</span><br><span class="line">    COLORMAP_HOT = <span class="number">11</span>,</span><br><span class="line">    COLORMAP_PARULA = <span class="number">12</span>,</span><br><span class="line">    COLORMAP_MAGMA = <span class="number">13</span>,</span><br><span class="line">    COLORMAP_INFERNO = <span class="number">14</span>,</span><br><span class="line">    COLORMAP_PLASMA = <span class="number">15</span>,</span><br><span class="line">    COLORMAP_VIRIDIS = <span class="number">16</span>,</span><br><span class="line">    COLORMAP_CIVIDIS = <span class="number">17</span>,</span><br><span class="line">    COLORMAP_TWILIGHT = <span class="number">18</span>,</span><br><span class="line">    COLORMAP_TWILIGHT_SHIFTED = <span class="number">19</span>,</span><br><span class="line">    COLORMAP_TURBO = <span class="number">20</span>,</span><br><span class="line">    COLORMAP_DEEPGREEN = <span class="number">21</span> </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+ <img data-src="/2023/05/05/143/20-COLORMAP-1-1024x607.jpg" class="" title="img"></li>
+</ul>
+<h1 id="几何空间变换"><a href="#几何空间变换" class="headerlink" title="几何空间变换"></a>几何空间变换</h1><h2 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h2><h3 id="原型-2"><a href="#原型-2" class="headerlink" title="原型"></a>原型</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dst=cv2.resize(src, dsize[, dst[, fx[, fy[, interpolation]]]])</span><br></pre></td></tr></table></figure>
+
+<p><strong>参数</strong></p>
+<ul>
+<li>src：源图像；</li>
+<li>dsize：缩放后目标图像的尺寸，如果设置为 0，目标图像则使用源图像的尺寸乘以 fx 和 fy 得到；dsize 优先级高于 fx 和 fy，如果设置了 dsize，后面的 fx 和 fy 设置无效；</li>
+<li>fx 和 fy：dsize 未设置的情况下，使用 fx 和 fy 分别作为宽度和高度的放大倍数；</li>
+<li>interpolation：插值方法，默认使用双线性插值 cv2.INTER_LINEAR；</li>
+</ul>
+<h2 id="转置"><a href="#转置" class="headerlink" title="转置"></a>转置</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>实现像素下标的 x 和 y 轴坐标进行对调：<code>dst(i,j)=src(j,i)</code></p>
+<h3 id="原型-3"><a href="#原型-3" class="headerlink" title="原型"></a>原型</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dst = cv2.transpose(src[, dst])</span><br></pre></td></tr></table></figure>
+
+<h3 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h3><p>不可以使用 numpy 的 <code>transpose()</code> 转置和 <code>T</code> 属性，会出现数组下标访问越界</p>
+<h2 id="翻转"><a href="#翻转" class="headerlink" title="翻转"></a>翻转</h2><h3 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h3><p>实现水平翻转、垂直翻转和双向翻转</p>
+<h3 id="原型-4"><a href="#原型-4" class="headerlink" title="原型"></a>原型</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dst = cv2.flip(src, flipCode[, dst])</span><br></pre></td></tr></table></figure>
+
+<p><strong>参数含义</strong></p>
+<ul>
+<li>src: 源图像</li>
+<li>flipCode: 翻转方式，其中：0，水平轴翻转；大于 0 为垂直轴翻转；小于 0 作双向翻转</li>
+</ul>
+<h2 id="仿射变换"><a href="#仿射变换" class="headerlink" title="仿射变换"></a>仿射变换</h2><h3 id="原型-5"><a href="#原型-5" class="headerlink" title="原型"></a>原型</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dst=cv2.warpAffine(src, M, dsize[, dst[, flags[, borderMode[, borderValue]]]])</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>src: 输入图像。</li>
+<li>M: 2×3 2 行 3 列变换矩阵。</li>
+<li>dsize: 输出图像的大小。</li>
+<li>dst: 可选，输出图像，由 dsize 指定大小，type 和 src 一样。</li>
+<li>flags: 可选，插值方法</li>
+<li>borderMode: 可选，边界像素模式</li>
+<li>borderValue: 可选，边界填充值; 默认为 0。</li>
+</ul>
+<h3 id="平移"><a href="#平移" class="headerlink" title="平移"></a>平移</h3><p>手动指定算子 <code>M=[[1,0,X],[0,1,Y]]</code> 可以实现图像的移位</p>
+<ul>
+<li>X 表示向图像 x 方向（向右）移动的像素值</li>
+<li>Y 表示图像向 y 方向（向下）移动的像素值</li>
+</ul>
+<h3 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h3><blockquote>
+<p>步骤</p>
+</blockquote>
+<p>用 getRotationMatrix2D() 方法构造出 warpAffine() 的算子 M</p>
+<blockquote>
+<p>getRotationMatrix2D() 原型</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">retval=cv2.getRotationMatrix2D(center, angle, scale)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>center：旋转中心位置</li>
+<li>angle：旋转角度</li>
+<li>scale：缩放比例，不缩放时为 1</li>
+</ul>
+<h3 id="矫正"><a href="#矫正" class="headerlink" title="矫正"></a>矫正</h3><blockquote>
+<p>概念</p>
+</blockquote>
+<p>因为拍摄角度或成像设备的原因发生畸变，可以用仿射变换进行矫正</p>
+<blockquote>
+<p>步骤</p>
+</blockquote>
+<p>使用 <code>getAffineTransform() </code> 构建 M 算子，入参为变换前和变化后的 2 组坐标点，每组坐标点包含 3 个位置参数</p>
+<p>**getAffineTransform() 例子 **</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pts1 = np.float32([[<span class="number">10</span>,<span class="number">71</span>],[<span class="number">37</span>,<span class="number">320</span>],[<span class="number">550</span>,<span class="number">240</span>]])</span><br><span class="line">pts2 = np.float32([[<span class="number">10</span>,<span class="number">10</span>],[<span class="number">0</span>,<span class="number">300</span>],[<span class="number">550</span>,<span class="number">300</span>]])</span><br><span class="line">M = cv2.getAffineTransform(pts1,pts2)</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>例子</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line">plt.rc(<span class="string">&#x27;font&#x27;</span>,family=<span class="string">&#x27;Youyuan&#x27;</span>,size=<span class="string">&#x27;9&#x27;</span>)</span><br><span class="line">plt.rc(<span class="string">&#x27;axes&#x27;</span>,unicode_minus=<span class="string">&#x27;False&#x27;</span>)</span><br><span class="line"></span><br><span class="line">img = cv2.imread(<span class="string">&#x27;..\\samples\\data\\imageTextR.png&#x27;</span>)</span><br><span class="line">rows,cols,_ = img.shape</span><br><span class="line"></span><br><span class="line">pts1 = np.float32([[<span class="number">10</span>,<span class="number">71</span>],[<span class="number">37</span>,<span class="number">320</span>],[<span class="number">550</span>,<span class="number">240</span>]])</span><br><span class="line">pts2 = np.float32([[<span class="number">10</span>,<span class="number">10</span>],[<span class="number">0</span>,<span class="number">300</span>],[<span class="number">550</span>,<span class="number">300</span>]])</span><br><span class="line">M = cv2.getAffineTransform(pts1,pts2)</span><br><span class="line">img_ret1 = cv2.warpAffine(img,M,(cols,rows))</span><br><span class="line"></span><br><span class="line">fig,ax = plt.subplots(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">ax[<span class="number">0</span>].set_title(<span class="string">&#x27;VX: 桔子 code   原图&#x27;</span>)</span><br><span class="line">ax[<span class="number">0</span>].imshow(cv2.cvtColor(img,cv2.COLOR_BGR2RGB)) <span class="comment">#matplotlib 显示图像为 rgb 格式</span></span><br><span class="line">ax[<span class="number">1</span>].set_title(<span class="string">&#x27;变换后&#x27;</span>)</span><br><span class="line">ax[<span class="number">1</span>].imshow(cv2.cvtColor(img_ret1,cv2.COLOR_BGR2RGB))</span><br><span class="line"><span class="comment">#ax[0,0].axis(&#x27;off&#x27;);ax[0,1].axis(&#x27;off&#x27;);ax[1,0].axis(&#x27;off&#x27;);ax[1,1].axis(&#x27;off&#x27;)# 关闭坐标轴显示</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="旋转-1"><a href="#旋转-1" class="headerlink" title="旋转"></a>旋转</h2><h3 id="原型-6"><a href="#原型-6" class="headerlink" title="原型"></a>原型</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.rotate(src, rotateCode[, dst]) -&gt; dst</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参数</p>
+</blockquote>
+<ul>
+<li><p>src: 源图像</p>
+</li>
+<li><p>rotateCode: 可选 3 种参数</p>
+<table>
+<thead>
+<tr>
+<th>rotateCode</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cv2.ROTATE_90_CLOCKWISE</td>
+<td>顺时针旋转 90 度</td>
+</tr>
+<tr>
+<td>cv2.ROTATE_180</td>
+<td>旋转 180 度，不区分顺时针或逆时针，效果一样</td>
+</tr>
+<tr>
+<td>cv2.ROTATE_90_COUNTERCLOCKWISE</td>
+<td>逆时针旋转 90 度，等同于顺时针 270 度</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h3 id="本质"><a href="#本质" class="headerlink" title="本质"></a>本质</h3><p>是对 <code>flip()</code> 和 <code>transpose()</code> 的封装实现的</p>
+<h2 id="透视变换"><a href="#透视变换" class="headerlink" title="透视变换"></a>透视变换</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>和仿射变换一样，透视变换也需要先构建变换 kernel，不过仿射变换只需要 3 个点构建，透视变换则需要找到 4 个点构建 kernel。</p>
+<h3 id="原型-7"><a href="#原型-7" class="headerlink" title="原型"></a>原型</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.warpPerspective(src,M,dsize[,dst[,flags[,borderMode[,borderValue]]]])-&gt;dst</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参数</p>
+</blockquote>
+<ul>
+<li>src: 输入图像。</li>
+<li>M: 3×3 3 行 3 列变换矩阵。</li>
+<li>dsize: 输出图像的大小。</li>
+<li>dst: 可选，输出图像，由 dsize 指定大小，数据类型和 src 一样。</li>
+<li>flags: 可选，插值方法</li>
+<li>borderMode: 可选，边界像素模式</li>
+<li>borderValue: 可选，边界填充值; 默认为 0。</li>
+</ul>
+<h3 id="例"><a href="#例" class="headerlink" title="例"></a>例</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line">plt.rc(<span class="string">&#x27;font&#x27;</span>,family=<span class="string">&#x27;Youyuan&#x27;</span>,size=<span class="string">&#x27;9&#x27;</span>)</span><br><span class="line">plt.rc(<span class="string">&#x27;axes&#x27;</span>,unicode_minus=<span class="string">&#x27;False&#x27;</span>)</span><br><span class="line"></span><br><span class="line">img_src = cv2.imread(<span class="string">&#x27;..\\samples\\data\\left02.jpg&#x27;</span>)</span><br><span class="line"><span class="comment">#构建 kernel</span></span><br><span class="line">pts1 = np.float32([[<span class="number">192</span>,<span class="number">40</span>],[<span class="number">610</span>,<span class="number">122</span>],[<span class="number">216</span>,<span class="number">363</span>],[<span class="number">465</span>,<span class="number">415</span>]])</span><br><span class="line">pts2 = np.float32([[<span class="number">0</span>,<span class="number">0</span>],[<span class="number">300</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">350</span>],[<span class="number">300</span>,<span class="number">350</span>]])</span><br><span class="line">kernel = cv2.getPerspectiveTransform(pts1,pts2)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;kernel:&#x27;</span>,kernel)</span><br><span class="line"><span class="comment">#透视变换，这里图像大小参考 pts2</span></span><br><span class="line">img_pers = cv2.warpPerspective(img_src,kernel,(<span class="number">300</span>,<span class="number">350</span>))</span><br><span class="line"><span class="comment">#显示</span></span><br><span class="line">fig,ax = plt.subplots(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">ax[<span class="number">0</span>].set_title(<span class="string">&#x27;img_src&#x27;</span>)</span><br><span class="line">ax[<span class="number">0</span>].imshow(cv2.cvtColor(img_src,cv2.COLOR_BGR2RGB)) <span class="comment">#matplotlib 显示图像为 rgb 格式</span></span><br><span class="line">ax[<span class="number">1</span>].set_title(<span class="string">&#x27;img_pers&#x27;</span>)</span><br><span class="line">ax[<span class="number">1</span>].imshow(cv2.cvtColor(img_pers,cv2.COLOR_BGR2RGB))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="阈值化"><a href="#阈值化" class="headerlink" title="阈值化"></a>阈值化</h1><h2 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h2><blockquote>
+<p>概念</p>
+</blockquote>
+<p>有些场合也称二值化，是图像分割的一种</p>
+<blockquote>
+<p>作用</p>
+</blockquote>
+<p>一般用于将感兴趣区域从背景中区分出来</p>
+<blockquote>
+<p>方法</p>
+</blockquote>
+<p>将每个像素和阈值进行对比，分离出来需要的像素设置为特定白色的 255 或者黑色 0，具体看实际的使用需求而定</p>
+<h2 id="threshold"><a href="#threshold" class="headerlink" title="threshold()"></a>threshold()</h2><h3 id="原型-8"><a href="#原型-8" class="headerlink" title="原型"></a>原型</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.threshold(src, thresh, maxval, <span class="built_in">type</span>[, dst]) -&gt; retval, dst</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>返回值</p>
+</blockquote>
+<p>该方法返回 2 个值</p>
+<ul>
+<li>第 1 个值 retval 为阈值</li>
+<li>第 2 个值 dst 为阈值化后的图像</li>
+</ul>
+<blockquote>
+<p>参数</p>
+</blockquote>
+<ul>
+<li><p>src：源图像，8bit 或者 32bit 浮点类型，当 type 没有使用 <code>cv2.THRESH_OTSU</code> 或 <code>cv2.THRESH_TRIANGLE</code> 标志时可以是多通道图像</p>
+</li>
+<li><p>thresh：比较的阈值；</p>
+</li>
+<li><p>maxval：阈值化方法为 <code>THRESH_BINARY</code> 和 <code>THRESH_BINARY_INV</code> 时单个像素转换后的最大值；</p>
+</li>
+<li><p>type：阈值化类型；</p>
+<table>
+<thead>
+<tr>
+<th>标志</th>
+<th>标志值</th>
+<th>dst(x,y) 取值</th>
+<th>条件</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cv2.THRESH_BINARY</td>
+<td>0</td>
+<td>maxval</td>
+<td>if src(x,y)&gt;thresh;</td>
+<td>取值只有 2 种，真正意义的 “二值化”</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>0</td>
+<td>otherwise</td>
+<td></td>
+</tr>
+<tr>
+<td>cv2.THRESH_BINARY_INV</td>
+<td>1</td>
+<td>0</td>
+<td>if src(x,y)&gt;thresh;</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>maxval</td>
+<td>otherwise</td>
+<td></td>
+</tr>
+<tr>
+<td>cv2.THRESH_TRUNC</td>
+<td>2</td>
+<td>threshold</td>
+<td>if src(x,y)&gt;thresh;</td>
+<td>最后的取值有多种</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>src(x,y)</td>
+<td>otherwise</td>
+<td></td>
+</tr>
+<tr>
+<td>cv2.THRESH_TOZERO</td>
+<td>3</td>
+<td>src(x,y)</td>
+<td>if src(x,y)&gt;thresh;</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>0</td>
+<td>otherwise</td>
+<td></td>
+</tr>
+<tr>
+<td>cv2.THRESH_TOZERO_INV</td>
+<td>4</td>
+<td>0</td>
+<td>if src(x,y)&gt;thresh;</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>src(x,y)</td>
+<td>otherwise</td>
+<td></td>
+</tr>
+<tr>
+<td>cv2.THRESH_MASK</td>
+<td>7</td>
+<td>&#x2F;</td>
+<td>&#x2F;</td>
+<td></td>
+</tr>
+<tr>
+<td>cv2.THRESH_OTSU</td>
+<td>8</td>
+<td>&#x2F;</td>
+<td>标志位，使用大津法选择最佳阈值</td>
+<td></td>
+</tr>
+<tr>
+<td>cv2.THRESH_TRIANGLE</td>
+<td>16</td>
+<td>&#x2F;</td>
+<td>标志位，使用三角算法选择最佳阈值</td>
+<td></td>
+</tr>
+</tbody></table>
+<p> <strong>注意</strong></p>
+<p> cv2.THRESH_OTSU 或 cv2.THRESH_TRIANGLE 的使用比较特殊，并不能单独使用，需要和其他类型的数值按位或一起传入。</p>
+<p> 比如这样使用 <code>type=cv2.THRESH_BINARY | cv2.THRESH_OTSU</code>。当然在实际使用中也常见将 <code>cv2.THRESH_OTSU</code> 或 <code>cv2.THRESH_TRIANGLE</code> 这 2 种取值之一和前 5 种 type 相加，比如 <code>type=cv2.THRESH_BINARY + cv2.THRESH_OTSU</code>，这是因 <code>cv2.THRESH_OTSU</code> 或 <code>cv2.THRESH_TRIANGLE</code> 和其他 5 种 <code>type</code> 按位或和相加得到的值是一致的。从上面的对照表也可以看到，如果使用 <code>cv2.THRESH_BINARY</code> 和 <code>cv2.THRESH_BINARY_INV</code> 得到的图像像素值只有 2 种，要么是 <code>maxval</code>，要么是 0，可以称得上真正意义上的 “二值化”。</p>
+</li>
+</ul>
+<h2 id="自适应阈值"><a href="#自适应阈值" class="headerlink" title="自适应阈值"></a>自适应阈值</h2><h3 id="原型-9"><a href="#原型-9" class="headerlink" title="原型"></a>原型</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.adaptiveThreshold(src, maxValue, adaptiveMethod, thresholdType, blockSize, C[, dst]) -&gt; dst</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参数</p>
+</blockquote>
+<ul>
+<li>src：源图像；</li>
+<li>maxValue：单个像素转换后的最大值；</li>
+<li>adaptiveMethod：自适应方法：cv2.ADAPTIVE_THRESH_MEAN_C（平均法）或 cv2.ADAPTIVE_THRESH_GAUSSIAN_C（高斯法）<ul>
+<li>cv2.ADAPTIVE_THRESH_MEAN_C（平均法）：这时阈值等于窗口大小为 blockSize 的临近像素点的平均值减去 C；</li>
+<li>cv2.ADAPTIVE_THRESH_GAUSSIAN_C（高斯法）：阈值等于窗口大小为 blockSize 的临近像素点高斯窗口互相关加权和减去 C。</li>
+</ul>
+</li>
+<li>thresholdType：阈值化类型，THRESH_BINARY 或 THRESH_BINARY_INV 二选一；</li>
+<li>blockSize：计算某个像素使用的阈值时采用的窗口大小，奇数值；</li>
+<li>C：平均值或加权平均值减去的常量值；可以为正值，0 或负值；</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>threshold() 方法使用大津法和三角法时不需要指定阈值，会自动根据像素值求出阈值，其他方法则需要指定阈值的大小。</li>
+<li>threshold() 方法使用全局单一阈值，而 adaptiveThreshold() 方法使用局部阈值，所以在处理光线不均匀图片时能取得更好的</li>
+</ul>
+<h1 id="平滑处理"><a href="#平滑处理" class="headerlink" title="平滑处理"></a>平滑处理</h1><h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>图像在生成、传输或存储过程中可能因为外界干扰产生噪声，从而使图像在视觉上表现为出现一些孤立点或者像素值突然变化的点，图像平滑处理的目的就是 &#x3D;&#x3D;为了消除图像中的这类噪声&#x3D;&#x3D;。</p>
+<h2 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h2><blockquote>
+<p>定义</p>
+</blockquote>
+<p>也叫滤波器模板、kernel。用这个 ksize&#x3D;3×3 的窗口作用于原始图像上的每一个像素，被这个窗口覆盖的 9 个像素点都参与计算，这样在该像素点上就会得到一个新的像素值，当窗口沿着图像逐个像素进行计算，就会得到一幅新的图像。</p>
+<blockquote>
+<p>滤波器模板的不同就构成了滤波算法的差异：</p>
+</blockquote>
+<ul>
+<li>均值平滑算法中滑动窗口中各个像素点的系数均为 1&#x2F;(窗口高 * 窗口宽)</li>
+<li>高斯平滑中系数和中心点的距离满足高斯分布。</li>
+</ul>
+<blockquote>
+<p>边沿处理</p>
+</blockquote>
+<p>填 0、填 1、复制边沿等</p>
+<h2 id="均值平滑"><a href="#均值平滑" class="headerlink" title="均值平滑"></a>均值平滑</h2><h3 id="原型-10"><a href="#原型-10" class="headerlink" title="原型"></a>原型</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dst=cv2.blur(src, ksize[, dst[, anchor[, borderType]]])</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参数</p>
+</blockquote>
+<ul>
+<li>src：源图像，通道数不限，数据类型必须为 CV_8U, CV_16U, CV_16S, CV_32F or CV_64F；</li>
+<li>ksize：kernel 尺寸、窗口大小，二元组类型，元素值可以是偶数或奇数；</li>
+<li>anchor：锚点，默认为（-1,-1），作用于滑动窗口的中心点；</li>
+<li>borderType：边界处理类型；</li>
+</ul>
+<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p>ksize 越大，图像越模糊，清晰度越低。</p>
+<h2 id="中值平滑"><a href="#中值平滑" class="headerlink" title="中值平滑"></a>中值平滑</h2><h3 id="概念-2"><a href="#概念-2" class="headerlink" title="概念"></a>概念</h3><p>中值平滑和均值平滑一样也用到了滑动窗口，但是它并不是计算滑动窗口中的某种加权和，而是使用原图像滑动窗口中所有像素值排序后的中值作为新图像的像素值。</p>
+<h3 id="原型-11"><a href="#原型-11" class="headerlink" title="原型"></a>原型</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dst=cv2.medianBlur(src, ksize[, dst])</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参数</p>
+</blockquote>
+<ul>
+<li>src：源图像，通道数可以是 1,3 或 4，当 ksize 为 3 或者 5 时，数据类型可以是 CV_8U, CV_16U, CV_32F，当使用更大的 ksize 时，数据类型只能是 CV_8U；</li>
+<li>ksize：kernel 尺寸、窗口大小，整数型，大于 1 的奇数值；</li>
+</ul>
+<h2 id="像素值对比"><a href="#像素值对比" class="headerlink" title="像素值对比"></a>像素值对比</h2><h3 id="中值后模糊原因"><a href="#中值后模糊原因" class="headerlink" title="中值后模糊原因"></a>中值后模糊原因</h3><p>均值和中值都会降低图像变化的程度</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>平滑处理是图像滤波的一种，可以看做是低通滤波，它会 &#x3D;&#x3D; 消除图像的高频 “信号”&#x3D;&#x3D;，让图像看起来更模糊、平滑，通过将变化前后的图像像素值绘制曲线可以更形象地观察到这种平滑效果。</p>
+<h2 id="高斯平滑"><a href="#高斯平滑" class="headerlink" title="高斯平滑"></a>高斯平滑</h2><h3 id="概念-3"><a href="#概念-3" class="headerlink" title="概念"></a>概念</h3><p>高斯平滑则 &#x3D;&#x3D;根据距离中心点的间距远近其权重会不同&#x3D;&#x3D;，这种方式看起来更符合” 惯例”：身边的人对你影响会更大。</p>
+<p>高斯分布：正态分布</p>
+<p><strong>滑动窗口的权重</strong>: 正态分布的归一化</p>
+<h3 id="原型-12"><a href="#原型-12" class="headerlink" title="原型"></a>原型</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dst=cv2.GaussianBlur(src, ksize, sigmaX[, dst[, sigmaY[, borderType]]])</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参数</p>
+</blockquote>
+<ul>
+<li>src：通道数任意，实际处理是分通道处理；图像深度只能是 CV_8U, CV_16U, CV_16S, CV_32F or CV_64F；</li>
+<li>ksize：元组类型，窗口大小，宽度和高度可以不一样，但是必须是正的奇数；如果设置为 0，则根据 sigma 计算得到。</li>
+<li>sigmaX：图像 X 方向的标准差，对应前述二维高斯分布的σ1；</li>
+<li>sigmaY：图像 Y 方向的标准差，对应前述二维高斯分布的σ2，如果传入 0，会等于 sigmaX，如果 sigmaX 和 sigmaY 都传入 0，sigmaX 和 sigmaX 则根据 ksize 计算；</li>
+<li>borderType：边界处理方式；</li>
+</ul>
+<blockquote>
+<p>注意</p>
+</blockquote>
+<p>因为都是以滑动窗口中心点为原点，为了保证中心点 (x,y)&#x3D;(0,0) 的权重为最大值，所以在 OpenCV 的高斯平滑中 <em>μ1 和μ2 都设置为 0</em>，这样在调用高斯平滑函数时只需要传入σ1（sigmaX）和σ2（sigmaY）。</p>
+<h3 id="效果-1"><a href="#效果-1" class="headerlink" title="效果"></a>效果</h3><ul>
+<li>ksize 越大，图像越模糊</li>
+<li>ksize 保持不变，sigma 越大时，原点的取值越小，周围点的取值更大，对应到图像上中心点的权重越低，周围点权重越高，所以 sigma 越大图像越模糊。</li>
+</ul>
+<h2 id="双边平滑"><a href="#双边平滑" class="headerlink" title="双边平滑"></a>双边平滑</h2><h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>均值、中值、高斯平滑的去躁是一种 “无差别攻击”，所有的像素都受到同一个加权系数的影响，所以在平滑过程中也会影响到图像的边沿（像素值突变的地方 &#x3D;&#x3D;？？？&#x3D;&#x3D;）</p>
+<p>双边滤波则可以在 &#x3D;&#x3D;去除噪声的同时又能保持图像的边沿&#x3D;&#x3D;，也就是传说中的” 去噪保边”。</p>
+<h3 id="加权系数"><a href="#加权系数" class="headerlink" title="加权系数"></a>加权系数</h3><img data-src="/2023/05/05/143/image-35.png" class="" title="image-35">
+
+<h3 id="函数原型"><a href="#函数原型" class="headerlink" title="函数原型"></a>函数原型</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dst=cv2.bilateralFilter(src, d, sigmaColor, sigmaSpace[, dst[, borderType]])</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参数</p>
+</blockquote>
+<ul>
+<li>src：8bit 或浮点类型；1 或 3 通道；</li>
+<li>d：窗口大小，如果为非正数，根据 sigmaSpace 计算；d&gt;5 时速度会比较慢，当噪声比较严重时可以选择 d&gt;&#x3D;9，但是此时不适合对时间敏感的处理；</li>
+<li>sigmaColor：亮度差的 sigma 参数；</li>
+<li>sigmaSpace：空间距离的 sigma 参数，同时作用于图像的 X 和 Y(行、列)2 个方向；</li>
+<li>borderType：边界处理方式；</li>
+</ul>
+<h2 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h2><p>高斯平滑对比均值和中值平滑其取值更符合 “惯例”，在空间距离上距离越近的像素用来计算新像素的值其权重越大。均值平滑、中值平滑和高斯平滑会对整幅图像实现无差别的平滑，一个固定系数的滑动窗口作用于整个图像，所以平滑后的图像虽然处理掉了噪声，但是边沿部分也会被削弱。而双边平滑在高斯平滑使用的系数基础上乘以像素差值的高斯函数，和中心点像素差值越大整个系数值越小，最后就能达到去躁保边的效果。</p>
+<h1 id="形态学变换"><a href="#形态学变换" class="headerlink" title="形态学变换"></a>形态学变换</h1><h2 id="形态学概念"><a href="#形态学概念" class="headerlink" title="形态学概念"></a>形态学概念</h2><p>形态学变换是基于图像形状的变换过程，通常用来处理二值图像，当然也可以用在灰度图上。</p>
+<p>OpenCV 中的形态学变换同平滑处理一样也是基于一种 “滑动窗口” 的操作，不过在形态学变换中 “滑动窗口” 有一个更专业的名词：“结构元”，也可以像平滑处理那样称呼为 kernel。</p>
+<p>结构元的形状有方形、十字形、椭圆形等，其形状决定了形态学变换的特点。形态学变换主要有腐蚀、膨胀、开操作、闭操作等等。</p>
+<h2 id="结构元生成"><a href="#结构元生成" class="headerlink" title="结构元生成"></a>结构元生成</h2><p>结构元生成函数用来生成形态学变换的 kernel 参数。</p>
+<h3 id="函数原型-1"><a href="#函数原型-1" class="headerlink" title="函数原型"></a>函数原型</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.getStructuringElement(shape, ksize[, anchor]) -&gt;retval</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参数</p>
+</blockquote>
+<ul>
+<li><p>shape：结构元 (kernel) 的形状；</p>
+<table>
+<thead>
+<tr>
+<th>shape 属性</th>
+<th>形状</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cv2.MORPH_RECT</td>
+<td>方形，所有的数值均为 1</td>
+</tr>
+<tr>
+<td>cv2.MORPH_CROSS</td>
+<td>十字交叉形，在锚点坐标的水平和竖直方向的元素为 1，其他为 0</td>
+</tr>
+<tr>
+<td>cv2.MORPH_ELLIPSE</td>
+<td>椭圆形</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>ksize：结构元 (kernel) 的大小；</p>
+</li>
+<li><p>anchor：锚点，默认使用 (-1,-1) 表示中心点；</p>
+</li>
+</ul>
+<h3 id="不同-kernel-的影响"><a href="#不同-kernel-的影响" class="headerlink" title="不同 kernel 的影响"></a>不同 kernel 的影响</h3><p>以膨胀为例来看</p>
+<ul>
+<li>使用方形 MORPH_RECT 的结构元时，新图像的边界看起来仍然是方方正正的</li>
+<li>使用十字形 MORPH_CROSS 和椭圆形 MORPH_ELLIPSE 的结构元时，边界要显得 “圆滑” 的多。</li>
+</ul>
+<h2 id="腐蚀"><a href="#腐蚀" class="headerlink" title="腐蚀"></a>腐蚀</h2><h3 id="概念-4"><a href="#概念-4" class="headerlink" title="概念"></a>概念</h3><p>腐蚀操作可以将边界的白色（前景）像素 “腐蚀” 掉，但仍能保持大部分白色。类似平滑处理的滑动窗口，用某种结构元在图像上滑动，当结构元覆盖原始图像中的所有像素都为 “1” 时，新图像中该像素点的值才为“1”（CV8U 为 255）。腐蚀可以用来 &#x3D;&#x3D; 去除噪声、去掉“粘连”&#x3D;&#x3D;。</p>
+<h3 id="函数原型-2"><a href="#函数原型-2" class="headerlink" title="函数原型"></a>函数原型</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.erode(src, kernel[, dst[, anchor[, iterations[, borderType[, borderValue]]]]]) -&gt;dst</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参数</p>
+</blockquote>
+<ul>
+<li>src：通道数任意；图像深度只能是 CV_8U, CV_16U, CV_16S, CV_32F or CV_64F；</li>
+<li>kernel：可以由 getStructuringElement() 构建；</li>
+<li>dst：输出图像，通道数和数据类型同 src；</li>
+<li>anchor：锚点，默认使用 (-1,-1) 表示中心点；</li>
+<li>iterations：腐蚀次数；</li>
+<li>borderType：边界类型；</li>
+<li>borderValue：边界值；</li>
+</ul>
+<h3 id="效果-2"><a href="#效果-2" class="headerlink" title="效果"></a>效果</h3><p>kernel 的 ksize 越大，iterations 次数越多，图像看起来越 “廋”。</p>
+<h2 id="膨胀"><a href="#膨胀" class="headerlink" title="膨胀"></a>膨胀</h2><h3 id="概念-5"><a href="#概念-5" class="headerlink" title="概念"></a>概念</h3><p>膨胀是腐蚀的逆操作，可以将边界的白色（前景）像素 “生长” 扩大。滑动窗口经过白色像素时，只要结构元中有 1 个像素为 “1” 时，新图像中该像素点的值就为“1”（CV8U 为 255）。</p>
+<p>&#x3D;&#x3D; 膨胀可以用来增强连接、填充凹痕。&#x3D;&#x3D;</p>
+<h3 id="函数原型-3"><a href="#函数原型-3" class="headerlink" title="函数原型"></a>函数原型</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.dilate(src, kernel[, dst[, anchor[, iterations[, borderType[, borderValue]]]]]) -&gt;dst</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参数</p>
+</blockquote>
+<ul>
+<li>src：通道数任意；图像深度只能是 CV_8U, CV_16U, CV_16S, CV_32F or CV_64F；</li>
+<li>kernel：可以由 getStructuringElement() 构建；</li>
+<li>dst：输出图像，通道数和数据类型同 src；</li>
+<li>anchor：锚点，默认使用 (-1,-1) 表示中心点；</li>
+<li>iterations：膨胀次数；</li>
+<li>borderType：边界类型；</li>
+<li>borderValue：边界值；</li>
+</ul>
+<h3 id="效果-3"><a href="#效果-3" class="headerlink" title="效果"></a>效果</h3><p>kernel 的 ksize 越大，iterations 次数越多，图像看起来越 “胖”。</p>
+<h2 id="morphologyEx-函数"><a href="#morphologyEx-函数" class="headerlink" title="morphologyEx() 函数"></a>morphologyEx() 函数</h2><h3 id="函数原型-4"><a href="#函数原型-4" class="headerlink" title="函数原型"></a>函数原型</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.morphologyEx(src, op, kernel[, dst[, anchor[, iterations[, borderType[, borderValue]]]]]) -&gt;dst</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参数</p>
+</blockquote>
+<ul>
+<li><p>src：源图像，通道数任意；图像深度只能是 CV_8U, CV_16U, CV_16S, CV_32F or CV_64F；其中 op 为 cv2.MORPH_HITMISS 时仅支持 CV_8UC1；</p>
+</li>
+<li><p>op：变换方式；</p>
+</li>
+<li><p>kernel：可以由 getStructuringElement() 构建</p>
+<p> ​	op 为 cv2.MORPH_HITMISS 时则由子图构建；</p>
+</li>
+<li><p>dst：输出图像，通道数和数据类型同 src；</p>
+</li>
+<li><p>anchor：锚点，默认使用 (-1,-1) 表示中心点；</p>
+</li>
+<li><p>iterations：迭代次数；</p>
+</li>
+<li><p>borderType：边界类型；</p>
+</li>
+<li><p>borderValue：边界值；</p>
+</li>
+</ul>
+<h3 id="op-值与-erode、dilate-的关系"><a href="#op-值与-erode、dilate-的关系" class="headerlink" title="op 值与 erode、dilate 的关系"></a>op 值与 erode、dilate 的关系</h3><table>
+<thead>
+<tr>
+<th><strong>形态学变换</strong></th>
+<th><strong>op 标志位</strong></th>
+<th><strong>与 erode 和 dilate 关系</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>腐蚀</td>
+<td>cv2.MORPH_ERODE</td>
+<td>dst&#x3D;erode(src,element)</td>
+</tr>
+<tr>
+<td>膨胀</td>
+<td>cv2.MORPH_DILATE</td>
+<td>dst&#x3D;dilate(src,element)</td>
+</tr>
+<tr>
+<td>开操作</td>
+<td>cv2.MORPH_OPEN</td>
+<td>dst&#x3D;dilate(erode(src,element))</td>
+</tr>
+<tr>
+<td>闭操作</td>
+<td>cv2.MORPH_CLOSE</td>
+<td>dst&#x3D;erode(dilate(src,element))</td>
+</tr>
+<tr>
+<td>梯度</td>
+<td>cv2.MORPH_GRADIENT</td>
+<td>dst&#x3D;dilate(src,element)−erode(src,element)</td>
+</tr>
+<tr>
+<td>顶帽</td>
+<td>cv2.MORPH_TOPHAT</td>
+<td>dst&#x3D;src−open(src,element)</td>
+</tr>
+<tr>
+<td>黑帽</td>
+<td>cv2.MORPH_BLACKHAT</td>
+<td>dst&#x3D;close(src,element)−src</td>
+</tr>
+<tr>
+<td>击中击不中</td>
+<td>cv2.MORPH_HITMISS</td>
+<td>dst&#x3D;erode(src,element) &amp; erode(<del>src,</del>element)</td>
+</tr>
+</tbody></table>
+<h2 id="开操作"><a href="#开操作" class="headerlink" title="开操作"></a>开操作</h2><h3 id="概念-6"><a href="#概念-6" class="headerlink" title="概念"></a>概念</h3><p>开操作的实质是 &#x3D;&#x3D;先进行腐蚀再膨胀&#x3D;&#x3D;，可以用来消除小于结构元大小的细小区域</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">img_open = cv2.morphologyEx(img_bin,cv2.MORPH_OPEN,kernel,iterations=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="闭操作"><a href="#闭操作" class="headerlink" title="闭操作"></a>闭操作</h2><h3 id="概念-7"><a href="#概念-7" class="headerlink" title="概念"></a>概念</h3><p>闭操作实际上是 &#x3D;&#x3D;先进行膨胀再腐蚀&#x3D;&#x3D;，因为膨胀可以用来填充孔洞、修复缺失的连接，但是同时也会导致白色轮廓增大，当用同样的结构元 (kernel) 再进行一次腐蚀操作后，就可以保持外形轮廓和原来的一致。</p>
+<h3 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">img_close = cv2.morphologyEx(img_bin,cv2.MORPH_CLOSE,kernel,iterations=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="形态学梯度"><a href="#形态学梯度" class="headerlink" title="形态学梯度"></a>形态学梯度</h2><h3 id="概念-8"><a href="#概念-8" class="headerlink" title="概念"></a>概念</h3><p>形态学梯度操作是用膨胀图像减去腐蚀图像的结果，因为膨胀可以增大边沿，腐蚀会缩小边沿，所以形态学梯度变换就 &#x3D;&#x3D;能将轮廓提取出来&#x3D;&#x3D;</p>
+<h3 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">img_gradient = cv2.morphologyEx(img_bin,cv2.MORPH_GRADIENT,kernel,iterations=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="顶帽"><a href="#顶帽" class="headerlink" title="顶帽"></a>顶帽</h2><h3 id="概念-9"><a href="#概念-9" class="headerlink" title="概念"></a>概念</h3><p>顶帽变换是用原图减去开操作图像，因为开操作会去除小于结构元的小区域，原图减去开操作图像后，会 &#x3D;&#x3D;将开操作去除的小区域保留下来&#x3D;&#x3D;</p>
+<h3 id="示例-3"><a href="#示例-3" class="headerlink" title="示例"></a>示例</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">img_tophat = cv2.morphologyEx(img_bin,cv2.MORPH_TOPHAT,kernel,iterations=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="黑帽"><a href="#黑帽" class="headerlink" title="黑帽"></a>黑帽</h2><h3 id="概念-10"><a href="#概念-10" class="headerlink" title="概念"></a>概念</h3><p>黑帽变换和顶帽变换则相反，是将闭操作后的图像减去原图，因为闭操作会填充孔洞（小的黑色区域），孔洞部分变成白色，而原图中仍然为黑色，这样就会 &#x3D;&#x3D;将原图中的孔洞保留下来并变为白色区域&#x3D;&#x3D;。</p>
+<h3 id="示例-4"><a href="#示例-4" class="headerlink" title="示例"></a>示例</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">img_blackhat = cv2.morphologyEx(img_bin,cv2.MORPH_BLACKHAT,kernel,iterations=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="击中不击中"><a href="#击中不击中" class="headerlink" title="击中不击中"></a>击中不击中</h2><h3 id="概念-11"><a href="#概念-11" class="headerlink" title="概念"></a>概念</h3><p>击中击不中变换可以 &#x3D;&#x3D;用来在原图中查找子图&#x3D;&#x3D;，假设要查找的图像中包含了多种子图，可以利用某个子图构造出 kernel，经过击中击不中变换就能在该子图中心保留一个非零的点。</p>
+<p>** 注意:** 这里构造 kernel 不再是使用 getStructuringElement()，而是需要用子图构造。</p>
+<p>一个构造 kernel 的例子如下，首先从子图中读取图像，然后和要做变换的原图做一样的阈值化，接下来构造一个和子图大小一样类型为 np.int8 型的 kernel，其中子图阈值化后值为 255 的位置设置为 1，阈值化后值为 0 的位置设置为 - 1：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#构建 kernel</span></span><br><span class="line">img_kernel = cv2.imread(<span class="string">&#x27;..\\samples\\picture\\hitmiss-kernel.bmp&#x27;</span>,cv2.IMREAD_GRAYSCALE)</span><br><span class="line">_,img_kernel_bin = cv2.threshold(img_kernel,<span class="number">193</span>,<span class="number">255</span>,<span class="number">1</span>) <span class="comment">#阈值化，阈值和要做变换的原图一致</span></span><br><span class="line">kernel = img_kernel.astype(np.int8) <span class="comment">#构造一个和子图大小但是类型为 int8 型，可以保存负数</span></span><br><span class="line">kernel[img_kernel_bin == <span class="number">255</span>] = <span class="number">1</span></span><br><span class="line">kernel[img_kernel_bin == <span class="number">0</span>] = -<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol>
+<li>读取原图并进行阈值化</li>
+<li>按照前面的方法构建 kernel</li>
+<li>用 morphologyEx() 进行击中击不中变换</li>
+<li>用 findNonZero() 查找非零点并用 circle() 绘图显示出来</li>
+</ol>
+<h3 id="示例-5"><a href="#示例-5" class="headerlink" title="示例"></a>示例</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 构建 kernel</span></span><br><span class="line">img_kernel = cv2.imread(<span class="string">&#x27;..\\samples\\picture\\hitmiss-kernel.bmp&#x27;</span>,cv2.IMREAD_GRAYSCALE)</span><br><span class="line"><span class="comment"># 阈值化，阈值和要做变换的原图一致</span></span><br><span class="line">_,img_kernel_bin = cv2.threshold(img_kernel,<span class="number">193</span>,<span class="number">255</span>,<span class="number">1</span>)</span><br><span class="line"><span class="comment"># 构造一个和子图大小但是类型为 int8 型，可以保存负数</span></span><br><span class="line">kernel = img_kernel.astype(np.int8)</span><br><span class="line">kernel[img_kernel_bin == <span class="number">255</span>] = <span class="number">1</span></span><br><span class="line">kernel[img_kernel_bin == <span class="number">0</span>] = -<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 击中击不中变换</span></span><br><span class="line">img_hitmiss = cv2.morphologyEx(img_src_bin,cv2.MORPH_HITMISS ,kernel,iterations=<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;countNonZero(img_hitmiss):&#x27;</span>,cv2.countNonZero(img_hitmiss))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制中心点</span></span><br><span class="line">locations = cv2.findNonZero(img_hitmiss)</span><br><span class="line">img_hitmiss_color = cv2.cvtColor(img_hitmiss,cv2.COLOR_GRAY2BGR)</span><br><span class="line"><span class="keyword">if</span> locations <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">type</span>(locations), locations.shape ,locations)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;locations:&#x27;</span>,locations[<span class="number">0</span>][<span class="number">0</span>]) <span class="comment"># 第 2 个 [0] 固定，第 1 个 [0] 表示找到位置的个数</span></span><br><span class="line">    center=locations[<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>],locations[<span class="number">0</span>][<span class="number">0</span>][<span class="number">1</span>]</span><br><span class="line">    cv2.circle(img_hitmiss_color,center, <span class="number">15</span>, (<span class="number">0</span>,<span class="number">255</span>,<span class="number">255</span>), <span class="number">5</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;未击中&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="图像金字塔"><a href="#图像金字塔" class="headerlink" title="图像金字塔"></a>图像金字塔</h1><h2 id="概念-12"><a href="#概念-12" class="headerlink" title="概念"></a>概念</h2><p>图像金字塔是一些列图像的几何，如下图所示。更高层图像尺寸更小，更底层图像尺寸更大，看起来就像是一个金字塔一样</p>
+<img data-src="/2023/05/05/143/image-36.png" class="" title="image-36">
+
+
+
+
+
+<h2 id="pyrDown"><a href="#pyrDown" class="headerlink" title="pyrDown"></a>pyrDown</h2><h3 id="概念-13"><a href="#概念-13" class="headerlink" title="概念"></a>概念</h3><p>这里的 down 是指图像变小，所以原始图像在金字塔的底部。</p>
+<h3 id="步骤-1"><a href="#步骤-1" class="headerlink" title="步骤"></a>步骤</h3><ol>
+<li><p>将当前图像和高斯核卷积:<img data-src="/2023/05/05/143/image-37.png" class="" title="img"></p>
+<p><strong>【Note】</strong>：这个高斯核的尺寸为 5×5 大小，所有元素的值加起来正好为 256，最后再除以 256，得到的加权和正好为 1。其距离最中心越近数值越大，这正好和高斯平滑选择的高斯核类似。这个过程也类似于高斯平滑。</p>
+</li>
+</ol>
+<h3 id="函数原型-5"><a href="#函数原型-5" class="headerlink" title="函数原型"></a>函数原型</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.pyrDown(src[, dst[, dstsize[, borderType]]]) -&gt;dst</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参数</p>
+</blockquote>
+<ul>
+<li>src：源图像；</li>
+<li>dst：目标图像；</li>
+<li>dstsize：缩放后目标图像的尺寸，必须满足 std::abs(dsize.width<em>2 – ssize.width) &lt;&#x3D; 2 &amp;&amp; std::abs(dsize.height</em>2 – ssize.height) &lt;&#x3D; 2</li>
+<li>borderType：边界填充类型；</li>
+</ul>
+<blockquote>
+<p>行为</p>
+</blockquote>
+<p>经过 <code>pyrDown()</code> 处理的图像变得更加模糊 (平滑)。然后移除偶数行和偶数列，然后就能得到和原图相比是原图 1&#x2F;4 大小的新的图像，在图像金字塔中就位于当前层的上一层。</p>
+<h2 id="pyrUp"><a href="#pyrUp" class="headerlink" title="pyrUp"></a>pyrUp</h2><h3 id="概念-14"><a href="#概念-14" class="headerlink" title="概念"></a>概念</h3><p>将图像的尺寸变大，所以原始图像位于图像金字塔的顶层。</p>
+<h3 id="函数原型-6"><a href="#函数原型-6" class="headerlink" title="函数原型"></a>函数原型</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.pyrUp(src[, dst[, dstsize[, borderType]]]) -&gt;dst</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参数</p>
+</blockquote>
+<ul>
+<li>src：源图像；</li>
+<li>dst：目标图像；</li>
+<li>dstsize：缩放后目标图像的尺寸，必须满足 std::abs(dsize.width – ssize.width<em>2) &#x3D;&#x3D;dsize.width % 2 &amp;&amp; std::abs(dsize.height – ssize.height</em>2)&#x3D;&#x3D; dsize.height % 2</li>
+<li>borderType：边界填充类型；</li>
+</ul>
+<h1 id="图像梯度"><a href="#图像梯度" class="headerlink" title="图像梯度"></a>图像梯度</h1><h2 id="概念-15"><a href="#概念-15" class="headerlink" title="概念"></a>概念</h2><p><a target="_blank" rel="noopener" href="http://www.juzicode.com/opencv-python-gaussianblur-bilateralfilter/">高斯平滑、双边平滑</a>和 <a target="_blank" rel="noopener" href="http://www.juzicode.com/opencv-python-blur-medianblur/">均值平滑、中值平滑</a> 介绍的平滑处理可以看做是图像的 “<strong>低通滤波</strong>”，它会滤除掉图像的“高频” 部分，使图像看起来更平滑。</p>
+<p>图像梯度则可以看做是对图像进行 “<strong>高通滤波</strong>”，他会滤除图像中的低频部分，&#x3D;&#x3D;为的是凸显图像的突变部分&#x3D;&#x3D;</p>
+<h2 id="sobel"><a href="#sobel" class="headerlink" title="sobel"></a>sobel</h2><h3 id="函数原型-7"><a href="#函数原型-7" class="headerlink" title="函数原型"></a>函数原型</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dst = cv2.Sobel(src, ddepth, dx, dy[, dst[, ksize[, scale[, delta[, borderType]]]]])</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参数</p>
+</blockquote>
+<ul>
+<li>src：源图像；</li>
+<li>ddepth：目标图像深度；</li>
+<li>dx：x 方向求导阶数；</li>
+<li>dy：y 方向求导阶数；</li>
+<li>dst：目标图像；</li>
+<li>ksize：kernel 尺寸，说明文档上指出必须是 1,3,5,7 中的一个，但是实验可以得到应该是小于 31 的正奇数；如果是 - 1 表示 scharr 滤波；</li>
+<li>scale：缩放比例，默认为 1；</li>
+<li>delta：叠加值，默认为 0；</li>
+<li>borderType：边界填充类型；</li>
+</ul>
+<h3 id="效果-4"><a href="#效果-4" class="headerlink" title="效果"></a>效果</h3><blockquote>
+<p>dx 与 dy 取值不同的效果</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>(dx, dy)</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>(1, 0)</td>
+<td>凸显 x 方向的梯度变化</td>
+</tr>
+<tr>
+<td>(0, 1)</td>
+<td>凸显 y 方向的梯度变化</td>
+</tr>
+<tr>
+<td>(0.5, 0.5)</td>
+<td>凸显边沿</td>
+</tr>
+<tr>
+<td>(1, 1)</td>
+<td>dx 和 dy 都为 1 表明是与的关系，只有 x 和 y 方向都有梯度的时候才能被检测出来。</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>ksize 的取值不同</p>
+</blockquote>
+<ul>
+<li>ksize 的值越大，梯度信息呈现的越多</li>
+<li>ksize 相同，dx 的值越小，梯度的细节越多</li>
+</ul>
+<h2 id="scharr"><a href="#scharr" class="headerlink" title="scharr"></a>scharr</h2><h3 id="背景-1"><a href="#背景-1" class="headerlink" title="背景"></a>背景</h3><p>当 kernel 的尺寸为 3×3 时，Sobel 计算的结果不是很精确，为了得到更精确的计算结果常采用下图所示的 Scharr kernel</p>
+<h3 id="概念-16"><a href="#概念-16" class="headerlink" title="概念"></a>概念</h3><p>Scharr 变换可以看做是使用了 Scharr 核的 Sobel 变换，是一种经过改进的 Sobel 变换，同样也要区分 x 和 y 方向分开计算梯度。</p>
+<h3 id="函数原型-8"><a href="#函数原型-8" class="headerlink" title="函数原型"></a>函数原型</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dst = cv2.Scharr(src, ddepth, dx, dy[, dst[, scale[, delta[, borderType]]]])</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参数</p>
+</blockquote>
+<ul>
+<li>src：源图像；</li>
+<li>ddepth：目标图像深度；</li>
+<li>dx：x 方向求导阶数；</li>
+<li>dy：y 方向求导阶数；</li>
+<li>dst：目标图像；</li>
+<li>scale：缩放比例，默认为 1；</li>
+<li>delta：叠加值，默认为 0；</li>
+<li>borderType：边界填充类型；</li>
+</ul>
+<blockquote>
+<p>Notes</p>
+</blockquote>
+<ul>
+<li><p><code>scharr()</code> 没有 <code>ksize</code> 参数， <code>scharr</code> 的 <code>kernel</code> 大小固定为 $3 \times 3$</p>
+</li>
+<li><p>dx 和 dy 要满足如下的关系，否则会抛异常</p>
+<p> <code>CV_Assert(dx&gt;= 0 &amp;&amp; dy &gt;= 0 &amp;&amp; dx + dy == 1 )</code></p>
+<p> 也就是每次只能求 x 方向或者 y 方向单个方向的梯度，而且只能求一阶梯度，不像 Sobel() 中 dx 或 dy 可以设置为更大的值计算更高阶的梯度。</p>
+</li>
+</ul>
+<h2 id="Laplacian"><a href="#Laplacian" class="headerlink" title="Laplacian"></a>Laplacian</h2><h3 id="概念-17"><a href="#概念-17" class="headerlink" title="概念"></a>概念</h3><p>Laplacian 变换是对图像求二阶导数，下图是 2 种  $3 \times 3$ 尺寸的 kernel，这里 ksize 是 <code>Laplacian()</code> 的入参名称</p>
+<blockquote>
+<p>Notes</p>
+</blockquote>
+<ul>
+<li><p>Laplacian() 变换不需要区分图像的 x 和 y 方向计算梯度，从上图的 2 种 kernel 也可以看到其 x 和 y 方向是对称的。</p>
+</li>
+<li><p>在 Laplacian() 变换中，&#x3D;&#x3D;ksize 必须是小于 31 的正奇数 &#x3D;&#x3D;</p>
+<p> 当 ksize 等于 1 时，这时 kernel 的尺寸大小并非是 1，其实际尺寸仍然为 3×3 (看源码)</p>
+</li>
+</ul>
+<h3 id="函数原型-9"><a href="#函数原型-9" class="headerlink" title="函数原型"></a>函数原型</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dst = cv2.Laplacian(src, ddepth[, dst[, ksize[, scale[, delta[, borderType]]]]])</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参数</p>
+</blockquote>
+<ul>
+<li>src：源图像；</li>
+<li>ddepth：目标图像深度；</li>
+<li>dst：目标图像；</li>
+<li>ksize：kernel 尺寸，小于 31 的正奇数；如果为 1 仍然是一个 3×3 的 kernel；</li>
+<li>scale：缩放比例，默认为 1；</li>
+<li>delta：叠加值，默认为 0；</li>
+<li>borderType：边界填充类型；</li>
+</ul>
+<blockquote>
+<p>Notes</p>
+</blockquote>
+<ul>
+<li><code>Laplacian </code> 变换中没有 dx 或 dy 参数，因为 <code>Laplacian</code> 是对图像求二阶导数。</li>
+</ul>
+<h3 id="效果-5"><a href="#效果-5" class="headerlink" title="效果"></a>效果</h3><ul>
+<li><code>Laplacian()</code> 中的 <code>ksize</code> 越大，梯度信息越丰富</li>
+<li>在相同的 <code>ksize</code> 时，二阶 <code>Sobel</code> 变换和 <code>Laplacian</code> 变换对比看，<code>Laplacian</code> 变换取得的梯度信息要更明显一些。</li>
+</ul>
+<h1 id="边沿检测"><a href="#边沿检测" class="headerlink" title="边沿检测"></a>边沿检测</h1><h2 id="概念-18"><a href="#概念-18" class="headerlink" title="概念"></a>概念</h2><p>图像梯度反应的是图像像素值的变化过程，不管变化大小都考虑在内，所以 Sobel, Laplacian 变换得到的是一个多级灰度图。</p>
+<p>边沿洁厕也昆虫看做是图像梯度的一种延伸，不过边沿检测更注意图像的 “边沿部分”，图像梯度变化较小的部分会被忽略，只有较大变化的部分保留下来</p>
+<h2 id="Canny"><a href="#Canny" class="headerlink" title="Canny"></a>Canny</h2><h3 id="概念-19"><a href="#概念-19" class="headerlink" title="概念"></a>概念</h3><p>canny 边沿检测有低错误率、很好地定位边缘点、单一的边缘点响应等优点</p>
+<h3 id="步骤-2"><a href="#步骤-2" class="headerlink" title="步骤"></a>步骤</h3><ol>
+<li>高斯滤波器平滑输入图像；</li>
+<li>计算梯度幅值图像和角度方向；</li>
+<li>对梯度幅值图像应用非最大值抑制；</li>
+<li>用双阈值处理和连接分析检测和连接边沿。</li>
+</ol>
+<blockquote>
+<p>非极大值抑制</p>
+</blockquote>
+<p>抑制非极大值的目标（去冗余），从而搜索出局部极大值的目标（找最优）</p>
+<h3 id="函数原型-10"><a href="#函数原型-10" class="headerlink" title="函数原型"></a>函数原型</h3><blockquote>
+<p>函数原型1</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">edges=cv2.Canny(image, threshold1, threshold1[, edges[, apertureSize[, L2gradient]]])</span><br></pre></td></tr></table></figure>
+
+<p><strong>参数</strong></p>
+<ul>
+<li>image：8bit源图像，可以是单通道或多通道；</li>
+<li>threshold1：迟滞阈值1；</li>
+<li>threshold2：迟滞阈值2，和threshold1没有大小要求，函数内部会调整交换；</li>
+<li>edges：目标图像，二值图像；</li>
+<li>apertureSize：kernel尺寸，默认为3；</li>
+<li>L2gradient：是否使用L2范式，如果设置为True，计算梯度时使用的是2个方向梯度的平方和开平方，如果设置为False，则使用2个方向梯度的绝对值的和；</li>
+</ul>
+<blockquote>
+<p>函数原型2</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">edges=cv2.Canny(dx, dy, threshold1, threshold2[, edges[, L2gradient]])</span><br></pre></td></tr></table></figure>
+
+<p><strong>参数</strong></p>
+<ul>
+<li>dx：源图像的16bit(CV_16SC1 or CV_16SC3) x方向梯度图像；</li>
+<li>dy：源图像的16bit(CV_16SC1 or CV_16SC3) y方向梯度图像；</li>
+<li>threshold1：迟滞阈值1；</li>
+<li>threshold2：迟滞阈值2；</li>
+<li>edges：目标图像；</li>
+<li>L2gradient：是否使用L2范式，如果设置为True，计算梯度时使用的是2个方向梯度的平方和开平方，如果设置为False，则使用2个方向梯度的绝对值的和；</li>
+</ul>
+<blockquote>
+<p>注意</p>
+</blockquote>
+<ul>
+<li>第2种接口形式和第1种实现边沿检测的效果是一样的</li>
+<li>第2种形式需要先计算图像的x和y方向的梯度，所以计算梯度的kernel尺寸在第2种接口中就不需要了</li>
+</ul>
+<h3 id="ksize差异"><a href="#ksize差异" class="headerlink" title="ksize差异"></a>ksize差异</h3><ul>
+<li><p>相同的threshold值，ksize越大边沿细节越多</p>
+<p> 这点和Sobel()，Scharr()，Laplacian()计算图像梯度效果是一样的。</p>
+</li>
+</ul>
+<h3 id="迟滞阈值"><a href="#迟滞阈值" class="headerlink" title="迟滞阈值"></a>迟滞阈值</h3><p>即: $\frac{threshold1}{2}$ </p>
+<p>2个迟滞阈值在函数内部会进行比较，较小者存入low_thresh</p>
+<h3 id="阈值宽度"><a href="#阈值宽度" class="headerlink" title="阈值宽度"></a>阈值宽度</h3><p>即: $\left | threshold1 - threshold2 \right | $</p>
+<blockquote>
+<p>效果</p>
+</blockquote>
+<p>相同的ksize时，threshold1和threshold2的差值越小，边沿细节越多</p>
+<h3 id="像素值"><a href="#像素值" class="headerlink" title="像素值"></a>像素值</h3><ul>
+<li>canny() 变换后的边沿图像用直方图显示，可以看到变换后的图像是一个<em>二值图像</em>, 像素的取值为0或者255</li>
+<li>Sobel()、Laplacian() 等梯度变换得到的是一个灰度图</li>
+</ul>
+<h3 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h3><ul>
+<li>Canny() 变换中相同的 threshold 值，ksize 越大边沿细节越多；</li>
+<li>threshold1 和 threshold2 的差值越小，边沿细节越多；</li>
+<li>Canny() 变换后得到的是一个二值图像；</li>
+<li>Canny() 第 2 种接口形式得到的图像效果和第 1 种相比几乎没有差别，因为需要先计算图像 x 和 y 方向的梯度图像，使用起来更繁杂些。</li>
+</ul>
+<h1 id="统计函数"><a href="#统计函数" class="headerlink" title="统计函数"></a>统计函数</h1><h2 id="非-0-值数量"><a href="#非-0-值数量" class="headerlink" title="非 0 值数量"></a>非 0 值数量</h2><blockquote>
+<p>函数原型</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.countNonZero(src) -&gt; retval</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>参数</p>
+</blockquote>
+<ul>
+<li>src：输入图像，必须为单通道图像；</li>
+<li>retval：非零像素值个数</li>
+</ul>
+<blockquote>
+<p>功能</p>
+</blockquote>
+<p>countNonZero()用来统计元素值为非0值的像素点个数。</p>
+<h2 id="最小最大值及其位置"><a href="#最小最大值及其位置" class="headerlink" title="最小最大值及其位置"></a>最小最大值及其位置</h2><blockquote>
+<p>函数原型</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.minMaxLoc(src[, mask])-&gt;minVal, maxVal, minLoc, maxLoc</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>功能</p>
+</blockquote>
+<p>minMaxLoc() 函数返回图像中的元素值的最小值和最大值，以及最小值和最大值的坐标。</p>
+<blockquote>
+<p>参数</p>
+</blockquote>
+<ul>
+<li>src：输入图像，必须为单通道图像；</li>
+<li>mask：掩码；</li>
+<li>minVal, maxVal, minLoc, maxLoc：依次为最小值，最大值，最小值的坐标，最大值的坐标；</li>
+</ul>
+<blockquote>
+<p>返回值</p>
+</blockquote>
+<p>返回 minLoc 和 maxLoc 的坐标位置是以 OpenCV 中 <code>(x，y)</code> 的形式组织的，但是在 numpy 中下标访问是按照 <code>array[行][列]</code> 形式，类似于 <code>array[y][x]</code> 的形式，所以 minLoc 和 maxLoc 的坐标值不能直接用于 numpy 的下标访问，需要对调后才可以使用</p>
+<blockquote>
+<p>注意</p>
+</blockquote>
+<ul>
+<li>minMaxLoc()内部是按照行扫描方式，如果找到一个最小值，后面没有比这个数值更小的数值，那最小值的位置就是最开始出现的那个位置，即使后面出现了这个最小数值相等的数值，找最大值也一样</li>
+</ul>
+<h2 id="元素值之和"><a href="#元素值之和" class="headerlink" title="元素值之和"></a>元素值之和</h2><blockquote>
+<p>函数原型</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.sumElems(src) -&gt; retval</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>功能</p>
+</blockquote>
+<p>sumElems() 统计所有元素值之和，如果有多通道，分通道计算，返回的是一个四元组，依次对应图像可能包含的第 0,1,2,3 通道，如果单通道图像则只有下标 0 对应的元素有意义，如果是 3 通道则只有前 3 个元素有意义。</p>
+<blockquote>
+<p>参数</p>
+</blockquote>
+<ul>
+<li>src：输入图像，可以是单通道，3通道或4通道图像；</li>
+<li>retval：返回的是一个4元组，分别对应各通道元素的和。</li>
+</ul>
+<h2 id="平均值"><a href="#平均值" class="headerlink" title="平均值"></a>平均值</h2><blockquote>
+<p>函数原型</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.mean(src[, mask]) -&gt;retval</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>功能</p>
+</blockquote>
+<p>mean() 用来统计单个通道内像素值的平均值，如果有多个通道，分通道计算。</p>
+<blockquote>
+<p>参数</p>
+</blockquote>
+<ul>
+<li>src：输入图像，可以是单通道，3 通道或 4 通道图像；</li>
+<li>mask：可选的掩码；</li>
+</ul>
+<h2 id="平均值与标准差"><a href="#平均值与标准差" class="headerlink" title="平均值与标准差"></a>平均值与标准差</h2><blockquote>
+<p>函数原型</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.meanStdDev(src[, mean[, stddev[, mask]]]) -&gt;mean, stddev</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>功能</p>
+</blockquote>
+<p>meanStdDev() 用来统计单通道内像素值的平均值和标准差，一次调用返回 2 个结果。</p>
+<blockquote>
+<p>参数</p>
+</blockquote>
+<ul>
+<li>src：输入图像，必须为单通道图像；</li>
+<li>mask：可选的掩码；</li>
+<li>mean：平均值；</li>
+<li>stddev：标准差；</li>
+<li>meanStdDev() 返回的是一个元组，下标 0 为平均值 mean，下标 1 为标准差 stddev。</li>
+</ul>
+<h2 id="单行-列的极值、和、均值"><a href="#单行-列的极值、和、均值" class="headerlink" title="单行&#x2F;列的极值、和、均值"></a>单行&#x2F;列的极值、和、均值</h2><blockquote>
+<p>函数原型</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.reduce(src, dim, rtype[, dst[, dtype]]) -&gt;dst</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>功能</p>
+</blockquote>
+<p>reduce 用来统计二维数组的每一行或每一列中的最小值、最大值、平均值、和。这里 reduce 的含义也可以理解为将二维矩阵压缩成一维向量，压缩后的值根据入参类型可以是最小值、最大值、平均值或者和。</p>
+<blockquote>
+<p>参数</p>
+</blockquote>
+<ul>
+<li>src：源图像，可以是单通道也可以是多通道，多通道时分通道计算；</li>
+<li>dim：如果为 0 表示统计每列的数据等价于压缩成行（row），如果为 1 表示统计每行的数据等价于压缩成列（column）；</li>
+<li>rtype：reduce 操作的类型；</li>
+<li>dst：目标图像；</li>
+<li>dtype：目标图像的类型，如果不指定默认为 - 1 表示用源图像 src 的数据类型；</li>
+<li>dim 参数的理解：如果为 0 表示生成新的数据将是一个行向量，所以是在每一列上操作，将单个的列压缩成一个数值从而组成一个行向量；如果为 1 则表示生成新的数据是一个列向量，在每一行上操作，将单个的行压缩成一个数值从而组成一个列向量。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://qeuroal.top/2023/05/05/143/" title="143. opencv">http://qeuroal.top/2023/05/05/143/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/opencv/" rel="tag"><i class="fa fa-tag"></i> opencv</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/05/28/142/" rel="prev" title="142. Linux">
+                  <i class="fa fa-angle-left"></i> 142. Linux
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/05/08/144/" rel="next" title="144. Pytorch">
+                  144. Pytorch <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Qeuroal" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

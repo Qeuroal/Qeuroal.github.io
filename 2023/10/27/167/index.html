@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Linux下载工具">
+<meta property="og:type" content="article">
+<meta property="og:title" content="167. wget">
+<meta property="og:url" content="http://qeuroal.top/2023/10/27/167/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Blog">
+<meta property="og:description" content="Linux下载工具">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-27T01:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-08T06:36:58.533Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="software">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://qeuroal.top/2023/10/27/167/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2023/10/27/167/","path":"2023/10/27/167/","title":"167. wget"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>167. wget | Qeuroal's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Qeuroal's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">静幽正治</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">命令格式:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%EF%BC%9A"><span class="nav-number">1.2.</span> <span class="nav-text">启动：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%EF%BC%9A"><span class="nav-number">1.3.</span> <span class="nav-text">下载：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%EF%BC%9A"><span class="nav-number">1.4.</span> <span class="nav-text">目录：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-%E9%80%89%E9%A1%B9%EF%BC%9A"><span class="nav-number">1.5.</span> <span class="nav-text">HTTP 选项：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTPS-SSL-TLS-%E9%80%89%E9%A1%B9%EF%BC%9A"><span class="nav-number">1.6.</span> <span class="nav-text">HTTPS (SSL&#x2F;TLS) 选项：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HSTS-%E9%80%89%E9%A1%B9%EF%BC%9A"><span class="nav-number">1.7.</span> <span class="nav-text">HSTS 选项：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FTP-%E9%80%89%E9%A1%B9%EF%BC%9A"><span class="nav-number">1.8.</span> <span class="nav-text">FTP 选项：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FTPS-%E9%80%89%E9%A1%B9%EF%BC%9A"><span class="nav-number">1.9.</span> <span class="nav-text">FTPS 选项：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WARC-%E9%80%89%E9%A1%B9%EF%BC%9A"><span class="nav-number">1.10.</span> <span class="nav-text">WARC 选项：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E4%B8%8B%E8%BD%BD%EF%BC%9A"><span class="nav-number">1.11.</span> <span class="nav-text">递归下载：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E6%8E%A5%E5%8F%97-%E6%8B%92%E7%BB%9D%EF%BC%9A"><span class="nav-number">1.12.</span> <span class="nav-text">递归接受&#x2F;拒绝：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"><span class="nav-number">2.</span> <span class="nav-text">使用示例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E4%BD%BF%E7%94%A8wget%E4%B8%8B%E8%BD%BD%E5%8D%95%E4%B8%AA%E6%96%87%E4%BB%B6"><span class="nav-number">2.1.</span> <span class="nav-text">1、使用wget下载单个文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E4%BD%BF%E7%94%A8wget-O%E4%B8%8B%E8%BD%BD%E5%B9%B6%E4%BB%A5%E4%B8%8D%E5%90%8C%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D%E4%BF%9D%E5%AD%98"><span class="nav-number">2.2.</span> <span class="nav-text">2、使用wget -O下载并以不同的文件名保存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E4%BD%BF%E7%94%A8wget-%E2%80%93limit-rate%E9%99%90%E9%80%9F%E4%B8%8B%E8%BD%BD"><span class="nav-number">2.3.</span> <span class="nav-text">3、使用wget –limit -rate限速下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81%E4%BD%BF%E7%94%A8wget-c%E6%96%AD%E7%82%B9%E7%BB%AD%E4%BC%A0"><span class="nav-number">2.4.</span> <span class="nav-text">4、使用wget -c断点续传</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81%E4%BD%BF%E7%94%A8wget-b%E5%90%8E%E5%8F%B0%E4%B8%8B%E8%BD%BD"><span class="nav-number">2.5.</span> <span class="nav-text">5、使用wget -b后台下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6%E3%80%81%E4%BC%AA%E8%A3%85%E4%BB%A3%E7%90%86%E5%90%8D%E7%A7%B0%E4%B8%8B%E8%BD%BD"><span class="nav-number">2.6.</span> <span class="nav-text">6、伪装代理名称下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7%E3%80%81%E4%BD%BF%E7%94%A8wget-%E2%80%93spider%E6%B5%8B%E8%AF%95%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5"><span class="nav-number">2.7.</span> <span class="nav-text">7、使用wget –spider测试下载链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8%E3%80%81%E4%BD%BF%E7%94%A8wget-%E2%80%93tries%E5%A2%9E%E5%8A%A0%E9%87%8D%E8%AF%95%E6%AC%A1%E6%95%B0"><span class="nav-number">2.8.</span> <span class="nav-text">8、使用wget –tries增加重试次数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9%E3%80%81%E4%BD%BF%E7%94%A8wget-i%E4%B8%8B%E8%BD%BD%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6"><span class="nav-number">2.9.</span> <span class="nav-text">9、使用wget -i下载多个文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10%E3%80%81%E4%BD%BF%E7%94%A8wget-%E2%80%93mirror%E9%95%9C%E5%83%8F%E7%BD%91%E7%AB%99"><span class="nav-number">2.10.</span> <span class="nav-text">10、使用wget –mirror镜像网站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11%E3%80%81%E4%BD%BF%E7%94%A8wget-%E2%80%93reject%E8%BF%87%E6%BB%A4%E6%8C%87%E5%AE%9A%E6%A0%BC%E5%BC%8F%E4%B8%8B%E8%BD%BD"><span class="nav-number">2.11.</span> <span class="nav-text">11、使用wget –reject过滤指定格式下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12%E3%80%81%E4%BD%BF%E7%94%A8wget-o%E6%8A%8A%E4%B8%8B%E8%BD%BD%E4%BF%A1%E6%81%AF%E5%AD%98%E5%85%A5%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6"><span class="nav-number">2.12.</span> <span class="nav-text">12、使用wget -o把下载信息存入日志文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13%E3%80%81%E4%BD%BF%E7%94%A8wget-Q%E9%99%90%E5%88%B6%E6%80%BB%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F"><span class="nav-number">2.13.</span> <span class="nav-text">13、使用wget -Q限制总下载文件大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14%E3%80%81%E4%BD%BF%E7%94%A8wget-r-A%E4%B8%8B%E8%BD%BD%E6%8C%87%E5%AE%9A%E6%A0%BC%E5%BC%8F%E6%96%87%E4%BB%B6"><span class="nav-number">2.14.</span> <span class="nav-text">14、使用wget -r -A下载指定格式文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15%E3%80%81%E4%BD%BF%E7%94%A8wget-FTP%E4%B8%8B%E8%BD%BD"><span class="nav-number">2.15.</span> <span class="nav-text">15、使用wget FTP下载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E4%B8%8B%E8%BD%BD%E6%95%B4%E4%B8%AAhttp%E6%88%96%E8%80%85ftp%E7%AB%99%E7%82%B9%E3%80%82"><span class="nav-number">2.15.1.</span> <span class="nav-text">1、下载整个http或者ftp站点。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E6%96%AD%E7%82%B9%E7%BB%AD%E4%BC%A0"><span class="nav-number">2.15.2.</span> <span class="nav-text">2、断点续传:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E6%89%B9%E9%87%8F%E4%B8%8B%E8%BD%BD%E3%80%82"><span class="nav-number">2.15.3.</span> <span class="nav-text">3、批量下载。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E9%80%89%E6%8B%A9%E6%80%A7%E7%9A%84%E4%B8%8B%E8%BD%BD%E3%80%82"><span class="nav-number">2.15.4.</span> <span class="nav-text">4、选择性的下载。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E5%AF%86%E7%A0%81%E5%92%8C%E8%AE%A4%E8%AF%81"><span class="nav-number">2.15.5.</span> <span class="nav-text">5、密码和认证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81%E5%88%A9%E7%94%A8%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9B%E8%A1%8C%E4%B8%8B%E8%BD%BD"><span class="nav-number">2.15.6.</span> <span class="nav-text">6、利用代理服务器进行下载</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">大人者，不失其赤子之心</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2023/10/27/167/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="167. wget | Qeuroal's Blog">
+      <meta itemprop="description" content="Linux下载工具">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          167. wget
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-10-27 09:00:00" itemprop="dateCreated datePublished" datetime="2023-10-27T09:00:00+08:00">2023-10-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-08 14:36:58" itemprop="dateModified" datetime="2025-12-08T14:36:58+08:00">2025-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">Linux下载工具</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>Linux wget是一个下载文件的工具，它用在命令行下。对于Linux用户是必不可少的工具，尤其对于网络管理员，经常要下载一些软件或从远程服务器恢复备份到本地服务器。如果我们使用虚拟主机，处理这样的事务我们只能先从远程服务器下载到我们电脑磁盘，然后再用ftp工具上传到服务器。这样既浪费时间又浪费精力，那不没办法的事。而到了Linux VPS，它则可以直接下载到服务器而不用经过上传这一步。wget工具体积小但功能完善，它支持断点下载功能，同时支持FTP和HTTP下载方式，支持代理服务器和设置起来方便简单。下面我们以实例的形式说明怎么使用wget。</p>
+<h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><h2 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式:"></a>命令格式:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 用法： wget [选项]... [URL]...</span><br><span class="line">wget [参数列表] [目标软件、网页的网址] </span><br></pre></td></tr></table></figure>
+
+<p>长选项所必须的参数在使用短选项时也是必须的。</p>
+<h2 id="启动："><a href="#启动：" class="headerlink" title="启动："></a>启动：</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">  -V,  --version                   显示 Wget 的版本信息并退出</span><br><span class="line">  -h,  --help                      打印此帮助</span><br><span class="line">  -b,  --background                启动后转入后台</span><br><span class="line">  -e,  --execute=命令              运行一个“.wgetrc”风格的命令```</span><br><span class="line"></span><br><span class="line">日志和输入文件：</span><br><span class="line">  -o,  --output-file=文件          将日志信息写入 FILE</span><br><span class="line">  -a,  --append-output=文件        将信息添加至 FILE</span><br><span class="line">  -d,  --debug                     打印大量调试信息</span><br><span class="line">  -q,  --quiet                     安静模式 (无信息输出)</span><br><span class="line">  -v,  --verbose                   详尽的输出 (此为默认值)</span><br><span class="line">  -nv, --no-verbose                关闭详尽输出，但不进入安静模式</span><br><span class="line">       --report-speed=类型         以 <span class="tag">&lt;<span class="name">类型</span>&gt;</span> 报告带宽。类型可以是 bits</span><br><span class="line">  -i,  --input-file=文件           下载本地或外部 <span class="tag">&lt;<span class="name">文件</span>&gt;</span> 中的 URL</span><br><span class="line">  -F,  --force-html                把输入文件当成 HTML 文件</span><br><span class="line">  -B,  --base=URL                  解析相对于 URL 的 HTML 输入文件链接 (-i -F)</span><br><span class="line">       --config=文件               指定要使用的配置文件</span><br><span class="line">       --no-cookies                不读取任何配置文件</span><br><span class="line">       --rejected-log=文件         将拒绝 URL 的原因写入 <span class="tag">&lt;<span class="name">文件</span>&gt;</span>。</span><br></pre></td></tr></table></figure>
+
+<h2 id="下载："><a href="#下载：" class="headerlink" title="下载："></a>下载：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">-t,  --tries=数字                设置重试次数为 &lt;数字&gt; (0 代表无限制)</span><br><span class="line">     --retry-connrefused         即使拒绝连接也是重试</span><br><span class="line">-O,  --output-document=文件      将文档写入 FILE</span><br><span class="line">-nc, --no-clobber                不要下载已存在将被覆盖的文件</span><br><span class="line">-c,  --<span class="built_in">continue</span>                  断点续传下载文件</span><br><span class="line">     --start-pos=偏移量          从由零计数的 &lt;偏移量&gt; 开始下载</span><br><span class="line">     --progress=类型             选择进度条类型</span><br><span class="line">     --show-progress             在任意啰嗦状态下都显示进度条</span><br><span class="line">-N,  --timestamping              只获取比本地文件新的文件</span><br><span class="line">     --no-if-modified-since      不要在时间戳 (timestamping) 模式下使用</span><br><span class="line">                                   if-modified-since get 条件请求</span><br><span class="line">     --no-use-server-timestamps  don<span class="string">&#x27;t set the local file&#x27;</span>s timestamp by</span><br><span class="line">                                   the one on the server</span><br><span class="line">-S,  --server-response           打印服务器响应</span><br><span class="line">     --spider                    不下载任何文件</span><br><span class="line">-T,  --<span class="built_in">timeout</span>=SECONDS           将所有超时设为 SECONDS 秒</span><br><span class="line">     --dns-timeout=SECS          设置 DNS 查寻超时为 SECS 秒</span><br><span class="line">     --connect-timeout=SECS      设置连接超时为 SECS 秒</span><br><span class="line">     --read-timeout=SECS         设置读取超时为 SECS 秒</span><br><span class="line">-w,  --<span class="built_in">wait</span>=SECONDS              等待间隔为 SECONDS 秒</span><br><span class="line">     --waitretry=SECONDS         在获取文件的重试期间等待 1..SECONDS 秒</span><br><span class="line">     --random-wait               获取多个文件时，每次随机等待间隔 (0.5~1.5)*WAIT 秒</span><br><span class="line">     --no-proxy                  禁止使用代理</span><br><span class="line">-Q,  --quota=数字                设置获取配额为 &lt;数字&gt; 字节</span><br><span class="line">     --bind-address=ADDRESS      绑定至本地主机上的 ADDRESS (主机名或是 IP)</span><br><span class="line">     --limit-rate=RATE           限制下载速率为 RATE</span><br><span class="line">     --no-dns-cache              关闭 DNS 查询缓存</span><br><span class="line">     --restrict-file-names=系统  限定文件名中的字符为 &lt;系统&gt; 允许的字符</span><br><span class="line">     --ignore-case               匹配文件/目录时忽略大小写</span><br><span class="line">-4,  --inet4-only                仅连接至 IPv4 地址</span><br><span class="line">-6,  --inet6-only                仅连接至 IPv6 地址</span><br><span class="line">     --prefer-family=地址族      首先连接至指定家族（IPv6，IPv4 或 none）的地址</span><br><span class="line">     --user=用户                 将 ftp 和 http 的用户名均设置为 &lt;用户&gt;</span><br><span class="line">     --password=密码             将 ftp 和 http 的密码均设置为 &lt;密码&gt;</span><br><span class="line">     --ask-password              提示输入密码</span><br><span class="line">     --no-iri                    关闭 IRI 支持</span><br><span class="line">     --local-encoding=ENC        使用 ENC 作为 IRI (国际化资源标识符) 的本地编码</span><br><span class="line">     --remote-encoding=ENC       使用 ENC 作为默认远程编码</span><br><span class="line">     --<span class="built_in">unlink</span>                    覆盖前移除文件</span><br></pre></td></tr></table></figure>
+
+<h2 id="目录："><a href="#目录：" class="headerlink" title="目录："></a>目录：</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-nd, --no-directories            不创建目录</span><br><span class="line">-x,  --force-directories         强制创建目录</span><br><span class="line">-nH, --no-host-directories       不要创建主 (host) 目录</span><br><span class="line">     --protocol-directories      在目录中使用协议名称</span><br><span class="line">-P,  --directory-prefix=前缀     保存文件到 <span class="tag">&lt;<span class="name">前缀</span>&gt;</span>/..</span><br><span class="line">     --cut-dirs=数字             忽略远程目录中 <span class="tag">&lt;<span class="name">数字</span>&gt;</span> 个目录层。</span><br></pre></td></tr></table></figure>
+
+<h2 id="HTTP-选项："><a href="#HTTP-选项：" class="headerlink" title="HTTP 选项："></a>HTTP 选项：</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">     --http-user=用户            设置 http 用户名为 <span class="tag">&lt;<span class="name">用户</span>&gt;</span></span><br><span class="line">     --http-password=密码        设置 http 密码为 <span class="tag">&lt;<span class="name">密码</span>&gt;</span></span><br><span class="line">     --no-cache                  不使用服务器缓存的数据。</span><br><span class="line">     --default-page=NAME         改变默认页 (通常是“index.html”)。</span><br><span class="line">-E,  --adjust-extension          以合适的扩展名保存 HTML/CSS 文档</span><br><span class="line">     --ignore-length             忽略头部的‘Content-Length’区域</span><br><span class="line">     --header=字符串             在头部插入 <span class="tag">&lt;<span class="name">字符串</span>&gt;</span></span><br><span class="line">     --max-redirect              每页所允许的最大重定向</span><br><span class="line">     --proxy-user=用户           使用 <span class="tag">&lt;<span class="name">用户</span>&gt;</span> 作为代理用户名</span><br><span class="line">     --proxy-password=密码       使用 <span class="tag">&lt;<span class="name">密码</span>&gt;</span> 作为代理密码</span><br><span class="line">     --referer=URL               在 HTTP 请求头包含‘Referer: URL’</span><br><span class="line">     --save-headers              将 HTTP 头保存至文件。</span><br><span class="line">-U,  --user-agent=代理           标识自己为 <span class="tag">&lt;<span class="name">代理</span>&gt;</span> 而不是 Wget/VERSION。</span><br><span class="line">     --no-http-keep-alive        禁用 HTTP keep-alive (持久连接)。</span><br><span class="line">     --no-cookies                不使用 cookies。</span><br><span class="line">     --load-cookies=文件         会话开始前从 <span class="tag">&lt;<span class="name">文件</span>&gt;</span> 中载入 cookies。</span><br><span class="line">     --save-cookies=文件         会话结束后保存 cookies 至 FILE。</span><br><span class="line">     --keep-session-cookies      载入并保存会话 (非永久) cookies。</span><br><span class="line">     --post-data=字符串          使用 POST 方式；把 <span class="tag">&lt;<span class="name">字串</span>&gt;</span>作为数据发送。</span><br><span class="line">     --post-file=文件            使用 POST 方式；发送 <span class="tag">&lt;<span class="name">文件</span>&gt;</span> 内容。</span><br><span class="line">     --method=HTTP方法           在请求中使用指定的 <span class="tag">&lt;<span class="name">HTTP</span> <span class="attr">方法</span>&gt;</span>。</span><br><span class="line">     --post-data=字符串          把 <span class="tag">&lt;<span class="name">字串</span>&gt;</span> 作为数据发送，必须设置 --method</span><br><span class="line">     --post-file=文件            发送 <span class="tag">&lt;<span class="name">文件</span>&gt;</span> 内容，必须设置 --method</span><br><span class="line">     --content-disposition       当选择本地文件名时允许 Content-Disposition</span><br><span class="line">                                 头部 (实验中)。</span><br><span class="line">     --content-on-error          在服务器错误时输出接收到的内容</span><br><span class="line">     --auth-no-challenge         不先等待服务器询问就发送基本 HTTP 验证信息。</span><br></pre></td></tr></table></figure>
+
+<h2 id="HTTPS-SSL-TLS-选项："><a href="#HTTPS-SSL-TLS-选项：" class="headerlink" title="HTTPS (SSL&#x2F;TLS) 选项："></a>HTTPS (SSL&#x2F;TLS) 选项：</h2><figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">--secure-protocol=<span class="variable constant_">PR</span>         选择安全协议，可以是 auto、<span class="title class_">SSLv2</span>、</span><br><span class="line">                             <span class="title class_">SSLv3</span>、<span class="title class_">TLSv1</span>、<span class="variable constant_">PFS</span> 中的一个。</span><br><span class="line">--https-only                 只跟随安全的 <span class="variable constant_">HTTPS</span> 链接</span><br><span class="line">--no-check-certificate       不要验证服务器的证书。</span><br><span class="line">--certificate=文件           客户端证书文件。</span><br><span class="line">--certificate-<span class="keyword">type</span>=类型      客户端证书类型，<span class="variable constant_">PEM</span> 或 <span class="variable constant_">DER</span>。</span><br><span class="line">--<span class="keyword">private</span>-key=文件           私钥文件。</span><br><span class="line">--<span class="keyword">private</span>-key-<span class="keyword">type</span>=类型      私钥文件类型，<span class="variable constant_">PEM</span> 或 <span class="variable constant_">DER</span>。</span><br><span class="line">--ca-certificate=文件        带有一组 <span class="variable constant_">CA</span> 证书的文件。</span><br><span class="line">--ca-directory=<span class="variable constant_">DIR</span>           保存 <span class="variable constant_">CA</span> 证书的哈希列表的目录。</span><br><span class="line">--ca-certificate=文件        带有一组 <span class="variable constant_">CA</span> 证书的文件。</span><br><span class="line">--pinnedpubkey=<span class="variable constant_">FILE</span>/<span class="variable constant_">HASHES</span>  <span class="title class_">Public</span> key (<span class="variable constant_">PEM</span>/<span class="variable constant_">DER</span>) file, or <span class="built_in">any</span> <span class="built_in">number</span></span><br><span class="line">                            <span class="keyword">of</span> base64 encoded sha256 hashes preceded by</span><br><span class="line">                            <span class="string">&#x27;sha256//&#x27;</span> and seperated by <span class="string">&#x27;;&#x27;</span>, to verify</span><br><span class="line">                            peer against</span><br></pre></td></tr></table></figure>
+
+<h2 id="HSTS-选项："><a href="#HSTS-选项：" class="headerlink" title="HSTS 选项："></a>HSTS 选项：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--no-hsts                   禁用 HSTS</span><br><span class="line">--hsts-file                 HSTS 数据库路径（将覆盖默认值）</span><br></pre></td></tr></table></figure>
+
+<h2 id="FTP-选项："><a href="#FTP-选项：" class="headerlink" title="FTP 选项："></a>FTP 选项：</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">--ftp-user=用户             设置 ftp 用户名为 <span class="tag">&lt;<span class="name">用户</span>&gt;</span>。</span><br><span class="line">--ftp-password=密码         设置 ftp 密码为 <span class="tag">&lt;<span class="name">密码</span>&gt;</span></span><br><span class="line">--no-remove-listing         不要删除‘.listing’文件</span><br><span class="line">--no-glob                   不在 FTP 文件名中使用通配符展开</span><br><span class="line">--no-passive-ftp            禁用“passive”传输模式</span><br><span class="line">--preserve-permissions      保留远程文件的权限</span><br><span class="line">--retr-symlinks             递归目录时，获取链接的文件 (而非目录)</span><br></pre></td></tr></table></figure>
+
+<h2 id="FTPS-选项："><a href="#FTPS-选项：" class="headerlink" title="FTPS 选项："></a>FTPS 选项：</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">--ftps-<span class="keyword">implicit</span>                 使用隐式 FTPS（默认端口 <span class="number">990</span>）</span><br><span class="line">--ftps-resume-ssl               打开数据连接时继续控制连接中的 SSL/TLS 会话</span><br><span class="line">--ftps-clear-data-connection    只加密控制信道；数据传输使用明文</span><br><span class="line">--ftps-fallback-to-ftp          回落到 FTP，如果目标服务器不支持 FTPS</span><br></pre></td></tr></table></figure>
+
+<h2 id="WARC-选项："><a href="#WARC-选项：" class="headerlink" title="WARC 选项："></a>WARC 选项：</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">--warc-file=文件名          在一个 .warc.gz 文件里保持请求/响应数据</span><br><span class="line">--warc-header=字符串        在头部插入 <span class="tag">&lt;<span class="name">字符串</span>&gt;</span></span><br><span class="line">--warc-max-size=数字        将 WARC 的最大尺寸设置为 <span class="tag">&lt;<span class="name">数字</span>&gt;</span></span><br><span class="line">--warc-cdx                  写入 CDX 索引文件</span><br><span class="line">--warc-dedup=文件名         不要记录列在此 CDX 文件内的记录</span><br><span class="line">--no-warc-compression       不要 GZIP 压缩 WARC 文件</span><br><span class="line">--no-warc-digests           不要计算 SHA1 摘要</span><br><span class="line">--no-warc-keep-log          不要在 WARC 记录中存储日志文件</span><br><span class="line">--warc-tempdir=目录         WARC 写入器的临时文件目录</span><br></pre></td></tr></table></figure>
+
+<h2 id="递归下载："><a href="#递归下载：" class="headerlink" title="递归下载："></a>递归下载：</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-r,  --recursive                 指定递归下载</span><br><span class="line">-l,  --level=数字                最大递归深度 (inf 或 <span class="number">0</span> 代表无限制，即全部下载)。</span><br><span class="line">     --delete-after             下载完成后删除本地文件</span><br><span class="line">-k,  --convert-links            让下载得到的 HTML 或 CSS 中的链接指向本地文件</span><br><span class="line">     --convert-file-<span class="function">only         convert the file part of the URLs <span class="title">only</span> (<span class="params">usually known <span class="keyword">as</span> the basename</span>)</span></span><br><span class="line"><span class="function">     --backups</span>=N                 写入文件 X 前，轮换移动最多 N 个备份文件</span><br><span class="line">-K,  --backup-converted         在转换文件 X 前先将它备份为 X.orig。</span><br><span class="line">-m,  --mirror                   -N -r -l inf --no-<span class="keyword">remove</span>-listing 的缩写形式。</span><br><span class="line">-p,  --page-requisites          下载所有用于显示 HTML 页面的图片之类的元素。</span><br><span class="line">     --strict-comments          用严格方式 (SGML) 处理 HTML 注释。</span><br></pre></td></tr></table></figure>
+
+<h2 id="递归接受-拒绝："><a href="#递归接受-拒绝：" class="headerlink" title="递归接受&#x2F;拒绝："></a>递归接受&#x2F;拒绝：</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">-A,  --accept=列表               逗号分隔的可接受的扩展名列表</span><br><span class="line">-R,  --reject=列表               逗号分隔的要拒绝的扩展名列表</span><br><span class="line">     --accept-regex=REGEX        匹配接受的 URL 的正则表达式</span><br><span class="line">     --reject-regex=REGEX        匹配拒绝的 URL 的正则表达式</span><br><span class="line">     --regex-type=类型           正则类型 (posix|pcre)</span><br><span class="line">-D,  --domains=列表              逗号分隔的可接受的域名列表</span><br><span class="line">     --exclude-domains=列表      逗号分隔的要拒绝的域名列表</span><br><span class="line">     --follow-ftp                跟踪 HTML 文档中的 FTP 链接</span><br><span class="line">     --follow-tags=列表          逗号分隔的跟踪的 HTML 标识列表</span><br><span class="line">     --ignore-tags=列表          逗号分隔的忽略的 HTML 标识列表</span><br><span class="line">-H,  --span-hosts                递归时转向外部主机</span><br><span class="line">-L,  --relative                  仅跟踪相对链接</span><br><span class="line">-I,  --<span class="keyword">include</span>-directories=列表  允许目录的列表</span><br><span class="line">     --trust-server-names        使用重定向 URL 的最后一段作为本地文件名</span><br><span class="line">-X,  --exclude-directories=列表  排除目录的列表</span><br><span class="line">-np, --no-<span class="built_in">parent</span>                 不追溯至父目录</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h1><h2 id="1、使用wget下载单个文件"><a href="#1、使用wget下载单个文件" class="headerlink" title="1、使用wget下载单个文件"></a>1、使用wget下载单个文件</h2><p>以下的例子是从网络下载一个文件并保存在当前目录</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http:<span class="comment">//cn.wordpress.org/wordpress-3.1-zh_CN.zip</span></span><br></pre></td></tr></table></figure>
+
+<p>在下载的过程中会显示进度条，包含（下载完成百分比，已经下载的字节，当前下载速度，剩余下载时间）。</p>
+<h2 id="2、使用wget-O下载并以不同的文件名保存"><a href="#2、使用wget-O下载并以不同的文件名保存" class="headerlink" title="2、使用wget -O下载并以不同的文件名保存"></a>2、使用wget -O下载并以不同的文件名保存</h2><p>wget默认会以最后一个符合”&#x2F;”的后面的字符来命令，对于动态链接的下载通常文件名会不正确。<br>错误：下面的例子会下载一个文件并以名称download.php?id&#x3D;1080保存</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http:<span class="comment">//www.centos.bz/download?id=1</span></span><br></pre></td></tr></table></figure>
+
+<p>即使下载的文件是zip格式，它仍然以download.php?id&#x3D;1080命令。<br>正确：为了解决这个问题，我们可以使用参数-O来指定一个文件名：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget <span class="operator">-</span><span class="type">O</span> wordpress.zip http:<span class="comment">//www.centos.bz/download.php?id=1080</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3、使用wget-–limit-rate限速下载"><a href="#3、使用wget-–limit-rate限速下载" class="headerlink" title="3、使用wget –limit -rate限速下载"></a>3、使用wget –limit -rate限速下载</h2><p>当你执行wget的时候，它默认会占用全部可能的宽带下载。但是当你准备下载一个大文件，而你还需要下载其它文件时就有必要限速了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget –limit-rate=300k http://cn.wordpress.org/wordpress-3.1-zh_CN.zip</span><br></pre></td></tr></table></figure>
+
+<h2 id="4、使用wget-c断点续传"><a href="#4、使用wget-c断点续传" class="headerlink" title="4、使用wget -c断点续传"></a>4、使用wget -c断点续传</h2><p>使用wget -c重新启动下载中断的文件:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget <span class="operator">-</span>c http:<span class="comment">//cn.wordpress.org/wordpress-3.1-zh_CN.zip</span></span><br></pre></td></tr></table></figure>
+
+<p>对于我们下载大文件时突然由于网络等原因中断非常有帮助，我们可以继续接着下载而不是重新下载一个文件。需要继续中断的下载时可以使用-c参数。</p>
+<h2 id="5、使用wget-b后台下载"><a href="#5、使用wget-b后台下载" class="headerlink" title="5、使用wget -b后台下载"></a>5、使用wget -b后台下载</h2><p>对于下载非常大的文件的时候，我们可以使用参数-b进行后台下载。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget -b http:<span class="comment">//cn.wordpress.org/wordpress-3.1-zh_CN.zip</span></span><br><span class="line">Continuing in background, pid <span class="number">1840.</span> </span><br><span class="line">Output will be written to `wget-log’. </span><br></pre></td></tr></table></figure>
+
+<p>你可以使用以下命令来察看下载进度</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -f wget-log</span><br></pre></td></tr></table></figure>
+
+<h2 id="6、伪装代理名称下载"><a href="#6、伪装代理名称下载" class="headerlink" title="6、伪装代理名称下载"></a>6、伪装代理名称下载</h2><p>有些网站能通过根据判断代理名称不是浏览器而拒绝你的下载请求。不过你可以通过–user-agent参数伪装。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget –user-agent=”Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.204 Safari/534.16″ 下载链接 </span><br></pre></td></tr></table></figure>
+
+<h2 id="7、使用wget-–spider测试下载链接"><a href="#7、使用wget-–spider测试下载链接" class="headerlink" title="7、使用wget –spider测试下载链接"></a>7、使用wget –spider测试下载链接</h2><p>当你打算进行定时下载，你应该在预定时间测试下载链接是否有效。我们可以增加–spider参数进行检查。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget –spider URL </span><br></pre></td></tr></table></figure>
+
+<p>如果下载链接正确，将会显示</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget –spider URL </span><br><span class="line">Spider mode enabled. Check <span class="keyword">if</span> remote file exists. </span><br><span class="line">HTTP request sent, awaiting response… <span class="number">200</span> OK </span><br><span class="line">Length: unspecified [text/html] </span><br><span class="line">Remote file exists <span class="keyword">and</span> could contain further links, </span><br><span class="line">but recursion <span class="keyword">is</span> disabled — <span class="keyword">not</span> retrieving. </span><br></pre></td></tr></table></figure>
+
+<p>这保证了下载能在预定的时间进行，但当你给错了一个链接，将会显示如下错误</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget –spider url </span><br><span class="line">Spider mode enabled. Check if remote file exists. </span><br><span class="line">HTTP request sent, awaiting response… 404 Not Found </span><br><span class="line">Remote file does not exist — broken link!!! </span><br></pre></td></tr></table></figure>
+
+<p>你可以在以下几种情况下使用spider参数：<br>定时下载之前进行检查<br>间隔检测网站是否可用<br>检查网站页面的死链接</p>
+<h2 id="8、使用wget-–tries增加重试次数"><a href="#8、使用wget-–tries增加重试次数" class="headerlink" title="8、使用wget –tries增加重试次数"></a>8、使用wget –tries增加重试次数</h2><p>如果网络有问题或下载一个大文件也有可能失败。wget默认重试20次连接下载文件。如果需要，你可以使用–tries增加重试次数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget –tries=40 URL </span><br></pre></td></tr></table></figure>
+
+<h2 id="9、使用wget-i下载多个文件"><a href="#9、使用wget-i下载多个文件" class="headerlink" title="9、使用wget -i下载多个文件"></a>9、使用wget -i下载多个文件</h2><p>首先，保存一份下载链接文件</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; filelist<span class="selector-class">.txt</span> </span><br><span class="line">url1 </span><br><span class="line">url2 </span><br><span class="line">url3 </span><br><span class="line">url4 </span><br></pre></td></tr></table></figure>
+
+<p>接着使用这个文件和参数-i下载</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -<span class="selector-tag">i</span> filelist<span class="selector-class">.txt</span> </span><br></pre></td></tr></table></figure>
+
+<h2 id="10、使用wget-–mirror镜像网站"><a href="#10、使用wget-–mirror镜像网站" class="headerlink" title="10、使用wget –mirror镜像网站"></a>10、使用wget –mirror镜像网站</h2><p>下面的例子是下载整个网站到本地。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget –mirror -p –convert-links -P ./LOCAL URL </span><br><span class="line">–miror:开户镜像下载 </span><br><span class="line">-p:下载所有为了html页面显示正常的文件 </span><br><span class="line">–convert-links:下载后，转换成本地的链接 </span><br><span class="line">-P ./LOCAL：保存所有文件和目录到本地指定目录 </span><br></pre></td></tr></table></figure>
+
+<h2 id="11、使用wget-–reject过滤指定格式下载"><a href="#11、使用wget-–reject过滤指定格式下载" class="headerlink" title="11、使用wget –reject过滤指定格式下载"></a>11、使用wget –reject过滤指定格式下载</h2><p>你想下载一个网站，但你不希望下载图片，你可以使用以下命令。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget –reject=gif url </span><br></pre></td></tr></table></figure>
+
+<h2 id="12、使用wget-o把下载信息存入日志文件"><a href="#12、使用wget-o把下载信息存入日志文件" class="headerlink" title="12、使用wget -o把下载信息存入日志文件"></a>12、使用wget -o把下载信息存入日志文件</h2><p>你不希望下载信息直接显示在终端而是在一个日志文件，可以使用以下命令：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -o download.log URL </span><br></pre></td></tr></table></figure>
+
+<h2 id="13、使用wget-Q限制总下载文件大小"><a href="#13、使用wget-Q限制总下载文件大小" class="headerlink" title="13、使用wget -Q限制总下载文件大小"></a>13、使用wget -Q限制总下载文件大小</h2><p>当你想要下载的文件超过5M而退出下载，你可以使用以下命令:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -Q5m -<span class="selector-tag">i</span> filelist<span class="selector-class">.txt</span> </span><br></pre></td></tr></table></figure>
+
+<p>注意：这个参数对单个文件下载不起作用，只能递归下载时才有效。</p>
+<h2 id="14、使用wget-r-A下载指定格式文件"><a href="#14、使用wget-r-A下载指定格式文件" class="headerlink" title="14、使用wget -r -A下载指定格式文件"></a>14、使用wget -r -A下载指定格式文件</h2><p>可以在以下情况使用该功能</p>
+<p>下载一个网站的所有图片<br>下载一个网站的所有视频<br>下载一个网站的所有PDF文件</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -r -<span class="selector-tag">A</span><span class="selector-class">.pdf</span> url </span><br></pre></td></tr></table></figure>
+
+<h2 id="15、使用wget-FTP下载"><a href="#15、使用wget-FTP下载" class="headerlink" title="15、使用wget FTP下载"></a>15、使用wget FTP下载</h2><p>你可以使用wget来完成ftp链接的下载。<br>使用wget匿名ftp下载</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget ftp-url </span><br></pre></td></tr></table></figure>
+
+<p>使用wget用户名和密码认证的ftp下载</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget –ftp-user=USERNAME –ftp-password=PASSWORD url</span><br></pre></td></tr></table></figure>
+
+<p>wget是在Linux下开发的开放源代码的软件，作者是Hrvoje Niksic，后来被移植到包括Windows在内的各个平台上。它有以下功能和特点：<br>（1）支持断点下传功能；这一点，也是网络蚂蚁和FlashGet当年最大的卖点，现在，Wget也可以使用此功能，那些网络不是太好的用户可以放心了；<br>（2）同时支持FTP和HTTP下载方式；尽管现在大部分软件可以使用HTTP方式下载，但是，有些时候，仍然需要使用FTP方式下载软件；<br>（3）支持代理服务器；对安全强度很高的系统而言，一般不会将自己的系统直接暴露在互联网上，所以，支持代理是下载软件必须有的功能；<br>（4）设置方便简单；可能，习惯图形界面的用户已经不是太习惯命令行了，但是，命令行在设置上其实有更多的优点，最少，鼠标可以少点很多次，也不要担心是否错点鼠标；<br>（5）程序小，完全免费；程序小可以考虑不计，因为现在的硬盘实在太大了；完全免费就不得不考虑了，即使网络上有很多免费软件，但是，这些软件的广告不是我们喜欢的；<br>wget虽然功能强大，但是使用起来还是比较简单的，基本的语法是：wget [参数列表] URL。下面就结合具体的例子来说明一下wget的用法。</p>
+<h3 id="1、下载整个http或者ftp站点。"><a href="#1、下载整个http或者ftp站点。" class="headerlink" title="1、下载整个http或者ftp站点。"></a>1、下载整个http或者ftp站点。</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http:<span class="comment">//place.your.url/here </span></span><br></pre></td></tr></table></figure>
+
+<p>这个命令可以将<a target="_blank" rel="noopener" href="http://place.your.url/here">http://place.your.url/here</a> 首页下载下来。使用-x会强制建立服务器上一模一样的目录，如果使用-nd参数，那么服务器上下载的所有内容都会加到本地当前目录。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -r http:<span class="comment">//place.your.url/here </span></span><br></pre></td></tr></table></figure>
+
+<p>这 个命令会按照递归的方法，下载服务器上所有的目录和文件，实质就是下载整个网站。这个命令一定要小心使用，因为在下载的时候，被下载网站指向的所有地址同 样会被下载，因此，如果这个网站引用了其他网站，那么被引用的网站也会被下载下来！基于这个原因，这个参数不常用。可以用-l number参数来指定下载的层次。例如只下载两层，那么使用-l 2。</p>
+<p>要是您想制作镜像站点，那么可以使用－m参数，例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -m http:<span class="comment">//place.your.url/here </span></span><br></pre></td></tr></table></figure>
+
+<p>这时wget会自动判断合适的参数来制作镜像站点。此时，wget会登录到服务器上，读入robots.txt并按robots.txt的规定来执行。</p>
+<h3 id="2、断点续传"><a href="#2、断点续传" class="headerlink" title="2、断点续传:"></a>2、断点续传:</h3><p>当文件特别大或者网络特别慢的时候，往往一个文件还没有下载完，连接就已经被切断，此时就需要断点续传。wget的断点续传是自动的，只需要使用-c参数，例如：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget <span class="operator">-</span>c http:<span class="comment">//the.url.of/incomplete/file </span></span><br></pre></td></tr></table></figure>
+
+<p>使用断点续传要求服务器支持断点续传。-t参数表示重试次数，例如需要重试100次，那么就写-t 100，如果设成-t 0，那么表示无穷次重试，直到连接成功。-T参数表示超时等待时间，例如-T 120，表示等待120秒连接不上就算超时。</p>
+<h3 id="3、批量下载。"><a href="#3、批量下载。" class="headerlink" title="3、批量下载。"></a>3、批量下载。</h3><p>如果有多个文件需要下载，那么可以生成一个文件，把每个文件的URL写一行，例如生成文件download.txt，然后用命令：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -<span class="selector-tag">i</span> download<span class="selector-class">.txt</span> </span><br></pre></td></tr></table></figure>
+
+<p>这样就会把download.txt里面列出的每个URL都下载下来。（如果列的是文件就下载文件，如果列的是网站，那么下载首页）</p>
+<h3 id="4、选择性的下载。"><a href="#4、选择性的下载。" class="headerlink" title="4、选择性的下载。"></a>4、选择性的下载。</h3><p>可以指定让wget只下载一类文件，或者不下载什么文件。例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -m –reject=gif http:<span class="comment">//target.web.site/subdirectory </span></span><br></pre></td></tr></table></figure>
+
+<p>表示下载<a target="_blank" rel="noopener" href="http://target.web.site/subdirectory%EF%BC%8C%E4%BD%86%E6%98%AF%E5%BF%BD%E7%95%A5gif%E6%96%87%E4%BB%B6%E3%80%82%E2%80%93accept=LIST">http://target.web.site/subdirectory，但是忽略gif文件。–accept=LIST</a> 可以接受的文件类型，–reject&#x3D;LIST拒绝接受的文件类型。</p>
+<h3 id="5、密码和认证"><a href="#5、密码和认证" class="headerlink" title="5、密码和认证"></a>5、密码和认证</h3><p>wget只能处理利用用户名&#x2F;密码方式限制访问的网站，可以利用两个参数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">–http-user=USER设置HTTP用户 </span><br><span class="line">–http-passwd=PASS设置HTTP密码 </span><br></pre></td></tr></table></figure>
+
+<p>对于需要证书做认证的网站，就只能利用其他下载工具了，例如curl。</p>
+<h3 id="6、利用代理服务器进行下载"><a href="#6、利用代理服务器进行下载" class="headerlink" title="6、利用代理服务器进行下载"></a>6、利用代理服务器进行下载</h3><p>如果用户的网络需要经过代理服务器，那么可以让wget通过代理服务器进行文件的下载。此时需要在当前用户的目录下创建一个.wgetrc文件。文件中可以设置代理服务器：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http-proxy = 111.111.111.111:8080 </span><br><span class="line">ftp-proxy = 111.111.111.111:8080 </span><br></pre></td></tr></table></figure>
+
+<p>分别表示http的代理服务器和ftp的代理服务器。如果代理服务器需要密码则使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">–proxy-user=USER设置代理用户 </span><br><span class="line">–proxy-passwd=PASS设置代理密码 </span><br></pre></td></tr></table></figure>
+
+<p>这两个参数。<br>使用参数–proxy&#x3D;on&#x2F;off 使用或者关闭代理。<br>wget还有很多有用的功能，需要用户去挖掘。<br>中文文档名在平常的情况下会被编码， 但是在 –cut-dirs 时又是正常的，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget -r -np -nH –cut-dirs=3 ftp://host/test/ </span><br><span class="line">测试.txt </span><br><span class="line">wget -r -np -nH -nd ftp://host/test/ </span><br><span class="line">%B4%FA%B8%D5.txt </span><br><span class="line">wget “ftp://host/test/*” </span><br><span class="line">%B4%FA%B8%D5.txt </span><br></pre></td></tr></table></figure>
+
+<p>由于不知名的原因，可能是为了避开特殊档名， wget 会自动将抓取档名的部分用 encode_string 处理过， 所以该 patch 就把被 encode_string 处理成 “%3A” 这种东西， 用 decode_string 还原成 “:”，并套用在目录与档案名称的部分，decode_string 是 wget 内建的函式。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget <span class="operator">-</span>t0 <span class="operator">-</span>c <span class="operator">-</span>nH <span class="operator">-</span>x <span class="operator">-</span>np <span class="operator">-</span>b <span class="operator">-</span>m <span class="operator">-</span><span class="type">P</span> <span class="regexp">/home/</span>sunny<span class="regexp">/NOD32view/</span> http:<span class="comment">//downloads1.kaspersky-labs.com/bases/ -o wget.log</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://qeuroal.top/2023/10/27/167/" title="167. wget">http://qeuroal.top/2023/10/27/167/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/software/" rel="tag"><i class="fa fa-tag"></i> software</a>
+              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/10/26/166/" rel="prev" title="166. C++ pthread">
+                  <i class="fa fa-angle-left"></i> 166. C++ pthread
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/10/27/168/" rel="next" title="168. valgrind">
+                  168. valgrind <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Qeuroal" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
