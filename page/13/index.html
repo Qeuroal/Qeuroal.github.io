@@ -323,7 +323,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-09 09:15:02" itemprop="dateModified" datetime="2025-12-09T09:15:02+08:00">2025-12-09</time>
+      <time title="修改时间：2025-12-09 09:23:47" itemprop="dateModified" datetime="2025-12-09T09:23:47+08:00">2025-12-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -355,7 +355,7 @@
 </blockquote>
 <h2 id="简单介绍下tmux的其他功能"><a href="#简单介绍下tmux的其他功能" class="headerlink" title="简单介绍下tmux的其他功能"></a>简单介绍下tmux的其他功能</h2><h3 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h3><h4 id="Tmux快捷指令"><a href="#Tmux快捷指令" class="headerlink" title="Tmux快捷指令"></a>Tmux快捷指令</h4><p>关于快捷指令，首先要认识到的是：tmux的所有指令，都包含同一个前缀，默认为<code>Ctrl+q</code>，输入完前缀过后，控制台激活，命令按键才能生效。前面tmux会话相关的操作中，我们共用到了两个快捷键<code>Ctrl+q</code> + <code>d</code>、<code>Ctrl+q</code> + <code>s</code>，但这仅仅是冰山一角，欲窥tmux庞大的快捷键体系，请看下表。</p>
 <blockquote>
-<p> Note: prefix: <code>Ctrl+q</code></p>
+<p>Note: prefix: <code>Ctrl+q</code></p>
 </blockquote>
 <h5 id="系统指令"><a href="#系统指令" class="headerlink" title="系统指令"></a>系统指令</h5><table>
 <thead>
@@ -421,7 +421,7 @@
 <td align="center">重名名当前会话</td>
 </tr>
 </tbody></table>
-<h5 id="窗口（window）指令。"><a href="#窗口（window）指令。" class="headerlink" title="窗口（window）指令。"></a>窗口（window）指令。</h5><table>
+<h5 id="窗口（window）指令"><a href="#窗口（window）指令" class="headerlink" title="窗口（window）指令"></a>窗口（window）指令</h5><table>
 <thead>
 <tr>
 <th align="center">前缀</th>
@@ -475,7 +475,7 @@
 <td align="center">快速定位到窗口（输入关键字匹配窗口名称）</td>
 </tr>
 </tbody></table>
-<h5 id="表三：面板（pane）指令。"><a href="#表三：面板（pane）指令。" class="headerlink" title="表三：面板（pane）指令。"></a>表三：面板（pane）指令。</h5><table>
+<h5 id="表三：面板（pane）指令"><a href="#表三：面板（pane）指令" class="headerlink" title="表三：面板（pane）指令"></a>表三：面板（pane）指令</h5><table>
 <thead>
 <tr>
 <th align="center">前缀</th>
@@ -815,7 +815,7 @@
 <td>顺时针旋转当前窗口的面板</td>
 </tr>
 </tbody></table>
-<h3 id="创建tmux"><a href="#创建tmux" class="headerlink" title="创建tmux"></a>创建tmux</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tmux new -s &lt;session-name&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="创建tmux"><a href="#创建tmux" class="headerlink" title="创建tmux"></a>创建tmux</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux new -s &lt;session-name&gt;</span><br></pre></td></tr></table></figure>
 
 <h3 id="列出已有的tmux列表"><a href="#列出已有的tmux列表" class="headerlink" title="列出已有的tmux列表"></a>列出已有的tmux列表</h3><ul>
 <li><p>命令</p>
@@ -835,7 +835,7 @@
 
 <h3 id="重命名会话"><a href="#重命名会话" class="headerlink" title="重命名会话"></a>重命名会话</h3><ul>
 <li><p><code>$ tmux rename-session</code>命令用于重命名会话。</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tmux rename-session -t &lt;session-number&gt; &lt;new-name&gt;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux rename-session -t &lt;session-number&gt; &lt;new-name&gt;</span><br></pre></td></tr></table></figure>
 
 <p> 上面命令将<code>&lt;session-number&gt;</code>号会话重命名。</p>
 </li>
@@ -856,7 +856,10 @@
 </ul>
 </li>
 </ul>
-<h3 id="删除所有tmux"><a href="#删除所有tmux" class="headerlink" title="删除所有tmux"></a>删除所有tmux</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tmux kill-server</span><br><span class="line">或</span><br><span class="line">tmux ls | grep : | cut -d. -f1 | awk &#x27;&#123;print substr($1, 0, length($1)-1)&#125;&#x27; | xargs kill</span><br></pre></td></tr></table></figure>
+<h3 id="删除所有tmux"><a href="#删除所有tmux" class="headerlink" title="删除所有tmux"></a>删除所有tmux</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux kill-server</span><br></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux <span class="built_in">ls</span> | grep : | <span class="built_in">cut</span> -d. -f1 | awk <span class="string">&#x27;&#123;print substr($1, 0, length($1)-1)&#125;&#x27;</span> | xargs <span class="built_in">kill</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="vi-mode"><a href="#vi-mode" class="headerlink" title="vi-mode"></a>vi-mode</h2><table>
 <thead>
@@ -1070,6 +1073,9 @@
 <li><p>configure: error: “curses not found”</p>
 <p> 在 include 下创建软链接</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.local/ncurses/include</span><br><span class="line"><span class="built_in">ln</span> -s ncurses/* .</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="refs"><a href="#refs" class="headerlink" title="refs"></a>refs</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/tmux/tmux/wiki/Installing">https://github.com/tmux/tmux/wiki/Installing</a></li>
 </ul>
 
       
