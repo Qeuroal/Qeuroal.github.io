@@ -323,7 +323,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-08 22:25:17" itemprop="dateModified" datetime="2025-12-08T22:25:17+08:00">2025-12-08</time>
+      <time title="修改时间：2025-12-09 09:15:02" itemprop="dateModified" datetime="2025-12-09T09:15:02+08:00">2025-12-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1032,7 +1032,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf libevent-2.1.12-stable.tar.gz</span><br><span class="line"><span class="built_in">cd</span> libevent-2.1.12-stable</span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="variable">$HOME</span>/.local/libevent</span><br><span class="line">./configure --prefix=<span class="variable">$HOME</span>/.local/libevent --enable-shared</span><br><span class="line">make -j $(<span class="built_in">nproc</span>)</span><br><span class="line">make -j $(<span class="built_in">nproc</span>) install</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>ncurses</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf ncurses.tar.gz</span><br><span class="line"><span class="built_in">cd</span> ncurses</span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="variable">$HOME</span>/.local/ncurses/lib/pkgconfig</span><br><span class="line">./configure --prefix=<span class="variable">$HOME</span>/.local/ncurses --with-shared --with-termlib --enable-pc-files --with-pkg-config-libdir=<span class="variable">$HOME</span>/.local/ncurses/lib/pkgconfig</span><br><span class="line">make -j $(<span class="built_in">nproc</span>)</span><br><span class="line">make -j $(<span class="built_in">nproc</span>) install</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf ncurses.tar.gz</span><br><span class="line"><span class="built_in">cd</span> ncurses-*</span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="variable">$HOME</span>/.local/ncurses/lib/pkgconfig</span><br><span class="line">./configure --prefix=<span class="variable">$HOME</span>/.local/ncurses --with-shared --with-termlib --enable-pc-files --with-pkg-config-libdir=<span class="variable">$HOME</span>/.local/ncurses/lib/pkgconfig</span><br><span class="line">make -j $(<span class="built_in">nproc</span>)</span><br><span class="line">make -j $(<span class="built_in">nproc</span>) install</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>tmux</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf tmux-3.6a.tar.gz</span><br><span class="line"><span class="built_in">cd</span> tmux-3.6a</span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="variable">$HOME</span>/.local/tmux</span><br><span class="line"><span class="comment"># PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig ./configure --prefix=$HOME/.local/tmux</span></span><br><span class="line">PKG_CONFIG_PATH=<span class="variable">$HOME</span>/.local/libevent/lib/pkgconfig:<span class="variable">$HOME</span>/.local/ncurses/lib/pkgconfig ./configure --prefix=<span class="variable">$HOME</span>/.local/tmux</span><br><span class="line">make -j $(<span class="built_in">nproc</span>)</span><br><span class="line">make -j $(<span class="built_in">nproc</span>) install</span><br></pre></td></tr></table></figure>
@@ -1047,6 +1047,30 @@
 <p>Most users will want to configure these in a shell profile, for example in .profile for ksh or .bash_profile for bash:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$HOME</span>/.local/tmux/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=<span class="variable">$HOME</span>/.local/libevent/lib:<span class="variable">$LD_LIBRARY_PATH</span></span><br><span class="line"><span class="built_in">export</span> MANPATH=<span class="variable">$HOME</span>/.local/tmux/share/man:<span class="variable">$MANPATH</span></span><br></pre></td></tr></table></figure></li>
 </ol>
+<h2 id="QAs"><a href="#QAs" class="headerlink" title="QAs"></a>QAs</h2><ul>
+<li><p>configure: error: “libevent not found”</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PKG_CONFIG_PATH=<span class="string">&quot;<span class="variable">$HOME</span>/.local/libevent/lib/pkgconfig:<span class="variable">$HOME</span>/.local/ncurses/lib/pkgconfig&quot;</span> \</span><br><span class="line">CPPFLAGS=<span class="string">&quot;-I<span class="variable">$HOME</span>/.local/libevent/include -I<span class="variable">$HOME</span>/.local/ncurses/include&quot;</span> \</span><br><span class="line">LDFLAGS=<span class="string">&quot;-L<span class="variable">$HOME</span>/.local/libevent/lib -L<span class="variable">$HOME</span>/.local/ncurses/lib&quot;</span> \</span><br><span class="line">./configure --prefix=<span class="variable">$HOME</span>/.local/tmux</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>configure: error: “yacc not found”</p>
+<ul>
+<li><p>(<strong>RECOMMEND</strong>) 方法1: 安装 bison</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install bison</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>(<strong>convenience</strong>) 方法2: 最暴力但有效的方式（跳过 yacc 检查）</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">YACC=<span class="string">&quot;cat&quot;</span> \</span><br><span class="line">./configure --prefix=<span class="variable">$HOME</span>/.local/tmux</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>tmux 的 configure 脚本允许跳过 yacc, 只需要告诉它假装存在.<br>cat 是一个安全的占位符, tmux 源码不会真的用到 yacc 生成内容 (tmux 并不使用 yacc, 只是 autoconf 习惯性检查).</p>
+</blockquote>
+</li>
+<li><p>方法3: 本地编译 byacc (未尝试)</p>
+</li>
+</ul>
+</li>
+<li><p>configure: error: “curses not found”</p>
+<p> 在 include 下创建软链接</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.local/ncurses/include</span><br><span class="line"><span class="built_in">ln</span> -s ncurses/* .</span><br></pre></td></tr></table></figure></li>
+</ul>
 
       
     </div>
