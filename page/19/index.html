@@ -153,18 +153,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-count">187</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -186,6 +186,144 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2019/01/19/1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/01/19/1/" class="post-title-link" itemprop="url">1. 比特位计数 + n&(n-1)的妙用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-01-19 04:00:00" itemprop="dateCreated datePublished" datetime="2019-01-19T04:00:00+08:00">2019-01-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-08 14:36:58" itemprop="dateModified" datetime="2025-12-08T14:36:58+08:00">2025-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programming/" itemprop="url" rel="index"><span itemprop="name">programming</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><img data-src="/2019/01/19/1/17.png" class="">
+
+
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">0   0000</span><br><span class="line">1   0001</span><br><span class="line">2   0010 </span><br><span class="line">3   0011</span><br><span class="line">4   0100</span><br><span class="line">5   0101</span><br><span class="line">6   0110</span><br><span class="line">7   0111</span><br><span class="line">8   1000</span><br><span class="line">9   1001</span><br><span class="line">10  1010</span><br><span class="line">11  1011</span><br><span class="line">12  1100</span><br><span class="line">13  1101</span><br><span class="line">14  1110</span><br><span class="line">15  1111</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>假设求r[i]</p>
+</li>
+<li><p><code>r[i - 1] + 1</code> ，如果进位，那么<code>r[i]</code>就和<code>r[i - 1]</code> 没有关系了，如果没有进位，那么，<code>r[i] = r[i - 1] + 1</code></p>
+</li>
+<li><p>接着，看进位的情况：如果 <code>i &amp; (i - 1)</code> ，那么就会把i和 <code>i - 1</code> 的最低位去掉，即变为0；<br/> </p>
+<blockquote>
+<p><em><strong>Ps:</strong></em> 最低位是指，从左面第0位开始，一直往右数，直到遇到两个数不一样的位置，那么后面的数（包括不一样的数）不管相不相同，都为最低位（例：9 和 10：从左面第0位开始，到第2位不同，那么第2、3位即为最低位）</p>
+</blockquote>
+</li>
+<li><p>显而易见，<code>i &amp; (i - 1)</code>得到的数就是去掉最低位之后的数，那么，由于进位了，所以，<code>r[i] = r[i &amp; (i - 1)] + 1</code></p>
+</li>
+</ol>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">countBits</span><span class="params">(<span class="type">int</span> num)</span> </span>&#123;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">r</span><span class="params">(num + <span class="number">1</span>)</span></span>;</span><br><span class="line">    r[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= num; i++) &#123;</span><br><span class="line">        r[i] = r[i &amp; (i - <span class="number">1</span>)] + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<hr>
+# n&(n-1)的妙用
+
+<h2 id="判断一个数是否是2的方幂"><a href="#判断一个数是否是2的方幂" class="headerlink" title="判断一个数是否是2的方幂"></a>判断一个数是否是2的方幂</h2><ol>
+<li><p>方法：n &gt; 0 &amp;&amp; ((n &amp; (n - 1)) &#x3D;&#x3D; 0 )</p>
+</li>
+<li><p>解释：<br>  ((n &amp; (n-1)) &#x3D;&#x3D; 0)：</p>
+<p>  如果A&amp;B&#x3D;&#x3D;0，表示A与B的二进制形式没有在同一个位置都为1的时候。</p>
+<p>  不妨先看下n-1是什么意思。</p>
+<p>  令:n&#x3D;1101011000(二进制,十进制也一样)，则</p>
+<p>   n-1&#x3D;1101010111。</p>
+<p>  n&amp;(n-1)&#x3D;1101010000</p>
+<p>  由此可以得出，n和n-1的低位不一样，直到有个转折点，就是借位的那个点，从这个点开始的高位，n和n-1都一样，如果高位一样这就造成一个问题，就是n和n-1在相同的位上可能会有同一个1，从而使((n &amp; (n-1)) !&#x3D; 0),如果想要((n &amp; (n-1)) &#x3D;&#x3D; 0)，则高位必须全为0，这样就没有相同的1。</p>
+<p>  所以n是2的幂或0</p>
+</li>
+</ol>
+<h2 id="求某一个数的二进制表示中1的个数"><a href="#求某一个数的二进制表示中1的个数" class="headerlink" title="求某一个数的二进制表示中1的个数"></a>求某一个数的二进制表示中1的个数</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (n &gt;<span class="number">0</span> ) &#123;</span><br><span class="line">      count ++;</span><br><span class="line">      n &amp;= (n<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="计算N-的质因数2的个数"><a href="#计算N-的质因数2的个数" class="headerlink" title="计算N!的质因数2的个数"></a>计算N!的质因数2的个数</h2><ol>
+<li><p>N!质因数2的个数 &#x3D; [N &#x2F; 2] + [N &#x2F; 4] + [N &#x2F; 8] + ….</p>
+</li>
+<li><p>过程：<br>下面通过一个简单的例子来推导一下过程：N &#x3D; 10101(二进制表示）</p>
+<p>现在我们跟踪最高位的1，不考虑其他位假定为0，</p>
+<p>则在</p>
+<p>[N &#x2F; 2]    01000 <br/><br>[N &#x2F; 4]    00100 <br/><br>[N &#x2F; 8]    00010 <br/><br>[N &#x2F; 8]    00001 <br/><br>则所有相加等于01111 &#x3D; 10000 - 1</p>
+<p>由此推及其他位可得：(10101)!的质因数2的个数为10000 - 1 + 00100 - 1 + 00001 - 1 &#x3D; 10101 - 3(二进制表示中1的个数)</p>
+<p>推及一般N!的质因数2的个数为N - （N二进制表示中1的个数）</p>
+<p>n&amp;(-n)在树状数组中lowbit出现   用来求 t 中的因子中形如2^k的数为多少     用来取得n最右边的1，可以知道其因子中有几个2</p>
+<p>10:  0000 1010</p>
+<p>-10: 1111 0110</p>
+<p>10&amp;(-10)为 0010  &#x3D;  2  所以10的因子中为2的有一个，$2^k$ 的形式的为 $2^1$</p>
+<p>8&amp;(-8) &#x3D; [1000] &#x3D; 8   所以8的因子中为2的有3个，$2^k$ 的形式为 $2^3$</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
