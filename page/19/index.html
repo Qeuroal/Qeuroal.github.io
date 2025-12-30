@@ -153,7 +153,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-count">188</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -186,6 +186,207 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2019/01/19/2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/01/19/2/" class="post-title-link" itemprop="url">2. 位运算的知识点以及常用技巧</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-01-19 05:00:00" itemprop="dateCreated datePublished" datetime="2019-01-19T05:00:00+08:00">2019-01-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-08 14:36:58" itemprop="dateModified" datetime="2025-12-08T14:36:58+08:00">2025-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programming/" itemprop="url" rel="index"><span itemprop="name">programming</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="位运算："><a href="#位运算：" class="headerlink" title="位运算："></a>位运算：</h1><h2 id="（与）"><a href="#（与）" class="headerlink" title="&amp; （与）"></a>&amp; （与）</h2><p> eg: </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 0 1 </span><br><span class="line">0 0 1 </span><br><span class="line">0 0 1</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="（或）"><a href="#（或）" class="headerlink" title="| （或）"></a>| （或）</h2><p>eg: </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 0 1 </span><br><span class="line">0 0 1 </span><br><span class="line">1 0 1</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="（异或）"><a href="#（异或）" class="headerlink" title="^ （异或）"></a>^ （异或）</h2><h3 id="运算规则：（不进位加法）"><a href="#运算规则：（不进位加法）" class="headerlink" title="运算规则：（不进位加法）"></a>运算规则：（不进位加法）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0 &amp;nbsp; &amp;nbsp; &amp;nbsp;  &amp;nbsp; 0 ——&gt; 0  </span><br><span class="line">1 &amp;nbsp; &amp;nbsp; &amp;nbsp;  &amp;nbsp; 0 ——&gt; 1</span><br><span class="line">0 &amp;nbsp; &amp;nbsp; &amp;nbsp;  &amp;nbsp; 1 ——&gt; 1  </span><br><span class="line">1 &amp;nbsp; &amp;nbsp; &amp;nbsp;  &amp;nbsp; 1 ——&gt; 0  </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="不进位的加法"><a href="#不进位的加法" class="headerlink" title="不进位的加法"></a>不进位的加法</h3><p><code>1 ^ 1 ==&gt; 0</code>  正常的话：<code>1 + 1 = 20b</code>,但是只看个位, 因此, 取0</p>
+<h3 id="运算法则："><a href="#运算法则：" class="headerlink" title="运算法则："></a>运算法则：</h3><ol>
+<li><p>交换律</p>
+</li>
+<li><p>结合律  </p>
+<p>即$(a^b)^c &#x3D;&#x3D; a^{b^c}$</p>
+</li>
+<li><p>对于任何数x, 都有  </p>
+<p>$x^x&#x3D;0, x^0&#x3D;x$</p>
+</li>
+<li><p>自反性：  </p>
+<p>A XOR B XOR B &#x3D; A xor  0 &#x3D; A</p>
+</li>
+</ol>
+<h2 id="（取反）"><a href="#（取反）" class="headerlink" title="~ （取反）"></a>~ （取反）</h2><ul>
+<li>把 0 变成 1 </li>
+<li>把 1 变成 0</li>
+</ul>
+<h2 id="（左移）"><a href="#（左移）" class="headerlink" title="&lt;&lt; （左移）"></a>&lt;&lt; （左移）</h2><p>eg:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1101 &lt;&lt; 1 ===&gt; 11010</span><br><span class="line">1 &lt;&lt; n  &lt;==&gt;    2^n （向上取整）</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="（右移）"><a href="#（右移）" class="headerlink" title="&gt;&gt; （右移）"></a>&gt;&gt; （右移）</h2><p>eg:</p>
+<ul>
+<li><p>1101 &gt;&gt; 1 &lt;&#x3D;&#x3D;&gt; 110</p>
+</li>
+<li><p><code>n &gt;&gt; x</code>  &lt;&#x3D;&#x3D;&gt;    $n \over 2^x$(向下取整)</p>
+</li>
+</ul>
+<h1 id="技巧："><a href="#技巧：" class="headerlink" title="技巧："></a>技巧：</h1><p><code>x + (-x)</code></p>
+<h1 id="经验："><a href="#经验：" class="headerlink" title="经验："></a>经验：</h1><ul>
+<li>将数组无穷大：<code>memset(nums, 0x3f, sizeof(nums))</code></li>
+<li>竞赛中少使用 <code>#include &lt;bits/stdc++.h&gt;</code>  &#x2F;&#x2F; 原因：编译的时间过长,时间会超时</li>
+<li>转化成 <code>long long</code> 的形式：乘以 <code>1ll</code>,例子见——&gt;快速幂算法模板—求 $a^b%p$</li>
+<li>将大数组放到全局变量中</li>
+</ul>
+<h1 id="快速幂算法模板"><a href="#快速幂算法模板" class="headerlink" title="快速幂算法模板"></a>快速幂算法模板</h1><blockquote>
+<p>求 $a^b$</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">quickPower</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b) &#123;</span><br><span class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>)</span><br><span class="line">            res *= <span class="number">1ll</span> * a;</span><br><span class="line">        a *= a;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>求 $a^b%p$</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">quickPowerMod</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> res = <span class="number">1</span> % p;</span><br><span class="line">    <span class="keyword">while</span>(b) &#123;</span><br><span class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>)</span><br><span class="line">            res = res * <span class="number">1ll</span> * a % p;</span><br><span class="line">        a = a * <span class="number">1ll</span> * a % p;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="模运算法则"><a href="#模运算法则" class="headerlink" title="模运算法则"></a>模运算法则</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(a + b) % p = (a % p + b % p) % p</span><br><span class="line"></span><br><span class="line">(a - b) % p = (a % p - b % p) % p </span><br><span class="line"></span><br><span class="line">(a * b) % p = (a % p * b % p) % p </span><br><span class="line"></span><br><span class="line">(a^b) % p = ((a % p)^b) % p </span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="位运算常用技巧"><a href="#位运算常用技巧" class="headerlink" title="位运算常用技巧"></a>位运算常用技巧</h1><h2 id="用异或来实现配偶"><a href="#用异或来实现配偶" class="headerlink" title="用异或来实现配偶"></a>用异或来实现配偶</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0, 1</span><br><span class="line">2, 3</span><br><span class="line">4, 5</span><br><span class="line">6, 7</span><br><span class="line">……</span><br></pre></td></tr></table></figure>
+
+<p>即(把每个整数异或一个1, 就可以得到他的配偶)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0 ^ 1 = 1,            1 ^ 1 = 0</span><br><span class="line">2 ^ 1 = 3,            3 ^ 1 = 2</span><br><span class="line">……</span><br><span class="line">2k ^ 1 = 2k + 1,    (2k + 1) ^ 1 = 2k</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>一般在图论里面, 写最小费用流时, 我们会存一个编的正向编和反向编, 会需要快速求出来一个数的反向编是什么</p>
+<h2 id="lowbit运算-树状数组的基础"><a href="#lowbit运算-树状数组的基础" class="headerlink" title="lowbit运算(树状数组的基础)"></a>lowbit运算(树状数组的基础)</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>快速的求出来整数n, 在二进制表示里面, 最低的一位1是哪个(或者说：n的二进制表示中最右边一个1)</p>
+<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p><code>lowbit(1110011000) ——&gt; 1000</code></p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">首先, 假设n的二进制是1110011000</span><br><span class="line">然后, 对n取反, 得到：~n = 0001100111</span><br><span class="line">接着, ~n+1  ===&gt;  0001101000</span><br><span class="line">紧接着, (~n + 1) &amp; n ===&gt; 0000001000 ===&gt; 1000</span><br><span class="line">最后, 由于-n = ~n + 1,所以lowbit就是：(-n) &amp; n</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">lowbit</span><span class="params">(<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (-n) &amp; n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><ol>
+<li><p>复杂度和1的个数有关和 </p>
+</li>
+<li><p>可以快速求出来一个整数里面有多少个1</p>
+</li>
+<li><p>求n是2的整次方幂</p>
+<p> 解析:<br> $$<br> 2^n &#x3D;&#x3D; 1 &lt;&lt; n<br> $$</p>
+<p> $$<br> n &amp; (-n) &#x3D;&#x3D; n<br> $$</p>
+<p> $$<br> otherwise,  n &amp; (-n) &lt; n<br> $$</p>
+</li>
+</ol>
+<h1 id="原码、反码、补码"><a href="#原码、反码、补码" class="headerlink" title="原码、反码、补码"></a>原码、反码、补码</h1><h2 id="正数"><a href="#正数" class="headerlink" title="正数"></a>正数</h2><p>原码, 反码, 补码均相等。</p>
+<h2 id="负数"><a href="#负数" class="headerlink" title="负数"></a>负数</h2><ul>
+<li>反码求法：<ol>
+<li>符号位不变。</li>
+<li>其他位取反。</li>
+</ol>
+</li>
+<li>补码求法：<br>1.符号位不变。<br>2.其他位取反。<br>3.最后一位加1。</li>
+</ul>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>以123和-123为例：</p>
+<ul>
+<li>[123] 原码：01111011。  反码：01111011。  补码：01111011。</li>
+<li>[-123]原码：11111011。 反码：10000100。  补码：10000101。</li>
+</ul>
+<h1 id="二进制转换成10进制"><a href="#二进制转换成10进制" class="headerlink" title="二进制转换成10进制"></a>二进制转换成10进制</h1><ol>
+<li>如果为正数, 则直接求即可</li>
+<li>如果为负数, 取反+1, 然后求出数值前面加个负号。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
