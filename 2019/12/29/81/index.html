@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/avatar.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.css" integrity="sha256-vQkngPS8jiHHH0I6ABTZroZk8NPZ7b+MUReOFE9UsXQ=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="禁用或限制用户ssh登录 (sshd_config、hosts.allow、hosts.deny、nologin、passwd)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="81. Linux系统安全限制">
+<meta property="og:url" content="http://qeuroal.top/2019/12/29/81/index.html">
+<meta property="og:site_name" content="Qeuroal&#39;s Blog">
+<meta property="og:description" content="禁用或限制用户ssh登录 (sshd_config、hosts.allow、hosts.deny、nologin、passwd)">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://qeuroal.top/2019/12/29/81/840264-20230712141930965-1644430895.png">
+<meta property="og:image" content="http://qeuroal.top/2019/12/29/81/840264-20230712142043935-591463046.png">
+<meta property="og:image" content="http://qeuroal.top/2019/12/29/81/840264-20230712143644715-1773483106.png">
+<meta property="article:published_time" content="2019-12-28T19:00:00.000Z">
+<meta property="article:modified_time" content="2026-04-03T07:32:47.774Z">
+<meta property="article:author" content="Qeuroal">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://qeuroal.top/2019/12/29/81/840264-20230712141930965-1644430895.png">
+
+
+<link rel="canonical" href="http://qeuroal.top/2019/12/29/81/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2019/12/29/81/","path":"2019/12/29/81/","title":"81. Linux系统安全限制"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>81. Linux系统安全限制 | Qeuroal's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Qeuroal's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">静幽正治</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sbin-nologin%E3%80%81-etc-passwd-%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7-%E6%8B%92%E7%BB%9D%E9%80%9A%E8%BF%87ssh%E7%99%BB%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">&#x2F;sbin&#x2F;nologin、&#x2F;etc&#x2F;passwd 设置用户 拒绝通过ssh登录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sshd-config-%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E6%88%96%E5%B1%9E%E7%BB%84-%E5%85%81%E8%AE%B8%E6%88%96%E6%8B%92%E7%BB%9D%E9%80%9A%E8%BF%87ssh%E7%99%BB%E5%BD%95"><span class="nav-number">2.</span> <span class="nav-text">sshd_config 设置用户或属组, 允许或拒绝通过ssh登录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%B1%9E%E7%BB%84%E4%B8%8E%E7%94%A8%E6%88%B7%E7%9A%84%E5%85%B3%E7%B3%BB%EF%BC%9A"><span class="nav-number">2.1.</span> <span class="nav-text">查看属组与用户的关系：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%98%BB%E6%AD%A2%E5%88%9B%E5%BB%BA%E6%96%B0%E7%94%A8%E6%88%B7"><span class="nav-number">3.</span> <span class="nav-text">阻止创建新用户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hosts-allow%E3%80%81hosts-deny-%E8%AE%BE%E7%BD%AEIP%E6%88%96IP%E6%AE%B5%E6%88%96IP%E8%8C%83%E5%9B%B4-%E5%85%81%E8%AE%B8%E6%88%96%E6%8B%92%E7%BB%9D%E9%80%9A%E8%BF%87ssh%E7%99%BB%E5%BD%95"><span class="nav-number">4.</span> <span class="nav-text">hosts.allow、hosts.deny 设置IP或IP段或IP范围 允许或拒绝通过ssh登录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%8D%E5%90%AFssh%E6%9C%8D%E5%8A%A1"><span class="nav-number">5.</span> <span class="nav-text">重启ssh服务</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Qeuroal"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Qeuroal</p>
+  <div class="site-description" itemprop="description">大人者，不失其赤子之心</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">191</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Qeuroal" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Qeuroal" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2019/12/29/81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="81. Linux系统安全限制 | Qeuroal's Blog">
+      <meta itemprop="description" content="禁用或限制用户ssh登录 (sshd_config、hosts.allow、hosts.deny、nologin、passwd)">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          81. Linux系统安全限制
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-12-29 03:00:00" itemprop="dateCreated datePublished" datetime="2019-12-29T03:00:00+08:00">2019-12-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-04-03 15:32:47" itemprop="dateModified" datetime="2026-04-03T15:32:47+08:00">2026-04-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">禁用或限制用户ssh登录 (sshd_config、hosts.allow、hosts.deny、nologin、passwd)</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>我们知道Linux系统安全性设置有很多方式. 常见的有通过firewall防火墙、或者iptables规则实现放行、拦截屏蔽某些特征的网络请求. <a href="/2019/12/08/79/">示例：iptables限制ssh链接服务器</a><br>还有一种办法是机房运维常用的权限管控手段：管控服务器登录权限、管控账号执行操作权限. 这种手段主要管控的目标对象是运维人员, 即操作者.<br>下面通过实验验证如何通过 &#x2F;etc&#x2F;ssh&#x2F;sshd_config、&#x2F;etc&#x2F;hosts.allow、&#x2F;etc&#x2F;hosts.deny、&#x2F;sbin&#x2F;nologin、&#x2F;etc&#x2F;passwd 实现禁止用户ssh登录.</p>
+<h1 id="sbin-nologin、-etc-passwd-设置用户-拒绝通过ssh登录"><a href="#sbin-nologin、-etc-passwd-设置用户-拒绝通过ssh登录" class="headerlink" title="&#x2F;sbin&#x2F;nologin、&#x2F;etc&#x2F;passwd 设置用户 拒绝通过ssh登录"></a>&#x2F;sbin&#x2F;nologin、&#x2F;etc&#x2F;passwd 设置用户 拒绝通过ssh登录</h1><p>  Linux系统是基于文件系统的, 每个用户都必须明确有一个用于解释执行shell命令解释器位置, 即”环境变量”, 一般是 “&#x2F;bin&#x2F;bash”<br>  我们可以通过设置用户的解释器为 “&#x2F;sbin&#x2F;nologin” 来禁止该用户执行登录.</p>
+<ol>
+<li>创建非登录用户, 可以在创建新用户时指定禁止ssh登录：<code>useradd -s /sbin/nologin &lt;new username&gt;</code></li>
+<li>已存在的用户设置为禁止ssh登录：<code>usermod -s /sbin/nologin &lt;username&gt;</code></li>
+<li>直接修改<code>/etc/passwd</code>系统文件, 将该用户解释器修改为<code>/sbin/nologin</code></li>
+</ol>
+<p>通过以上方法1、2设置后底层其实还是到 <code>/etc/passwd</code> 里面的. 示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line"><span class="comment"># myname:x:1000:1000::/home/myname:x:/bin/bash</span></span><br><span class="line">myname:x:1000:1000::/home/myname:x:/sbin/nologin</span><br></pre></td></tr></table></figure>
+
+<p>实验：</p>
+<img data-src="/2019/12/29/81/840264-20230712141930965-1644430895.png" class="" title="img">
+
+<h1 id="sshd-config-设置用户或属组-允许或拒绝通过ssh登录"><a href="#sshd-config-设置用户或属组-允许或拒绝通过ssh登录" class="headerlink" title="sshd_config 设置用户或属组, 允许或拒绝通过ssh登录"></a>sshd_config 设置用户或属组, 允许或拒绝通过ssh登录</h1><p>&#x2F;etc&#x2F;ssh&#x2F;sshd_config文件是sshd服务的配置文件, 里面的配置项专门管控ssh登录. 常见的有：指定ssh端口、地址来源、用户默认的证书加密方式、AuthorizedKeysFile、登录日志筛选、登录日志级别、最大登录数、自定义Authentication、密码格式、密码过期期限、密码等级等等所有与ssh相关的设置项.<br>这里我们单说允许或限制用户名、属组的登录权限设置.</p>
+<ol>
+<li>AllowUsers设置允许登录的用户白名单：<code>echo &quot;AllowUsers myname&quot; &gt;&gt; /etc/ssh/sshd_config</code></li>
+<li>AllowGroups设置允许登录的属组白名单：<code>echo &quot;AllowGroups myGroup&quot; &gt;&gt; /etc/ssh/sshd_config</code></li>
+<li>DenyUsers设置禁止登录的用户黑名单：<code>echo &quot;DenyUsers myname&quot; &gt;&gt; /etc/ssh/sshd_config</code></li>
+<li>DenyGroups设置禁止登录的属组黑名单：<code>echo &quot;DenyGroups myGroup&quot; &gt;&gt; /etc/ssh/sshd_config</code></li>
+</ol>
+<blockquote>
+<p>注意：</p>
+<ul>
+<li>设置AllowUsers、AllowGroups时, 该用户或属组允许登录, 其他均禁止ssh登录！！！</li>
+<li>同时设置AllowUsers、DenyUsers时, AllowUsers优先级高, 其他均禁止ssh登录！！！<br>即：有AllowUsers、AllowGroups时, 系统只看AllowUsers、AllowGroups不管其他设置.<br>被禁止的用户登录时, 默认提示信息：<strong>Permission denied, please try again.</strong> 权限被拒绝, 请重试.</li>
+</ul>
+</blockquote>
+<p>实验对照表：</p>
+<img data-src="/2019/12/29/81/840264-20230712142043935-591463046.png" class="" title="img">
+
+<h2 id="查看属组与用户的关系："><a href="#查看属组与用户的关系：" class="headerlink" title="查看属组与用户的关系："></a>查看属组与用户的关系：</h2><ol>
+<li>查看Linux系统里有哪些组：<code>cat /etc/group</code></li>
+<li>查看某组里有哪些用户：<code>getent group 组名称</code> 或者 <code>cat /etc/group | grep 属组名称</code></li>
+<li>查看用户信息：<code>cat /etc/passwd |grep 用户ID</code></li>
+</ol>
+<h1 id="阻止创建新用户"><a href="#阻止创建新用户" class="headerlink" title="阻止创建新用户"></a>阻止创建新用户</h1><blockquote>
+<p>[!NOTE]<br>注意：以上方法目前只能针对已经存在的用户&#x2F;组 设置白名单&#x2F;黑名单, 一般还需要禁止普通用户的创建新用户&#x2F;新组的权限, 防止新建用户私自篡改规则.</p>
+</blockquote>
+<ul>
+<li>锁定文件 <code>chattr +i /etc/gshadow /etc/group /etc/shadow /etc/passwd</code></li>
+<li>解锁文件 <code>chattr -i /etc/gshadow /etc/group /etc/shadow /etc/passwd</code></li>
+</ul>
+<p>可以通过命令查看权限：</p>
+<ul>
+<li><code>lsattr /etc/gshadow /etc/group /etc/shadow /etc/passwd</code></li>
+<li><code>ls -lt /etc/gshadow /etc/group /etc/shadow /etc/passwd</code></li>
+</ul>
+<h1 id="hosts-allow、hosts-deny-设置IP或IP段或IP范围-允许或拒绝通过ssh登录"><a href="#hosts-allow、hosts-deny-设置IP或IP段或IP范围-允许或拒绝通过ssh登录" class="headerlink" title="hosts.allow、hosts.deny 设置IP或IP段或IP范围 允许或拒绝通过ssh登录"></a>hosts.allow、hosts.deny 设置IP或IP段或IP范围 允许或拒绝通过ssh登录</h1><p>通过 <code>/etc/hosts.allow</code> 设置允许建立连接的地址来源. 这里仅演示ssh服务配置（其他服务sftp、telnet等也可以哦）.</p>
+<ol>
+<li>允许特定IP <code>echo &quot;sshd:192.168.0.1:allow&quot; &gt;&gt; /etc/hosts.allow</code></li>
+<li>允许特定IP段 <code>echo &quot;sshd:192.168.0.1/24:allow&quot; &gt;&gt; /etc/hosts.allow</code></li>
+<li>允许特定IP段 <code>echo &quot;sshd:192.168.*.*:allow&quot; &gt;&gt; /etc/hosts.allow</code></li>
+<li>允许全部地址 <code>echo &quot;sshd:ALL&quot; &gt;&gt; /etc/hosts.allow</code></li>
+</ol>
+<p>通过 &#x2F;etc&#x2F;hosts.deny 设置禁止建立连接的地址来源. 这里仅演示ssh服务配置（其他服务sftp、telnet等也可以哦）.</p>
+<ol>
+<li>拒绝特定IP <code>echo &quot;sshd:192.168.0.2:deny&quot; &gt;&gt; /etc/hosts.deny</code></li>
+<li>拒绝特定IP段 <code>echo &quot;sshd:192.168.0.2/24:deny&quot; &gt;&gt; /etc/hosts.deny</code></li>
+<li>拒绝特定IP段 <code>echo &quot;sshd:192.168.*.*:deny&quot; &gt;&gt; /etc/hosts.deny</code></li>
+<li>拒绝全部地址 <code>echo &quot;sshd:ALL&quot; &gt;&gt; /etc/hosts.deny</code></li>
+</ol>
+<p>注意：</p>
+<ul>
+<li>设置allow时, 该地址允许建立连接, 其他均禁止！！！</li>
+<li>同时设置allow、deny时, allow优先级高！！！</li>
+</ul>
+<p>被禁止的用户登录时, 默认提示信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">**Connecting to 10.99.5.132:22...**</span><br><span class="line">**Connection established.**</span><br><span class="line">**To escape to local shell, press &#x27;Ctrl+Alt+]&#x27;.**</span><br><span class="line">**Connection closing...Socket close.**</span><br><span class="line"></span><br><span class="line">**Connection closed by foreign host.**</span><br><span class="line"></span><br><span class="line">**Disconnected from remote host(10.99.5.132:22) at 10:56:08.**</span><br><span class="line"></span><br><span class="line">**Type `help&#x27; to learn how to use Xshell prompt.**</span><br></pre></td></tr></table></figure>
+
+<p>实验对照表：</p>
+<img data-src="/2019/12/29/81/840264-20230712143644715-1773483106.png" class="" title="img">
+
+<h1 id="重启ssh服务"><a href="#重启ssh服务" class="headerlink" title="重启ssh服务"></a>重启ssh服务</h1><p>编辑&#x2F;修改后, 必须重启ssh服务后生效！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart sshd</span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line">sudo service restart sshd</span><br></pre></td></tr></table></figure>
+
+
+<p>实验脚本： sshd_config-myrules.sh：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line"><span class="comment"># usage: sh sshd_config-myrules.sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 默认情况下, Linux中创建用户帐户时用户具有shell访问权限. 在某些情况下不需要用户帐户登录shell. 下面示例如何设置已存在的用户禁止shell登录、创建用户时禁止shell登录.</span></span><br><span class="line"><span class="comment">### 默认情况下, 创建用户时, 将按照/etc/default/useradd文件中定义的为用户分配shell. Linux中附带了一个/sbin/nologinshell, 当用户尝试连接时, 它会显示一条消息&quot;This account is current not available&quot;. 这是禁止用户登录shell的一种方法. 下面是使用方式：</span></span><br><span class="line"><span class="comment">### 您可以直接查看/编辑 /etc/passwd, 文件哦</span></span><br><span class="line"><span class="comment">########## nologin(黑名单) ##########</span></span><br><span class="line"><span class="comment">#示例六：创建用户时禁用shell登录</span></span><br><span class="line"><span class="comment">#格式 useradd -s /sbin/nologin &#123;username&#125;</span></span><br><span class="line"><span class="comment">#示例 useradd user01 -s /sbin/nologin</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;禁用shell登录：&#x27;</span></span><br><span class="line"><span class="built_in">cat</span> /etc/passwd | grep -i nologin</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### 设置服务器安全, 允许特定用户/组通过ssh连接服务器.</span></span><br><span class="line"><span class="comment">### 注意：目前只能针对已经存在的用户/组 设置白名单/黑名单, 还需要禁止普通用户的创建新用户/新组的权限, 防止其他用户私自建立新用户/组 跳过该规则.</span></span><br><span class="line"><span class="comment">### 您可以直接查看/编辑 /etc/ssh/sshd_config 文件哦</span></span><br><span class="line"></span><br><span class="line"><span class="comment">########## AllowUsers(用户白名单) ##########</span></span><br><span class="line"><span class="comment">#示例一：允许 user3用户 使用ssh登录</span></span><br><span class="line"><span class="comment"># echo &quot;AllowUsers user3&quot; &gt;&gt; /etc/ssh/sshd_config</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;允许ssh的用户：&#x27;</span></span><br><span class="line"><span class="built_in">cat</span> /etc/ssh/sshd_config | grep -i allowusers</span><br><span class="line"></span><br><span class="line"><span class="comment">########## AllowGroups(组白名单) ##########</span></span><br><span class="line"><span class="comment">#示例二：允许 2g-admin组 使用ssh登录</span></span><br><span class="line"><span class="comment"># echo &quot;AllowGroups 2g-admin&quot; &gt;&gt; /etc/ssh/sshd_config</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;允许ssh的组：&#x27;</span></span><br><span class="line"><span class="built_in">cat</span> /etc/ssh/sshd_config | grep -i allowgroups</span><br><span class="line"></span><br><span class="line"><span class="comment">########## DenyUsers(用户黑名单) ##########</span></span><br><span class="line"><span class="comment">#示例三：禁用 user3 使用ssh登录</span></span><br><span class="line"><span class="comment"># echo &quot;DenyUsers user1&quot; &gt;&gt; /etc/ssh/sshd_config</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;禁用ssh的用户：&#x27;</span></span><br><span class="line"><span class="built_in">cat</span> /etc/ssh/sshd_config | grep -i denyusers</span><br><span class="line"></span><br><span class="line"><span class="comment">########## DenyGroups(组黑名单)  ##########</span></span><br><span class="line"><span class="comment">#示例四：禁用 2g-admin组 使用ssh登录</span></span><br><span class="line"><span class="comment"># echo &quot;DenyGroups 2g-admin&quot; &gt;&gt; /etc/ssh/sshd_config</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;禁用ssh的用户组：&#x27;</span></span><br><span class="line"><span class="built_in">cat</span> /etc/ssh/sshd_config | grep -i denygroups</span><br><span class="line"></span><br><span class="line"><span class="comment">### 注意：以上方法目前只能针对已经存在的用户/组 设置白名单/黑名单, 还需要禁止普通用户的创建新用户/新组的权限, 防止其他用户私自建立新用户/组 跳过该规则.</span></span><br><span class="line"><span class="comment">#锁定文件 chattr +i /etc/gshadow /etc/group /etc/shadow /etc/passwd</span></span><br><span class="line"><span class="comment">#解锁文件 chattr -i /etc/gshadow /etc/group /etc/shadow /etc/passwd</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### 设置服务器安全, 允许特定IP/段通过ssh连接服务器.</span></span><br><span class="line"><span class="comment">### 您可以直接查看/编辑 /etc/hosts.allow, /etc/hosts.deny, 文件哦</span></span><br><span class="line"><span class="comment">### 优先级：hosts.allow &gt; hosts.deny</span></span><br><span class="line"><span class="comment">########## hosts.allow(IP白名单) ##########</span></span><br><span class="line"><span class="comment">#示例五：允许 192.168.0.1 使用ssh登录</span></span><br><span class="line"><span class="comment">#允许特定IP echo &quot;sshd:192.168.0.1:allow&quot; &gt;&gt; /etc/hosts.allow</span></span><br><span class="line"><span class="comment">#允许特定IP段 echo &quot;sshd:192.168.0.1/24:allow&quot; &gt;&gt; /etc/hosts.allow</span></span><br><span class="line"><span class="comment">#允许全部地址 echo &quot;sshd:ALL&quot; &gt;&gt; /etc/hosts.allow</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;允许ssh的IP：&#x27;</span></span><br><span class="line"><span class="built_in">cat</span> /etc/hosts.allow | grep -i ssh</span><br><span class="line"></span><br><span class="line"><span class="comment">########## hosts.deny(IP黑名单) ##########</span></span><br><span class="line"><span class="comment">#示例六：拒绝 192.168.0.2 使用ssh登录</span></span><br><span class="line"><span class="comment">#拒绝特定IP echo &quot;sshd:192.168.0.2:deny&quot; &gt;&gt; /etc/hosts.deny</span></span><br><span class="line"><span class="comment">#拒绝特定IP段 echo &quot;sshd:192.168.0.2/24:deny&quot; &gt;&gt; /etc/hosts.deny</span></span><br><span class="line"><span class="comment">#拒绝全部地址 echo &quot;sshd:ALL&quot; &gt;&gt; /etc/hosts.deny</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;拒绝ssh的IP：&#x27;</span></span><br><span class="line"><span class="built_in">cat</span> /etc/hosts.deny | grep -i ssh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">########## 编辑/修改后, 必须重启ssh服务后生效！##########</span></span><br><span class="line"><span class="comment"># sudo systemctl restart sshd 或 sudo service restart sshd</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Qeuroal
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://qeuroal.top/2019/12/29/81/" title="81. Linux系统安全限制">http://qeuroal.top/2019/12/29/81/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/12/09/80/" rel="prev" title="80. Ubuntu 显卡安装">
+                  <i class="fa fa-angle-left"></i> 80. Ubuntu 显卡安装
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/12/29/82/" rel="next" title="82. matplotlib 动态绘图">
+                  82. matplotlib 动态绘图 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Qeuroal</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Qeuroal" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.24/fancybox/fancybox.umd.js" integrity="sha256-oyhjPiYRWGXaAt+ny/mTMWOnN1GBoZDUQnzzgC7FRI4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

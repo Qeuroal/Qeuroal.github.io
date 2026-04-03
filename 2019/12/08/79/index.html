@@ -20,33 +20,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"qeuroal.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="在 Arch Linux 上安装 Docker 很简单。它可以在 Extra 仓库中找到，你可以简单地执行 pacman 魔法： 1sudo pacman -S docker  但要在 Arch Linux 上正确运行 Docker，还需要执行更多步骤。 让 Arch Docker 做好准备这一切都归结为以下步骤：  从 Arch 仓库安装 Docker 启动 Docker 守护进程并在每次启动时">
+    <meta name="description" content="如题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Qeuroal&#39;s Blog">
-<meta property="og:url" content="http://qeuroal.top/2026/03/20/237/index.html">
+<meta property="og:title" content="79. iptables限制ssh链接服务器">
+<meta property="og:url" content="http://qeuroal.top/2019/12/08/79/index.html">
 <meta property="og:site_name" content="Qeuroal&#39;s Blog">
-<meta property="og:description" content="在 Arch Linux 上安装 Docker 很简单。它可以在 Extra 仓库中找到，你可以简单地执行 pacman 魔法： 1sudo pacman -S docker  但要在 Arch Linux 上正确运行 Docker，还需要执行更多步骤。 让 Arch Docker 做好准备这一切都归结为以下步骤：  从 Arch 仓库安装 Docker 启动 Docker 守护进程并在每次启动时">
+<meta property="og:description" content="如题">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://qeuroal.top/2026/03/20/237/v2-17e418ebebc5b931bd53b0db2ff0fe19_1440w.jpg">
-<meta property="og:image" content="http://qeuroal.top/2026/03/20/237/v2-fb185019000d2aa6e8641629f97219ee_1440w.jpg">
-<meta property="og:image" content="http://qeuroal.top/2026/03/20/237/v2-62522013081057c8f528b5c643369664_1440w.jpg">
-<meta property="og:image" content="http://qeuroal.top/2026/03/20/237/v2-2fb6df08cfe65a6eeb9f7db20f44e274_1440w.jpg">
-<meta property="article:published_time" content="2026-03-20T02:55:43.661Z">
-<meta property="article:modified_time" content="2026-03-20T02:59:35.724Z">
+<meta property="article:published_time" content="2019-12-07T20:00:00.000Z">
+<meta property="article:modified_time" content="2026-04-03T07:34:33.291Z">
 <meta property="article:author" content="Qeuroal">
-<meta property="article:tag" content="C&#x2F;C++, Python, Java">
+<meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://qeuroal.top/2026/03/20/237/v2-17e418ebebc5b931bd53b0db2ff0fe19_1440w.jpg">
 
 
-<link rel="canonical" href="http://qeuroal.top/2026/03/20/237/">
+<link rel="canonical" href="http://qeuroal.top/2019/12/08/79/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2026/03/20/237/","path":"2026/03/20/237/","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://qeuroal.top/2019/12/08/79/","path":"2019/12/08/79/","title":"79. iptables限制ssh链接服务器"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title> | Qeuroal's Blog</title>
+<title>79. iptables限制ssh链接服务器 | Qeuroal's Blog</title>
   
 
 
@@ -133,7 +128,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -146,7 +141,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A9-Arch-Docker-%E5%81%9A%E5%A5%BD%E5%87%86%E5%A4%87"><span class="nav-number">1.</span> <span class="nav-text">让 Arch Docker 做好准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E9%80%89%EF%BC%9A%E5%AE%89%E8%A3%85-Docker-Compose"><span class="nav-number">2.</span> <span class="nav-text">可选：安装 Docker Compose</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4%E6%8A%80%E5%B7%A7"><span class="nav-number">3.</span> <span class="nav-text">故障排除技巧</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -161,7 +155,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">189</span>
+          <span class="site-state-item-count">191</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -204,7 +198,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2026/03/20/237/">
+    <link itemprop="mainEntityOfPage" href="http://qeuroal.top/2019/12/08/79/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -217,12 +211,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Qeuroal's Blog">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="79. iptables限制ssh链接服务器 | Qeuroal's Blog">
+      <meta itemprop="description" content="如题">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
+          79. iptables限制ssh链接服务器
         </h1>
 
         <div class="post-meta-container">
@@ -232,96 +226,53 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2026-03-20 10:55:43 / 修改时间：10:59:35" itemprop="dateCreated datePublished" datetime="2026-03-20T10:55:43+08:00">2026-03-20</time>
+      <time title="创建时间：2019-12-08 04:00:00" itemprop="dateCreated datePublished" datetime="2019-12-08T04:00:00+08:00">2019-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-04-03 15:34:33" itemprop="dateModified" datetime="2026-04-03T15:34:33+08:00">2026-04-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+        </span>
     </span>
 
   
 </div>
 
+            <div class="post-description">如题</div>
         </div>
       </header>
 
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>在 Arch Linux 上安装 Docker 很简单。它可以在 Extra 仓库中找到，你可以简单地执行 pacman 魔法：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S docker</span><br></pre></td></tr></table></figure>
-
-<p>但要在 Arch Linux 上正确运行 Docker，还需要执行更多步骤。</p>
-<h2 id="让-Arch-Docker-做好准备"><a href="#让-Arch-Docker-做好准备" class="headerlink" title="让 Arch Docker 做好准备"></a>让 Arch Docker 做好准备</h2><p>这一切都归结为以下步骤：</p>
-<ul>
-<li>从 Arch 仓库安装 Docker</li>
-<li>启动 Docker 守护进程并在每次启动时自动运行</li>
-<li>将用户添加到 <code>docker</code> 组以运行 <code>docker</code> 命令而无需 <code>sudo</code></li>
-</ul>
-<p>让我们看看详细步骤。</p>
-<p><strong>步骤 1：安装 Docker 包</strong></p>
-<p>打开终端并使用以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S docker</span><br></pre></td></tr></table></figure>
-
-<p>输入密码并在询问时按 <code>Y</code>。</p>
-<img data-src="/2026/03/20/237/v2-17e418ebebc5b931bd53b0db2ff0fe19_1440w.jpg" class="" title="img">
-
-<p>这可能需要一些时间，具体取决于你使用的镜像。</p>
+    <div class="post-body" itemprop="articleBody"><p>linux服务器默认通过22端口用ssh协议登录，这种不安全. 今天想做限制，即允许部分来源ip连接服务器.</p>
 <blockquote>
-<p>如果你看到找不到包或 404 错误，那么你的同步数据库可能是旧的。使用以下命令更新系统（它将下载大量软件包并需要时间）： <code>sudo pacman -Syu</code></p>
+<p>案例目标: 通过iptables规则限制对linux服务器的登录.</p>
 </blockquote>
-<p><strong>步骤 2：启动 docker 守护进程</strong></p>
-<p>Docker 已安装但未运行。你应该在<strong>第一次运行 Docker 命令</strong>之前启动 Docker 守护进程：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start docker.service</span><br></pre></td></tr></table></figure>
+<p>处理方法: 编写为sh脚本，以便多次执行. iptables.sh:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">iptables -I INPUT -p tcp --dport 22 -j DROP -m comment --comment <span class="string">&quot;ssh&quot;</span></span><br><span class="line"><span class="comment"># 按ip范围区间开放</span></span><br><span class="line">iptables -I INPUT -p tcp -m iprange --src-range 172.18.163.227-172.18.163.232 --dport 22 -j ACCEPT -m comment --comment <span class="string">&quot;ssh&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 按网段开放</span></span><br><span class="line">iptables -I INPUT -p tcp -s 10.99.193.0/24 --dport 22 -j ACCEPT -m comment --comment <span class="string">&quot;ssh&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>我还建议启用 Docker 服务，以便 Docker 守护进程在系统启动时自动启动。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> docker.service</span><br></pre></td></tr></table></figure>
+<p>简要说明: 这里默认使用filter表的INPUT链，使用 <code>-I</code> 插入方式，第一条DROP操作顺序不能错，必须是首条.</p>
+<p>对于已经插入的规则，可以使用下面的命令进行查看:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -t filter -nvL --line-number |grep ssh</span><br></pre></td></tr></table></figure>
 
-<p>这样，你就可以开始运行 <code>docker</code> 命令了。你不再需要手动启动 Docker 服务。</p>
-<img data-src="/2026/03/20/237/v2-fb185019000d2aa6e8641629f97219ee_1440w.jpg" class="" title="img">
+<p>如果后面需要删除规则，可以按照下面的方式处理:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -t filter -D INPUT 3</span><br></pre></td></tr></table></figure>
 
-<p><strong>步骤 3：将用户添加到 docker 组</strong></p>
-<p>Docker 已安装并且 Docker 服务正在运行。你几乎已准备好运行 <code>docker</code> 命令。</p>
-<p>但是，默认情况下，你需要将 <code>sudo</code> 与 <code>docker</code> 命令一起使用。这很烦人。</p>
-<p>为了避免在每个 <code>docker</code> 命令中使用 <code>sudo</code>，你可以将自己（或任何其他用户）添加到 <code>docker</code> 组，如下所示：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG docker <span class="variable">$USER</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>你必须注销（或关闭终端）并重新登录才能使上述更改生效。如果你不想这样做，请使用以下命令：</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">newgrp docker</span><br></pre></td></tr></table></figure>
-
-<p>现在已经准备好了。我们来测试一下。</p>
-<p><strong>步骤 4：验证 docker 安装</strong></p>
-<p>Docker 本身提供了一个很小的 Docker 镜像来测试 Docker 安装。运行它并查看是否一切正常：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure>
-
-<p>你应该看到类似这样的输出，表明 Docker 成功运行：</p>
-<img data-src="/2026/03/20/237/v2-62522013081057c8f528b5c643369664_1440w.jpg" class="" title="img">
-
-<p>恭喜！ 你已经在 Arch Linux 上成功安装了 Docker。</p>
-<h2 id="可选：安装-Docker-Compose"><a href="#可选：安装-Docker-Compose" class="headerlink" title="可选：安装 Docker Compose"></a>可选：安装 Docker Compose</h2><p>Docker Compose 已经成为 Docker 不可或缺的一部分。它允许你管理多个容器应用。</p>
-<p>较早的经典 Compose 由 <code>docker-compose</code> Python 软件包提供。Docker 还将其移植到 Go 中，并通过 <code>docker compose</code> 提供，但该软件包附带 Docker Desktop。</p>
-<p>在这个阶段，我建议使用经典的 <code>docker-compose</code> 插件并使用以下命令安装它：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S docker-compose</span><br></pre></td></tr></table></figure>
-
-<img data-src="/2026/03/20/237/v2-2fb6df08cfe65a6eeb9f7db20f44e274_1440w.jpg" class="" title="img">
-
-<h2 id="故障排除技巧"><a href="#故障排除技巧" class="headerlink" title="故障排除技巧"></a>故障排除技巧</h2><p>以下是你可能遇到的一些常见问题以及可能的解决方案：</p>
-<p><strong>制表符补全不适用于 docker 子命令</strong></p>
-<p>如果你想对 <code>docker</code> 命令选项使用制表符补全（例如将 <code>im</code> 补全到 <code>images</code> 等），请安装 <code>bash-completion</code> 包：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S bash-completion</span><br></pre></td></tr></table></figure>
-
-<p>关闭终端并启动一个新终端。你现在应该能够通过 <code>docker</code> 命令使用制表符补全功能。</p>
-<p><strong>无法连接到 Docker 守护进程错误</strong></p>
-<p>如果你看到以下错误：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?.</span><br><span class="line">See <span class="string">&#x27;docker run --help&#x27;</span>.</span><br></pre></td></tr></table></figure>
-
-<p>那是因为 Docker 守护进程没有运行。参考步骤 2，启动 Docker 服务，确保其正在运行并启用它，以便 Docker 守护进程在每次启动时自动运行。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start docker.service</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> docker.service</span><br></pre></td></tr></table></figure>
-
-<p><strong>尝试连接到 Docker 守护程序套接字时权限被拒绝</strong></p>
-<p>如果你看到此错误：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ddocker: permission denied <span class="keyword">while</span> trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post <span class="string">&quot;http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/create&quot;</span>: dial unix /var/run/docker.sock: connect: permission denied.</span><br><span class="line">See <span class="string">&#x27;docker run --help&#x27;</span>.</span><br></pre></td></tr></table></figure>
-
-<p>这是因为你需要使用 <code>sudo</code> 运行 <code>docker</code> 命令，或者将用户添加到 <code>docker</code> 组以在不使用 <code>sudo</code> 的情况下运行 <code>docker</code> 命令。</p>
-<p>我希望这篇简短的文章可以帮助你在 Arch Linux 上运行 Docker。</p>
+<p>说明一下: 这里删除iptables规则，指定了filter表的INPUT链，避免出错.<br>根据上一步查看的规则的行号来删除，查看到相应的规则编号之后，最好从最大的编号开始逐条删除.</p>
+<p>示例: 禁止所有类型链接，允许特别定来源ip链接 iptables-myrules.sh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line"><span class="comment"># author: xiongzaiqiren</span></span><br><span class="line"><span class="comment"># date: 2023-03-20</span></span><br><span class="line"><span class="comment"># usage: sh iptables-myrules.sh</span></span><br><span class="line"><span class="comment"># 设置服务器安全，允许特定来源ip访问请执行我.</span></span><br><span class="line"><span class="comment"># 每次改完需要执行iptables-save &gt; /etc/iptables-myrules.conf 备份规则哦</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#允许ping</span></span><br><span class="line">iptables -A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拒绝所有链接</span></span><br><span class="line">iptables -P INPUT DROP;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定ip及范围允许链接</span></span><br><span class="line">iptables -A INPUT -s 10.99.193.243 -p tcp -j ACCEPT</span><br><span class="line">iptables -A INPUT -s 10.90.5.0/24 -p tcp -j ACCEPT</span><br><span class="line">iptables -A INPUT -s 10.99.193.0/24 -p tcp -j ACCEPT</span><br><span class="line"></span><br><span class="line">iptables -nvL --line-numbers </span><br><span class="line"><span class="comment">#iptables -t filter -D INPUT 3 #表示删除filter表中的FORWARD链的第一条规则 </span></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -339,7 +290,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://qeuroal.top/2026/03/20/237/" title="">http://qeuroal.top/2026/03/20/237/</a>
+      <a href="http://qeuroal.top/2019/12/08/79/" title="79. iptables限制ssh链接服务器">http://qeuroal.top/2019/12/08/79/</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -347,16 +298,22 @@
 </ul>
 </div>
 
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2025/12/30/236/" rel="prev" title="236. Adobe Illustrator latex2ai 安装">
-                  <i class="fa fa-angle-left"></i> 236. Adobe Illustrator latex2ai 安装
+                <a href="/2019/12/02/78/" rel="prev" title="78. JDK下载、安装及配置">
+                  <i class="fa fa-angle-left"></i> 78. JDK下载、安装及配置
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2019/12/09/80/" rel="next" title="80. Ubuntu 显卡安装">
+                  80. Ubuntu 显卡安装 <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
