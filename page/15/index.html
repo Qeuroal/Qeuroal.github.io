@@ -767,7 +767,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-08 14:36:59" itemprop="dateModified" datetime="2025-12-08T14:36:59+08:00">2025-12-08</time>
+      <time title="修改时间：2026-04-24 14:33:25" itemprop="dateModified" datetime="2026-04-24T14:33:25+08:00">2026-04-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1328,9 +1328,9 @@
 <p>可以查看查看当前仓库的具体配置信息, 在当前仓库目录下查看的配置是全局配置+当前项目的局部配置, 使用的时候会优先使用当前仓库的局部配置, 如果没有, 才会去读取全局配置.</p>
 </li>
 </ol>
-<h1 id="克隆含有子模块的项目"><a href="#克隆含有子模块的项目" class="headerlink" title="克隆含有子模块的项目"></a>克隆含有子模块的项目</h1><p>当一个 git 项目包含子模块（submodule) 时, 直接克隆下来的子模块目录里面是空的.</p>
+<h1 id="子模块-submodule"><a href="#子模块-submodule" class="headerlink" title="子模块 submodule"></a>子模块 submodule</h1><h2 id="克隆含有子模块的项目"><a href="#克隆含有子模块的项目" class="headerlink" title="克隆含有子模块的项目"></a>克隆含有子模块的项目</h2><p>当一个 git 项目包含子模块（submodule) 时, 直接克隆下来的子模块目录里面是空的.</p>
 <p>有两种方法解决：</p>
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>如果项目已经克隆到了本地, 执行下面的步骤：</p>
+<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>如果项目已经克隆到了本地, 执行下面的步骤：</p>
 <ol>
 <li><p>初始化本地子模块配置文件</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule <span class="keyword">init</span></span><br></pre></td></tr></table></figure>
@@ -1338,11 +1338,11 @@
 <li><p>更新项目, 抓取子模块内容.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule <span class="keyword">update</span></span><br></pre></td></tr></table></figure></li>
 </ol>
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>另外一种更简单的方法, 就是在执行 <code>git clone</code> 时加上 <code>--recursive</code> 参数. 它会自动初始化并更新每一个子模块. 例如：</p>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>另外一种更简单的方法, 就是在执行 <code>git clone</code> 时加上 <code>--recursive</code> 参数. 它会自动初始化并更新每一个子模块. 例如：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Copygit <span class="built_in">clone</span> --recursive https://github.com/example/example.git</span><br></pre></td></tr></table></figure>
 
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>关于 git 子模块更多内容, 参见<a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97">官方文档</a>.</p>
-<h1 id="submodule-相关"><a href="#submodule-相关" class="headerlink" title="submodule 相关"></a>submodule 相关</h1><ul>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>关于 git 子模块更多内容, 参见<a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97">官方文档</a>.</p>
+<h2 id="submodule-相关"><a href="#submodule-相关" class="headerlink" title="submodule 相关"></a>submodule 相关</h2><ul>
 <li><p>查看子模块: <code>git submodule</code></p>
 </li>
 <li><p>更新子模块:</p>
@@ -1370,6 +1370,26 @@
 </ul>
 </li>
 </ul>
+<h2 id="删除子项目"><a href="#删除子项目" class="headerlink" title="删除子项目"></a>删除子项目</h2><p>删除 Git submodule，建议用这套流程。假设你的 submodule 目录叫 <code>submodulename</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 取消注册 submodule</span></span><br><span class="line">git submodule deinit -f submodulename</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 从 Git 索引中删除 submodule</span></span><br><span class="line">git <span class="built_in">rm</span> -f submodulename</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 删除残留的 submodule 仓库数据</span></span><br><span class="line"><span class="built_in">rm</span> -rf .git/modules/submodulename</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 提交修改</span></span><br><span class="line">git commit -m <span class="string">&quot;Remove submodulename submodule&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果你只是想删除工作区里的目录，但保留 submodule 配置，不要用上面这套。真正“删除 submodule”需要同时改掉这些地方：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.gitmodules</span><br><span class="line">.git/config</span><br><span class="line">.git/modules/submodulename</span><br><span class="line">Git index 里的 submodule 记录</span><br><span class="line">工作区 submodulename 目录</span><br></pre></td></tr></table></figure>
+
+<p>上面的命令基本都会自动处理，除了 <code>.git/modules/submodulename</code> 通常需要你手动删。</p>
+<p>如果你已经手动删了 <code>submodulename</code> 文件夹，导致 <code>git rm</code> 报错，可以用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">rm</span> -f submodulename</span><br><span class="line"><span class="built_in">rm</span> -rf .git/modules/submodulename</span><br><span class="line">git commit -m <span class="string">&quot;Remove submodulename submodule&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>检查是否删干净：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git submodule status</span><br><span class="line">git status</span><br><span class="line"><span class="built_in">cat</span> .gitmodules</span><br></pre></td></tr></table></figure>
+
+<p>如果 <code>.gitmodules</code> 变空了，可以删除它：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> .gitmodules</span><br><span class="line">git add .gitmodules</span><br><span class="line">git commit -m <span class="string">&quot;Remove empty .gitmodules&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>你的情况里 <code>.git/modules</code> 有 <code>39M</code>，大概率就是 submodule 的本地 Git 数据还残留着，执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf .git/modules/submodulename</span><br></pre></td></tr></table></figure>
+
+<p>之后 <code>.git</code> 体积应该会明显下降。</p>
 
       
     </div>
