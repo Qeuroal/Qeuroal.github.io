@@ -179,7 +179,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">197</span>
+          <span class="site-state-item-count">198</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -212,6 +212,199 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://qeuroal.github.io/2020/10/30/112/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Qeuroal">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Qeuroal's Blog">
+      <meta itemprop="description" content="大人者，不失其赤子之心">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Qeuroal's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/10/30/112/" class="post-title-link" itemprop="url">112. 程序设计</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-30 04:00:00" itemprop="dateCreated datePublished" datetime="2020-10-30T04:00:00+08:00">2020-10-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-10-31 16:17:03" itemprop="dateModified" datetime="2026-10-31T16:17:03+08:00">2026-10-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/programming/" itemprop="url" rel="index"><span itemprop="name">programming</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ol>
+<li><p>程序设计返回结果</p>
+<ol>
+<li><code>Accepted</code>: 通过</li>
+<li><code>Wrong Answer</code>: 答案错误</li>
+<li><code>Runtime Error</code>: 表示程序因为非法访问或未处理异常而结束。</li>
+<li><code>Memory Limit Exceeded</code>: 表示程序因为使用的内存超过规定的内存限制。</li>
+<li><code>Presentation Error</code>: 表示虽然程序输出的答案是对的，但是换行或空格等不符合输出格式要求</li>
+<li><code>Time Limit Exceed</code>: 超时</li>
+<li><code>Output Limit Exceeded</code>: 表示程序输出了过多的内容。</li>
+<li><code>Compile Error</code>: 表示所提交的源代码没能通过编译，不符合语法规定。</li>
+<li><code>System Error, Validator Error</code>: 表示系统发生错误无法正常判题。</li>
+<li><code>Segmentation Fault</code>: 段错误：访问的内存超过了系统所给这个程序的内存空间</li>
+</ol>
+</li>
+<li><p>状态</p>
+<blockquote>
+<p>例子：找最短路径的问题中，状态仅仅是目前所在位置的坐标。 <br/><br>当状态更加复杂是，就需要封装成一个类来表示转态了。</p>
+</blockquote>
+</li>
+<li><p>状态转移、转移的方式</p>
+<blockquote>
+<p>例子：同1中的例子，转移的方式为4个方向移动 <br/><br>又如：八连通（$P_{32}$），8个方向共对应了8种状态转移。</p>
+</blockquote>
+</li>
+<li><p><code>next_permutation</code> 函数使用</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> a[<span class="number">4</span>] = &#123;<span class="number">1</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>&#125;, i;</span><br><span class="line">    <span class="built_in">sort</span>(a, a + <span class="number">4</span>); <span class="comment">//在使用全排列函数之前，一定要先将数组中的数排序哦(不排序好像也可以)</span></span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) cout &lt;&lt; a[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125; <span class="keyword">while</span> (<span class="built_in">next_permutation</span>(a, a + <span class="number">3</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) cout &lt;&lt; a[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用 <code>next_permutation</code> 后，原数组的不变。</p>
+</li>
+<li><p>贪心算法</p>
+<blockquote>
+<p>贪心算法就是遵循某种规则，不断贪心地选取当期那最优策略的算法设计方法。 <br><br>如果我们不慎重地选择一个正确的规则，就会得到错误的算法。<br><br>如果问题能够用贪心算法来求解的话，那么它通常是非常高效的。</p>
+</blockquote>
+<ol>
+<li>区间问题：在可选工作中，每次都选择结束时间最早的工作。</li>
+<li>字典序比较类型的问题经常用得上贪心法</li>
+</ol>
+</li>
+<li><p>动态规划</p>
+<ol>
+<li>记忆化搜索<blockquote>
+<p>在需要剪枝的情况下，可能会把各种参数都写在函数上，但是这种情况下会让记忆化搜索难以实现，需要注意</p>
+</blockquote>
+</li>
+<li>def<blockquote>
+<p>一步步按顺序求出问题的解的方法。</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p><code>memset</code> 初始化数组</p>
+<blockquote>
+<p>语法： <code>memset(&lt;数组名&gt;, &lt;初始化的值&gt;, &lt;数组的大小&gt;)</code> <br/><br>虽然 <code>memset</code> 按照1字节为单位对内存进行填充，-1的每一位二进制位都为1，所以不可以像0一样用 <code>memset</code> 进行初始化。通过使用 <code>Memset</code> 可以快速地对高维数组等进行初始化，但是需要注意无法初始化成1之类的数值。</p>
+</blockquote>
+</li>
+<li><p>移位运算</p>
+<ol>
+<li>$1 &lt;&lt; n &#x3D; 2^n$</li>
+<li>$n &lt;&lt; 1 &#x3D; 2n$</li>
+<li>$n &gt;&gt; 1 &#x3D; \lfloor{\frac{n}{2.0}}\rfloor$</li>
+</ol>
+</li>
+<li><p>$a^b$ 算法</p>
+<blockquote>
+<p>求a的b次方对p取模的值，其中 $1 \leq a, b, p \leq 10^9$</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">power</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> p)</span> </span>&#123;</span><br><span class="line">   <span class="type">int</span> ans = <span class="number">1</span> % p;</span><br><span class="line">   <span class="keyword">for</span> (; b; b &gt;&gt;= <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (b &amp; <span class="number">1</span>) ans = <span class="number">1ll</span> *ans * a % p;</span><br><span class="line">      a = <span class="number">1ll</span> * a * a % p;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>$a * b % p$</p>
+<blockquote>
+<p>求a乘b对p取模的值，其中  $1 \leq a, b, p \leq 10^{18}$</p>
+</blockquote>
+<ol>
+<li>方法一<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">mul</span><span class="params">(<span class="type">long</span> <span class="type">long</span> a, <span class="type">long</span> <span class="type">long</span> b, <span class="type">long</span> <span class="type">long</span> p)</span> </span>&#123;</span><br><span class="line">   <span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line">   <span class="keyword">for</span> (; b; b &gt;&gt;= <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (b &amp; <span class="number">1</span>) ans = (ans + a) % p;</span><br><span class="line">      a = a * <span class="number">2</span> % p;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>方法二 ($P_6$)<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">mul</span><span class="params">(<span class="type">long</span> <span class="type">long</span> a, <span class="type">long</span> <span class="type">long</span> b, <span class="type">long</span> <span class="type">long</span> p)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>二进制状态压缩</p>
+<table>
+<thead>
+<tr>
+<th align="center">操作</th>
+<th align="center">运算</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">取出整数n在二进制表示下的第k位</td>
+<td align="center">(n &gt;&gt; k) &amp; 1</td>
+</tr>
+<tr>
+<td align="center">取出整数n在二进制表示下的第0 ~ k - 1位（后k位）</td>
+<td align="center">n &amp; ((1 &lt;&lt; k) - 1)</td>
+</tr>
+<tr>
+<td align="center">把整数n在二进制表示下的第k位取反</td>
+<td align="center">n xor (1 &lt;&lt; k)</td>
+</tr>
+<tr>
+<td align="center">对整数n在二进制表示下的第k位赋值为1</td>
+<td align="center">n | (1&lt;&lt;k)</td>
+</tr>
+<tr>
+<td align="center">对整数n在二进制表示下的第k为赋值为0</td>
+<td align="center">n &amp; (~(1 &lt;&lt; k))</td>
+</tr>
+</tbody></table>
+</li>
+<li></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1797,98 +1990,6 @@
 <li><a target="_blank" rel="noopener" href="https://github.com/tmux/tmux/wiki/Installing">https://github.com/tmux/tmux/wiki/Installing</a></li>
 </ul>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://qeuroal.github.io/2020/05/25/102/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Qeuroal">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Qeuroal's Blog">
-      <meta itemprop="description" content="大人者，不失其赤子之心">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Qeuroal's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/05/25/102/" class="post-title-link" itemprop="url">102. Pytorch环境配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-05-25 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-25T00:00:00+08:00">2020-05-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-10-31 16:17:03" itemprop="dateModified" datetime="2026-10-31T16:17:03+08:00">2026-10-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/pytorch/" itemprop="url" rel="index"><span itemprop="name">pytorch</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Pytorch各个版本</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/05/25/102/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
